@@ -1835,7 +1835,7 @@ define dso_local void @intel_gt_handle_error(ptr noundef %0, i32 noundef %1, i64
   store ptr null, ptr %166, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #10
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %167, i8 0, i64 56, i1 false), !annotation !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %167, i8 0, i64 56, i1 false), !annotation !36
   %168 = call i32 @kobject_uevent_env(ptr noundef %163, i32 noundef 2, ptr noundef nonnull %5) #10
   %169 = call i32 @kobject_uevent_env(ptr noundef %163, i32 noundef 2, ptr noundef nonnull %6) #10
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 88

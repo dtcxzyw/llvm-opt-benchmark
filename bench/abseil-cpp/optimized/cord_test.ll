@@ -88368,7 +88368,7 @@ _ZNK4absl4Cord11chunk_beginEv.exit348.thread:     ; preds = %_ZN7testing15Assert
   %581 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %582 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %583 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %583, i8 0, i64 24, i1 false), !alias.scope !1205
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %583, i8 0, i64 24, i1 false), !alias.scope !1205
   store i32 -1, ptr %582, align 8, !tbaa !220, !alias.scope !1205
   store i64 %578, ptr %580, align 8, !tbaa !181, !alias.scope !1208
   store i64 %578, ptr %31, align 8, !tbaa !23, !alias.scope !1208
@@ -107786,7 +107786,7 @@ _ZN8CordTest11MaybeHardenERN4absl4CordE.exit:     ; preds = %.noexc, %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #39
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %17, ptr %8, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -200446,7 +200446,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplIvE
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !959
   store ptr %12, ptr %6, align 8, !tbaa !959
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -200545,7 +200545,7 @@ _ZN4absl13hash_internal16SpyHashStateImplINS_4CordEEC2IvEEONS1_IT_EE.exit: ; pre
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !959
   store ptr %57, ptr %4, align 8, !tbaa !959
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -202127,7 +202127,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplINS
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !959
   store ptr %12, ptr %6, align 8, !tbaa !959
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -202226,7 +202226,7 @@ _ZN4absl13hash_internal16SpyHashStateImplISt17basic_string_viewIcSt11char_traits
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !959
   store ptr %57, ptr %4, align 8, !tbaa !959
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -203941,7 +203941,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplISt
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !959
   store ptr %12, ptr %6, align 8, !tbaa !959
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -204040,7 +204040,7 @@ _ZN4absl13hash_internal16SpyHashStateImplImEC2ISt17basic_string_viewIcSt11char_t
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !959
   store ptr %57, ptr %4, align 8, !tbaa !959
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -206575,7 +206575,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplINS
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !959
   store ptr %12, ptr %6, align 8, !tbaa !959
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -206674,7 +206674,7 @@ _ZN4absl13hash_internal16SpyHashStateImplImEC2INS_4CordEEEONS1_IT_EE.exit: ; pre
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !959
   store ptr %57, ptr %4, align 8, !tbaa !959
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8

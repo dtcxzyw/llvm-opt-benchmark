@@ -260,7 +260,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm3sys4path3endENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::sys::path::const_iterator") align 8 captures(none) initializes((0, 44)) %0, ptr %1, i64 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %4, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
@@ -476,7 +476,7 @@ define dso_local noundef i64 @_ZNK4llvm3sys4path14const_iteratormiERKS2_(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3sys4path6rbeginENS_9StringRefENS1_5StyleE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::sys::path::reverse_iterator") align 8 captures(none) initializes((0, 44)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
@@ -3263,7 +3263,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5Sty
   %4 = alloca %"class.llvm::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 16, i1 false), !alias.scope !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !77
   store ptr %0, ptr %4, align 8, !tbaa !3, !alias.scope !77
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !8, !alias.scope !77
@@ -3286,7 +3286,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(
   %4 = alloca %"class.llvm::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 16, i1 false), !alias.scope !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !80
   store ptr %0, ptr %4, align 8, !tbaa !3, !alias.scope !80
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8, !alias.scope !80
@@ -3344,7 +3344,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys4path9extensionENS_9StringRefENS1_5St
   %4 = alloca %"class.llvm::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 16, i1 false), !alias.scope !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !83
   store ptr %0, ptr %4, align 8, !tbaa !3, !alias.scope !83
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8, !alias.scope !83
@@ -3688,7 +3688,7 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13,
   %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, i8 0, i64 16, i1 false), !alias.scope !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !86
   store ptr %.sroa.0.0.i, ptr %3, align 8, !tbaa !3, !alias.scope !86
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !8, !alias.scope !86
@@ -3849,7 +3849,7 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13,
   %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, i8 0, i64 16, i1 false), !alias.scope !89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !89
   store ptr %.sroa.0.0.i, ptr %3, align 8, !tbaa !3, !alias.scope !89
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !8, !alias.scope !89
@@ -3971,7 +3971,7 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %10, %13,
   %.sroa.0.0.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %17 ], [ null, %13 ], [ %14, %15 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, i8 0, i64 16, i1 false), !alias.scope !92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !92
   store ptr %.sroa.0.0.i, ptr %3, align 8, !tbaa !3, !alias.scope !92
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !8, !alias.scope !92
@@ -9927,7 +9927,7 @@ _ZN4llvm3sys2fsL10direntTypeEP6dirent.exit:       ; preds = %.thread, %switch.lo
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #32
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %51, ptr %2, align 8, !tbaa !72
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -10012,7 +10012,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs6detail27directory_iterator_destru
   store i64 0, ptr %0, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %9, ptr %2, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12953,7 +12953,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6de
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store ptr %10, ptr %2, align 8, !tbaa !72
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 9, ptr %11, align 8, !tbaa !153

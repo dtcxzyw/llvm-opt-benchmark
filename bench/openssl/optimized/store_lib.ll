@@ -290,7 +290,7 @@ loader_set_params.exit.thread138:                 ; preds = %68, %71, %.thread.i
   %.085150 = phi ptr [ %.085.ph, %.thread141 ], [ null, %103 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %14) #9
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %106, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %106, i8 0, i64 96, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.394, ptr %107, align 8, !tbaa !33
   store ptr %.2, ptr %14, align 8, !tbaa !34

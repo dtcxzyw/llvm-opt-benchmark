@@ -138,7 +138,7 @@ define void @_ZN3g2o12VertexLine2DC2Ev(ptr noundef nonnull align 16 dereferencea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8, !tbaa !10
   store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN3g2o12VertexLine2DE, i64 16), ptr %0, align 16, !tbaa !31
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o12VertexLine2DE, i64 288), ptr %2, align 16, !tbaa !31

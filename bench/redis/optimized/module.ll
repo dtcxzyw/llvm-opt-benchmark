@@ -1508,7 +1508,7 @@ define dso_local void @moduleCallCommandUnblockedHandler(ptr noundef %0) local_u
   %12 = load ptr, ptr %11, align 8, !tbaa !111
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %12, ptr %15, align 8, !tbaa !91
@@ -1641,7 +1641,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleCreateContext(ptr noundef writeonly captures(none) initializes((0, 120)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %0, align 8, !tbaa !112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8, !tbaa !91
@@ -1793,7 +1793,7 @@ define dso_local void @RedisModuleCommandDispatcher(ptr noundef %0) #0 {
   %7 = load ptr, ptr %6, align 8, !tbaa !136
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %10, align 8, !tbaa !91
@@ -1873,7 +1873,7 @@ define dso_local i32 @moduleGetCommandKeysViaAPI(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #35
   %8 = load ptr, ptr %7, align 8, !tbaa !136
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !91
@@ -1925,7 +1925,7 @@ define dso_local i32 @moduleGetCommandChannelsViaAPI(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #35
   %8 = load ptr, ptr %7, align 8, !tbaa !136
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !91
@@ -8051,7 +8051,7 @@ define dso_local range(i32 0, 2) i32 @modulePopulateClientInfoStructure(ptr noun
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   store i64 1, ptr %0, align 8, !tbaa !287
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !29
@@ -8178,7 +8178,7 @@ define dso_local range(i32 0, 2) i32 @modulePopulateReplicationInfoStructure(ptr
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i64 1, ptr %0, align 8, !tbaa !298
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !300
   %6 = icmp eq ptr %5, null
@@ -16378,7 +16378,7 @@ define dso_local ptr @RM_GetContextFromIO(ptr noundef captures(none) %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !393
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %11, align 8, !tbaa !91
@@ -16604,7 +16604,7 @@ define dso_local void @unblockClientFromModule(ptr noundef readonly captures(non
   %9 = load ptr, ptr %8, align 8, !tbaa !462
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %12, align 8, !tbaa !91
@@ -17066,7 +17066,7 @@ define dso_local i32 @attemptNextAuthCb(ptr noundef %0, ptr noundef %1, ptr noun
   store i64 %25, ptr %11, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #35
   %26 = load ptr, ptr %18, align 8, !tbaa !476
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   store ptr %26, ptr %13, align 8, !tbaa !91
   %27 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
@@ -17131,7 +17131,7 @@ define dso_local i32 @attemptBlockedAuthReplyCallback(ptr noundef %0, ptr nounde
   %14 = load ptr, ptr %13, align 8, !tbaa !462
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %17, align 8, !tbaa !91
@@ -17313,7 +17313,7 @@ define dso_local range(i32 0, 2) i32 @moduleTryServeClientBlockedOnKey(ptr nound
   %10 = load ptr, ptr %9, align 8, !tbaa !462
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %3, align 8, !tbaa !112
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %13, align 8, !tbaa !91
@@ -17697,7 +17697,7 @@ define dso_local void @moduleHandleBlockedClients() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #35
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !462
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %3, align 8, !tbaa !112
   store ptr %38, ptr %9, align 8, !tbaa !91
   store i32 4, ptr %10, align 8, !tbaa !87
@@ -17783,7 +17783,7 @@ moduleCreateContext.exit:                         ; preds = %42, %47
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #35
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !462
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %17, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   store ptr %79, ptr %18, align 8, !tbaa !91
   store i32 32, ptr %19, align 8, !tbaa !87
@@ -17969,7 +17969,7 @@ define dso_local void @moduleBlockedClientTimedOut(ptr noundef %0) local_unnamed
   %6 = load ptr, ptr %5, align 8, !tbaa !462
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8, !tbaa !91
@@ -18127,7 +18127,7 @@ define dso_local noundef ptr @RM_GetThreadSafeContext(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !462
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %7, align 8, !tbaa !91
@@ -18155,7 +18155,7 @@ define dso_local noundef ptr @RM_GetThreadSafeContext(ptr noundef %0) #0 {
 .split:                                           ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %22, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %23, align 8, !tbaa !91
@@ -18224,7 +18224,7 @@ define dso_local noundef ptr @RM_GetDetachedThreadSafeContext(ptr noundef readon
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %2, align 8, !tbaa !112
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %7, align 8, !tbaa !91
@@ -18414,7 +18414,7 @@ define dso_local void @firePostExecutionUnitJobs() local_unnamed_addr #0 {
   call void @listDelNode(ptr noundef nonnull %10, ptr noundef %11) #35
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #35
   %14 = load ptr, ptr %13, align 8, !tbaa !496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %1, align 8, !tbaa !112
   store ptr %14, ptr %6, align 8, !tbaa !91
   store i32 64, ptr %7, align 8, !tbaa !87
@@ -18633,7 +18633,7 @@ define dso_local void @moduleNotifyKeyspaceEvent(i32 noundef %0, ptr noundef %1,
 
 34:                                               ; preds = %30, %26
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   store ptr %.pre, ptr %16, align 8, !tbaa !91
   store i32 64, ptr %17, align 8, !tbaa !87
@@ -18778,7 +18778,7 @@ define dso_local void @moduleCallClusterReceivers(ptr noundef %0, i64 noundef %1
   %13 = load ptr, ptr %12, align 8, !tbaa !511
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %16, align 8, !tbaa !91
@@ -19464,7 +19464,7 @@ define dso_local i32 @moduleTimerHandler(ptr readnone captures(none) %0, i64 %1,
   %21 = load ptr, ptr %11, align 8, !tbaa !526
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #35
   %22 = load ptr, ptr %21, align 8, !tbaa !527
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   store ptr %22, ptr %13, align 8, !tbaa !91
   store i32 64, ptr %14, align 8, !tbaa !87
@@ -23612,7 +23612,7 @@ define internal void @moduleScanCallback(ptr noundef readonly captures(none) %0,
   %7 = tail call ptr @createObject(i32 noundef 0, ptr noundef %6) #35
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #35
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   %9 = load ptr, ptr %0, align 8, !tbaa !577
   store ptr %9, ptr %3, align 8, !tbaa !101
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -24592,7 +24592,7 @@ define dso_local void @moduleFireServerEvent(i64 noundef %0, i32 noundef %1, ptr
 51:                                               ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #35
   %52 = load ptr, ptr %47, align 8, !tbaa !595
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %18, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   store ptr %52, ptr %19, align 8, !tbaa !91
   %53 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113
@@ -24680,7 +24680,7 @@ moduleInitKey.exit.us:                            ; preds = %65
 93:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #35
   %94 = load ptr, ptr %89, align 8, !tbaa !595
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %18, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %5, align 8, !tbaa !112
   store ptr %94, ptr %19, align 8, !tbaa !91
   store i32 64, ptr %20, align 8, !tbaa !87
@@ -24769,7 +24769,7 @@ moduleInitKey.exit.us:                            ; preds = %65
   br i1 %.not.i, label %modulePopulateReplicationInfoStructure.exit.thread, label %modulePopulateReplicationInfoStructure.exit
 
 modulePopulateReplicationInfoStructure.exit.thread: ; preds = %123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 24, i1 false)
   store i64 1, ptr %7, align 8, !tbaa !298
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !300
   %128 = icmp eq ptr %127, null
@@ -26320,7 +26320,7 @@ define dso_local range(i32 -1, 1) i32 @moduleLoad(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #35
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %36, align 8, !tbaa !91
@@ -28611,7 +28611,7 @@ define dso_local range(i32 0, 2) i32 @moduleConfigApplyConfig(ptr noundef %0, pt
   %17 = load ptr, ptr %16, align 8, !tbaa !124
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !667
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %6, align 8, !tbaa !112
   store ptr %19, ptr %12, align 8, !tbaa !91
   %20 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !113

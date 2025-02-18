@@ -22834,7 +22834,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %0, align 8, !tbaa !3907
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22888,7 +22888,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 52:                                               ; preds = %40
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %54, ptr %0, align 8, !tbaa !3907
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23129,7 +23129,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 119:                                              ; preds = %57
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %120, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %121, ptr %0, align 8, !tbaa !3907
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23197,7 +23197,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 140:                                              ; preds = %124
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %142, ptr %0, align 8, !tbaa !3907
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23238,7 +23238,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 154:                                              ; preds = %145
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %155, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %156, ptr %0, align 8, !tbaa !3907
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23272,7 +23272,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 166:                                              ; preds = %159
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %167, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %168, ptr %0, align 8, !tbaa !3907
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23306,7 +23306,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 178:                                              ; preds = %171
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %179, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, i8 0, i64 16, i1 false)
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %180, ptr %0, align 8, !tbaa !3907
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23317,7 +23317,7 @@ define dso_local void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_
 
 183:                                              ; preds = %27
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %184, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %185, ptr %0, align 8, !tbaa !3907
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8

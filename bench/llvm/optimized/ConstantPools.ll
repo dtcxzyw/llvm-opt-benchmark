@@ -824,7 +824,7 @@ _ZSt9make_pairIRKPN4llvm9MCSectionENS0_12ConstantPoolEESt4pairINSt25__strip_refe
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6) #16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %15, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %15, i8 0, i64 200, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %6, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8

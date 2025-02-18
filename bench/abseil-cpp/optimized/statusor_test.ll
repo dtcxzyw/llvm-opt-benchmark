@@ -18358,7 +18358,7 @@ define internal void @_ZN12_GLOBAL__N_143StatusOrDeathTest_TestDefaultCtorValue_
   call void @_ZN4absl8StatusOrIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %37, ptr %5, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -19116,7 +19116,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 293:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #30
   %294 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, i8 0, i64 16, i1 false)
   %295 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %295, ptr %21, align 8, !tbaa !73
   %296 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -20051,7 +20051,7 @@ define internal void @_ZN12_GLOBAL__N_137StatusOrDeathTest_TestValueNotOk_Test8T
   store i64 5, ptr %3, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %4, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -20918,7 +20918,7 @@ _ZN4absl8StatusOrIiEC2INS_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsCons
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %31, ptr %5, align 8, !tbaa !73
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21782,7 +21782,7 @@ define internal void @_ZN12_GLOBAL__N_150StatusOrDeathTest_TestPointerDefaultCto
   call void @_ZN4absl8StatusOrIPiEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %4, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22711,7 +22711,7 @@ define internal void @_ZN12_GLOBAL__N_144StatusOrDeathTest_TestPointerValueNotOk
   store i64 5, ptr %3, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %4, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -23538,7 +23538,7 @@ define internal void @_ZN12_GLOBAL__N_149StatusOrDeathTest_TestPointerValueNotOk
   store i64 5, ptr %3, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %4, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -35665,7 +35665,7 @@ _ZN4absl6StatusC2ERKS0_.exit.i.i:                 ; preds = %21, %1
 29:                                               ; preds = %_ZN4absl6StatusC2ERKS0_.exit.i.i, %26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %31, ptr %5, align 8, !tbaa !73
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -158410,7 +158410,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %91, %_ZNKSt14defaul
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #30
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %104, ptr %12, align 8, !tbaa !73
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -160756,7 +160756,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %456, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #30
   %487 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %487, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %487, i8 0, i64 16, i1 false)
   %488 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %488, ptr %30, align 8, !tbaa !73
   %489 = getelementptr inbounds nuw i8, ptr %30, i64 8

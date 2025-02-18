@@ -1789,7 +1789,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %call.i3 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22
   %0 = getelementptr inbounds nuw i8, ptr %call.i3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 96, i1 false), !noalias !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, i8 0, i64 96, i1 false), !noalias !12
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %call.i3, align 8, !noalias !12

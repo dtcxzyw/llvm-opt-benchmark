@@ -513,7 +513,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_notify_job(i32 noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24

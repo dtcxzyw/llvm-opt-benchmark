@@ -1195,7 +1195,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit: ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
   %7 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %stack, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %8, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %8, i8 0, i64 248, i1 false)
   store ptr %7, ptr %stack, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 12

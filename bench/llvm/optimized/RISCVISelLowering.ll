@@ -140007,7 +140007,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6SDNodeENS_12SelectionDAG13NodeExtraInf
   store ptr %57, ptr %48, align 8, !tbaa !394
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
   store ptr %59, ptr %58, align 8, !tbaa !27
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %60, align 8, !tbaa !28

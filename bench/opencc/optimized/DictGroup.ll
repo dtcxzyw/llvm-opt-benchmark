@@ -599,7 +599,7 @@ define void @_ZNK6opencc9DictGroup16MatchAllPrefixesEPKcm(ptr dead_on_unwind noa
 
 ._crit_edge55.thread:                             ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge63
 
 .lr.ph54:                                         ; preds = %4

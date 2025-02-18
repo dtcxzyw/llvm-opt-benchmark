@@ -2462,7 +2462,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
 217:                                              ; preds = %213, %209, %205
   %.0139 = phi ptr [ null, %205 ], [ %216, %213 ], [ null, %209 ]
   %218 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %218, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %218, i8 0, i64 144, i1 false)
   store ptr @sighandler, ptr %10, align 8, !tbaa !11
   %219 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #17
   %220 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %10, ptr noundef null) #17

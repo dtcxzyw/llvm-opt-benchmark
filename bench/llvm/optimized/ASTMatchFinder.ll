@@ -2787,7 +2787,7 @@ define dso_local void @_ZN5clang12ast_matchers11MatchFinder5matchERKNS_12DynType
   store ptr null, ptr %25, align 8, !tbaa !70
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %27, i8 0, i64 20, i1 false)
   store ptr %24, ptr %26, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 192
   store ptr %24, ptr %28, align 8, !tbaa !72

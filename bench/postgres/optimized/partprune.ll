@@ -261,7 +261,7 @@ add_part_relids.exit:                             ; preds = %.split.i, %._crit_e
   %.0127.i = phi ptr [ %123, %122 ], [ %.0108163.i, %112 ], [ %121, %117 ]
   %.1112.i = phi ptr [ %.0111162.i, %122 ], [ %108, %112 ], [ %108, %117 ]
   %.2110.i = phi ptr [ %.0108163.i, %122 ], [ %.0108163.i, %112 ], [ %121, %117 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr %108, ptr %6, align 8
   store i32 1, ptr %21, align 8
   %125 = getelementptr inbounds nuw i8, ptr %108, i64 384
@@ -309,7 +309,7 @@ gen_partprune_steps.exit.i:                       ; preds = %132, %129, %124
   br i1 %147, label %148, label %208
 
 148:                                              ; preds = %145
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr %108, ptr %6, align 8
   store i32 2, ptr %21, align 8
   %149 = load ptr, ptr %125, align 8
@@ -734,7 +734,7 @@ define dso_local ptr @prune_append_rel_partitions(ptr noundef %0) local_unnamed_
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store ptr %0, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %19 = load ptr, ptr %18, align 8

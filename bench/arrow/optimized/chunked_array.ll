@@ -4621,7 +4621,7 @@ define void @_ZNK5arrow12ChunkedArray8ToStringB5cxx11Ev(ptr dead_on_unwind noali
   store i8 1, ptr %21, align 1, !tbaa !234
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %23, i8 0, i64 80, i1 false), !alias.scope !235
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 80, i1 false), !alias.scope !235
   store ptr %23, ptr %22, align 8, !tbaa !230, !alias.scope !235
   store i8 91, ptr %23, align 8, !tbaa !51, !alias.scope !235
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4640,7 +4640,7 @@ define void @_ZNK5arrow12ChunkedArray8ToStringB5cxx11Ev(ptr dead_on_unwind noali
   store i64 1, ptr %30, align 8, !tbaa !119, !alias.scope !235
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %32, i8 0, i64 80, i1 false), !alias.scope !238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %32, i8 0, i64 80, i1 false), !alias.scope !238
   store ptr %32, ptr %31, align 8, !tbaa !230, !alias.scope !238
   store i8 91, ptr %32, align 8, !tbaa !51, !alias.scope !238
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 160

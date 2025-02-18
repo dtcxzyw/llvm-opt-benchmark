@@ -95,7 +95,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
 
 41:                                               ; preds = %29
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = load i8, ptr %5, align 1, !tbaa !17
   %44 = zext i8 %43 to i32
   %45 = mul nuw nsw i32 %44, 1000

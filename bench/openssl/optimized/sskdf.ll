@@ -150,7 +150,7 @@ sskdf_free.exit:                                  ; preds = %13, %21, %29, %37, 
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %63 = load i64, ptr %62, align 8, !tbaa !19
   tail call void @CRYPTO_clear_free(ptr noundef %61, i64 noundef %63, ptr noundef nonnull @.str, i32 noundef 332) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %49, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %49, i8 0, i64 96, i1 false)
   store ptr %48, ptr %5, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 343) #7
   br label %sskdf_new.exit.thread
@@ -187,7 +187,7 @@ define internal void @sskdf_free(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8, !tbaa !19
   tail call void @CRYPTO_clear_free(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str, i32 noundef 332) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 343) #7
   br label %19
@@ -220,7 +220,7 @@ define internal void @sskdf_reset(ptr noundef %0) #0 {
   %17 = load i64, ptr %16, align 8, !tbaa !19
   tail call void @CRYPTO_clear_free(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 332) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !3
   ret void
 }

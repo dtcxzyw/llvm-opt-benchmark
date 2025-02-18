@@ -910,7 +910,7 @@ st_mult.exit:                                     ; preds = %st_add.exit248.thre
   store ptr %291, ptr %7, align 8, !tbaa !121
   %292 = load i64, ptr %9, align 8, !tbaa !76
   store i64 %292, ptr %236, align 8, !tbaa !123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %237, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
   store i64 %290, ptr %5, align 8, !tbaa !133
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)

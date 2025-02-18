@@ -771,7 +771,7 @@ define internal i32 @H5D__farray_idx_iterate(ptr noundef readonly captures(none)
 40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %5) #12
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %41, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %41, i8 0, i64 296, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   store ptr %43, ptr %5, align 8, !tbaa !63

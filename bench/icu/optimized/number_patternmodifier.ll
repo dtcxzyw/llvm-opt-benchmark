@@ -1059,7 +1059,7 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %0, i8 0, i64 320, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, i8 0, i64 320, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl21AdoptingModifierStoreE, i64 16), ptr %call, align 8
   br label %arrayinit.body.i
 

@@ -990,7 +990,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 56, i1 false)
   store i32 1179403647, ptr %4, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 2, ptr %57, align 4

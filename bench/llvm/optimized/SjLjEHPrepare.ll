@@ -206,7 +206,7 @@ define dso_local void @_ZN4llvm17SjLjEHPreparePass3runERNS_8FunctionERNS_15Analy
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, i8 0, i64 96, i1 false)
   store ptr %6, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !18
@@ -216,7 +216,7 @@ define dso_local void @_ZN4llvm17SjLjEHPreparePass3runERNS_8FunctionERNS_15Analy
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 64, i1 false), !alias.scope !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false), !alias.scope !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %18
 
@@ -3986,7 +3986,7 @@ define linkonce_odr void @_ZN4llvm7idf_endIPNS_10BasicBlockEEENS_12idf_iteratorI
   %3 = alloca %"class.llvm::df_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 72, i1 false), !alias.scope !367
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !alias.scope !367
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8, !tbaa !41, !alias.scope !367
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

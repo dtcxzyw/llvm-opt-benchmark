@@ -1659,7 +1659,7 @@ define internal fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev() unna
   store i32 32, ptr %21, align 8, !tbaa !79, !noalias !76
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %23, i8 0, i64 28, i1 false), !noalias !76
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 0, i64 28, i1 false), !noalias !76
   store i32 %.02390, ptr %22, align 4, !noalias !76
   store ptr %17, ptr %3, align 8, !tbaa !60, !alias.scope !76
   %.not.i.i = icmp eq ptr %16, %15
@@ -1895,7 +1895,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
   store i32 32, ptr %101, align 8, !tbaa !79, !noalias !101
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 68
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %103, i8 0, i64 28, i1 false), !noalias !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %103, i8 0, i64 28, i1 false), !noalias !101
   store i32 7, ptr %102, align 4, !noalias !101
   store ptr %99, ptr %5, align 8, !tbaa !60, !alias.scope !101
   %104 = invoke i32 @SSL_CTX_add_session(ptr noundef nonnull %9, ptr noundef nonnull %99)

@@ -1128,7 +1128,7 @@ define dso_local void @_ZN5clang4ento29registerDynamicMemoryModelingERNS0_14Chec
   %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %5 = call noalias noundef nonnull dereferenceable(672) ptr @_Znwm(i64 noundef 672) #29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(672) %6, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %6, i8 0, i64 176, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_113MallocCheckerC2Ev(ptr noundef nonnull align 8 dereferenceable(668) %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1867,7 +1867,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE5beginEv.exit: ; preds = %32, %34
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, i8 0, i64 160, i1 false), !alias.scope !318
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 160, i1 false), !alias.scope !318
   store ptr %19, ptr %6, align 8, !tbaa !287, !alias.scope !318
   store i32 0, ptr %20, align 8, !tbaa !283, !alias.scope !318
   store i32 20, ptr %21, align 4, !tbaa !285, !alias.scope !318
@@ -1896,7 +1896,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE5beginEv.exit.i: ; preds = %42, %40
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 0, i64 160, i1 false), !alias.scope !324
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %26, i8 0, i64 160, i1 false), !alias.scope !324
   store ptr %26, ptr %4, align 8, !tbaa !287, !alias.scope !324
   store i32 0, ptr %27, align 8, !tbaa !283, !alias.scope !324
   store i32 20, ptr %28, align 4, !tbaa !285, !alias.scope !324
@@ -27807,7 +27807,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE5beginEv.exit: ; preds = %24, %27
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %18, i8 0, i64 160, i1 false), !alias.scope !1535
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false), !alias.scope !1535
   store ptr %18, ptr %5, align 8, !tbaa !287, !alias.scope !1535
   store i32 0, ptr %19, align 8, !tbaa !283, !alias.scope !1535
   store i32 20, ptr %20, align 4, !tbaa !285, !alias.scope !1535
@@ -28361,7 +28361,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_16Imu
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprES6_EEE5beginEv.exit: ; preds = %10, %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #28
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, i8 0, i64 160, i1 false), !alias.scope !1544
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, i8 0, i64 160, i1 false), !alias.scope !1544
   store ptr %20, ptr %5, align 8, !tbaa !287, !alias.scope !1544
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %21, align 8, !tbaa !283, !alias.scope !1544
@@ -31274,7 +31274,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContai
 
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE5beginEv.exit: ; preds = %24, %27
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %18, i8 0, i64 160, i1 false), !alias.scope !1629
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false), !alias.scope !1629
   store ptr %18, ptr %5, align 8, !tbaa !287, !alias.scope !1629
   store i32 0, ptr %19, align 8, !tbaa !283, !alias.scope !1629
   store i32 20, ptr %20, align 4, !tbaa !285, !alias.scope !1629
@@ -31798,7 +31798,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_17Imu
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang4ento7SymExprEEEE5beginEv.exit: ; preds = %10, %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #28
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, i8 0, i64 160, i1 false), !alias.scope !1639
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, i8 0, i64 160, i1 false), !alias.scope !1639
   store ptr %20, ptr %5, align 8, !tbaa !287, !alias.scope !1639
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %21, align 8, !tbaa !283, !alias.scope !1639
@@ -33212,7 +33212,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
   store i32 1, ptr %17, align 8, !tbaa !283, !alias.scope !1672
   %32 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, i8 0, i64 160, i1 false), !alias.scope !1675
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 160, i1 false), !alias.scope !1675
   store ptr %19, ptr %6, align 8, !tbaa !287, !alias.scope !1675
   store i32 0, ptr %20, align 8, !tbaa !283, !alias.scope !1675
   store i32 20, ptr %21, align 4, !tbaa !285, !alias.scope !1675
@@ -33223,7 +33223,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
   store i32 1, ptr %23, align 8, !tbaa !283, !alias.scope !1678
   %33 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 0, i64 160, i1 false), !alias.scope !1681
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %26, i8 0, i64 160, i1 false), !alias.scope !1681
   store ptr %26, ptr %4, align 8, !tbaa !287, !alias.scope !1681
   store i32 0, ptr %27, align 8, !tbaa !283, !alias.scope !1681
   store i32 20, ptr %28, align 4, !tbaa !285, !alias.scope !1681
@@ -34496,7 +34496,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE5beginEv.exit.i.i.i: ; preds = %79, %77
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %18) #28
   %85 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %85, i8 0, i64 160, i1 false), !alias.scope !1701
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %85, i8 0, i64 160, i1 false), !alias.scope !1701
   store ptr %85, ptr %18, align 8, !tbaa !287, !alias.scope !1701
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 0, ptr %86, align 8, !tbaa !283, !alias.scope !1701
@@ -34532,7 +34532,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEE5beginEv.exit34.i.i.i: ; preds = %94, %92
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %20) #28
   %100 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %100, i8 0, i64 160, i1 false), !alias.scope !1707
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %100, i8 0, i64 160, i1 false), !alias.scope !1707
   store ptr %100, ptr %20, align 8, !tbaa !287, !alias.scope !1707
   %101 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %101, align 8, !tbaa !283, !alias.scope !1707

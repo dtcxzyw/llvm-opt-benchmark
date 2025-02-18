@@ -7320,7 +7320,7 @@ define void @InitDecodedCert(ptr noundef writeonly captures(address_is_null) %0,
   store i8 127, ptr %10, align 1, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 976
   store i32 -2, ptr %13, align 8, !tbaa !81
   store ptr %3, ptr %11, align 8, !tbaa !82
@@ -7351,7 +7351,7 @@ define void @InitDecodedCert_ex(ptr noundef writeonly captures(address_is_null) 
   store i8 127, ptr %12, align 1, !tbaa !80
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 976
   store i32 %4, ptr %15, align 8, !tbaa !81
   store ptr %3, ptr %13, align 8, !tbaa !82
@@ -7368,7 +7368,7 @@ define void @InitSignatureCtx(ptr noundef writeonly captures(address_is_null) %0
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %6, align 8, !tbaa !81
   store ptr %1, ptr %0, align 8, !tbaa !82
@@ -7397,7 +7397,7 @@ define void @wc_InitDecodedCert(ptr noundef writeonly captures(address_is_null) 
   store i8 127, ptr %10, align 1, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 976
   store i32 -2, ptr %13, align 8, !tbaa !81
   store ptr %3, ptr %11, align 8, !tbaa !82

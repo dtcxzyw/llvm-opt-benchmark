@@ -27680,7 +27680,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type14isLinkageValidEv(ptr nound
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #27
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %8, align 4, !tbaa !675
@@ -27756,7 +27756,7 @@ define dso_local i8 @_ZNK5clang4Type23getLinkageAndVisibilityEv(ptr noundef nonn
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !675

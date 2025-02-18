@@ -21634,7 +21634,7 @@ _ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEP
   %.09221389 = phi i32 [ 0, %1078 ], [ 0, %1074 ], [ 516, %1071 ], [ 515, %1069 ], [ 512, %1065 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #43
   %1080 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1080, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1080, i8 0, i64 40, i1 false)
   store ptr %32, ptr %23, align 8, !tbaa !438
   %1081 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %.09211390, ptr %1081, align 8, !tbaa !440
@@ -21879,7 +21879,7 @@ _ZN8ImVectorIcE6resizeEi.exit1203:                ; preds = %.thread1385._ZN8ImV
 1192:                                             ; preds = %1191
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #43
   %1193 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1193, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1193, i8 0, i64 40, i1 false)
   store ptr %32, ptr %24, align 8, !tbaa !438
   %1194 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 2097152, ptr %1194, align 8, !tbaa !440
@@ -26957,7 +26957,7 @@ switch.early.test144:                             ; preds = %41
   %57 = load ptr, ptr @GImGui, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #43
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
   store ptr %57, ptr %7, align 8, !tbaa !438
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1048576, ptr %59, align 8, !tbaa !440

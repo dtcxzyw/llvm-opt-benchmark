@@ -1526,7 +1526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   %180 = phi ptr [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit ], [ %.pre241, %169 ], [ %.pre241, %168 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %181 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %181, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %181, i8 0, i64 32, i1 false)
   store ptr %180, ptr %12, align 8
   %182 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %27, ptr %182, align 4

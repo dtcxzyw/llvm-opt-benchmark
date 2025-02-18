@@ -1206,7 +1206,7 @@ BufferGetPage.exit:                               ; preds = %39, %45
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %97, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %97, i8 0, i64 56, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %0, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -1283,7 +1283,7 @@ define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -1348,7 +1348,7 @@ declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginScanBeginPostingTree(ptr noundef initializes((0, 128)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88

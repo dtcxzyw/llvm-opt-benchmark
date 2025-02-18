@@ -1754,7 +1754,7 @@ define i32 @cli_scanhwpml(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   store ptr @hwpml_binary_cb, ptr %3, align 8, !tbaa !77
   %15 = call i32 @cli_msxml_parse_document(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @hwpml_keys, i64 noundef 22, i32 noundef 1, ptr noundef nonnull %3) #10
   %16 = call i32 @xmlTextReaderClose(ptr noundef nonnull %8) #10

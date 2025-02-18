@@ -2249,7 +2249,7 @@ define hidden range(i32 0, 65) i32 @FT_GlyphLoader_New(ptr noundef %0, ptr nound
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %7, i8 0, i64 168, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %7, i8 0, i64 168, i1 false)
   store ptr %0, ptr %5, align 8, !tbaa !180
   store ptr %5, ptr %1, align 8, !tbaa !183
   br label %ft_mem_alloc.exit
@@ -5113,7 +5113,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %36, i8 0, i64 168, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %36, i8 0, i64 168, i1 false)
   store ptr %18, ptr %34, align 8, !tbaa !180
   store ptr %34, ptr %26, align 8, !tbaa !183
   br label %37
@@ -12242,7 +12242,7 @@ define range(i32 0, 65) i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonl
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(400) %10, i8 0, i64 380, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(380) %10, i8 0, i64 380, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !241
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %11, align 8, !tbaa !455
@@ -18954,7 +18954,7 @@ define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %39, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %39, i8 0, i64 48, i1 false)
   store ptr %1, ptr %34, align 8, !tbaa !247
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %2, ptr %40, align 8, !tbaa !249

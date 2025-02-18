@@ -438,7 +438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit81: ; preds =
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit81.thread: ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %143, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %143, i8 0, i64 48, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %144, ptr %0, align 8, !tbaa !3
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -878,7 +878,7 @@ _ZNKSt14default_deleteIA_PcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %310, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !25
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %311, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %311, i8 0, i64 48, i1 false)
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %312, ptr %0, align 8, !tbaa !3
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 8

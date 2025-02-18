@@ -10903,7 +10903,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #28
   %1515 = getelementptr inbounds nuw i8, ptr %1490, i64 64
   %1516 = getelementptr inbounds nuw i8, ptr %1490, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %1516, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1516, i8 0, i64 80, i1 false)
   store ptr %1516, ptr %1515, align 8, !tbaa !110
   %1517 = getelementptr inbounds nuw i8, ptr %1490, i64 72
   store i64 0, ptr %1517, align 8, !tbaa !80

@@ -2666,7 +2666,7 @@ define internal fastcc i32 @process_all_files(ptr noundef captures(none) initial
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store ptr %11, ptr %6, align 8, !tbaa !192
   store ptr @collect_diff_cb, ptr %21, align 8, !tbaa !195
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %6, ptr %9, align 8, !tbaa !197
   %76 = call i32 @xdi_diff(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16

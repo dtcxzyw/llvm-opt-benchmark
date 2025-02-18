@@ -3644,7 +3644,7 @@ _ZN12_GLOBAL__N_17runImplEPN4llvm8LoopInfoERNS0_21LoopAccessInfoManagerEPNS0_13D
 
 322:                                              ; preds = %251, %_ZN12_GLOBAL__N_17runImplEPN4llvm8LoopInfoERNS0_21LoopAccessInfoManagerEPNS0_13DominatorTreeEPNS0_15ScalarEvolutionE.exit
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %323, i8 0, i64 64, i1 false), !alias.scope !499
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %323, i8 0, i64 64, i1 false), !alias.scope !499
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %324, ptr %0, align 8, !tbaa !28, !alias.scope !499
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4041,7 +4041,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_4LoopEEENS_14iterator_rangeI
   store ptr %14, ptr %11, align 8, !tbaa !432, !alias.scope !520
   store ptr %14, ptr %12, align 8, !tbaa !436, !alias.scope !520
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !526
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !526
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !526
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

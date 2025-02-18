@@ -2380,7 +2380,7 @@ _ZN17substitution_tree11mk_node_forEP4expr.exit232: ; preds = %if.else65, %if.th
   store i8 %frombool.i, ptr %call71, align 8
   %m_subst.i233 = getelementptr inbounds nuw i8, ptr %call71, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %call71, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   %115 = load ptr, ptr %m_incompatible, align 8
   store ptr %115, ptr %m_subst.i233, align 8
   store ptr null, ptr %m_incompatible, align 8

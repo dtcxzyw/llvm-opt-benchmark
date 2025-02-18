@@ -3180,7 +3180,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i:       ; preds = %_ZN6bufferIP3astLb0
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i, %entry
   %9 = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %stack.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   store ptr %9, ptr %stack.i, align 8
   %m_pos.i.i25.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   %m_capacity.i.i26.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 12

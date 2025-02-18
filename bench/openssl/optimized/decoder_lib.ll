@@ -94,7 +94,7 @@ OSSL_DECODER_CTX_get_num_decoders.exit.thread:    ; preds = %6, %8, %OSSL_DECODE
   %.033 = phi ptr [ %20, %22 ], [ null, %14 ]
   %.031 = phi ptr [ %23, %22 ], [ %1, %14 ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.031, ptr %26, align 8, !tbaa !17
@@ -215,7 +215,7 @@ define internal i32 @decoder_process(ptr noundef %0, ptr noundef captures(none) 
   %10 = or i8 %9, 1
   store i8 %10, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store ptr %6, ptr %3, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !21
@@ -1053,7 +1053,7 @@ define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_extra(ptr noundef %0, ptr nound
   %.fr36 = freeze i32 %15
   %16 = sext i32 %.fr36 to i64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %18, align 8, !tbaa !59

@@ -1015,7 +1015,7 @@ if.end72:                                         ; preds = %if.end
   %11 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %listener_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false), !noalias !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !10
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr %env, ptr %env_.i.i.i, align 8, !noalias !10
   %default_listener_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96

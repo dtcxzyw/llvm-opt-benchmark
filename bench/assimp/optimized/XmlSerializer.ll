@@ -7866,7 +7866,7 @@ define hidden void @_ZN6Assimp4D3MF13XmlSerializer20StoreEmbeddedTextureEPNS0_15
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %3) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %9, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8

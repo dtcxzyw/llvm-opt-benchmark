@@ -13619,7 +13619,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit223.thread:       ; preds = %710, %.lr.ph781, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %747, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %735, i8 0, i64 24, i1 false)
   %748 = getelementptr inbounds nuw i8, ptr %735, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %748, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %748, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %737, i8 0, i64 60, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %738, i8 0, i64 60, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %739, i8 0, i64 80, i1 false)

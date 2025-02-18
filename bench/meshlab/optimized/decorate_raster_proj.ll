@@ -1570,7 +1570,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %27
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %33, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %33, i8 0, i64 5, i1 false)
   store i8 1, ptr %7, align 1
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 1, ptr %34, align 1
@@ -1871,7 +1871,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %29
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %35, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, i8 0, i64 5, i1 false)
   store i8 1, ptr %7, align 1
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 1, ptr %36, align 1
@@ -12953,7 +12953,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %92 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !noalias !84
   %93 = fneg float %92
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %94, i8 0, i64 56, i1 false), !noalias !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %94, i8 0, i64 56, i1 false), !noalias !84
   store float 1.000000e+00, ptr %3, align 4, !noalias !84
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float 1.000000e+00, ptr %95, align 4, !noalias !84

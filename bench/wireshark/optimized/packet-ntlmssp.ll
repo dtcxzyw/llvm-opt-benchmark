@@ -828,7 +828,7 @@ ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %70
   br i1 %.not.i, label %94, label %create_ntlmssp_v2_key.exit
 
 94:                                               ; preds = %89
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %87, i8 noundef 0, i64 noundef 752, i1 noundef false) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(752) %87, i8 noundef 0, i64 noundef 752, i1 noundef false) #17
   %95 = load i64, ptr %4, align 1
   store i64 %95, ptr %15, align 16
   store i64 %36, ptr %84, align 8

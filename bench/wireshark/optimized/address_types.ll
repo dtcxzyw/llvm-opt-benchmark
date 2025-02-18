@@ -260,7 +260,7 @@ define hidden noundef i32 @eui64_name_resolution_len() #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @address_types_initialize() local_unnamed_addr #8 {
   store i32 0, ptr @num_dissector_addr_type, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) getelementptr inbounds nuw (i8, ptr @type_list, i64 112), i8 noundef 0, i64 noundef 248, i1 noundef false) #18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) getelementptr inbounds nuw (i8, ptr @type_list, i64 112), i8 noundef 0, i64 noundef 248, i1 noundef false) #18
   store ptr @address_types_initialize.none_address, ptr @type_list, align 16
   store ptr @address_types_initialize.ether_address, ptr getelementptr inbounds nuw (i8, ptr @type_list, i64 8), align 8
   store ptr @address_types_initialize.ipv4_address, ptr getelementptr inbounds nuw (i8, ptr @type_list, i64 16), align 16

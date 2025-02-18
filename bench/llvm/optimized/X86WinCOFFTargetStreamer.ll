@@ -698,7 +698,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_17FPODataESt14default_deleteIS1_EED2Ev.exit: ; p
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %17, i8 0, i64 128, i1 false), !noalias !235
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 128, i1 false), !noalias !235
   store ptr %16, ptr %15, align 8, !tbaa !223, !noalias !235
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 5, ptr %18, align 4, !tbaa !238, !noalias !235

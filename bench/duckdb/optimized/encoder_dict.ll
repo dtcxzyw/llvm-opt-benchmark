@@ -64,7 +64,7 @@ define void @_ZN13duckdb_brotli33BrotliInitSharedEncoderDictionaryEPNS_23SharedE
   store i32 0, ptr %27, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %24, i8 0, i64 25, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   store ptr %5, ptr %22, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i32 11, ptr %29, align 8, !tbaa !45

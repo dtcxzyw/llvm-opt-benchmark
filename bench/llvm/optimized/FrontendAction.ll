@@ -5391,7 +5391,7 @@ _ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit.i.i: ; 
   store i64 %1699, ptr %1697, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
   %1700 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1700, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1700, i8 0, i64 64, i1 false)
   store ptr %1700, ptr %5, align 8, !tbaa !17
   %1701 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %1701, align 8, !tbaa !20
@@ -8122,7 +8122,7 @@ _ZNSt12__shared_ptrIN5clang12PreprocessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   store ptr null, ptr %5, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #27
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %162, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %162, i8 0, i64 64, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %163, ptr %4, align 8, !tbaa !17
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -3218,7 +3218,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_10EnumOptionINS_19SelectionCollection4Im
   store ptr @.str.14, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %81, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionINS_19SelectionCollection4Impl10DebugLevelEEE, i64 16), ptr %10, align 8
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 96

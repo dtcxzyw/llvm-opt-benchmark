@@ -455,7 +455,7 @@ define void @_ZN6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1000) in
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store float 1.000000e+00, ptr %7, align 8

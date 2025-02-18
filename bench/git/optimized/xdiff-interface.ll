@@ -151,7 +151,7 @@ define dso_local i32 @xdi_diff_outf(ptr noundef readonly captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %2, ptr %10, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %13, align 8, !tbaa !25

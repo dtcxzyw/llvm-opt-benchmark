@@ -779,7 +779,7 @@ define dso_local void @_ZN4llvm17StackColoringPass3runERNS_15MachineFunctionERNS
 
 46:                                               ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %47, i8 0, i64 64, i1 false), !alias.scope !111
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, i8 0, i64 64, i1 false), !alias.scope !111
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %52
 
@@ -2831,7 +2831,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_113St
   store ptr %967, ptr %961, align 8, !tbaa !227
   %968 = getelementptr inbounds nuw i8, ptr %961, i64 8
   %969 = getelementptr inbounds nuw i8, ptr %961, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %969, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %969, i8 0, i64 272, i1 false)
   store ptr %969, ptr %968, align 8, !tbaa !25
   %970 = getelementptr inbounds nuw i8, ptr %961, i64 16
   store i32 0, ptr %970, align 8, !tbaa !26
@@ -4543,7 +4543,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_113St
   store ptr %.sroa.082.0125.i, ptr %1750, align 8, !tbaa !227
   %1756 = getelementptr inbounds nuw i8, ptr %1750, i64 8
   %1757 = getelementptr inbounds nuw i8, ptr %1750, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %1757, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %1757, i8 0, i64 272, i1 false)
   store ptr %1757, ptr %1756, align 8, !tbaa !25
   %1758 = getelementptr inbounds nuw i8, ptr %1750, i64 16
   store i32 0, ptr %1758, align 8, !tbaa !26
@@ -9084,7 +9084,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_15MachineFunctionEEENS_14ite
   store ptr %16, ptr %13, align 8, !tbaa !276, !alias.scope !553
   store ptr %16, ptr %14, align 8, !tbaa !280, !alias.scope !553
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, i8 0, i64 72, i1 false), !alias.scope !559
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false), !alias.scope !559
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %4, align 8, !tbaa !28, !alias.scope !559
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9389,7 +9389,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_9BitVectorENS_12
   store ptr %57, ptr %48, align 8, !tbaa !227
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
   store ptr %59, ptr %58, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %60, align 8, !tbaa !26

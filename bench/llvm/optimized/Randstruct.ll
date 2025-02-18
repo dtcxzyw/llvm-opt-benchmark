@@ -575,7 +575,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_16BucketESt14defa
 .thread.i:                                        ; preds = %252
   %253 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20, !noalias !399
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(544) %254, i8 0, i64 528, i1 false), !noalias !399
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %254, i8 0, i64 528, i1 false), !noalias !399
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 24
   store ptr %256, ptr %255, align 8, !tbaa !3, !noalias !399
@@ -711,7 +711,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_16BucketESt14default_deleteIS1_EED2Ev.exit.i: ; 
 _ZNSt10unique_ptrIN12_GLOBAL__N_16BucketESt14default_deleteIS1_EED2Ev.exit78.i: ; preds = %310
   %311 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20, !noalias !413
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(544) %312, i8 0, i64 528, i1 false), !noalias !413
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(528) %312, i8 0, i64 528, i1 false), !noalias !413
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_16BucketE, i64 16), ptr %311, align 8, !tbaa !402, !noalias !413
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 24
@@ -738,7 +738,7 @@ _ZN12_GLOBAL__N_16Bucket8addFieldEPN5clang9FieldDeclEi.exit81.i: ; preds = %316
   %324 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20, !noalias !416
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = getelementptr inbounds nuw i8, ptr %324, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(544) %326, i8 0, i64 512, i1 false), !noalias !416
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %326, i8 0, i64 512, i1 false), !noalias !416
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_16BucketE, i64 16), ptr %324, align 8, !tbaa !402, !noalias !416
   %327 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %328 = getelementptr inbounds nuw i8, ptr %324, i64 24

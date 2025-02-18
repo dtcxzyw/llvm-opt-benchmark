@@ -744,7 +744,7 @@ find_user.exit:                                   ; preds = %.lr.ph.i
 
 21:                                               ; preds = %find_user.exit
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -835,7 +835,7 @@ SRP_user_pwd_free.exit.i:                         ; preds = %SRP_user_pwd_set1_i
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   %68 = load ptr, ptr %56, align 8, !tbaa !37
   %69 = load ptr, ptr %60, align 8, !tbaa !38
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 32

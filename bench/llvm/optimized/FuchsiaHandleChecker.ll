@@ -4399,7 +4399,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
   store i32 1, ptr %17, align 8, !tbaa !80, !alias.scope !314
   %32 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, i8 0, i64 160, i1 false), !alias.scope !317
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 160, i1 false), !alias.scope !317
   store ptr %19, ptr %6, align 8, !tbaa !78, !alias.scope !317
   store i32 0, ptr %20, align 8, !tbaa !80, !alias.scope !317
   store i32 20, ptr %21, align 4, !tbaa !81, !alias.scope !317
@@ -4410,7 +4410,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
   store i32 1, ptr %23, align 8, !tbaa !80, !alias.scope !320
   %33 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 0, i64 160, i1 false), !alias.scope !323
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %26, i8 0, i64 160, i1 false), !alias.scope !323
   store ptr %26, ptr %4, align 8, !tbaa !78, !alias.scope !323
   store i32 0, ptr %27, align 8, !tbaa !80, !alias.scope !323
   store i32 20, ptr %28, align 4, !tbaa !81, !alias.scope !323

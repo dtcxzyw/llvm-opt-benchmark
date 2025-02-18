@@ -6420,7 +6420,7 @@ define internal fastcc range(i32 -1, 1) i32 @fast_forward_to(ptr noundef nonnull
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = call i32 @refresh_index(ptr noundef %15, i32 noundef 4, ptr noundef null, ptr noundef null, ptr noundef null) #21
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %17, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %17, i8 0, i64 1112, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 1, ptr %18, align 8, !tbaa !187
   %19 = load ptr, ptr @the_repository, align 8, !tbaa !21

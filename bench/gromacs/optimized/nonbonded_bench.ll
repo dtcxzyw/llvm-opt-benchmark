@@ -428,7 +428,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.81, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -449,7 +449,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.83, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -470,7 +470,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.85, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkKernelsEEE, i64 16), ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -495,7 +495,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.87, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %68, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm16BenchMarkCoulombEEE, i64 16), ptr %8, align 8
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -520,7 +520,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.89, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %9, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -541,7 +541,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionIN5Nbnxm17BenchMarkCombRuleEEE, i64 16), ptr %10, align 8
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -566,7 +566,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.93, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %108 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %108, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %11, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -587,7 +587,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.95, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %120, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %120, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %12, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -608,7 +608,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.97, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %132, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %132, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %13, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %134 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -629,7 +629,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.99, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %144 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %144, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %14, align 8
   %145 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store i8 0, ptr %145, align 8
@@ -652,7 +652,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.101, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %157, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %157, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %15, align 8
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %159 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -673,7 +673,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.103, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %169 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %169, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %16, align 8
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %171 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -694,7 +694,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.105, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %181 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %181, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %181, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %17, align 8
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %183 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -715,7 +715,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.107, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %193 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %193, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %18, align 8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 69
   %195 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -736,7 +736,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   store ptr @.str.109, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %205 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %205, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %205, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %19, align 8
   %206 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %207 = getelementptr inbounds nuw i8, ptr %19, i64 92

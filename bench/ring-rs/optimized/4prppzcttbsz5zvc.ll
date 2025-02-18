@@ -1511,7 +1511,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
   store i64 %87, ptr %95, align 8, !noalias !117
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6), !noalias !117
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %96, i8 0, i64 1016, i1 false), !noalias !117
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %96, i8 0, i64 1016, i1 false), !noalias !117
   store i64 1, ptr %6, align 8, !noalias !117
   %97 = icmp ugt i64 %1, 128
   br i1 %97, label %98, label %101
@@ -1872,7 +1872,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
   store i64 %87, ptr %95, align 8, !noalias !157
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6), !noalias !157
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %96, i8 0, i64 1016, i1 false), !noalias !157
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %96, i8 0, i64 1016, i1 false), !noalias !157
   store i64 1, ptr %6, align 8, !noalias !157
   %97 = icmp ugt i64 %1, 128
   br i1 %97, label %98, label %101

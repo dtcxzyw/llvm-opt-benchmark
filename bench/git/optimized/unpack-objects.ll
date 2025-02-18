@@ -732,7 +732,7 @@ use.exit32.i.i:                                   ; preds = %293
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, i8 0, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(i64 8208, ptr nonnull %10) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8208) %192, i8 0, i64 8200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8200) %192, i8 0, i64 8200, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
   store ptr @feed_input_zstream, ptr %11, align 8, !tbaa !51
   store ptr %10, ptr %193, align 8, !tbaa !53

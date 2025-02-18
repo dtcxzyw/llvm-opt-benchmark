@@ -9820,7 +9820,7 @@ define hidden void @_ZN14PhaseIdealLoop22update_addp_chain_baseEP4NodeS1_S1_(ptr
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %28, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %26, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56

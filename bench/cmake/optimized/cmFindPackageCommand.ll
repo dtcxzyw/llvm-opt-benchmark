@@ -9100,7 +9100,7 @@ _ZNSt6vectorI18cmListFileArgumentSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pr
   %.08.i.i.i.i.i = phi ptr [ %373, %.lr.ph.i.i.i.i.i ], [ %366, %.noexc244 ]
   %.057.i.i.i.i.i = phi i64 [ %372, %.lr.ph.i.i.i.i.i ], [ %362, %.noexc244 ]
   %369 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %369, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %369, i8 0, i64 24, i1 false)
   store ptr %369, ptr %.08.i.i.i.i.i, align 8, !tbaa !4
   %370 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %370, align 8, !tbaa !15

@@ -330,7 +330,7 @@ _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.e
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %37, i8 0, i64 464, i1 false), !noalias !64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %37, i8 0, i64 464, i1 false), !noalias !64
   store ptr %36, ptr %35, align 8, !tbaa !11, !noalias !64
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 28
@@ -634,7 +634,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper22setupM
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %26, i8 0, i64 480, i1 false), !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %26, i8 0, i64 480, i1 false), !noalias !91
   store ptr %25, ptr %24, align 8, !tbaa !11, !noalias !91
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 28
@@ -858,7 +858,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper15setupM
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %26, i8 0, i64 480, i1 false), !noalias !99
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %26, i8 0, i64 480, i1 false), !noalias !99
   store ptr %25, ptr %24, align 8, !tbaa !11, !noalias !99
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 28
@@ -1113,7 +1113,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper21setupM
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %26, i8 0, i64 480, i1 false), !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %26, i8 0, i64 480, i1 false), !noalias !122
   store ptr %25, ptr %24, align 8, !tbaa !11, !noalias !122
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 28
@@ -1345,7 +1345,7 @@ _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.e
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %41, i8 0, i64 432, i1 false), !noalias !129
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %41, i8 0, i64 432, i1 false), !noalias !129
   store ptr %40, ptr %39, align 8, !tbaa !11, !noalias !129
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 28
@@ -1515,7 +1515,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %114, i8 0, i64 448, i1 false), !noalias !136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %114, i8 0, i64 448, i1 false), !noalias !136
   store ptr %113, ptr %112, align 8, !tbaa !11, !noalias !136
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 28
@@ -1681,7 +1681,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %186, i8 0, i64 480, i1 false), !noalias !143
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %186, i8 0, i64 480, i1 false), !noalias !143
   store ptr %185, ptr %184, align 8, !tbaa !11, !noalias !143
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 28
@@ -1839,7 +1839,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %256 = getelementptr inbounds nuw i8, ptr %251, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %256, i8 0, i64 416, i1 false), !noalias !150
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %256, i8 0, i64 416, i1 false), !noalias !150
   store ptr %255, ptr %254, align 8, !tbaa !11, !noalias !150
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %258 = getelementptr inbounds nuw i8, ptr %251, i64 28
@@ -2013,7 +2013,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 16
   %329 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %330 = getelementptr inbounds nuw i8, ptr %325, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %330, i8 0, i64 464, i1 false), !noalias !157
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %330, i8 0, i64 464, i1 false), !noalias !157
   store ptr %329, ptr %328, align 8, !tbaa !11, !noalias !157
   %331 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %332 = getelementptr inbounds nuw i8, ptr %325, i64 28

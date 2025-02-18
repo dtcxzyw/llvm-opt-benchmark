@@ -6359,7 +6359,7 @@ define internal i32 @netlink_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !23

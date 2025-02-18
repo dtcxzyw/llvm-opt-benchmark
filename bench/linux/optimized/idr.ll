@@ -61,7 +61,7 @@ define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %18
 
 18:                                               ; preds = %15, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !9
   %19 = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 %9)
   %20 = zext i32 %19 to i64
   store i64 0, ptr %6, align 8
@@ -148,7 +148,7 @@ define dso_local i32 @idr_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %24
 
 24:                                               ; preds = %21, %9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !9
   %25 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 %16)
   %26 = zext nneg i32 %25 to i64
   store i64 0, ptr %6, align 8
@@ -214,7 +214,7 @@ define dso_local i32 @idr_alloc_cyclic(ptr noundef %0, ptr noundef %1, i32 nound
   br label %25
 
 25:                                               ; preds = %22, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !annotation !9
   %26 = tail call i32 @llvm.usub.sat.i32(i32 %13, i32 %17)
   %27 = zext i32 %26 to i64
   store i64 0, ptr %7, align 8
@@ -265,7 +265,7 @@ idr_alloc_u32.exit:                               ; preds = %25
   br label %50
 
 50:                                               ; preds = %47, %41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !annotation !9
   %51 = call i32 @llvm.usub.sat.i32(i32 %2, i32 %43)
   %52 = zext i32 %51 to i64
   store i64 0, ptr %6, align 8
@@ -344,7 +344,7 @@ define dso_local i32 @idr_for_each(ptr noundef %0, ptr noundef readonly captures
   %4 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -428,7 +428,7 @@ define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr noundef captures(none)
   %3 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -530,7 +530,7 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr noundef captures(none) %1
   %5 = sext i32 %4 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64

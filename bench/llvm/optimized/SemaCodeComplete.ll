@@ -23550,7 +23550,7 @@ _ZN12_GLOBAL__N_113ResultBuilder6IgnoreEPKN5clang4DeclE.exit: ; preds = %.lr.ph.
   %210 = load ptr, ptr %209, align 8, !tbaa !1570
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #30
   %211 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %211, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %211, i8 0, i64 72, i1 false)
   %212 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %212, ptr %18, align 8, !tbaa !1501
   %213 = getelementptr inbounds nuw i8, ptr %18, i64 8

@@ -128086,7 +128086,7 @@ define linkonce_odr void @_ZN6duckdb12Deserializer4ReadINS_6vectorINS2_ImLb0EEEL
   %.017 = phi i64 [ 0, %.lr.ph ], [ %73, %_ZNSt6vectorImSaImEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !2596)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false), !alias.scope !2596
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !alias.scope !2596
   %19 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !2596
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2596

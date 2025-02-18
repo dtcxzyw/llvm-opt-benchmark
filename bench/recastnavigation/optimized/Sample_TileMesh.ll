@@ -2147,7 +2147,7 @@ _ZN15Sample_TileMesh7cleanupEv.exit:              ; preds = %23, %29
   %49 = load ptr, ptr %40, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %51, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %53 = load float, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -2761,7 +2761,7 @@ switch.lookup:                                    ; preds = %395
   %410 = phi i32 [ %381, %.preheader ], [ %.pre104, %._crit_edge87.loopexit ]
   %.lcssa84 = phi ptr [ %379, %.preheader ], [ %404, %._crit_edge87.loopexit ]
   %411 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %411, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %411, i8 0, i64 200, i1 false)
   %412 = load ptr, ptr %.lcssa84, align 8
   store ptr %412, ptr %12, align 8
   %413 = getelementptr inbounds nuw i8, ptr %12, i64 8

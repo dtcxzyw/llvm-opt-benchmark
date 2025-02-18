@@ -308,7 +308,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail21xlogEve
   %15 = call i32 @pthread_setspecific(i32 noundef %14, ptr noundef nonnull %11) #16
   %16 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %18, ptr %16, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8

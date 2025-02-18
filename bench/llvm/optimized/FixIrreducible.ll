@@ -4290,7 +4290,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_12GenericCycleINS_17GenericS
   store ptr %14, ptr %11, align 8, !tbaa !66, !alias.scope !277
   store ptr %14, ptr %12, align 8, !tbaa !70, !alias.scope !277
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !283
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !283
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !47, !alias.scope !283
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

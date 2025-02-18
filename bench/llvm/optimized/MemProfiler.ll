@@ -3701,7 +3701,7 @@ _ZN12_GLOBAL__N_111MemProfiler18instrumentFunctionERN4llvm8FunctionE.exit: ; pre
 
 650:                                              ; preds = %_ZN12_GLOBAL__N_111MemProfiler18instrumentFunctionERN4llvm8FunctionE.exit
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %651, i8 0, i64 64, i1 false), !alias.scope !299
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %651, i8 0, i64 64, i1 false), !alias.scope !299
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %652, ptr %0, align 8, !tbaa !28, !alias.scope !299
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3993,7 +3993,7 @@ _ZN12_GLOBAL__N_117ModuleMemProfiler16instrumentModuleERN4llvm6ModuleE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %97, i8 0, i64 64, i1 false), !alias.scope !330
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %97, i8 0, i64 64, i1 false), !alias.scope !330
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %98, ptr %0, align 8, !tbaa !28, !alias.scope !330
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9287,7 +9287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1238, %._crit_edge
   %1332 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1332, i8 0, i64 64, i1 false), !alias.scope !602
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1332, i8 0, i64 64, i1 false), !alias.scope !602
   %1333 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1333, ptr %0, align 8, !tbaa !28, !alias.scope !602
   %1334 = getelementptr inbounds nuw i8, ptr %0, i64 8

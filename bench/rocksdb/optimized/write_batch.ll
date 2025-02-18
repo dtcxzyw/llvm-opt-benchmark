@@ -15171,7 +15171,7 @@ invoke.cont58:                                    ; preds = %if.then57
   store i64 %50, ptr %number_, align 8
   %rate_limiter_priority.i = getelementptr inbounds nuw i8, ptr %read_options, i64 44
   %51 = getelementptr inbounds nuw i8, ptr %read_options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %51, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %51, i8 0, i64 36, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds nuw i8, ptr %read_options, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8
@@ -17370,7 +17370,7 @@ cond.true._ZN7rocksdb12_GLOBAL__N_116MemTableInserter10GetHintMapEv.exit_crit_ed
 if.then.i76:                                      ; preds = %cond.true
   %hint_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %35 = getelementptr inbounds nuw i8, ptr %this, i64 304
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %_M_single_bucket.i.i.i, ptr %hint_.i, align 16
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
@@ -17660,7 +17660,7 @@ if.then58:                                        ; preds = %_ZN7rocksdb6StatusD
   store i64 %76, ptr %number_, align 8
   %rate_limiter_priority.i = getelementptr inbounds nuw i8, ptr %ropts, i64 44
   %77 = getelementptr inbounds nuw i8, ptr %ropts, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %77, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %77, i8 0, i64 36, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds nuw i8, ptr %ropts, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8
@@ -20109,7 +20109,7 @@ cond.true._ZN7rocksdb12_GLOBAL__N_116MemTableInserter10GetHintMapEv.exit_crit_ed
 if.then.i:                                        ; preds = %cond.true
   %hint_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 304
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %_M_single_bucket.i.i.i, ptr %hint_.i, align 16
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280

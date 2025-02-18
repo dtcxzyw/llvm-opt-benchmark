@@ -103,7 +103,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %55, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %55, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %45, align 4
   %56 = getelementptr i8, ptr %45, i64 4
   store i32 0, ptr %56, align 4
@@ -119,7 +119,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %60 = phi i32 [ %10, %59 ], [ %10, %54 ], [ %6, %.thread7.thread ]
   %61 = phi ptr [ %45, %59 ], [ %58, %54 ], [ %47, %.thread7.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %61, align 4
   %63 = getelementptr i8, ptr %61, i64 4
   store i32 %60, ptr %63, align 4
@@ -130,7 +130,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
 65:                                               ; preds = %54, %59
   %66 = phi ptr [ %58, %54 ], [ %45, %59 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %67, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %66, align 4
   %68 = getelementptr i8, ptr %66, i64 4
   store i32 32, ptr %68, align 4
@@ -138,7 +138,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   store i32 0, ptr %69, align 4
   %70 = getelementptr i8, ptr %66, i64 24
   %71 = getelementptr i8, ptr %66, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %71, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %71, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %70, align 4
   %72 = getelementptr i8, ptr %66, i64 28
   store i32 %10, ptr %72, align 4
@@ -146,7 +146,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   store i32 208, ptr %73, align 4
   %74 = getelementptr i8, ptr %66, i64 48
   %75 = getelementptr i8, ptr %66, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %75, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %75, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %74, align 4
   %76 = getelementptr i8, ptr %66, i64 52
   store i32 1048576, ptr %76, align 4
@@ -228,7 +228,7 @@ define dso_local i32 @gen11_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %7, align 4
   %13 = getelementptr i8, ptr %7, i64 4
   store i32 271601825, ptr %13, align 4
@@ -253,7 +253,7 @@ define dso_local i32 @gen11_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %19, align 4
   %25 = getelementptr i8, ptr %19, i64 4
   store i32 540298268, ptr %25, align 4
@@ -422,7 +422,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %52, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %49, align 4
   %53 = getelementptr i8, ptr %49, i64 4
   store i32 1, ptr %53, align 4
@@ -485,7 +485,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 
 95:                                               ; preds = %88
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %96, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, i8 0, i64 12, i1 false)
   %97 = select i1 %69, i32 2046829060, i32 2046820868
   store i32 %97, ptr %90, align 4
   %98 = getelementptr i8, ptr %90, i64 4
@@ -538,7 +538,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %132, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %132, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %129, align 4
   %133 = getelementptr i8, ptr %129, i64 4
   store i32 1, ptr %133, align 4
@@ -616,7 +616,7 @@ define dso_local i32 @gen12_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local
   %176 = getelementptr i8, ptr %170, i64 4
   store i32 41943297, ptr %170, align 4
   %177 = getelementptr i8, ptr %170, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %177, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %177, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %176, align 4
   %178 = getelementptr i8, ptr %170, i64 8
   store i32 %152, ptr %178, align 4
@@ -1288,7 +1288,7 @@ define dso_local noundef ptr @gen8_emit_fini_breadcrumb_xcs(ptr noundef captures
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define dso_local noundef ptr @gen8_emit_fini_breadcrumb_rcs(ptr noundef captures(none) initializes((468, 476)) %0, ptr noundef initializes((0, 56)) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 4
   store i32 1314849, ptr %4, align 4
@@ -1413,7 +1413,7 @@ define dso_local noundef ptr @gen8_emit_fini_breadcrumb_rcs(ptr noundef captures
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define dso_local noundef ptr @gen11_emit_fini_breadcrumb_rcs(ptr noundef captures(none) initializes((468, 476)) %0, ptr noundef initializes((0, 56)) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 4
   store i32 269750305, ptr %4, align 4
@@ -1755,7 +1755,7 @@ define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr noundef capture
 
 39:                                               ; preds = %34, %22
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %40, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %1, align 4
   %41 = getelementptr i8, ptr %1, i64 4
   store i32 1, ptr %41, align 4
@@ -1807,7 +1807,7 @@ define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr noundef capture
 73:                                               ; preds = %66, %64
   %74 = phi i32 [ %65, %64 ], [ %72, %66 ]
   %75 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %75, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, i8 0, i64 12, i1 false)
   store i32 2046820868, ptr %46, align 4
   %76 = getelementptr i8, ptr %46, i64 4
   store i32 %74, ptr %76, align 4

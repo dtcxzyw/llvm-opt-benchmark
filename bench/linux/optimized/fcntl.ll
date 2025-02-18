@@ -582,7 +582,7 @@ define internal fastcc void @send_sigio_to_task(ptr noundef %0, ptr noundef %1, 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #6
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   store i32 %8, ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %35, align 4

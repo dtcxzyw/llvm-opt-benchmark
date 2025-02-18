@@ -12585,7 +12585,7 @@ Vec_PtrFreeData.exit:                             ; preds = %59, %51
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Mf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %2, i8 0, i64 232, i1 false)
   store i32 6, ptr %0, align 8, !tbaa !87
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %3, align 4, !tbaa !135
@@ -15300,7 +15300,7 @@ define ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8) #29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %9, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 232, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 8, ptr %10, align 4, !tbaa !135
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -15380,7 +15380,7 @@ Abc_Clock.exit:                                   ; preds = %6, %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #29
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %17, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %17, i8 0, i64 232, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 8, ptr %18, align 4, !tbaa !135
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8

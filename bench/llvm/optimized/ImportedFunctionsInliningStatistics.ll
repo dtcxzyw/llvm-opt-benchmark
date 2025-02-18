@@ -364,7 +364,7 @@ define dso_local noundef nonnull align 8 dereferenceable(90) ptr @_ZN4llvm35Impo
 _ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatistics15InlineGraphNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %2
   %11 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !62
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %12, i8 0, i64 80, i1 false), !noalias !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !62
   store ptr %12, ptr %11, align 8, !tbaa !25, !noalias !62
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %13, align 8, !tbaa !26, !noalias !62
@@ -405,7 +405,7 @@ define dso_local void @_ZN4llvm35ImportedFunctionsInliningStatistics12recordInli
 _ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatistics15InlineGraphNodeESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %3
   %12 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !72
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %13, i8 0, i64 80, i1 false), !noalias !72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %13, i8 0, i64 80, i1 false), !noalias !72
   store ptr %13, ptr %12, align 8, !tbaa !25, !noalias !72
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %14, align 8, !tbaa !26, !noalias !72
@@ -439,7 +439,7 @@ _ZN4llvm35ImportedFunctionsInliningStatistics21createInlineGraphNodeERKNS_8Funct
 _ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatistics15InlineGraphNodeESt14default_deleteIS2_EED2Ev.exit.i13: ; preds = %_ZN4llvm35ImportedFunctionsInliningStatistics21createInlineGraphNodeERKNS_8FunctionE.exit
   %31 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23, !noalias !75
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %32, i8 0, i64 80, i1 false), !noalias !75
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %32, i8 0, i64 80, i1 false), !noalias !75
   store ptr %32, ptr %31, align 8, !tbaa !25, !noalias !75
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 0, ptr %33, align 8, !tbaa !26, !noalias !75

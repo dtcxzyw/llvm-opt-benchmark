@@ -148,7 +148,7 @@ define ptr @Wlc_ObjTypeName(ptr noundef readonly captures(address_is_null) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Wlc_ManSetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 104)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 1000000000, ptr %0, align 8, !tbaa !8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1000000000, ptr %3, align 4, !tbaa !11

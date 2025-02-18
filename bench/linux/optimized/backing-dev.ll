@@ -204,7 +204,7 @@ define dso_local i32 @bdi_init(ptr noundef initializes((728, 736)) %0) local_unn
   store i64 %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %15, i8 0, i64 576, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %15, i8 0, i64 576, i1 false)
   store ptr %0, ptr %14, align 8
   %16 = load volatile i64, ptr @jiffies, align 64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120

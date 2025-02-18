@@ -17701,7 +17701,7 @@ for.body25:                                       ; preds = %for.cond19.preheade
   br i1 %cmp.i.i, label %for.inc141, label %if.end32
 
 if.end32:                                         ; preds = %for.body25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %arrayctor.loop.i.i68
 
 arrayctor.loop.i.i68:                             ; preds = %arrayctor.loop.i.i68, %if.end32

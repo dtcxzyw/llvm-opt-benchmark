@@ -6305,7 +6305,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_get_ae(ptr noundef readonly 
   br label %81
 
 54:                                               ; preds = %42
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !8
   %55 = getelementptr inbounds nuw i8, ptr %29, i64 76
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %55) #16
   %56 = getelementptr i8, ptr %1, i64 56

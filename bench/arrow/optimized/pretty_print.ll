@@ -506,7 +506,7 @@ define void @_ZN5arrow11PrettyPrintERKNS_5ArrayEiPSo(ptr dead_on_unwind noalias 
   store i8 1, ptr %17, align 1, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, i8 0, i64 80, i1 false), !alias.scope !49
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 80, i1 false), !alias.scope !49
   store ptr %19, ptr %18, align 8, !tbaa !42, !alias.scope !49
   store i8 91, ptr %19, align 8, !tbaa !44, !alias.scope !49
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -525,7 +525,7 @@ define void @_ZN5arrow11PrettyPrintERKNS_5ArrayEiPSo(ptr dead_on_unwind noalias 
   store i64 1, ptr %26, align 8, !tbaa !43, !alias.scope !49
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, i8 0, i64 80, i1 false), !alias.scope !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 80, i1 false), !alias.scope !52
   store ptr %28, ptr %27, align 8, !tbaa !42, !alias.scope !52
   store i8 91, ptr %28, align 8, !tbaa !44, !alias.scope !52
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 160

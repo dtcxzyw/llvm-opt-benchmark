@@ -347,7 +347,7 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %23, align 4, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, i8 -1, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, i8 -1, i64 20, i1 false)
   %25 = or i32 %0, -2147483648
   store i32 %25, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 12

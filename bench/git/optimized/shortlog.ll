@@ -107,7 +107,7 @@ define dso_local void @shortlog_add_commit(ptr noundef %0, ptr noundef %1) local
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) @__const.shortlog_add_commit.dups, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, i8 0, i64 168, i1 false)
   store i32 8, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4, !tbaa !20

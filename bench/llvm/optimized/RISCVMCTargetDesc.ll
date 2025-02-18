@@ -2059,7 +2059,7 @@ define internal noundef nonnull ptr @_ZL27createRISCVMCObjectFileInfoRN4llvm9MCC
 define internal noalias noundef nonnull ptr @_ZL22createRISCVMCInstrInfov() #3 {
   %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm10RISCVDescsE, i64 440896), ptr %1, align 8, !tbaa !60
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN4llvm21RISCVInstrNameIndicesE, ptr %3, align 8, !tbaa !64
@@ -2077,7 +2077,7 @@ define internal noundef nonnull ptr @_ZL25createRISCVMCRegisterInfoRKN4llvm6Trip
 _ZN4llvmL23InitRISCVMCRegisterInfoEPNS_14MCRegisterInfoEjjjj.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #19
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %2, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm14MCRegisterInfoE, i64 16), ptr %1, align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24

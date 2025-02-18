@@ -1426,7 +1426,7 @@ define dso_local range(i32 -1, 1) i32 @php_stream_open_for_zend_ex(ptr noundef c
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 72, i1 false)
   store i8 2, ptr %4, align 8, !tbaa !95
   store ptr %8, ptr %7, align 8, !tbaa !97
   %14 = load ptr, ptr %3, align 8, !tbaa !98
@@ -3035,7 +3035,7 @@ define internal range(i32 -1, 1) i32 @php_stream_open_for_zend(ptr noundef captu
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
   store i8 2, ptr %3, align 8, !tbaa !95
   store ptr %7, ptr %6, align 8, !tbaa !97
   %12 = load ptr, ptr %2, align 8, !tbaa !98

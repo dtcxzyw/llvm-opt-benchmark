@@ -13656,7 +13656,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CM
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -14723,7 +14723,7 @@ _ZNK12QDomNodeList2atEi.exit85:                   ; preds = %162
 
 180:                                              ; preds = %_ZNK12QDomNodeList4sizeEv.exit
   %181 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %181, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %181, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %25, align 4
   %182 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store float 1.000000e+00, ptr %182, align 4
@@ -14732,7 +14732,7 @@ _ZNK12QDomNodeList2atEi.exit85:                   ; preds = %162
   %184 = getelementptr inbounds nuw i8, ptr %25, i64 60
   store float 1.000000e+00, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %185, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %185, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %26, align 4
   %186 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store float 1.000000e+00, ptr %186, align 4
@@ -18648,7 +18648,7 @@ define linkonce_odr void @_ZN3vcg3tri2io7UtilDAE19ParseRotationMatrixERNS_8Matri
   %9 = alloca %"class.vcg::Matrix44", align 4
   %10 = alloca %"class.vcg::Matrix44", align 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %3, align 4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float 1.000000e+00, ptr %12, align 4
@@ -18657,7 +18657,7 @@ define linkonce_odr void @_ZN3vcg3tri2io7UtilDAE19ParseRotationMatrixERNS_8Matri
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store float 1.000000e+00, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %4, align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 1.000000e+00, ptr %16, align 4

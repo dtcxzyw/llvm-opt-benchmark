@@ -3851,7 +3851,7 @@ define dso_local void @kmem_cache_free_bulk(ptr noundef %0, i64 noundef %1, ptr 
 12:                                               ; preds = %.loopexit, %6
   %13 = phi i64 [ %15, %.loopexit ], [ %1, %6 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 32, i1 false), !annotation !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !annotation !66
   %14 = call fastcc i32 @build_detached_freelist(ptr noundef %0, i64 noundef %13, ptr noundef %2, ptr noundef nonnull %4)
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %4, align 8

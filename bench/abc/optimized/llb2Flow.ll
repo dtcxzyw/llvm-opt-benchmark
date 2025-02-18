@@ -4864,7 +4864,7 @@ Llb_ManResultPrint.exit:                          ; preds = %96, %74
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Llb_BddSetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 112)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   store i32 1000000, ptr %0, align 8, !tbaa !100
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 10000000, ptr %3, align 4, !tbaa !102
@@ -4903,7 +4903,7 @@ define void @Llb_ManMinCutTest(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %3 = alloca %struct.Gia_ParLlb_t_, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   store i32 1000000, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 10000000, ptr %5, align 4, !tbaa !102

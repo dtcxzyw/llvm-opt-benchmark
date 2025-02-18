@@ -7779,7 +7779,7 @@ define internal fastcc noundef range(i32 0, 493) i32 @ata_msense_control(ptr nou
   store i16 2570, ptr %1, align 1
   %7 = getelementptr i8, ptr %1, i64 2
   %8 = getelementptr i8, ptr %1, i64 3
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(10) %8, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
   store i8 4, ptr %7, align 1
   br label %.loopexit
 
@@ -7896,7 +7896,7 @@ define internal fastcc noundef range(i32 0, 493) i32 @ata_msense_control(ptr nou
   store i16 2570, ptr %1, align 1
   %83 = getelementptr i8, ptr %1, i64 2
   %84 = getelementptr i8, ptr %1, i64 3
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(10) %84, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %84, i8 0, i64 9, i1 false)
   store i8 4, ptr %83, align 1
   br label %94
 

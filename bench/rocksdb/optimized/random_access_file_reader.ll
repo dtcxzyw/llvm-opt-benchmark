@@ -5793,7 +5793,7 @@ if.then:                                          ; preds = %land.lhs.true
   %size_.i.i = getelementptr inbounds nuw i8, ptr %user_req, i64 32
   %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %user_req, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %user_req, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %6, i8 0, i64 6, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %state_.i.i.i.i, i8 0, i64 48, i1 false)
   %user_scratch_ = getelementptr inbounds nuw i8, ptr %cb_arg, i64 64
   %7 = load ptr, ptr %user_scratch_, align 8

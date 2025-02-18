@@ -216,7 +216,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %6 = phi i32 [ %2, %if.end ], [ %.pre, %for.end.loopexit ]
   %doTitle.0 = phi i8 [ 1, %if.end ], [ %doTitle.0.ph, %for.end.loopexit ]
   %7 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %text, ptr %csc, align 8
   %start15 = getelementptr inbounds nuw i8, ptr %csc, i64 8
   store i32 %6, ptr %start15, align 8

@@ -728,7 +728,7 @@ check_publication_add_relation.exit:              ; preds = %51
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr @pub_collist_validate(ptr noundef %69, ptr noundef %71)
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %73, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   %74 = tail call i32 @GetNewOidWithIndex(ptr noundef %12, i32 noundef 6112, i16 noundef signext 1) #6
   %75 = zext i32 %74 to i64
@@ -1989,7 +1989,7 @@ list_length.exit:                                 ; preds = %121
   %136 = call i32 @get_rel_namespace(i32 noundef %135) #6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %137, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %137, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 4

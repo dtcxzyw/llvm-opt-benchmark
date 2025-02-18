@@ -21392,9 +21392,9 @@ _ZN5image6codecs4webp3vp811add_residue17h275d3544456f3a41E.exit.loopexit.i: ; pr
   %1914 = lshr i16 %1913, 1
   %1915 = zext nneg i16 %1914 to i64
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %4), !noalias !2445
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %751, i8 0, i64 80, i1 false), !noalias !2445
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %751, i8 0, i64 80, i1 false), !noalias !2445
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %3), !noalias !2445
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %752, i8 0, i64 80, i1 false), !noalias !2445
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %752, i8 0, i64 80, i1 false), !noalias !2445
   %1916 = add i16 %1911, 1
   %1917 = lshr i16 %1916, 1
   %1918 = zext nneg i16 %1917 to i64

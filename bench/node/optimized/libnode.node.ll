@@ -2060,7 +2060,7 @@ do.end25:                                         ; preds = %do.body16
 
 if.end26:                                         ; preds = %do.end4
   %1 = getelementptr inbounds nuw i8, ptr %sa, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %1, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   store ptr %handler, ptr %sa, align 8
   %cond = select i1 %reset_handler, i32 -2147483648, i32 0
   %sa_flags = getelementptr inbounds nuw i8, ptr %sa, i64 136
@@ -2089,7 +2089,7 @@ entry:
   %act = alloca %struct.sigaction, align 8
   %old = alloca %struct.sigaction, align 8
   %0 = getelementptr inbounds nuw i8, ptr %act, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 144, i1 false)
   %sa_flags = getelementptr inbounds nuw i8, ptr %old, i64 136
   br label %for.body
 
@@ -3635,7 +3635,7 @@ if.end156.i:                                      ; preds = %for.inc153.i, %if.e
 if.then159.i:                                     ; preds = %if.end156.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i.i)
   %24 = getelementptr inbounds nuw i8, ptr %sa.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %24, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, i8 0, i64 144, i1 false)
   store ptr @_ZN4node10SignalExitEiP9siginfo_tPv, ptr %sa.i.i, align 8
   %sa_flags.i.i = getelementptr inbounds nuw i8, ptr %sa.i.i, i64 136
   store i32 -2147483648, ptr %sa_flags.i.i, align 8
@@ -3653,7 +3653,7 @@ _ZN4node21RegisterSignalHandlerEiPFviP9siginfo_tPvEb.exit.i: ; preds = %if.then1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i37.i)
   %25 = getelementptr inbounds nuw i8, ptr %sa.i37.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %25, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, i8 0, i64 144, i1 false)
   store ptr @_ZN4node10SignalExitEiP9siginfo_tPv, ptr %sa.i37.i, align 8
   %sa_flags.i38.i = getelementptr inbounds nuw i8, ptr %sa.i37.i, i64 136
   store i32 -2147483648, ptr %sa_flags.i38.i, align 8
@@ -3670,7 +3670,7 @@ do.body36.i43.i:                                  ; preds = %_ZN4node21RegisterS
 _ZN4node21RegisterSignalHandlerEiPFviP9siginfo_tPvEb.exit44.i: ; preds = %_ZN4node21RegisterSignalHandlerEiPFviP9siginfo_tPvEb.exit.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i37.i)
   %26 = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %26, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, i8 0, i64 144, i1 false)
   store ptr @_ZN4node25TrapWebAssemblyOrContinueEiP9siginfo_tPv, ptr %sa.i, align 8
   %sa_flags.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 136
   store i32 4, ptr %sa_flags.i, align 8

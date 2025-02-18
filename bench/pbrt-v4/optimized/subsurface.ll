@@ -798,7 +798,7 @@ entry:
   %and.i.i.i.i.i.i = and i64 %2, 144115188075855871
   %51 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %52 = getelementptr inbounds nuw i8, ptr %ctx.i.i.i.i, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %52, i8 0, i64 64, i1 false), !alias.scope !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %52, i8 0, i64 64, i1 false), !alias.scope !16
   %wo2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx.i.i.i.i, i64 76
   store <2 x float> %retval.sroa.0.4.vec.insert.i35.i.i.i.i, ptr %wo2.i.i.i.i.i, align 4
   %agg.tmp.sroa.20.84.wo2.i.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %ctx.i.i.i.i, i64 84
@@ -1627,7 +1627,7 @@ if.end:                                           ; preds = %for.body.i169, %_ZN
   %sigma_t.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %table8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
   %66 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   store ptr %table61, ptr %table8.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.i.i, ptr noundef nonnull align 8 dereferenceable(16) %sig_a, i64 16, i1 false)
@@ -5043,7 +5043,7 @@ entry:
   %lambda.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 120
   %ssi.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 192
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %x.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %x.i, align 8
   %idxprom.i = sext i32 %i to i64

@@ -3661,7 +3661,7 @@ define linkonce_odr void @_ZN4llvm5nodesIPNS_10RegionInfoEEENS_14iterator_rangeI
   %24 = inttoptr i64 %23 to ptr
   %25 = call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE9getBBNodeEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef %24) #23, !noalias !238
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %26, i8 0, i64 72, i1 false), !alias.scope !241
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false), !alias.scope !241
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %27, ptr %4, align 8, !tbaa !45, !alias.scope !241
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8

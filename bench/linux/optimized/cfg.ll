@@ -1017,7 +1017,7 @@ define dso_local i32 @ieee80211_channel_switch(ptr readnone captures(none) %0, p
   br i1 %57, label %125, label %58
 
 58:                                               ; preds = %54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 48, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !annotation !45
   %59 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %60 = load i16, ptr %59, align 8
   %61 = icmp eq i16 %60, 0

@@ -23852,7 +23852,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %88, ptr %6, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24576,7 +24576,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #27
   %341 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %341, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, i8 0, i64 16, i1 false)
   %342 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %342, ptr %17, align 8, !tbaa !4
   %343 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -27681,7 +27681,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %92, ptr %6, align 8, !tbaa !4
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -28433,7 +28433,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #27
   %368 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %368, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %368, i8 0, i64 16, i1 false)
   %369 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %369, ptr %20, align 8, !tbaa !4
   %370 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -161245,7 +161245,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %154, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %159, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %160, ptr %10, align 8, !tbaa !4
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -161950,7 +161950,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i244: ; preds = %427, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #27
   %432 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %432, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %432, i8 0, i64 16, i1 false)
   %433 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %433, ptr %20, align 8, !tbaa !4
   %434 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -162921,7 +162921,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i339: ; preds = %811, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #27
   %816 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %816, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %816, i8 0, i64 16, i1 false)
   %817 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %817, ptr %33, align 8, !tbaa !4
   %818 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -164790,7 +164790,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %154, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %159, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %160, ptr %10, align 8, !tbaa !4
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -165499,7 +165499,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i245: ; preds = %428, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #27
   %433 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %433, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
   %434 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %434, ptr %20, align 8, !tbaa !4
   %435 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -166470,7 +166470,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i340: ; preds = %812, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #27
   %817 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %817, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %817, i8 0, i64 16, i1 false)
   %818 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %818, ptr %33, align 8, !tbaa !4
   %819 = getelementptr inbounds nuw i8, ptr %33, i64 8

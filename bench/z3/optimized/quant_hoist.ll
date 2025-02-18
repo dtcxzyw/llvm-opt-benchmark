@@ -327,7 +327,7 @@ entry:
   %bound_names = alloca %class.svector.8, align 8
   %bound_sorts = alloca %class.ptr_vector.42, align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, i8 0, i64 208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   %call.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %call.i.i.i.i.i.i.i.i, i8 0, i64 128, i1 false)
   store ptr %call.i.i.i.i.i.i.i.i, ptr %ref.tmp, align 8

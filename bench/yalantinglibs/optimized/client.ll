@@ -20769,7 +20769,7 @@ while.body:                                       ; preds = %while.cond.preheade
   ]
 
 if.then13:                                        ; preds = %while.body, %while.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i16 2, ptr %endpoint, align 4
   store i16 0, ptr %sin_port.i.i, align 2
   store i32 0, ptr %sin_addr.i.i, align 4
@@ -23585,7 +23585,7 @@ _ZN4asio2ipeqERKNS0_23basic_resolver_iteratorINS0_3tcpEEES5_.exit156: ; preds = 
 cond.true:                                        ; preds = %for.end, %for.end.thread212, %for.end.thread, %_ZN4asio2ipeqERKNS0_23basic_resolver_iteratorINS0_3tcpEEES5_.exit156
   %handler_200 = phi ptr [ %handler_197, %for.end.thread ], [ %handler_204211, %_ZN4asio2ipeqERKNS0_23basic_resolver_iteratorINS0_3tcpEEES5_.exit156 ], [ %handler_, %for.end ], [ %handler_214, %for.end.thread212 ]
   %152 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %152, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %152, i8 0, i64 20, i1 false)
   store i16 2, ptr %ref.tmp51, align 4
   %sin_port.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 2
   store i16 0, ptr %sin_port.i.i, align 2

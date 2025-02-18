@@ -2919,7 +2919,7 @@ parseargs.exit:                                   ; preds = %.loopexit.i
   store i64 256, ptr %malloc.i.i, align 8, !tbaa !19
   %70 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 72
   %71 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store i32 2, ptr %70, align 8, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %72, i8 0, i64 80, i1 false)

@@ -7572,7 +7572,7 @@ define ptr @sqlite3_expert_new(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 idxMalloc.exit:                                   ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8288) %14, i8 0, i64 8284, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8284) %14, i8 0, i64 8284, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %15, align 8, !tbaa !139
   store i32 100, ptr %13, align 8, !tbaa !149
@@ -8221,7 +8221,7 @@ define internal range(i32 0, 8) i32 @idxAuthCallback(ptr noundef captures(none) 
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %30, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %30, i8 0, i64 12, i1 false)
   store ptr %.02939, ptr %28, align 8, !tbaa !170
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %1, ptr %31, align 8, !tbaa !172
@@ -10311,7 +10311,7 @@ define i32 @sqlite3_intck_open(ptr noundef %0, ptr noundef readonly captures(add
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !247
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -44114,7 +44114,7 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %1, ptr %5, align 8, !tbaa !921
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %11, align 8, !tbaa !924
@@ -44199,7 +44199,7 @@ define internal fastcc range(i32 0, 8) i32 @zipfileDeflate(ptr noundef %0, i32 n
   %6 = alloca %struct.z_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
   store ptr %0, ptr %6, align 8, !tbaa !921
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %8, align 8, !tbaa !924
@@ -47987,7 +47987,7 @@ define internal range(i32 0, 8) i32 @dbdataOpen(ptr noundef %0, ptr noundef writ
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !973
   store ptr %3, ptr %1, align 8, !tbaa !748
   br label %7
@@ -53583,7 +53583,7 @@ strlen30.exit:                                    ; preds = %17
 
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(334) %64, i8 0, i64 294, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(294) %64, i8 0, i64 294, i1 false)
   store ptr %61, ptr %62, align 8, !tbaa !331
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 328
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8

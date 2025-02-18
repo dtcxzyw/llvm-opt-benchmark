@@ -5141,7 +5141,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit78.i.i: ; p
 1382:                                             ; preds = %1377
   %1383 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25, !noalias !561
   %1384 = getelementptr inbounds nuw i8, ptr %1383, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %1384, i8 0, i64 80, i1 false), !noalias !561
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1384, i8 0, i64 80, i1 false), !noalias !561
   store ptr %1384, ptr %1383, align 8, !tbaa !25, !noalias !561
   %1385 = getelementptr inbounds nuw i8, ptr %1383, i64 8
   store i32 0, ptr %1385, align 8, !tbaa !26, !noalias !561
@@ -13838,7 +13838,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17IVChainEE7reserveEm.exit.i.i: ; preds 
 .lr.ph.i.i96:                                     ; preds = %.lr.ph.i.i96, %.lr.ph.preheader.i.i
   %.014.i.i = phi ptr [ %284, %.lr.ph.i.i96 ], [ %279, %.lr.ph.preheader.i.i ]
   %280 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %280, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %280, i8 0, i64 24, i1 false)
   store ptr %280, ptr %.014.i.i, align 8, !tbaa !25
   %281 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   store i32 0, ptr %281, align 8, !tbaa !26
@@ -35560,7 +35560,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_110ChainUsersEE7reserveEm.exit.i.i: ; pr
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.014.i.i = phi ptr [ %206, %.lr.ph.i.i ], [ %196, %.lr.ph.preheader.i.i ]
   %197 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %197, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %197, i8 0, i64 96, i1 false)
   %198 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   store ptr %198, ptr %.014.i.i, align 8, !tbaa !28
   %199 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8

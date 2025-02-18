@@ -627,7 +627,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalVal
 
 ._crit_edge255:                                   ; preds = %325, %._crit_edge250
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %250, i8 0, i64 64, i1 false), !alias.scope !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %250, i8 0, i64 64, i1 false), !alias.scope !60
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %251, ptr %0, align 8, !tbaa !63, !alias.scope !60
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8

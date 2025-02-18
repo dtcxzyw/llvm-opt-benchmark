@@ -4732,7 +4732,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %14 = load float, ptr %13, align 4, !noalias !38
   %15 = fneg float %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, i8 0, i64 56, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %16, i8 0, i64 56, i1 false), !noalias !38
   store float 1.000000e+00, ptr %4, align 4, !noalias !38
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 1.000000e+00, ptr %17, align 4, !noalias !38

@@ -251,7 +251,7 @@ define internal range(i32 0, 2) i32 @test_a2ulabel() #0 {
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %1) #6
   call void @llvm.lifetime.start.p0(i64 530, ptr nonnull %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(530) %3, i8 0, i64 18, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, i8 0, i64 18, i1 false)
   %4 = call i32 @ossl_a2ulabel(ptr noundef nonnull @.str.45, ptr noundef nonnull %1, i64 noundef 1) #6
   %5 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 199, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef 0) #6
   %.not = icmp eq i32 %5, 0

@@ -1438,7 +1438,7 @@ entry:
   %per_isolate = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %0, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17PerIsolateOptionsE, i64 16), ptr %call, align 8
   %per_env.i = getelementptr inbounds nuw i8, ptr %call, i64 8

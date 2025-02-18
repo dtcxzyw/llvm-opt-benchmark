@@ -1377,7 +1377,7 @@ _ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %25
   %29 = sext i32 %26 to i64
   %30 = getelementptr inbounds %struct.GLNVGcall, ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %31, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   store i32 1, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 4, ptr %32, align 4
@@ -1801,7 +1801,7 @@ _ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %25
   %29 = sext i32 %26 to i64
   %30 = getelementptr inbounds %struct.GLNVGcall, ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %31, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   store i32 3, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %33 = load i32, ptr %32, align 4
@@ -2124,7 +2124,7 @@ _ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %23
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds %struct.GLNVGcall, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %29, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 40, i1 false)
   store i32 4, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = load i32, ptr %30, align 4

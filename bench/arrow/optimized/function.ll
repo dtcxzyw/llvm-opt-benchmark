@@ -14579,7 +14579,7 @@ _ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_function.cc() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 16), i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 16), i8 0, i64 112, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 16), ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, align 8, !tbaa !436
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 8), align 8, !tbaa !45
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow7computeL17kEmptyFunctionDocE, i64 32), align 8, !tbaa !436

@@ -768,7 +768,7 @@ define internal fastcc ptr @port_make_channel(ptr noundef %0, ptr noundef %1, i3
   %4 = alloca %struct.quic_channel_args_st, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %2, ptr %6, align 8, !tbaa !95
@@ -1702,7 +1702,7 @@ define internal fastcc void @port_send_retry(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 1 dereferenceable(21) %18, i64 21, i1 false)
@@ -2295,7 +2295,7 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)

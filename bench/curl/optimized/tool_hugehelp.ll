@@ -15,7 +15,7 @@ define dso_local void @hugehelp() local_unnamed_addr #0 {
   %1 = alloca %struct.z_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %1) #10
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @zalloc_func, ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -112,7 +112,7 @@ define dso_local void @showhelp(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #10
   call void @inithelpscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @zalloc_func, ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72

@@ -2427,7 +2427,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdZipFileWrit
   %.sroa.032.035 = phi ptr [ %.val22, %.lr.ph ], [ %114, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.035, i64 40
   %52 = load i32, ptr %.sroa.032.035, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 33639248, ptr %5, align 8
   store i16 0, ptr %22, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.035, i64 8
@@ -2975,7 +2975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_ZipFilePathERKNSt7__cxx111
 143:                                              ; preds = %128
   %144 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %145, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
   store i32 67324752, ptr %13, align 8
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i16 10, ptr %146, align 4

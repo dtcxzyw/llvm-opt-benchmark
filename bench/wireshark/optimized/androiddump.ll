@@ -2693,7 +2693,7 @@ get_serial_from_interface.exit:                   ; preds = %29, %26
 
 adb_forward.exit:                                 ; preds = %.sink.split.i, %39, %37
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, i8 noundef 0, i64 noundef 12, i1 noundef false) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, i8 noundef 0, i64 noundef 12, i1 noundef false) #19
   store i16 2, ptr %12, align 4
   %55 = load i16, ptr %7, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %55)
@@ -3493,7 +3493,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 noundef 0, i64 noundef 12, i1 noundef false) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 noundef 0, i64 noundef 12, i1 noundef false) #19
   store i16 2, ptr %5, align 4
   %11 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %11)
@@ -4060,7 +4060,7 @@ define internal fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %0, i32 noun
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19

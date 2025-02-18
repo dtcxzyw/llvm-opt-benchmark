@@ -281,7 +281,7 @@ define internal i32 @hmac_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %17 = getelementptr [0 x i8], ptr %15, i64 0, i64 %16
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #7
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %18, i8 0, i64 368, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %18, i8 0, i64 368, i1 false), !annotation !5
   store ptr %14, ptr %4, align 8
   %19 = icmp ult i32 %8, %2
   br i1 %19, label %20, label %23

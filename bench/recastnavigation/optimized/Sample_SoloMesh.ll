@@ -1827,7 +1827,7 @@ switch.lookup:                                    ; preds = %323
   %337 = phi i32 [ %314, %311 ], [ %334, %331 ]
   %.lcssa68 = phi ptr [ %312, %311 ], [ %332, %331 ]
   %338 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %338, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %338, i8 0, i64 200, i1 false)
   %339 = load ptr, ptr %.lcssa68, align 8
   store ptr %339, ptr %4, align 8
   %340 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 40

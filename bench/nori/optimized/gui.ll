@@ -324,7 +324,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i:            ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   store i64 %99, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 16, i1 false)

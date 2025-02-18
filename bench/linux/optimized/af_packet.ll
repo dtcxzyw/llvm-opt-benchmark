@@ -5639,7 +5639,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
 147:                                              ; preds = %146
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %149, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %149, i8 0, i64 144, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 1, ptr %150, align 8
   store ptr %113, ptr %148, align 8

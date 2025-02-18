@@ -221,7 +221,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hdmi_infofra
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @hdmi_avi_infoframe_init(ptr noundef writeonly captures(none) initializes((0, 60)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %2, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i32 130, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 2, ptr %3, align 4
@@ -525,7 +525,7 @@ select.unfold:                                    ; preds = %3, %6, %10, %14, %1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef i32 @hdmi_spd_infoframe_init(ptr noundef writeonly captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 131, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %5, align 4
@@ -713,7 +713,7 @@ define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack(ptr noundef rea
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @hdmi_audio_infoframe_init(ptr noundef writeonly captures(none) initializes((0, 28)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 132, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %3, align 4
@@ -1056,7 +1056,7 @@ define dso_local range(i64 -22, 260) i64 @hdmi_audio_infoframe_pack_for_dp(ptr n
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @hdmi_vendor_infoframe_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   store i32 129, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %3, align 4
@@ -1328,7 +1328,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr noundef
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @hdmi_drm_infoframe_init(ptr noundef writeonly captures(none) initializes((0, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %2, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   store i32 135, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %3, align 4
@@ -2935,7 +2935,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(p
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   store i32 135, ptr %0, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %7, align 4
@@ -3050,7 +3050,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %27, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store i32 130, ptr %0, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 2, ptr %28, align 4
@@ -3252,7 +3252,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %164 = getelementptr i8, ptr %1, i64 4
   %165 = getelementptr i8, ptr %1, i64 12
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %166, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %166, i8 0, i64 32, i1 false)
   store i32 131, ptr %0, align 4
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %167, align 4
@@ -3305,7 +3305,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %199, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %199, i8 0, i64 24, i1 false)
   store i32 132, ptr %0, align 4
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %200, align 4
@@ -3415,7 +3415,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
 274:                                              ; preds = %270
   %275 = lshr i8 %272, 5
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %276, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %276, i8 0, i64 20, i1 false)
   store i32 129, ptr %0, align 4
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %277, align 4

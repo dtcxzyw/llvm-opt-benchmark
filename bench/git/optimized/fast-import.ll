@@ -583,7 +583,7 @@ sub_1:                                            ; preds = %.lr.ph
   call void @set_die_routine(ptr noundef nonnull @die_nicely) #24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %34) #24
   %95 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %95, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %95, i8 0, i64 144, i1 false)
   store ptr @checkpoint_signal, ptr %34, align 8, !tbaa !30
   %96 = call i32 @sigemptyset(ptr noundef nonnull %95) #24
   %97 = getelementptr inbounds nuw i8, ptr %34, i64 136

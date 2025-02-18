@@ -1058,7 +1058,7 @@ declare dso_local ptr @xa_find_after(ptr noundef, ptr noundef, i64 noundef, i32 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_rq_init(ptr noundef %0, ptr noundef initializes((8, 248)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, i8 0, i64 240, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store volatile ptr %4, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -7774,7 +7774,7 @@ define dso_local void @blk_mq_submit_bio(ptr noundef %0) local_unnamed_addr #0 a
   %200 = load i32, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #22
   %201 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %201, i8 0, i64 40, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %201, i8 0, i64 40, i1 false), !annotation !11
   store ptr %7, ptr %2, align 8
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %202, align 8
@@ -11337,7 +11337,7 @@ declare dso_local void @cleanup_srcu_struct(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @blk_mq_alloc_sq_tag_set(ptr noundef initializes((0, 168)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, i8 0, i64 160, i1 false)
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 1, ptr %6, align 4

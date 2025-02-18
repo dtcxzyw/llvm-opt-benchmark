@@ -4626,7 +4626,7 @@ invoke.cont539:                                   ; preds = %.noexc990
   %type_.i.i994 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 168
   %121 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 40
   %122 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %122, i8 0, i64 64, i1 false), !alias.scope !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %122, i8 0, i64 64, i1 false), !alias.scope !9
   store i32 19, ptr %type_.i.i994, align 8, !alias.scope !9
   %verification_.i.i995 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 172
   store i32 0, ptr %verification_.i.i995, align 4, !alias.scope !9

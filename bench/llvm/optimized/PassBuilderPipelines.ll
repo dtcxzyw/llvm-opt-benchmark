@@ -8297,7 +8297,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %369 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %370 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %371 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %371, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %371, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %24) #20
   %372 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %372, ptr %24, align 8, !tbaa !32
@@ -14051,7 +14051,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
   %788 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %789 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %790 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %790, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %790, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %32) #20
   %791 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %791, ptr %32, align 8, !tbaa !32
@@ -30267,7 +30267,7 @@ _ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_
   %397 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %398 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %399 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %399, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %399, i8 0, i64 24, i1 false)
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %401 = load i64, ptr %400, align 8
   store i32 1, ptr %395, align 8, !tbaa !33
@@ -84224,7 +84224,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_9GlobalsAAEEEPNT_6
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_9GlobalsAAEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !2867
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !2867
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !35, !alias.scope !2867
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8

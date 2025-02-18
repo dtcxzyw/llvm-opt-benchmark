@@ -766,7 +766,7 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   %43 = load i32, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #21
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %44, i8 0, i64 40, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 40, i1 false), !annotation !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !7
   %45 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %2, i64 noundef 64) #21

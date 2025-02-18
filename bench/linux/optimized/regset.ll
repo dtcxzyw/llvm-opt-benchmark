@@ -536,7 +536,7 @@ define dso_local i32 @fpregs_get(ptr noundef %0, ptr noundef readnone captures(n
 
 19:                                               ; preds = %18, %14
   %20 = phi ptr [ %6, %18 ], [ %17, %14 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %7, i8 0, i64 100, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %7, i8 0, i64 100, i1 false), !annotation !8
   call fastcc void @__convert_from_fxsr(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %20)
   %21 = icmp eq i64 %3, 0
   br i1 %21, label %26, label %22

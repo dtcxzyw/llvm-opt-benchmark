@@ -71,7 +71,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i:              ; preds = %14, %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr %16, ptr %18, align 8
   store ptr %17, ptr %19, align 8
   store ptr %17, ptr %20, align 8
@@ -321,7 +321,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc42
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %112, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
   store ptr %.sroa.0100.3192, ptr %109, align 8
   store ptr %.0.i.i.i.i.i197, ptr %110, align 8
   store ptr %.sroa.12.0195, ptr %111, align 8

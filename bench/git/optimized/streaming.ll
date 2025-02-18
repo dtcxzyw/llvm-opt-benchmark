@@ -73,7 +73,7 @@ lookup_replace_object.exit:                       ; preds = %5, %17, %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #11
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   store ptr %2, ptr %8, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %26, align 8, !tbaa !54
@@ -133,7 +133,7 @@ lookup_replace_object.exit:                       ; preds = %5, %17, %23
 50:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #11
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store i64 0, ptr %53, align 8, !tbaa !56
@@ -199,7 +199,7 @@ define internal i32 @open_istream_incore(ptr noundef initializes((8, 24), (208, 
   %5 = alloca %struct.object_info, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %8, align 8, !tbaa !56
@@ -385,7 +385,7 @@ define internal range(i32 -1, 1) i32 @open_istream_loose(ptr noundef %0, ptr nou
   %5 = alloca %struct.object_info, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !54

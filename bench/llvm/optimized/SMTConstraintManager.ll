@@ -3220,7 +3220,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutC
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoISt4pairIPKN5clang4ento7SymExprEPKNS_7SMTExprEEEEE5beginEv.exit: ; preds = %13, %16
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #21
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %23, i8 0, i64 160, i1 false), !alias.scope !564
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %23, i8 0, i64 160, i1 false), !alias.scope !564
   store ptr %23, ptr %4, align 8, !tbaa !11, !alias.scope !564
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %24, align 8, !tbaa !14, !alias.scope !564
@@ -3256,7 +3256,7 @@ _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoISt4pairIPKN5clang4ento7SymExprEPKN
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoISt4pairIPKN5clang4ento7SymExprEPKNS_7SMTExprEEEEE5beginEv.exit9: ; preds = %30, %33
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #21
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %40, i8 0, i64 160, i1 false), !alias.scope !570
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %40, i8 0, i64 160, i1 false), !alias.scope !570
   store ptr %40, ptr %6, align 8, !tbaa !11, !alias.scope !570
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %41, align 8, !tbaa !14, !alias.scope !570
@@ -6842,7 +6842,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContai
 
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoISt4pairIPKN5clang4ento7SymExprEPKNS_7SMTExprEEEEE5beginEv.exit: ; preds = %24, %27
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %18, i8 0, i64 160, i1 false), !alias.scope !669
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false), !alias.scope !669
   store ptr %18, ptr %5, align 8, !tbaa !11, !alias.scope !669
   store i32 0, ptr %19, align 8, !tbaa !14, !alias.scope !669
   store i32 20, ptr %20, align 4, !tbaa !15, !alias.scope !669
@@ -7500,7 +7500,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_17Imu
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoISt4pairIPKN5clang4ento7SymExprEPKNS_7SMTExprEEEEE5beginEv.exit: ; preds = %10, %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #21
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, i8 0, i64 160, i1 false), !alias.scope !680
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, i8 0, i64 160, i1 false), !alias.scope !680
   store ptr %20, ptr %5, align 8, !tbaa !11, !alias.scope !680
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %21, align 8, !tbaa !14, !alias.scope !680

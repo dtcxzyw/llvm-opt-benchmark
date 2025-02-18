@@ -2351,7 +2351,7 @@ _ZNKSt14default_deleteIN4llvm18ModuleSummaryIndexEEclEPS1_.exit.i33.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #18
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %858, i8 0, i64 64, i1 false), !alias.scope !260
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %858, i8 0, i64 64, i1 false), !alias.scope !260
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %859, ptr %0, align 8, !tbaa !263, !alias.scope !260
   %860 = getelementptr inbounds nuw i8, ptr %0, i64 8

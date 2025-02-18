@@ -1323,7 +1323,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br label %.loopexit63
 
 273:                                              ; preds = %268
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %265, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, i8 0, i64 24, i1 false)
   store ptr %0, ptr %9, align 8
   store ptr %3, ptr %250, align 8
   store ptr %270, ptr %251, align 8
@@ -1469,7 +1469,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   %363 = phi i32 [ %364, %372 ], [ %354, %.loopexit61 ]
   %364 = add i32 %363, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %267, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %267, i8 0, i64 24, i1 false), !annotation !9
   store ptr %0, ptr %7, align 8
   %365 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %366 = load ptr, ptr %365, align 8

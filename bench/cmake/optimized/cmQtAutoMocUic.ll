@@ -17233,7 +17233,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10sha
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %57, align 8, !tbaa !4, !noalias !510
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %61, i8 0, i64 16, i1 false), !noalias !510
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false), !noalias !510
   store ptr %61, ptr %60, align 8, !tbaa !31, !noalias !510
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i64 0, ptr %62, align 8, !tbaa !32, !noalias !510
@@ -24892,7 +24892,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit: 
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 56, i1 false), !noalias !726
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false), !noalias !726
   store ptr %58, ptr %57, align 8, !tbaa !31, !noalias !726
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 80

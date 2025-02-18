@@ -3255,7 +3255,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZNK5Block4headEv.e
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113: ; preds = %447, %445
   %.0.i.i.i.i114 = phi ptr [ %441, %445 ], [ %448, %447 ]
   %449 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i114, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %449, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %449, i8 0, i64 56, i1 false)
   store ptr %15, ptr %.0.i.i.i.i114, align 8
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %_ZNK5Block4headEv.exit125

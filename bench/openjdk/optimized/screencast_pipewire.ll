@@ -2132,7 +2132,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %77, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 40, i1 false)
   store ptr %4, ptr %5, align 8
   store i32 1024, ptr %77, align 8
   store i64 64424509448, ptr %4, align 16

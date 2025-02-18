@@ -291,7 +291,7 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   %4 = alloca %struct.identity_t, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %4, align 8
@@ -1394,7 +1394,7 @@ define dso_local ptr @create_sbcast_cred(ptr noundef %0, i32 noundef %1, i32 nou
   %5 = alloca %struct.identity_t, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i32 %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %7, align 4

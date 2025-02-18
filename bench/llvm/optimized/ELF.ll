@@ -16885,7 +16885,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE28r
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -16996,7 +16996,7 @@ _ZNSt8optionalIN4llvm6object12VersionEntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -39818,7 +39818,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE28r
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -39929,7 +39929,7 @@ _ZNSt8optionalIN4llvm6object12VersionEntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -62671,7 +62671,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE28r
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -62782,7 +62782,7 @@ _ZNSt8optionalIN4llvm6object12VersionEntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -86479,7 +86479,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE28r
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -86590,7 +86590,7 @@ _ZNSt8optionalIN4llvm6object12VersionEntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16

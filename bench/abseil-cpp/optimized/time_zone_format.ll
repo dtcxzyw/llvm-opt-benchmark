@@ -107,7 +107,7 @@ define dso_local void @_ZN4absl13time_internal4cctz6detail6formatERKNSt7__cxx111
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, i8 0, i64 24, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !14
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %43 = load i8, ptr %42, align 4, !tbaa !17, !noalias !14
   %44 = sext i8 %43 to i32
@@ -3485,7 +3485,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail5parseER
   store i64 1970, ptr %8, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #18
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 70, ptr %34, align 4, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16

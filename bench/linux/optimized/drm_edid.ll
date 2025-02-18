@@ -4338,7 +4338,7 @@ define dso_local range(i32 -12, 11) i32 @drm_edid_to_sad(ptr noundef %0, ptr nou
   %14 = phi ptr [ %4, %6 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #21
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store ptr %14, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @displayid_iter_edid_begin(ptr noundef %14, ptr noundef nonnull %16) #21
@@ -4437,7 +4437,7 @@ define dso_local range(i32 -12, 32) i32 @drm_edid_to_speaker_allocation(ptr noun
   %14 = phi ptr [ %4, %6 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #21
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store ptr %14, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @displayid_iter_edid_begin(ptr noundef %14, ptr noundef nonnull %16) #21
@@ -4567,7 +4567,7 @@ define dso_local noundef zeroext i1 @drm_detect_hdmi_monitor(ptr noundef %0) #3 
   %13 = phi ptr [ %3, %5 ], [ null, %1 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #21
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 56, i1 false)
   store ptr %13, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @displayid_iter_edid_begin(ptr noundef %13, ptr noundef nonnull %15) #21
@@ -4802,7 +4802,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #3
 .loopexit62:                                      ; preds = %.thread, %79, %41, %.thread.us.us, %26, %27, %.thread59
   %.ph = phi ptr [ null, %.thread59 ], [ %3, %27 ], [ %3, %26 ], [ %3, %.thread.us.us ], [ %3, %41 ], [ %3, %79 ], [ %3, %.thread ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, i8 0, i64 56, i1 false)
   store ptr %.ph, ptr %2, align 8
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @displayid_iter_edid_begin(ptr noundef %.ph, ptr noundef nonnull %90) #21
@@ -5498,7 +5498,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
 
 404:                                              ; preds = %354
   %405 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %405, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %405, i8 0, i64 56, i1 false)
   store ptr %1, ptr %6, align 8
   %406 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @displayid_iter_edid_begin(ptr noundef nonnull %1, ptr noundef nonnull %406) #21
@@ -6888,7 +6888,7 @@ thread-pre-split.thread:                          ; preds = %991, %.loopexit89, 
   %1212 = getelementptr i8, ptr %0, i64 1739
   store i8 %1211, ptr %1212, align 1
   %1213 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1213, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1213, i8 0, i64 56, i1 false)
   store ptr %1, ptr %3, align 8
   %1214 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @displayid_iter_edid_begin(ptr noundef nonnull %1, ptr noundef nonnull %1214) #21
@@ -7621,7 +7621,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 .loopexit131:                                     ; preds = %.thread86, %262, %257
   %302 = phi i32 [ 0, %257 ], [ 0, %262 ], [ %297, %.thread86 ]
   %303 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %303, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %303, i8 0, i64 56, i1 false)
   store ptr %1, ptr %9, align 8
   %304 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @displayid_iter_edid_begin(ptr noundef nonnull %1, ptr noundef nonnull %304) #21

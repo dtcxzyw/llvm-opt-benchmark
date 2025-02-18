@@ -653,7 +653,7 @@ entry:
   %OS.i = getelementptr inbounds nuw i8, ptr %OS, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %state, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %lines_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %lines_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32

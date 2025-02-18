@@ -195,7 +195,7 @@ define hidden ptr @NCONF_get_section(ptr noundef readonly captures(none) %0, ptr
   %.val = load ptr, ptr %0, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %1, ptr %3, align 8, !tbaa !12
   %5 = call ptr @lh_retrieve(ptr noundef %.val, ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
@@ -693,7 +693,7 @@ eat_ws.exit199:                                   ; preds = %eat_alpha_numeric.e
   %174 = load ptr, ptr %8, align 8, !tbaa !17
   %.val189 = load ptr, ptr %0, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store ptr %174, ptr %6, align 8, !tbaa !12
   %175 = call ptr @lh_retrieve(ptr noundef %.val189, ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
@@ -908,7 +908,7 @@ CONF_VALUE_new.exit:                              ; preds = %.critedge
 253:                                              ; preds = %250
   %.val = load ptr, ptr %0, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %spec.select, ptr %5, align 8, !tbaa !12
   %254 = call ptr @lh_retrieve(ptr noundef %.val, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12

@@ -424,7 +424,7 @@ define void @_ZN2cv11large_kinfu6Params13defaultParamsEv(ptr dead_on_unwind noal
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   br label %10
 
 10:                                               ; preds = %10, %1

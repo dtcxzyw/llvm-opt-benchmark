@@ -1075,7 +1075,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNSt14_Optional_ba
 
 343:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %86, i8 0, i64 64, i1 false), !alias.scope !175
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, i8 0, i64 64, i1 false), !alias.scope !175
   store ptr %87, ptr %22, align 8, !tbaa !39, !alias.scope !175
   store i32 2, ptr %88, align 8, !tbaa !42, !alias.scope !175
   store i32 0, ptr %89, align 4, !tbaa !45, !alias.scope !175

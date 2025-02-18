@@ -4093,7 +4093,7 @@ _ZN8pybind116objectD2Ev.exit48:                   ; preds = %_ZN8pybind116detail
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %62, i8 0, i64 432, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %62, i8 0, i64 432, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -11804,7 +11804,7 @@ _ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_Type
   %559 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %557, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %557, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %560, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %560, i8 0, i64 16, i1 false)
   %561 = load ptr, ptr %45, align 8
   store ptr %561, ptr %557, align 8
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 8
@@ -28336,7 +28336,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !734
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !734
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !734
   store ptr %7, ptr %6, align 8, !alias.scope !734
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE_vJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_, ptr %12, align 8
@@ -28804,7 +28804,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !744
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !744
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !744
   store ptr %7, ptr %6, align 8, !alias.scope !744
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE0_bJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_, ptr %12, align 8
@@ -34760,7 +34760,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail8initim
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !852
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 83, i1 false), !noalias !852
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %12, i8 0, i64 83, i1 false), !noalias !852
   store ptr %8, ptr %7, align 8, !alias.scope !852
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IN17eigen_tensor_test13CustomExampleILi0EEEJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %13, align 8
@@ -39118,7 +39118,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !991
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !991
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !991
   store ptr %8, ptr %7, align 8, !alias.scope !991
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE1_PN5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -39492,7 +39492,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1000
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1000
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1000
   store ptr %8, ptr %7, align 8, !alias.scope !1000
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE2_PN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -39782,7 +39782,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1009
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1009
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1009
   store ptr %8, ptr %7, align 8, !alias.scope !1009
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE3_PKN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -39890,7 +39890,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1012
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1012
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1012
   store ptr %8, ptr %7, align 8, !alias.scope !1012
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE4_N5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -40052,7 +40052,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1029
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1029
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1029
   store ptr %8, ptr %7, align 8, !alias.scope !1029
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE5_N5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESR_, ptr %13, align 8
@@ -40193,7 +40193,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1046
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1046
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1046
   store ptr %8, ptr %7, align 8, !alias.scope !1046
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE6_RKN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -40299,7 +40299,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1049
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1049
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1049
   store ptr %8, ptr %7, align 8, !alias.scope !1049
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE7_PN5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -40448,7 +40448,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1052
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1052
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1052
   store ptr %8, ptr %7, align 8, !alias.scope !1052
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE8_PN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -40593,7 +40593,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1055
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1055
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1055
   store ptr %8, ptr %7, align 8, !alias.scope !1055
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE9_PKN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -40738,7 +40738,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1058
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1058
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1058
   store ptr %8, ptr %7, align 8, !alias.scope !1058
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE10_PKN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -40861,7 +40861,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1061
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1061
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1061
   store ptr %8, ptr %7, align 8, !alias.scope !1061
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE11_PN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -40969,7 +40969,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1064
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1064
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1064
   store ptr %8, ptr %7, align 8, !alias.scope !1064
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE12_RN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -41075,7 +41075,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1067
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1067
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1067
   store ptr %8, ptr %7, align 8, !alias.scope !1067
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE13_PN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -41183,7 +41183,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1070
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1070
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1070
   store ptr %8, ptr %7, align 8, !alias.scope !1070
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE14_PN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -41291,7 +41291,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1073
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1073
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1073
   store ptr %8, ptr %7, align 8, !alias.scope !1073
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE15_PKN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -41399,7 +41399,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1076
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1076
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1076
   store ptr %8, ptr %7, align 8, !alias.scope !1076
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE16_RKN5Eigen6TensorIdLi3ELi0ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -41505,7 +41505,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1079
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1079
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1079
   store ptr %8, ptr %7, align 8, !alias.scope !1079
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE17_N5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -41795,7 +41795,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1096
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1096
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1096
   store ptr %8, ptr %7, align 8, !alias.scope !1096
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE18_KN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -41959,7 +41959,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1113
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1113
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1113
   store ptr %8, ptr %7, align 8, !alias.scope !1113
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE19_PN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -42125,7 +42125,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1116
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1116
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1116
   store ptr %8, ptr %7, align 8, !alias.scope !1116
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE20_PKN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -42291,7 +42291,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1119
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1119
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1119
   store ptr %8, ptr %7, align 8, !alias.scope !1119
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE21_RN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -42455,7 +42455,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1122
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1122
   store ptr %8, ptr %7, align 8, !alias.scope !1122
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE22_RKN5Eigen9TensorMapINS7_6TensorIdLi3ELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -42619,7 +42619,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1125
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1125
   store ptr %8, ptr %7, align 8, !alias.scope !1125
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlvE23_N5Eigen9TensorMapINS7_15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi0ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -42922,7 +42922,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1131
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1131
   store ptr %7, ptr %6, align 8, !alias.scope !1131
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi3ELi0ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %12, align 8
@@ -43676,7 +43676,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeIZN17eige
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !noalias !1169
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %13, i8 0, i64 83, i1 false), !noalias !1169
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %13, i8 0, i64 83, i1 false), !noalias !1169
   store ptr %9, ptr %8, align 8, !alias.scope !1169
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi3ELi0ElEEE0_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %14, align 8
@@ -44187,7 +44187,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1181
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1181
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1181
   store ptr %7, ptr %6, align 8, !alias.scope !1181
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen6TensorIiLi3ELi0ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %12, align 8
@@ -45515,7 +45515,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1236
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1236
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1236
   store ptr %7, ptr %6, align 8, !alias.scope !1236
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen15TensorFixedSizeIdNS6_5SizesIJLl3ELl5ELl2EEEELi0ElEEE_SA_JSC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %12, align 8
@@ -46051,7 +46051,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1271
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1271
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1271
   store ptr %8, ptr %7, align 8, !alias.scope !1271
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlN5Eigen9TensorMapINS6_6TensorIdLi3ELi0ElEELi0ENS6_11MakePointerEEEE_SB_JSB_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -46452,7 +46452,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1299
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1299
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1299
   store ptr %8, ptr %7, align 8, !alias.scope !1299
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRN5Eigen9TensorMapINS6_6TensorIdLi3ELi0ElEELi0ENS6_11MakePointerEEEE_SB_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -46604,7 +46604,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1307
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1307
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1307
   store ptr %8, ptr %7, align 8, !alias.scope !1307
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlPN5Eigen9TensorMapINS6_6TensorIdLi3ELi0ElEELi0ENS6_11MakePointerEEEE_SC_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -46758,7 +46758,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1310
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1310
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1310
   store ptr %8, ptr %7, align 8, !alias.scope !1310
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlN5Eigen9TensorMapINS6_6TensorIdLi3ELi0ElEELi16ENS6_11MakePointerEEEE_SB_JSB_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -47344,7 +47344,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1338
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1338
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1338
   store ptr %8, ptr %7, align 8, !alias.scope !1338
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlN5Eigen9TensorMapIKNS6_6TensorIdLi3ELi0ElEELi0ENS6_11MakePointerEEEE_S9_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -47823,7 +47823,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1371
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1371
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1371
   store ptr %8, ptr %7, align 8, !alias.scope !1371
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi0ELi0ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -48529,7 +48529,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeIZN17eige
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !noalias !1412
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %14, i8 0, i64 83, i1 false), !noalias !1412
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %14, i8 0, i64 83, i1 false), !noalias !1412
   store ptr %10, ptr %9, align 8, !alias.scope !1412
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi0ELi0ElEEE0_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_3argENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %15, align 8
@@ -48722,7 +48722,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1425
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1425
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1425
   store ptr %8, ptr %7, align 8, !alias.scope !1425
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlRN5Eigen9TensorMapINS6_6TensorIdLi0ELi0ElEELi0ENS6_11MakePointerEEEE_SB_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -55070,7 +55070,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1815
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1815
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1815
   store ptr %7, ptr %6, align 8, !alias.scope !1815
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE_vJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_, ptr %12, align 8
@@ -55533,7 +55533,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1824
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1824
   store ptr %7, ptr %6, align 8, !alias.scope !1824
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE0_bJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_, ptr %12, align 8
@@ -56316,7 +56316,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail8initim
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1843
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 83, i1 false), !noalias !1843
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %12, i8 0, i64 83, i1 false), !noalias !1843
   store ptr %8, ptr %7, align 8, !alias.scope !1843
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IN17eigen_tensor_test13CustomExampleILi1EEEJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %13, align 8
@@ -57629,7 +57629,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1859
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1859
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1859
   store ptr %8, ptr %7, align 8, !alias.scope !1859
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE1_PN5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -57952,7 +57952,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1868
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1868
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1868
   store ptr %8, ptr %7, align 8, !alias.scope !1868
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE2_PN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -58242,7 +58242,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1877
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1877
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1877
   store ptr %8, ptr %7, align 8, !alias.scope !1877
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE3_PKN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -58350,7 +58350,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1880
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1880
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1880
   store ptr %8, ptr %7, align 8, !alias.scope !1880
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE4_N5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -58512,7 +58512,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1897
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1897
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1897
   store ptr %8, ptr %7, align 8, !alias.scope !1897
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE5_N5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESR_, ptr %13, align 8
@@ -58653,7 +58653,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1914
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1914
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1914
   store ptr %8, ptr %7, align 8, !alias.scope !1914
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE6_RKN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -58759,7 +58759,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1917
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1917
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1917
   store ptr %8, ptr %7, align 8, !alias.scope !1917
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE7_PN5Eigen15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -58908,7 +58908,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1920
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1920
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1920
   store ptr %8, ptr %7, align 8, !alias.scope !1920
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE8_PN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -59053,7 +59053,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1923
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1923
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1923
   store ptr %8, ptr %7, align 8, !alias.scope !1923
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE9_PKN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -59198,7 +59198,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1926
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1926
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1926
   store ptr %8, ptr %7, align 8, !alias.scope !1926
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE10_PKN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -59321,7 +59321,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1929
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1929
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1929
   store ptr %8, ptr %7, align 8, !alias.scope !1929
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE11_PN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -59429,7 +59429,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1932
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1932
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1932
   store ptr %8, ptr %7, align 8, !alias.scope !1932
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE12_RN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -59535,7 +59535,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1935
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1935
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1935
   store ptr %8, ptr %7, align 8, !alias.scope !1935
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE13_PN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -59643,7 +59643,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1938
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1938
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1938
   store ptr %8, ptr %7, align 8, !alias.scope !1938
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE14_PN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %13, align 8
@@ -59751,7 +59751,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1941
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1941
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1941
   store ptr %8, ptr %7, align 8, !alias.scope !1941
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE15_PKN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -59859,7 +59859,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1944
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1944
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1944
   store ptr %8, ptr %7, align 8, !alias.scope !1944
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE16_RKN5Eigen6TensorIdLi3ELi1ElEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -59965,7 +59965,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1947
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1947
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1947
   store ptr %8, ptr %7, align 8, !alias.scope !1947
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE17_N5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -60255,7 +60255,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1964
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1964
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1964
   store ptr %8, ptr %7, align 8, !alias.scope !1964
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE18_KN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -60419,7 +60419,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1981
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1981
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1981
   store ptr %8, ptr %7, align 8, !alias.scope !1981
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE19_PN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -60585,7 +60585,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1984
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1984
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1984
   store ptr %8, ptr %7, align 8, !alias.scope !1984
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE20_PKN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -60751,7 +60751,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1987
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1987
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1987
   store ptr %8, ptr %7, align 8, !alias.scope !1987
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE21_RN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -60915,7 +60915,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1990
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1990
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1990
   store ptr %8, ptr %7, align 8, !alias.scope !1990
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE22_RKN5Eigen9TensorMapINS7_6TensorIdLi3ELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -61079,7 +61079,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1993
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !1993
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !1993
   store ptr %8, ptr %7, align 8, !alias.scope !1993
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlvE23_N5Eigen9TensorMapINS7_15TensorFixedSizeIdNS7_5SizesIJLl3ELl5ELl2EEEELi1ElEELi0ENS7_11MakePointerEEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESW_, ptr %13, align 8
@@ -61382,7 +61382,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !1999
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !1999
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !1999
   store ptr %7, ptr %6, align 8, !alias.scope !1999
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi3ELi1ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %12, align 8
@@ -62136,7 +62136,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeIZN17eige
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !noalias !2037
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %13, i8 0, i64 83, i1 false), !noalias !2037
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %13, i8 0, i64 83, i1 false), !noalias !2037
   store ptr %9, ptr %8, align 8, !alias.scope !2037
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi3ELi1ElEEE0_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %14, align 8
@@ -62353,7 +62353,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !2040
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !2040
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !2040
   store ptr %7, ptr %6, align 8, !alias.scope !2040
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen6TensorIiLi3ELi1ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_, ptr %12, align 8
@@ -63543,7 +63543,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !2088
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %11, i8 0, i64 83, i1 false), !noalias !2088
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %11, i8 0, i64 83, i1 false), !noalias !2088
   store ptr %7, ptr %6, align 8, !alias.scope !2088
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen15TensorFixedSizeIdNS6_5SizesIJLl3ELl5ELl2EEEELi1ElEEE_SA_JSC_EJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %12, align 8
@@ -64079,7 +64079,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2122
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2122
   store ptr %8, ptr %7, align 8, !alias.scope !2122
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlN5Eigen9TensorMapINS6_6TensorIdLi3ELi1ElEELi0ENS6_11MakePointerEEEE_SB_JSB_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -64445,7 +64445,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2150
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2150
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2150
   store ptr %8, ptr %7, align 8, !alias.scope !2150
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRN5Eigen9TensorMapINS6_6TensorIdLi3ELi1ElEELi0ENS6_11MakePointerEEEE_SB_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -64597,7 +64597,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2158
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2158
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2158
   store ptr %8, ptr %7, align 8, !alias.scope !2158
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlPN5Eigen9TensorMapINS6_6TensorIdLi3ELi1ElEELi0ENS6_11MakePointerEEEE_SC_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -64751,7 +64751,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2161
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2161
   store ptr %8, ptr %7, align 8, !alias.scope !2161
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlN5Eigen9TensorMapINS6_6TensorIdLi3ELi1ElEELi16ENS6_11MakePointerEEEE_SB_JSB_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %13, align 8
@@ -65337,7 +65337,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2189
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2189
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2189
   store ptr %8, ptr %7, align 8, !alias.scope !2189
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlN5Eigen9TensorMapIKNS6_6TensorIdLi3ELi1ElEELi0ENS6_11MakePointerEEEE_S9_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8
@@ -65816,7 +65816,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2222
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2222
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2222
   store ptr %8, ptr %7, align 8, !alias.scope !2222
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi0ELi1ElEEE_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeEST_, ptr %13, align 8
@@ -66522,7 +66522,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_function10initializeIZN17eige
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !noalias !2263
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %14, i8 0, i64 83, i1 false), !noalias !2263
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %14, i8 0, i64 83, i1 false), !noalias !2263
   store ptr %10, ptr %9, align 8, !alias.scope !2263
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRKN5Eigen6TensorIdLi0ELi1ElEEE0_S8_JSA_EJNS_4nameENS_5scopeENS_7siblingENS_3argENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESU_, ptr %15, align 8
@@ -66715,7 +66715,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZN17eigen_tensor_t
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !2276
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 80, i1 false), !noalias !2276
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false), !noalias !2276
   store ptr %8, ptr %7, align 8, !alias.scope !2276
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlRN5Eigen9TensorMapINS6_6TensorIdLi0ELi1ElEELi0ENS6_11MakePointerEEEE_SB_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESV_, ptr %13, align 8

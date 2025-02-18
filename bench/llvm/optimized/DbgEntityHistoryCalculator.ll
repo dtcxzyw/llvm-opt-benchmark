@@ -2725,7 +2725,7 @@ _ZNKSt4lessISt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEEclERKS8_SB_.exit.i.i: ;
   store ptr %.0.i.i, ptr %.sroa.14.0..sroa_idx, align 8
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 48
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %394, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %394, i8 0, i64 24, i1 false)
   store ptr %394, ptr %393, align 8, !tbaa !53
   %395 = getelementptr inbounds nuw i8, ptr %391, i64 56
   store i32 0, ptr %395, align 8, !tbaa !51
@@ -3883,7 +3883,7 @@ _ZNKSt4lessISt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEEclERKS8_SB_.exit.i91.i:
   store ptr %.0.i.i, ptr %.sroa.14.0..sroa_idx876, align 8
   %961 = getelementptr inbounds nuw i8, ptr %959, i64 48
   %962 = getelementptr inbounds nuw i8, ptr %959, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %962, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %962, i8 0, i64 24, i1 false)
   store ptr %962, ptr %961, align 8, !tbaa !53
   %963 = getelementptr inbounds nuw i8, ptr %959, i64 56
   store i32 0, ptr %963, align 8, !tbaa !51
@@ -4475,7 +4475,7 @@ _ZNKSt4lessISt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEEclERKS8_SB_.exit.i110.i
   store ptr %.0.i.i, ptr %.sroa.14.0..sroa_idx872, align 8
   %1230 = getelementptr inbounds nuw i8, ptr %1228, i64 48
   %1231 = getelementptr inbounds nuw i8, ptr %1228, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1231, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1231, i8 0, i64 24, i1 false)
   store ptr %1231, ptr %1230, align 8, !tbaa !53
   %1232 = getelementptr inbounds nuw i8, ptr %1228, i64 56
   store i32 0, ptr %1232, align 8, !tbaa !51
@@ -4641,7 +4641,7 @@ _ZNKSt4lessISt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEEclERKS8_SB_.exit.i128.i
   store ptr %.0.i.i, ptr %.sroa.14.0..sroa_idx874, align 8
   %1300 = getelementptr inbounds nuw i8, ptr %1298, i64 48
   %1301 = getelementptr inbounds nuw i8, ptr %1298, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1301, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1301, i8 0, i64 24, i1 false)
   store ptr %1301, ptr %1300, align 8, !tbaa !53
   %1302 = getelementptr inbounds nuw i8, ptr %1298, i64 56
   store i32 0, ptr %1302, align 8, !tbaa !51
@@ -7464,7 +7464,7 @@ _ZNKSt4lessISt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEEclERKS8_SB_.exit.i98.i.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %567, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 48
   %569 = getelementptr inbounds nuw i8, ptr %566, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %569, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %569, i8 0, i64 24, i1 false)
   store ptr %569, ptr %568, align 8, !tbaa !53
   %570 = getelementptr inbounds nuw i8, ptr %566, i64 56
   store i32 0, ptr %570, align 8, !tbaa !51
@@ -8074,7 +8074,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIPKN4llvm6DINodeEPKNS1_10DILocati
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store ptr %11, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %12, align 8, !tbaa !51

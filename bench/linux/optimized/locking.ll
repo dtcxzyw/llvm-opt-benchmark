@@ -98,7 +98,7 @@ define internal fastcc range(i32 -512, 1) i32 @netfs_block_o_direct(ptr noundef 
   %13 = tail call ptr @bit_waitqueue(ptr noundef nonnull %12, i32 noundef 9) #4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 24, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !annotation !7
   store ptr %12, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 9, ptr %15, align 8

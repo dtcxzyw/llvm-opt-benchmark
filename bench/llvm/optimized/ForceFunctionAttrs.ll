@@ -1209,7 +1209,7 @@ _ZL15forceAttributesRN4llvm8FunctionE.exit:       ; preds = %"_ZZL15forceAttribu
 
 .thread:                                          ; preds = %_ZL15forceAttributesRN4llvm8FunctionE.exit, %162, %236
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %237, i8 0, i64 64, i1 false), !alias.scope !123
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %237, i8 0, i64 64, i1 false), !alias.scope !123
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %238, ptr %0, align 8, !tbaa !28, !alias.scope !123
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 8

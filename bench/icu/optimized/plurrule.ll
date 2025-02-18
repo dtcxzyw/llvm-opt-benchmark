@@ -1278,7 +1278,7 @@ if.end.i:                                         ; preds = %sw.bb
 
 new.cont.i:                                       ; preds = %if.end.i
   %13 = getelementptr inbounds nuw i8, ptr %call3.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %call3.i, align 8
   %op.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 8
   store i32 0, ptr %op.i.i, align 8
@@ -1359,7 +1359,7 @@ while.end.i:                                      ; preds = %while.cond.i
 
 new.cont.i67:                                     ; preds = %while.end.i
   %20 = getelementptr inbounds nuw i8, ptr %call4.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %call4.i, align 8
   %op.i.i68 = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   store i32 0, ptr %op.i.i68, align 8
@@ -1918,7 +1918,7 @@ while.end.i234:                                   ; preds = %while.cond.i230
 
 new.cont.i237:                                    ; preds = %while.end.i234
   %116 = getelementptr inbounds nuw i8, ptr %call4.i235, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %116, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %116, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %call4.i235, align 8
   %op.i.i238 = getelementptr inbounds nuw i8, ptr %call4.i235, i64 8
   store i32 0, ptr %op.i.i238, align 8
@@ -5162,7 +5162,7 @@ if.end:                                           ; preds = %entry
 
 new.cont:                                         ; preds = %if.end
   %1 = getelementptr inbounds nuw i8, ptr %call3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %call3, align 8
   %op.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i32 0, ptr %op.i, align 8
@@ -5216,7 +5216,7 @@ while.end:                                        ; preds = %while.cond
 
 new.cont:                                         ; preds = %while.end
   %2 = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %call4, align 8
   %op.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store i32 0, ptr %op.i, align 8

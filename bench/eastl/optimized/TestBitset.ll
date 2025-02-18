@@ -4368,7 +4368,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhEC2Ej(ptr noundef nonnull align 1 dereferenceable(17) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EhEC5Ej) align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4768,7 +4768,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhE11from_uint32Ej(ptr noundef nonnull align 1 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4780,7 +4780,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhE11from_uint64Em(ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i64 %value to i8
   store i8 %conv.i, ptr %this, align 1
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8051,7 +8051,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtEC2Ej(ptr noundef nonnull align 2 dereferenceable(18) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EtEC5Ej) align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8451,7 +8451,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtE11from_uint32Ej(ptr noundef nonnull align 2 dereferenceable(18) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8463,7 +8463,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtE11from_uint64Em(ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i64 %value to i16
   store i16 %conv.i, ptr %this, align 2
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11820,7 +11820,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjEC2Ej(ptr noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EjEC5Ej) align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
@@ -12218,7 +12218,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjE11from_uint32Ej(ptr noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
@@ -12229,7 +12229,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjE11from_uint64Em(ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16

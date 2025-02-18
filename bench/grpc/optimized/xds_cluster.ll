@@ -2175,7 +2175,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core18XdsClusterResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !33
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 16
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, i8 0, i64 424, i1 false), !noalias !33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, i8 0, i64 424, i1 false), !noalias !33
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core18XdsClusterResourceE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !33
   %type.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %type.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !33

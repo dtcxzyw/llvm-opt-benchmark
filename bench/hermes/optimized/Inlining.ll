@@ -3182,7 +3182,7 @@ entry:
   %Capacity2.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %stack, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i4, align 4
   %0 = getelementptr inbounds nuw i8, ptr %visited, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i32 1, ptr %visited, align 8
   %1 = getelementptr inbounds nuw i8, ptr %visited, i64 4
   store i32 0, ptr %1, align 4

@@ -497,7 +497,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp53.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp54.i)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 48
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp1.i, align 8, !noalias !4
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 8
@@ -584,7 +584,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont9.i
 invoke.cont13.i:                                  ; preds = %invoke.cont11.i
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp14.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %5, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i26.i = getelementptr inbounds nuw i8, ptr %ref.tmp14.i, i64 48
   store ptr %_M_single_bucket.i.i.i26.i, ptr %ref.tmp14.i, align 8, !noalias !4
   %_M_bucket_count.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp14.i, i64 8
@@ -671,7 +671,7 @@ invoke.cont27.i:                                  ; preds = %invoke.cont25.i
 invoke.cont29.i:                                  ; preds = %invoke.cont27.i
   %arrayinit.element30.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp31.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %10, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %10, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i53.i = getelementptr inbounds nuw i8, ptr %ref.tmp31.i, i64 48
   store ptr %_M_single_bucket.i.i.i53.i, ptr %ref.tmp31.i, align 8, !noalias !4
   %_M_bucket_count.i.i.i54.i = getelementptr inbounds nuw i8, ptr %ref.tmp31.i, i64 8

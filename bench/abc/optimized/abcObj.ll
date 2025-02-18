@@ -33,7 +33,7 @@ define noundef ptr @Abc_ObjAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_a
 9:                                                ; preds = %7, %5
   %.0 = phi ptr [ %6, %5 ], [ %8, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store ptr %0, ptr %.0, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %12 = and i32 %1, 15
@@ -122,7 +122,7 @@ define noundef ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef %1) local_unnam
 Abc_ObjAlloc.exit:                                ; preds = %5, %7
   %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   store ptr %0, ptr %.0.i, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %11 = and i32 %1, 15

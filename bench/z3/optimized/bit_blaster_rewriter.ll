@@ -37289,7 +37289,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %new_decl_sorts, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %4 = getelementptr inbounds nuw i8, ptr %new_decl_names, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   store ptr %4, ptr %new_decl_names, align 8
   %m_pos.i.i18 = getelementptr inbounds nuw i8, ptr %new_decl_names, i64 8
   store i32 0, ptr %m_pos.i.i18, align 8

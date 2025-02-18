@@ -8300,7 +8300,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN15LiveDebugValues6LocIdxENS_8SmallSetIjLj4E
   store i32 %453, ptr %445, align 4, !tbaa !66
   %454 = getelementptr inbounds nuw i8, ptr %445, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %445, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %455, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %455, i8 0, i64 32, i1 false)
   store ptr %455, ptr %454, align 8, !tbaa !25
   %456 = getelementptr inbounds nuw i8, ptr %445, i64 16
   store i32 0, ptr %456, align 8, !tbaa !26
@@ -14149,7 +14149,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableENS_8SmallSetINS_23Dbg
   store ptr %59, ptr %49, align 8, !tbaa !1027
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %61, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, i8 0, i64 80, i1 false)
   store ptr %61, ptr %60, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 0, ptr %62, align 8, !tbaa !26
@@ -14259,7 +14259,7 @@ _ZN4llvm15SmallVectorImplINS_9BitVectorEE7reserveEm.exit.i.i..lr.ph.preheader.i.
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.012.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %20, %.lr.ph.preheader.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr %21, ptr %.012.i.i, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   store i32 0, ptr %22, align 8, !tbaa !26
@@ -29818,7 +29818,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12LexicalScopeENS_8SmallSetIjLj4ESt4les
   store ptr %411, ptr %504, align 8, !tbaa !1365
   %512 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %513 = getelementptr inbounds nuw i8, ptr %504, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %513, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %513, i8 0, i64 32, i1 false)
   store ptr %513, ptr %512, align 8, !tbaa !25
   %514 = getelementptr inbounds nuw i8, ptr %504, i64 16
   store i32 0, ptr %514, align 8, !tbaa !26
@@ -38622,7 +38622,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN15LiveDebugValues6LocIdxENS_8SmallSetIjLj4E
   store i32 %52, ptr %43, align 4, !tbaa !66
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %54, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   store ptr %54, ptr %53, align 8, !tbaa !25
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %55, align 8, !tbaa !26
@@ -39278,7 +39278,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN15LiveDebugValues6LocIdxENS_8SmallSetIjLj4E
   store i32 %52, ptr %43, align 4, !tbaa !66
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %54, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   store ptr %54, ptr %53, align 8, !tbaa !25
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %55, align 8, !tbaa !26
@@ -58954,7 +58954,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   store i32 1, ptr %15, align 8, !tbaa !26, !alias.scope !2059
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !2069
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !2069
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !28, !alias.scope !2069
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

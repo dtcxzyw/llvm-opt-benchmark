@@ -35670,7 +35670,7 @@ if.else.i.i:                                      ; preds = %entry
 _ZN9grpc_core5Arena3NewINS_17BackendMetricDataEJEEEPT_DpOT0_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %add.ptr3.i.i, %if.then.i.i ], [ %call4.i.i, %if.else.i.i ]
   %3 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   store double -1.000000e+00, ptr %retval.0.i.i, align 8
   %mem_utilization.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store double -1.000000e+00, ptr %mem_utilization.i.i.i, align 8

@@ -3318,7 +3318,7 @@ define dso_local i32 @skb_do_redirect(ptr noundef %0) local_unnamed_addr #0 alig
   %109 = getelementptr i8, ptr %97, i64 %108
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 40, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %110, i8 0, i64 40, i1 false), !annotation !7
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 216
   %112 = load i32, ptr %111, align 8
   store i32 %112, ptr %5, align 8
@@ -27588,7 +27588,7 @@ define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr no
   %. = select i1 %22, i32 %23, i32 1
   %.14 = select i1 %22, i32 0, i32 %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 48, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !7
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %., ptr %24, align 4
   store i32 %.14, ptr %6, align 8
@@ -27942,7 +27942,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %.7 = select i1 %32, i32 0, i32 %33
   %34 = shl nuw nsw i32 %31, 1
   %.8 = xor i32 %34, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, i8 0, i64 80, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false), !annotation !7
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %., ptr %35, align 4
   store i32 %.7, ptr %6, align 8

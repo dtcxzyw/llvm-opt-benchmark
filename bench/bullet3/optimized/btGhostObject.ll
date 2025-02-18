@@ -766,7 +766,7 @@ define dso_local void @_ZNK13btGhostObject15convexSweepTestEPK13btConvexShapeRK1
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(16) %7)
   %.fca.0.load.i = load <2 x float>, ptr %7, align 8

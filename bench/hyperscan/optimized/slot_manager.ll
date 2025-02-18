@@ -408,7 +408,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #24, !noalias !5
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %0, i8 0, i64 64, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 64, i1 false), !noalias !5
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %_M_single_bucket.i.i.i.i, ptr %call.i, align 8, !noalias !5
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8

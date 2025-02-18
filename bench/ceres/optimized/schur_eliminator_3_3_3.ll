@@ -28701,7 +28701,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal15SchurEliminatorILi3ELi3ELi
 39:                                               ; preds = %2
   %40 = getelementptr inbounds double, ptr %38, i64 %34
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, i8 0, i64 56, i1 false), !tbaa !139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, i8 0, i64 56, i1 false), !tbaa !139
   %42 = load double, ptr %40, align 8, !tbaa !139
   %43 = fmul double %42, %42
   store double %43, ptr %6, align 8, !tbaa !139

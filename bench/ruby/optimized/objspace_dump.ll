@@ -149,7 +149,7 @@ define internal i64 @objspace_dump(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.dump_config, align 8
   call void @llvm.lifetime.start.p0(i64 4200, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4200) %5, i8 0, i64 4192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4192) %5, i8 0, i64 4192, i1 false)
   %6 = icmp eq i64 %1, 0
   %7 = and i64 %1, 7
   %8 = icmp ne i64 %7, 0
@@ -217,7 +217,7 @@ define internal i64 @objspace_dump_all(i64 %0, i64 noundef %1, i64 noundef %2, i
   %6 = alloca %struct.dump_config, align 8
   call void @llvm.lifetime.start.p0(i64 4200, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4200) %7, i8 0, i64 4192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4192) %7, i8 0, i64 4192, i1 false)
   call fastcc void @dump_output(ptr noundef %6, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %9 = load i32, ptr %8, align 4, !tbaa !25
@@ -261,7 +261,7 @@ define internal i64 @objspace_dump_shapes(i64 %0, i64 noundef %1, i64 noundef %2
   %4 = alloca %struct.dump_config, align 8
   call void @llvm.lifetime.start.p0(i64 4200, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4200) %5, i8 0, i64 4192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4192) %5, i8 0, i64 4192, i1 false)
   call fastcc void @dump_output(ptr noundef %4, i64 noundef %1, i64 noundef 0, i64 noundef 4, i64 noundef %2)
   %6 = and i64 %2, -5
   %.not = icmp eq i64 %6, 0

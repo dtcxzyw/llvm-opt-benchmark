@@ -8359,7 +8359,7 @@ define linkonce_odr void @_ZN4llvm7idf_endIPNS_10BasicBlockEEENS_12idf_iteratorI
   %3 = alloca %"class.llvm::df_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 72, i1 false), !alias.scope !506
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !alias.scope !506
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8, !tbaa !133, !alias.scope !506
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

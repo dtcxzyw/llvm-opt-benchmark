@@ -2257,7 +2257,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit143: ; preds = %if.end.i135, %
   %retval.i126.sroa.0.0 = phi ptr [ %28, %if.then.i140 ], [ %29, %if.end.i135 ]
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %input, ptr noundef %23, ptr %retval.i126.sroa.0.0) #22
   %30 = getelementptr inbounds nuw i8, ptr %base, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
   store i8 1, ptr %30, align 8
   %type.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 11
   store i8 1, ptr %type.i.i.i.i.i.i.i.i.i, align 1

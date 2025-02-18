@@ -404,7 +404,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %12, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   store i64 4228, ptr %11, align 16, !tbaa !15
   %13 = ptrtoint ptr %0 to i64
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8

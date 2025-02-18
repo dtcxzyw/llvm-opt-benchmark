@@ -40899,7 +40899,7 @@ define internal void @_ZN12_GLOBAL__N_139LogFormatTest_AbslStringifyExample_Test
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %22, ptr %17, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %23, align 8, !tbaa !28
@@ -41919,7 +41919,7 @@ define internal void @_ZN12_GLOBAL__N_152LogFormatTest_CustomWithAbslStringifyAn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %22, ptr %17, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %23, align 8, !tbaa !28
@@ -42828,7 +42828,7 @@ define internal void @_ZN12_GLOBAL__N_146LogFormatTest_AbslStringifyStreamsNothi
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #32
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %23, ptr %17, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %24, align 8, !tbaa !28
@@ -43678,7 +43678,7 @@ define internal void @_ZN12_GLOBAL__N_146LogFormatTest_AbslStringifyMultipleAppe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #32
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %26, ptr %21, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %27, align 8, !tbaa !28
@@ -67877,7 +67877,7 @@ define internal void @_ZN12_GLOBAL__N_162ManipulatorLogFormatTest_IOManipsDoNotA
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %22, ptr %17, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %23, align 8, !tbaa !28

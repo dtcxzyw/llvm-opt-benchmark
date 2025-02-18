@@ -213,7 +213,7 @@ patch_id_defined.exit:                            ; preds = %2
 
 8:                                                ; preds = %patch_id_defined.exit
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %10, align 8, !tbaa !36
@@ -226,7 +226,7 @@ patch_id_defined.exit:                            ; preds = %2
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #6
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %17, align 8, !tbaa !36

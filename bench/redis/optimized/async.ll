@@ -257,7 +257,7 @@ __redisAsyncCopyError.exit:                       ; preds = %20
   %111 = getelementptr inbounds nuw i8, ptr %25, i64 416
   %112 = getelementptr inbounds nuw i8, ptr %25, i64 432
   %113 = getelementptr inbounds nuw i8, ptr %25, i64 288
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %113, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %113, i8 0, i64 112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   store ptr %11, ptr %112, align 8, !tbaa !47
   %114 = getelementptr inbounds nuw i8, ptr %25, i64 440

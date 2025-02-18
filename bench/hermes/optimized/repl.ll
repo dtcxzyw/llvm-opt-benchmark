@@ -563,7 +563,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_10JSFunctionEEENS0_6HandleIT_EEON
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %38, i64 840
   call void @_ZN6hermes2vm6GCBase18runtimeWillExecuteEv(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i) #20
   %39 = getelementptr inbounds nuw i8, ptr %historyFile, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %39, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 0, i64 128, i1 false)
   %add.ptr.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %historyFile, i64 16
   store ptr %add.ptr.i.i.i.i.i.i54, ptr %historyFile, align 8
   %Size.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %historyFile, i64 8

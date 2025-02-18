@@ -605,7 +605,7 @@ invoke.cont:                                      ; preds = %if.then
   store i64 0, ptr %ref.tmp1.i.sroa.4.0.call5.i.i.i.i2.i.i1.i1.sroa_idx, align 8, !noalias !31
   %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 728
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(864) %3, i8 0, i64 168, i1 false), !noalias !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, i8 0, i64 168, i1 false), !noalias !31
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 16
   store ptr @_ZNSt17_Function_handlerIFdddEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !30, !noalias !31
   %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i1, i64 24

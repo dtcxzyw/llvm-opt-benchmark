@@ -2505,7 +2505,7 @@ entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %n1, i64 24
   %2 = load i32, ptr %m_num_args.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store ptr %3, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -2870,7 +2870,7 @@ entry:
   call void @_ZN14core_hashtableI21obj_triple_hash_entryI3appS1_S1_E19obj_ptr_triple_hashIS1_S1_S1_E10default_eqI6tripleIPS1_S7_S7_EEE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(20) %m_instantiated, ptr noundef nonnull align 8 dereferenceable(24) %tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
   %5 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   store ptr %5, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

@@ -49,7 +49,7 @@ if.end.i.i.i:
   %call.i = tail call noundef ptr @_ZN7rocksdb3Env7DefaultEv()
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %e.i)
   %0 = getelementptr inbounds nuw i8, ptr %e.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
   store i64 34360459264, ptr %e.i, align 8
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %r.i.i.i)
   call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %r.i.i.i)

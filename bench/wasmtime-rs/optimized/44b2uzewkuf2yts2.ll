@@ -7749,7 +7749,7 @@ define hidden void @_ZN16wasmtime_runtime3sys4unix7signals13platform_init17haaea
   %13 = alloca { i64, { [16 x i64] }, i32, [1 x i32], ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %14, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 144, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store i32 1207959556, ptr %15, align 8
   store i64 ptrtoint (ptr @_ZN16wasmtime_runtime3sys4unix7signals12trap_handler17h98e125cf73f30a61E to i64), ptr %13, align 8
@@ -7806,7 +7806,7 @@ common.resume:                                    ; preds = %61, %40, %19
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %35, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %35, i8 0, i64 144, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i32 1207959556, ptr %36, align 8
   store i64 ptrtoint (ptr @_ZN16wasmtime_runtime3sys4unix7signals12trap_handler17h98e125cf73f30a61E to i64), ptr %9, align 8
@@ -7859,7 +7859,7 @@ common.resume:                                    ; preds = %61, %40, %19
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %56, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %56, i8 0, i64 144, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 1207959556, ptr %57, align 8
   store i64 ptrtoint (ptr @_ZN16wasmtime_runtime3sys4unix7signals12trap_handler17h98e125cf73f30a61E to i64), ptr %5, align 8
@@ -7921,7 +7921,7 @@ define hidden void @"_ZN16wasmtime_runtime3sys4unix7signals13platform_init28_$u7
   %7 = alloca { i64, { [16 x i64] }, i32, [1 x i32], ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 1207959556, ptr %9, align 8
   store i64 ptrtoint (ptr @_ZN16wasmtime_runtime3sys4unix7signals12trap_handler17h98e125cf73f30a61E to i64), ptr %7, align 8

@@ -1767,7 +1767,7 @@ define internal fastcc noundef i64 @cab_dos_time(ptr noundef nonnull readonly ca
   %12 = shl nuw nsw i32 %10, 8
   %13 = or disjoint i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %15 = lshr i32 %4, 1
   %16 = add nuw nsw i32 %15, 80
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 20

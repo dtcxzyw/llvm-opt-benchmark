@@ -2900,7 +2900,7 @@ switch.early.test:                                ; preds = %2
 10:                                               ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %5, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %12, align 8
@@ -3021,7 +3021,7 @@ switch.early.test89:                              ; preds = %43
 50:                                               ; preds = %switch.early.test89
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store ptr %45, ptr %3, align 8
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %52, align 8
@@ -3327,7 +3327,7 @@ switch.early.test:                                ; preds = %2
 10:                                               ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %5, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %12, align 8
@@ -3446,7 +3446,7 @@ switch.early.test89:                              ; preds = %42
 49:                                               ; preds = %switch.early.test89
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   store ptr %44, ptr %3, align 8
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %51, align 8
@@ -3768,7 +3768,7 @@ define internal fastcc void @dof_oid_new_standard_string(ptr noundef %0, ptr nou
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #27
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %0, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %8, align 8
@@ -3812,7 +3812,7 @@ dof_oid_create_internal.exit.thread:              ; preds = %6, %17, %14
 26:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store ptr %0, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %28, align 8

@@ -2524,7 +2524,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %call4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %3, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %3, i8 0, i64 272, i1 false)
   %buf_size_map_.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 56
   store ptr %_M_single_bucket.i.i.i.i, ptr %buf_size_map_.i.i, align 8
@@ -2618,7 +2618,7 @@ invoke.cont5:                                     ; preds = %lor.rhs.i, %if.then
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   %10 = getelementptr inbounds nuw i8, ptr %call10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(280) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   %buf_size_map_.i.i11 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %_M_single_bucket.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %call10, i64 56
   store ptr %_M_single_bucket.i.i.i.i12, ptr %buf_size_map_.i.i11, align 8

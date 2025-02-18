@@ -1171,7 +1171,7 @@ _kill_old_slurmctld.exit:                         ; preds = %237, %258
   %279 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @.str.7, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %280, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %280, i8 0, i64 24, i1 false)
   store i32 1, ptr %19, align 8
   %281 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 2, ptr %281, align 4

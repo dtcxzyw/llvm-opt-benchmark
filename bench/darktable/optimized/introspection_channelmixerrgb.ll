@@ -594,7 +594,7 @@ define void @init_presets(ptr noundef initializes((548, 552)) %0) local_unnamed_
 17:                                               ; preds = %5, %1
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #26
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %18, i8 0, i64 84, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %18, i8 0, i64 84, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 156
   store i32 2, ptr %19, align 4, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 120

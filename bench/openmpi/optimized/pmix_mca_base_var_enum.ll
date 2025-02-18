@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal void @pmix_mca_base_var_enum_constructor(ptr noundef writeonly captures(none) initializes((120, 192)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %3, i8 0, i64 71, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %3, i8 0, i64 71, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @enum_get_value, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136

@@ -1587,7 +1587,7 @@ _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread.i: ; preds = %_ZN11duck
 
 207:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 0, i64 48, i1 false)
   store i32 10506, ptr %9, align 8, !tbaa !105
   store i32 0, ptr %50, align 4, !tbaa !110
   %208 = load ptr, ptr %51, align 8, !tbaa !111
@@ -2208,7 +2208,7 @@ _ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit:   ; preds = %129, %127, %120, %1
 183:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %184, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %184, i8 0, i64 48, i1 false)
   store i32 10506, ptr %6, align 8, !tbaa !105
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %185, align 4, !tbaa !110
@@ -2419,7 +2419,7 @@ define internal fastcc void @_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store i32 10506, ptr %5, align 8, !tbaa !105
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %12, align 4, !tbaa !110

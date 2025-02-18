@@ -1000,7 +1000,7 @@ BlockRefTableWrite.exit:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 1697321851, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65568) %7, i8 0, i64 65552, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65552) %7, i8 0, i64 65552, i1 false)
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %8, align 8

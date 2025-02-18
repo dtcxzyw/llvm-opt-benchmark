@@ -708,7 +708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i3: ;
 244:                                              ; preds = %239
   %245 = load ptr, ptr %40, align 8
   %246 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %246, i8 0, i64 140, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %246, i8 0, i64 140, i1 false)
   br label %247
 
 247:                                              ; preds = %247, %244
@@ -1017,7 +1017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16: 
 357:                                              ; preds = %352
   %358 = load ptr, ptr %31, align 8
   %359 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %359, i8 0, i64 140, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %359, i8 0, i64 140, i1 false)
   br label %360
 
 360:                                              ; preds = %360, %357

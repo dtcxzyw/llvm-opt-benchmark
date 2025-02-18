@@ -7087,7 +7087,7 @@ define dso_local void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS
 
 39:                                               ; preds = %._crit_edge64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %40, i8 0, i64 64, i1 false), !alias.scope !345
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 64, i1 false), !alias.scope !345
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %42
 

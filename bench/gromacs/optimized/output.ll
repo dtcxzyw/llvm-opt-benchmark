@@ -2814,7 +2814,7 @@ define void @_Z15initPullHistoryP6pull_tP18ObservablesHistory(ptr noundef captur
 _ZNSt10unique_ptrI11PullHistorySt14default_deleteIS0_EED2Ev.exit: ; preds = %8
   %11 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !29
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 48, i1 false), !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false), !noalias !29
   store ptr %11, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %11, ptr %13, align 8

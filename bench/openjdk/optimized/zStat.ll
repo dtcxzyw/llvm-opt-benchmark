@@ -1125,7 +1125,7 @@ _ZN4ZCPU2idEv.exit:                               ; preds = %1, %11
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK12ZStatSampler17collect_and_resetEv(ptr dead_on_unwind noalias writable writeonly sret(%struct.ZStatSamplerData) align 8 captures(none) initializes((8, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not18 = icmp eq i32 %4, 0
   br i1 %.not18, label %37, label %.lr.ph
@@ -5857,7 +5857,7 @@ define hidden void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr no
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %class.ZStatSamplerHistory, ptr %1, i64 %10
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false), !alias.scope !105
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !105
   %12 = load i32, ptr @_ZN2os16_processor_countE, align 4, !noalias !105
   %.not18.i = icmp eq i32 %12, 0
   br i1 %.not18.i, label %_ZNK12ZStatSampler17collect_and_resetEv.exit, label %.lr.ph.i

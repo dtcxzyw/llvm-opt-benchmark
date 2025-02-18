@@ -1955,9 +1955,9 @@ define dso_local noundef range(i32 -22, 1) i32 @nl80211_parse_random_mac(ptr nou
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %12, i8 0, i64 5, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %13, i8 0, i64 5, i1 false)
   store i8 2, ptr %1, align 1
   store i8 3, ptr %2, align 1
   br label %.loopexit
@@ -23239,7 +23239,7 @@ define internal i32 @nl80211_set_bss(ptr readnone captures(none) %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr i8, ptr %10, i64 2504
   %12 = load ptr, ptr %11, align 8
@@ -30646,7 +30646,7 @@ define internal i32 @nl80211_tx_mgmt(ptr readnone captures(none) %0, ptr noundef
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false), !annotation !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !annotation !76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   store i64 0, ptr %5, align 8, !annotation !76
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
@@ -38554,7 +38554,7 @@ define internal i32 @nl80211_set_pmk(ptr readnone captures(none) %0, ptr noundef
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %56 [

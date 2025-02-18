@@ -4188,7 +4188,7 @@ _ZN4llvm20STIPredicateFunction13addDefinitionEPKNS_6RecordE.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25) #20
   %116 = load ptr, ptr %24, align 8, !tbaa !93
   store ptr %116, ptr %25, align 8, !tbaa !274
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %117 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %78, ptr %117, align 8, !tbaa !93
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -14797,7 +14797,7 @@ define dso_local void @_ZN4llvm18CodeGenSchedModels11inferFromRWENS_8ArrayRefIjE
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !531
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1144) %28, i8 0, i64 1128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1128) %28, i8 0, i64 1128, i1 false)
   store ptr %28, ptr %24, align 8, !tbaa !130
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %29, align 8, !tbaa !132

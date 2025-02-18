@@ -940,7 +940,7 @@ define internal fastcc ptr @print(ptr noundef captures(address_is_null) %0, i32 
   %3 = alloca [1 x %struct.printbuffer], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %6 = tail call ptr %5(i64 noundef 256) #31
   store ptr %6, ptr %3, align 16, !tbaa !41

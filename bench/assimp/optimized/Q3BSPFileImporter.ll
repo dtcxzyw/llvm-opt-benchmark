@@ -3806,7 +3806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 0, ptr %109, align 1
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %12) #25
   %110 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %110, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %110, i8 0, i64 1024, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 42, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 5
@@ -4334,7 +4334,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapE
   %26 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #30
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %28, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %28, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %27, i8 0, i64 1036, i1 false)
   store i32 128, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -4347,7 +4347,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapE
 31:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %6) #25
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %32, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %32, i8 0, i64 1024, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 42, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 5

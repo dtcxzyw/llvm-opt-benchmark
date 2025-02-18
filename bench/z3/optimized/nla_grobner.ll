@@ -12284,7 +12284,7 @@ invoke.cont3:
   %m_pdd_manager = getelementptr inbounds nuw i8, ptr %this, i64 184
   tail call void @_ZN2dd11pdd_manager6mk_valERK8rational(ptr sret(%"class.dd::pdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(952) %m_pdd_manager, ptr noundef nonnull align 8 dereferenceable(32) %coeff)
   %0 = getelementptr inbounds nuw i8, ptr %vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr %0, ptr %vars, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %vars, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %vars, i64 12

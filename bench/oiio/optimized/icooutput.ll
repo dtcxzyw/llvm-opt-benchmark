@@ -1491,7 +1491,7 @@ if.then216:                                       ; preds = %if.end209
 
 if.else224:                                       ; preds = %if.end209
   %54 = getelementptr inbounds nuw i8, ptr %bmi, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i32 40, ptr %bmi, align 4
   %55 = load i32, ptr %width183, align 4
   %width227 = getelementptr inbounds nuw i8, ptr %bmi, i64 4

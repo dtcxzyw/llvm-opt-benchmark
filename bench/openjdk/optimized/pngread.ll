@@ -1843,7 +1843,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   store ptr %7, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %16, ptr %21, align 8
@@ -2207,7 +2207,7 @@ define hidden i32 @png_image_finish_read(ptr noundef %0, ptr noundef %1, ptr nou
 
 43:                                               ; preds = %38, %37
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %44, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 0, i64 64, i1 false)
   store ptr %0, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %45, align 8

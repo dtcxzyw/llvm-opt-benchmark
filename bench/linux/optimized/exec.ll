@@ -561,7 +561,7 @@ define dso_local i32 @setup_arg_pages(ptr noundef captures(none) %0, i64 noundef
   %66 = load i64, ptr %13, align 8
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %68, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   store ptr %67, ptr %8, align 8
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %66, ptr %69, align 8

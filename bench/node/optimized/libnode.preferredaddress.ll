@@ -263,7 +263,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hints.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %0 = getelementptr inbounds nuw i8, ptr %hints.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i32 1028, ptr %hints.i, align 8
   %family.i = getelementptr inbounds nuw i8, ptr %address, i64 1028
   %1 = load i32, ptr %family.i, align 4

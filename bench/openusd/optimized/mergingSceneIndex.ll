@@ -2420,7 +2420,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %30, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
   store ptr %21, ptr %11, align 8
   store ptr %23, ptr %29, align 8
   br i1 %.not.i.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i
@@ -2582,7 +2582,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10)
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %87, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %87, i8 0, i64 72, i1 false)
   store ptr %70, ptr %9, align 8
   store ptr %71, ptr %86, align 8
   br i1 %.not.i.i.i41, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i
@@ -2596,7 +2596,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %89, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %89, i8 0, i64 72, i1 false)
   store ptr %75, ptr %10, align 8
   store ptr %76, ptr %88, align 8
   br i1 %.not.i.i.i46, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i
@@ -2708,7 +2708,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %122, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %122, i8 0, i64 72, i1 false)
   store ptr %111, ptr %7, align 8
   store ptr %112, ptr %121, align 8
   br i1 %.not.i.i.i58, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i77
@@ -2722,7 +2722,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i77, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %124, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, i8 0, i64 72, i1 false)
   store ptr %116, ptr %8, align 8
   store ptr %117, ptr %123, align 8
   br i1 %.not.i.i.i63, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i80
@@ -3038,7 +3038,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %255, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %255, i8 0, i64 72, i1 false)
   store ptr %238, ptr %5, align 8
   store ptr %239, ptr %254, align 8
   br i1 %.not.i.i.i105, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i125
@@ -3052,7 +3052,7 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i125, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123
   %256 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %257, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %257, i8 0, i64 72, i1 false)
   store ptr %243, ptr %6, align 8
   store ptr %244, ptr %256, align 8
   br i1 %.not.i.i.i110, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit130, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i128

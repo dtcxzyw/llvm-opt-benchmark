@@ -7056,7 +7056,7 @@ _ZNSt6vectorIN9cmCTestVC8RevisionESaIS1_EE9push_backERKS1_.exit: ; preds = %37, 
 51:                                               ; preds = %_ZNSt6vectorIN9cmCTestVC8RevisionESaIS1_EE9push_backERKS1_.exit, %49, %1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #22
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %52, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %52, i8 0, i64 240, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %53, ptr %2, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8

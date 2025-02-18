@@ -151,7 +151,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr readnone captures(none) %1)
   tail call void @__init_waitqueue_head(ptr noundef nonnull %16, ptr noundef nonnull @.str.7, ptr noundef nonnull @usblp_probe.__key.6) #11
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   store volatile ptr %17, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store volatile ptr %17, ptr %19, align 8

@@ -9934,7 +9934,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %124
   store i32 2, ptr %143, align 4
   store i32 3, ptr %144, align 8
   store i32 1, ptr %145, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %275, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %275, i8 0, i64 16, i1 false)
   store ptr %144, ptr %150, align 8
   store ptr %152, ptr %151, align 8
   store i64 8, ptr %153, align 8
@@ -9978,7 +9978,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %124
   store i32 2, ptr %159, align 4
   store i32 3, ptr %160, align 8
   store i32 1, ptr %161, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %276, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %276, i8 0, i64 16, i1 false)
   store ptr %160, ptr %166, align 8
   store ptr %168, ptr %167, align 8
   store i64 8, ptr %169, align 8
@@ -25184,7 +25184,7 @@ define hidden void @_ZN2cv4face15FacemarkAAMImpl16computeWarpPartsESt6vectorINS_
   store i32 2, ptr %55, align 4
   store i32 3, ptr %56, align 8
   store i32 1, ptr %57, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %72, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   store ptr %56, ptr %62, align 8
   store ptr %64, ptr %63, align 8
   store i64 8, ptr %65, align 8

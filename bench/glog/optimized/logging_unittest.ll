@@ -32059,7 +32059,7 @@ define hidden void @_ZN23Logging_FatalThrow_Test8TestBodyEv(ptr nonnull readnone
   %7 = tail call noundef ptr @_ZN6google22InstallFailureFunctionEPFvvE(ptr noundef nonnull @"_ZZN23Logging_FatalThrow_Test8TestBodyEvEN3$_18__invokeEv")
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #46
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %9, ptr %2, align 8, !tbaa !130
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8

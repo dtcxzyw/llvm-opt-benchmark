@@ -2168,7 +2168,7 @@ define internal i32 @tc_modify_qdisc(ptr noundef captures(address_is_null) %0, p
 120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #19
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 0, i64 32, i1 false), !annotation !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 32, i1 false), !annotation !48
   %122 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -4892,7 +4892,7 @@ define internal range(i32 -40, 1) i32 @check_loop_fn(ptr noundef %0, i64 noundef
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #19
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 32, i1 false), !annotation !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false), !annotation !48
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8

@@ -726,7 +726,7 @@ switch.early.test:                                ; preds = %77
   %354 = load ptr, ptr %353, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %34, i8 0, i64 22, i1 false)
   %355 = getelementptr inbounds nuw i8, ptr %35, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %355, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %355, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %36, i8 1, i64 22, i1 false)
   store i64 %351, ptr %35, align 16
   %356 = sext i8 %3 to i64

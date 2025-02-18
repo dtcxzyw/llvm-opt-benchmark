@@ -1755,7 +1755,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %67, i8 -1, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %67, i8 -1, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %69 = load i16, ptr %68, align 4

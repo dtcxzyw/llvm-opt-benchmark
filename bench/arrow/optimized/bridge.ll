@@ -17795,7 +17795,7 @@ _ZN5arrow6StatusD2Ev.exit19:                      ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   %23 = call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #34, !noalias !1128
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %24, i8 0, i64 288, i1 false), !noalias !1128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %24, i8 0, i64 288, i1 false), !noalias !1128
   store ptr %24, ptr %23, align 8, !tbaa !32, !noalias !1128
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8, !tbaa !36, !noalias !1128
@@ -17977,7 +17977,7 @@ _ZN5arrow8internal16StaticVectorImplI11ArrowSchemaLm1ENS0_18SmallVectorStorageIS
   %.07.i.i.i.i.i = phi ptr [ %78, %.preheader.i.i ], [ %.val4.i, %55 ]
   %.056.i.i.i.i.i = phi i64 [ %77, %.preheader.i.i ], [ %56, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %65, i8 0, i64 280, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %65, i8 0, i64 280, i1 false)
   store ptr %65, ptr %.07.i.i.i.i.i, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 8
   store i64 0, ptr %66, align 8, !tbaa !36
@@ -18027,7 +18027,7 @@ _ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.
   %.07.i.i.i32.i.i = phi ptr [ %86, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %101, %87 ]
   %.056.i.i.i33.i.i = phi i64 [ %56, %_ZNKSt6vectorIN5arrow12_GLOBAL__N_114SchemaExporterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %100, %87 ]
   %88 = getelementptr inbounds nuw i8, ptr %.07.i.i.i32.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %88, i8 0, i64 280, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %88, i8 0, i64 280, i1 false)
   store ptr %88, ptr %.07.i.i.i32.i.i, align 8, !tbaa !32
   %89 = getelementptr inbounds nuw i8, ptr %.07.i.i.i32.i.i, i64 8
   store i64 0, ptr %89, align 8, !tbaa !36

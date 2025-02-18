@@ -17150,7 +17150,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 24, i1 false), !alias.scope !526
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !526
   store i16 0, ptr %21, align 8, !alias.scope !526
   store ptr %23, ptr %22, align 8, !tbaa !96, !alias.scope !526
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 160

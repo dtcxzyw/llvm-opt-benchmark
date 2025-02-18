@@ -58975,7 +58975,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h9e8a2e8c5b189ecaE.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %5), !noalias !15606
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %18, i8 0, i64 9, i1 false), !noalias !15606
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %18, i8 0, i64 9, i1 false), !noalias !15606
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15607)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15610)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3), !noalias !15612

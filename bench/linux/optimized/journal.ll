@@ -4930,7 +4930,7 @@ define dso_local void @jbd2_journal_release_jbd_inode(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %21, %11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 24, i1 false), !annotation !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !annotation !31
   store ptr %7, ptr %3, align 8
   store i64 0, ptr %12, align 8
   store ptr %16, ptr %14, align 8

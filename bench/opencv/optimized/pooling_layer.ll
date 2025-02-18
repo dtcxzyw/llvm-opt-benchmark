@@ -6069,7 +6069,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20PoolingLayerInt8Impl14PoolingInvoke
   %143 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %144 = getelementptr inbounds nuw i8, ptr %33, i64 92
   %145 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %145, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %145, i8 0, i64 17, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %143, i8 0, i64 40, i1 false)
   store float 1.000000e+00, ptr %144, align 4
   %146 = getelementptr inbounds nuw i8, ptr %33, i64 96

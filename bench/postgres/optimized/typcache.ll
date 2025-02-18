@@ -205,7 +205,7 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(488) %68, i8 0, i64 484, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(484) %68, i8 0, i64 484, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %67

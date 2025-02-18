@@ -57928,7 +57928,7 @@ define dso_local noundef ptr @_ZN5clang4Sema22BuildNestedRequirementEPNS_4ExprE(
   store ptr %1, ptr %5, align 8, !tbaa !1532
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #27
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, i8 0, i64 104, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %21, ptr %6, align 8, !tbaa !715
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -93935,7 +93935,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %398, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %398, i8 0, i64 104, i1 false)
   store ptr %398, ptr %15, align 8, !tbaa !1988
   %399 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %399, align 8, !tbaa !1990
@@ -158501,7 +158501,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %398, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %398, i8 0, i64 104, i1 false)
   store ptr %398, ptr %15, align 8, !tbaa !1988
   %399 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %399, align 8, !tbaa !1990

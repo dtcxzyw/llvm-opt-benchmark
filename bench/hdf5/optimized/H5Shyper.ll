@@ -11107,7 +11107,7 @@ define range(i32 -1, 1) i32 @H5S__hyper_project_intersection(ptr noundef %0, ptr
 86:                                               ; preds = %._crit_edge85, %73
   %87 = phi ptr [ %.pre88, %._crit_edge85 ], [ %77, %73 ]
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %88, i8 0, i64 808, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %88, i8 0, i64 808, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %.058, i64 56
   %90 = load ptr, ptr %89, align 8, !tbaa !88
   store ptr %90, ptr %7, align 8, !tbaa !88

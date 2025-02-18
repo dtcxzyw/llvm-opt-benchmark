@@ -288,7 +288,7 @@ define internal fastcc range(i32 -1, 2) i32 @_needs_rehash(ptr noundef nonnull %
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 noundef 0, i64 noundef 88, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 noundef 0, i64 noundef 88, i1 noundef false) #9
   %15 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 1) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %39, label %17

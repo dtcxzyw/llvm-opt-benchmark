@@ -331,7 +331,7 @@ if.end21:                                         ; preds = %if.then15, %if.end
 if.then24:                                        ; preds = %if.end21
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   %18 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %call, i64 40
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !75
@@ -732,7 +732,7 @@ if.end17:                                         ; preds = %if.then11, %if.end
 if.then20:                                        ; preds = %if.end17
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   %5 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %call, i64 40
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !75

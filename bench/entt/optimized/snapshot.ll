@@ -1728,7 +1728,7 @@ define hidden void @_ZN31BasicSnapshot_Constructors_Test8TestBodyEv(ptr nonnull 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18517,7 +18517,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EE5clearEv.exit.i: ; preds = %59, %.
 60:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %62, ptr %5, align 8, !tbaa !20
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -35349,7 +35349,7 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt4pa
   store ptr %3, ptr %50, align 8, !tbaa !435
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %52, ptr %6, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8

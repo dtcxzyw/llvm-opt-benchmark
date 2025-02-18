@@ -229,7 +229,7 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
 35:                                               ; preds = %32
   %36 = load ptr, ptr %20, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %37, i8 0, i64 80, i1 false)
   %38 = load ptr, ptr %4, align 8
   store ptr %38, ptr %36, align 8
   %39 = load ptr, ptr %20, align 8
@@ -421,7 +421,7 @@ define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr noundef
 
 39:                                               ; preds = %34, %.thread
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %40, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 64, i1 false)
   store ptr %0, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.1, ptr %41, align 8

@@ -2340,7 +2340,7 @@ define hidden ptr @lj_ctype_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 464) #14
   %3 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 3072) #14
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %4, i8 0, i64 440, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %4, i8 0, i64 440, i1 false)
   store ptr %3, ptr %2, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 128, ptr %5, align 4, !tbaa !17

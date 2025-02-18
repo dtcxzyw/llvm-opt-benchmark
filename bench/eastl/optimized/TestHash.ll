@@ -18604,7 +18604,7 @@ if.then.i9442:                                    ; preds = %for.inc.i.i9439, %f
   %add3.i.i.i.i9447 = add nuw nsw i64 %add.i.i.i.i9446, 32
   %call.i.i.i.i9448 = call noalias ptr @malloc(i64 noundef %add3.i.i.i.i9447) #24
   %797 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i9448, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %797, i8 -1, i64 15, i1 false), !noalias !564
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %797, i8 -1, i64 15, i1 false), !noalias !564
   store i8 %796, ptr %call.i.i.i.i9448, align 1, !noalias !564
   %798 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i9448, i64 %add.i.i.i.i9446
   %result.0.i.i.i = getelementptr inbounds nuw i8, ptr %798, i64 16
@@ -18636,7 +18636,7 @@ if.then.i33.i:                                    ; preds = %call.i22.i.noexc
   %add5.i.i.i = add nuw nsw i64 %mul.i.i.i9654, %add.i.i.i9653
   %call.i.i.i = call noalias ptr @malloc(i64 noundef %add5.i.i.i) #24
   %802 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %802, i8 -1, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %802, i8 -1, i64 15, i1 false)
   store i8 %801, ptr %call.i.i.i, align 1
   %803 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %add.i.i.i9653
   %add.ptr11.i.i.i = getelementptr inbounds nuw i8, ptr %803, i64 16
@@ -18763,7 +18763,7 @@ if.then.i9468:                                    ; preds = %for.inc.i.i9465, %i
   %add3.i.i.i.i9473 = add nuw nsw i64 %add.i.i.i.i9472, 32
   %call.i.i.i.i9474 = call noalias ptr @malloc(i64 noundef %add3.i.i.i.i9473) #24
   %831 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i9474, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %831, i8 -1, i64 15, i1 false), !noalias !573
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %831, i8 -1, i64 15, i1 false), !noalias !573
   store i8 %830, ptr %call.i.i.i.i9474, align 1, !noalias !573
   %832 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i9474, i64 %add.i.i.i.i9472
   %result.0.i.i.i9475 = getelementptr inbounds nuw i8, ptr %832, i64 16
@@ -18795,7 +18795,7 @@ if.then.i33.i9491:                                ; preds = %call.i22.i.noexc949
   %add5.i.i.i9679 = add nuw nsw i64 %mul.i.i.i9678, %add.i.i.i9677
   %call.i.i.i9680 = call noalias ptr @malloc(i64 noundef %add5.i.i.i9679) #24
   %836 = getelementptr inbounds nuw i8, ptr %call.i.i.i9680, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %836, i8 -1, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %836, i8 -1, i64 15, i1 false)
   store i8 %835, ptr %call.i.i.i9680, align 1
   %837 = getelementptr inbounds nuw i8, ptr %call.i.i.i9680, i64 %add.i.i.i9677
   %add.ptr11.i.i.i9681 = getelementptr inbounds nuw i8, ptr %837, i64 16
@@ -31375,7 +31375,7 @@ if.then.i.i.i.i9063:                              ; preds = %invoke.cont.i.i9023
   %2560 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mAllocator.i.i9036 = getelementptr inbounds nuw i8, ptr %myMap2441, i64 40
   %2561 = getelementptr inbounds nuw i8, ptr %myMap2441, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2561, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2561, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9036, align 8
   %2562 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2441, ptr %myMap2441, align 8
@@ -31570,7 +31570,7 @@ if.then.i.i.i.i9205:                              ; preds = %_ZN5eastl12basic_st
   %2591 = load i64, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mAllocator.i.i9177 = getelementptr inbounds nuw i8, ptr %myMap2478, i64 40
   %2592 = getelementptr inbounds nuw i8, ptr %myMap2478, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2592, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2592, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i9177, align 8
   %2593 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2478, ptr %myMap2478, align 8

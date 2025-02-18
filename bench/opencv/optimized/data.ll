@@ -5511,7 +5511,7 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt20ba
   %826 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %827 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %828 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %828, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %828, i8 0, i64 16, i1 false)
   store ptr %816, ptr %827, align 8
   %829 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %830 = getelementptr inbounds nuw i8, ptr %64, i64 80

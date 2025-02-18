@@ -2314,7 +2314,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmFortranSourceI
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #25
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #25
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %29, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %29, i8 0, i64 176, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %30, ptr %6, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8

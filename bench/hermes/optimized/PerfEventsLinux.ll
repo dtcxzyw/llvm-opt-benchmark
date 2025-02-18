@@ -32,7 +32,7 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter10e
 entry:
   %pe = alloca %struct.perf_event_attr, align 8
   %0 = getelementptr inbounds nuw i8, ptr %pe, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %type_, align 8
   store i32 %1, ptr %pe, align 8
@@ -68,7 +68,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i)
   %1 = getelementptr inbounds nuw i8, ptr %pe.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1, i8 0, i64 112, i1 false)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %type_.i, align 8
   store i32 %2, ptr %pe.i, align 8
@@ -278,7 +278,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 land.lhs.true.i:                                  ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %type_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr, i64 16
   %2 = load i32, ptr %type_.i.i, align 16
   store i32 %2, ptr %pe.i.i, align 8

@@ -1566,7 +1566,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail20to_chars_pri
   %7 = alloca [14 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %8, i8 0, i64 13, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %8, i8 0, i64 13, i1 false)
   store i8 37, ptr %7, align 1
   %9 = icmp ne i32 %4, -1
   %10 = icmp ne i32 %3, 2

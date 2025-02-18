@@ -40,7 +40,7 @@ define ptr @ossl_namemap_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ht_config_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 2048, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -254,7 +254,7 @@ define i32 @ossl_namemap_name2num(ptr noundef readonly captures(address_is_null)
 .thread:                                          ; preds = %2, %5
   %.0812 = phi ptr [ %6, %5 ], [ %0, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store i64 64, ptr %3, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -418,7 +418,7 @@ define i32 @ossl_namemap_name2num_n(ptr noundef readonly captures(address_is_nul
 .preheader.i.i:                                   ; preds = %9, %11
   %.0812.i = phi ptr [ %12, %11 ], [ %0, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store i64 64, ptr %4, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !24
@@ -557,7 +557,7 @@ define internal fastcc i32 @namemap_add_name(ptr noundef nonnull captures(none) 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store i64 64, ptr %4, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -663,7 +663,7 @@ numname_insert.exit.thread24:                     ; preds = %40, %numname_insert
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store atomic i32 %.017.i26, ptr %52 monotonic, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %53, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   store i64 64, ptr %6, align 8, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -784,7 +784,7 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
 .preheader.i.i:                                   ; preds = %.thread91, %26
   %.05293 = phi ptr [ %25, %.thread91 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   store i64 64, ptr %5, align 8, !tbaa !19
   store ptr %16, ptr %17, align 8, !tbaa !24
   %30 = load i8, ptr %.05075, align 1, !tbaa !25

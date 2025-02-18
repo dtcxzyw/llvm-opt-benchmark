@@ -1486,7 +1486,7 @@ _ZN2cv3MatC2IfEERKSt6vectorIT_SaIS3_EEb.exit:     ; preds = %.noexc172
   %588 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %589 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %590 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %590, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %590, i8 0, i64 16, i1 false)
   store ptr %586, ptr %589, align 8
   %591 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %592 = getelementptr inbounds nuw i8, ptr %45, i64 80
@@ -1737,7 +1737,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i: ; preds = %660
   %665 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %666 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %667 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %667, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %667, i8 0, i64 16, i1 false)
   store ptr %663, ptr %666, align 8
   %668 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %669 = getelementptr inbounds nuw i8, ptr %7, i64 80

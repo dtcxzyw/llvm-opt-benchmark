@@ -1172,7 +1172,7 @@ define dso_local range(i32 -1, 1) i32 @parse_date_basic(ptr noundef %0, ptr noun
   %.not = icmp eq ptr %1, null
   %.not62 = icmp eq ptr %2, null
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 12

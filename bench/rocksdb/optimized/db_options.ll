@@ -3982,7 +3982,7 @@ invoke.cont487:                                   ; preds = %.noexc964
   %type_.i.i968 = getelementptr inbounds nuw i8, ptr %ref.tmp486, i64 168
   %117 = getelementptr inbounds nuw i8, ptr %ref.tmp486, i64 40
   %118 = getelementptr inbounds nuw i8, ptr %ref.tmp486, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %118, i8 0, i64 64, i1 false), !alias.scope !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %118, i8 0, i64 64, i1 false), !alias.scope !13
   store i32 19, ptr %type_.i.i968, align 8, !alias.scope !13
   %verification_.i.i969 = getelementptr inbounds nuw i8, ptr %ref.tmp486, i64 172
   store i32 0, ptr %verification_.i.i969, align 4, !alias.scope !13
@@ -4188,7 +4188,7 @@ invoke.cont532:                                   ; preds = %.noexc1038
   %type_.i.i1042 = getelementptr inbounds nuw i8, ptr %ref.tmp531, i64 168
   %127 = getelementptr inbounds nuw i8, ptr %ref.tmp531, i64 40
   %128 = getelementptr inbounds nuw i8, ptr %ref.tmp531, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %128, i8 0, i64 64, i1 false), !alias.scope !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %128, i8 0, i64 64, i1 false), !alias.scope !16
   store i32 19, ptr %type_.i.i1042, align 8, !alias.scope !16
   %verification_.i.i1043 = getelementptr inbounds nuw i8, ptr %ref.tmp531, i64 172
   store i32 0, ptr %verification_.i.i1043, align 4, !alias.scope !16
@@ -4224,7 +4224,7 @@ invoke.cont537:                                   ; preds = %invoke.cont532
   %type_.i.i1055 = getelementptr inbounds nuw i8, ptr %ref.tmp536, i64 168
   %129 = getelementptr inbounds nuw i8, ptr %ref.tmp536, i64 40
   %130 = getelementptr inbounds nuw i8, ptr %ref.tmp536, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %130, i8 0, i64 64, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, i8 0, i64 64, i1 false), !alias.scope !19
   store i32 19, ptr %type_.i.i1055, align 8, !alias.scope !19
   %verification_.i.i1056 = getelementptr inbounds nuw i8, ptr %ref.tmp536, i64 172
   store i32 0, ptr %verification_.i.i1056, align 4, !alias.scope !19
@@ -5370,7 +5370,7 @@ invoke.cont809:                                   ; preds = %.noexc1508
   %type_.i.i1512 = getelementptr inbounds nuw i8, ptr %ref.tmp808, i64 168
   %188 = getelementptr inbounds nuw i8, ptr %ref.tmp808, i64 40
   %189 = getelementptr inbounds nuw i8, ptr %ref.tmp808, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %189, i8 0, i64 64, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %189, i8 0, i64 64, i1 false), !alias.scope !28
   store i32 19, ptr %type_.i.i1512, align 8, !alias.scope !28
   %verification_.i.i1513 = getelementptr inbounds nuw i8, ptr %ref.tmp808, i64 172
   store i32 0, ptr %verification_.i.i1513, align 4, !alias.scope !28

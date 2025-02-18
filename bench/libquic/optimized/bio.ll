@@ -18,7 +18,7 @@ define hidden noundef ptr @BIO_new(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 1, ptr %7, align 4, !tbaa !16

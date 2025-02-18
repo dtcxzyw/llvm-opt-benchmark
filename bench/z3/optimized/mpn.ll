@@ -395,28 +395,28 @@ for.body52:                                       ; preds = %for.body52.preheade
 
 if.else65:                                        ; preds = %land.lhs.true40, %lor.lhs.false
   %14 = getelementptr inbounds nuw i8, ptr %u, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store ptr %14, ptr %u, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %u, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %u, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %15 = getelementptr inbounds nuw i8, ptr %v, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   store ptr %15, ptr %v, align 8
   %m_pos.i.i63 = getelementptr inbounds nuw i8, ptr %v, i64 8
   store i32 0, ptr %m_pos.i.i63, align 8
   %m_capacity.i.i64 = getelementptr inbounds nuw i8, ptr %v, i64 12
   store i32 16, ptr %m_capacity.i.i64, align 4
   %16 = getelementptr inbounds nuw i8, ptr %t_ms, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   store ptr %16, ptr %t_ms, align 8
   %m_pos.i.i66 = getelementptr inbounds nuw i8, ptr %t_ms, i64 8
   store i32 0, ptr %m_pos.i.i66, align 8
   %m_capacity.i.i67 = getelementptr inbounds nuw i8, ptr %t_ms, i64 12
   store i32 16, ptr %m_capacity.i.i67, align 4
   %17 = getelementptr inbounds nuw i8, ptr %t_ab, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store ptr %17, ptr %t_ab, align 8
   %m_pos.i.i69 = getelementptr inbounds nuw i8, ptr %t_ab, i64 8
   store i32 0, ptr %m_pos.i.i69, align 8

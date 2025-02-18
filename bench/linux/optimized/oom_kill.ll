@@ -4202,7 +4202,7 @@ define internal noundef i32 @oom_reaper(ptr readnone captures(none) %0) #14 alig
 
 122:                                              ; preds = %119, %115, %102, %101
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store ptr %43, ptr %2, align 8
   store i32 1, ptr %8, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %44, i32 64, ptr elementtype(i8) %44) #18, !srcloc !60
@@ -4453,7 +4453,7 @@ define internal fastcc zeroext i1 @__oom_reap_task_mm(ptr noundef %0) unnamed_ad
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store ptr %5, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 1, ptr %7, align 8

@@ -4183,7 +4183,7 @@ define hidden ptr @uint_get_manuf_name_if_known(i32 noundef %0) local_unnamed_ad
   %3 = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #24
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   %5 = lshr i32 %0, 16
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %3, align 1

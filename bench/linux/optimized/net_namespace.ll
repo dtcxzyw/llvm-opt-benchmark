@@ -1826,7 +1826,7 @@ define internal i32 @rtnl_net_dumpid(ptr noundef %0, ptr noundef captures(none) 
   %4 = alloca %struct.rtnl_net_dump_cb, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48

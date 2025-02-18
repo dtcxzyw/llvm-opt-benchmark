@@ -4642,7 +4642,7 @@ _ZNSt10unique_ptrIN5folly6detail15EventBasePoller6HandleESt14default_deleteIS3_E
 
 317:                                              ; preds = %315
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %318, i8 0, i64 48, i1 false), !noalias !342
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %318, i8 0, i64 48, i1 false), !noalias !342
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %316, align 8, !tbaa !25, !noalias !342
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 56
@@ -16263,7 +16263,7 @@ _ZNSt10unique_ptrIN5folly6detail15EventBasePoller6HandleESt14default_deleteIS3_E
 
 291:                                              ; preds = %289
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %292, i8 0, i64 48, i1 false), !noalias !761
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %292, i8 0, i64 48, i1 false), !noalias !761
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %290, align 8, !tbaa !25, !noalias !761
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 56

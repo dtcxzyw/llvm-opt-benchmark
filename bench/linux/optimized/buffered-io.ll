@@ -136,7 +136,7 @@ define dso_local noundef i32 @iomap_read_folio(ptr noundef %0, ptr noundef %1) #
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 184, i1 false)
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
@@ -163,7 +163,7 @@ define dso_local noundef i32 @iomap_read_folio(ptr noundef %0, ptr noundef %1) #
   store i64 %23, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store ptr %0, ptr %4, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_iomap_readpage, i64 8), i32 2) #16
           to label %45 [label %25], !srcloc !6
@@ -605,7 +605,7 @@ define dso_local void @iomap_readahead(ptr noundef %0, ptr noundef %1) #0 align 
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 184, i1 false)
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
@@ -1371,7 +1371,7 @@ define dso_local i64 @iomap_file_buffered_write(ptr noundef captures(none) %0, p
   %5 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 184, i1 false)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %9 = load ptr, ptr %8, align 8
@@ -2022,7 +2022,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
   %6 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %7, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 184, i1 false)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %8, align 8
@@ -2202,7 +2202,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0,
   %7 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %8, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %8, i8 0, i64 184, i1 false)
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %9, align 8
@@ -2476,7 +2476,7 @@ define dso_local noundef range(i32 1, 513) i32 @iomap_page_mkwrite(ptr noundef r
   %3 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
@@ -4723,7 +4723,7 @@ define internal void @iomap_read_end_io(ptr noundef %0) #0 align 16 {
 46:                                               ; preds = %43, %24
   %47 = phi ptr [ %19, %24 ], [ %.pre, %43 ]
   %48 = phi i64 [ %25, %24 ], [ %45, %43 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false), !annotation !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !28
   %49 = inttoptr i64 %48 to ptr
   store ptr %49, ptr %2, align 8
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 12

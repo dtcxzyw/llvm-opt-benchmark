@@ -2560,7 +2560,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %224, i8 0, i64 192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %224, i8 0, i64 192, i1 false)
   %225 = load i32, ptr %9, align 8
   %226 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %225, ptr %226, align 8
@@ -2885,7 +2885,7 @@ loop_info64_from_compat.exit.thread:              ; preds = %12
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %17, i8 0, i64 192, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %17, i8 0, i64 192, i1 false)
   %18 = load i32, ptr %5, align 4
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -4390,7 +4390,7 @@ define internal fastcc range(i32 -75, 1) i32 @loop_info64_to_compat(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 140, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(140) %5, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %5, i8 0, i64 136, i1 false)
   %6 = load i32, ptr %4, align 8
   store i32 %6, ptr %3, align 4
   %7 = load i64, ptr %0, align 8

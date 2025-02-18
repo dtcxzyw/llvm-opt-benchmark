@@ -2600,7 +2600,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @seccomp_notify_ioctl(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !25
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #14
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %242, i8 0, i64 56, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %242, i8 0, i64 56, i1 false), !annotation !25
   %243 = add nsw i32 %241, -4096
   %244 = icmp ult i32 %243, -4072
   br i1 %244, label %348, label %245

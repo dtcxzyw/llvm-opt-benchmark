@@ -3016,7 +3016,7 @@ if.end6:                                          ; preds = %entry
   %free.0 = uitofp nneg i64 %free.013 to double
   %conv3 = uitofp i64 %1 to double
   %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %sub = fsub double %conv3, %free.0
   %div = fdiv double %sub, %conv3
   %cmp.i = fcmp ogt double %div, 0.000000e+00

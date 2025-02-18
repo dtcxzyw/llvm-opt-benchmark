@@ -7855,7 +7855,7 @@ define dso_local ptr @rt6_add_dflt_router(ptr noundef %0, ptr noundef readonly c
   %6 = alloca %struct.fib6_config, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, i8 0, i64 168, i1 false)
   store i32 254, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %8, align 4
@@ -8128,7 +8128,7 @@ define dso_local i32 @ipv6_route_ioctl(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %11, label %12, label %61
 
 12:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, i8 0, i64 80, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false), !annotation !11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = load i32, ptr %14, align 8
@@ -8544,7 +8544,7 @@ define dso_local ptr @addrconf_f6i_alloc(ptr noundef %0, ptr noundef readonly ca
   %7 = alloca %struct.fib6_config, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #22
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, i8 0, i64 80, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false), !annotation !11
   store i32 254, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %9, align 4

@@ -1784,7 +1784,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL12writePublicsRN
   store i32 1, ptr %122, align 8, !tbaa !182, !noalias !179
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %124, i8 0, i64 24, i1 false), !noalias !179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false), !noalias !179
   store ptr %115, ptr %123, align 8, !tbaa !192, !noalias !179
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %121, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !51, !noalias !179

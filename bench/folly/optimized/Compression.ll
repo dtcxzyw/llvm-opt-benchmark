@@ -9038,7 +9038,7 @@ _ZN5folly11compression12_GLOBAL__N_113LZ4FrameCodec9resetDCtxEv.exit: ; preds = 
   %.sroa.11.0 = phi ptr [ %59, %55 ], [ %.sroa.11.0.copyload, %_ZN5folly11compression12_GLOBAL__N_113LZ4FrameCodec9resetDCtxEv.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #31
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %65, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, i8 0, i64 12, i1 false)
   store i32 1, ptr %8, align 4, !tbaa !241
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #31

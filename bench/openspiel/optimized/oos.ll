@@ -3317,7 +3317,7 @@ define void @_ZN10open_spiel10algorithms12OOSAlgorithmC2ESt10shared_ptrIKNS_4Gam
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %17, i8 0, i64 16, i1 false), !noalias !15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !15
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %18, ptr %15, align 8, !noalias !15
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -705,7 +705,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i.i.i.i.i: ; preds =
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %238, i8 0, i64 480, i1 false), !noalias !156
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %238, i8 0, i64 480, i1 false), !noalias !156
   store ptr %237, ptr %236, align 8, !tbaa !89, !noalias !156
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 28
@@ -1122,7 +1122,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i118.i.i.i.i: ; pred
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %385, align 8, !tbaa !12, !noalias !166
   %388 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %389 = getelementptr inbounds nuw i8, ptr %385, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %389, i8 0, i64 512, i1 false), !noalias !166
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %389, i8 0, i64 512, i1 false), !noalias !166
   store ptr %389, ptr %388, align 8, !tbaa !89, !noalias !166
   %390 = getelementptr inbounds nuw i8, ptr %385, i64 24
   store i32 0, ptr %390, align 8, !tbaa !91, !noalias !166
@@ -1386,7 +1386,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i177.i.i.i.i: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %505, align 8, !tbaa !12, !noalias !172
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 16
   %509 = getelementptr inbounds nuw i8, ptr %505, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %509, i8 0, i64 512, i1 false), !noalias !172
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %509, i8 0, i64 512, i1 false), !noalias !172
   store ptr %509, ptr %508, align 8, !tbaa !89, !noalias !172
   %510 = getelementptr inbounds nuw i8, ptr %505, i64 24
   store i32 0, ptr %510, align 8, !tbaa !91, !noalias !172
@@ -1604,7 +1604,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i223.i.i.i.i: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %604, align 8, !tbaa !12, !noalias !178
   %607 = getelementptr inbounds nuw i8, ptr %604, i64 16
   %608 = getelementptr inbounds nuw i8, ptr %604, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %608, i8 0, i64 512, i1 false), !noalias !178
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %608, i8 0, i64 512, i1 false), !noalias !178
   store ptr %608, ptr %607, align 8, !tbaa !89, !noalias !178
   %609 = getelementptr inbounds nuw i8, ptr %604, i64 24
   store i32 0, ptr %609, align 8, !tbaa !91, !noalias !178
@@ -1758,7 +1758,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i248.i.i.i.i: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %673, align 8, !tbaa !12, !noalias !184
   %676 = getelementptr inbounds nuw i8, ptr %673, i64 16
   %677 = getelementptr inbounds nuw i8, ptr %673, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %677, i8 0, i64 512, i1 false), !noalias !184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %677, i8 0, i64 512, i1 false), !noalias !184
   store ptr %677, ptr %676, align 8, !tbaa !89, !noalias !184
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 24
   store i32 0, ptr %678, align 8, !tbaa !91, !noalias !184
@@ -1976,7 +1976,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i294.i.i.i.i: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %772, align 8, !tbaa !12, !noalias !190
   %775 = getelementptr inbounds nuw i8, ptr %772, i64 16
   %776 = getelementptr inbounds nuw i8, ptr %772, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %776, i8 0, i64 512, i1 false), !noalias !190
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %776, i8 0, i64 512, i1 false), !noalias !190
   store ptr %776, ptr %775, align 8, !tbaa !89, !noalias !190
   %777 = getelementptr inbounds nuw i8, ptr %772, i64 24
   store i32 0, ptr %777, align 8, !tbaa !91, !noalias !190
@@ -2238,7 +2238,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i354.i.i.i.i: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %891, align 8, !tbaa !12, !noalias !196
   %894 = getelementptr inbounds nuw i8, ptr %891, i64 16
   %895 = getelementptr inbounds nuw i8, ptr %891, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %895, i8 0, i64 512, i1 false), !noalias !196
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %895, i8 0, i64 512, i1 false), !noalias !196
   store ptr %895, ptr %894, align 8, !tbaa !89, !noalias !196
   %896 = getelementptr inbounds nuw i8, ptr %891, i64 24
   store i32 0, ptr %896, align 8, !tbaa !91, !noalias !196

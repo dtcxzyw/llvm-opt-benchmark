@@ -226,7 +226,7 @@ define dso_local void @_ZN4llvm10BTFContext26getLineInfoForAddressRangeENS_6obje
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm10BTFContext25getInliningInfoForAddressENS_6object16SectionedAddressENS_19DILineInfoSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DIInliningInfo") align 8 initializes((16, 752)) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2, i64 %3, i64 %4, i8 %5) unnamed_addr #5 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(752) %7, i8 0, i64 736, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %7, i8 0, i64 736, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

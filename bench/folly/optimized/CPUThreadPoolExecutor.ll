@@ -21840,7 +21840,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 
 46:                                               ; preds = %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %47, i8 0, i64 48, i1 false), !noalias !812
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %47, i8 0, i64 48, i1 false), !noalias !812
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %45, align 8, !tbaa !25, !noalias !812
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 56
@@ -22194,7 +22194,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 
 38:                                               ; preds = %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %39, i8 0, i64 48, i1 false), !noalias !820
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %39, i8 0, i64 48, i1 false), !noalias !820
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %37, align 8, !tbaa !25, !noalias !820
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56

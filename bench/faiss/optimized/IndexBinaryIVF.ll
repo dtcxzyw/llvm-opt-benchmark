@@ -3020,7 +3020,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc19.i.i.i, %_Z
   store i64 %263, ptr %175, align 8, !tbaa !72, !noalias !132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %176) #23, !noalias !132
   %264 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %264, i8 0, i64 16, i1 false), !noalias !132
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, i8 0, i64 16, i1 false), !noalias !132
   %.not75.i.i.i = icmp eq i64 %1, 0
   br i1 %.not75.i.i.i, label %266, label %.lr.ph.i.i.i
 
@@ -3325,7 +3325,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc19.i.i65.i, %
   store i64 %356, ptr %163, align 8, !tbaa !72, !noalias !151
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %164) #23, !noalias !151
   %357 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %357, i8 0, i64 16, i1 false), !noalias !151
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, i8 0, i64 16, i1 false), !noalias !151
   %.not73.i.i.i = icmp eq i64 %1, 0
   br i1 %.not73.i.i.i, label %359, label %.lr.ph.i.i75.i
 
@@ -3626,7 +3626,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i119.i:   ; preds = %.noexc19.i.i118.i, 
   store i64 %449, ptr %151, align 8, !tbaa !72, !noalias !170
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %152) #23, !noalias !170
   %450 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %450, i8 0, i64 16, i1 false), !noalias !170
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %450, i8 0, i64 16, i1 false), !noalias !170
   %.not75.i.i130.i = icmp eq i64 %1, 0
   br i1 %.not75.i.i130.i, label %452, label %.lr.ph.i.i131.i
 
@@ -3933,7 +3933,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i177.i:   ; preds = %.noexc19.i.i176.i, 
   store i64 %544, ptr %139, align 8, !tbaa !72, !noalias !189
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %140) #23, !noalias !189
   %545 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %545, i8 0, i64 16, i1 false), !noalias !189
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %545, i8 0, i64 16, i1 false), !noalias !189
   %.not80.i.i.i = icmp eq i64 %1, 0
   br i1 %.not80.i.i.i, label %547, label %.lr.ph.i.i186.i
 
@@ -4246,7 +4246,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i228.i:   ; preds = %.noexc19.i.i227.i, 
   store i64 %641, ptr %127, align 8, !tbaa !72, !noalias !208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %128) #23, !noalias !208
   %642 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %642, i8 0, i64 16, i1 false), !noalias !208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %642, i8 0, i64 16, i1 false), !noalias !208
   %.not79.i.i.i = icmp eq i64 %1, 0
   br i1 %.not79.i.i.i, label %644, label %.lr.ph.i.i237.i
 
@@ -4565,7 +4565,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i284.i:   ; preds = %.noexc19.i.i283.i, 
   store i64 %740, ptr %115, align 8, !tbaa !72, !noalias !227
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %116) #23, !noalias !227
   %741 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %741, i8 0, i64 16, i1 false), !noalias !227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %741, i8 0, i64 16, i1 false), !noalias !227
   %.not87.i.i.i = icmp eq i64 %1, 0
   br i1 %.not87.i.i.i, label %743, label %.lr.ph.i.i293.i
 
@@ -4907,7 +4907,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i343.i:   ; preds = %.noexc19.i.i342.i, 
   store i64 %847, ptr %103, align 8, !tbaa !72, !noalias !243
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104) #23, !noalias !243
   %848 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %848, i8 0, i64 16, i1 false), !noalias !243
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %848, i8 0, i64 16, i1 false), !noalias !243
   %.not77.i.i.i = icmp eq i64 %1, 0
   br i1 %.not77.i.i.i, label %850, label %.lr.ph.i.i352.i
 
@@ -5228,7 +5228,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i374:   ; preds = %.noexc19.i.i.i373, 
   store i64 %943, ptr %91, align 8, !tbaa !72, !noalias !264
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92) #23, !noalias !264
   %944 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %944, i8 0, i64 16, i1 false), !noalias !264
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %944, i8 0, i64 16, i1 false), !noalias !264
   %.not75.i.i.i385 = icmp eq i64 %1, 0
   br i1 %.not75.i.i.i385, label %946, label %.lr.ph.i.i.i386
 
@@ -5529,7 +5529,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i312: ; preds = %.noexc19.i.i65.i311
   store i64 %1036, ptr %79, align 8, !tbaa !72, !noalias !277
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80) #23, !noalias !277
   %1037 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1037, i8 0, i64 16, i1 false), !noalias !277
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1037, i8 0, i64 16, i1 false), !noalias !277
   %.not73.i.i.i323 = icmp eq i64 %1, 0
   br i1 %.not73.i.i.i323, label %1039, label %.lr.ph.i.i75.i324
 
@@ -5830,7 +5830,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i119.i248: ; preds = %.noexc19.i.i118.i2
   store i64 %1129, ptr %67, align 8, !tbaa !72, !noalias !290
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68) #23, !noalias !290
   %1130 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1130, i8 0, i64 16, i1 false), !noalias !290
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1130, i8 0, i64 16, i1 false), !noalias !290
   %.not75.i.i130.i259 = icmp eq i64 %1, 0
   br i1 %.not75.i.i130.i259, label %1132, label %.lr.ph.i.i131.i260
 
@@ -6137,7 +6137,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i177.i182: ; preds = %.noexc19.i.i176.i1
   store i64 %1224, ptr %55, align 8, !tbaa !72, !noalias !303
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56) #23, !noalias !303
   %1225 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1225, i8 0, i64 16, i1 false), !noalias !303
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1225, i8 0, i64 16, i1 false), !noalias !303
   %.not80.i.i.i193 = icmp eq i64 %1, 0
   br i1 %.not80.i.i.i193, label %1227, label %.lr.ph.i.i186.i194
 
@@ -6450,7 +6450,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i228.i114: ; preds = %.noexc19.i.i227.i1
   store i64 %1321, ptr %43, align 8, !tbaa !72, !noalias !316
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44) #23, !noalias !316
   %1322 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1322, i8 0, i64 16, i1 false), !noalias !316
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1322, i8 0, i64 16, i1 false), !noalias !316
   %.not79.i.i.i125 = icmp eq i64 %1, 0
   br i1 %.not79.i.i.i125, label %1324, label %.lr.ph.i.i237.i126
 
@@ -6769,7 +6769,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i284.i36: ; preds = %.noexc19.i.i283.i35
   store i64 %1420, ptr %31, align 8, !tbaa !72, !noalias !329
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #23, !noalias !329
   %1421 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1421, i8 0, i64 16, i1 false), !noalias !329
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1421, i8 0, i64 16, i1 false), !noalias !329
   %.not87.i.i.i49 = icmp eq i64 %1, 0
   br i1 %.not87.i.i.i49, label %1423, label %.lr.ph.i.i293.i50
 
@@ -7111,7 +7111,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i343.i436: ; preds = %.noexc19.i.i342.i4
   store i64 %1527, ptr %19, align 8, !tbaa !72, !noalias !339
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #23, !noalias !339
   %1528 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1528, i8 0, i64 16, i1 false), !noalias !339
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1528, i8 0, i64 16, i1 false), !noalias !339
   %.not77.i.i.i447 = icmp eq i64 %1, 0
   br i1 %.not77.i.i.i447, label %1530, label %.lr.ph.i.i352.i448
 

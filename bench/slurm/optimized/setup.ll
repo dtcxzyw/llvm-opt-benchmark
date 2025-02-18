@@ -1179,7 +1179,7 @@ _get_proc_mapping.exit.i:                         ; preds = %200, %197
 234:                                              ; preds = %233, %230, %227
   store ptr %228, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 112), align 8
   %235 = call i32 @dlclose(ptr noundef nonnull %214) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @tree_info, i64 32), i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @tree_info, i64 32), i8 0, i64 24, i1 false)
   store ptr @.str.51, ptr @tree_info, align 8
   store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 16), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 8), align 8

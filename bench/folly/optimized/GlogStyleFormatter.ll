@@ -640,7 +640,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %14, ptr %6, align 8, !tbaa !59, !noalias !70
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #22, !noalias !70
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %175, i8 0, i64 16, i1 false), !noalias !70
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %175, i8 0, i64 16, i1 false), !noalias !70
   %176 = load i8, ptr %.sroa.0.0.i74, align 1, !tbaa !40
   %177 = sext i8 %176 to i32
   store i32 %177, ptr %5, align 16, !tbaa !64, !noalias !70

@@ -214,7 +214,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %14, align 8, !tbaa !15

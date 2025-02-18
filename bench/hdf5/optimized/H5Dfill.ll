@@ -433,7 +433,7 @@ define range(i32 -1, 1) i32 @H5D__fill_init(ptr noundef %0, ptr noundef %1, ptr 
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %21, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %21, i8 0, i64 120, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %6, ptr %22, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104

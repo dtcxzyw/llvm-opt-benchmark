@@ -271,7 +271,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm17ConstantUniqueMapINS_9InlineAs
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #19
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %17, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !37
@@ -4822,7 +4822,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm17ConstantUniqueMapINS_9InlineAs
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #19
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %30, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %30, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %29, align 8, !tbaa !47
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %32 = call noundef i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %11, i64 %13) #19

@@ -961,7 +961,7 @@ _ZL7runImplRN4llvm8FunctionERKNS_17TargetLibraryInfoEPNS_13DominatorTreeE.exit.t
 
 416:                                              ; preds = %405, %_ZL7runImplRN4llvm8FunctionERKNS_17TargetLibraryInfoEPNS_13DominatorTreeE.exit
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %417, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %417, i8 0, i64 64, i1 false)
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %418, ptr %0, align 8, !tbaa !46
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 8

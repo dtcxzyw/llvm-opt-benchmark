@@ -5222,7 +5222,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %18) #27
   %506 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %507 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %507, i8 0, i64 1016, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1016) %507, i8 0, i64 1016, i1 false)
   store i64 8319395793566789443, ptr %506, align 4
   %508 = load i32, ptr %.054801830837845, align 8
   %.not14.not.i.i298 = icmp eq i32 %508, 0
@@ -6343,7 +6343,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %9) #27
   %910 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %911 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %911, i8 0, i64 1016, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1016) %911, i8 0, i64 1016, i1 false)
   store i64 8314896635104159051, ptr %910, align 4
   %912 = load i32, ptr %.054802, align 8
   %.not14.not.i.i537 = icmp eq i32 %912, 0
@@ -6588,7 +6588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit583: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %7) #27
   %999 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %1000 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %1000, i8 0, i64 1016, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1016) %1000, i8 0, i64 1016, i1 false)
   store i64 7957695010998478162, ptr %999, align 4
   %1001 = load i32, ptr %.054802, align 8
   %.not14.not.i.i590 = icmp eq i32 %1001, 0
@@ -33012,7 +33012,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp15ColladaExporter8Material
   %.013.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %19, i8 0, i64 552, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %19, i8 0, i64 552, i1 false)
   store ptr %19, ptr %.013.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store i64 0, ptr %20, align 8
@@ -33087,7 +33087,7 @@ _ZNKSt6vectorIN6Assimp15ColladaExporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exi
   %.013.i.i.i31 = phi ptr [ %84, %.lr.ph.i.i.i30 ], [ %55, %_ZNKSt6vectorIN6Assimp15ColladaExporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %83, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN6Assimp15ColladaExporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %56, i8 0, i64 552, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %56, i8 0, i64 552, i1 false)
   store ptr %56, ptr %.013.i.i.i31, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 8
   store i64 0, ptr %57, align 8

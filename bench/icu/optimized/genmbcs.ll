@@ -87,7 +87,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456528) %0, i8 0, i64 456488, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456488) %0, i8 0, i64 456488, i1 false)
   %ucm1.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %ucm, ptr %ucm1.i, align 8
   store ptr @_ZL9MBCSCloseP12NewConverter, ptr %call, align 8

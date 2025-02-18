@@ -701,7 +701,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev() unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 32), i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 32), i8 0, i64 208, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 16), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8, !tbaa !22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 24), ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 8), align 8, !tbaa !32
   store i64 31069335677005666, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 24), align 8

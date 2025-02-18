@@ -1787,7 +1787,7 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit.thread: ; preds = %17, %2
 define hidden void @_ZN16JvmtiBreakpointsC2EPFvPvPPhE(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %5, align 8
@@ -1940,7 +1940,7 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit.thread: ; preds = %17, %2
   %24 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %24, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr @_ZN23JvmtiCurrentBreakpoints12listener_funEPvPPh, ptr %27, align 8
@@ -2027,7 +2027,7 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit: ; preds = %9
   %24 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %24, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr @_ZN23JvmtiCurrentBreakpoints12listener_funEPvPPh, ptr %27, align 8
@@ -2201,7 +2201,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN23JvmtiCurrent
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %3, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZN23JvmtiCurrentBreakpoints12listener_funEPvPPh, ptr %6, align 8

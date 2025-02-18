@@ -14017,7 +14017,7 @@ if.else129:                                       ; preds = %if.else, %invoke.co
 
 invoke.cont132:                                   ; preds = %if.else129
   %155 = getelementptr inbounds nuw i8, ptr %call131, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %155, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %155, i8 0, i64 128, i1 false)
   %m_initial_buffer.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call131, i64 16
   store ptr %m_initial_buffer.i.i.i.i112, ptr %call131, align 8
   %m_pos.i.i.i.i113 = getelementptr inbounds nuw i8, ptr %call131, i64 8

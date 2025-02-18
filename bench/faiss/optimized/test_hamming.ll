@@ -514,7 +514,7 @@ _ZN5faiss7hammingEPKmS1_m.exit.thread:            ; preds = %_ZN5faiss7hammingEP
 
 64:                                               ; preds = %.split248.us
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %15, ptr %6, align 8, !tbaa !22
   store i64 0, ptr %16, align 8, !tbaa !26
   %65 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -1567,7 +1567,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc226
 
 211:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   store ptr %44, ptr %9, align 8, !tbaa !22
   store i64 0, ptr %45, align 8, !tbaa !26
   %212 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -1843,7 +1843,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 
 307:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store ptr %48, ptr %13, align 8, !tbaa !22
   store i64 0, ptr %49, align 8, !tbaa !26
   %308 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()

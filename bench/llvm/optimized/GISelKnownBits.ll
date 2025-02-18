@@ -3682,7 +3682,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12D
   store i32 %59, ptr %48, align 4, !tbaa !161
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   store i32 1, ptr %61, align 8, !tbaa !210
   store i64 0, ptr %60, align 8, !tbaa !186
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 32

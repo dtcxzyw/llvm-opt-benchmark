@@ -2164,7 +2164,7 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.067101 = phi i32 [ 1, %.preheader ], [ %37, %.preheader.preheader ]
   %68 = trunc nuw nsw i32 %.067101 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %65, i8 %68, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %65, i8 %68, i64 7, i1 false)
   %69 = icmp eq i32 %.067101, 0
   br i1 %69, label %.preheader, label %.loopexit79, !llvm.loop !33
 

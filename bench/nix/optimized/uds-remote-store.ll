@@ -4559,7 +4559,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_14UDSRemoteStore10ConnectionEJEEEN
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %9, i8 0, i64 192, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8

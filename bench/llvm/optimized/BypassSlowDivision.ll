@@ -954,7 +954,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 16, i1 false), !alias.scope !110, !noalias !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false), !alias.scope !110, !noalias !55
   %471 = getelementptr inbounds nuw i8, ptr %205, i64 72
   %472 = load ptr, ptr %471, align 8, !tbaa !113, !noalias !128
   %473 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %472) #16, !noalias !128
@@ -2340,7 +2340,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFast
   %15 = alloca %"class.llvm::Twine", align 8
   %16 = alloca %"class.llvm::Twine", align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72

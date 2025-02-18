@@ -1468,7 +1468,7 @@ define hidden void @_ZN38PoccaPocmaAndPocs_Functionalities_Test8TestBodyEv(ptr n
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %8, ptr %2, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2813,7 +2813,7 @@ _ZN4entt7type_idIN4test13throwing_typeEEERKNS_9type_infoEv.exit.i: ; preds = %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %65, ptr %4, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3158,7 +3158,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 194:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #26
   %195 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %195, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, i8 0, i64 16, i1 false)
   %196 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %196, ptr %10, align 8, !tbaa !54
   %197 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7962,7 +7962,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i:     ; preds = %46, %44, %_ZNSt12__
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %53, ptr %5, align 8, !tbaa !54
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8926,7 +8926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcE
   store i64 0, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #26
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = ptrtoint ptr %1 to i64
   store i64 %20, ptr %2, align 8, !tbaa !149

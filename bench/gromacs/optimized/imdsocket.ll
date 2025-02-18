@@ -86,7 +86,7 @@ declare i32 @sleep(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   store i16 2, ptr %0, align 4
   %4 = trunc i32 %1 to i16
   %5 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #14

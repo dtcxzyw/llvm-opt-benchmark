@@ -437,7 +437,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnelC2ER8Settings(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %4, ptr noundef nonnull align 16 dereferenceable(160) @__const.SensorFunnel.points, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %26, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, i8 0, i64 20, i1 false)
   store float 0x3FC99999A0000000, ptr %5, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #18
   invoke void @b2DefaultChainDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ChainDef) align 8 %6)

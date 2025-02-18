@@ -102464,7 +102464,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %_ZN3vcg3tri14Update
 
 107:                                              ; preds = %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %108, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %108, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %12, align 4
   %109 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store float 1.000000e+00, ptr %109, align 4

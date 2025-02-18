@@ -2216,7 +2216,7 @@ getPortNumber.exit.thread:                        ; preds = %2, %12
 getPortNumber.exit:                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = load i32, ptr @allowOnlyIPv4, align 4
   %.not = icmp eq i32 %21, 0
   %22 = select i1 %.not, i32 0, i32 2

@@ -1310,7 +1310,7 @@ define hidden noundef ptr @_ZN4stdx7process3imp5read217h85ec80f14ea92412E(i32 no
   store i64 0, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, i8 0, i64 12, i1 false)
   %33 = load i32, ptr %18, align 4, !noundef !7
   store i32 %33, ptr %14, align 4
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 4

@@ -661,7 +661,7 @@ define void @gui_init(ptr noundef initializes((704, 712), (816, 824)) %0) local_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %4, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   br label %_iop_gui_alloc.exit
 
 _iop_gui_alloc.exit:                              ; preds = %1, %3

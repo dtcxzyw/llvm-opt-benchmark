@@ -321,7 +321,7 @@ common.resume:                                    ; preds = %64, %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %35, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %36, i8 0, i64 144, i1 false), !tbaa !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false), !tbaa !51
   store double -1.000000e+00, ptr %30, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store double -0.000000e+00, ptr %37, align 8, !tbaa !51

@@ -1050,7 +1050,7 @@ define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %7) #11
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %7, i8 0, i64 33, i1 false)
   %11 = zext i32 %2 to i64
   store i64 %11, ptr %6, align 16

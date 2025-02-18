@@ -1412,7 +1412,7 @@ define internal void @mpage_read_end_io(ptr noundef %0) #0 align 16 {
 46:                                               ; preds = %43, %24
   %47 = phi ptr [ %19, %24 ], [ %.pre, %43 ]
   %48 = phi i64 [ %25, %24 ], [ %45, %43 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 32, i1 false), !annotation !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !29
   %49 = inttoptr i64 %48 to ptr
   store ptr %49, ptr %2, align 8
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -1793,7 +1793,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
 46:                                               ; preds = %43, %24
   %47 = phi ptr [ %19, %24 ], [ %.pre, %43 ]
   %48 = phi i64 [ %25, %24 ], [ %45, %43 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 32, i1 false), !annotation !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !29
   %49 = inttoptr i64 %48 to ptr
   store ptr %49, ptr %2, align 8
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 12

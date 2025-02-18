@@ -1763,7 +1763,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -2158,7 +2158,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -2343,7 +2343,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_8equal_toEED2Ev.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -2514,7 +2514,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_8equal_toEED2Ev.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -2762,7 +2762,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -3157,7 +3157,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -3342,7 +3342,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_12not_equal_toEED
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -3513,7 +3513,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_12not_equal_toEED
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -3761,7 +3761,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -4156,7 +4156,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -4341,7 +4341,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_4lessEED2Ev.exit5
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -4512,7 +4512,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_4lessEED2Ev.exit6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -4760,7 +4760,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -5155,7 +5155,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -5340,7 +5340,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_7greaterEED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -5511,7 +5511,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_7greaterEED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -5759,7 +5759,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -6154,7 +6154,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -6339,7 +6339,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_10less_equalEED2E
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -6510,7 +6510,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_10less_equalEED2E
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -6758,7 +6758,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #23
   %39 = load double, ptr %20, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   store ptr %40, ptr %22, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %41, align 8, !tbaa !11
@@ -7153,7 +7153,7 @@ _ZN5boost6spirit2qi5parseIPKcNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #23
   %186 = load i64, ptr %23, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, i8 0, i64 48, i1 false)
   store ptr %187, ptr %25, align 8, !tbaa !14
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %188, align 8, !tbaa !11
@@ -7338,7 +7338,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_13greater_equalEE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #23
   %256 = load i32, ptr %26, align 4, !tbaa !45
   %257 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %257, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %257, i8 0, i64 48, i1 false)
   store ptr %257, ptr %28, align 8, !tbaa !14
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %258, align 8, !tbaa !11
@@ -7509,7 +7509,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_13greater_equalEE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #23
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %317, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %317, i8 0, i64 48, i1 false)
   store ptr %317, ptr %30, align 8, !tbaa !14
   %318 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %318, align 8, !tbaa !11
@@ -7725,7 +7725,7 @@ define weak_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_fact
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #23
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 48, i1 false)
   store ptr %26, ptr %16, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %27, align 8, !tbaa !11
@@ -7897,7 +7897,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_15begins_with_fun
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #23
   %84 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, i8 0, i64 48, i1 false)
   store ptr %84, ptr %18, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %85, align 8, !tbaa !11
@@ -8065,7 +8065,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_13ends_with_funEE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #23
   %142 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %142, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %142, i8 0, i64 48, i1 false)
   store ptr %142, ptr %20, align 8, !tbaa !14
   %143 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %143, align 8, !tbaa !11
@@ -8756,7 +8756,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -9274,7 +9274,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -9459,7 +9459,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -9630,7 +9630,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_8equal_toEED2Ev.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -9867,7 +9867,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -10385,7 +10385,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -10570,7 +10570,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -10741,7 +10741,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_12not_equal_toEED
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -10978,7 +10978,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -11496,7 +11496,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -11681,7 +11681,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -11852,7 +11852,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_4lessEED2Ev.exit6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -12089,7 +12089,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -12607,7 +12607,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -12792,7 +12792,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -12963,7 +12963,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_7greaterEED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -13200,7 +13200,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -13718,7 +13718,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -13903,7 +13903,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -14074,7 +14074,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_10less_equalEED2E
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -14311,7 +14311,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #23
   %37 = load double, ptr %19, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, i8 0, i64 48, i1 false)
   store ptr %38, ptr %21, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %39, align 8, !tbaa !11
@@ -14829,7 +14829,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23) #23
   %253 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %253, i8 0, i64 48, i1 false)
   store ptr %253, ptr %23, align 8, !tbaa !14
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %254, align 8, !tbaa !11
@@ -15014,7 +15014,7 @@ _ZN5boost6spirit2qi5parseIPKwNS0_8terminalINS0_3tag5long_EEElEEbRT_S9_RKT0_RT1_.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #23
   %321 = load i32, ptr %24, align 4, !tbaa !45
   %322 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %322, i8 0, i64 48, i1 false)
   store ptr %322, ptr %26, align 8, !tbaa !14
   %323 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %323, align 8, !tbaa !11
@@ -15185,7 +15185,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_13greater_equalEE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #23
   %382 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %382, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %382, i8 0, i64 48, i1 false)
   store ptr %382, ptr %28, align 8, !tbaa !14
   %383 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %383, align 8, !tbaa !11
@@ -15394,7 +15394,7 @@ define weak_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_fact
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #23
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, i8 0, i64 48, i1 false)
   store ptr %28, ptr %16, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %29, align 8, !tbaa !11
@@ -15566,7 +15566,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_15begins_with_fun
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #23
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, i8 0, i64 48, i1 false)
   store ptr %86, ptr %18, align 8, !tbaa !14
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %87, align 8, !tbaa !11
@@ -15734,7 +15734,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous16string_predicateINS1_13ends_with_funEE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #23
   %144 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %144, i8 0, i64 48, i1 false)
   store ptr %144, ptr %20, align 8, !tbaa !14
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %145, align 8, !tbaa !11

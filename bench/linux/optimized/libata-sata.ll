@@ -2964,7 +2964,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #2 align 16 {
   %158 = getelementptr [33 x %struct.ata_queued_cmd], ptr %18, i64 0, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 184
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %160, i8 0, i64 3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %160, i8 0, i64 3, i1 false)
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 195
   store i8 %86, ptr %161, align 1
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 196

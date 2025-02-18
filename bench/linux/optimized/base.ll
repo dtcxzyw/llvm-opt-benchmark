@@ -5923,7 +5923,7 @@ define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   store ptr %53, ptr %4, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 40

@@ -992,7 +992,7 @@ _ZNSt6vectorIN6Assimp6VertexESaIS1_EEC2EmRKS2_.exit: ; preds = %.noexc420, %64
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %177 = fdiv float 1.000000e+00, %.lcssa1255
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %86, i8 0, i64 224, i1 false), !alias.scope !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %86, i8 0, i64 224, i1 false), !alias.scope !17
   %178 = load float, ptr %160, align 4, !noalias !17
   %179 = fmul float %177, %178
   %180 = getelementptr inbounds nuw i8, ptr %160, i64 4
@@ -1181,7 +1181,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %_ZNK6aiMesh15HasVer
 _ZN6Assimp6VertexC2EPK6aiMeshj.exit.split:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i.split
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %11) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %73, i8 0, i64 224, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %73, i8 0, i64 224, i1 false), !alias.scope !22
   %267 = load float, ptr %160, align 4, !noalias !22
   %268 = load float, ptr %15, align 4, !noalias !22
   %269 = fadd float %267, %268
@@ -1631,7 +1631,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i460:        ; preds = %_ZNK6aiMesh15HasVer
 
 _ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split:     ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i457, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i460, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.thread1510
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %103, i8 0, i64 224, i1 false), !alias.scope !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %103, i8 0, i64 224, i1 false), !alias.scope !32
   %478 = load float, ptr %18, align 4, !noalias !32
   %479 = load float, ptr %19, align 4, !noalias !32
   %480 = fadd float %478, %479
@@ -1757,7 +1757,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit:               ; preds = %.preheader.i837
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %10) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %124, i8 0, i64 224, i1 false), !alias.scope !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %124, i8 0, i64 224, i1 false), !alias.scope !41
   %553 = load float, ptr %552, align 4, !noalias !41
   %554 = fmul float %553, 5.000000e-01
   %555 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 292
@@ -1880,7 +1880,7 @@ _ZN6Assimp6VertexmLEf.exit:                       ; preds = %601
   %621 = getelementptr inbounds nuw %"struct.Assimp::Vertex", ptr %.sroa.01080.0, i64 %620
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %9) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %129, i8 0, i64 224, i1 false), !alias.scope !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %129, i8 0, i64 224, i1 false), !alias.scope !42
   %622 = load float, ptr %.1.i.i, align 4, !noalias !42
   %623 = load float, ptr %621, align 4, !noalias !42
   %624 = fadd float %622, %623
@@ -2062,7 +2062,7 @@ _ZN6Assimp6VertexpLERKS0_.exit495:                ; preds = %701
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %8) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %352, i8 0, i64 224, i1 false), !alias.scope !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %352, i8 0, i64 224, i1 false), !alias.scope !52
   %741 = load float, ptr %740, align 4, !noalias !52
   %742 = fmul float %739, %741
   %743 = getelementptr inbounds nuw i8, ptr %.sroa.01073.01297, i64 20
@@ -3708,7 +3708,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i666:        ; preds = %_ZNK6aiMesh15HasVer
   %1500 = getelementptr inbounds nuw %"struct.Assimp::Vertex", ptr %.sroa.01080.0, i64 %1499
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %7) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %939, i8 0, i64 224, i1 false), !alias.scope !72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %939, i8 0, i64 224, i1 false), !alias.scope !72
   %1501 = load float, ptr %23, align 4, !noalias !72
   %1502 = load float, ptr %1500, align 4, !noalias !72
   %1503 = fadd float %1501, %1502
@@ -4065,7 +4065,7 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
   %1703 = getelementptr inbounds nuw i8, ptr %.pn.i.i681, i64 288
   %1704 = getelementptr inbounds nuw i8, ptr %.pn.i.i694, i64 288
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %957, i8 0, i64 224, i1 false), !alias.scope !76
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %957, i8 0, i64 224, i1 false), !alias.scope !76
   %1705 = load float, ptr %1703, align 4, !noalias !76
   %1706 = load float, ptr %1704, align 4, !noalias !76
   %1707 = fadd float %1705, %1706
@@ -4213,7 +4213,7 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
 _ZN6AssimpplERKNS_6VertexES2_.exit701:            ; preds = %1784
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %962, i8 0, i64 224, i1 false), !alias.scope !79
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %962, i8 0, i64 224, i1 false), !alias.scope !79
   %1806 = load float, ptr %24, align 4, !noalias !79
   %1807 = fadd float %1806, %1707
   %1808 = load float, ptr %963, align 4, !noalias !79
@@ -4361,7 +4361,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit671.split:     ; preds = %_ZNK6aiMesh15HasVer
   %1880 = fdiv float %1879, %1467
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %983, i8 0, i64 224, i1 false), !alias.scope !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %983, i8 0, i64 224, i1 false), !alias.scope !90
   %1881 = load float, ptr %29, align 4, !noalias !90
   %1882 = fmul float %1880, %1881
   %1883 = load float, ptr %984, align 4, !noalias !90
@@ -4455,7 +4455,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %30) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %996, i8 0, i64 224, i1 false), !alias.scope !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %996, i8 0, i64 224, i1 false), !alias.scope !97
   %1929 = load float, ptr %24, align 4, !noalias !97
   %1930 = fmul float %1469, %1929
   %1931 = load float, ptr %963, align 4, !noalias !97
@@ -4547,7 +4547,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
 
 _ZN6AssimpmlERKNS_6VertexEf.exit731:              ; preds = %.preheader.i.i722
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %1001, i8 0, i64 224, i1 false), !alias.scope !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %1001, i8 0, i64 224, i1 false), !alias.scope !98
   %1977 = fadd float %1882, %1930
   %1978 = fadd float %1884, %1932
   %1979 = fadd float %1886, %1934
@@ -4643,7 +4643,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit733:            ; preds = %.preheader.i977
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %31) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %1006, i8 0, i64 224, i1 false), !alias.scope !107
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %1006, i8 0, i64 224, i1 false), !alias.scope !107
   %2027 = load float, ptr %23, align 4, !noalias !107
   %2028 = fmul float %1469, %2027
   %2029 = load float, ptr %940, align 4, !noalias !107
@@ -4735,7 +4735,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit733:            ; preds = %.preheader.i977
 
 _ZN6AssimpmlERKNS_6VertexEf.exit761:              ; preds = %.preheader.i.i752
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %1011, i8 0, i64 224, i1 false), !alias.scope !108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %1011, i8 0, i64 224, i1 false), !alias.scope !108
   %2075 = fadd float %1977, %2028
   %2076 = fadd float %1978, %2030
   %2077 = fadd float %1979, %2032

@@ -3473,7 +3473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
 
 _ZNSt10unique_ptrISt13unordered_mapIlSt6vectorIiSaIiEESt4hashIlESt8equal_toIlESaISt4pairIKlS3_EEESt14default_deleteISC_EE5resetEPSC_.exit: ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %64, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store ptr %65, ptr %63, align 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8

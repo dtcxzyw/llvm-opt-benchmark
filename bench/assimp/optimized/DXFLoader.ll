@@ -4611,7 +4611,7 @@ define hidden void @_ZN6Assimp11DXFImporter17GenerateMaterialsEP7aiSceneRNS_3DXF
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %4) #27
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %8, i8 0, i64 1008, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %8, i8 0, i64 1008, i1 false)
   store i32 15, ptr %4, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %9, ptr noundef nonnull align 1 dereferenceable(15) @.str.26, i64 15, i1 false)

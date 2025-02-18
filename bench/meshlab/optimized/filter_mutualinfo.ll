@@ -1838,7 +1838,7 @@ _ZN7QStringD2Ev.exit133:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %19, i8 0, i64 56, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %136 = getelementptr inbounds nuw i8, ptr %19, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %136, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %136, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %135, align 4
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 76
   store float 1.000000e+00, ptr %137, align 4

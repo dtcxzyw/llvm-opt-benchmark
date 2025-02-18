@@ -8169,7 +8169,7 @@ _ZN10QByteArrayD2Ev.exit264:                      ; preds = %_ZN3vcg3tri2io11Exp
   br label %462
 
 462:                                              ; preds = %461, %459, %452
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -14898,7 +14898,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS_7SVertexESaIS3_EES2_I
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -84121,7 +84121,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_5PlyMCINS_5SMeshENS_
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 820

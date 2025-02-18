@@ -918,7 +918,7 @@ define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr noundef 
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %33, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %33, i8 0, i64 108, i1 false)
   store i16 1, ptr %11, align 2, !tbaa !73
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1191,7 +1191,7 @@ php_tcp_sockop_connect.exit:                      ; preds = %.thread.i, %62, %92
 
 178:                                              ; preds = %161
   %179 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %179, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %179, i8 0, i64 108, i1 false)
   store i16 1, ptr %7, align 2, !tbaa !73
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 16

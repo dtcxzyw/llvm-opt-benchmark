@@ -136,7 +136,7 @@ define void @shape_clip(ptr noundef %0, ptr noundef captures(none) %1) local_unn
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 80, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %18 = load double, ptr %17, align 8, !tbaa !39
@@ -553,7 +553,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 68:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #17
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %69, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %69, i8 0, i64 72, i1 false)
   store ptr %.0116, ptr %8, align 8, !tbaa !37
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0112, ptr %70, align 8, !tbaa !78
@@ -620,7 +620,7 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
 106:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #17
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %107, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %107, i8 0, i64 72, i1 false)
   store ptr %.0110, ptr %9, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0111, ptr %108, align 8, !tbaa !78

@@ -7900,7 +7900,7 @@ define internal i32 @md_ioctl(ptr noundef %0, i32 %1, i32 noundef %2, i64 nounde
 39:                                               ; preds = %35, %31
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #32
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %40, i8 0, i64 24, i1 false), !annotation !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %40, i8 0, i64 24, i1 false), !annotation !26
   tail call void @__rcu_read_lock() #32
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %42 = load volatile ptr, ptr %41, align 8

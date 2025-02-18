@@ -719,7 +719,7 @@ Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
   %37 = load ptr, ptr %34, align 8, !tbaa !91
   %38 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %37) #23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %39, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %39, i8 0, i64 176, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 128
   store float 0x47B9999980000000, ptr %41, align 8, !tbaa !93
@@ -791,7 +791,7 @@ Map_NodeCreate.exit:                              ; preds = %51, %54
   %73 = load ptr, ptr %34, align 8, !tbaa !91
   %74 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %73) #23
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %75, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %75, i8 0, i64 176, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 128
   store float 0x47B9999980000000, ptr %77, align 8, !tbaa !93
@@ -882,7 +882,7 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = load ptr, ptr %4, align 8, !tbaa !91
   %6 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %5) #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 176, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store float 0x47B9999980000000, ptr %9, align 8, !tbaa !93

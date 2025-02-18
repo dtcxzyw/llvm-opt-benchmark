@@ -14518,7 +14518,7 @@ _ZNK3sat6solver8num_varsEv.exit:                  ; preds = %entry, %if.end.i.i
   tail call void @_ZN8reslimitC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_rlimit)
   %m_config = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store double 8.000000e-01, ptr %m_config, align 8
   %m_alpha.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store double 3.500000e+00, ptr %m_alpha.i, align 8
@@ -17431,7 +17431,7 @@ _ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit:    ; preds = %lor.lhs.false
 if.end4:                                          ; preds = %lor.lhs.false, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit
   %call5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 816)
   %3 = getelementptr inbounds nuw i8, ptr %call5, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %3, i8 0, i64 784, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %3, i8 0, i64 784, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3sat4probE, i64 16), ptr %call5, align 8
   %m_config.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 4, ptr %m_config.i, align 8

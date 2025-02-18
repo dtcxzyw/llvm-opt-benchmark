@@ -766,7 +766,7 @@ IsInSet.exit38.thread.i:                          ; preds = %17
   %indvars.iv.i34.lcssa.sink.i = phi i64 [ %indvars.iv.i34.i, %.lr.ph.i33.i ], [ %indvars.iv.i.i, %.lr.ph.i.i ]
   %.0.ph.i = phi ptr [ @DefaultCurves, %.lr.ph.i33.i ], [ %.02049.i, %.lr.ph.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %18, i8 0, i64 104, i1 false)
   store float 0xC480F0CF00000000, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x4480F0CF00000000, ptr %19, align 4

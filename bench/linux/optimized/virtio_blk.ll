@@ -272,7 +272,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %70 = phi i32 [ %68, %58 ], [ %56, %55 ]
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %72 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %72, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %72, i8 0, i64 160, i1 false)
   store ptr @virtio_mq_ops, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %44, i64 112
   store i32 %70, ptr %73, align 8

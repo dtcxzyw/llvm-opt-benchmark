@@ -753,7 +753,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117GuardWideningImpl3
   store ptr %46, ptr %44, align 8, !tbaa !191, !alias.scope !181
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %34) #24
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %47, i8 0, i64 72, i1 false), !alias.scope !192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, i8 0, i64 72, i1 false), !alias.scope !192
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %48, ptr %34, align 8, !tbaa !28, !alias.scope !192
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 8

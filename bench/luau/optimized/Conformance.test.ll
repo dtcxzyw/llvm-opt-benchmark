@@ -15337,7 +15337,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_112v() #4 personality ptr @__gxx_pe
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 40, i1 false), !alias.scope !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !alias.scope !113
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %5, align 4, !alias.scope !113
   store i32 1, ptr %3, align 8, !alias.scope !113

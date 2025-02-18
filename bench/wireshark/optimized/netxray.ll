@@ -1412,7 +1412,7 @@ define internal noundef zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef
   %33 = phi i32 [ %19, %._crit_edge ], [ %.pre33, %29 ]
   %34 = phi i32 [ %.pre, %._crit_edge ], [ %30, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %35, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = zext i32 %34 to i64
@@ -1670,7 +1670,7 @@ define internal noundef zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef
   %35 = phi i32 [ %20, %._crit_edge ], [ %.pre50, %30 ]
   %36 = phi i32 [ %.pre, %._crit_edge ], [ %31, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %37, i8 noundef 0, i64 noundef 28, i1 noundef false) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %37, i8 noundef 0, i64 noundef 28, i1 noundef false) #8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = zext i32 %36 to i64

@@ -2444,7 +2444,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock(ptr nou
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #11
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 96, i1 false), !annotation !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !36
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = ptrtoint ptr %6 to i64
   store i64 %7, ptr %6, align 8

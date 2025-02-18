@@ -1369,7 +1369,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_10BasicBlockEEENS_14iterator
   store ptr %14, ptr %11, align 8, !tbaa !145, !alias.scope !185
   store ptr %14, ptr %12, align 8, !tbaa !149, !alias.scope !185
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !192
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !192
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3487,7 +3487,7 @@ define linkonce_odr void @_ZN4llvm7idf_endIPKNS_10BasicBlockEEENS_12idf_iterator
   %3 = alloca %"class.llvm::df_iterator.135", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 72, i1 false), !alias.scope !306
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !alias.scope !306
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8, !tbaa !28, !alias.scope !306
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13043,7 +13043,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_15DomTreeNodeBaseINS_10Basic
   store ptr %14, ptr %11, align 8, !tbaa !528, !alias.scope !593
   store ptr %14, ptr %12, align 8, !tbaa !532, !alias.scope !593
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !599
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !599
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !599
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

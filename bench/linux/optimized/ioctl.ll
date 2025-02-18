@@ -109,7 +109,7 @@ define dso_local range(i32 -14, 2) i32 @fiemap_fill_next_extent(ptr noundef capt
   %28 = or i32 %25, 256
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   store i64 %1, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %31, align 8
@@ -235,7 +235,7 @@ define dso_local void @fileattr_fill_xflags(ptr noundef writeonly captures(none)
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @fileattr_fill_flags(ptr noundef writeonly captures(none) initializes((0, 28)) %0, i32 noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %4, align 4
   store i32 %1, ptr %0, align 4
@@ -1495,7 +1495,7 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
 
 317:                                              ; preds = %314
   %318 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %318, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %318, i8 0, i64 24, i1 false)
   %319 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 1, ptr %319, align 4
   store i32 %309, ptr %13, align 4

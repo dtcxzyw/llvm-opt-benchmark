@@ -2830,7 +2830,7 @@ _ZN5clang6format19UnwrappedLineParser18distributeCommentsERKN4llvm8ArrayRefIPNS0
 _ZN5clang6format15ScopedLineStateC2ERNS0_19UnwrappedLineParserEb.exit: ; preds = %565, %_ZN5clang6format19UnwrappedLineParser18distributeCommentsERKN4llvm8ArrayRefIPNS0_11FormatTokenEEEPKS4_.exit
   %566 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25, !noalias !413
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %567, i8 0, i64 40, i1 false), !noalias !413
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %567, i8 0, i64 40, i1 false), !noalias !413
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store ptr %566, ptr %568, align 8, !tbaa !94, !noalias !413
   store ptr %566, ptr %566, align 8, !tbaa !34, !noalias !413
@@ -14633,7 +14633,7 @@ _ZNKSt14default_deleteIN5clang6format13UnwrappedLineEEclEPS2_.exit.i.i.i.i: ; pr
 _ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %18, %_ZNKSt14default_deleteIN5clang6format13UnwrappedLineEEclEPS2_.exit.i.i.i.i
   %21 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25, !noalias !602
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %22, i8 0, i64 40, i1 false), !noalias !602
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false), !noalias !602
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %21, ptr %23, align 8, !tbaa !94, !noalias !602
   store ptr %21, ptr %21, align 8, !tbaa !34, !noalias !602

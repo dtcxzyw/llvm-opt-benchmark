@@ -2786,7 +2786,7 @@ if.then.if.end_crit_edge.i:                       ; preds = %for.body
 
 call.i.i.noexc:                                   ; preds = %if.then.if.end_crit_edge.i
   %196 = getelementptr inbounds nuw i8, ptr %call.i.i653, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %196, i8 0, i64 64, i1 false), !noalias !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %196, i8 0, i64 64, i1 false), !noalias !31
   %FirstEl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i653, i64 24
   store ptr %FirstEl.i.i.i.i.i.i.i, ptr %call.i.i653, align 8, !noalias !31
   %EndX.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i653, i64 8
@@ -2864,7 +2864,7 @@ if.then.if.end_crit_edge.i679:                    ; preds = %invoke.cont25
 
 call.i.i.noexc690:                                ; preds = %if.then.if.end_crit_edge.i679
   %205 = getelementptr inbounds nuw i8, ptr %call.i.i691, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %205, i8 0, i64 64, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %205, i8 0, i64 64, i1 false), !noalias !34
   %FirstEl.i.i.i.i.i.i.i680 = getelementptr inbounds nuw i8, ptr %call.i.i691, i64 24
   store ptr %FirstEl.i.i.i.i.i.i.i680, ptr %call.i.i691, align 8, !noalias !34
   %EndX.i.i.i.i.i.i.i.i681 = getelementptr inbounds nuw i8, ptr %call.i.i691, i64 8
@@ -15136,7 +15136,7 @@ for.body25:                                       ; preds = %for.cond19.preheade
   br i1 %cmp.i.i, label %for.inc141, label %if.end32
 
 if.end32:                                         ; preds = %for.body25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %arrayctor.loop.i.i68
 
 arrayctor.loop.i.i68:                             ; preds = %arrayctor.loop.i.i68, %if.end32

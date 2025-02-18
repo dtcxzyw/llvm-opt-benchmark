@@ -1158,7 +1158,7 @@ _ZN4llvm15SmallVectorImplINS_8coverage24CounterExpressionBuilder4TermEE5eraseEPK
 
 129:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #27, !noalias !58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %71, i8 0, i64 104, i1 false), !noalias !58
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %71, i8 0, i64 104, i1 false), !noalias !58
   store i64 -49064778989728563, ptr %69, align 8, !tbaa !61, !noalias !58
   store i32 1, ptr %4, align 8, !noalias !58
   store i32 %.sroa.0.3189, ptr %73, align 4, !noalias !58
@@ -1474,7 +1474,7 @@ _ZN4llvm8coverage24CounterExpressionBuilder3getERKNS0_17CounterExpressionE.exit:
 280:                                              ; preds = %270
   %281 = trunc nuw nsw i64 %.sroa.0.7199 to i32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #27, !noalias !73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %107, i8 0, i64 104, i1 false), !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %107, i8 0, i64 104, i1 false), !noalias !73
   store i64 -49064778989728563, ptr %105, align 8, !tbaa !61, !noalias !73
   store i32 0, ptr %3, align 8, !noalias !73
   store i32 %281, ptr %109, align 4, !noalias !73
@@ -7860,7 +7860,7 @@ _ZSt9make_pairIRPKN4llvm8coverage20CounterMappingRegionENS0_11SmallVectorIS4_Lj6
   %1136 = shl nuw nsw i64 %1135, 1
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1132, i64 noundef %1136, i64 noundef 2) #27, !noalias !466
   %1137 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1137, i8 0, i64 12, i1 false), !noalias !466
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1137, i8 0, i64 12, i1 false), !noalias !466
   %1138 = load ptr, ptr %1131, align 8, !tbaa !484, !noalias !466
   store ptr %1138, ptr %1130, align 8, !tbaa !484, !noalias !466
   store ptr null, ptr %1131, align 8, !tbaa !484, !noalias !466
@@ -7888,7 +7888,7 @@ _ZSt9make_pairIRPKN4llvm8coverage20CounterMappingRegionENS0_11SmallVectorIS4_Lj6
   %1154 = shl nuw nsw i64 %1153, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1150, i64 noundef %1154, i64 noundef 4) #27, !noalias !466
   %1155 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1155, i8 0, i64 12, i1 false), !noalias !466
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1155, i8 0, i64 12, i1 false), !noalias !466
   %1156 = load ptr, ptr %1149, align 8, !tbaa !485, !noalias !466
   store ptr %1156, ptr %1148, align 8, !tbaa !485, !noalias !466
   store ptr null, ptr %1149, align 8, !tbaa !485, !noalias !466
@@ -13289,7 +13289,7 @@ define dso_local void @_ZNK4llvm8coverage15CoverageMapping22getCoverageForFuncti
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !337
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23363,7 +23363,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %19, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %23 = load i32, ptr %1, align 4, !tbaa !18

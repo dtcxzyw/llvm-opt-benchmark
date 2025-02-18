@@ -536,7 +536,7 @@ thread-pre-split:                                 ; preds = %57, %64, %90
   %173 = shl nuw nsw i32 %171, 8
   %174 = or disjoint i32 %173, %172
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %175, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %175, i8 0, i64 32, i1 false)
   %176 = lshr i32 %171, 1
   %177 = add nuw nsw i32 %176, 80
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -718,7 +718,7 @@ lha_calcsum.exit.i:                               ; preds = %.lr.ph.i.i, %218
   %274 = shl nuw nsw i32 %272, 8
   %275 = or disjoint i32 %274, %273
   %276 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %276, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %276, i8 0, i64 32, i1 false)
   %277 = lshr i32 %272, 1
   %278 = add nuw nsw i32 %277, 80
   %279 = getelementptr inbounds nuw i8, ptr %7, i64 20

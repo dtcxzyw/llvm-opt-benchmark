@@ -133,7 +133,7 @@ define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writab
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 56, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 1.000000e+00, ptr %5, align 4

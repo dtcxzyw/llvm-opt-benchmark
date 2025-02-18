@@ -1628,7 +1628,7 @@ _ZN12_GLOBAL__N_114InstrOrderFile20generateCodeSequenceERN4llvm6ModuleERNS1_8Fun
 
 _ZN12_GLOBAL__N_114InstrOrderFile3runERN4llvm6ModuleE.exit: ; preds = %569, %_ZN12_GLOBAL__N_114InstrOrderFile19createOrderFileDataERN4llvm6ModuleE.exit.i
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %571, i8 0, i64 64, i1 false), !alias.scope !238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %571, i8 0, i64 64, i1 false), !alias.scope !238
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %572, ptr %0, align 8, !tbaa !28, !alias.scope !238
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 8

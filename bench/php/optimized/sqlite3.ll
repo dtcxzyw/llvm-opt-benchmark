@@ -4056,7 +4056,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr noundef writeo
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %6, align 8, !tbaa !8
   %9 = getelementptr inbounds i8, ptr %8, i64 -32
   store i64 -1, ptr %5, align 8, !tbaa !142

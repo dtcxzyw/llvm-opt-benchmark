@@ -49495,7 +49495,7 @@ _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit: ; preds = %inv
 invoke.cont10:                                    ; preds = %_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit
   %cf_to_cmp_names_ = getelementptr inbounds nuw i8, ptr %this, i64 936
   %7 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %_M_single_bucket.i.i, ptr %call, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8

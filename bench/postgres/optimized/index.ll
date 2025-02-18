@@ -2084,7 +2084,7 @@ define dso_local void @index_build(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, ptr noundef nonnull align 16 dereferenceable(24) @__const.index_build.progress_index, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #11
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %60, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   store i64 2, ptr %12, align 16
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %61, align 8

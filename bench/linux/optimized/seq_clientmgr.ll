@@ -2033,7 +2033,7 @@ define internal noundef i32 @snd_seq_ioctl_client_id(ptr noundef readonly captur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @snd_seq_ioctl_system_info(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %3, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   store i32 32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 192, ptr %4, align 4

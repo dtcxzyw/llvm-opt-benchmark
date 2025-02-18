@@ -205,7 +205,7 @@ define dso_local range(i32 -1, 1) i32 @run_add_p(ptr noundef %0, i32 noundef %1,
   %20 = alloca %struct.add_p_state, align 8
   call void @llvm.lifetime.start.p0(i64 840, ptr nonnull %20) #17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(840) %21, i8 0, i64 832, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(832) %21, i8 0, i64 832, i1 false)
   store ptr %0, ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 728
   store ptr @strbuf_slopbuf, ptr %22, align 8, !tbaa !12

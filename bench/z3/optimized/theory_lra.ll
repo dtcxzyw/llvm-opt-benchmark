@@ -29396,7 +29396,7 @@ if.then372:                                       ; preds = %cleanup.done
 invoke.cont373:                                   ; preds = %if.then372
   %conv.i = trunc i64 %call.i.i.i.i366 to i32
   %230 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %230, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %230, i8 0, i64 64, i1 false)
   store ptr %230, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

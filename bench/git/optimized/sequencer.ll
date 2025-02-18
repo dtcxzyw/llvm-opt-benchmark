@@ -3362,7 +3362,7 @@ define dso_local void @sequencer_post_commit_cleanup(ptr noundef %0, i32 noundef
   %4 = alloca %struct.replay_opts, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, i8 0, i64 176, i1 false)
   store i32 -1, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %6, align 4, !tbaa !138
@@ -13161,7 +13161,7 @@ append_new_todo.exit:                             ; preds = %._crit_edge.i, %st_
 56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #20
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %57, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %57, i8 0, i64 72, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %10, ptr %58, align 8, !tbaa !281
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 40

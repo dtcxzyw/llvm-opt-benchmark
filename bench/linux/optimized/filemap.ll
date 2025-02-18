@@ -3283,7 +3283,7 @@ define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 no
 .thread:                                          ; preds = %34, %30
   %.lhs.trunc = phi i8 [ 0, %30 ], [ %42, %34 ]
   %43 = phi i64 [ %2, %30 ], [ %spec.select, %34 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !14
   store i64 %43, ptr %9, align 8
   %44 = urem i8 %.lhs.trunc, 6
   %45 = sub nuw i8 %.lhs.trunc, %44
@@ -4170,7 +4170,7 @@ define internal fastcc range(i32 -4, 1) i32 @folio_wait_bit_common(ptr noundef %
   %11 = load i32, ptr @sysctl_page_lock_unfairness, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #14
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 16, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !14
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   store i8 0, ptr %6, align 1, !annotation !14
@@ -7076,7 +7076,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
 
 133:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 32, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false), !annotation !14
   store ptr %9, ptr %7, align 8
   store ptr %11, ptr %31, align 8
   store ptr %12, ptr %32, align 8
@@ -7838,7 +7838,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store i32 %19, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i16 %50, ptr %54, align 4

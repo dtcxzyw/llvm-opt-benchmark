@@ -3204,7 +3204,7 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %7, i8 0, i64 37, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %7, i8 0, i64 37, i1 false)
   tail call void @down_read(ptr noundef nonnull @uts_sem) #13
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12
   %9 = inttoptr i64 %8 to ptr
@@ -5490,7 +5490,7 @@ define dso_local range(i64 -14, 1) i64 @__ia32_compat_sys_sysinfo(ptr noundef re
   %57 = and i64 %5, 4294967295
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %59, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   %60 = load i64, ptr %2, align 8
   %61 = trunc i64 %60 to i32
   store i32 %61, ptr %3, align 4
@@ -5826,7 +5826,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, i8 0, i64 88, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 -1, ptr %12, align 4
   %13 = icmp eq i64 %3, 0

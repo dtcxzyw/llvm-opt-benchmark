@@ -1804,7 +1804,7 @@ define internal fastcc i32 @do_mprotect_pkey(i64 noundef %0, i64 noundef %1, i64
   %67 = load ptr, ptr %34, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   store ptr %68, ptr %7, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %0, ptr %70, align 8

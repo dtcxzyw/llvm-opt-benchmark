@@ -1485,7 +1485,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %5 = alloca %struct.RlcMacPrivateData_t, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 348
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0

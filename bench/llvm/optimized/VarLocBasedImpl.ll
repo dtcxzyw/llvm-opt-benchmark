@@ -1691,7 +1691,7 @@ _ZN4llvm8SmallSetINS_23DbgVariableFragmentInfoELj4ESt4lessIS1_EE10insertImplIRKS
   %550 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %551 = getelementptr inbounds nuw i8, ptr %542, i64 24
   %552 = getelementptr inbounds nuw i8, ptr %542, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %552, i8 0, i64 64, i1 false), !noalias !367
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %552, i8 0, i64 64, i1 false), !noalias !367
   store ptr %551, ptr %550, align 8, !tbaa !6, !noalias !367
   %553 = getelementptr inbounds nuw i8, ptr %542, i64 16
   %554 = getelementptr inbounds nuw i8, ptr %542, i64 20
@@ -23727,7 +23727,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   store i32 1, ptr %15, align 8, !tbaa !11, !alias.scope !823
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !833
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !833
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !230, !alias.scope !833
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -1609,7 +1609,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %350, ptr noundef nonnull align 16 dereferenceable(16) %346, i64 16, i1 false), !tbaa.struct !199
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #22
   %351 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %351, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %351, i8 0, i64 56, i1 false)
   %352 = load ptr, ptr %21, align 8, !tbaa !89
   %353 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %352, ptr %353, align 8, !tbaa !201

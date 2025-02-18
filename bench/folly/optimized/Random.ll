@@ -461,7 +461,7 @@ define internal void @_ZNSt17_Function_handlerIFN5folly20SingletonThreadLocalINS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 112, i1 false), !alias.scope !58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false), !alias.scope !58
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   store i64 -1, ptr %0, align 8, !tbaa !13, !alias.scope !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -3438,7 +3438,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %613, %597, %596, %5
   %854 = lshr i32 %853, 24
   %855 = trunc nuw i32 %854 to i8
   %856 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %856, i8 noundef 0, i64 noundef 24, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %856, i8 noundef 0, i64 noundef 24, i1 noundef false) #11
   %857 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i8 2, ptr %857, align 4
   store i32 4, ptr %19, align 4
@@ -3490,7 +3490,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %613, %597, %596, %5
   %896 = load i32, ptr %895, align 8
   %897 = trunc i32 %896 to i8
   %898 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %898, i8 noundef 0, i64 noundef 24, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %898, i8 noundef 0, i64 noundef 24, i1 noundef false) #11
   %899 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i8 2, ptr %899, align 4
   store i32 4, ptr %19, align 4

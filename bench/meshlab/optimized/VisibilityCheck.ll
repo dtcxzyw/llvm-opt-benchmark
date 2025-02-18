@@ -10151,7 +10151,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %14 = load float, ptr %13, align 4, !noalias !71
   %15 = fneg float %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, i8 0, i64 56, i1 false), !noalias !71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %16, i8 0, i64 56, i1 false), !noalias !71
   store float 1.000000e+00, ptr %4, align 4, !noalias !71
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 1.000000e+00, ptr %17, align 4, !noalias !71
@@ -11076,7 +11076,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %90 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !noalias !90
   %91 = fneg float %90
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %92, i8 0, i64 56, i1 false), !noalias !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %92, i8 0, i64 56, i1 false), !noalias !90
   store float 1.000000e+00, ptr %3, align 4, !noalias !90
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float 1.000000e+00, ptr %93, align 4, !noalias !90
@@ -13016,7 +13016,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
 
 256:                                              ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %257, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %257, i8 0, i64 6, i1 false)
   store i8 1, ptr %19, align 1
   %258 = invoke noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef 3, ptr noundef nonnull align 1 dereferenceable(7) %19)
           to label %259 unwind label %268

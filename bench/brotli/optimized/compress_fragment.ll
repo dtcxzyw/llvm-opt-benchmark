@@ -8427,7 +8427,7 @@ define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initiali
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %37) #10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 7320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %38, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %38, i8 0, i64 56, i1 false)
   %39 = load i64, ptr %5, align 1
   store i64 %39, ptr %7, align 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 7376

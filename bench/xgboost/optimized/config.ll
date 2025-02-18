@@ -205,7 +205,7 @@ define void @_ZN4dmlc6ConfigC2Eb(ptr noundef nonnull align 8 dereferenceable(73)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i8 %3, ptr %9, align 8, !tbaa !11
   store ptr null, ptr %5, align 8, !tbaa !23
   store ptr %4, ptr %6, align 8, !tbaa !24
@@ -363,7 +363,7 @@ define void @_ZN4dmlc6ConfigC2ERSib(ptr noundef nonnull align 8 dereferenceable(
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i8 %4, ptr %10, align 8, !tbaa !11
   store ptr null, ptr %6, align 8, !tbaa !23
   store ptr %5, ptr %7, align 8, !tbaa !24

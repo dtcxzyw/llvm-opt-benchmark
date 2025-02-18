@@ -446,7 +446,7 @@ Dec_GraphAddNodeAnd.exit.i:                       ; preds = %60, %43
   %65 = sext i32 %62 to i64
   %66 = getelementptr inbounds %struct.Dec_Node_t_, ptr %63, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store i32 %44, ptr %66, align 8, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %.sroa.05.0, ptr %68, align 4, !tbaa !31
@@ -498,7 +498,7 @@ Dec_GraphAddNodeAnd.exit42.i:                     ; preds = %88, %Dec_GraphAddNo
   %93 = sext i32 %90 to i64
   %94 = getelementptr inbounds %struct.Dec_Node_t_, ptr %91, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
   store i32 %spec.select, ptr %94, align 8, !tbaa !31
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %77, ptr %96, align 4, !tbaa !31
@@ -553,7 +553,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeAnd
   %124 = sext i32 %117 to i64
   %125 = getelementptr inbounds %struct.Dec_Node_t_, ptr %118, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store i32 16384, ptr %128, align 8
@@ -612,7 +612,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %136, %152
   %157 = sext i32 %154 to i64
   %158 = getelementptr inbounds %struct.Dec_Node_t_, ptr %155, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
   store i32 %spec.select, ptr %158, align 8, !tbaa !31
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i32 %.sroa.05.0, ptr %160, align 4, !tbaa !31

@@ -1957,7 +1957,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE17evalRegularDerivsE
   %8 = alloca [6 x ptr], align 16
   %9 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters", align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store ptr %7, ptr %8, align 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -2176,7 +2176,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE21evalMultiLinearDer
   %8 = alloca [4 x i32], align 16
   %9 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters", align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store ptr %6, ptr %7, align 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -2391,7 +2391,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE19evalIrregularDeriv
   %7 = alloca [6 x ptr], align 16
   %8 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters", align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store ptr %6, ptr %7, align 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -5102,7 +5102,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE23evalMultiLi
   %4 = alloca [24 x float], align 16
   %5 = alloca [6 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store ptr %4, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -7373,7 +7373,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE17evalRegularDerivsE
   %8 = alloca [6 x ptr], align 16
   %9 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters.21", align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store ptr %7, ptr %8, align 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -7592,7 +7592,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE21evalMultiLinearDer
   %8 = alloca [4 x i32], align 16
   %9 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters.21", align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store ptr %6, ptr %7, align 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -7807,7 +7807,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE19evalIrregularDeriv
   %7 = alloca [6 x ptr], align 16
   %8 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::points::CommonCombinationParameters.21", align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store ptr %6, ptr %7, align 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -10510,7 +10510,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE23evalMultiLi
   %4 = alloca [24 x double], align 16
   %5 = alloca [6 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store ptr %4, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8

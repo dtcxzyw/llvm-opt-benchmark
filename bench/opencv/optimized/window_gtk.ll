@@ -13947,7 +13947,7 @@ _ZSt11make_sharedI10CvTrackbarJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 96
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 20, i1 false), !noalias !95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %109, i8 0, i64 20, i1 false), !noalias !95
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, i8 0, i64 32, i1 false), !noalias !95
   store ptr %99, ptr %106, align 8, !alias.scope !95
   store ptr %102, ptr %16, align 8, !alias.scope !95

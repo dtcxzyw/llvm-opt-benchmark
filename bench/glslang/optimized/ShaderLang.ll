@@ -2256,7 +2256,7 @@ _ZN7glslang13TInputScannerC2EiPKPKcPmS4_iib.exit162.i: ; preds = %_ZN7glslang13T
   store i32 1, ptr %390, align 4
   %391 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %392 = getelementptr inbounds nuw i8, ptr %33, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %392, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %392, i8 0, i64 12, i1 false)
   store i32 1, ptr %392, align 8
   store ptr %389, ptr %391, align 8
   call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %274)
@@ -5283,7 +5283,7 @@ _ZN7glslang13TInputScannerC2EiPKPKcPmS4_iib.exit161.i.i: ; preds = %414, %._crit
   store i32 1, ptr %424, align 4
   %425 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %426 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %426, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %426, i8 0, i64 12, i1 false)
   store i32 1, ptr %426, align 8
   %427 = load ptr, ptr %398, align 8
   %428 = load ptr, ptr %427, align 8
@@ -10007,7 +10007,7 @@ _ZN7glslang13TInputScannerC2EiPKPKcPmS4_iib.exit: ; preds = %8
   store i32 1, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, i8 0, i64 12, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i32 1, ptr %48, align 8
   store ptr null, ptr %46, align 8

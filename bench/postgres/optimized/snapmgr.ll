@@ -1955,7 +1955,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %61, align 1
   %62 = call i32 @FreeFile(ptr noundef nonnull %33) #18
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %63, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %63, i8 0, i64 96, i1 false)
   %64 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(6) @.str.39, i64 noundef 5) #19
   %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %69, label %65

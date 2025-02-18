@@ -2940,7 +2940,7 @@ if.then.i:                                        ; preds = %if.then15
 _ZL32create_hostbyname_request_lockedP17grpc_ares_requestPKctbS2_.exit: ; preds = %if.then15, %if.then.i
   %call2.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   %7 = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %1, ptr %call2.i, align 8
   %call4.i = call ptr @gpr_strdup(ptr noundef %4)
   %host5.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
@@ -2976,7 +2976,7 @@ if.then.i35:                                      ; preds = %if.end19
 _ZL32create_hostbyname_request_lockedP17grpc_ares_requestPKctbS2_.exit37: ; preds = %if.end19, %if.then.i35
   %call2.i27 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   %14 = getelementptr inbounds nuw i8, ptr %call2.i27, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %1, ptr %call2.i27, align 8
   %call4.i28 = call ptr @gpr_strdup(ptr noundef %11)
   %host5.i29 = getelementptr inbounds nuw i8, ptr %call2.i27, i64 8
@@ -4360,7 +4360,7 @@ do.end.i:                                         ; preds = %if.then.i, %invoke.
 
 call2.i.noexc:                                    ; preds = %do.end.i
   %23 = getelementptr inbounds nuw i8, ptr %call2.i40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %call, ptr %call2.i40, align 8
   %call4.i41 = invoke ptr @gpr_strdup(ptr noundef %call29)
           to label %invoke.cont33 unwind label %lpad19
@@ -4403,7 +4403,7 @@ do.end.i43:                                       ; preds = %if.then.i50, %invok
 
 call2.i.noexc53:                                  ; preds = %do.end.i43
   %28 = getelementptr inbounds nuw i8, ptr %call2.i54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %28, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   store ptr %call, ptr %call2.i54, align 8
   %call4.i55 = invoke ptr @gpr_strdup(ptr noundef %call39)
           to label %invoke.cont43 unwind label %lpad19

@@ -1588,7 +1588,7 @@ define dso_local noundef range(i64 -4, 1) i64 @__x64_sys_munlockall(ptr readnone
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %19, ptr %2, align 8
@@ -2464,7 +2464,7 @@ define internal fastcc void @apply_mlockall_flags(i32 noundef range(i32 0, 8) %0
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %9, ptr %2, align 8

@@ -993,7 +993,7 @@ _ZN18OpenImageIO_v2_6_04pugi12xml_document5resetEv.exit.i: ; preds = %if.end.i8,
   %rdf.sroa.0.1 = phi ptr [ %add.ptr.i, %if.end.i8 ], [ null, %for.body ]
   %rdf.sroa.3.1 = phi i64 [ %n.addr.0.i, %if.end.i8 ], [ 0, %for.body ]
   store i64 0, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false), !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !noalias !7
   store i64 32728, ptr %busy_size.i.i, align 8, !noalias !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %name.i.i.i.i, i8 0, i64 56, i1 false), !noalias !7
   store i64 10241, ptr %add.ptr.i.i, align 8, !noalias !7
@@ -5095,7 +5095,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then6
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store ptr %8, ptr %call.i.i.i.i.i.i, align 8
   %12 = load i64, ptr %_busy_size.i.i.i.i, align 8
   %13 = load ptr, ptr %8, align 8
@@ -5276,7 +5276,7 @@ if.then.i.i.i.i188:                               ; preds = %if.then77
 
 if.end.i.i.i.i.i191:                              ; preds = %if.then.i.i.i.i188
   %43 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i189, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
   store ptr %40, ptr %call.i.i.i.i.i.i189, align 8
   %44 = load i64, ptr %_busy_size.i.i.i.i170, align 8
   %45 = load ptr, ptr %40, align 8
@@ -5831,7 +5831,7 @@ if.then.i.i.i.i220:                               ; preds = %if.else444
 
 if.end.i.i.i.i.i223:                              ; preds = %if.then.i.i.i.i220
   %113 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i221, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %113, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 32, i1 false)
   store ptr %110, ptr %call.i.i.i.i.i.i221, align 8
   %114 = load i64, ptr %_busy_size.i.i.i.i195, align 8
   %115 = load ptr, ptr %110, align 8
@@ -5959,7 +5959,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr %alloc, ptr %call.i.i.i.i.i, align 8
   %3 = load i64, ptr %_busy_size.i.i.i, align 8
   %4 = load ptr, ptr %alloc, align 8
@@ -6154,7 +6154,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end37
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   store ptr %14, ptr %call.i.i.i.i.i.i, align 8
   %18 = load i64, ptr %_busy_size.i.i.i.i, align 8
   %19 = load ptr, ptr %14, align 8
@@ -6233,7 +6233,7 @@ if.then.i.i.i.i94:                                ; preds = %if.else
 
 if.end.i.i.i.i.i97:                               ; preds = %if.then.i.i.i.i94
   %27 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i95, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   store ptr %24, ptr %call.i.i.i.i.i.i95, align 8
   %28 = load i64, ptr %_busy_size.i.i.i.i69, align 8
   %29 = load ptr, ptr %24, align 8
@@ -6536,7 +6536,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then7
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %2, ptr %call.i.i.i.i.i.i, align 8
   %6 = load i64, ptr %_busy_size.i.i.i.i, align 8
   %7 = load ptr, ptr %2, align 8

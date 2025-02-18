@@ -760,7 +760,7 @@ TT_Get_VMetrics.exit.i.i:                         ; preds = %160, %150, %143
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 192
   %222 = load ptr, ptr %221, align 8, !tbaa !44
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %223, i8 0, i64 360, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %223, i8 0, i64 360, i1 false)
   %224 = sext i32 %.2 to i64
   %225 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %224, ptr %225, align 8, !tbaa !162
@@ -18083,7 +18083,7 @@ define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !196
   %6 = zext i16 %1 to i64
   %7 = call ptr @ft_mem_realloc(ptr noundef %0, i64 noundef 16, i64 noundef 0, i64 noundef %6, ptr noundef null, ptr noundef nonnull %4) #22

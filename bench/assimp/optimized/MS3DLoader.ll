@@ -5173,7 +5173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %_Z
 
 1546:                                             ; preds = %1543
   %1547 = getelementptr inbounds nuw i8, ptr %1545, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %1547, i8 0, i64 1012, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1012) %1547, i8 0, i64 1012, i1 false)
   %1548 = getelementptr inbounds nuw i8, ptr %1545, i64 1032
   store double -1.000000e+00, ptr %1548, align 8
   %1549 = getelementptr inbounds nuw i8, ptr %1545, i64 1040

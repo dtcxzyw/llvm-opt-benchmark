@@ -731,7 +731,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_14GPUTreeLearn
   tail call void @_ZN8LightGBM17SerialTreeLearner28FindBestSplitsFromHistogramsERKSt6vectorIaSaIaEEbPKNS_4TreeE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i8 1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 121
   store i8 0, ptr %9, align 1
@@ -1388,7 +1388,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_17SerialTreeLe
   tail call void @_ZN8LightGBM17SerialTreeLearner28FindBestSplitsFromHistogramsERKSt6vectorIaSaIaEEbPKNS_4TreeE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i8 1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 121
   store i8 0, ptr %9, align 1

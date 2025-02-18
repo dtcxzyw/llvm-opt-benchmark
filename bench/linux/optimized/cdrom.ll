@@ -1138,7 +1138,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #17
   %214 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %214, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %214, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %215 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %215, align 8
@@ -1271,7 +1271,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
   %288 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %288, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %288, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %289 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1573,7 +1573,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %6, i8 0, i64 255, i1 false), !annotation !46
   %457 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %457, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %457, i8 0, i64 56, i1 false)
   %458 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %458, align 8
   %459 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4785,7 +4785,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, i8 0, i64 16, i1 false), !annotation !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6342,7 +6342,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef initializes((96, 97)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %9
 

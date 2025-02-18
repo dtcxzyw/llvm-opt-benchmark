@@ -1683,7 +1683,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %ltree_lookup_cache_, align 8
   %call5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   %2 = getelementptr inbounds nuw i8, ptr %call5, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 48
   store ptr %_M_single_bucket.i.i, ptr %call5, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 8

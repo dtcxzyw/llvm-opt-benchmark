@@ -4057,7 +4057,7 @@ _ZNKSt3mapIjPN7rocksdb18ColumnFamilyHandleESt4lessIjESaISt4pairIKjS2_EEE2atERS6_
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)
@@ -4464,7 +4464,7 @@ invoke.cont12:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %rate_limiter_priority.i = getelementptr inbounds nuw i8, ptr %roptions, i64 44
   %4 = getelementptr inbounds nuw i8, ptr %roptions, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %4, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds nuw i8, ptr %roptions, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8

@@ -1457,7 +1457,7 @@ first_scapegoat.exit261.i:                        ; preds = %373, %370, %367, %3
   %390 = load ptr, ptr %.02358.i.i, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   store ptr %0, ptr %24, align 8, !tbaa !140
   store ptr %.02358.i.i, ptr %50, align 8, !tbaa !143
   store ptr %381, ptr %51, align 8, !tbaa !144
@@ -1484,11 +1484,11 @@ first_scapegoat.exit261.i:                        ; preds = %373, %370, %367, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %25, i8 0, i64 120, i1 false)
   %407 = load i32, ptr %54, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %408 = sext i32 %407 to i64
   store i64 %408, ptr %20, align 8, !tbaa !148
   store ptr @handle_split_cb, ptr %57, align 8, !tbaa !150
@@ -2714,7 +2714,7 @@ fill_origin_blob.exit.i.i:                        ; preds = %get_origin.exit.i.i
   %874 = load ptr, ptr %873, align 8, !tbaa !171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8, !tbaa !140
   store ptr %874, ptr %85, align 8, !tbaa !143
   store ptr %.018.i.i.i, ptr %86, align 8, !tbaa !144
@@ -2741,11 +2741,11 @@ fill_origin_blob.exit.i.i:                        ; preds = %get_origin.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %18, i8 0, i64 120, i1 false)
   %891 = load i32, ptr %54, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %89, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   %892 = sext i32 %891 to i64
   store i64 %892, ptr %7, align 8, !tbaa !148
   store ptr @handle_split_cb, ptr %91, align 8, !tbaa !150
@@ -6061,12 +6061,12 @@ define internal fastcc void @pass_blame_to_parent(ptr noundef %0, ptr noundef no
   %31 = load i32, ptr %30, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = sext i32 %31 to i64
   store i64 %34, ptr %6, align 8, !tbaa !148
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40

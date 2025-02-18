@@ -3474,7 +3474,7 @@ if.then:                                          ; preds = %entry
 if.else.i42:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v_column_families, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %v_keys, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %v_column_families, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %v_column_families, i64 16
   %cmp.i.i = icmp ugt i64 %num_keys, 1152921504606846975
@@ -3859,7 +3859,7 @@ if.then:                                          ; preds = %entry
 if.else.i41:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %column_families, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %v_keys, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %column_families, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %column_families, i64 16
   %cmp.i.i = icmp ugt i64 %num_keys, 1152921504606846975

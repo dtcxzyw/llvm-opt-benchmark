@@ -2910,7 +2910,7 @@ files_downcast.exit:                              ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %24 = trunc i32 %2 to i8
   %25 = lshr i8 %24, 2
@@ -6533,7 +6533,7 @@ ends_with.exit.thread:                            ; preds = %10, %ends_with.exit
 16:                                               ; preds = %ends_with.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr %2, ptr %6, align 8, !tbaa !146
   %18 = call i32 (ptr, ptr, i32, ptr, ...) @fsck_report_ref(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull @.str.132) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
@@ -6562,7 +6562,7 @@ define internal i32 @files_fsck_refs_content(ptr noundef readonly captures(none)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_fsck_refs_dir.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #18
   store ptr %2, ptr %9, align 8, !tbaa !146
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64

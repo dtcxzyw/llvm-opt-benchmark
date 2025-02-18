@@ -77965,7 +77965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 "_ZZN7glslang13TParseContext28vkRelaxedRemapUniformMembersERKNS_10TSourceLocERKNS_11TPublicTypeERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEENK3$_0clES9_SI_.exit": ; preds = %399, %405
   %410 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %410, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %410, i8 0, i64 104, i1 false)
   %411 = load ptr, ptr %1, align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 56
   %413 = load ptr, ptr %412, align 8

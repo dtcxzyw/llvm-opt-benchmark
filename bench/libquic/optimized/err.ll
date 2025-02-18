@@ -1024,7 +1024,7 @@ err_get_state.exit:                               ; preds = %5, %10
 
 err_clear.exit:                                   ; preds = %28, %34
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store ptr %3, ptr %30, align 8, !tbaa !19
   %38 = trunc i32 %4 to i16
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 20

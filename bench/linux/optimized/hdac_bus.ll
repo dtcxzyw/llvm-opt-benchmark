@@ -57,7 +57,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_cod
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @snd_hdac_bus_init(ptr noundef initializes((0, 1320)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1320) %4, i8 0, i64 1304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1304) %4, i8 0, i64 1304, i1 false)
   store ptr %1, ptr %0, align 8
   %5 = icmp eq ptr %2, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

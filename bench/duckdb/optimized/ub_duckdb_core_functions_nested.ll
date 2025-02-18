@@ -74386,7 +74386,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1054
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -75141,7 +75141,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1054
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -75757,7 +75757,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1080
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -76507,7 +76507,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1080
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -77123,7 +77123,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1102
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -77876,7 +77876,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1102
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -78492,7 +78492,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1124
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -79245,7 +79245,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1124
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -79861,7 +79861,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1146
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -80610,7 +80610,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1146
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -81224,7 +81224,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1168
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -81974,7 +81974,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1168
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -82590,7 +82590,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1190
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -83343,7 +83343,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1190
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -83959,7 +83959,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1212
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -84712,7 +84712,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1212
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -85328,7 +85328,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44._crit_edge: ; preds = %_ZNK6duck
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1234
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -86077,7 +86077,7 @@ define linkonce_odr void @_ZN6duckdb17HistogramFunctionINS_14DefaultMapTypeISt13
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %10, ptr %8, align 8, !tbaa !1234
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -86685,7 +86685,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44:  ; preds = %_ZNK6duckdb21Templa
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1254
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -87531,7 +87531,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
 20:                                               ; preds = %18
   %21 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %23, ptr %21, align 8, !tbaa !1254
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -88423,7 +88423,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit44:  ; preds = %_ZNK6duckdb21Templa
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %141, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store ptr %142, ptr %139, align 8, !tbaa !1276
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -89267,7 +89267,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor7CombineINS_17HistogramAg
 20:                                               ; preds = %18
   %21 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %23, ptr %21, align 8, !tbaa !1276
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8

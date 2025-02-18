@@ -1916,7 +1916,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__28UsdImagingPrim
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false), !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !10
   store ptr getelementptr inbounds nuw inrange(-16, 536) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25UsdImagingCoordSysAdapterE, i64 16), ptr %6, align 8, !noalias !10
   store ptr %6, ptr %7, align 8, !noalias !10
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10

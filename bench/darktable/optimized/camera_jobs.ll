@@ -610,7 +610,7 @@ define internal noundef i32 @dt_camera_import_job_run(ptr noundef %0) #0 {
   call void @dt_ctl_switch_mode_to(ptr noundef nonnull @.str.21) #10
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 80, i1 false)
   store ptr %4, ptr %3, align 8, !tbaa !82
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_camera_import_image_downloaded, ptr %16, align 8, !tbaa !84

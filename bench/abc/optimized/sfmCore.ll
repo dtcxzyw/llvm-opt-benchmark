@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Sfm_ParSetDefault(ptr noundef writeonly captures(none) initializes((0, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %2, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   store i32 2, ptr %0, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 30, ptr %3, align 4, !tbaa !8

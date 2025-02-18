@@ -728,7 +728,7 @@ define linkonce_odr dso_local void @_ZN10ChainShape11CreateSceneEv(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %2, ptr noundef nonnull align 16 dereferenceable(160) @__const._ZN10ChainShape11CreateSceneEv.points, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   store float 0x3FC99999A0000000, ptr %3, align 4, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 4620980, ptr %11, align 4, !tbaa !40

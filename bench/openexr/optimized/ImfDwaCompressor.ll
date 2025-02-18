@@ -4323,7 +4323,7 @@ if.end25:                                         ; preds = %if.end12.if.end25_c
   %21 = load i32, ptr %y64, align 4
   %22 = call i32 @llvm.smin.i32(i32 %20, i32 %21)
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %23, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %23, i8 0, i64 80, i1 false)
   store i64 2, ptr %11, align 8
   %_acCompression = getelementptr inbounds nuw i8, ptr %this, i64 16
   %24 = load i32, ptr %_acCompression, align 8

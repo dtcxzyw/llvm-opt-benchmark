@@ -435,10 +435,10 @@ _handle_first_form.exit:                          ; preds = %86, %78, %72
 
 124:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %9) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %119, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %119, i8 0, i64 32, i1 false)
   store i8 2, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %10) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %120, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %120, i8 0, i64 32, i1 false)
   store i8 2, ptr %10, align 1
   %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #20
   %126 = trunc i64 %125 to i32

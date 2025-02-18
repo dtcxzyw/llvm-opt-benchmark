@@ -4170,7 +4170,7 @@ define dso_local void @submit_bio_noacct_nocheck(ptr noundef %0) local_unnamed_a
 73:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %74, i8 0, i64 16, i1 false), !annotation !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %74, i8 0, i64 16, i1 false), !annotation !31
   %75 = load ptr, ptr %0, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %78, label %77, !prof !29

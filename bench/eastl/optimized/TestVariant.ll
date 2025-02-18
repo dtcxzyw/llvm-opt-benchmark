@@ -2726,7 +2726,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i: ; preds = %invoke.c
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v1133, i8 0, i64 24, i1 false)
   store i32 2, ptr %mStorage.i118, align 8
   %12 = getelementptr inbounds nuw i8, ptr %v2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i120)
   store i32 0, ptr %nErrorCount.i120, align 4
   %call.i125 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i120, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.79)

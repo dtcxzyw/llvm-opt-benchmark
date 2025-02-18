@@ -12726,7 +12726,7 @@ define internal i64 @rb_io_s_copy_stream(i32 noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %8) #28
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %10, i8 noundef 0, i64 noundef 360, i1 noundef false) #28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %10, i8 noundef 0, i64 noundef 360, i1 noundef false) #28
   store ptr %4, ptr %9, align 8, !tbaa !128
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %11, align 8, !tbaa !128

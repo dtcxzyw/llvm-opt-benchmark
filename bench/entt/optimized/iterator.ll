@@ -1722,7 +1722,7 @@ define hidden void @_ZN36IterableAdaptor_Functionalities_Test8TestBodyEv(ptr non
   store i32 2, ptr %.sroa.5334.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %43, ptr %2, align 8, !tbaa !41
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2022,7 +2022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %156, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %157, ptr %7, align 8, !tbaa !41
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -4202,7 +4202,7 @@ _ZSt9make_pairIRKPN4llvm7PHINodeENS0_19InductionDescriptorEESt4pairINSt25__strip
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #20
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store i64 6, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32

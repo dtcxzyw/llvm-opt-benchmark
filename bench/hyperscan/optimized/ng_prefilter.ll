@@ -3307,7 +3307,7 @@ invoke.cont14.i139:                               ; preds = %call.i.noexc444
   %reports.i.i.i = getelementptr inbounds nuw i8, ptr %call.i445, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i.i425 = getelementptr inbounds nuw i8, ptr %call.i445, i64 72
   %393 = getelementptr inbounds nuw i8, ptr %call.i445, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %393, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %393, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i425, ptr %reports.i.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i426 = getelementptr inbounds nuw i8, ptr %call.i445, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i427 = getelementptr inbounds nuw i8, ptr %call.i445, i64 64

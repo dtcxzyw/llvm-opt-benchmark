@@ -3460,7 +3460,7 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %38 = phi ptr [ %17, %15 ], [ %35, %_ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %39 = getelementptr inbounds i8, ptr %38, i64 -20
   %40 = getelementptr inbounds i8, ptr %38, i64 -18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %40, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %40, i8 0, i64 14, i1 false)
   %41 = getelementptr inbounds i8, ptr %38, i64 -14
   call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   store i16 %.028.lcssa, ptr %41, align 1

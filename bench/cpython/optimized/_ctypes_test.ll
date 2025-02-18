@@ -3913,7 +3913,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 609:                                              ; preds = %606
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #34
   %610 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %610, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %610, i8 0, i64 16, i1 false)
   %611 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.28) #34
   %.not16825 = icmp eq ptr %611, null
   br i1 %.not16825, label %.critedge17034, label %612
@@ -25219,7 +25219,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 7206:                                             ; preds = %7203
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %73) #34
   %7207 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7207, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7207, i8 0, i64 5, i1 false)
   %7208 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.91) #34
   %.not15877 = icmp eq ptr %7208, null
   br i1 %.not15877, label %.critedge17790, label %7209

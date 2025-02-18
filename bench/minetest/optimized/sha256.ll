@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef i32 @SHA256_Init(ptr noundef writeonly captures(none) initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %0, i8 0, i64 76, i1 false)
   store i32 1779033703, ptr %c, align 4
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %c, i64 4
   store i32 -1150833019, ptr %arrayidx2, align 4
@@ -1468,7 +1468,7 @@ entry:
   %cmp = icmp eq ptr %md, null
   %spec.store.select = select i1 %cmp, ptr @SHA256.m, ptr %md
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %0, i8 0, i64 76, i1 false)
   store i32 1779033703, ptr %c, align 4
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %c, i64 4
   store i32 -1150833019, ptr %arrayidx2.i, align 4

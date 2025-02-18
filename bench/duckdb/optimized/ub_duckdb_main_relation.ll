@@ -61090,7 +61090,7 @@ define linkonce_odr void @_ZN6duckdb11CSVFileScan16StoreUnionReaderENS_10unique_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1447)
   %4 = tail call noalias noundef nonnull dereferenceable(1256) ptr @_Znwm(i64 noundef 1256) #29, !noalias !1447
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1256) %5, i8 0, i64 1240, i1 false), !noalias !1447
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1240) %5, i8 0, i64 1240, i1 false), !noalias !1447
   store ptr %5, ptr %4, align 8, !tbaa !3, !noalias !1447
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !tbaa !9, !noalias !1447

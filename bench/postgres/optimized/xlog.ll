@@ -3130,7 +3130,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   store volatile i64 0, ptr %103, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !49
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %104, i8 0, i64 8190, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8190) %104, i8 0, i64 8190, i1 false)
   store i16 -12008, ptr %102, align 8
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 %1, ptr %105, align 4
@@ -5052,7 +5052,7 @@ define dso_local void @BootStrapXLOG(i32 noundef %0) local_unnamed_addr #0 {
 InitControlFile.exit:                             ; preds = %89
   %95 = load ptr, ptr @ControlFile, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %96, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %96, i8 0, i64 288, i1 false)
   store i64 %22, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)

@@ -163,7 +163,7 @@ define internal i64 @virt_efi_set_time(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8
   %7 = call fastcc i64 @__efi_queue_work(i32 noundef 2, ptr noundef nonnull %2)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -366,7 +366,7 @@ define internal i64 @virt_efi_get_next_high_mono_count(ptr noundef %0) #0 align 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8
   %7 = call fastcc i64 @__efi_queue_work(i32 noundef 9, ptr noundef nonnull %2)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8

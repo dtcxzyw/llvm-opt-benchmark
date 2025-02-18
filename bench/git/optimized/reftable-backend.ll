@@ -3929,7 +3929,7 @@ st_mult.exit201:                                  ; preds = %121
 
 200:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %48, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %48, i8 0, i64 88, i1 false)
   %201 = getelementptr inbounds nuw i8, ptr %53, i64 144
   store ptr %201, ptr %8, align 8, !tbaa !164
   store i64 %14, ptr %43, align 8, !tbaa !180
@@ -3946,7 +3946,7 @@ st_mult.exit201:                                  ; preds = %121
 
 206:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %49, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %49, i8 0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #20
   %207 = getelementptr inbounds nuw i8, ptr %53, i64 144
   store ptr %207, ptr %9, align 8, !tbaa !164
@@ -5670,7 +5670,7 @@ define internal i32 @write_reflog_expiry_table(ptr noundef %0, ptr noundef %1) #
 21:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #20
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !149
@@ -5707,7 +5707,7 @@ define internal i32 @write_reflog_expiry_table(ptr noundef %0, ptr noundef %1) #
 38:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #20
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %39, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %39, i8 0, i64 136, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %41 = load ptr, ptr %40, align 8, !tbaa !149
   store ptr %41, ptr %5, align 8, !tbaa !123

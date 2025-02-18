@@ -2482,7 +2482,7 @@ _ZN4llvm8ExpectedINS_11SmallVectorINS_5MachO11fat_arch_64ELj2EEEEC2IS4_EEOT_PNSt
   %59 = add i64 %58, %56
   %60 = shl i64 %59, %54
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #20, !noalias !298
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 16, i1 false), !noalias !298
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false), !noalias !298
   %61 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !14, !noalias !298
   store i32 %62, ptr %28, align 8, !tbaa !303, !noalias !298

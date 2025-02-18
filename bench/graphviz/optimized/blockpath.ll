@@ -1466,7 +1466,7 @@ nodelist_append.exit70.i:                         ; preds = %646, %._crit_edge10
 668:                                              ; preds = %nodelist_append.exit70.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22, !noalias !81
   %669 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %669, i8 0, i64 24, i1 false), !noalias !81
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %669, i8 0, i64 24, i1 false), !noalias !81
   %670 = getelementptr inbounds nuw i8, ptr %662, i64 48
   %.3109.i = load ptr, ptr %670, align 8, !tbaa !46, !noalias !81
   %.not52110.i = icmp eq ptr %.3109.i, %spec.select.i

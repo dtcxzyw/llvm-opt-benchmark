@@ -72,7 +72,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %21, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %21, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2, !tbaa !4
   %.ptr69 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %22 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.3) #13

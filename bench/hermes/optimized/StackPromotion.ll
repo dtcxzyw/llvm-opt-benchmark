@@ -1002,7 +1002,7 @@ for.end.loopexit.i.i:                             ; preds = %_ZN4llvh12DenseMapB
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %entry
   %__begin18.sroa.0.01529.i.i = phi ptr [ %__begin18.sroa.0.01529.pre.i.i, %for.end.loopexit.i.i ], [ %__begin1.sroa.0.01506.i.i, %entry ]
   %8 = getelementptr inbounds nuw i8, ptr %destroyer.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store ptr %8, ptr %destroyer.i.i, align 8
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %destroyer.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8

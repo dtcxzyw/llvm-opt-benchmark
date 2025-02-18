@@ -12140,7 +12140,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread.i.i: ; p
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit.i.i: ; preds = %338
   %343 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %343, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %343, i8 0, i64 104, i1 false)
   store ptr %343, ptr %15, align 8, !tbaa !923
   %344 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %344, align 8, !tbaa !925
@@ -37625,7 +37625,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %398, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %398, i8 0, i64 104, i1 false)
   store ptr %398, ptr %15, align 8, !tbaa !923
   %399 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %399, align 8, !tbaa !925
@@ -131476,7 +131476,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.i.thread: ; pre
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit.i: ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %275, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %275, i8 0, i64 104, i1 false)
   store ptr %275, ptr %12, align 8, !tbaa !923
   %276 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %276, align 8, !tbaa !925

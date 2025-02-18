@@ -1960,7 +1960,7 @@ define dso_local void @_ZN4llvm18PartialInlinerPass3runERNS_6ModuleERNS_15Analys
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %29, i8 0, i64 64, i1 false), !alias.scope !107
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false), !alias.scope !107
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %34
 
@@ -2660,7 +2660,7 @@ _ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.thread.i: ; pred
 484:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
   %485 = call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #21, !noalias !202
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %486, i8 0, i64 416, i1 false), !noalias !202
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %486, i8 0, i64 416, i1 false), !noalias !202
   store ptr %486, ptr %485, align 8, !tbaa !25, !noalias !202
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store i32 0, ptr %487, align 8, !tbaa !26, !noalias !202
@@ -4562,7 +4562,7 @@ _ZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8
   store i64 %.sroa.25.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i175, align 8, !tbaa !55
   %1243 = call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #21, !noalias !331
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %1244, i8 0, i64 416, i1 false), !noalias !331
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %1244, i8 0, i64 416, i1 false), !noalias !331
   store ptr %1244, ptr %1243, align 8, !tbaa !25, !noalias !331
   %1245 = getelementptr inbounds nuw i8, ptr %1243, i64 8
   store i32 0, ptr %1245, align 8, !tbaa !26, !noalias !331
@@ -5955,7 +5955,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_
 1760:                                             ; preds = %1755
   %1761 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #21, !noalias !387
   %1762 = getelementptr inbounds nuw i8, ptr %1761, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %1762, i8 0, i64 96, i1 false), !noalias !387
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %1762, i8 0, i64 96, i1 false), !noalias !387
   store ptr %1762, ptr %1761, align 8, !tbaa !25, !noalias !387
   %1763 = getelementptr inbounds nuw i8, ptr %1761, i64 8
   store i32 0, ptr %1763, align 8, !tbaa !26, !noalias !387
@@ -6662,7 +6662,7 @@ _ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.e
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i51, align 8, !tbaa !55
   %2085 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #21, !noalias !422
   %2086 = getelementptr inbounds nuw i8, ptr %2085, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %2086, i8 0, i64 96, i1 false), !noalias !422
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2086, i8 0, i64 96, i1 false), !noalias !422
   store ptr %2086, ptr %2085, align 8, !tbaa !25, !noalias !422
   %2087 = getelementptr inbounds nuw i8, ptr %2085, i64 8
   store i32 0, ptr %2087, align 8, !tbaa !26, !noalias !422
@@ -17538,7 +17538,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_10BasicBlockEEENS_14iterator
   store ptr %14, ptr %11, align 8, !tbaa !447, !alias.scope !690
   store ptr %14, ptr %12, align 8, !tbaa !451, !alias.scope !690
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !696
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !696
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !696
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

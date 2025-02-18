@@ -5558,7 +5558,7 @@ define internal noundef range(i32 -22, 1) i32 @bxt_compute_dpll(ptr noundef read
 41:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #13
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 16, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false), !annotation !13
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 980
@@ -6625,7 +6625,7 @@ define internal i32 @bxt_ddi_pll_get_freq(ptr noundef readonly captures(none) %0
 
 20:                                               ; preds = %15, %3
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 16, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, i8 0, i64 16, i1 false), !annotation !13
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %23, 8

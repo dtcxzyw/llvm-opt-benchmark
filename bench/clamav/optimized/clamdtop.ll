@@ -3443,7 +3443,7 @@ rm_windows.exit:                                  ; preds = %17, %19
   %54 = tail call i32 @werase(ptr noundef %53) #25
   %55 = load ptr, ptr @stdscr, align 8, !tbaa !34
   %56 = tail call i32 @wrefresh(ptr noundef %55) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 16), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 16), i8 0, i64 64, i1 false)
   store ptr @.str.121, ptr @status_bar_keys, align 16, !tbaa !18
   store ptr @.str.122, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 8), align 8, !tbaa !18
   store ptr @.str.123, ptr getelementptr inbounds nuw (i8, ptr @status_bar_keys, i64 16), align 16, !tbaa !18

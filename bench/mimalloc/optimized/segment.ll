@@ -374,7 +374,7 @@ define internal fastcc void @mi_segment_page_clear(ptr noundef %0, ptr noundef i
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i16, ptr %25, align 4, !tbaa !53
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(78) %27, i8 0, i64 74, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(74) %27, i8 0, i64 74, i1 false)
   store i16 %24, ptr %4, align 2, !tbaa !48
   store i16 %26, ptr %25, align 4, !tbaa !53
   store i64 %17, ptr %7, align 8, !tbaa !23

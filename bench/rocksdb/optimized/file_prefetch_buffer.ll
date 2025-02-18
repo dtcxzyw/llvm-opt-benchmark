@@ -385,7 +385,7 @@ entry:
   %size_.i.i = getelementptr inbounds nuw i8, ptr %req, i64 32
   %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %req, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %0, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %state_.i.i.i.i, i8 0, i64 48, i1 false)
   %len = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i64 %read_len, ptr %len, align 8

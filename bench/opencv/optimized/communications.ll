@@ -2396,7 +2396,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110DataObjectESaIS1_EE12emplace_backIJS1_EEEvDpOT_.ex
 898:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_114CallbackObjectESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit.i, %.lr.ph508.i
   %.sroa.0414.0506.i = phi ptr [ %.val48.i, %.lr.ph508.i ], [ %.val.i.i261.i, %_ZNSt6vectorIN12_GLOBAL__N_114CallbackObjectESaIS1_EE12emplace_backIJS1_EEEvDpOT_.exit.i ]
   %899 = getelementptr inbounds nuw i8, ptr %.sroa.0414.0506.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %888, i8 0, i64 56, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %888, i8 0, i64 56, i1 false), !noalias !4
   %900 = load ptr, ptr %899, align 8, !noalias !4
   store ptr %900, ptr %50, align 8, !noalias !4
   %901 = getelementptr inbounds nuw i8, ptr %.sroa.0414.0506.i, i64 16
@@ -4949,7 +4949,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_10ChainRangeINS1_9IterRangeIN9__gnu_cxx17
   %1926 = sext i32 %1925 to i64
   %1927 = mul i64 %1915, %1926
   %1928 = getelementptr inbounds nuw i8, ptr %1913, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1928, i8 0, i64 64, i1 false), !alias.scope !171
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1928, i8 0, i64 64, i1 false), !alias.scope !171
   %1929 = getelementptr inbounds nuw i8, ptr %1913, i64 128
   store i64 %1922, ptr %1929, align 8, !alias.scope !171
   store i32 %1925, ptr %1921, align 4, !alias.scope !171

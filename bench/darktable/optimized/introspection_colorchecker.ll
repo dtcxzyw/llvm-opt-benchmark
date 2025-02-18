@@ -225,7 +225,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1180, ptr nonnull %2) #23
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1180) %4, i8 0, i64 1080, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1080) %4, i8 0, i64 1080, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   store i32 24, ptr %5, align 4, !tbaa !16
   store float 0x4031760080000000, ptr %2, align 4, !tbaa !14
@@ -522,7 +522,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %153 = tail call i32 (...) %152() #23
   call void @dt_gui_presets_add_generic(ptr noundef %149, ptr noundef nonnull %150, i32 noundef %153, ptr noundef nonnull %2, i32 noundef 1180, i32 noundef 1, i32 noundef 3) #23
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1180) %154, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1112) %154, i8 0, i64 1112, i1 false)
   store i32 49, ptr %5, align 4, !tbaa !16
   store float 1.000000e+01, ptr %2, align 4, !tbaa !14
   store float 1.000000e+01, ptr %6, align 4, !tbaa !14

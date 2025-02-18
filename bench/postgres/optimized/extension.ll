@@ -1026,7 +1026,7 @@ define dso_local { i64, i32 } @InsertExtensionTuple(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #15
   %14 = tail call ptr @table_open(i32 noundef 3079, i32 noundef 3) #15
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i64 0, ptr %11, align 8
   %16 = tail call i32 @GetNewOidWithIndex(ptr noundef %14, i32 noundef 3080, i16 noundef signext 1) #15
   %17 = zext i32 %16 to i64

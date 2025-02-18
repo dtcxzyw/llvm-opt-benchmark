@@ -1536,7 +1536,7 @@ define dso_local void @_ZN7ImGuiIO17AddInputCharacterEj(ptr noundef nonnull read
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #44
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 5, ptr %3, align 4, !tbaa !94
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %13, align 4, !tbaa !98
@@ -1749,7 +1749,7 @@ _ZN7ImGuiIO17AddInputCharacterEj.exit:            ; preds = %17
   %19 = load ptr, ptr %18, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #44
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %20, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, i8 0, i64 12, i1 false)
   store i32 5, ptr %5, align 4, !tbaa !94
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2, ptr %21, align 4, !tbaa !98
@@ -1782,7 +1782,7 @@ _ZN7ImGuiIO17AddInputCharacterEj.exit11:          ; preds = %30
   %32 = load ptr, ptr %31, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #44
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %33, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %33, i8 0, i64 12, i1 false)
   store i32 5, ptr %4, align 4, !tbaa !94
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %34, align 4, !tbaa !98
@@ -1820,7 +1820,7 @@ _ZN7ImGuiIO17AddInputCharacterEj.exit11:          ; preds = %30
 50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #44
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %51, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
   store i32 5, ptr %3, align 4, !tbaa !94
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %52, align 4, !tbaa !98
@@ -1881,7 +1881,7 @@ define dso_local void @_ZN7ImGuiIO22AddInputCharactersUTF8EPKc(ptr noundef nonnu
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   store i32 5, ptr %3, align 4, !tbaa !94
   store i32 2, ptr %11, align 4, !tbaa !98
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 4828
@@ -2457,7 +2457,7 @@ _ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %45, %switch.hole
 61:                                               ; preds = %56, %_ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey.exit
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #44
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %62, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, i8 0, i64 12, i1 false)
   store i32 4, ptr %5, align 4, !tbaa !94
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %30, ptr %63, align 4, !tbaa !98
@@ -2844,7 +2844,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i: ; preds =
 .critedge.i:                                      ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #44
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %83, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, i8 0, i64 12, i1 false)
   store i32 3, ptr %4, align 4, !tbaa !94
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %84, align 4, !tbaa !98
@@ -2869,7 +2869,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i: ; preds =
 .critedge:                                        ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39, %41
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #44
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %94, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %94, i8 0, i64 12, i1 false)
   store i32 3, ptr %5, align 4, !tbaa !94
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %95, align 4, !tbaa !98
@@ -3018,7 +3018,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit: ; preds = %
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #44
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 6, ptr %3, align 4, !tbaa !94
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 4828
   %32 = load i32, ptr %31, align 4, !tbaa !99
@@ -12375,7 +12375,7 @@ define dso_local void @_ZN5ImGui10InitializeEv() local_unnamed_addr #0 personali
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1) #44
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store ptr @.str.71, ptr %1, align 8, !tbaa !487
   br label %.lr.ph.i
 

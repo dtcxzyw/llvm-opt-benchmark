@@ -521,7 +521,7 @@ define dso_local void @_ZN18BM_rcVector_Assign4BodyEv() local_unnamed_addr #3 al
   %1 = alloca %class.rcTempVector, align 8
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 2, ptr %2, align 4
   store i64 0, ptr %1, align 8
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -1283,7 +1283,7 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Assign3RunEv() local_unname
   %.07 = phi i32 [ 0, %0 ], [ %24, %_ZN18BM_rcVector_Assign4BodyEv.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 2, ptr %3, align 4
   store i64 0, ptr %2, align 8
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)

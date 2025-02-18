@@ -1131,7 +1131,7 @@ entry:
   store i32 0, ptr %min_tls_version.i, align 4
   %max_tls_version.i = getelementptr inbounds nuw i8, ptr %options, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 49, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 49, i1 false)
   store i32 1, ptr %max_tls_version.i, align 8
   %crl_directory.i = getelementptr inbounds nuw i8, ptr %options, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %crl_directory.i, i8 0, i64 24, i1 false)

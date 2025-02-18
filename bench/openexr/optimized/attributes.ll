@@ -1822,7 +1822,7 @@ if.end32.i:                                       ; preds = %if.then21.i, %if.en
 
 if.end35.i:                                       ; preds = %if.end32.i
   %10 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   br i1 %cmp9.not.i, label %if.end61.i, label %if.then59.i
 

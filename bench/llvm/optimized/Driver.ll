@@ -43768,7 +43768,7 @@ define linkonce_odr hidden void @_ZN5clang6driver23RegisterEffectiveTripleD2Ev(p
   %2 = alloca %"class.llvm::Triple", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !1675
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %5, ptr %2, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -55305,7 +55305,7 @@ _ZN4llvm11SmallVectorIN5clang6driver9InputInfoELj4EED2Ev.exit360: ; preds = %132
   %1328 = load ptr, ptr %44, align 8, !tbaa !1675
   %1329 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %1330 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1330, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1330, i8 0, i64 16, i1 false)
   %1331 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %1331, ptr %12, align 8, !tbaa !19
   %1332 = getelementptr inbounds nuw i8, ptr %12, i64 32

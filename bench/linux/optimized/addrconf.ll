@@ -1465,7 +1465,7 @@ define dso_local void @addrconf_dad_failure(ptr noundef readonly captures(none) 
   %45 = zext i8 %44 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, i8 0, i64 40, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 0, i64 40, i1 false), !annotation !19
   store ptr %3, ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2188,7 +2188,7 @@ define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr 
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #20
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 40, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false), !annotation !19
   store ptr %4, ptr %12, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -3170,7 +3170,7 @@ define internal fastcc void @addrconf_prefix_route(ptr noundef readonly captures
   %8 = alloca %struct.fib6_config, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, i8 0, i64 168, i1 false)
   store i32 254, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = icmp eq i32 %2, 0
@@ -3666,7 +3666,7 @@ define dso_local i32 @addrconf_add_ifaddr(ptr noundef %0, ptr noundef %1) local_
   %4 = alloca %struct.in6_ifreq, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #20
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 128, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4157,7 +4157,7 @@ define dso_local void @addrconf_add_linklocal(ptr noundef %0, ptr noundef %1, i3
   %5 = alloca %struct.ifa6_config, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 40, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !19
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 64, ptr %7, align 8
@@ -4184,7 +4184,7 @@ define dso_local void @addrconf_add_linklocal(ptr noundef %0, ptr noundef %1, i3
   %20 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #20
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %21, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %21, i8 0, i64 168, i1 false)
   store i32 254, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 256, ptr %22, align 4
@@ -5750,7 +5750,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   %269 = load ptr, ptr %268, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %270, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %270, i8 0, i64 168, i1 false)
   store i32 254, ptr %5, align 8
   %271 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %272 = icmp eq i32 %266, 0
@@ -5836,7 +5836,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   %323 = load ptr, ptr %322, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #20
   %324 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %324, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %324, i8 0, i64 168, i1 false)
   store i32 254, ptr %4, align 8
   %325 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %326 = icmp eq i32 %320, 0
@@ -9061,7 +9061,7 @@ define internal fastcc void @ipv6_create_tempaddr(ptr noundef %0, i1 noundef zer
 112:                                              ; preds = %110, %82
   %113 = phi i64 [ %.pre, %110 ], [ %83, %82 ]
   %114 = phi i32 [ %111, %110 ], [ %102, %82 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   %115 = load i32, ptr %23, align 8
   %116 = load i32, ptr %24, align 4
   %117 = trunc i64 %85 to i32
@@ -10248,7 +10248,7 @@ ipv6_find_idev.exit:                              ; preds = %18, %21, %27
 43:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #20
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %44, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %44, i8 0, i64 168, i1 false)
   store i32 254, ptr %2, align 8
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 256, ptr %45, align 4
@@ -11157,7 +11157,7 @@ define internal fastcc void @__ipv6_ifa_notify(i32 noundef range(i32 0, 22) %0, 
   %106 = load ptr, ptr %105, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %107, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %107, i8 0, i64 168, i1 false)
   store i32 254, ptr %5, align 8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %109 = icmp eq i32 %104, 0
@@ -13578,7 +13578,7 @@ define internal fastcc void @addrconf_permanent_addr(ptr noundef %0, ptr noundef
   %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %21, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %21, i8 0, i64 168, i1 false)
   store i32 254, ptr %3, align 8
   %63 = icmp eq i32 %61, 0
   %64 = select i1 %63, i32 256, i32 %61
@@ -14082,7 +14082,7 @@ ipv6_find_idev.exit:                              ; preds = %24, %27, %33
   %80 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #20
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %81, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %81, i8 0, i64 168, i1 false)
   store i32 254, ptr %4, align 8
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 256, ptr %82, align 4
@@ -14195,7 +14195,7 @@ ipv6_find_idev.exit:                              ; preds = %24, %27, %33
   call fastcc void @add_addr(ptr noundef %34, ptr noundef nonnull %5, i32 noundef %76, i32 noundef %151, i8 noundef zeroext 0)
   %152 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %118, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %118, i8 0, i64 168, i1 false)
   store i32 254, ptr %3, align 8
   store i32 256, ptr %110, align 4
   store i32 %76, ptr %111, align 8
@@ -14253,7 +14253,7 @@ ipv6_find_idev.exit:                              ; preds = %24, %27, %33
 179:                                              ; preds = %.loopexit12
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #20
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %180, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %180, i8 0, i64 168, i1 false)
   store i32 254, ptr %2, align 8
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 256, ptr %181, align 4
@@ -14513,7 +14513,7 @@ define internal fastcc void @add_addr(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca %struct.ifa6_config, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 40, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !19
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %8, align 8
@@ -15308,7 +15308,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @modify_prefix_route(ptr nou
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %33, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %33, i8 0, i64 168, i1 false)
   store i32 254, ptr %5, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %35 = icmp eq i32 %30, 0

@@ -117,7 +117,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %22, %15
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %36, i8 0, i64 108, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %36, i8 0, i64 108, i1 false), !annotation !5
   store i16 1, ptr %6, align 2
   %37 = call i64 @g_strlcpy(ptr noundef nonnull %36, ptr noundef nonnull %.1, i64 noundef 107) #11
   %38 = icmp ugt i64 %37, 106
@@ -160,7 +160,7 @@ connect_socket.exit.i:                            ; preds = %41
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %51, i8 0, i64 108, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %51, i8 0, i64 108, i1 false), !annotation !5
   store i16 1, ptr %5, align 2
   %52 = call i64 @g_strlcpy(ptr noundef nonnull %51, ptr noundef nonnull %.1, i64 noundef 107) #11
   %53 = icmp ugt i64 %52, 106

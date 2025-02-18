@@ -270,7 +270,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   store i64 0, ptr %5, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %7, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %7, i8 0, i64 1112, i1 false)
   %8 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %9 = udiv i32 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 568
@@ -672,7 +672,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   store i64 0, ptr %12, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %14, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %14, i8 0, i64 1112, i1 false)
   %15 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %16 = udiv i32 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 568
@@ -1599,7 +1599,7 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   %9 = call i32 @H5Sget_simple_extent_type(i64 noundef %0) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %10, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %10, i8 0, i64 1112, i1 false)
   %11 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %12 = udiv i32 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 568
@@ -1799,7 +1799,7 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr noundef
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %8) #14
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %11, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %11, i8 0, i64 1112, i1 false)
   %12 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %13 = udiv i32 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 568
@@ -1914,7 +1914,7 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr noundef
 72:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %9) #14
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %73, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %73, i8 0, i64 1112, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %74, align 8, !tbaa !41
   %75 = load i32, ptr %14, align 8, !tbaa !32
@@ -1957,7 +1957,7 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr noundef
 94:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %10) #14
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %95, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %95, i8 0, i64 1112, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %96, align 8, !tbaa !41
   %97 = load i32, ptr %14, align 8, !tbaa !32
@@ -2113,7 +2113,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %.1 = phi ptr [ %25, %27 ], [ %36, %38 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %43, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %43, i8 0, i64 1112, i1 false)
   %44 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %45 = udiv i32 %44, 3
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 568
@@ -2381,7 +2381,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   %.074 = phi ptr [ null, %46 ], [ %48, %47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %51, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %51, i8 0, i64 1112, i1 false)
   %52 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %53 = udiv i32 %52, 3
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 568
@@ -2612,7 +2612,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %9 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %10, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %10, i8 0, i64 1112, i1 false)
   %11 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %12 = udiv i32 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 568
@@ -3035,7 +3035,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %20 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %21, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %21, i8 0, i64 1112, i1 false)
   %22 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %23 = udiv i32 %22, 3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 568
@@ -3357,7 +3357,7 @@ define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef captures(addre
 28:                                               ; preds = %27, %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %29, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %29, i8 0, i64 1112, i1 false)
   %30 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %31 = udiv i32 %30, 3
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 568
@@ -3989,7 +3989,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   store i64 0, ptr %10, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %24, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %24, i8 0, i64 1112, i1 false)
   %25 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %26 = udiv i32 %25, 3
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 568
@@ -4646,7 +4646,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef captures(add
   %46 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %47, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %47, i8 0, i64 1112, i1 false)
   %48 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %49 = udiv i32 %48, 3
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 568
@@ -4839,7 +4839,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef captures(add
   store i64 0, ptr %25, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %152, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %152, i8 0, i64 1112, i1 false)
   %153 = udiv i32 %151, 3
   %154 = getelementptr inbounds nuw i8, ptr %23, i64 568
   store i32 %153, ptr %154, align 8, !tbaa !32
@@ -5311,7 +5311,7 @@ switch.lookup172:                                 ; preds = %377
   store i64 0, ptr %7, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %424 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %424, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %424, i8 0, i64 1112, i1 false)
   %425 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %426 = udiv i32 %425, 3
   %427 = getelementptr inbounds nuw i8, ptr %5, i64 568
@@ -6344,7 +6344,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   store i64 0, ptr %5, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %6, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %6, i8 0, i64 1112, i1 false)
   %7 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %8 = udiv i32 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 568

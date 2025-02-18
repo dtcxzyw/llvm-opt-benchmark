@@ -2228,7 +2228,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm28MemProfContextDisambiguation35ini
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30, !noalias !81
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 64, i1 false), !noalias !81
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, i8 0, i64 64, i1 false), !noalias !81
   store ptr %9, ptr %8, align 8, !tbaa !25, !noalias !81
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %10, align 8, !tbaa !26, !noalias !81
@@ -14487,7 +14487,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i160
   %1713 = zext i32 %.pre26.i.i.i.i to i64
   %1714 = shl nuw nsw i64 %1713, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.pre25.i.i.i.i, i64 noundef %1714, i64 noundef 4) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1672, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1672, i8 0, i64 12, i1 false)
   %1715 = load ptr, ptr %1712, align 8, !tbaa !824
   store ptr %1715, ptr %1669, align 8, !tbaa !824
   store ptr null, ptr %1712, align 8, !tbaa !824
@@ -17232,7 +17232,7 @@ define dso_local void @_ZN4llvm28MemProfContextDisambiguation3runERNS_6ModuleERN
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 64, i1 false), !alias.scope !997
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false), !alias.scope !997
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %17
 
@@ -22368,7 +22368,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   %1599 = getelementptr inbounds nuw i8, ptr %.val163.i, i64 24
   %1600 = load ptr, ptr %1599, align 8, !tbaa !891
   store ptr %1600, ptr %1598, align 8, !tbaa !891
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1596, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1596, i8 0, i64 16, i1 false)
   %1601 = getelementptr inbounds nuw i8, ptr %1588, i64 32
   %1602 = getelementptr inbounds nuw i8, ptr %.val163.i, i64 32
   %1603 = load ptr, ptr %1602, align 8, !tbaa !1258
@@ -22478,7 +22478,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i125
   %1651 = zext i32 %.pre20.i.i.i.i to i64
   %1652 = shl nuw nsw i64 %1651, 2
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.pre19.i.i.i.i, i64 noundef %1652, i64 noundef 4) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1608, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1608, i8 0, i64 12, i1 false)
   %1653 = load ptr, ptr %1650, align 8, !tbaa !824
   store ptr %1653, ptr %1605, align 8, !tbaa !824
   store ptr null, ptr %1650, align 8, !tbaa !824

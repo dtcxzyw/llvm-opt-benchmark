@@ -3396,7 +3396,7 @@ define internal fastcc i32 @io_submit_one(ptr noundef nonnull %0, ptr noundef %1
   %261 = load ptr, ptr %161, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   %262 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %262, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %262, i8 0, i64 24, i1 false), !annotation !10
   %263 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %264 = load i64, ptr %263, align 8
   %265 = icmp ult i64 %264, 65536

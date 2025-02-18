@@ -313,7 +313,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
 _ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT_v.exit.thread.thread, %39
   %41 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16, !noalias !57
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %42, i8 0, i64 112, i1 false), !noalias !57
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %42, i8 0, i64 112, i1 false), !noalias !57
   store ptr %42, ptr %41, align 8, !tbaa !60, !noalias !57
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %43, align 8, !tbaa !61, !noalias !57

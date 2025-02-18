@@ -2412,7 +2412,7 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_17DumpAllEPKNS0
   %43 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #20
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %45, ptr %16, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 8

@@ -24584,7 +24584,7 @@ _ZL25getEffectiveDirectiveKindRKN5clang22OMPExecutableDirectiveE.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #22
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %74, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
   store i32 102, ptr %73, align 8, !tbaa !2234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !671
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -36925,7 +36925,7 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 848
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 884
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 856
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %109, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   store i8 1, ptr %108, align 4, !tbaa !1598
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 885
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %110, i8 0, i64 5, i1 false)

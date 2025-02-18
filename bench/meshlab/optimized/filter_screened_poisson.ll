@@ -17055,7 +17055,7 @@ define linkonce_odr void @_Z19GetPointStreamScaleIfE8XForm4x4IT_ERN3vcg4Box3IS1_
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %57, i8 0, i64 56, i1 false), !alias.scope !208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %57, i8 0, i64 56, i1 false), !alias.scope !208
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store float 1.000000e+00, ptr %58, align 4, !alias.scope !208
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -17064,7 +17064,7 @@ define linkonce_odr void @_Z19GetPointStreamScaleIfE8XForm4x4IT_ERN3vcg4Box3IS1_
   store float 1.000000e+00, ptr %60, align 4, !alias.scope !208
   store float 1.000000e+00, ptr %7, align 4, !alias.scope !208
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %61, i8 0, i64 56, i1 false), !alias.scope !211
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %61, i8 0, i64 56, i1 false), !alias.scope !211
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store float 1.000000e+00, ptr %62, align 4, !alias.scope !211
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 40

@@ -396,7 +396,7 @@ define i32 @InitSSL_Ctx(ptr noundef initializes((0, 304)) %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
   store i32 0, ptr %4, align 4, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %5, i8 0, i64 296, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !50
   %6 = icmp eq ptr %2, null
   %spec.select = select i1 %6, ptr %0, ptr %2
@@ -1708,7 +1708,7 @@ define void @InitX509Name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %5, i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %5, i8 0, i64 264, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !103
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1758,14 +1758,14 @@ define void @InitX509(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   store ptr %2, ptr %6, align 8, !tbaa !107
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %8, i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %8, i8 0, i64 264, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %9, ptr %7, align 8, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %2, ptr %10, align 8, !tbaa !105
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %12, i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %12, i8 0, i64 264, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store ptr %13, ptr %11, align 8, !tbaa !103
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1024

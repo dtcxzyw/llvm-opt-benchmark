@@ -236,7 +236,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @MD5_Init(ptr noundef writeonly captures(none) initializes((0, 92)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %0, align 4, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4, !tbaa !12

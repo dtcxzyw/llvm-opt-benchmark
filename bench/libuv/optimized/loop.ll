@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @uv_loop_init(ptr noundef initializes((8, 848)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %3, i8 0, i64 840, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(840) %3, i8 0, i64 840, i1 false)
   store ptr %2, ptr %0, align 8
   %4 = tail call ptr @uv__calloc(i64 noundef 1, i64 noundef 448) #4
   %5 = icmp eq ptr %4, null

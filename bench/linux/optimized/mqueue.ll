@@ -693,7 +693,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_mq_op
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %27 = load i32, ptr %2, align 4
   %28 = sext i32 %27 to i64
   store i64 %28, ptr %3, align 8
@@ -809,7 +809,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_mq_getsetattr(ptr noun
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   %23 = load i32, ptr %3, align 4
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %4, align 8
@@ -847,7 +847,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_mq_getsetattr(ptr noun
 46:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %47, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   %48 = load i64, ptr %5, align 8
   %49 = trunc i64 %48 to i32
   store i32 %49, ptr %2, align 4
@@ -2266,7 +2266,7 @@ define internal fastcc i32 @do_mq_timedsend(i32 noundef %0, ptr noundef %1, i64 
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %147, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %147, i8 0, i64 40, i1 false)
   store i32 %144, ptr %6, align 8
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %148, align 4

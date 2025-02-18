@@ -78,7 +78,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
 
 unixsock_path_value.exit.thread:                  ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %19, i8 noundef 0, i64 noundef 108, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %19, i8 noundef 0, i64 noundef 108, i1 noundef false) #7
   store i16 1, ptr %4, align 2, !tbaa !13
   br label %32
 
@@ -110,7 +110,7 @@ unixsock_path_value.exit:                         ; preds = %RSTRING_PTR.exit.i,
   %27 = phi i64 [ %17, %RSTRING_PTR.exit.i ], [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   %.0.i = phi i64 [ %1, %RSTRING_PTR.exit.i ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %28, i8 noundef 0, i64 noundef 108, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %28, i8 noundef 0, i64 noundef 108, i1 noundef false) #7
   store i16 1, ptr %4, align 2, !tbaa !13
   %29 = icmp ugt i64 %27, 108
   br i1 %29, label %30, label %32
@@ -523,7 +523,7 @@ define internal noundef i64 @unix_send_io(i64 noundef %0, i64 noundef %1) #0 {
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %35, align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 noundef 0, i64 noundef 24, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 noundef 0, i64 noundef 24, i1 noundef false) #7
   store i64 20, ptr %6, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %37, align 8, !tbaa !16

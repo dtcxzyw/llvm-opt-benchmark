@@ -76,7 +76,7 @@ Abc_Clock.exit:                                   ; preds = %6, %15
 Abc_Clock.exit93:                                 ; preds = %26, %29
   %.0.i92.neg = phi i64 [ %.neg104, %29 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), i8 0, i64 68, i1 false)
   store i32 4, ptr @Abc_NtkStartCutManForRewrite.Params, align 4, !tbaa !28
   store i32 250, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 4), align 4, !tbaa !30
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 20), align 4, !tbaa !31

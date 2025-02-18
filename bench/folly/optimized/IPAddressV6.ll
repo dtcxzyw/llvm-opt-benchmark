@@ -2141,7 +2141,7 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %29, %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #37
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 10, ptr %32, align 4, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8

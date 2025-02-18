@@ -1197,7 +1197,7 @@ define dso_local i64 @interval_to_char(ptr noundef captures(none) %0) local_unna
 .thread44:                                        ; preds = %.thread..thread44_crit_edge, %35, %40
   %47 = phi i64 [ %.pre, %.thread..thread44_crit_edge ], [ %.pre45, %35 ], [ %.pre46, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 48

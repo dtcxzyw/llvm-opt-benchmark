@@ -5982,7 +5982,7 @@ define internal fastcc void @igmp6_send(ptr noundef %0, ptr noundef %1, i32 noun
   store i64 281475010592826, ptr %98, align 1
   %99 = call noundef ptr @skb_put(ptr noundef nonnull %40, i32 noundef 24) #13
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %100, i8 0, i64 23, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %100, i8 0, i64 23, i1 false)
   %101 = trunc nuw i32 %2 to i8
   store i8 %101, ptr %99, align 4
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 8

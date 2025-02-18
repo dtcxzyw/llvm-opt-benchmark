@@ -16735,7 +16735,7 @@ entry:
   %agg.tmp2 = alloca %"class.QuantLib::Constraint", align 8
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib22InterpolationParameter4ImplE, i64 16), ptr %call, align 8, !tbaa !35
   %interpolator_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %interpolator_.i, align 8, !tbaa !35

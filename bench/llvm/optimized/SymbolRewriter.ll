@@ -4643,7 +4643,7 @@ _ZN4llvm17RewriteSymbolPass7runImplERNS_6ModuleE.exit.thread: ; preds = %4, %_ZN
 
 22:                                               ; preds = %_ZN4llvm17RewriteSymbolPass7runImplERNS_6ModuleE.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 64, i1 false), !alias.scope !184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false), !alias.scope !184
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %24, ptr %0, align 8, !tbaa !28, !alias.scope !184
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8

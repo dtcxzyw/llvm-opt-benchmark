@@ -502,7 +502,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %unknown_fields.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i.i4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %4, 1
   %5 = inttoptr i64 %or.i.i to ptr
@@ -875,7 +875,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %14 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %15, 1
   %16 = inttoptr i64 %or.i to ptr
@@ -1116,7 +1116,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -1309,7 +1309,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -1358,7 +1358,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -1467,7 +1467,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %unknown_fields.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %4, 1
   %5 = inttoptr i64 %or.i.i to ptr
@@ -1926,7 +1926,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %26 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %26, 1
   %27 = inttoptr i64 %or.i to ptr
@@ -2227,7 +2227,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -2451,7 +2451,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -2500,7 +2500,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -2752,7 +2752,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i17, %if.then.i15.i.i ], [ %call3.i26.i.i18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -2866,7 +2866,7 @@ call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
   %28 = inttoptr i64 %and.i.i36 to ptr
   %unknown_fields.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i4.i37, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = ptrtoint ptr %call.i.i.i4.i37 to i64
   %or.i.i.i = or i64 %30, 1
   %31 = inttoptr i64 %or.i.i.i to ptr
@@ -2923,7 +2923,7 @@ call.i.i.i6.i.noexc:                              ; preds = %if.then.i15.i.i.i45
   %37 = inttoptr i64 %and.i.i46 to ptr
   %unknown_fields.i.i47 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %call.i.i.i6.i49, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %39 = ptrtoint ptr %call.i.i.i6.i49 to i64
   %or.i.i.i48 = or i64 %39, 1
   %40 = inttoptr i64 %or.i.i.i48 to ptr
@@ -4344,7 +4344,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i228, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %104 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
   %105 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %105, 1
   %106 = inttoptr i64 %or.i to ptr
@@ -5527,7 +5527,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -5844,7 +5844,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -5893,7 +5893,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -6124,7 +6124,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i5, %if.then.i15.i.i ], [ %call3.i26.i.i6, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -6600,7 +6600,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i28, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %36 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %37, 1
   %38 = inttoptr i64 %or.i to ptr
@@ -6855,7 +6855,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -7066,7 +7066,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -7115,7 +7115,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -7205,7 +7205,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %unknown_fields.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i.i4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %4, 1
   %5 = inttoptr i64 %or.i.i to ptr
@@ -7686,7 +7686,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %34 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %35 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %35, 1
   %36 = inttoptr i64 %or.i to ptr
@@ -8195,7 +8195,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -8399,7 +8399,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -8448,7 +8448,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -8603,7 +8603,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i5, %if.then.i15.i.i ], [ %call3.i26.i.i6, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -9020,7 +9020,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i29, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %26 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %26, 1
   %27 = inttoptr i64 %or.i to ptr
@@ -9275,7 +9275,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -9532,7 +9532,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -9581,7 +9581,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -9684,7 +9684,7 @@ if.then.i15.i.i:                                  ; preds = %entry
   %unknown_fields.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %4, 1
   %5 = inttoptr i64 %or.i.i to ptr
@@ -10147,7 +10147,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %31 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %31, 1
   %32 = inttoptr i64 %or.i to ptr
@@ -10570,7 +10570,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -10816,7 +10816,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -10865,7 +10865,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr
@@ -11068,7 +11068,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i5, %if.then.i15.i.i ], [ %call3.i26.i.i6, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -11580,7 +11580,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i28, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %36 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %37, 1
   %38 = inttoptr i64 %or.i to ptr
@@ -11943,7 +11943,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %7 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %8, 1
   %9 = inttoptr i64 %or.i.i to ptr
@@ -12226,7 +12226,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i15.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink11.i = phi ptr [ %call.i.i, %if.then.i15.i ], [ %call3.i26.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = ptrtoint ptr %call.i.sink11.i to i64
   %or.i = or i64 %7, 1
   %8 = inttoptr i64 %or.i to ptr
@@ -12275,7 +12275,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %if.then.i15.i.i
   %call.i.sink11.i.i = phi ptr [ %call.i.i.i, %if.then.i15.i.i ], [ %call3.i26.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %call.i.sink11.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = ptrtoint ptr %call.i.sink11.i.i to i64
   %or.i.i = or i64 %13, 1
   %14 = inttoptr i64 %or.i.i to ptr

@@ -502,12 +502,12 @@ define void @glfwDefaultWindowHints() local_unnamed_addr #0 {
   br label %4
 
 3:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_glfw, i64 1848), i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_glfw, i64 1848), i8 0, i64 40, i1 false)
   store i32 196609, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1832), align 8, !tbaa !180
   store i32 221185, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1836), align 4, !tbaa !181
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1840), align 8, !tbaa !182
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1844), align 4, !tbaa !183
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) getelementptr inbounds nuw (i8, ptr @_glfw, i64 736), i8 0, i64 1096, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) getelementptr inbounds nuw (i8, ptr @_glfw, i64 736), i8 0, i64 1096, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 752), align 8, !tbaa !184
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 756), align 4, !tbaa !185
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 760), align 8, !tbaa !186
@@ -518,7 +518,7 @@ define void @glfwDefaultWindowHints() local_unnamed_addr #0 {
   store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 728), align 8, !tbaa !191
   store i32 -2147483648, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 732), align 4, !tbaa !192
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 796), align 4, !tbaa !193
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @_glfw, i64 680), i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_glfw, i64 680), i8 0, i64 48, i1 false)
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 656), align 8, !tbaa !194
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 660), align 4, !tbaa !195
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 664), align 8, !tbaa !196

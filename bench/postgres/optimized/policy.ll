@@ -758,7 +758,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %49 = tail call ptr @make_parsestate(ptr noundef null) #8
   %50 = tail call ptr @make_parsestate(ptr noundef null) #8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %51, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   store i64 0, ptr %6, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8

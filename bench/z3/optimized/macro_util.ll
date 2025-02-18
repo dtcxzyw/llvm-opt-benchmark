@@ -1182,7 +1182,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true, %_ZN
 
 if.then:                                          ; preds = %land.lhs.true8
   %6 = getelementptr inbounds nuw i8, ptr %var2pos, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store ptr %6, ptr %var2pos, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %var2pos, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -3507,7 +3507,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true, %_ZN
 
 if.then:                                          ; preds = %land.lhs.true4
   %4 = getelementptr inbounds nuw i8, ptr %found_vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %4, ptr %found_vars, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %found_vars, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -3742,7 +3742,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true, %_ZN
 
 if.then:                                          ; preds = %land.lhs.true4
   %4 = getelementptr inbounds nuw i8, ptr %found_vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %4, ptr %found_vars, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %found_vars, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -4116,7 +4116,7 @@ entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %qhead, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %found_vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store ptr %1, ptr %found_vars, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %found_vars, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -6057,7 +6057,7 @@ entry:
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %new_args, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %0 = getelementptr inbounds nuw i8, ptr %found_vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %0, ptr %found_vars, align 8
   %m_pos.i.i12 = getelementptr inbounds nuw i8, ptr %found_vars, i64 8
   store i32 0, ptr %m_pos.i.i12, align 8

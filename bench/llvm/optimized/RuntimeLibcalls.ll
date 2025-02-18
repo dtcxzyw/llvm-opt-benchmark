@@ -565,7 +565,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm5RTLIB19RuntimeLibcallsInfo12initLibcallsERKNS_6TripleE(ptr noundef nonnull writeonly align 8 dereferenceable(8612) initializes((0, 8612)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5744) %3, i8 0, i64 4960, i1 false), !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4960) %3, i8 0, i64 4960, i1 false), !tbaa !3
   store ptr @.str, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.1, ptr %4, align 8, !tbaa !3

@@ -1322,7 +1322,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %11, %12
   %.0.i = phi ptr [ %8, %11 ], [ %13, %12 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 104, i1 false)
   %15 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8

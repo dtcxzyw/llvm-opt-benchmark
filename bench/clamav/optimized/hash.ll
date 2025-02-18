@@ -22,7 +22,7 @@ define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr noundef writeonly captur
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !9
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28

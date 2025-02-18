@@ -43306,7 +43306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %_Z
 704:                                              ; preds = %703
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #33
   %705 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %705, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %705, i8 0, i64 16, i1 false)
   %706 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %706, ptr %37, align 8, !tbaa !4
   %707 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -46181,7 +46181,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %413, align 8, !tbaa !14
   %606 = getelementptr inbounds nuw i8, ptr %595, i64 64
   %607 = getelementptr inbounds nuw i8, ptr %595, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %607, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %607, i8 0, i64 24, i1 false)
   store ptr %607, ptr %606, align 8, !tbaa !4
   %608 = getelementptr inbounds nuw i8, ptr %595, i64 72
   store i64 0, ptr %608, align 8, !tbaa !15
@@ -51464,7 +51464,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   store ptr %52, ptr %51, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store i64 0, ptr %53, align 8, !tbaa !15
@@ -78434,7 +78434,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %13, align 1, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store ptr %27, ptr %26, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 0, ptr %28, align 8, !tbaa !15

@@ -1360,7 +1360,7 @@ _ZL17addDiscriminatorsRN4llvm8FunctionE.exit:     ; preds = %._crit_edge280.i, %
 
 490:                                              ; preds = %_ZL17addDiscriminatorsRN4llvm8FunctionE.exit
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %491, i8 0, i64 64, i1 false), !alias.scope !176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %491, i8 0, i64 64, i1 false), !alias.scope !176
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %492, ptr %0, align 8, !tbaa !28, !alias.scope !176
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 8

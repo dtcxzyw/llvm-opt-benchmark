@@ -3439,7 +3439,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %246 = zext i32 %.5 to i64
   %247 = getelementptr %struct.drm_out_fence_state, ptr %243, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
   store ptr %214, ptr %247, align 8
   %249 = call ptr @drm_crtc_create_fence(ptr noundef nonnull %201) #12
   %250 = icmp eq ptr %249, null
@@ -3555,7 +3555,7 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   %312 = zext i32 %.3 to i64
   %313 = getelementptr %struct.drm_out_fence_state, ptr %309, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %314, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %314, i8 0, i64 16, i1 false)
   store ptr %303, ptr %313, align 8
   %315 = call ptr @drm_writeback_get_out_fence(ptr noundef nonnull %290) #12
   %316 = icmp eq ptr %315, null

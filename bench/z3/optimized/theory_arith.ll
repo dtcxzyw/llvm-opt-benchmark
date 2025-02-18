@@ -21819,7 +21819,7 @@ if.then262:                                       ; preds = %cleanup.done
 invoke.cont263:                                   ; preds = %if.then262
   store i32 1, ptr %m_den.i.i289, align 8
   %106 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %106, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %106, i8 0, i64 64, i1 false)
   store ptr %106, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -49509,7 +49509,7 @@ if.end18.i43:                                     ; preds = %_ZN14core_hashtable
 
 _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIiEE5resetEv.exit: ; preds = %_ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt12theory_arithINS2_6mi_extEE14var_value_hashENS5_12var_value_eqEE5resetEv.exit, %if.end18.i43
   %18 = getelementptr inbounds nuw i8, ptr %candidates, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %18, ptr %candidates, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %candidates, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -82433,7 +82433,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -83666,7 +83666,7 @@ entry:
   %cn = alloca %class.obj_ref, align 8
   %i = alloca %class.old_interval, align 8
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -92713,7 +92713,7 @@ lpad5:                                            ; preds = %invoke.cont4
 
 for.end.thread:                                   ; preds = %_ZNK7grobner8equation17get_num_monomialsEv.exit, %entry
   %12 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %12, ptr %deleted, align 8
   %m_pos.i.i301 = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i301, align 8
@@ -92729,7 +92729,7 @@ for.end.thread:                                   ; preds = %_ZNK7grobner8equati
 
 for.end:                                          ; preds = %_ZN12old_intervalD2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %13, ptr %deleted, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -124085,7 +124085,7 @@ if.then262:                                       ; preds = %cleanup.done
 invoke.cont263:                                   ; preds = %if.then262
   store i32 1, ptr %m_den.i.i289, align 8
   %106 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %106, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %106, i8 0, i64 64, i1 false)
   store ptr %106, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -153415,7 +153415,7 @@ if.end18.i43:                                     ; preds = %_ZN14core_hashtable
 
 _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIiEE5resetEv.exit: ; preds = %_ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt12theory_arithINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE5resetEv.exit, %if.end18.i43
   %18 = getelementptr inbounds nuw i8, ptr %candidates, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %18, ptr %candidates, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %candidates, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -184720,7 +184720,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -185658,7 +185658,7 @@ entry:
   %cn = alloca %class.obj_ref, align 8
   %i = alloca %class.old_interval, align 8
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -194829,7 +194829,7 @@ lpad5:                                            ; preds = %invoke.cont4
 
 for.end.thread:                                   ; preds = %_ZNK7grobner8equation17get_num_monomialsEv.exit, %entry
   %12 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %12, ptr %deleted, align 8
   %m_pos.i.i301 = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i301, align 8
@@ -194845,7 +194845,7 @@ for.end.thread:                                   ; preds = %_ZNK7grobner8equati
 
 for.end:                                          ; preds = %_ZN12old_intervalD2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %13, ptr %deleted, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -224935,7 +224935,7 @@ if.then262:                                       ; preds = %cleanup.done
 invoke.cont263:                                   ; preds = %if.then262
   store i32 1, ptr %m_den.i.i289, align 8
   %106 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %106, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %106, i8 0, i64 64, i1 false)
   store ptr %106, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -253118,7 +253118,7 @@ if.end18.i43:                                     ; preds = %_ZN14core_hashtable
 
 _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10default_eqIiEE5resetEv.exit: ; preds = %_ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt12theory_arithINS2_7inf_extEE14var_value_hashENS5_12var_value_eqEE5resetEv.exit, %if.end18.i43
   %18 = getelementptr inbounds nuw i8, ptr %candidates, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %18, ptr %candidates, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %candidates, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -284766,7 +284766,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -285704,7 +285704,7 @@ entry:
   %cn = alloca %class.obj_ref, align 8
   %i = alloca %class.old_interval, align 8
   %0 = getelementptr inbounds nuw i8, ptr %varinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %varinfo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %varinfo, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -294447,7 +294447,7 @@ lpad5:                                            ; preds = %invoke.cont4
 
 for.end.thread:                                   ; preds = %_ZNK7grobner8equation17get_num_monomialsEv.exit, %entry
   %12 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %12, ptr %deleted, align 8
   %m_pos.i.i301 = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i301, align 8
@@ -294463,7 +294463,7 @@ for.end.thread:                                   ; preds = %_ZNK7grobner8equati
 
 for.end:                                          ; preds = %_ZN12old_intervalD2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %deleted, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %13, ptr %deleted, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %deleted, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

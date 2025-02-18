@@ -2738,7 +2738,7 @@ strlen30.exit1219:                                ; preds = %.lr.ph1461._crit_ed
   %940 = load ptr, ptr %939, align 8, !tbaa !15
   %941 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %942 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %942, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %942, i8 0, i64 32, i1 false)
   store ptr %0, ptr %25, align 8, !tbaa !90
   %943 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 2736
@@ -2894,7 +2894,7 @@ strlen30.exit1219:                                ; preds = %.lr.ph1461._crit_ed
   %1016 = load ptr, ptr %1015, align 8, !tbaa !15
   %1017 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %1018 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1018, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1018, i8 0, i64 32, i1 false)
   store ptr %0, ptr %26, align 8, !tbaa !90
   %1019 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 2736
@@ -4971,7 +4971,7 @@ declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dbEvalInit(ptr noundef captures(none) initializes((0, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !90
   %7 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2736
@@ -6874,7 +6874,7 @@ define internal fastcc range(i32 0, 2) i32 @createIncrblobChannel(ptr noundef %0
   %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = call ptr %22(i32 noundef 56) #14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
   %25 = load ptr, ptr %8, align 8, !tbaa !187
   store ptr %25, ptr %23, align 8, !tbaa !189
   br i1 %.not, label %28, label %26

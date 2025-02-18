@@ -5392,7 +5392,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %agg.result, align 8
   %blob.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %blob.i, align 8
@@ -9770,7 +9770,7 @@ if.end:                                           ; preds = %entry, %_ZNKSt10_Ha
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #22
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 40
   %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i.i.i, align 8
   %blob.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 48
   store ptr null, ptr %blob.i.i.i.i.i.i.i, align 8

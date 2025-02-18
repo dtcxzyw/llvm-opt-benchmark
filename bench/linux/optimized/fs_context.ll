@@ -386,7 +386,7 @@ define dso_local range(i32 -518, -519) i32 @vfs_parse_fs_string(ptr noundef %0, 
   %5 = alloca %struct.fs_parameter, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %7, align 8
@@ -480,7 +480,7 @@ define dso_local i32 @vfs_parse_monolithic_sep(ptr noundef %0, ptr noundef %1, p
   %33 = phi i64 [ %31, %29 ], [ 0, %24 ]
   %34 = phi ptr [ %30, %29 ], [ null, %24 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 32, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false), !annotation !5
   store ptr %20, ptr %4, align 8
   store i8 1, ptr %15, align 8
   store i64 %33, ptr %17, align 8
@@ -583,7 +583,7 @@ define dso_local i32 @generic_parse_monolithic(ptr noundef %0, ptr noundef %1) #
   %32 = phi i64 [ %30, %28 ], [ 0, %23 ]
   %33 = phi ptr [ %29, %28 ], [ null, %23 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 32, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !annotation !5
   store ptr %19, ptr %3, align 8
   store i8 1, ptr %14, align 8
   store i64 %32, ptr %16, align 8

@@ -117,7 +117,7 @@ declare noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorit
 define void @grpc_compression_options_init(ptr noundef writeonly captures(none) initializes((0, 20)) %opts) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %opts, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 7, ptr %opts, align 4
   ret void
 }

@@ -6927,7 +6927,7 @@ define dso_local void @_ZNK4llvm8DWARFDie4dumpEv(ptr noundef nonnull readonly al
   %2 = alloca %"struct.llvm::DIDumpOptions", align 8
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #22
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !433
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !391

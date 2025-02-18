@@ -2089,7 +2089,7 @@ define dso_local void @_ZN4llvm19PlaceSafepointsPass3runERNS_8FunctionERNS_15Ana
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 64, i1 false), !alias.scope !256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false), !alias.scope !256
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 

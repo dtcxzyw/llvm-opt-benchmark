@@ -59068,7 +59068,7 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4
   %198 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %199 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %200 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %200, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
   store i32 0, ptr %195, align 4
   store i16 -1, ptr %186, align 2, !tbaa !355
   store ptr %29, ptr %199, align 8, !tbaa !356
@@ -59796,7 +59796,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm8dyn_castIN
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store i32 0, ptr %85, align 4
   store i16 -1, ptr %76, align 2, !tbaa !355
   store ptr %13, ptr %89, align 8, !tbaa !356
@@ -61739,7 +61739,7 @@ _ZN4llvm5SDLocD2Ev.exit312:                       ; preds = %_ZN4llvm5SDLocC2ENS
   %537 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %538 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %539 = getelementptr inbounds nuw i8, ptr %48, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %539, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %539, i8 0, i64 16, i1 false)
   store i32 0, ptr %534, align 4
   store i16 -1, ptr %525, align 2, !tbaa !355
   store ptr %48, ptr %538, align 8, !tbaa !356
@@ -111048,7 +111048,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i220:         ; preds = %1852, %_ZN4llvm8dyn
   %1901 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %1902 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %1903 = getelementptr inbounds nuw i8, ptr %130, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1903, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1903, i8 0, i64 16, i1 false)
   store i32 0, ptr %1898, align 4
   store i16 -1, ptr %1889, align 2, !tbaa !355
   store ptr %130, ptr %1902, align 8, !tbaa !356
@@ -167916,7 +167916,7 @@ define internal fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner19combineMinN
   %87 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
   store i32 0, ptr %84, align 4
   store i16 -1, ptr %75, align 2, !tbaa !355
   store ptr %13, ptr %88, align 8, !tbaa !356
@@ -168017,7 +168017,7 @@ _ZNK4llvm14TargetLowering36getCheaperOrNeutralNegatedExpressionENS_7SDValueERNS_
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %134 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
   store i32 0, ptr %130, align 4
   store i16 -1, ptr %121, align 2, !tbaa !355
   store ptr %14, ptr %134, align 8, !tbaa !356
@@ -174824,7 +174824,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %.critedge64, %80
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
   store i32 0, ptr %117, align 4
   store i16 -1, ptr %108, align 2, !tbaa !355
   store ptr %10, ptr %121, align 8, !tbaa !356

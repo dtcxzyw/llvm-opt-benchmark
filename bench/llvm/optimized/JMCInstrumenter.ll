@@ -120,7 +120,7 @@ define dso_local void @_ZN4llvm19JMCInstrumenterPass3runERNS_6ModuleERNS_15Analy
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false), !alias.scope !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !alias.scope !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 

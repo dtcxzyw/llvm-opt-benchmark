@@ -1707,7 +1707,7 @@ _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit: ; preds = %94, %.
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #17
   store i8 0, ptr %19, align 1, !tbaa !3
   store i8 0, ptr %20, align 2, !tbaa !280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %30, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, i8 0, i64 48, i1 false)
   store ptr %23, ptr %22, align 8, !tbaa !72
   store i32 0, ptr %24, align 8, !tbaa !73
   store i32 1, ptr %25, align 4, !tbaa !74

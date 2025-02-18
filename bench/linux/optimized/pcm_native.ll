@@ -376,7 +376,7 @@ define dso_local range(i32 -14, 1) i32 @snd_pcm_info_user(ptr noundef %0, ptr no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %10, i8 0, i64 272, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 272, i1 false)
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -5962,7 +5962,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   %10 = getelementptr [12 x %struct.snd_interval], ptr %7, i64 0, i64 %9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !annotation !13
   %12 = getelementptr i8, ptr %0, i64 36
   store i64 -1, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -10579,7 +10579,7 @@ define internal fastcc i32 @snd_pcm_ioctl_sw_params_compat(ptr noundef nonnull %
   %3 = alloca %struct.snd_pcm_sw_params, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %5 = tail call i64 @llvm.read_register.i64(metadata !0)
   %6 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %5) #18, !srcloc !96
   %7 = extractvalue { ptr, i32, i64 } %6, 0

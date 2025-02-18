@@ -5246,7 +5246,7 @@ define linkonce_odr void @_ZN6opencc13PhraseExtract8DictType9ClearDictEv(ptr nou
   %2 = alloca %"struct.std::__detail::_Prime_rehash_policy", align 8
   %3 = alloca %"class.std::unordered_map", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

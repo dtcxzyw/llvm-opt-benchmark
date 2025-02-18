@@ -3371,7 +3371,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %48, %51
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr %60, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 80

@@ -5097,7 +5097,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef %0, ptr no
   %7 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #54
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8
@@ -5137,7 +5137,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_bmp(ptr noundef readonly captures(
   %6 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @stbi__stdio_write, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5162,7 +5162,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_tga_to_func(ptr noundef %0, ptr no
   %7 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #54
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8
@@ -5605,7 +5605,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_tga(ptr noundef readonly captures(
   %6 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   %8 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @stbi__stdio_write, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8513,7 +8513,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_jpg_to_func(ptr noundef %0, ptr no
   %8 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #54
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
   store ptr %0, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %10, align 8
@@ -9189,7 +9189,7 @@ define hidden range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(
   %7 = alloca %struct.stbi__write_context, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #54
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   %9 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.5)
   store ptr @stbi__stdio_write, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -11835,7 +11835,7 @@ stbir__check_output_stuff.exit:                   ; preds = %38, %36
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, i8 0, i64 40, i1 false)
   store double 1.000000e+00, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store double 1.000000e+00, ptr %58, align 8
@@ -12554,7 +12554,7 @@ define noundef zeroext i1 @ExportImage(ptr noundef readonly byval(%struct.Image)
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #54
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %33, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, i8 0, i64 72, i1 false)
   %34 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.5)
   store ptr @stbi__stdio_write, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12584,7 +12584,7 @@ stbi_write_bmp.exit:                              ; preds = %32, %36
 43:                                               ; preds = %41, %39
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #54
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %44, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %44, i8 0, i64 72, i1 false)
   %45 = tail call noalias noundef ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.5)
   store ptr @stbi__stdio_write, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -14517,7 +14517,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 ; Function Attrs: nofree nounwind uwtable
 define void @ImageCopy(ptr dead_on_unwind noalias writable writeonly sret(%struct.Image) align 8 captures(none) initializes((8, 24)) %0, ptr noundef readonly byval(%struct.Image) align 8 captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -25563,7 +25563,7 @@ declare i32 @rlLoadTextureCubemap(ptr noundef, i32 noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define void @LoadRenderTexture(ptr dead_on_unwind noalias writable writeonly sret(%struct.RenderTexture) align 4 captures(none) initializes((0, 44)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %5 = tail call i32 @rlLoadFramebuffer() #54
   store i32 %5, ptr %0, align 4
   %.not = icmp eq i32 %5, 0

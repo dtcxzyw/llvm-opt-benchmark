@@ -992,7 +992,7 @@ _ZNSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EED2Ev.exit: ; preds =
 
 92:                                               ; preds = %81, %84, %88
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %8) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store ptr %19, ptr %8, align 8, !tbaa !38
   store i64 0, ptr %20, align 8, !tbaa !16
   store i8 0, ptr %21, align 8, !tbaa !75
@@ -1098,7 +1098,7 @@ _ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS6_vE
   br label %126
 
 125:                                              ; preds = %107
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   store ptr %34, ptr %32, align 8, !tbaa !38
   store i64 0, ptr %35, align 8, !tbaa !16
   br label %126
@@ -1842,7 +1842,7 @@ _ZNSt6vectorIN3dap8VariableESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN3dap8
 38:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3dap8VariableESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
   %.sroa.025.059 = phi ptr [ %8, %.lr.ph ], [ %90, %_ZNSt6vectorIN3dap8VariableESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store ptr %11, ptr %6, align 8, !tbaa !38
   store i64 0, ptr %12, align 8, !tbaa !16
   store i8 0, ptr %13, align 8, !tbaa !75
@@ -1919,7 +1919,7 @@ _ZNSt6vectorIN3dap8VariableESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN3dap8
   br label %62
 
 61:                                               ; preds = %58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store ptr %26, ptr %24, align 8, !tbaa !38
   store i64 0, ptr %27, align 8, !tbaa !16
   br label %62

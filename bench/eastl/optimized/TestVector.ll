@@ -31435,7 +31435,7 @@ land.end2791:                                     ; preds = %_ZN5eastl6vectorINS
   store i8 0, ptr %mSecond.i.i.i.i5691, align 8
   %call.i.i.i.i.i = call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #20
   %2196 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2196, i8 -1, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %2196, i8 -1, i64 15, i1 false)
   store i8 0, ptr %call.i.i.i.i.i, align 1
   %result.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
   %mCapacityAllocator.i.i5693 = getelementptr inbounds nuw i8, ptr %v0, i64 16
@@ -31449,7 +31449,7 @@ land.end2791:                                     ; preds = %_ZN5eastl6vectorINS
   store i8 1, ptr %mSecond.i.i.i.i5703, align 8
   %call.i.i.i.i.i5707 = call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #20
   %2197 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i5707, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2197, i8 -1, i64 15, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %2197, i8 -1, i64 15, i1 false)
   store i8 1, ptr %call.i.i.i.i.i5707, align 1
   %result.0.i.i.i.i5708 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i5707, i64 32
   %mCapacityAllocator.i.i5709 = getelementptr inbounds nuw i8, ptr %v1, i64 16
@@ -34861,7 +34861,7 @@ _ZN5eastl10VectorBaseIi17InstanceAllocatorE10DoAllocateEm.exit.i.i.i: ; preds = 
   %add3.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i, %add.i.i.i.i.i.i
   %call.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add3.i.i.i.i.i.i) #20
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 -1, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5, i8 -1, i64 15, i1 false)
   store i8 %4, ptr %call.i.i.i.i.i.i, align 1
   %6 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 %add.i.i.i.i.i.i
   %result.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -42619,7 +42619,7 @@ if.then.i:                                        ; preds = %entry
   %add3.i.i.i = add i64 %mul.i.i.i, %add.i.i.i
   %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add3.i.i.i) #20
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 -1, i64 15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 -1, i64 15, i1 false)
   store i8 %2, ptr %call.i.i.i, align 1
   %4 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %add.i.i.i
   %result.0.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16

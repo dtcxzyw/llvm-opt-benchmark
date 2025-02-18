@@ -975,7 +975,7 @@ define i32 @FT_Glyph_To_Bitmap(ptr noundef captures(address_is_null) %0, i32 nou
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %23, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %23, i8 0, i64 288, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store ptr %7, ptr %24, align 8, !tbaa !32

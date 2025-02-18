@@ -891,7 +891,7 @@ entry.if.end_crit_edge.i:                         ; preds = %entry
 _ZNSt10unique_ptrIN6hermes6parser13PreParsedDataESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !6
   %3 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 32, i1 false), !noalias !6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !6
   store ptr %3, ptr %call.i.i, align 8, !noalias !6
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8, !noalias !6

@@ -1091,7 +1091,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init(ptr noundef nonn
 26:                                               ; preds = %12
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 80, i1 false)
   store ptr %2, ptr %27, align 8, !tbaa !123
   %29 = load ptr, ptr %14, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24

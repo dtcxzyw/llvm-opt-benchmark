@@ -516,7 +516,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %1 = getelementptr inbounds nuw i8, ptr %call2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %1, i8 0, i64 328, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %1, i8 0, i64 328, i1 false)
   %stackArray.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %stackArray.i.i, ptr %call2, align 8
   %capacity.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8

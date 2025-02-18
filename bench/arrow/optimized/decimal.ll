@@ -12297,7 +12297,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   %79 = fptoui float %78 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #26
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 24, i1 false), !alias.scope !475
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false), !alias.scope !475
   store i64 %79, ptr %16, align 8, !tbaa !155, !alias.scope !475
   %81 = icmp slt i32 %76, 24
   br i1 %81, label %82, label %112
@@ -12546,7 +12546,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 57:                                               ; preds = %._crit_edge46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 24, i1 false), !alias.scope !484
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false), !alias.scope !484
   store i64 1, ptr %6, align 8, !tbaa !155, !alias.scope !484
   %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
@@ -12565,7 +12565,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 24, i1 false), !alias.scope !487
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false), !alias.scope !487
   store i64 1, ptr %7, align 8, !tbaa !155, !alias.scope !487
   %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
@@ -12731,7 +12731,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   %78 = load i32, ptr %16, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #26
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 24, i1 false), !alias.scope !499
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false), !alias.scope !499
   store i64 %77, ptr %17, align 8, !tbaa !155, !alias.scope !499
   %80 = icmp slt i32 %78, 53
   br i1 %80, label %81, label %111

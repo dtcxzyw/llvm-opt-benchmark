@@ -6267,7 +6267,7 @@ define internal fastcc i32 @compat_tty_tiocsserial(ptr noundef nonnull %0, ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 24, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !9
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 60) #22
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %44
@@ -6342,7 +6342,7 @@ define internal fastcc i32 @compat_tty_tiocgserial(ptr noundef nonnull %0, ptr n
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 232

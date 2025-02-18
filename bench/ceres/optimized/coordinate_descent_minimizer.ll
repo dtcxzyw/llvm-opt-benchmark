@@ -2616,7 +2616,7 @@ define hidden void @_ZN5ceres8internal26CoordinateDescentMinimizer5SolveEPNS0_7P
   %20 = alloca %"class.ceres::internal::TrustRegionMinimizer", align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #30
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %21, i8 0, i64 496, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %21, i8 0, i64 496, i1 false)
   store i32 1, ptr %10, align 8, !tbaa !250
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 2, ptr %22, align 4, !tbaa !262
@@ -3836,7 +3836,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal9Minimizer7OptionsC2Ev(ptr no
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %2) #30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %9, i8 0, i64 464, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %9, i8 0, i64 464, i1 false)
   store i32 1, ptr %2, align 8, !tbaa !322
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %10, align 4, !tbaa !330

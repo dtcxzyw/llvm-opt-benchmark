@@ -52,7 +52,7 @@ define noalias noundef ptr @Sbd_ProblemSetup(ptr noundef captures(none) initiali
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(548) %9, i8 0, i64 528, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(528) %9, i8 0, i64 528, i1 false)
   store i32 %1, ptr %0, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4, !tbaa !14

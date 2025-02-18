@@ -524,7 +524,7 @@ define dso_local noundef i32 @_ZN4llvm7IRMover17StructTypeKeyInfo12getHashValueE
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #20
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %7, ptr %2, align 8

@@ -411,7 +411,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
 
 ._crit_edge:                                      ; preds = %295, %152
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %179, i8 0, i64 64, i1 false), !alias.scope !174
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %179, i8 0, i64 64, i1 false), !alias.scope !174
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %180, ptr %0, align 8, !tbaa !16, !alias.scope !174
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 8

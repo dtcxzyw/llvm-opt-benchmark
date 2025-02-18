@@ -48,7 +48,7 @@ define void @jpeg_CreateCompress(ptr noundef initializes((8, 16)) %0, i32 nounde
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %26, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %26, i8 0, i64 512, i1 false)
   store ptr %23, ptr %0, align 8, !tbaa !24
   store ptr %25, ptr %24, align 8, !tbaa !31
   tail call void @jinit_memory_mgr(ptr noundef nonnull %0) #4

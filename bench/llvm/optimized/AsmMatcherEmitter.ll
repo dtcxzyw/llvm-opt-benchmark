@@ -26992,7 +26992,7 @@ _ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERKS1_PS2_EppEv.exit.i: ; preds = 
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 40
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 56
   %382 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %382, i8 0, i64 376, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %382, i8 0, i64 376, i1 false)
   store ptr %381, ptr %380, align 8, !tbaa !34
   %383 = getelementptr inbounds nuw i8, ptr %379, i64 72
   %384 = getelementptr inbounds nuw i8, ptr %379, i64 88
@@ -30053,7 +30053,7 @@ _ZN12_GLOBAL__N_114AsmMatcherInfo20buildRegisterClassesERN4llvm15SmallPtrSetImpl
   %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 40
   %1574 = getelementptr inbounds nuw i8, ptr %1572, i64 56
   %1575 = getelementptr inbounds nuw i8, ptr %1572, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %1575, i8 0, i64 376, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %1575, i8 0, i64 376, i1 false)
   store ptr %1574, ptr %1573, align 8, !tbaa !34
   %1576 = getelementptr inbounds nuw i8, ptr %1572, i64 72
   %1577 = getelementptr inbounds nuw i8, ptr %1572, i64 88
@@ -47915,7 +47915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 40
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 56
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %173, i8 0, i64 376, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %173, i8 0, i64 376, i1 false)
   store ptr %172, ptr %171, align 8, !tbaa !34
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 72
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 88

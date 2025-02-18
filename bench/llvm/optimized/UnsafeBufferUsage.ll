@@ -9182,7 +9182,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4StmtELb1EE9push_backES3_.exit57: ; pr
   call void @llvm.experimental.noalias.scope.decl(metadata !872)
   %140 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #30, !noalias !872
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %141, i8 0, i64 136, i1 false), !noalias !872
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %141, i8 0, i64 136, i1 false), !noalias !872
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store ptr %142, ptr %140, align 8, !tbaa !875, !noalias !872
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -69087,7 +69087,7 @@ _ZN4llvm15isa_and_presentIJN5clang11DeclRefExprEEPNS1_4ExprEEEbRKT0_.exit.i.i.i.
 
 .critedge49.i.i.i.i:                              ; preds = %929, %_ZN4llvm15isa_and_presentIJN5clang11DeclRefExprEEPNS1_4ExprEEEbRKT0_.exit.i.i.i.i, %923, %919, %915, %.thread152.i.i.i.i, %.thread.i.i.i.i, %894, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %79) #27, !noalias !5156
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %253, i8 0, i64 32, i1 false), !noalias !5156
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, i8 0, i64 32, i1 false), !noalias !5156
   store ptr %253, ptr %79, align 8, !tbaa !5169, !noalias !5156
   store i64 0, ptr %254, align 8, !tbaa !5171, !noalias !5156
   store i64 32, ptr %255, align 8, !tbaa !5172, !noalias !5156

@@ -1398,7 +1398,7 @@ define dso_local void @prepare_shallow_info(ptr noundef captures(none) initializ
 
 7:                                                ; preds = %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !106
   %.not24 = icmp eq ptr %1, null
   br i1 %.not24, label %.loopexit, label %9

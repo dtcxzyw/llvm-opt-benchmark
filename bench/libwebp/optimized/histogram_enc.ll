@@ -3114,7 +3114,7 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %25, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   store i32 1, ptr %7, align 4, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = icmp sgt i32 %2, 3

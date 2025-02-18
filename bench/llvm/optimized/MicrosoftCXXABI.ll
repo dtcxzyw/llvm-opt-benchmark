@@ -8202,7 +8202,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %7, %17
 
 30:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %0, align 8, !tbaa !402
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8

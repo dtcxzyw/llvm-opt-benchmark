@@ -1098,7 +1098,7 @@ if.end.i:
 invoke.cont:                                      ; preds = %if.end.i
   store ptr %call.i1, ptr %m_enode_data, align 8
   %1 = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %2 = load ptr, ptr %m_data.i, align 8
   store ptr %2, ptr %call.i1, align 8
   %m_root.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8

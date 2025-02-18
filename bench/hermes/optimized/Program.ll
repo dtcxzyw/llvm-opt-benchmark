@@ -706,7 +706,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %1 = getelementptr inbounds nuw i8, ptr %Act, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %1, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   store ptr @_ZN4llvhL14TimeOutHandlerEi, ptr %Act, align 8
   %sa_mask = getelementptr inbounds nuw i8, ptr %Act, i64 8
   %call = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #22

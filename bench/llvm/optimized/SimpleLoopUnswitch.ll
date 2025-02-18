@@ -2609,7 +2609,7 @@ _ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_25OuterAnalysisM
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_25OuterAnalysisManagerProxyINS0_INS_6ModuleEJEEES1_JEEEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #27
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !229
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !229
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !28, !alias.scope !229
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2768,7 +2768,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAn
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAnalysisEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #27
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !248
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !248
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !28, !alias.scope !248
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -43498,7 +43498,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i28, i64 56
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i28, i64 80
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i28, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %132, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %132, i8 0, i64 136, i1 false)
   store ptr %131, ptr %130, align 8, !tbaa !28
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i28, i64 64
   store i32 8, ptr %133, align 8, !tbaa !29

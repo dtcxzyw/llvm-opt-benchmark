@@ -3718,7 +3718,7 @@ lz4wfile_fdopen.exit:                             ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %12, i8 noundef 0, i64 noundef 44, i1 noundef false) #21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %12, i8 noundef 0, i64 noundef 44, i1 noundef false) #21
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -3763,7 +3763,7 @@ define hidden noundef ptr @lz4wfile_fdopen(i32 noundef %0) local_unnamed_addr #0
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %10, i8 noundef 0, i64 noundef 44, i1 noundef false) #21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %10, i8 noundef 0, i64 noundef 44, i1 noundef false) #21
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80

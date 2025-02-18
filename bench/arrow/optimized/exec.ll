@@ -1721,7 +1721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   store i8 1, ptr %109, align 1, !tbaa !112
   store i8 1, ptr %110, align 2, !tbaa !113
   store i8 1, ptr %111, align 1, !tbaa !114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %113, i8 0, i64 80, i1 false), !alias.scope !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %113, i8 0, i64 80, i1 false), !alias.scope !115
   store ptr %113, ptr %112, align 8, !tbaa !111, !alias.scope !115
   store i8 91, ptr %113, align 8, !tbaa !73, !alias.scope !115
   store i64 1, ptr %114, align 8, !tbaa !94, !alias.scope !115
@@ -1731,7 +1731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   store ptr %119, ptr %118, align 8, !tbaa !111, !alias.scope !115
   store i8 44, ptr %119, align 8, !tbaa !73, !alias.scope !115
   store i64 1, ptr %120, align 8, !tbaa !94, !alias.scope !115
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %122, i8 0, i64 80, i1 false), !alias.scope !118
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %122, i8 0, i64 80, i1 false), !alias.scope !118
   store ptr %122, ptr %121, align 8, !tbaa !111, !alias.scope !118
   store i8 91, ptr %122, align 8, !tbaa !73, !alias.scope !118
   store i64 1, ptr %123, align 8, !tbaa !94, !alias.scope !118

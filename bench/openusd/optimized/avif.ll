@@ -185,7 +185,7 @@ define hidden ptr @avifImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %10, i8 0, i64 184, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -218,7 +218,7 @@ define hidden ptr @avifImageCreateEmpty() local_unnamed_addr #3 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, i8 0, i64 184, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 184, i1 false)
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i16 2, ptr %4, align 8

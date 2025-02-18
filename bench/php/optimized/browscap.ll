@@ -250,7 +250,7 @@ define internal fastcc range(i32 -1, 1) i32 @browscap_read_file(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %49, label %8
 

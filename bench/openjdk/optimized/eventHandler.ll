@@ -839,7 +839,7 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
   %58 = load ptr, ptr @gdata, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %60, i8 0, i64 264, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %60, i8 0, i64 264, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 240
   store ptr @cbSingleStep, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 256

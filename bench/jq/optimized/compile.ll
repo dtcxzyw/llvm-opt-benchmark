@@ -4674,7 +4674,7 @@ define dso_local { ptr, ptr } @gen_destructure_alt(ptr %0, ptr %1) local_unnamed
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i64 -1, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %12, align 8, !tbaa !21

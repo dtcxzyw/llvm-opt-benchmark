@@ -36993,7 +36993,7 @@ _ZN4absl17beta_distributionIfE10param_typeC2Eff.exit467: ; preds = %_ZN7testing1
   %965 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %966 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %967 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(29) %967, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %967, i8 0, i64 12, i1 false)
   %968 = getelementptr inbounds nuw i8, ptr %41, i64 36
   store i8 1, ptr %968, align 4, !tbaa !348
   store float 0x47EFFF2E20000000, ptr %963, align 4, !tbaa !290
@@ -40487,7 +40487,7 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit478: ; preds = %_ZN7testing1
   %959 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %960 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %961 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(53) %961, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %961, i8 0, i64 24, i1 false)
   %962 = getelementptr inbounds nuw i8, ptr %41, i64 68
   store i8 1, ptr %962, align 4, !tbaa !113
   store double 0x7FEFFF2E48E8A71D, ptr %957, align 8, !tbaa !107

@@ -499,7 +499,7 @@ define internal i64 @signalfd_read(ptr noundef readonly captures(none) %0, ptr n
 
 95:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %53, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %53, i8 0, i64 120, i1 false)
   %96 = load i32, ptr %8, align 8
   store i32 %96, ptr %5, align 8
   %97 = load i32, ptr %24, align 4

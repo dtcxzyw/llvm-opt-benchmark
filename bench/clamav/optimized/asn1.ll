@@ -4310,7 +4310,7 @@ define internal fastcc range(i32 0, 2) i32 @map_raw(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %18, i8 0, i64 63, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %18, i8 0, i64 63, i1 false)
   %19 = trunc nuw nsw i32 %5 to i8
   store i8 %19, ptr %3, align 1, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 1

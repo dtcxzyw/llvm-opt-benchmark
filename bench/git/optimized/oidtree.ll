@@ -105,7 +105,7 @@ define dso_local void @oidtree_each(ptr noundef %0, ptr noundef %1, i64 noundef 
   store i64 %8, ptr %6, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %3, ptr %7, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %10, align 8, !tbaa !15

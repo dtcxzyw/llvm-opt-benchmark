@@ -1573,7 +1573,7 @@ _ZN4llvm15SmallVectorImplINS_9BitVectorEE7reserveEm.exit.i.i.i: ; preds = %277
 .lr.ph.i.i.i44:                                   ; preds = %.lr.ph.i.i.i44, %.lr.ph.preheader.i.i.i43
   %.012.i.i.i45 = phi ptr [ %286, %.lr.ph.i.i.i44 ], [ %282, %.lr.ph.preheader.i.i.i43 ]
   %283 = getelementptr inbounds nuw i8, ptr %.012.i.i.i45, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %283, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %283, i8 0, i64 56, i1 false)
   store ptr %283, ptr %.012.i.i.i45, align 8, !tbaa !25
   %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i45, i64 8
   store i32 0, ptr %284, align 8, !tbaa !26
@@ -1642,7 +1642,7 @@ _ZN4llvm15SmallVectorImplINS_9BitVectorEE7reserveEm.exit.i.i46.i: ; preds = %295
 .lr.ph.i.i50.i:                                   ; preds = %.lr.ph.i.i50.i, %.lr.ph.preheader.i.i49.i
   %.012.i.i51.i = phi ptr [ %304, %.lr.ph.i.i50.i ], [ %300, %.lr.ph.preheader.i.i49.i ]
   %301 = getelementptr inbounds nuw i8, ptr %.012.i.i51.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %301, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %301, i8 0, i64 56, i1 false)
   store ptr %301, ptr %.012.i.i51.i, align 8, !tbaa !25
   %302 = getelementptr inbounds nuw i8, ptr %.012.i.i51.i, i64 8
   store i32 0, ptr %302, align 8, !tbaa !26
@@ -2581,7 +2581,7 @@ _ZN4llvm15SmallVectorImplINS_9BitVectorEE7reserveEm.exit.i.i123.i: ; preds = %66
 .lr.ph.i.i127.i:                                  ; preds = %.lr.ph.i.i127.i, %.lr.ph.preheader.i.i126.i
   %.012.i.i128.i = phi ptr [ %670, %.lr.ph.i.i127.i ], [ %666, %.lr.ph.preheader.i.i126.i ]
   %667 = getelementptr inbounds nuw i8, ptr %.012.i.i128.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %667, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %667, i8 0, i64 56, i1 false)
   store ptr %667, ptr %.012.i.i128.i, align 8, !tbaa !25
   %668 = getelementptr inbounds nuw i8, ptr %.012.i.i128.i, i64 8
   store i32 0, ptr %668, align 8, !tbaa !26
@@ -2654,7 +2654,7 @@ _ZN4llvm15SmallVectorImplINS_9BitVectorEE7reserveEm.exit.i.i139.i: ; preds = %68
 .lr.ph.i.i143.i:                                  ; preds = %.lr.ph.i.i143.i, %.lr.ph.preheader.i.i142.i
   %.012.i.i144.i = phi ptr [ %695, %.lr.ph.i.i143.i ], [ %691, %.lr.ph.preheader.i.i142.i ]
   %692 = getelementptr inbounds nuw i8, ptr %.012.i.i144.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %692, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %692, i8 0, i64 56, i1 false)
   store ptr %692, ptr %.012.i.i144.i, align 8, !tbaa !25
   %693 = getelementptr inbounds nuw i8, ptr %.012.i.i144.i, i64 8
   store i32 0, ptr %693, align 8, !tbaa !26

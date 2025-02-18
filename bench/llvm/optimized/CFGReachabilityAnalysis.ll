@@ -526,7 +526,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9BitVectorENS_12DenseMapInfoIjvEENS_6det
   store i32 %53, ptr %44, align 4, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
   store ptr %55, ptr %54, align 8, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 0, ptr %56, align 8, !tbaa !24
@@ -644,7 +644,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9BitVectorENS_12DenseMapInfoIjvEENS_6det
   store i32 %53, ptr %44, align 4, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
   store ptr %55, ptr %54, align 8, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 0, ptr %56, align 8, !tbaa !24

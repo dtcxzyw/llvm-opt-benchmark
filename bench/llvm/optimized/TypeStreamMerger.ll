@@ -254,7 +254,7 @@ define dso_local void @_ZN4llvm8codeview14mergeIdRecordsERNS0_23MergingTypeTable
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   store ptr %4, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -328,7 +328,7 @@ define dso_local void @_ZN4llvm8codeview21mergeTypeAndIdRecordsERNS0_23MergingTy
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   store ptr %3, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 128

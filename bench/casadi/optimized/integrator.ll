@@ -60537,7 +60537,7 @@ define void @_ZNK6casadi19FixedStepIntegrator5stepFEPNS_15FixedStepMemoryEddPKdS
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !505
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 16, i1 false), !tbaa !304
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !tbaa !304
   store ptr %9, ptr %15, align 8, !tbaa !304
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %10, ptr %17, align 8, !tbaa !304
@@ -61172,7 +61172,7 @@ define void @_ZNK6casadi19FixedStepIntegrator5stepBEPNS_15FixedStepMemoryEddPKdS
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !505
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, i8 0, i64 64, i1 false), !tbaa !304
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false), !tbaa !304
   store ptr %12, ptr %20, align 8, !tbaa !304
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %13, ptr %22, align 8, !tbaa !304

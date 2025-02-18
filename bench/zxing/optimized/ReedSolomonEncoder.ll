@@ -52,7 +52,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store ptr %7, ptr %11, align 8
   store ptr %10, ptr %12, align 8
   store ptr %10, ptr %13, align 8
@@ -278,7 +278,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %34
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %40, ptr %.sroa.2.0..sroa_idx, align 4
   store ptr %19, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store ptr %37, ptr %13, align 8
   store ptr %41, ptr %14, align 8
   store ptr %41, ptr %15, align 8
@@ -567,7 +567,7 @@ _ZNSt6vectorIiSaIiEEC2IN9__gnu_cxx17__normal_iteratorIPiS1_EEvEET_S7_RKS0_.exit:
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store ptr %.sroa.054.0, ptr %30, align 8
   store ptr %.sroa.9.0, ptr %31, align 8
   store ptr %.sroa.9.0, ptr %32, align 8

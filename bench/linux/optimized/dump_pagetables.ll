@@ -140,7 +140,7 @@ define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) loc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 0, i64 96, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @effective_prot, ptr %19, align 8
@@ -203,7 +203,7 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, i8 0, i64 96, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %29, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %5, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @effective_prot, ptr %30, align 8
@@ -266,7 +266,7 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %24, i8 0, i64 96, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @effective_prot, ptr %25, align 8
@@ -328,7 +328,7 @@ define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #3 ali
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 96, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @effective_prot, ptr %15, align 8

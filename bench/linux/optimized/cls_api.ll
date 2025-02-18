@@ -3925,7 +3925,7 @@ define internal fastcc i32 @tcf_block_offload_cmd(ptr noundef %0, ptr noundef %1
   %7 = alloca %struct.flow_block_offload, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = load i32, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4193,7 +4193,7 @@ define internal void @tc_block_indr_cleanup(ptr noundef %0) #0 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 136

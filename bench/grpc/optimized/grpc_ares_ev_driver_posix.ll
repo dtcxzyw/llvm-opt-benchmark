@@ -126,7 +126,7 @@ define void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE(
 _ZNSt10unique_ptrIN9grpc_core24GrpcPolledFdFactoryPosixESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14, !noalias !4
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %1, i8 0, i64 16, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 16), ptr %call.i, align 8, !noalias !4
   %kSockFuncs.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6SocketEiiiPv, ptr %kSockFuncs.i.i, align 8, !noalias !4

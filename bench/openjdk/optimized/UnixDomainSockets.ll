@@ -62,7 +62,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 110)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %5, i8 0, i64 108, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %5, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1472
@@ -150,7 +150,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 define void @Java_sun_nio_ch_UnixDomainSockets_bind0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472
@@ -211,7 +211,7 @@ declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #3
 define i32 @Java_sun_nio_ch_UnixDomainSockets_connect0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_un, align 2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472

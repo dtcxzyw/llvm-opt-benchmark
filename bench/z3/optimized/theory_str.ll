@@ -125957,7 +125957,7 @@ entry:
   store ptr %k, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr %0, ptr %m_value.i.i, align 8
   %m_pos.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i32 0, ptr %m_pos.i.i.i.i, align 8

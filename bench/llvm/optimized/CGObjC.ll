@@ -19003,7 +19003,7 @@ _ZN5clang7CodeGen13CodeGenModule14getObjCRuntimeEv.exit: ; preds = %3, %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %32, i8 0, i64 17, i1 false)
   call void @llvm.lifetime.start.p0(i64 1496, ptr nonnull %6) #23
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1496) %33, i8 0, i64 1472, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %33, i8 0, i64 1472, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %34, ptr %6, align 8, !tbaa !303
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -19062,7 +19062,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %56, i8 0, i64 17, i1 false)
   call void @llvm.lifetime.start.p0(i64 1496, ptr nonnull %9) #23
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1496) %57, i8 0, i64 1472, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %57, i8 0, i64 1472, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %58, ptr %9, align 8, !tbaa !303
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 8

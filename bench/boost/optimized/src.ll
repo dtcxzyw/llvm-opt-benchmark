@@ -11701,7 +11701,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i21:     ; preds = %6, %12, %19
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 177
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 178
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 48, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 34, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 232
@@ -12609,7 +12609,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 177
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 178
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, i8 0, i64 48, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 34, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 232
@@ -30237,7 +30237,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i74:     ; preds = %_ZNSt8ios_base5iwor
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 177
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 178
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %66, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, i8 0, i64 48, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, i8 0, i64 34, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 232
@@ -41991,7 +41991,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE
 20:                                               ; preds = %19, %17
   %.pre = phi i64 [ %.pre.pre, %19 ], [ %.pre5, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %21, i8 0, i64 26, i1 false)
   br label %22
 
 22:                                               ; preds = %20, %8

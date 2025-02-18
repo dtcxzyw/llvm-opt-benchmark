@@ -1144,7 +1144,7 @@ _ZN14cmUVPipeBuffer4initEP9uv_loop_s.exit37.thread: ; preds = %140, %_ZN14cmUVPi
   store ptr %167, ptr %168, align 8, !tbaa !17
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %170, i8 0, i64 72, i1 false), !tbaa !17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %170, i8 0, i64 72, i1 false), !tbaa !17
   store ptr @_ZN19cmUVReadOnlyProcess6UVExitEP12uv_process_sli, ptr %169, align 8, !tbaa !100
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %172 = load ptr, ptr %171, align 8, !tbaa !92
@@ -2770,7 +2770,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %10
 
 14:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(488) %15, i8 0, i64 256, i1 false), !noalias !172
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %15, i8 0, i64 256, i1 false), !noalias !172
   store ptr %15, ptr %13, align 8, !tbaa !175, !noalias !172
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %16, align 8, !tbaa !81, !noalias !172

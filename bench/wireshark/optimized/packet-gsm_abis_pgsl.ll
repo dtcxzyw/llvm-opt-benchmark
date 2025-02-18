@@ -253,7 +253,7 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 35, ptr noundef nonnull @.str.134)

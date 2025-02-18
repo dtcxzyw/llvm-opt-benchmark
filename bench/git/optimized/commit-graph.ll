@@ -7778,7 +7778,7 @@ define internal noundef i32 @add_packed_commits(ptr noundef %0, ptr noundef %1, 
   %7 = tail call i64 @nth_packed_object_offset(ptr noundef %1, i32 noundef %2) #24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !203
   %.not = icmp eq ptr %10, null

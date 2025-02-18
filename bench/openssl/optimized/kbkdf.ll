@@ -178,7 +178,7 @@ kbkdf_free.exit:                                  ; preds = %7, %17, %25, %33, %
   %78 = load i64, ptr %77, align 8, !tbaa !24
   tail call void @CRYPTO_clear_free(ptr noundef %76, i64 noundef %78, ptr noundef nonnull @.str, i32 noundef 150) #7
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %79, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %79, i8 0, i64 104, i1 false)
   store ptr %61, ptr %5, align 8, !tbaa !3
   store i32 32, ptr %8, align 8, !tbaa !12
   store i32 1, ptr %9, align 8, !tbaa !13
@@ -222,7 +222,7 @@ define internal void @kbkdf_free(ptr noundef %0) #0 {
   %21 = load i64, ptr %20, align 8, !tbaa !24
   tail call void @CRYPTO_clear_free(ptr noundef %19, i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 150) #7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 0, i64 104, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 32, ptr %23, align 8, !tbaa !12
@@ -264,7 +264,7 @@ define internal void @kbkdf_reset(ptr noundef captures(none) initializes((8, 16)
   %20 = load i64, ptr %19, align 8, !tbaa !24
   tail call void @CRYPTO_clear_free(ptr noundef %18, i64 noundef %20, ptr noundef nonnull @.str, i32 noundef 150) #7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %21, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, i8 0, i64 104, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 32, ptr %22, align 8, !tbaa !12

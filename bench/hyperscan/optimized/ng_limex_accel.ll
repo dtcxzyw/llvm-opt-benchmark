@@ -1979,7 +1979,7 @@ entry:
   %ref.tmp21 = alloca %"class.std::allocator.3", align 1
   %agg.tmp111 = alloca %"class.std::vector", align 8
   %0 = getelementptr inbounds nuw i8, ptr %terminating, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %verts, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %verts, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8

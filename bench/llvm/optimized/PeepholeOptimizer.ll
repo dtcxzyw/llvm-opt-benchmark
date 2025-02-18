@@ -6426,7 +6426,7 @@ _ZN12_GLOBAL__N_112ValueTrackerC2EN4llvm8RegisterEjRKNS1_19MachineRegisterInfoEP
   br i1 %.not.i, label %89, label %90
 
 89:                                               ; preds = %88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !525
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !525
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !525
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !525
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !525
@@ -6453,7 +6453,7 @@ _ZN12_GLOBAL__N_112ValueTrackerC2EN4llvm8RegisterEjRKNS1_19MachineRegisterInfoEP
   br i1 %.not.i.i.i, label %103, label %102
 
 102:                                              ; preds = %94
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !541
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !541
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !541
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !541
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !541
@@ -6468,7 +6468,7 @@ _ZN12_GLOBAL__N_112ValueTrackerC2EN4llvm8RegisterEjRKNS1_19MachineRegisterInfoEP
   br i1 %.not4.i.i.i, label %108, label %107
 
 107:                                              ; preds = %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !541
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !541
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !541
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !541
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !541
@@ -6529,7 +6529,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6544,7 +6544,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
   br i1 %.not.i2.i.i, label %138, label %137
 
 137:                                              ; preds = %133
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6565,7 +6565,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
   br i1 %.not32.i.i.i, label %146, label %145
 
 145:                                              ; preds = %138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6610,7 +6610,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
   br i1 %.not33.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !546
 
 161:                                              ; preds = %159
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6622,7 +6622,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
   br i1 %.not36.i.i.i, label %162, label %._crit_edge.thread.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %146
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6683,7 +6683,7 @@ _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; pre
   br label %.critedge2.i.i.i.i.i
 
 .lr.ph69.i.i.i._crit_edge:                        ; preds = %.lr.ph69.i.i.i.loopexit, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6721,7 +6721,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %.not56.i.i.i, label %197, label %196
 
 196:                                              ; preds = %.critedge40.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !545
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !545
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !545
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !545
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !545
@@ -6744,7 +6744,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %202
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !547
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !547
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !547
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !547
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !547
@@ -6768,7 +6768,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %211, label %213, label %212
 
 212:                                              ; preds = %210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !551
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !551
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !551
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !551
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !551
@@ -6806,7 +6806,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %.not.i8.i.i, label %.critedge15.i.i.i, label %.lr.ph.i7.i.i
 
 .critedge15.i.i.i:                                ; preds = %.critedge.i.i.i, %213
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !551
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !551
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !551
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !551
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !551
@@ -6845,7 +6845,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not.i9.i.i, label %238, label %237
 
 237:                                              ; preds = %230
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !557
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !557
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !557
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !557
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !557
@@ -6864,7 +6864,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %239, label %241, label %240
 
 240:                                              ; preds = %238
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !557
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !557
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !557
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !557
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !557
@@ -6907,7 +6907,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %or.cond.i10.i.i, label %260, label %261
 
 260:                                              ; preds = %245
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !557
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !557
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !557
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !557
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !557
@@ -6936,7 +6936,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not19.i.i.i, label %278, label %277
 
 277:                                              ; preds = %261
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !557
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !557
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !557
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !557
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !557
@@ -6973,7 +6973,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not.i73, label %286, label %285
 
 285:                                              ; preds = %284
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !560
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !560
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !560
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !560
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !560
@@ -6989,7 +6989,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %287, label %289, label %288
 
 288:                                              ; preds = %286
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !560
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !560
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !560
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !560
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !560
@@ -7002,7 +7002,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not1.i74, label %292, label %291
 
 291:                                              ; preds = %289
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !560
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !560
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !560
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !560
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !560
@@ -7045,7 +7045,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not.i72, label %302, label %301
 
 301:                                              ; preds = %296
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !563
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !563
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !563
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !563
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !563
@@ -7060,7 +7060,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not1.i, label %307, label %306
 
 306:                                              ; preds = %302
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !563
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !563
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !563
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !563
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !563
@@ -7090,7 +7090,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not.i67, label %317, label %316
 
 316:                                              ; preds = %310
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !566
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !566
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !566
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !566
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !566
@@ -7156,7 +7156,7 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   br i1 %.not11.i, label %.lr.ph.i, label %.critedge.i69, !llvm.loop !569
 
 342:                                              ; preds = %.lr.ph.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !566
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !566
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !566
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !566
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !566
@@ -7234,7 +7234,7 @@ _ZN12_GLOBAL__N_112ValueTracker20getNextSourceFromPHIEv.exit: ; preds = %355, %3
   br label %_ZN12_GLOBAL__N_112ValueTracker17getNextSourceImplEv.exit.i
 
 359:                                              ; preds = %295
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 16, i1 false), !alias.scope !547
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !547
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !547
   store i32 0, ptr %28, align 8, !tbaa !26, !alias.scope !547
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !547
@@ -8308,7 +8308,7 @@ _ZSt4copyIPKN4llvm15TargetInstrInfo13RegSubRegPairEPS2_ET0_T_S7_S6_.exit31.i.thr
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_15TargetInstrInfo13RegSubRegPairEN12_GLOBAL__N_118ValueTrackerResultELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupERKS3_.exit.thread: ; preds = %.lr.ph.i.i.i, %29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 16, i1 false), !alias.scope !580
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !580
   store ptr %14, ptr %10, align 8, !tbaa !25, !alias.scope !580
   store i32 0, ptr %15, align 8, !tbaa !26, !alias.scope !580
   store i32 2, ptr %16, align 4, !tbaa !27, !alias.scope !580

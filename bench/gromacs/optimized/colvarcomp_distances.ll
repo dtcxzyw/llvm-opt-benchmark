@@ -5743,7 +5743,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit:
   %67 = load double, ptr %66, align 8
   %68 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %63, i64 %.032230, i32 2
   %69 = load double, ptr %68, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %21, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %21, i8 0, i64 368, i1 false)
   store double %65, ptr %1, align 16
   store double %67, ptr %22, align 8
   store double %69, ptr %21, align 16
@@ -6807,7 +6807,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   %69 = load double, ptr %68, align 8
   %70 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %65, i64 %.021215, i32 2
   %71 = load double, ptr %70, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %26, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %26, i8 0, i64 368, i1 false)
   store double %67, ptr %2, align 16
   store double %69, ptr %27, align 8
   store double %71, ptr %26, align 16

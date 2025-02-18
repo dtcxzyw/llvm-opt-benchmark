@@ -1729,7 +1729,7 @@ define dso_local void @drm_show_memory_stats(ptr noundef %0, ptr noundef %1) #1 
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call void @_raw_spin_lock(ptr noundef nonnull %6) #9

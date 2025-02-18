@@ -26226,7 +26226,7 @@ if.then:                                          ; preds = %_ZN4smt26parser21ch
 
 if.end:                                           ; preds = %if.then, %_ZN4smt26parser21check_identifier_nextEPKc.exit
   %8 = getelementptr inbounds nuw i8, ptr %args, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store ptr %8, ptr %args, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -27983,7 +27983,7 @@ if.else:                                          ; preds = %entry
   tail call void @_ZN4smt26parser10check_nextENS_7scanner5tokenEPKc(ptr noundef nonnull align 8 dereferenceable(2168) %this, i32 noundef 1, ptr noundef nonnull @.str.113)
   store ptr null, ptr %id4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %indices, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %7, ptr %indices, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %indices, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

@@ -87323,7 +87323,7 @@ define void @_ZN6duckdb25WriteAheadLogDeserializer12ReplayUpdateEv(ptr noundef n
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(632) %9, i16 noundef zeroext 101, ptr noundef nonnull @.str.93), !noalias !2657
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2660)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false), !alias.scope !2660
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !2660
   %14 = load ptr, ptr %9, align 8, !tbaa !41, !noalias !2660
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !noalias !2660

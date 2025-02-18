@@ -1100,7 +1100,7 @@ if.end26:                                         ; preds = %if.end8.sink.split.
   %GCConfigExplicit_.i = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 376
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %GCConfigExplicit_.i, i8 0, i64 30, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %49, i8 0, i64 208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %49, i8 0, i64 208, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store i32 0, ptr %ref.tmp30, align 8
   %InitHeapSize_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 4
@@ -3090,7 +3090,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 0, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %this, align 8
   %InitHeapSize_.i = getelementptr inbounds nuw i8, ptr %this, i64 4

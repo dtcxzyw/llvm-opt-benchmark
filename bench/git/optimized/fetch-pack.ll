@@ -807,7 +807,7 @@ everything_local.exit.thread.i:                   ; preds = %165, %everything_lo
   %174 = getelementptr inbounds nuw %struct.object_id, ptr %173, i64 %indvars.iv.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %129, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %129, i8 0, i64 72, i1 false)
   store ptr %24, ptr %25, align 8, !tbaa !44
   %175 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %176 = call ptr @lookup_commit_in_graph(ptr noundef %175, ptr noundef %174) #20
@@ -896,7 +896,7 @@ mark_tips.exit.i:                                 ; preds = %rev_list_insert_ref
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %130, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %130, i8 0, i64 72, i1 false)
   store ptr %22, ptr %23, align 8, !tbaa !44
   %204 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %205 = call ptr @lookup_commit_in_graph(ptr noundef %204, ptr noundef nonnull %203) #20
@@ -6205,7 +6205,7 @@ define internal fastcc ptr @deref_without_lazy_fetch(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %3, ptr %4, align 8, !tbaa !44
   %6 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %7 = call ptr @lookup_commit_in_graph(ptr noundef %6, ptr noundef %0) #20

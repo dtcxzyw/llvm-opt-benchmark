@@ -6358,7 +6358,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
 define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If_Grp_t_) align 1 captures(none) initializes((0, 18)) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #11 {
   %10 = alloca [128 x i64], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = trunc i32 %7 to i8
   store i8 %12, ptr %0, align 1, !tbaa !110
   %13 = tail call i32 @If_CluCountCofs(ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef 0, ptr noundef null)

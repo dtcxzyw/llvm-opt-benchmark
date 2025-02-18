@@ -1056,7 +1056,7 @@ define internal i32 @param_array_set(ptr noundef %0, ptr noundef readonly captur
   %22 = icmp eq ptr %21, null
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 24, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !annotation !8
   store ptr %8, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %11, ptr %24, align 8

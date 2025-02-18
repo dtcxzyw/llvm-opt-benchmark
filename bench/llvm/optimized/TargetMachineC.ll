@@ -314,7 +314,7 @@ define dso_local range(i32 0, 2) i32 @LLVMTargetHasAsmBackend(ptr noundef readon
 define dso_local noundef nonnull ptr @LLVMCreateTargetMachineOptions() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %2, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %3, ptr %1, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -736,7 +736,7 @@ define dso_local noundef ptr @LLVMCreateTargetMachine(ptr noundef %0, ptr nounde
 LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   %7 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %8, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %8, i8 0, i64 104, i1 false)
   store ptr %8, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8, !tbaa !16

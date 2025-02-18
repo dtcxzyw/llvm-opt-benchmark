@@ -3343,7 +3343,7 @@ define dso_local void @dictInitSafeIterator(ptr noundef writeonly captures(none)
   store i64 -1, ptr %4, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %5, align 4, !tbaa !72
   ret void
 }
@@ -3472,7 +3472,7 @@ define dso_local noalias noundef ptr @dictGetSafeIterator(ptr noundef %0) local_
   store i64 -1, ptr %4, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %5, align 4, !tbaa !72
   ret ptr %2
 }

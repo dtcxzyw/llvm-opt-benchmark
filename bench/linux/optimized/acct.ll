@@ -281,7 +281,7 @@ define dso_local void @acct_collect(i64 noundef %0, i32 noundef %1) local_unname
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   store ptr %19, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 1, ptr %21, align 8

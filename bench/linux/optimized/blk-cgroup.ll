@@ -4538,7 +4538,7 @@ define internal noundef i32 @blkcg_reset_stats(ptr noundef %0, ptr readnone capt
   %29 = add i64 %28, %25
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %31, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %31, i8 0, i64 112, i1 false)
   store ptr %11, ptr %30, align 8
   %32 = add nuw nsw i64 %20, 1
   %33 = and i64 %32, 127

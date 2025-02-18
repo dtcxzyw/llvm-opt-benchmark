@@ -787,7 +787,7 @@ define hidden range(i32 -1, 1) i32 @x25519_ge_frombytes_vartime(ptr noundef capt
   tail call fastcc void @fe_frombytes(ptr noundef nonnull %14, ptr noundef %1)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %16, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   store i32 1, ptr %15, align 4, !tbaa !18
   call fastcc void @fe_sq(ptr noundef nonnull %9, ptr noundef nonnull %14)
   call fastcc void @fe_mul(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull @d)
@@ -1799,11 +1799,11 @@ fe_sub.exit:                                      ; preds = %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %33, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %33, i8 0, i64 36, i1 false)
   store i32 1, ptr %32, align 4, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %35, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %35, i8 0, i64 36, i1 false)
   store i32 1, ptr %34, align 4, !tbaa !18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %36, i8 0, i64 40, i1 false)
@@ -1846,9 +1846,9 @@ fe_sub.exit:                                      ; preds = %23
 
 62:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %37, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %37, i8 0, i64 36, i1 false)
   store i32 1, ptr %7, align 4, !tbaa !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %39, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %39, i8 0, i64 36, i1 false)
   store i32 1, ptr %38, align 4, !tbaa !18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %40, i8 0, i64 40, i1 false)
   br label %63
@@ -2142,11 +2142,11 @@ define hidden void @x25519_ge_scalarmult_base(ptr noundef captures(none) %0, ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 36, i1 false)
   store i32 1, ptr %28, align 4, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %31, i8 0, i64 36, i1 false)
   store i32 1, ptr %30, align 4, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %32, i8 0, i64 40, i1 false)
@@ -2232,11 +2232,11 @@ define internal fastcc void @table_select(ptr noundef nonnull captures(none) ini
   %6 = shl i8 %5, 1
   %7 = sub i8 %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   store i32 1, ptr %0, align 4, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %10, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i32 1, ptr %9, align 4, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %11, i8 0, i64 40, i1 false)
@@ -3125,15 +3125,15 @@ define hidden void @x25519_ge_scalarmult(ptr noundef captures(none) %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 2560, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %9, i8 0, i64 36, i1 false)
   store i32 1, ptr %5, align 16, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %11, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   store i32 1, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %13, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %13, i8 0, i64 36, i1 false)
   store i32 1, ptr %12, align 16, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
@@ -3234,11 +3234,11 @@ x25519_ge_p3_to_cached.exit:                      ; preds = %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %63, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %63, i8 0, i64 36, i1 false)
   store i32 1, ptr %62, align 4, !tbaa !18
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %65, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %65, i8 0, i64 36, i1 false)
   store i32 1, ptr %64, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #8
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -3282,11 +3282,11 @@ x25519_ge_p3_to_cached.exit:                      ; preds = %25
   %83 = lshr i32 %82, %81
   %84 = and i32 %83, 15
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %69, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %69, i8 0, i64 36, i1 false)
   store i32 1, ptr %8, align 4, !tbaa !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %71, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %71, i8 0, i64 36, i1 false)
   store i32 1, ptr %70, align 4, !tbaa !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %73, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %73, i8 0, i64 36, i1 false)
   store i32 1, ptr %72, align 4, !tbaa !18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %74, i8 0, i64 40, i1 false)
   br label %85
@@ -5992,11 +5992,11 @@ x25519_ge_p3_to_cached.exit110.i:                 ; preds = %256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   %265 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %266 = getelementptr inbounds nuw i8, ptr %22, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %266, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %266, i8 0, i64 36, i1 false)
   store i32 1, ptr %265, align 4, !tbaa !18
   %267 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %268 = getelementptr inbounds nuw i8, ptr %22, i64 84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %268, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %268, i8 0, i64 36, i1 false)
   store i32 1, ptr %267, align 4, !tbaa !18
   br label %269
 

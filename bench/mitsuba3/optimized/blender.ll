@@ -6287,7 +6287,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_6vectorIfNS1_IfEEEEEEE
   %40 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %43 = load ptr, ptr %.014.i.i, align 8
   store ptr %43, ptr %.1.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8

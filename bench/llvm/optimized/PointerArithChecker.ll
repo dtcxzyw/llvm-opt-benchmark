@@ -2969,7 +2969,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOB
   store i32 1, ptr %57, align 8, !tbaa !135, !alias.scope !210, !noalias !199
   %72 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %7), !noalias !199
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #21, !noalias !199
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %59, i8 0, i64 160, i1 false), !alias.scope !213, !noalias !199
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %59, i8 0, i64 160, i1 false), !alias.scope !213, !noalias !199
   store ptr %59, ptr %8, align 8, !tbaa !138, !alias.scope !213, !noalias !199
   store i32 0, ptr %60, align 8, !tbaa !135, !alias.scope !213, !noalias !199
   store i32 20, ptr %61, align 4, !tbaa !137, !alias.scope !213, !noalias !199
@@ -2980,7 +2980,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOB
   store i32 1, ptr %63, align 8, !tbaa !135, !alias.scope !216, !noalias !199
   %73 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19AllocKindEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5), !noalias !199
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #21, !noalias !199
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %66, i8 0, i64 160, i1 false), !alias.scope !219, !noalias !199
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %66, i8 0, i64 160, i1 false), !alias.scope !219, !noalias !199
   store ptr %66, ptr %6, align 8, !tbaa !138, !alias.scope !219, !noalias !199
   store i32 0, ptr %67, align 8, !tbaa !135, !alias.scope !219, !noalias !199
   store i32 20, ptr %68, align 4, !tbaa !137, !alias.scope !219, !noalias !199

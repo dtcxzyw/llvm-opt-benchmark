@@ -30,7 +30,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %16 = load i32, ptr %0, align 4
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 10

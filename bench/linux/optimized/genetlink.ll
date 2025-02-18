@@ -335,7 +335,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   br label %.thread26
 
 32:                                               ; preds = %27, %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 96, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !18
   store ptr %0, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 0, ptr %33, align 8

@@ -8657,7 +8657,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit521.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %203 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %204 = load ptr, ptr %203, align 8, !tbaa !132
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %205, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %205, i8 0, i64 40, i1 false)
   store i32 -1, ptr %205, align 8, !tbaa !118
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -8834,7 +8834,7 @@ _ZN12_GLOBAL__N_114AArch64OperandC2ERKS0_.exit:   ; preds = %_ZN4llvmeqENS_9Stri
   %286 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %287 = load ptr, ptr %286, align 8, !tbaa !132
   %288 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %288, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %288, i8 0, i64 40, i1 false)
   store i32 -1, ptr %288, align 8, !tbaa !118
   %289 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %10, i64 32

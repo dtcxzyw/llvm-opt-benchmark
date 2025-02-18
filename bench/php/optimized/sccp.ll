@@ -8445,7 +8445,7 @@ can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_eq
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %52, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %52, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %53, align 8, !tbaa !197

@@ -83,7 +83,7 @@ define void @_ZN2cv3reg9MapAffineC2Ev(ptr noundef nonnull writeonly align 8 capt
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv3reg9MapAffineE, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !4
   store double 1.000000e+00, ptr %1, align 8, !alias.scope !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 1.000000e+00, ptr %3, align 8, !alias.scope !4

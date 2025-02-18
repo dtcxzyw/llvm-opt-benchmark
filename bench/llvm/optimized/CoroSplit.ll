@@ -14005,7 +14005,7 @@ _ZN4llvm4coro5ShapeD2Ev.exit:                     ; preds = %_ZN4llvm11SmallVect
 
 ._crit_edge349:                                   ; preds = %_ZL18replaceAllPreparesPN4llvm8FunctionERNS_13LazyCallGraphERNS2_3SCCE.exit, %._crit_edge344
   %1849 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1849, i8 0, i64 64, i1 false), !alias.scope !659
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1849, i8 0, i64 64, i1 false), !alias.scope !659
   %1850 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1850, ptr %0, align 8, !tbaa !444, !alias.scope !659
   %1851 = getelementptr inbounds nuw i8, ptr %0, i64 8

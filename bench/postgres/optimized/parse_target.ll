@@ -1800,7 +1800,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
 89:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #8
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %90, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %90, i8 0, i64 232, i1 false)
   %.not138 = icmp eq i32 %10, 0
   br i1 %.not138, label %._crit_edge, label %.lr.ph
 
@@ -1885,7 +1885,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
 138:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #8
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %139, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %139, i8 0, i64 232, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %141 = load i32, ptr %140, align 8
   %142 = add i32 %141, %10

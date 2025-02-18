@@ -1573,7 +1573,7 @@ strbuf_addch.exit.i.i:                            ; preds = %strbuf_avail.exit.t
   store i8 %301, ptr %288, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
   %302 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %302, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %302, i8 0, i64 32, i1 false)
   %303 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 -1, ptr %303, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
@@ -4237,7 +4237,7 @@ define internal range(i32 0, 2) i32 @module_init(i32 noundef %0, ptr noundef %1,
   store i32 0, ptr %8, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %9) #20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %11, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %11, i8 0, i64 160, i1 false)
   store i32 8, ptr %9, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 113, ptr %12, align 4, !tbaa !13
@@ -6061,7 +6061,7 @@ define internal range(i32 0, 2) i32 @module_set_url(i32 noundef %0, ptr noundef 
   store i32 0, ptr %5, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %8, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   store i32 8, ptr %6, align 16, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 113, ptr %9, align 4, !tbaa !13

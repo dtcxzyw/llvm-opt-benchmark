@@ -3734,7 +3734,7 @@ define dso_local i32 @__sys_recvfrom(i32 noundef %0, ptr noundef %1, i64 noundef
   %9 = icmp ne ptr %4, null
   %10 = select i1 %9, ptr %7, ptr null
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   store ptr %10, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = call i32 @import_ubuf(i32 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %12) #20

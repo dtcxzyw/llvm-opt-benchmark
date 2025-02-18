@@ -2770,7 +2770,7 @@ _ZNSt10unique_ptrIN18OpenImageIO_v2_6_011ColorConfig4ImplESt14default_deleteIS2_
   store i8 0, ptr %m_printdtr.i.i30, align 1
   %m_starttime.i.i31 = getelementptr inbounds nuw i8, ptr %timer.i, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %timer.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i29)
   %call.i.i.i.i32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i29) #30
   %14 = load i64, ptr %t.i.i.i.i29, align 8
@@ -2873,7 +2873,7 @@ entry:
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #30
   %1 = load i64, ptr %t.i.i.i, align 8

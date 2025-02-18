@@ -1568,7 +1568,7 @@ define dso_local void @repo_clear_commit_marks(ptr noundef readonly captures(non
 define dso_local noundef ptr @parsed_object_pool_new(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @xmalloc(i64 noundef 120) #20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !95
   %4 = tail call ptr @allocate_alloc_state() #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24

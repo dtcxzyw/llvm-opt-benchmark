@@ -4026,7 +4026,7 @@ populate_scalar.exit:                             ; preds = %130, %139
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %172, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %172, i8 0, i64 40, i1 false)
   store ptr %11, ptr %12, align 8
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @populate_array_object_start, ptr %173, align 8

@@ -115,7 +115,7 @@ define dso_local i64 @jsonb_in(ptr noundef readonly captures(none) %0) local_unn
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %sext = shl i64 %8, 32
   %12 = ashr exact i64 %sext, 32
   %13 = tail call i32 @GetDatabaseEncoding() #11
@@ -191,7 +191,7 @@ define dso_local i64 @jsonb_recv(ptr noundef readonly captures(none) %0) local_u
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = sext i32 %18 to i64
   %21 = call i32 @GetDatabaseEncoding() #11
   %22 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %2, ptr noundef %17, i64 noundef %20, i32 noundef %21, i1 noundef zeroext true) #11
@@ -362,7 +362,7 @@ define dso_local i64 @jsonb_from_text(ptr noundef %0, i1 noundef zeroext %1) loc
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %33 = sext i32 %28 to i64
   %34 = tail call i32 @GetDatabaseEncoding() #11
   %35 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %3, ptr noundef nonnull %30, i64 noundef %33, i32 noundef %34, i1 noundef zeroext true) #11
@@ -1596,7 +1596,7 @@ composite_to_jsonb.exit:                          ; preds = %._crit_edge, %167
   %218 = tail call ptr @pg_detoast_datum_packed(ptr noundef %217) #11
   %219 = call ptr @makeJsonLexContext(ptr noundef nonnull %22, ptr noundef %218, i1 noundef zeroext true) #11
   %220 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %220, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, i8 0, i64 24, i1 false)
   store ptr %2, ptr %23, align 8
   %221 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @jsonb_in_object_start, ptr %221, align 8
@@ -2726,7 +2726,7 @@ define dso_local i64 @jsonb_agg_finalfn(ptr noundef captures(none) %0) local_unn
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %11, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -3208,7 +3208,7 @@ define dso_local i64 @jsonb_object_agg_finalfn(ptr noundef captures(none) %0) lo
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %11, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null

@@ -8704,7 +8704,7 @@ define internal fastcc i32 @write_rr_ER(ptr noundef %0) unnamed_addr #0 {
   %6 = sub i64 65536, %5
   %7 = getelementptr inbounds nuw [65536 x i8], ptr %3, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 237
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %8, i8 0, i64 1811, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1811) %8, i8 0, i64 1811, i1 false)
   store i8 69, ptr %7, align 1, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 82, ptr %9, align 1, !tbaa !68
@@ -8767,7 +8767,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_descriptors(ptr
   %10 = sub i64 65536, %9
   %11 = getelementptr inbounds nuw [65536 x i8], ptr %7, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %12, i8 0, i64 2047, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2047) %12, i8 0, i64 2047, i1 false)
   store i8 1, ptr %11, align 1, !tbaa !68
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 66376
   %14 = load i8, ptr %13, align 8, !tbaa !296

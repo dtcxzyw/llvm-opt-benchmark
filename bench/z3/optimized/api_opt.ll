@@ -5357,7 +5357,7 @@ _ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr @_ZL17optimize_on_modelRN3opt10on_model_tER3refI5modelE, ptr %ref.tmp.i.i, align 8
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   %m_on_model_eh.i = getelementptr inbounds nuw i8, ptr %0, i64 128

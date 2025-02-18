@@ -613,7 +613,7 @@ define dso_local range(i32 -1, 1) i32 @msg_thr_create(ptr noundef %0) local_unna
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %52, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %52, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
   %53 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %42, i64 noundef 108) #13
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #16
@@ -8754,7 +8754,7 @@ define internal fastcc i32 @_handle_job_step_get_info(i32 noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = call fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 noundef %1, ptr noundef %3, i16 noundef zeroext 2005, i1 noundef zeroext true)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %34

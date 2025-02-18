@@ -4550,7 +4550,7 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr noundef
   %.val.i = load ptr, ptr %6, align 8, !tbaa !35
   %.val.val.i = load ptr, ptr %.val.i, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %170, ptr %4, align 8, !tbaa !207

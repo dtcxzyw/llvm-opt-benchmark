@@ -745,7 +745,7 @@ define hidden void @php_filter_special_chars(ptr noundef %0, i64 noundef %1, ptr
   %5 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 224, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   tail call fastcc void @php_filter_strip(ptr noundef %0, i64 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i8 1, ptr %7, align 2, !tbaa !4

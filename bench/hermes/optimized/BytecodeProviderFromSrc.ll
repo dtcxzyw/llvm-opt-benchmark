@@ -838,7 +838,7 @@ entry:
   store i8 0, ptr %dumpBefore, align 8
   %passes = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store i64 0, ptr %dumpOperandRegisters, align 2
   store i32 1, ptr %passes, align 8
   %NumTombstones.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 28
@@ -858,7 +858,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit: ; preds = %for.body.i.i.i.i.i
   %functions = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 96
   %1 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store i32 1, ptr %functions, align 8
   %NumTombstones.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 100
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i30, align 4
@@ -879,7 +879,7 @@ _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit37: ;
   store i8 0, ptr %dumpAfter, align 8
   %passes2 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 176
   %2 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i32 1, ptr %passes2, align 8
   %NumTombstones.i.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 180
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i38, align 4
@@ -898,7 +898,7 @@ for.body.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i3
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit45: ; preds = %for.body.i.i.i.i.i39
   %functions3 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 248
   %3 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i32 1, ptr %functions3, align 8
   %NumTombstones.i.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 252
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i46, align 4
@@ -917,7 +917,7 @@ for.body.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i4
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit53: ; preds = %for.body.i.i.i.i.i47
   %functionsToDump = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 320
   %4 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i32 1, ptr %functionsToDump, align 8
   %NumTombstones.i.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 324
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i54, align 4

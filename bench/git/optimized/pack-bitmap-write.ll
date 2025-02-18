@@ -1682,7 +1682,7 @@ define internal fastcc void @bitmap_builder_init(ptr noundef nonnull captures(no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8, !tbaa !99
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %7, align 4, !tbaa !92
   store i32 16383, ptr %0, align 8, !tbaa !86

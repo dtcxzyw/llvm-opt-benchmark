@@ -2458,7 +2458,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EEC2
   store i32 %5, ptr %0, align 4, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %7, i8 0, i64 328, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %7, i8 0, i64 328, i1 false)
   %8 = trunc i64 %1 to i32
   store i32 %8, ptr %6, align 4, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

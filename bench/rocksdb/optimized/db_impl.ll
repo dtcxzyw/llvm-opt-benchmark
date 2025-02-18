@@ -26133,7 +26133,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %get_impl_options.i)
   %get_value.i.i = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 40, i1 false), !noalias !224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false), !noalias !224
   store i8 1, ptr %get_value.i.i, align 8, !noalias !224
   %merge_operands.i.i = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i.i, i8 0, i64 24, i1 false), !noalias !224
@@ -26154,7 +26154,7 @@ entry:
   %get_impl_options = alloca %"struct.rocksdb::DBImpl::GetImplOptions", align 8
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)
@@ -26295,7 +26295,7 @@ if.end9:                                          ; preds = %if.then7, %_ZN7rock
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %get_impl_options.i)
   %get_value.i.i = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %17, i8 0, i64 40, i1 false), !noalias !228
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false), !noalias !228
   store i8 1, ptr %get_value.i.i, align 8, !noalias !228
   %merge_operands.i.i = getelementptr inbounds nuw i8, ptr %get_impl_options.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i.i, i8 0, i64 24, i1 false), !noalias !228
@@ -26523,7 +26523,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZN7rocksdb13Pinnab
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i, %_ZN7rocksdb13PinnableSlice5ResetEv.exit.i
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %19, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)
@@ -44480,7 +44480,7 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb11ReadOp
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)
@@ -58357,7 +58357,7 @@ entry:
   %failed_move_fall_back_to_copy.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 33
   %ingest_behind.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 37
   %0 = getelementptr inbounds nuw i8, ptr %arg, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %0, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   store i32 16843009, ptr %failed_move_fall_back_to_copy.i.i, align 1
   %verify_file_checksum.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %ingest_behind.i.i, i8 0, i64 11, i1 false)
@@ -71506,7 +71506,7 @@ entry:
   %get_impl_options = alloca %"struct.rocksdb::DBImpl::GetImplOptions", align 8
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   store ptr %column_family, ptr %get_impl_options, align 8
   store ptr %merge_operands, ptr %merge_operands.i, align 8
@@ -87394,7 +87394,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %__cur.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
   %__n.addr.08 = phi i64 [ %dec, %for.inc ], [ %__n, %entry ]
   %0 = getelementptr inbounds nuw i8, ptr %__cur.09, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   store ptr @.str, ptr %__cur.09, align 8
   %size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09, i64 8
   store i64 0, ptr %size_.i.i.i.i, align 8

@@ -5824,7 +5824,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #21
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %204, i8 0, i64 16, i1 false)
   %205 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %205, ptr %22, align 8, !tbaa !237
   %206 = getelementptr inbounds nuw i8, ptr %22, i64 8

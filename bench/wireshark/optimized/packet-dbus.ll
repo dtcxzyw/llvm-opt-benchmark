@@ -349,7 +349,7 @@ define internal noundef i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr no
   %16 = alloca %struct.dbus_packet_t, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %16) #10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %17, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 104
@@ -580,7 +580,7 @@ dissect_dbus_header.exit.thread:                  ; preds = %35, %53, %100, %126
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
   %129 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %129, i8 0, i64 48, i1 false)
   store ptr %16, ptr %9, align 8
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.160, ptr %130, align 8
@@ -1738,7 +1738,7 @@ dissect_dbus_header_fields.exit:                  ; preds = %664, %671, %684, %6
   %711 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
   %712 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %712, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %712, i8 0, i64 48, i1 false)
   store ptr %16, ptr %5, align 8
   %713 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %711, ptr %713, align 8

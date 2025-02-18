@@ -1708,7 +1708,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i93: ; preds = %321, %_ZNSt6
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store double 0.000000e+00, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %326, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %326, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %31, align 8
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store double 1.000000e+00, ptr %327, align 8
@@ -11725,7 +11725,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Point3IdEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
 77:                                               ; preds = %._crit_edge51
   %78 = fdiv double 1.000000e+00, %55
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %79, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %79, i8 0, i64 112, i1 false)
   store double %78, ptr %5, align 8
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %78, ptr %80, align 8
@@ -11863,7 +11863,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load double, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %56, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %56, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %7, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double 1.000000e+00, ptr %57, align 8
@@ -11957,7 +11957,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %22 = load double, ptr %21, align 16
   %23 = fsub <2 x double> %20, %.sroa.4.24.vec.insert
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %24, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %24, i8 0, i64 96, i1 false)
   %25 = fsub <2 x double> %16, %18
   %.sroa.563.56.vec.extract = extractelement <2 x double> %25, i64 1
   %.sroa.074.0.vec.insert = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -11965,7 +11965,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %.sroa.074.8.vec.insert = shufflevector <2 x double> %.sroa.074.0.vec.insert, <2 x double> %23, <2 x i32> <i32 0, i32 2>
   %.sroa.1.24.vec.extract = extractelement <2 x double> %23, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
   %27 = extractelement <2 x double> %12, i64 0
   %28 = extractelement <2 x double> %18, i64 0
   %29 = fadd double %22, %28
@@ -24530,7 +24530,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   br label %17
 
 17:                                               ; preds = %_ZN7QStringaSEPKc.exit, %14, %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -24539,7 +24539,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   %19 = load double, ptr %18, align 8
   %20 = fptrunc double %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store float %20, ptr %3, align 4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float %20, ptr %22, align 4

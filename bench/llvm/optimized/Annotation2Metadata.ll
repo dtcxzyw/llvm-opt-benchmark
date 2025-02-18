@@ -267,7 +267,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
 
 _ZL26convertAnnotation2MetadataRN4llvm6ModuleE.exit: ; preds = %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit.i, %_ZN4llvm4User8operandsEv.exit.i
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %142, i8 0, i64 64, i1 false), !alias.scope !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %142, i8 0, i64 64, i1 false), !alias.scope !126
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %143, ptr %0, align 8, !tbaa !129, !alias.scope !126
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8

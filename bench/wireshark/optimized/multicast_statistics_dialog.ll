@@ -299,7 +299,7 @@ _ZN7QStringD2Ev.exit174:                          ; preds = %81, %_ZN17QArrayDat
 
 87:                                               ; preds = %_ZN7QStringD2Ev.exit174
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %88, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %88, i8 0, i64 40, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %86, ptr %89, align 8
   store ptr %0, ptr %86, align 8

@@ -4835,7 +4835,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread185.i:  ; preds = %_ZNK4llvm8MCSymbol9
 
 368:                                              ; preds = %362
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %50) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %200, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
   %369 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %370 = load i8, ptr %369, align 8, !tbaa !394, !range !185, !noundef !186
   %371 = trunc nuw i8 %370 to i1
@@ -5062,7 +5062,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm10WasmImportELb1EE9push_backERKS2_.exi
 
 470:                                              ; preds = %465
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %54) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %190, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
   %471 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %472 = load i8, ptr %471, align 8, !tbaa !394, !range !185, !noundef !186
   %473 = trunc nuw i8 %472 to i1
@@ -5177,7 +5177,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm10WasmImportELb1EE9push_backERKS2_.exi
 
 521:                                              ; preds = %516
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %56) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %184, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   %522 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %523 = load i8, ptr %522, align 8, !tbaa !394, !range !185, !noundef !186
   %524 = trunc nuw i8 %523 to i1
@@ -5286,7 +5286,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i:     ; preds = %_ZN4llvm23SmallVect
 
 569:                                              ; preds = %564
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %58) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %207, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
   %570 = getelementptr inbounds nuw i8, ptr %565, i64 32
   %571 = getelementptr inbounds nuw i8, ptr %565, i64 36
   %572 = load i8, ptr %571, align 4, !tbaa !183, !range !185, !noundef !186

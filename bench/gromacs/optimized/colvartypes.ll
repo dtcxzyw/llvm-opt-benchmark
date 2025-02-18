@@ -2581,7 +2581,7 @@ common.resume:                                    ; preds = %427, %453, %479, %5
   %364 = load double, ptr %363, align 8
   %365 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %360, i64 %.078270, i32 2
   %366 = load double, ptr %365, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %321, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %321, i8 0, i64 368, i1 false)
   store double %362, ptr %4, align 16
   store double %364, ptr %322, align 8
   store double %366, ptr %321, align 16
@@ -7428,7 +7428,7 @@ common.resume:                                    ; preds = %427, %453, %479, %5
   %364 = load double, ptr %363, align 8
   %365 = getelementptr inbounds %"class.colvarmodule::atom", ptr %360, i64 %.078266, i32 4, i32 2
   %366 = load double, ptr %365, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %321, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %321, i8 0, i64 368, i1 false)
   store double %362, ptr %4, align 16
   store double %364, ptr %322, align 8
   store double %366, ptr %321, align 16

@@ -13450,7 +13450,7 @@ define hidden void @_ZN14regex_automata4util8alphabet12ByteClassSet12byte_classe
   %3 = alloca { [256 x i8] }, align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, i8 0, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %4, i8 0, i64 255, i1 false)
   store i8 0, ptr %3, align 1
   br label %6
 

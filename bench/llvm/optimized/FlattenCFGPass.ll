@@ -163,7 +163,7 @@ define dso_local void @_ZN4llvm14FlattenCFGPass3runERNS_8FunctionERNS_15Analysis
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 64, i1 false), !alias.scope !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !alias.scope !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %0, align 8, !tbaa !33, !alias.scope !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8

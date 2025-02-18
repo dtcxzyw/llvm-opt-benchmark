@@ -1220,7 +1220,7 @@ define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind n
   %7 = alloca %"class.absl::TimeZone", align 8
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = icmp eq i64 %1, 9223372036854775807
   %10 = icmp eq i32 %2, -1
   %spec.select.i.i.i = select i1 %9, i1 %10, i1 false

@@ -5973,7 +5973,7 @@ entry:
   %fStr = alloca %"class.llvh::SmallString.223", align 8
   %iPart = alloca double, align 8
   %0 = getelementptr inbounds nuw i8, ptr %result, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %result, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
@@ -5981,7 +5981,7 @@ entry:
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 12
   store i32 64, ptr %Capacity2.i.i.i.i.i.i, align 4
   %1 = getelementptr inbounds nuw i8, ptr %fStr, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %fStr, i64 16
   store ptr %add.ptr.i.i.i.i.i.i33, ptr %fStr, align 8
   %Size.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %fStr, i64 8

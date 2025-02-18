@@ -1934,7 +1934,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #16
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %60, i8 0, i64 48, i1 false)
   %61 = load i32, ptr %59, align 8
   store i32 %61, ptr %9, align 8
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 4

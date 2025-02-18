@@ -135,7 +135,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU16C2Ev(ptr noundef nonnull align 
   store i32 1, ptr %43, align 8, !tbaa !90
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8rawspeed15RawImageDataU16E, i64 16), ptr %0, align 8, !tbaa !91
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 545
   store i8 0, ptr %46, align 1, !tbaa !93

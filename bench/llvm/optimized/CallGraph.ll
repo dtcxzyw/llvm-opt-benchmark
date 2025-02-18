@@ -6316,7 +6316,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPKN5clang9C
   store i32 1, ptr %15, align 8, !tbaa !48, !alias.scope !170
   call void @_ZN4llvm11po_iteratorIPKN5clang9CallGraphENS_11SmallPtrSetIPKNS1_13CallGraphNodeELj8EEELb0ENS_11GraphTraitsIS4_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !188
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !188
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !171, !alias.scope !188
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

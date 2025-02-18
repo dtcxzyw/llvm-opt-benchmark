@@ -34480,7 +34480,7 @@ define linkonce_odr void @_ZN6duckdb19ParquetScanFunction20ParquetScanInitLocalE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1132)
   %7 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #30, !noalias !1132
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %8, i8 0, i64 328, i1 false), !noalias !1132
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(328) %8, i8 0, i64 328, i1 false), !noalias !1132
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb21ParquetReadLocalStateE, i64 16), ptr %7, align 8, !tbaa !133, !noalias !1132
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !1132
@@ -49931,7 +49931,7 @@ define linkonce_odr void @_ZN6duckdb13ParquetReader16StoreUnionReaderENS_10uniqu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1391)
   %6 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #30, !noalias !1391
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %7, i8 0, i64 240, i1 false), !noalias !1391
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %7, i8 0, i64 240, i1 false), !noalias !1391
   store ptr %7, ptr %6, align 8, !tbaa !31, !noalias !1391
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !30, !noalias !1391

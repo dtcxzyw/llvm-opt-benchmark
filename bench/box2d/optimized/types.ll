@@ -130,7 +130,7 @@ define void @b2DefaultChainDef(ptr dead_on_unwind noalias writable writeonly sre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2DefaultDebugDraw(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2DebugDraw) align 8 captures(none) initializes((0, 112)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store ptr @b2EmptyDrawPolygon, ptr %0, align 8, !tbaa !49
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @b2EmptyDrawSolidPolygon, ptr %3, align 8, !tbaa !52

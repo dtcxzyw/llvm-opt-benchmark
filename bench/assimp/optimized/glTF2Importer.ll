@@ -3121,7 +3121,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN5glTF25AssetC2EPN6Assimp8IOSystemEPN9rapidjson36IGenericRemoteSchemaDocumentProviderINS4_21GenericSchemaDocumentINS4_12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEESB_EEEE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   store ptr %6, ptr %4, align 8

@@ -1038,7 +1038,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
 
 if.end5:                                          ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %if.end, %uv__udp_maybe_deferred_bind.exit
   %7 = getelementptr inbounds nuw i8, ptr %h, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   store ptr %addr, ptr %h, align 8
   %msg_namelen = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i32 %addrlen, ptr %msg_namelen, align 8
@@ -1323,7 +1323,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %land.rhs49.i.i, %if
   br label %do.cond42.i
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg_namelen.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %msg_namelen.i, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %peer.i, i8 0, i64 128, i1 false)
   store ptr %peer.i, ptr %h.i, align 8
   store i32 128, ptr %msg_namelen.i, align 8

@@ -165153,7 +165153,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail21calculate_polygon_su
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 0, ptr %25, align 4, !tbaa !1571, !noalias !2786
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %27, i8 0, i64 41, i1 false), !noalias !2786
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(41) %27, i8 0, i64 41, i1 false), !noalias !2786
   store i32 10, ptr %26, align 4, !tbaa !1572, !noalias !2786
   store i32 2, ptr %7, align 4, !noalias !2786
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -165233,7 +165233,7 @@ _ZN5boost8geometry6detail4area9ring_area5applyINS0_5model4ringINS5_5pointINS_14m
   call void @llvm.experimental.noalias.scope.decl(metadata !2798)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #59, !noalias !2801
   store i32 0, ptr %39, align 4, !tbaa !1571, !noalias !2801
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %41, i8 0, i64 41, i1 false), !noalias !2801
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(41) %41, i8 0, i64 41, i1 false), !noalias !2801
   store i32 10, ptr %40, align 4, !tbaa !1572, !noalias !2801
   store i32 2, ptr %4, align 4, !noalias !2801
   store i32 0, ptr %42, align 4, !tbaa !1571, !alias.scope !2802, !noalias !2788
@@ -171070,7 +171070,7 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision11default_ops6detail7p
 
 _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivEaSEy.exit: ; preds = %22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %35, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(41) %35, i8 0, i64 41, i1 false)
   store i32 1, ptr %0, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !1565

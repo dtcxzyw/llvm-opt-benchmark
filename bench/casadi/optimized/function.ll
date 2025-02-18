@@ -36246,7 +36246,7 @@ define void @_ZNK6casadi8Function3mapERKNSt7__cxx1112basic_stringIcSt11char_trai
   %10 = alloca %"class.std::vector.89", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %5, align 8, !tbaa !47

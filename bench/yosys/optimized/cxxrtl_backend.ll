@@ -11715,7 +11715,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2ERKS3_.exit: ; preds = %.noexc628
   %1133 = getelementptr inbounds nuw i8, ptr %1132, i64 8
   %1134 = getelementptr inbounds nuw i8, ptr %1132, i64 80
   %1135 = getelementptr inbounds nuw i8, ptr %1132, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %1135, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %1135, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1134, i8 0, i64 104, i1 false)
   store i32 0, ptr %1132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1133, ptr noundef nonnull align 8 dereferenceable(128) %84, i64 16, i1 false)

@@ -580,7 +580,7 @@ _ZN12_GLOBAL__N_17GVNSink3runERN4llvm8FunctionE.exit: ; preds = %._crit_edge33.i
 
 103:                                              ; preds = %_ZN12_GLOBAL__N_17GVNSink3runERN4llvm8FunctionE.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %104, i8 0, i64 64, i1 false), !alias.scope !106
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %104, i8 0, i64 64, i1 false), !alias.scope !106
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %106
 
@@ -6222,7 +6222,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !18, !alias.scope !285
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !294
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !294
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !49, !alias.scope !294
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -14851,7 +14851,7 @@ define internal i64 @_ZNK12_GLOBAL__N_118InstructionUseExpr12getHashValueEv(ptr 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %20, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %20, i8 0, i64 96, i1 false)
   store i64 -49064778989728563, ptr %17, align 8, !tbaa !406
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %8, ptr %5, align 8
@@ -14868,7 +14868,7 @@ define internal i64 @_ZNK12_GLOBAL__N_118InstructionUseExpr12getHashValueEv(ptr 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #23
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %30, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %30, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %29, align 8, !tbaa !406
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %25, ptr %4, align 8

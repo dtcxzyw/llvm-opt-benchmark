@@ -690,7 +690,7 @@ define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr n
   %5 = alloca %struct.mausb_header, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.184)

@@ -2645,7 +2645,7 @@ define dso_local i32 @pfn_mkclean_range(i64 noundef %0, i64 noundef %1, i64 noun
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store i32 1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i64, ptr %13, align 8

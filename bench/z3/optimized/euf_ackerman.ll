@@ -93,7 +93,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_tmp_inference = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %0, i8 0, i64 29, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %0, i8 0, i64 29, i1 false)
   store ptr %call.i1, ptr %m_tmp_inference, align 8
   store ptr %call.i1, ptr %call.i1, align 8
   %m_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
@@ -112,7 +112,7 @@ define hidden void @_ZN3euf8ackerman7new_tmpEv(ptr noundef nonnull writeonly ali
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %0, i8 0, i64 29, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %0, i8 0, i64 29, i1 false)
   %m_tmp_inference = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %call, ptr %m_tmp_inference, align 8
   store ptr %call, ptr %call, align 8
@@ -494,7 +494,7 @@ if.then.i9:                                       ; preds = %_ZN11ast_manager7in
 _ZN11ast_manager7inc_refEP3ast.exit12:            ; preds = %_ZN11ast_manager7inc_refEP3ast.exit7, %if.then.i9
   %call.i = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %9 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(45) %9, i8 0, i64 29, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %9, i8 0, i64 29, i1 false)
   store ptr %call.i, ptr %m_tmp_inference, align 8
   store ptr %call.i, ptr %call.i, align 8
   %m_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8

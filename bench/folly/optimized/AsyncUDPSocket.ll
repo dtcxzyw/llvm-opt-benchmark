@@ -8875,7 +8875,7 @@ _ZN5folly14AsyncUDPSocket18updateRegistrationEv.exit: ; preds = %_ZNSt7__cxx1112
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %12, i8 0, i64 112, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #36
   store ptr %68, ptr %14, align 8, !tbaa !131
   store i64 %70, ptr %49, align 8, !tbaa !134

@@ -4893,7 +4893,7 @@ define hidden void @_ZN26chrono_test_format_tm_Test8TestBodyEv(ptr nonnull readn
   %100 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23) #34
   %101 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %101, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 0, i64 32, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 116, ptr %102, align 4, !tbaa !59
   %103 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -8595,7 +8595,7 @@ define hidden void @_ZN33chrono_test_format_tm_future_Test8TestBodyEv(ptr nonnul
   %39 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #34
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 10445, ptr %41, align 4, !tbaa !59
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -10044,7 +10044,7 @@ define hidden void @_ZN31chrono_test_format_tm_past_Test8TestBodyEv(ptr nonnull 
   %63 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16) #34
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 -2001, ptr %65, align 4, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -25585,7 +25585,7 @@ define hidden void @_ZN25chrono_test_tm_align_Test8TestBodyEv(ptr nonnull readno
   %47 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #34
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   store i32 16, ptr %11, align 8
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 14, ptr %49, align 4
@@ -43516,7 +43516,7 @@ _ZN7testing15AssertionResultD2Ev.exit220:         ; preds = %414, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41) #34
   %426 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %426, i8 0, i64 40, i1 false), !alias.scope !1362
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %426, i8 0, i64 40, i1 false), !alias.scope !1362
   %427 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %427, align 4, !tbaa !4, !alias.scope !1362
   %428 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -53439,7 +53439,7 @@ define hidden void @_ZN33chrono_test_invalid_width_id_Test8TestBodyEv(ptr nonnul
   %8 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %3, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -54039,7 +54039,7 @@ define hidden void @_ZN31chrono_test_invalid_colons_Test8TestBodyEv(ptr nonnull 
   %8 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %3, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -74015,7 +74015,7 @@ _ZN7testing15AssertionResultD2Ev.exit665:         ; preds = %1030, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %96) #34
   %1042 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1042, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1042, i8 0, i64 40, i1 false)
   store i32 3, ptr %96, align 8
   %1043 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 2, ptr %1043, align 4
@@ -79969,7 +79969,7 @@ define hidden void @_ZN29chrono_test_out_of_range_Test8TestBodyEv(ptr nonnull re
   store i64 538976288, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #34
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -84792,7 +84792,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !2832
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !54
@@ -98635,7 +98635,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.232", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -99987,7 +99987,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3130)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3130
   %153 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3130
   %154 = udiv i64 %153, 3600
   %155 = urem i64 %154, 24
@@ -100046,7 +100046,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 182:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3133)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3133
   %183 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3133
   %184 = udiv i64 %183, 3600
   %185 = urem i64 %184, 24
@@ -101500,7 +101500,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.235", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -102279,7 +102279,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3146)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3146
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3146
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3146
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -102335,7 +102335,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3149)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3149
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3149
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -103782,7 +103782,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.240", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -104561,7 +104561,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3161)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3161
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3161
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3161
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -104617,7 +104617,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3164)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3164
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3164
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -105903,7 +105903,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.245", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -106682,7 +106682,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3176)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3176
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3176
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -106738,7 +106738,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3179)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3179
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3179
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -108024,7 +108024,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.250", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -108805,7 +108805,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3191)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3191
   %159 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3191
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -108864,7 +108864,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3194)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3194
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3194
   %189 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3194
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -110158,7 +110158,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.254", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -110939,7 +110939,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3206)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3206
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3206
   %159 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3206
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -110998,7 +110998,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3209)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3209
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3209
   %189 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3209
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -112292,7 +112292,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.258", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -113073,7 +113073,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3221)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3221
   %159 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3221
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -113132,7 +113132,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3224)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3224
   %189 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3224
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -114426,7 +114426,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.262", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -115207,7 +115207,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3236)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3236
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3236
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3236
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -115263,7 +115263,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3239)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3239
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3239
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3239
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -116553,7 +116553,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.267", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -117334,7 +117334,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3251)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3251
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3251
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3251
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -117390,7 +117390,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3254)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3254
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3254
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3254
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -118680,7 +118680,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.272", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -119531,7 +119531,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3266)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3266
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3266
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3266
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -119587,7 +119587,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3269)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3269
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3269
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3269
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -120697,7 +120697,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.276", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -121548,7 +121548,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3281)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3281
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3281
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3281
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -121604,7 +121604,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3284)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3284
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3284
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3284
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -122714,7 +122714,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.280", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -123565,7 +123565,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3296)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3296
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3296
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3296
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -123621,7 +123621,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3299)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3299
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3299
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3299
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -124731,7 +124731,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.284", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -125582,7 +125582,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3311)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3311
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3311
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3311
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -125638,7 +125638,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3314)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3314
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3314
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3314
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -126748,7 +126748,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.288", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -127599,7 +127599,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3326)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3326
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3326
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3326
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -127655,7 +127655,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3329)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3329
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3329
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3329
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -128765,7 +128765,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.292", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -129549,7 +129549,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3341)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3341
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3341
   %153 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3341
   %154 = udiv i32 %153, 3600
   %155 = urem i32 %154, 24
@@ -129605,7 +129605,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 179:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3344)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3344
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3344
   %180 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3344
   %181 = udiv i32 %180, 3600
   %182 = urem i32 %181, 24
@@ -130749,7 +130749,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.296", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -131533,7 +131533,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3356)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3356
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3356
   %153 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3356
   %154 = udiv i32 %153, 3600
   %155 = urem i32 %154, 24
@@ -131589,7 +131589,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 179:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3359)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3359
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3359
   %180 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3359
   %181 = udiv i32 %180, 3600
   %182 = urem i32 %181, 24
@@ -132733,7 +132733,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.300", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -133517,7 +133517,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3371)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3371
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3371
   %153 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3371
   %154 = udiv i32 %153, 3600
   %155 = urem i32 %154, 24
@@ -133573,7 +133573,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 179:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3374)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3374
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3374
   %180 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3374
   %181 = udiv i32 %180, 3600
   %182 = urem i32 %181, 24
@@ -134717,7 +134717,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.304", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -135502,7 +135502,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3386)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3386
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3386
   %153 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3386
   %154 = udiv i64 %153, 3600
   %155 = urem i64 %154, 24
@@ -135561,7 +135561,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 182:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3389)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3389
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3389
   %183 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3389
   %184 = udiv i64 %183, 3600
   %185 = urem i64 %184, 24
@@ -136722,7 +136722,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.308", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -137507,7 +137507,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3401)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3401
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3401
   %153 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3401
   %154 = udiv i64 %153, 3600
   %155 = urem i64 %154, 24
@@ -137566,7 +137566,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 182:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3404)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3404
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3404
   %183 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3404
   %184 = udiv i64 %183, 3600
   %185 = urem i64 %184, 24
@@ -138727,7 +138727,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.312", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -139512,7 +139512,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3416)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3416
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3416
   %153 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3416
   %154 = udiv i64 %153, 3600
   %155 = urem i64 %154, 24
@@ -139571,7 +139571,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
 182:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3419)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3419
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3419
   %183 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !3419
   %184 = udiv i64 %183, 3600
   %185 = urem i64 %184, 24
@@ -140732,7 +140732,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.316", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -141673,7 +141673,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3431)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3431
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3431
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3431
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -141729,7 +141729,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3434)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3434
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3434
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3434
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -142897,7 +142897,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.320", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -143882,7 +143882,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3454)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3454
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3454
   %159 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3454
   %160 = udiv i32 %159, 3600
   %161 = urem i32 %160, 24
@@ -143938,7 +143938,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 185:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3457)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3457
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3457
   %186 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3457
   %187 = udiv i32 %186, 3600
   %188 = urem i32 %187, 24
@@ -151289,7 +151289,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.328", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -162930,7 +162930,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.360", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -165457,7 +165457,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.366", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -170178,7 +170178,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.382", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -172705,7 +172705,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.389", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -173492,7 +173492,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEaSt5ra
 163:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3764)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3764
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3764
   %164 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3764
   %165 = udiv i32 %164, 3600
   %166 = urem i32 %165, 24
@@ -173550,7 +173550,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEaSt5ra
 192:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3767)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3767
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3767
   %193 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3767
   %194 = udiv i32 %193, 3600
   %195 = urem i32 %194, 24
@@ -174984,7 +174984,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.394", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -175823,7 +175823,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3779)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3779
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3779
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3779
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -175879,7 +175879,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEiSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3782)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3782
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3782
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -177102,7 +177102,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.397", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -179640,7 +179640,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.403", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -182156,7 +182156,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.409", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -183048,7 +183048,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 188:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3820)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3820
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3820
   %189 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3820
   %190 = udiv i32 %189, 3600
   %191 = urem i32 %190, 24
@@ -183106,7 +183106,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEcSt5ra
 217:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3823)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3823
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3823
   %218 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3823
   %219 = udiv i32 %218, 3600
   %220 = urem i32 %219, 24
@@ -184223,7 +184223,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.412", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -186739,7 +186739,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.418", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -187657,7 +187657,7 @@ _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEicEET_S5_T0_RKT1_.exit61.i.i: 
 183:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3844)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3844
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3844
   %184 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3844
   %185 = udiv i32 %184, 3600
   %186 = urem i32 %185, 24
@@ -187713,7 +187713,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEjSt5ra
 210:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3847)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3847
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3847
   %211 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3847
   %212 = udiv i32 %211, 3600
   %213 = urem i32 %212, 24
@@ -188823,7 +188823,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.421", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -189103,7 +189103,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.422", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -189884,7 +189884,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3865)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3865
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3865
   %159 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3865
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -189943,7 +189943,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3868)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3868
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3868
   %189 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3868
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -191576,7 +191576,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.427", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -194092,7 +194092,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.433", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -195063,7 +195063,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3913)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3913
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3913
   %159 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3913
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -195122,7 +195122,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3916)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3916
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3916
   %189 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3916
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -196366,7 +196366,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.438", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -197337,7 +197337,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 158:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3928)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3928
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3928
   %159 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3928
   %160 = udiv i64 %159, 3600
   %161 = urem i64 %160, 24
@@ -197396,7 +197396,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
 188:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3931)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3931
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3931
   %189 = load i64, ptr %13, align 8, !tbaa !3864, !noalias !3931
   %190 = udiv i64 %189, 3600
   %191 = urem i64 %190, 24
@@ -198640,7 +198640,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.442", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -199427,7 +199427,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEaSt5ra
 163:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3943)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3943
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3943
   %164 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3943
   %165 = udiv i32 %164, 3600
   %166 = urem i32 %165, 24
@@ -199485,7 +199485,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEaSt5ra
 192:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3946)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3946
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3946
   %193 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3946
   %194 = udiv i32 %193, 3600
   %195 = urem i32 %194, 24
@@ -200540,7 +200540,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.445", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -201327,7 +201327,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEsSt5ra
 163:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3959)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !3959
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !3959
   %164 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3959
   %165 = udiv i32 %164, 3600
   %166 = urem i32 %165, 24
@@ -201385,7 +201385,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEsSt5ra
 192:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !3962)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !3962
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !3962
   %193 = load i32, ptr %13, align 4, !tbaa !1863, !noalias !3962
   %194 = udiv i32 %193, 3600
   %195 = urem i32 %194, 24
@@ -249681,7 +249681,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.472", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -250545,7 +250545,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEmSt5ra
 152:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !4111)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false), !alias.scope !4111
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !alias.scope !4111
   %153 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !4111
   %154 = udiv i64 %153, 3600
   %155 = urem i64 %154, 24
@@ -250604,7 +250604,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEmSt5ra
 182:                                              ; preds = %73
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #34
   call void @llvm.experimental.noalias.scope.decl(metadata !4114)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 48, i1 false), !alias.scope !4114
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false), !alias.scope !4114
   %183 = load i64, ptr %13, align 8, !tbaa !3129, !noalias !4114
   %184 = udiv i64 %183, 3600
   %185 = urem i64 %184, 24
@@ -251765,7 +251765,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.475", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -252089,7 +252089,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.477", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -252370,7 +252370,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.479", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54
@@ -252614,7 +252614,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.481", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !2832
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !54

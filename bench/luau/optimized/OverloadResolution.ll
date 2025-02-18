@@ -7720,7 +7720,7 @@ _ZN4Luau14Instantiation2D2Ev.exit:                ; preds = %_ZN4Luau12DenseHash
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %106, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 32, i1 false)
   store i32 0, ptr %0, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0, ptr %107, align 8

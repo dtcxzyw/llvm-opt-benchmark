@@ -987,7 +987,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i64 noundef %.0.i) #8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
   %58 = load i64, ptr @mi_process_start, align 8, !tbaa !25
   %59 = call i64 @_mi_prim_clock_now() #8
   %60 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
@@ -1084,7 +1084,7 @@ define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_nu
   %9 = alloca %struct.mi_process_info_s, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   %11 = load i64, ptr @mi_process_start, align 8, !tbaa !25
   %12 = tail call i64 @_mi_prim_clock_now() #8
   %13 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25

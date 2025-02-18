@@ -675,7 +675,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %6, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %6, i8 0, i64 296, i1 false)
   %7 = load i32, ptr %5, align 8
   store i32 %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4

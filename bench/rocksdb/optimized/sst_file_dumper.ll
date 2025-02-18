@@ -4355,7 +4355,7 @@ if.then28:                                        ; preds = %if.else
   %index_sparseness.i = getelementptr inbounds nuw i8, ptr %plain_table_options, i64 16
   %huge_page_tlb_size.i = getelementptr inbounds nuw i8, ptr %plain_table_options, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %plain_table_options, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %15, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %15, i8 0, i64 3, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plain_table_options, i8 0, i64 16, i1 false)
   store i64 1, ptr %index_sparseness.i, align 8
   store i64 0, ptr %huge_page_tlb_size.i, align 8

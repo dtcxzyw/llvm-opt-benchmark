@@ -1253,7 +1253,7 @@ reftable_ref_record_release.exit:                 ; preds = %3, %3, %3, %7
   %11 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %.pre, %7 ]
   tail call void @reftable_free(ptr noundef %11) #17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false)
   store ptr %.0.copyload, ptr %0, align 1
   store i64 %.0.copyload71, ptr %4, align 1
   %13 = load ptr, ptr %1, align 8, !tbaa !24
@@ -1603,7 +1603,7 @@ reftable_ref_record_release.exit:                 ; preds = %26, %26, %26, %33
   %37 = phi ptr [ null, %26 ], [ null, %26 ], [ null, %26 ], [ %.pre, %33 ]
   tail call void @reftable_free(ptr noundef %37) #17
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %38, i8 0, i64 80, i1 false)
   store ptr %.0.copyload, ptr %0, align 1
   store i64 %.0.copyload69, ptr %30, align 1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8

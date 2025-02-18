@@ -2734,7 +2734,7 @@ invoke.cont:                                      ; preds = %entry
   %validation_fields.i = getelementptr inbounds nuw i8, ptr %extension, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validation_fields.i, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %extension, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %retval.sroa.0.0.copyload32.i = load ptr, ptr %any, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %any, i64 8
   %retval.sroa.9.0.copyload33.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1

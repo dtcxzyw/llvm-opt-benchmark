@@ -368,7 +368,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 
 17:                                               ; preds = %3, %3
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %18, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %18, i8 0, i64 52, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %8, align 4
@@ -650,7 +650,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 
 202:                                              ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %203, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %203, i8 0, i64 56, i1 false)
   %204 = load i64, ptr %5, align 8
   %205 = call { i64, i64 } @ns_to_timespec64(i64 noundef %204) #9
   %206 = extractvalue { i64, i64 } %205, 0

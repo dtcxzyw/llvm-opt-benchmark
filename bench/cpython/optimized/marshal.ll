@@ -1023,7 +1023,7 @@ define dso_local void @PyMarshal_WriteLongToFile(i64 noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store ptr %1, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %4, ptr %7, align 8, !tbaa !14
@@ -1394,7 +1394,7 @@ define dso_local void @PyMarshal_WriteObjectToFile(ptr noundef %0, ptr noundef %
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   store ptr %1, ptr %5, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %4, ptr %10, align 8, !tbaa !14

@@ -563,7 +563,7 @@ _ZNSt12_Vector_baseIN6Assimp11NDOImporter6ObjectESaIS2_EEC2EmRKS3_.exit.i: ; pre
   %.08.i.i.i.i.i = phi ptr [ %144, %.lr.ph.i.i.i.i.i ], [ %137, %.noexc244 ]
   %.057.i.i.i.i.i = phi i64 [ %143, %.lr.ph.i.i.i.i.i ], [ %134, %.noexc244 ]
   %140 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %140, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
   store ptr %140, ptr %.08.i.i.i.i.i, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   store i64 0, ptr %141, align 8

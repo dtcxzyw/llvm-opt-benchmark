@@ -6304,7 +6304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #32
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %24, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %24, i8 0, i64 1024, i1 false)
   %25 = call noundef ptr @_ZNK10ODDLParser5Value9getStringEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #34
   %27 = trunc i64 %26 to i32

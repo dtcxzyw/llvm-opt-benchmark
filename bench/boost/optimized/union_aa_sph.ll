@@ -180524,7 +180524,7 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %10
   store i64 %80, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !93
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %114, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   store i64 -1, ptr %113, align 8, !tbaa !3676
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 80
@@ -182919,7 +182919,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detai
   store i64 %12, ptr %9, align 8, !tbaa !3731
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
   store i64 -1, ptr %13, align 8, !tbaa !3717
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80

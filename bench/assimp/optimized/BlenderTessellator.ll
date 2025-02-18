@@ -243,7 +243,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit.i:            ; preds = %_ZN10aiVector3tIfEd
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %81, i8 0, i64 12, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, i8 0, i64 12, i1 false), !alias.scope !5
   store float 1.000000e+00, ptr %80, align 4, !alias.scope !5
   store float %68, ptr %8, align 4, !alias.scope !5
   store float %71, ptr %75, align 4, !alias.scope !5
@@ -953,7 +953,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %3, %_ZN10aiVector3t
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %45, align 4
   store float %33, ptr %0, align 4
   store float %36, ptr %40, align 4

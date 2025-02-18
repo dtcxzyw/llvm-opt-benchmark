@@ -152798,7 +152798,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #56
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %20, i8 0, i64 17, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i32 0, ptr %21, align 4, !tbaa !2501
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %19, i8 0, i64 37, i1 false)
@@ -153168,7 +153168,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   call void @llvm.experimental.noalias.scope.decl(metadata !2761)
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 17, i1 false), !alias.scope !2761
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %28, i8 0, i64 17, i1 false), !alias.scope !2761
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 0, ptr %29, align 4, !tbaa !2501, !alias.scope !2761
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %27, i8 0, i64 37, i1 false), !alias.scope !2761
@@ -154278,7 +154278,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   call void @llvm.experimental.noalias.scope.decl(metadata !2785)
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, i8 0, i64 17, i1 false), !alias.scope !2785
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false), !alias.scope !2785
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 0, ptr %31, align 4, !tbaa !2501, !alias.scope !2785
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %29, i8 0, i64 37, i1 false), !alias.scope !2785
@@ -155113,7 +155113,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2791)
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, i8 0, i64 17, i1 false), !alias.scope !2794
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, i8 0, i64 17, i1 false), !alias.scope !2794
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %50, align 4, !tbaa !2501, !alias.scope !2794
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %48, i8 0, i64 37, i1 false), !alias.scope !2794
@@ -155437,7 +155437,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2795)
   %227 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %228 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %228, i8 0, i64 17, i1 false), !alias.scope !2795
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %228, i8 0, i64 17, i1 false), !alias.scope !2795
   %229 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %229, align 4, !tbaa !2501, !alias.scope !2795
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %227, i8 0, i64 37, i1 false), !alias.scope !2795
@@ -155808,7 +155808,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2801)
   %442 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %443 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %443, i8 0, i64 17, i1 false), !alias.scope !2801
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %443, i8 0, i64 17, i1 false), !alias.scope !2801
   %444 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %444, align 4, !tbaa !2501, !alias.scope !2801
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %442, i8 0, i64 37, i1 false), !alias.scope !2801
@@ -156684,7 +156684,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2807)
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 17, i1 false), !alias.scope !2810
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %51, i8 0, i64 17, i1 false), !alias.scope !2810
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %52, align 4, !tbaa !2501, !alias.scope !2810
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %50, i8 0, i64 37, i1 false), !alias.scope !2810
@@ -157008,7 +157008,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2811)
   %229 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %230 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %230, i8 0, i64 17, i1 false), !alias.scope !2811
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %230, i8 0, i64 17, i1 false), !alias.scope !2811
   %231 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %231, align 4, !tbaa !2501, !alias.scope !2811
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %229, i8 0, i64 37, i1 false), !alias.scope !2811
@@ -157379,7 +157379,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !2817)
   %444 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %445 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %445, i8 0, i64 17, i1 false), !alias.scope !2817
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %445, i8 0, i64 17, i1 false), !alias.scope !2817
   %446 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %446, align 4, !tbaa !2501, !alias.scope !2817
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %444, i8 0, i64 37, i1 false), !alias.scope !2817
@@ -173324,7 +173324,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #56
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %32, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %32, i8 0, i64 17, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 76
   store i32 0, ptr %33, align 4, !tbaa !2501
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %31, i8 0, i64 37, i1 false)
@@ -173919,7 +173919,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3329)
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, i8 0, i64 17, i1 false), !alias.scope !3332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, i8 0, i64 17, i1 false), !alias.scope !3332
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %50, align 4, !tbaa !2501, !alias.scope !3332
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %48, i8 0, i64 37, i1 false), !alias.scope !3332
@@ -174250,7 +174250,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3339)
   %211 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %212 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %212, i8 0, i64 17, i1 false), !alias.scope !3339
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %212, i8 0, i64 17, i1 false), !alias.scope !3339
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %213, align 4, !tbaa !2501, !alias.scope !3339
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %211, i8 0, i64 37, i1 false), !alias.scope !3339
@@ -174616,7 +174616,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3345)
   %391 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %392 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %392, i8 0, i64 17, i1 false), !alias.scope !3345
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %392, i8 0, i64 17, i1 false), !alias.scope !3345
   %393 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %393, align 4, !tbaa !2501, !alias.scope !3345
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %391, i8 0, i64 37, i1 false), !alias.scope !3345
@@ -176176,7 +176176,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3383)
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 17, i1 false), !alias.scope !3386
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %51, i8 0, i64 17, i1 false), !alias.scope !3386
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %52, align 4, !tbaa !2501, !alias.scope !3386
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %50, i8 0, i64 37, i1 false), !alias.scope !3386
@@ -176507,7 +176507,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3387)
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %214, i8 0, i64 17, i1 false), !alias.scope !3387
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %214, i8 0, i64 17, i1 false), !alias.scope !3387
   %215 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %215, align 4, !tbaa !2501, !alias.scope !3387
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %213, i8 0, i64 37, i1 false), !alias.scope !3387
@@ -176873,7 +176873,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3393)
   %393 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %394 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %394, i8 0, i64 17, i1 false), !alias.scope !3393
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %394, i8 0, i64 17, i1 false), !alias.scope !3393
   %395 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %395, align 4, !tbaa !2501, !alias.scope !3393
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %393, i8 0, i64 37, i1 false), !alias.scope !3393
@@ -182901,7 +182901,7 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %74
   store i64 %51, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !93
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %85, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store i64 -1, ptr %84, align 8, !tbaa !3509
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 80
@@ -185079,7 +185079,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detai
   store i64 %12, ptr %9, align 8, !tbaa !3541
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
   store i64 -1, ptr %13, align 8, !tbaa !3528
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -193034,7 +193034,7 @@ define linkonce_odr hidden void @_ZZNK5boost8geometry6detail6buffer25buffered_pi
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %21, align 4, !tbaa !2501
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %22, i8 0, i64 17, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 0, ptr %23, align 8, !tbaa !3727
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 57
@@ -194014,7 +194014,7 @@ define linkonce_odr hidden void @_ZZNK5boost8geometry6detail6buffer25buffered_pi
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %9, align 4, !tbaa !2501
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %10, i8 0, i64 17, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 0, ptr %11, align 8, !tbaa !3727
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 57
@@ -195196,7 +195196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #56
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %19, i8 0, i64 17, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i32 0, ptr %20, align 4, !tbaa !2501
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %18, i8 0, i64 37, i1 false)
@@ -195485,7 +195485,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   call void @llvm.experimental.noalias.scope.decl(metadata !3795)
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 17, i1 false), !alias.scope !3795
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %28, i8 0, i64 17, i1 false), !alias.scope !3795
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 0, ptr %29, align 4, !tbaa !2501, !alias.scope !3795
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %27, i8 0, i64 37, i1 false), !alias.scope !3795
@@ -196945,7 +196945,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
   call void @llvm.experimental.noalias.scope.decl(metadata !3831)
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, i8 0, i64 17, i1 false), !alias.scope !3831
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false), !alias.scope !3831
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 0, ptr %31, align 4, !tbaa !2501, !alias.scope !3831
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %29, i8 0, i64 37, i1 false), !alias.scope !3831
@@ -197524,7 +197524,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3837)
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, i8 0, i64 17, i1 false), !alias.scope !3840
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, i8 0, i64 17, i1 false), !alias.scope !3840
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %50, align 4, !tbaa !2501, !alias.scope !3840
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %48, i8 0, i64 37, i1 false), !alias.scope !3840
@@ -197773,7 +197773,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3841)
   %175 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %176 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %176, i8 0, i64 17, i1 false), !alias.scope !3841
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %176, i8 0, i64 17, i1 false), !alias.scope !3841
   %177 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %177, align 4, !tbaa !2501, !alias.scope !3841
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %175, i8 0, i64 37, i1 false), !alias.scope !3841
@@ -197994,7 +197994,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3847)
   %286 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %287 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %287, i8 0, i64 17, i1 false), !alias.scope !3847
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %287, i8 0, i64 17, i1 false), !alias.scope !3847
   %288 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %288, align 4, !tbaa !2501, !alias.scope !3847
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %286, i8 0, i64 37, i1 false), !alias.scope !3847
@@ -198570,7 +198570,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3853)
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 17, i1 false), !alias.scope !3856
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %51, i8 0, i64 17, i1 false), !alias.scope !3856
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 0, ptr %52, align 4, !tbaa !2501, !alias.scope !3856
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %50, i8 0, i64 37, i1 false), !alias.scope !3856
@@ -198819,7 +198819,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3857)
   %177 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %178 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %178, i8 0, i64 17, i1 false), !alias.scope !3857
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %178, i8 0, i64 17, i1 false), !alias.scope !3857
   %179 = getelementptr inbounds nuw i8, ptr %21, i64 76
   store i32 0, ptr %179, align 4, !tbaa !2501, !alias.scope !3857
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %177, i8 0, i64 37, i1 false), !alias.scope !3857
@@ -199040,7 +199040,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.experimental.noalias.scope.decl(metadata !3863)
   %288 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %289 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %289, i8 0, i64 17, i1 false), !alias.scope !3863
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %289, i8 0, i64 17, i1 false), !alias.scope !3863
   %290 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 0, ptr %290, align 4, !tbaa !2501, !alias.scope !3863
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %288, i8 0, i64 37, i1 false), !alias.scope !3863

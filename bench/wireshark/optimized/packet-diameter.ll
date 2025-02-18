@@ -5560,7 +5560,7 @@ alnumerize.exit:                                  ; preds = %30, %3
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store i32 -1, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i32 0, ptr %40, align 4

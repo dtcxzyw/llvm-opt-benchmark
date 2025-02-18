@@ -1404,7 +1404,7 @@ entry:
   %10 = getelementptr inbounds nuw i8, ptr %ops_list, i64 56
   store i64 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %entering_list, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store i64 2, ptr %entering_list, align 16
   %12 = getelementptr inbounds nuw i8, ptr %entering_list, i64 8
   store i64 1, ptr %12, align 8

@@ -314,7 +314,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 define dso_local ptr @_php_stream_fopen_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias ptr @_emalloc_192() #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 8, ptr %4, align 8, !tbaa !12
@@ -412,7 +412,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #7
 define dso_local ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias ptr @_emalloc_192() #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16

@@ -10305,7 +10305,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %channel_creds_config_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10373,7 +10373,7 @@ _ZNKSt6vectorIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerESaIS2_EE12_M_check_le
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerE, i64 16), ptr %add.ptr, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   %channel_creds_config_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
@@ -11277,7 +11277,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core16GrpcXdsBootstrap8GrpcNodeEE10_M_destr
 
 _ZNSt19_Optional_base_implIN9grpc_core16GrpcXdsBootstrap8GrpcNodeESt14_Optional_baseIS2_Lb0ELb0EEE8_M_resetEv.exit: ; preds = %entry, %_ZNSt22_Optional_payload_baseIN9grpc_core16GrpcXdsBootstrap8GrpcNodeEE10_M_destroyEv.exit.i.i
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, i8 0, i64 208, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap8GrpcNodeE, i64 16), ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   %cluster_.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -11967,7 +11967,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt3mapI
 entry:
   %ref.tmp2 = alloca %"class.grpc_core::GrpcXdsBootstrap::GrpcAuthority", align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap13GrpcAuthorityE, i64 16), ptr %ref.tmp2, align 8
   %servers_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %servers_.i, i8 0, i64 24, i1 false)

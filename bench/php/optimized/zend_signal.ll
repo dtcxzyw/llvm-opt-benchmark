@@ -202,7 +202,7 @@ define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly captu
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sink, ptr %22, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %23, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %23, i8 0, i64 144, i1 false)
   %24 = icmp eq ptr %.sink, inttoptr (i64 1 to ptr)
   br i1 %24, label %30, label %25
 

@@ -652,7 +652,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
 
 ._crit_edge205:                                   ; preds = %98, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store ptr %32, ptr %5, align 8, !tbaa !52
   store i64 0, ptr %33, align 8, !tbaa !55
   %102 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -1574,7 +1574,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
 
 ._crit_edge168:                                   ; preds = %91, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store ptr %28, ptr %5, align 8, !tbaa !52
   store i64 0, ptr %29, align 8, !tbaa !55
   %95 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()

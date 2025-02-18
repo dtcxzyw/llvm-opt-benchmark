@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %0, ptr noun
 
 .thread95.i:                                      ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   br label %131
 
 30:                                               ; preds = %18

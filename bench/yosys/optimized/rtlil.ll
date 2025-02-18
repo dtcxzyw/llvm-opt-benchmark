@@ -33767,7 +33767,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5clearEv.exit: ; preds = %_ZN5Yo
   %56 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #40
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %58, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %58, i8 0, i64 96, i1 false)
   %59 = load i8, ptr %55, align 8
   store i8 %59, ptr %56, align 8
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -116659,7 +116659,7 @@ define noundef nonnull ptr @_ZNK5Yosys5RTLIL10SwitchRule5cloneEv(ptr noundef non
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 48, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -116866,7 +116866,7 @@ define noundef nonnull ptr @_ZNK5Yosys5RTLIL8SyncRule5cloneEv(ptr noundef nonnul
   %2 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #40
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %5 = load i8, ptr %0, align 8
   store i8 %5, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

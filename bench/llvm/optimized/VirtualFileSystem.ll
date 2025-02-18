@@ -2938,7 +2938,7 @@ define dso_local void @_ZNK4llvm3vfs6detail19NewInMemoryNodeInfo10makeStatusEv(p
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %39, i8 0, i64 96, i1 false)
   store i64 -49064778989728563, ptr %36, align 8, !tbaa !160
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %.sroa.28.0.copyload, ptr %3, align 8
@@ -5048,7 +5048,7 @@ define dso_local void @_ZN4llvm3vfs18InMemoryFileSystem9dir_beginERKNS_5TwineERS
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm3vfs18InMemoryFileSystem11DirIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12, align 8, !tbaa !39, !noalias !240
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %16, i8 0, i64 80, i1 false), !noalias !240
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 80, i1 false), !noalias !240
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %16, ptr %17, align 8, !tbaa !3, !noalias !240
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -5301,7 +5301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm3vfs18InMemoryFileSystem11DirIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %120, align 8, !tbaa !39, !noalias !254
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %124, i8 0, i64 80, i1 false), !noalias !254
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %124, i8 0, i64 80, i1 false), !noalias !254
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store ptr %124, ptr %125, align 8, !tbaa !3, !noalias !254
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 32
@@ -21831,7 +21831,7 @@ _ZNK4llvm3sys2fs18directory_iteratoreqERKS2_.exit: ; preds = %1
 
 _ZNK4llvm3sys2fs18directory_iteratoreqERKS2_.exit.thread: ; preds = %1, %_ZNK4llvm3sys2fs18directory_iteratoreqERKS2_.exit
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %4, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28561,7 +28561,7 @@ split.i.i:                                        ; preds = %.preheader
   %.fca.1.insert.i273138 = phi { i32, ptr } [ %120, %118 ], [ %.fca.1.insert.i25.le, %.critedge.thread.loopexit.split.loop.exit ], [ %18, %_ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit.i ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #31
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 32, i1 false)
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %122, ptr %3, align 8, !tbaa !3
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31305,7 +31305,7 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZNSt7__cxx1112basi
 177:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #31
   %178 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %178, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %178, i8 0, i64 32, i1 false)
   %179 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %179, ptr %14, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -31996,7 +31996,7 @@ _ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit: ; preds = %1, %
 .critedge.thread:                                 ; preds = %_ZN4llvm3vfs18directory_iterator9incrementERSt10error_code.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #31
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %41, ptr %2, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -32421,7 +32421,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZNSt7__cxx1112basi
 125:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #31
   %126 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %126, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 32, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %127, ptr %11, align 8, !tbaa !3
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 8

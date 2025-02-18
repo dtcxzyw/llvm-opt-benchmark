@@ -2956,7 +2956,7 @@ define dso_local i32 @atapi_eh_tur(ptr noundef %0, ptr noundef writeonly capture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %0, align 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -3014,12 +3014,12 @@ define dso_local i32 @atapi_eh_request_sense(ptr noundef %0, ptr noundef initial
   %12 = load ptr, ptr %11, align 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %13, i8 0, i64 95, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(95) %13, i8 0, i64 95, i1 false)
   store i8 112, ptr %1, align 1
   %14 = getelementptr i8, ptr %1, i64 2
   store i8 %2, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %16 = load ptr, ptr %0, align 64
   %17 = load ptr, ptr %16, align 64
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
@@ -3737,7 +3737,7 @@ ata_eh_clear_action.exit:                         ; preds = %218, %.loopexit3.i
   %354 = load ptr, ptr %353, align 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #18
   %355 = getelementptr inbounds nuw i8, ptr %351, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %355, i8 0, i64 95, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(95) %355, i8 0, i64 95, i1 false)
   store i8 112, ptr %351, align 1
   %356 = getelementptr i8, ptr %351, i64 2
   store i8 %352, ptr %356, align 1
@@ -4128,7 +4128,7 @@ select.unfold:                                    ; preds = %546, %546, %546, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
   %579 = call i64 @llvm.usub.sat.i64(i64 %578, i64 300000)
   %580 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %580, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %580, i8 0, i64 40, i1 false)
   store i64 %579, ptr %2, align 8
   %581 = load i32, ptr %568, align 8
   %582 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -4225,7 +4225,7 @@ select.unfold:                                    ; preds = %546, %546, %546, %5
   %646 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %647 = load i32, ptr %646, align 8
   %648 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %648, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %648, i8 0, i64 40, i1 false)
   %649 = call i64 @llvm.usub.sat.i64(i64 %578, i64 600000)
   store i64 %649, ptr %2, align 8
   br label %650
@@ -7771,7 +7771,7 @@ ata_eh_clear_action.exit86:                       ; preds = %238, %ata_eh_clear_
 511:                                              ; preds = %505
   %512 = load ptr, ptr %485, align 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %513 = load ptr, ptr %512, align 64
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 168
   %515 = load i8, ptr %514, align 8
@@ -8575,7 +8575,7 @@ ata_eh_clear_action.exit:                         ; preds = %.preheader193, %._c
   %970 = load ptr, ptr %969, align 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
   %971 = getelementptr inbounds nuw i8, ptr %943, i64 15937
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %971, i8 0, i64 95, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(95) %971, i8 0, i64 95, i1 false)
   store i8 112, ptr %944, align 1
   %972 = getelementptr i8, ptr %943, i64 15938
   store i8 6, ptr %972, align 1
@@ -9837,7 +9837,7 @@ define internal fastcc noundef zeroext i1 @ata_eh_request_sense(ptr noundef capt
 
 48:                                               ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %50 = load ptr, ptr %6, align 64
   %51 = load ptr, ptr %50, align 64
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 168

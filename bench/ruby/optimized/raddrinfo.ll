@@ -1327,7 +1327,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   %43 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #25
   %44 = call noalias nonnull dereferenceable(28) ptr @ruby_xmalloc(i64 noundef 28) #22
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %45, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %45, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
   store i16 10, ptr %44, align 4, !tbaa !81
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 noundef range(i64 1, 0) 16, i1 noundef false) #21
@@ -1381,7 +1381,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   %67 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #25
   %68 = call noalias nonnull dereferenceable(28) ptr @ruby_xmalloc(i64 noundef 28) #22
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %69, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %69, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
   store i16 10, ptr %68, align 4, !tbaa !81
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 noundef range(i64 1, 0) 16, i1 noundef false) #21
@@ -1433,7 +1433,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   %92 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #25
   %93 = call noalias nonnull dereferenceable(28) ptr @ruby_xmalloc(i64 noundef 28) #22
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %94, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %94, i8 noundef 0, i64 noundef 24, i1 noundef false) #21
   store i16 10, ptr %93, align 4, !tbaa !81
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %95, ptr noundef nonnull readonly align 16 dereferenceable(16) %6, i64 noundef range(i64 1, 0) 16, i1 noundef false) #21
@@ -1625,7 +1625,7 @@ define noalias noundef nonnull ptr @rsock_addrinfo(i64 noundef %0, i64 noundef %
   %6 = alloca %struct.addrinfo, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 noundef 0, i64 noundef 40, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 noundef 0, i64 noundef 40, i1 noundef false) #21
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %8, align 4, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3340,7 +3340,7 @@ rb_num2int_inline.exit34:                         ; preds = %94, %96
   %117 = load i64, ptr %12, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %118, i8 noundef 0, i64 noundef 32, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, i8 noundef 0, i64 noundef 32, i1 noundef false) #21
   %119 = call i32 @rsock_family_arg(i64 noundef range(i64 1, 0) %110) #21
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %119, ptr %120, align 4, !tbaa !77
@@ -5765,7 +5765,7 @@ RSTRING_PTR.exit41:                               ; preds = %71, %77
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %10) #21
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %102, i8 noundef 0, i64 noundef 108, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %102, i8 noundef 0, i64 noundef 108, i1 noundef false) #21
   store i16 1, ptr %10, align 2, !tbaa !200
   %103 = call i64 @rb_string_value(ptr noundef nonnull %4) #21
   %104 = load i64, ptr %4, align 8, !tbaa !35
@@ -5824,7 +5824,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit45,
   %134 = or disjoint i64 %133, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #21
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %135, i8 noundef 0, i64 noundef 32, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, i8 noundef 0, i64 noundef 32, i1 noundef false) #21
   %136 = call i32 @rsock_family_arg(i64 noundef %126) #21
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %136, ptr %137, align 4, !tbaa !77
@@ -6172,7 +6172,7 @@ define internal fastcc void @init_unix_addrinfo(ptr noundef nonnull %0, i64 noun
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %15, i8 noundef 0, i64 noundef 108, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %15, i8 noundef 0, i64 noundef 108, i1 noundef false) #21
   store i16 1, ptr %5, align 2, !tbaa !200
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %17 = load i64, ptr %8, align 8, !tbaa !44, !noalias !218
@@ -6530,7 +6530,7 @@ define internal fastcc i64 @addrinfo_firstonly_new(i64 noundef %0, i64 noundef %
   %6 = alloca %struct.addrinfo, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 noundef 0, i64 noundef 40, i1 noundef false) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 noundef 0, i64 noundef 40, i1 noundef false) #21
   %8 = icmp eq i64 %2, 4
   br i1 %8, label %11, label %9
 

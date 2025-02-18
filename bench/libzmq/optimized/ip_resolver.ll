@@ -788,7 +788,7 @@ entry:
   %req = alloca %struct.addrinfo, align 8
   store ptr null, ptr %res, align 8
   %0 = getelementptr inbounds nuw i8, ptr %req, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %_options = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_ipv6_wanted.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %1 = load i8, ptr %_ipv6_wanted.i, align 2

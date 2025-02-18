@@ -959,7 +959,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
 
 _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry18getEnabledBackendsEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
 
 18:                                               ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
@@ -1289,7 +1289,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
 
 _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry35getAvailableBackends_CaptureByIndexEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
@@ -1637,7 +1637,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
 
 _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry38getAvailableBackends_CaptureByFilenameEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
@@ -1985,7 +1985,7 @@ _ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit: ; preds = %1, %5
 
 _ZNK2cv12_GLOBAL__N_120VideoBackendRegistry27getAvailableBackends_WriterEv.exit.thread: ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %._crit_edge.thread
 
 .lr.ph.i:                                         ; preds = %_ZN2cv12_GLOBAL__N_120VideoBackendRegistry11getInstanceEv.exit

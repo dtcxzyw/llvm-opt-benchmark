@@ -47841,7 +47841,7 @@ _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPNontemporalClauseEE
   %32 = load ptr, ptr %23, align 8, !tbaa !309
   %33 = getelementptr inbounds nuw %"class.llvm::SmallDenseSet.1779", ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
   store i32 1, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 0, ptr %35, align 4, !tbaa !3063
@@ -51847,7 +51847,7 @@ _ZSt9make_pairIRPKN5clang4DeclEN4llvm11SmallStringILj16EEEESt4pairINSt25__strip_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %70, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   store ptr %59, ptr %7, align 8, !tbaa !1589
   store i64 0, ptr %60, align 8, !tbaa !29
   store i64 16, ptr %61, align 8, !tbaa !1590
@@ -104125,7 +104125,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %"class.llvm::SmallDenseSet.1779", ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %10, align 4, !tbaa !3063

@@ -8361,7 +8361,7 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.e
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %72, i8 0, i64 56, i1 false), !noalias !260
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %72, i8 0, i64 56, i1 false), !noalias !260
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i64 16), ptr %70, align 8, !tbaa !122, !noalias !260
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -8457,7 +8457,7 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %114, i8 0, i64 32, i1 false), !noalias !269
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %114, i8 0, i64 32, i1 false), !noalias !269
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i64 16), ptr %112, align 8, !tbaa !122, !noalias !269
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 24
@@ -8552,7 +8552,7 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %155, i8 0, i64 56, i1 false), !noalias !278
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %155, i8 0, i64 56, i1 false), !noalias !278
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i64 16), ptr %153, align 8, !tbaa !122, !noalias !278
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 24
@@ -10807,7 +10807,7 @@ _ZNSt14_Function_baseD2Ev.exit358:                ; preds = %634, %630, %_ZNSt7_
 
 641:                                              ; preds = %639
   %642 = getelementptr inbounds nuw i8, ptr %640, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %642, i8 0, i64 64, i1 false), !noalias !394
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %642, i8 0, i64 64, i1 false), !noalias !394
   store ptr %642, ptr %640, align 8, !tbaa !11, !noalias !394
   %643 = getelementptr inbounds nuw i8, ptr %640, i64 8
   store i64 0, ptr %643, align 8, !tbaa !17, !noalias !394

@@ -1555,7 +1555,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %.85.sroa.sel.v = select i1 %60, i64 20, i64 32
   %.85.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.85.sroa.sel.v
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %62, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %62, i8 0, i64 104, i1 false)
   store ptr %0, ptr %13, align 8, !tbaa !89
   store ptr %11, ptr %61, align 8, !tbaa !89
   store i32 %1, ptr %..sroa.sel, align 8, !tbaa !3
@@ -1635,7 +1635,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 91:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %92, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %92, i8 0, i64 72, i1 false)
   store ptr %0, ptr %14, align 8, !tbaa !93
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %11, ptr %93, align 8, !tbaa !95
@@ -2559,7 +2559,7 @@ define i32 @unzip_search_single(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, i8 0, i64 168, i1 false)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 160
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef %1, i64 noundef %2) #13

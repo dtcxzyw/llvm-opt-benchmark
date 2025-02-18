@@ -868,7 +868,7 @@ define void @_ZN5arrow9ArrayData4MakeESt10shared_ptrINS_8DataTypeEElSt6vectorIS1
   store i64 %5, ptr %28, align 8, !tbaa !30, !noalias !94
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, i8 0, i64 56, i1 false), !noalias !94
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false), !noalias !94
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %19, ptr %29, align 8, !tbaa !11, !noalias !94
@@ -6331,7 +6331,7 @@ define void @_ZN5arrow8internal12GetArrayViewERKSt10shared_ptrINS_9ArrayDataEERK
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #24
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %17, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %16, i8 0, i64 17, i1 false)
   %18 = load ptr, ptr %1, align 8, !tbaa !56
   %19 = load ptr, ptr %18, align 8, !tbaa !3
@@ -8872,7 +8872,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   store i64 %.288.lcssa, ptr %709, align 8, !tbaa !30, !noalias !357
   %710 = getelementptr inbounds nuw i8, ptr %700, i64 56
   %711 = getelementptr inbounds nuw i8, ptr %700, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %711, i8 0, i64 56, i1 false), !noalias !357
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %711, i8 0, i64 56, i1 false), !noalias !357
   %712 = getelementptr inbounds nuw i8, ptr %700, i64 64
   %713 = getelementptr inbounds nuw i8, ptr %700, i64 72
   store ptr %690, ptr %710, align 8, !tbaa !11, !noalias !357

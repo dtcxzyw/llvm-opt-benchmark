@@ -1882,7 +1882,7 @@ define hidden noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @RIPEMD160_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %2, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %0, align 4, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4, !tbaa !13
@@ -1900,7 +1900,7 @@ define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %0, i64
   %4 = alloca %struct.RIPEMD160state_st, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %5, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -271733879, ptr %6, align 4, !tbaa !13

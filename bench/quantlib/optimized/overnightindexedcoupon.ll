@@ -4467,7 +4467,7 @@ cond.true.i.i:                                    ; preds = %entry
   store i8 0, ptr %del.i.i.i, align 8, !tbaa !154
   %storage_.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %7, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64

@@ -7088,7 +7088,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   %5 = alloca %struct._smb2_sesid_info_t, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %6, i8 0, i64 280, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %6, i8 0, i64 280, i1 false)
   store i64 %0, ptr %5, align 8
   %7 = load ptr, ptr @smb2_sessions, align 8
   %8 = call ptr @wmem_map_lookup(ptr noundef %7, ptr noundef nonnull %5)
@@ -16593,7 +16593,7 @@ define internal fastcc i32 @dissect_smb2_fid(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 noundef 0, i64 noundef 24, i1 noundef false) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 noundef 0, i64 noundef 24, i1 noundef false) #13
   %16 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %3)
   store i64 %16, ptr %13, align 8
   %17 = add i32 %3, 8

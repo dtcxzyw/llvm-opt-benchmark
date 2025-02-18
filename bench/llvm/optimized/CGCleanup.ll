@@ -2979,7 +2979,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit290: ; preds = %239, %_
 272:                                              ; preds = %.thread618
   %273 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %274, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %274, i8 0, i64 16, i1 false)
   store ptr %274, ptr %273, align 8, !tbaa !681
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i32 0, ptr %275, align 8, !tbaa !663
@@ -3071,7 +3071,7 @@ _ZN5clang7CodeGen15CodeGenFunction13getInvokeDestEv.exit306: ; preds = %292
 307:                                              ; preds = %.thread629
   %308 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %309, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %309, i8 0, i64 16, i1 false)
   store ptr %309, ptr %308, align 8, !tbaa !681
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i32 0, ptr %310, align 8, !tbaa !663
@@ -3847,7 +3847,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit376:
 620:                                              ; preds = %617
   %621 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %622, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %622, i8 0, i64 16, i1 false)
   store ptr %622, ptr %621, align 8, !tbaa !681
   %623 = getelementptr inbounds nuw i8, ptr %621, i64 8
   store i32 0, ptr %623, align 8, !tbaa !663
@@ -5545,7 +5545,7 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm3
 .thread75:                                        ; preds = %.lr.ph
   %145 = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #21
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %146, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %146, i8 0, i64 120, i1 false)
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store ptr %147, ptr %145, align 8, !tbaa !685
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -5643,7 +5643,7 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen14EHCleanupScope14addBranchAft
 _ZN5clang7CodeGen14EHCleanupScope10getExtInfoEv.exit.thread: ; preds = %3
   %6 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %7, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %8, ptr %6, align 8, !tbaa !685
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5982,7 +5982,7 @@ _ZN5clang7CodeGen15CodeGenFunction17AllocaTrackerRAII4TakeEv.exit: ; preds = %69
 _ZN5clang7CodeGen14EHCleanupScope19getAuxillaryAllocasEv.exit.thread.i: ; preds = %86
   %89 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store ptr %90, ptr %89, align 8, !tbaa !681
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 0, ptr %91, align 8, !tbaa !663

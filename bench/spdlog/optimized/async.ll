@@ -1746,7 +1746,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"struct.spdlog::details::async_msg", align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %0, i8 0, i64 368, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %ref.tmp, i8 0, i64 16, i1 false)
   store i32 6, ptr %0, align 8
@@ -3160,7 +3160,7 @@ for.cond8.preheader:                              ; preds = %_ZN6spdlog7details9
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZN6spdlog7details9async_msgD2Ev.exit
   %i.029 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %_ZN6spdlog7details9async_msgD2Ev.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %2, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %2, i8 0, i64 368, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %ref.tmp, i8 0, i64 16, i1 false)
   store i32 6, ptr %2, align 8
@@ -6879,7 +6879,7 @@ for.inc.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ], [ %call5.i.i.i.i2.i, %_ZNSt12_Vector_baseIN6spdlog7details9async_msgESaIS2_EEC2EmRKS3_.exit ]
   %__n.addr.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i ], [ %__n, %_ZNSt12_Vector_baseIN6spdlog7details9async_msgESaIS2_EEC2EmRKS3_.exit ]
   %0 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %__cur.08.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 6, ptr %0, align 8

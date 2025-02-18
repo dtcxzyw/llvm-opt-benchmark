@@ -571,7 +571,7 @@ define dso_local void @_ZN4llvm27TargetLoweringObjectFileELFC2Ev(ptr noundef non
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 931
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 280) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 976

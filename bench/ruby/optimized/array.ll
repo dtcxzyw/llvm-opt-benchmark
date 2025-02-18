@@ -8634,7 +8634,7 @@ define hidden void @Init_Array() local_unnamed_addr #4 {
   %1 = alloca %struct.RArray, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #24
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store i64 7, ptr %1, align 8, !tbaa !36
   %3 = ptrtoint ptr %1 to i64
   %4 = call i64 @rb_obj_freeze(i64 noundef %3) #24

@@ -4362,7 +4362,7 @@ _ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0
 43:                                               ; preds = %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   store ptr %42, ptr %34, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %44, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %25, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store float 1.000000e+00, ptr %45, align 4

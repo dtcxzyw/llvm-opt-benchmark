@@ -224,7 +224,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 define void @_ZN3gmx24DensityFittingModuleInfo6createEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #21, !noalias !5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(744) %3, i8 0, i64 728, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(728) %3, i8 0, i64 728, i1 false), !noalias !5
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12_GLOBAL__N_114DensityFittingE, i64 16), ptr %2, align 8, !noalias !5
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx28DensityFittingOutputProviderE, i64 16), ptr %4, align 8, !noalias !5
@@ -1621,7 +1621,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i64 %14, ptr %19, align 8
   %25 = load ptr, ptr %16, align 8
   store ptr %25, ptr %23, align 8

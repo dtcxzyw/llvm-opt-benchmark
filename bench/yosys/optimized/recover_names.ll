@@ -94895,7 +94895,7 @@ _ZN5Yosys6SatGen10setContextEPNS_6SigMapENSt7__cxx1112basic_stringIcSt11char_tra
 _ZN12_GLOBAL__N_15IdBitD2Ev.exit:                 ; preds = %87, %91, %98
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %103, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, i8 0, i64 64, i1 false)
   store i64 8, ptr %102, align 8
   %104 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
           to label %.noexc70 unwind label %176

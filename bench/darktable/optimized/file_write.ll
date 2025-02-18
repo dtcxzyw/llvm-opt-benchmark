@@ -150,7 +150,7 @@ define void @_ZN6LibRaw9tiff_headEP8tiff_hdri(ptr noundef nonnull align 8 derefe
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1376) %6, i8 0, i64 1368, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1368) %6, i8 0, i64 1368, i1 false)
   store i16 18761, ptr %1, align 4, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 42, ptr %7, align 2, !tbaa !82

@@ -5348,7 +5348,7 @@ _ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1
 define linkonce_odr dso_local void @_ZN3dap8optionalINS_6SourceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(305) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.116", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, i8 0, i64 24, i1 false)
@@ -5438,7 +5438,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %35, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %38, ptr %36, align 8, !tbaa !123
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5447,7 +5447,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %40, align 8, !tbaa !88
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %43, ptr %41, align 8, !tbaa !123
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -5456,7 +5456,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %45, align 8, !tbaa !88
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %48, ptr %46, align 8, !tbaa !123
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224

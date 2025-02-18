@@ -3189,7 +3189,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %111 = getelementptr inbounds nuw i8, ptr %18, i64 412
   store i32 %.val32, ptr %111, align 4, !tbaa !51
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %112, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %112, i8 0, i64 96, i1 false)
   %113 = call ptr @satoko_create() #22
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %113, ptr %114, align 8, !tbaa !63

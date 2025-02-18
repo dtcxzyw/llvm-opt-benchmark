@@ -672,7 +672,7 @@ select.unfold.i.i:                                ; preds = %146, %127, %111, %1
   br label %filter_flatedecode.exit.i
 
 261:                                              ; preds = %258
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %73, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %73, i8 0, i64 104, i1 false)
   store ptr %.088.i.i, ptr %13, align 8, !tbaa !35
   store i32 %.084.i.i, ptr %73, align 8, !tbaa !38
   store ptr %259, ptr %74, align 8, !tbaa !39
@@ -1220,7 +1220,7 @@ filter_decrypt.exit169.i:                         ; preds = %420, %419
   br label %filter_lzwdecode.exit.i
 
 460:                                              ; preds = %457
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, i8 0, i64 48, i1 false)
   store ptr %.0111.i.i, ptr %10, align 8, !tbaa !66
   store i32 %.0107.i.i, ptr %64, align 8, !tbaa !69
   store ptr %458, ptr %65, align 8, !tbaa !70

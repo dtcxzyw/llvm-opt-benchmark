@@ -503,7 +503,7 @@ define internal fastcc void @onas_handle_signals() unnamed_addr #0 {
   %11 = call i32 @sigdelset(ptr noundef nonnull %1, i32 noundef 7) #12
   %12 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, i8 0, i64 144, i1 false)
   store ptr @onas_clamonacc_exit, ptr %2, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = call i32 @sigfillset(ptr noundef nonnull %14) #12

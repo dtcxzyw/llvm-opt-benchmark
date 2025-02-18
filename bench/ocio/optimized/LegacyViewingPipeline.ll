@@ -160,7 +160,7 @@ define void @_ZN19OpenColorIO_v2_4dev21LegacyViewingPipeline6CreateEv(ptr noalia
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #17
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev25LegacyViewingPipelineImplE, i64 16), ptr %call, align 8
   %m_linearCC.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %m_looksOverride.i = getelementptr inbounds nuw i8, ptr %call, i64 96

@@ -383,10 +383,10 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %7 = alloca %struct.Amap_Mat_t_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
   %.not = icmp eq i32 %3, 0
   %.092.sroa.gep100 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -476,7 +476,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
 57:                                               ; preds = %.lr.ph, %Amap_CutCompareArea.exit
   %58 = phi i32 [ %48, %.lr.ph ], [ %195, %Amap_CutCompareArea.exit ]
   %.093143 = phi ptr [ %.093141, %.lr.ph ], [ %.093, %Amap_CutCompareArea.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store ptr %.094144, ptr %7, align 8, !tbaa !47
   store ptr %.093143, ptr %37, align 8, !tbaa !37
   %59 = load ptr, ptr %35, align 8, !tbaa !36

@@ -10377,7 +10377,7 @@ H5D__chunk_cinfo_cache_reset.exit:                ; preds = %.lr.ph
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %75, ptr %76, align 8, !tbaa !71
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %77, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %77, i8 0, i64 176, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %24, i64 264
   store ptr %78, ptr %16, align 8, !tbaa !282
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -11904,7 +11904,7 @@ H5D_chunk_idx_reset.exit:                         ; preds = %38, %36
 
 199:                                              ; preds = %192
   %200 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %200, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %200, i8 0, i64 168, i1 false)
   store ptr %2, ptr %10, align 8, !tbaa !321
   %201 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %201, align 8, !tbaa !324

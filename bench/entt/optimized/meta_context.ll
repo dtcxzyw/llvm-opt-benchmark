@@ -84631,7 +84631,7 @@ _ZZN4entt8internal7resolveISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pai
   store i8 1, ptr %10, align 8, !tbaa !172, !alias.scope !1536
   %12 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29, !noalias !1536
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %13, i8 0, i64 16, i1 false), !noalias !1536
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !1536
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %14, ptr %12, align 8, !tbaa !839, !noalias !1536
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8

@@ -2618,7 +2618,7 @@ define internal noundef i32 @ps_hinter_init(ptr noundef initializes((24, 168), (
   %3 = load ptr, ptr %2, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   store ptr %3, ptr %4, align 8, !tbaa !177
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @psh_globals_new, ptr %6, align 8, !tbaa !178

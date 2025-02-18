@@ -145,7 +145,7 @@ _ZL12lowerAtomicsRN4llvm8FunctionE.exit:          ; preds = %_ZL15runOnBasicBloc
 
 42:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %43, i8 0, i64 64, i1 false), !alias.scope !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, i8 0, i64 64, i1 false), !alias.scope !40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %44, ptr %0, align 8, !tbaa !43, !alias.scope !40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8

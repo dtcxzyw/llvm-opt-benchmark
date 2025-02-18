@@ -19330,7 +19330,7 @@ _m3d_getidx.exit2418.thread:                      ; preds = %1478, %_m3d_getidx.
   %1519 = zext i32 %1512 to i64
   %1520 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %1517, i64 %1519
   %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1521, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1521, i8 0, i64 40, i1 false)
   store ptr %1501, ptr %1520, align 8
   %1522 = load i8, ptr %217, align 1
   switch i8 %1522, label %1590 [
@@ -37746,7 +37746,7 @@ define void @LoadMaterialDefault(ptr dead_on_unwind noalias writable writeonly s
 ; Function Attrs: nounwind uwtable
 define void @LoadModelFromMesh(ptr dead_on_unwind noalias writable writeonly sret(%struct.Model) align 8 captures(none) initializes((0, 120)) %0, ptr noundef readonly byval(%struct.Mesh) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.64.0..sroa_idx, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %0, align 8
@@ -38539,7 +38539,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #57
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %70, i8 0, i64 24, i1 false), !alias.scope !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %70, i8 0, i64 24, i1 false), !alias.scope !55
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 60
@@ -46385,7 +46385,7 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
 ; Function Attrs: nounwind uwtable
 define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.Mesh) align 8 captures(none) initializes((0, 120)) %0, ptr noundef readonly byval(%struct.Image) align 8 captures(none) %1, <2 x float> %2, float %3) local_unnamed_addr #25 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12

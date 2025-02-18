@@ -1547,7 +1547,7 @@ define dso_local void @SpGistInitMetapage(ptr noundef %0) local_unnamed_addr #0 
   store i16 -126, ptr %6, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %8, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store i32 -1173640210, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %10

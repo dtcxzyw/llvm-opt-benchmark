@@ -7015,7 +7015,7 @@ select.unfold:                                    ; preds = %147, %152, %127, %1
 define internal fastcc void @tg3_init_coal(ptr noundef initializes((5216, 5308)) %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5216
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %3, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %3, i8 0, i64 52, i1 false)
   store i32 14, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5220
   store i32 50, ptr %4, align 4
@@ -40713,7 +40713,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_do_test_dma(ptr noundef %0, i6
   %4 = alloca %struct.tg3_internal_buffer_desc, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 20, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, i32 noundef 23768, i32 noundef 0) #27

@@ -8417,7 +8417,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %.057.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %32, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %32, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
@@ -8471,7 +8471,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i28: ; preds = %
   %.08.i.i.i.i.i30 = phi ptr [ %56, %.lr.ph.i.i.i.i.i29 ], [ %46, %.noexc36 ]
   %.057.i.i.i.i.i31 = phi i64 [ %55, %.lr.ph.i.i.i.i.i29 ], [ %42, %.noexc36 ]
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i30, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %49, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i30, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i30, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i30, i64 24
@@ -12353,7 +12353,7 @@ define linkonce_odr void @_ZNSt6vectorIN8LightGBM9SplitInfoESaIS1_EE17_M_default
   %.08.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
@@ -12395,7 +12395,7 @@ _ZNKSt6vectorIN8LightGBM9SplitInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
   %.08.i.i.i31 = phi ptr [ %42, %.lr.ph.i.i.i30 ], [ %34, %_ZNKSt6vectorIN8LightGBM9SplitInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i32 = phi i64 [ %41, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN8LightGBM9SplitInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %35, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i31, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 24
@@ -285311,7 +285311,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(122) ptr @_ZNSt8__de
   store i32 %4, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %29, i8 0, i64 112, i1 false)
   store i32 -1, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -288961,7 +288961,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i ], [ %104, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %.057.i.i.i.i.i = phi i64 [ %113, %.lr.ph.i.i.i.i.i ], [ %101, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %107 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %107, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %107, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %109 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24

@@ -4985,7 +4985,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAn
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAnalysisEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #22
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !268
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !268
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !28, !alias.scope !268
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5574,7 +5574,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitP
   store ptr %10, ptr %71, align 8, !tbaa !126
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %79, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %79, i8 0, i64 40, i1 false)
   store i32 2147483647, ptr %78, align 8, !tbaa !292
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 0, ptr %80, align 4, !tbaa !294

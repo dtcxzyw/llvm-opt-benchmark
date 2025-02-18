@@ -1635,7 +1635,7 @@ parseOptions.exit:                                ; preds = %534, %540
   %626 = load ptr, ptr @gdata, align 8
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 160
   %628 = getelementptr inbounds nuw i8, ptr %626, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %628, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %628, i8 0, i64 296, i1 false)
   store ptr @cbEarlyVMInit, ptr %627, align 8
   %629 = getelementptr inbounds nuw i8, ptr %626, i64 168
   store ptr @cbEarlyVMDeath, ptr %629, align 8

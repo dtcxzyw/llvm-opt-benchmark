@@ -383,7 +383,7 @@ define internal fastcc noundef range(i32 0, 16387) i32 @acpi_ex_name_segment(ptr
 
 .preheader.preheader:                             ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, i8 0, i64 3, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, i8 0, i64 3, i1 false), !annotation !5
   br label %.preheader
 
 9:                                                ; preds = %2

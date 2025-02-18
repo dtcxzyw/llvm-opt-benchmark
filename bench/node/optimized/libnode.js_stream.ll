@@ -132,7 +132,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %env, ptr %env_.i, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1169,7 +1169,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %20 = getelementptr inbounds nuw i8, ptr %call6, i64 56
   %listener_.i.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %call6, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %env_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 88
   store ptr %retval.0.i.i, ptr %env_.i.i, align 8
   %default_listener_.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 96

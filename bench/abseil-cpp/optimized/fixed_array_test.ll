@@ -10635,7 +10635,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %53, ptr %6, align 8, !tbaa !104
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -80998,7 +80998,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplIvE
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !160
   store ptr %12, ptr %6, align 8, !tbaa !160
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -81097,7 +81097,7 @@ _ZN4absl13hash_internal16SpyHashStateImplINS_10FixedArrayIiLm1844674407370955161
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !160
   store ptr %57, ptr %4, align 8, !tbaa !160
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -82638,7 +82638,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal16SpyHashStateImplINS
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %11, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   %12 = load ptr, ptr %1, align 8, !tbaa !160
   store ptr %12, ptr %6, align 8, !tbaa !160
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -82737,7 +82737,7 @@ _ZN4absl13hash_internal16SpyHashStateImplImEC2INS_10FixedArrayIiLm18446744073709
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %56, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, i8 0, i64 9, i1 false)
   %57 = load ptr, ptr %5, align 8, !tbaa !160
   store ptr %57, ptr %4, align 8, !tbaa !160
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8

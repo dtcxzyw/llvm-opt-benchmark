@@ -18016,7 +18016,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !26, !alias.scope !637
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !643
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !643
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !28, !alias.scope !643
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8

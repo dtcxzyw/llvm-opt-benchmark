@@ -2121,7 +2121,7 @@ define void @LoadFontFromMemory(ptr dead_on_unwind noalias writable sret(%struct
   %9 = alloca %struct.Image, align 8
   %10 = alloca %struct.Image, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToLower.buffer, i8 0, i64 1024, i1 false)
@@ -8224,7 +8224,7 @@ define noundef zeroext i1 @ExportFontAsCode(ptr noundef readonly byval(%struct.F
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #41
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call ptr @GetFileNameWithoutExt(ptr noundef %1) #41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) @TextToPascal.buffer, i8 0, i64 1024, i1 false)
   %.not.i = icmp eq ptr %8, null

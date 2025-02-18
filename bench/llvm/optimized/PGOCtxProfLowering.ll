@@ -530,7 +530,7 @@ define dso_local void @_ZN4llvm22PGOCtxProfLoweringPass3runERNS_6ModuleERNS_15An
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %70, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %70, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, i8 0, i64 40, i1 false)
   %71 = load ptr, ptr %2, align 8, !tbaa !71
   %72 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %71, i32 noundef 0) #19
@@ -2684,7 +2684,7 @@ _ZN12_GLOBAL__N_125CtxInstrumentationLowerer13lowerFunctionERN4llvm8FunctionE.ex
 
 1003:                                             ; preds = %._crit_edge
   %1004 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1004, i8 0, i64 64, i1 false), !alias.scope !312
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1004, i8 0, i64 64, i1 false), !alias.scope !312
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1005, ptr %0, align 8, !tbaa !28, !alias.scope !312
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 8

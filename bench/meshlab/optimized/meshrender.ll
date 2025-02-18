@@ -10569,7 +10569,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_10ShaderInfoESt10_Se
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 128, i1 false)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZN10QArrayData11shared_nullE, ptr %20, align 8
@@ -14327,7 +14327,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_10ShaderInfoESt10_Se
   store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 128, i1 false)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZN10QArrayData11shared_nullE, ptr %15, align 8

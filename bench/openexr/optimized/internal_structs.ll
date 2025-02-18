@@ -408,7 +408,7 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
 
 if.then3:                                         ; preds = %if.end
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(552) %3, i8 0, i64 551, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(551) %3, i8 0, i64 551, i1 false)
   %conv = trunc i32 %mode to i8
   store i8 %conv, ptr %call, align 8
   %user_data = getelementptr inbounds nuw i8, ptr %initializers, i64 32

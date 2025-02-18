@@ -40848,7 +40848,7 @@ while.body:                                       ; preds = %while.cond.preheade
   ]
 
 if.then13:                                        ; preds = %while.body, %while.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i16 2, ptr %endpoint, align 4
   store i16 0, ptr %sin_port.i.i, align 2
   store i32 0, ptr %sin_addr.i.i, align 4

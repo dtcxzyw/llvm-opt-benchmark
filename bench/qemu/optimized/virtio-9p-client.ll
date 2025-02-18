@@ -993,7 +993,7 @@ define dso_local noundef ptr @v9fs_tattach(ptr noundef readonly byval(%struct.TA
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store ptr %8, ptr %7, align 8
   %24 = tail call ptr @v9fs_tversion(ptr noundef nonnull byval(%struct.TVersionOpt) align 8 %7)
   br label %25
@@ -2818,7 +2818,7 @@ define dso_local noundef ptr @v9fs_tmkdir(ptr noundef readonly byval(%struct.TMk
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %7, ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %28, align 8
@@ -3076,7 +3076,7 @@ define dso_local noundef ptr @v9fs_tlcreate(ptr noundef readonly byval(%struct.T
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
   store ptr %8, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %12, ptr %31, align 8
@@ -3324,7 +3324,7 @@ define dso_local noundef ptr @v9fs_tsymlink(ptr noundef readonly byval(%struct.T
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
   store ptr %6, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %27, align 8
@@ -3580,7 +3580,7 @@ define dso_local noundef ptr @v9fs_tlink(ptr noundef readonly byval(%struct.Tlin
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
   store ptr %7, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %11, ptr %28, align 8
@@ -3595,7 +3595,7 @@ define dso_local noundef ptr @v9fs_tlink(ptr noundef readonly byval(%struct.Tlin
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
   store ptr %7, ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %19, ptr %35, align 8
@@ -3774,7 +3774,7 @@ define dso_local noundef ptr @v9fs_tunlinkat(ptr noundef readonly byval(%struct.
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   store ptr %6, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %19, align 8

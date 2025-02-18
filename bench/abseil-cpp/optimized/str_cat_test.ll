@@ -38116,7 +38116,7 @@ define internal void @_ZN12_GLOBAL__N_150Numbers_TestFunctionsMovedOverFromNumbe
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store ptr %17, ptr %8, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %18, align 8, !tbaa !23
@@ -38424,7 +38424,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
   store ptr %120, ptr %13, align 8, !tbaa !20
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %121, align 8, !tbaa !23
@@ -38812,7 +38812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18CheckAllEm(i64 noundef %0) unname
   %68 = and i64 %0, 4294967295
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #26
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   store ptr %69, ptr %54, align 8, !tbaa !20
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %70, align 8, !tbaa !23
@@ -39135,7 +39135,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
   %indvars.iv.i.i = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i.i ], [ %indvars.iv.next.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
   store ptr %176, ptr %59, align 8, !tbaa !20
   store i64 0, ptr %177, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #26
@@ -39502,7 +39502,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i.i ], [ 66, %.preheader.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 0, i64 16, i1 false)
   store ptr %183, ptr %64, align 8, !tbaa !20
   store i64 0, ptr %184, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #26
@@ -39886,7 +39886,7 @@ _ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZNKSt7__cxx1112ba
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #26
   %426 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %426, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %426, i8 0, i64 16, i1 false)
   store ptr %426, ptr %32, align 8, !tbaa !20
   %427 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 0, ptr %427, align 8, !tbaa !23
@@ -40219,7 +40219,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i21.i:      ; preds = %_ZNKSt14default_del
   %indvars.iv.i22.i = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i21.i ], [ %indvars.iv.next.i25.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i24.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %535, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %535, i8 0, i64 16, i1 false)
   store ptr %535, ptr %37, align 8, !tbaa !20
   store i64 0, ptr %536, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #26
@@ -40625,7 +40625,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %687 = add nuw nsw i64 %indvars.iv148.i, 192
   %688 = and i64 %687, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %542, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %542, i8 0, i64 16, i1 false)
   store ptr %542, ptr %42, align 8, !tbaa !20
   store i64 0, ptr %543, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #26
@@ -41044,7 +41044,7 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZNKSt7__cxx1112ba
   %828 = and i32 %827, 65536
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #26
   %829 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %829, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %829, i8 0, i64 16, i1 false)
   store ptr %829, ptr %10, align 8, !tbaa !20
   %830 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %830, align 8, !tbaa !23
@@ -41404,7 +41404,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i74.i:      ; preds = %_ZNKSt14default_del
   %indvars.iv.i75.i = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i74.i ], [ %indvars.iv.next.i87.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i86.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %949, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %949, i8 0, i64 16, i1 false)
   store ptr %949, ptr %15, align 8, !tbaa !20
   store i64 0, ptr %950, align 8, !tbaa !23
   %.sroa.55.10.insert.insert.i.i = lshr i64 %indvars.iv.i75.i, 8
@@ -41830,7 +41830,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %1110 = add nuw nsw i64 %indvars.iv152.i, 192
   %1111 = and i64 %1110, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %957, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %957, i8 0, i64 16, i1 false)
   store ptr %957, ptr %20, align 8, !tbaa !20
   store i64 0, ptr %958, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
@@ -42347,7 +42347,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CheckHexDec64Em(i64 noundef %0) 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #26
   %90 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store ptr %90, ptr %76, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 0, ptr %91, align 8, !tbaa !23
@@ -42670,7 +42670,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   %indvars.iv.i = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i ], [ %indvars.iv.next.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %196, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
   store ptr %196, ptr %81, align 8, !tbaa !20
   store i64 0, ptr %197, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #26
@@ -43037,7 +43037,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i ], [ 66, %.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %203, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, i8 0, i64 16, i1 false)
   store ptr %203, ptr %86, align 8, !tbaa !20
   store i64 0, ptr %204, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #26
@@ -43421,7 +43421,7 @@ _ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #26
   %447 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %447, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %447, i8 0, i64 16, i1 false)
   store ptr %447, ptr %54, align 8, !tbaa !20
   %448 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %448, align 8, !tbaa !23
@@ -43754,7 +43754,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i25:        ; preds = %_ZNKSt14default_del
   %indvars.iv.i26 = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i25 ], [ %indvars.iv.next.i30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i29 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %556, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %556, i8 0, i64 16, i1 false)
   store ptr %556, ptr %59, align 8, !tbaa !20
   store i64 0, ptr %557, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #26
@@ -44160,7 +44160,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %708 = add nuw nsw i64 %indvars.iv210, 192
   %709 = and i64 %708, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %563, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %563, i8 0, i64 16, i1 false)
   store ptr %563, ptr %64, align 8, !tbaa !20
   store i64 0, ptr %564, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #26
@@ -44578,7 +44578,7 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZNKSt7__cxx1112bas
   %.sroa.510.10.insert.shift.i = and i64 %847, 65536
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #26
   %848 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %848, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %848, i8 0, i64 16, i1 false)
   store ptr %848, ptr %32, align 8, !tbaa !20
   %849 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 0, ptr %849, align 8, !tbaa !23
@@ -44936,7 +44936,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i78:        ; preds = %_ZNKSt14default_del
   %indvars.iv.i79 = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i78 ], [ %indvars.iv.next.i91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i90 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %968, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %968, i8 0, i64 16, i1 false)
   store ptr %968, ptr %37, align 8, !tbaa !20
   store i64 0, ptr %969, align 8, !tbaa !23
   %.sroa.55.10.insert.insert.i = lshr i64 %indvars.iv.i79, 8
@@ -45362,7 +45362,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %1129 = add nuw nsw i64 %indvars.iv214, 192
   %1130 = and i64 %1129, 255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %976, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %976, i8 0, i64 16, i1 false)
   store ptr %976, ptr %42, align 8, !tbaa !20
   store i64 0, ptr %977, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #26
@@ -45786,7 +45786,7 @@ _ZN12_GLOBAL__N_18CheckDecIxEEvT_PKcS3_S3_.exit:  ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #26
   %1270 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1270, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1270, i8 0, i64 16, i1 false)
   store ptr %1270, ptr %10, align 8, !tbaa !20
   %1271 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %1271, align 8, !tbaa !23
@@ -46111,7 +46111,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i146:       ; preds = %_ZNKSt14default_del
   %indvars.iv.i148 = phi i64 [ 2, %_ZN7testing15AssertionResultD2Ev.exit.i146 ], [ %indvars.iv.next.i155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i154 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1377, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1377, i8 0, i64 16, i1 false)
   store ptr %1377, ptr %15, align 8, !tbaa !20
   store i64 0, ptr %1378, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
@@ -46485,7 +46485,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173.i ], [ 66, %.preheader.i157 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1385, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1385, i8 0, i64 16, i1 false)
   store ptr %1385, ptr %20, align 8, !tbaa !20
   store i64 0, ptr %1386, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
@@ -47165,7 +47165,7 @@ define internal void @_ZN12_GLOBAL__N_132StrCat_AbslStringifyExample_Test8TestBo
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %18, ptr %6, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -47453,7 +47453,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %98, %_ZNKSt14defaul
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %112, ptr %13, align 8, !tbaa !20
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -48095,7 +48095,7 @@ define internal void @_ZN12_GLOBAL__N_143StrCat_AbslStringifyExampleUsingFormat_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %19, ptr %7, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -48389,7 +48389,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %102, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #26
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %116, ptr %14, align 8, !tbaa !20
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -48720,7 +48720,7 @@ define internal void @_ZN12_GLOBAL__N_133StrCat_AbslStringifyWithEnum_Test8TestB
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %6, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8

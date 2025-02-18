@@ -2457,7 +2457,7 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i:       ; preds = %86
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %122, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 56, i1 false)
   store ptr %122, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i64 0, ptr %123, align 8

@@ -39580,7 +39580,7 @@ _ZN7glslang17TSwizzleSelectorsIiE9push_backEi.exit: ; preds = %.lr.ph.split, %12
   %1742 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %1743 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %1744 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1744, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1744, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1742, i8 0, i64 16, i1 false)
   store i32 520093696, ptr %1743, align 8
   %1745 = getelementptr inbounds nuw i8, ptr %60, i64 16

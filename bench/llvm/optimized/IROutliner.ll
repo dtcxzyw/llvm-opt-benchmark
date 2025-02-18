@@ -19311,7 +19311,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev.ex
 
 160:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev.exit
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %161, i8 0, i64 64, i1 false), !alias.scope !822
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %161, i8 0, i64 64, i1 false), !alias.scope !822
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %162, ptr %0, align 8, !tbaa !28, !alias.scope !822
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30772,7 +30772,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %193 = shl nuw nsw i64 %192, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %189, i64 noundef %193, i64 noundef 8) #27
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %194, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %194, i8 0, i64 12, i1 false)
   %195 = load ptr, ptr %188, align 8, !tbaa !995
   store ptr %195, ptr %187, align 8, !tbaa !995
   store ptr null, ptr %188, align 8, !tbaa !995
@@ -30801,7 +30801,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %212 = shl nuw nsw i64 %211, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %208, i64 noundef %212, i64 noundef 8) #27
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %213, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %213, i8 0, i64 12, i1 false)
   %214 = load ptr, ptr %207, align 8, !tbaa !996
   store ptr %214, ptr %206, align 8, !tbaa !996
   store ptr null, ptr %207, align 8, !tbaa !996
@@ -30830,7 +30830,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %231 = shl nuw nsw i64 %230, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %227, i64 noundef %231, i64 noundef 4) #27
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %232, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %232, i8 0, i64 12, i1 false)
   %233 = load ptr, ptr %226, align 8, !tbaa !867
   store ptr %233, ptr %225, align 8, !tbaa !867
   store ptr null, ptr %226, align 8, !tbaa !867
@@ -30859,7 +30859,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %250 = shl nuw nsw i64 %249, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %246, i64 noundef %250, i64 noundef 4) #27
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.031.036.i, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %251, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %251, i8 0, i64 12, i1 false)
   %252 = load ptr, ptr %245, align 8, !tbaa !867
   store ptr %252, ptr %244, align 8, !tbaa !867
   store ptr null, ptr %245, align 8, !tbaa !867

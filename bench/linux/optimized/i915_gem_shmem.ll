@@ -505,7 +505,7 @@ define dso_local void @__shmem_writeback(i64 noundef %0, ptr noundef %1) local_u
   %3 = alloca %struct.writeback_control, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 9223372036854775807, ptr %5, align 8

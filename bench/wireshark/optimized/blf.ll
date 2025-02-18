@@ -5382,7 +5382,7 @@ define internal fastcc noundef zeroext i1 @blf_pull_logcontainer_into_memory(ptr
 96:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #14
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %97, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %97, i8 0, i64 104, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %83, ptr %98, align 8
   store ptr %76, ptr %5, align 8

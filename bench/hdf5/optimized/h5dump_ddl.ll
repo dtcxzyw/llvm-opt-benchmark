@@ -163,7 +163,7 @@ define dso_local void @dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.h5tools_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %3, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %3, i8 0, i64 1112, i1 false)
   %4 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %5 = udiv i32 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 568
@@ -195,7 +195,7 @@ define dso_local void @dump_dataspace(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.h5tools_context_t, align 8
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %3, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %3, i8 0, i64 1112, i1 false)
   %4 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %5 = udiv i32 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 568
@@ -217,7 +217,7 @@ define dso_local range(i32 -1, 1) i32 @dump_attr_cb(i64 noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %5) #15
   call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %7, i8 0, i64 1104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) %7, i8 0, i64 1104, i1 false)
   %8 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %9 = udiv i32 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 568
@@ -386,7 +386,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   store i64 0, ptr %9, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %13, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %13, i8 0, i64 1112, i1 false)
   %14 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %15 = udiv i32 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 568
@@ -1222,7 +1222,7 @@ define dso_local void @dump_named_datatype(i64 noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %8) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %9, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %9, i8 0, i64 1112, i1 false)
   %10 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %11 = udiv i32 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 568
@@ -1558,7 +1558,7 @@ define dso_local void @dump_group(i64 noundef %0, ptr noundef %1) local_unnamed_
 27:                                               ; preds = %26, %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %28, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %28, i8 0, i64 1112, i1 false)
   %29 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %30 = udiv i32 %29, 3
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 568
@@ -1886,7 +1886,7 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store i64 0, ptr %8, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %9, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %9, i8 0, i64 1112, i1 false)
   %10 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %11 = udiv i32 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 568
@@ -2292,7 +2292,7 @@ define dso_local void @dump_data(i64 noundef %0, i32 noundef %1, ptr noundef %2,
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 452
   store i32 %27, ptr %28, align 4, !tbaa !43
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %29, i8 0, i64 1096, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %29, i8 0, i64 1096, i1 false)
   %30 = load i32, ptr @dump_indent, align 4, !tbaa !4
   %31 = udiv i32 %30, 3
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 568
@@ -3015,7 +3015,7 @@ define dso_local void @handle_attributes(i64 noundef %0, ptr noundef %1, ptr rea
   %38 = add i32 %37, 3
   store i32 %38, ptr @dump_indent, align 4, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %39, i8 0, i64 1104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) %39, i8 0, i64 1104, i1 false)
   %40 = udiv i32 %38, 3
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 568
   store i32 %40, ptr %41, align 8, !tbaa !8

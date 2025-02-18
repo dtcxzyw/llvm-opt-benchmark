@@ -18870,7 +18870,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_10BasicBlockEEENS_14iterator
   store ptr %14, ptr %11, align 8, !tbaa !756, !alias.scope !796
   store ptr %14, ptr %12, align 8, !tbaa !760, !alias.scope !796
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !802
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !802
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !802
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28617,7 +28617,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !26, !alias.scope !984
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !990
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !990
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !28, !alias.scope !990
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8

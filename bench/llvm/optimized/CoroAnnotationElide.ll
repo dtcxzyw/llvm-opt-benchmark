@@ -1649,7 +1649,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i: ; preds = %757, %_ZN4llvm23
 
 "_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_23CoroAnnotationElidePass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS4_JRS3_EEES7_RNS_17CGSCCUpdateResultEE3$_0EEvT_PDTclfL0p_EE.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %44) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %219, i8 0, i64 64, i1 false), !alias.scope !254
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %219, i8 0, i64 64, i1 false), !alias.scope !254
   store ptr %220, ptr %44, align 8, !tbaa !3, !alias.scope !254
   store i32 2, ptr %221, align 8, !tbaa !10, !alias.scope !254
   store i32 0, ptr %222, align 4, !tbaa !11, !alias.scope !254
@@ -2394,7 +2394,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i120: ; preds = %991, %_ZN4llv
 
 995:                                              ; preds = %._crit_edge241
   %996 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %996, i8 0, i64 64, i1 false), !alias.scope !262
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %996, i8 0, i64 64, i1 false), !alias.scope !262
   %997 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %997, ptr %0, align 8, !tbaa !3, !alias.scope !262
   %998 = getelementptr inbounds nuw i8, ptr %0, i64 8

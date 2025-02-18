@@ -318,7 +318,7 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %
 
 ._crit_edge:                                      ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit19, %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %103, i8 0, i64 64, i1 false), !alias.scope !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, i8 0, i64 64, i1 false), !alias.scope !85
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %104, ptr %0, align 8, !tbaa !7, !alias.scope !85
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8

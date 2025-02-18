@@ -1894,7 +1894,7 @@ define internal i32 @p9_fd_create_unix(ptr noundef %0, ptr noundef %1, ptr readn
   br label %50
 
 19:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 0, i64 108, i1 false), !annotation !14
   store i16 1, ptr %5, align 2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %21 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %1) #13

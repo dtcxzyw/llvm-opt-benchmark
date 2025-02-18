@@ -221,7 +221,7 @@ resolve_jump_offsets.exit:                        ; preds = %._crit_edge.us.i, %
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %121 = load i32, ptr %120, align 8, !tbaa !31
   %122 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %122, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %122, i8 0, i64 40, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %19, i64 28
   store i32 %121, ptr %123, align 4, !tbaa !34
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 32

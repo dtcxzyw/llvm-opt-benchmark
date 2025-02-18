@@ -19,7 +19,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
   %8 = alloca %union.PJ_COORD, align 8
   %9 = alloca %union.PJ_COORD, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store double %0, ptr %4, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %1, ptr %.sroa.222.0..sroa_idx, align 8

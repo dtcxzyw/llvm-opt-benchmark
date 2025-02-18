@@ -249,7 +249,7 @@ if.end67:                                         ; preds = %if.end62, %if.then3
 
 if.end73:                                         ; preds = %entry
   %21 = getelementptr inbounds nuw i8, ptr %str, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %str, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8
@@ -1849,7 +1849,7 @@ entry:
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %0 = load i32, ptr %argCount_.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %fields, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 48, i1 false)
   store double 0x7FF8000000000000, ptr %fields, align 16
   %2 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   store double 0x7FF8000000000000, ptr %2, align 8
@@ -2072,7 +2072,7 @@ if.end10:                                         ; preds = %if.then5
 
 if.end16:                                         ; preds = %if.end
   %10 = getelementptr inbounds nuw i8, ptr %str, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %str, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8

@@ -10069,7 +10069,7 @@ invoke.cont136.i.i:                               ; preds = %call.i301.noexc.i
   %minBound.i.i.i309.i = getelementptr inbounds nuw i8, ptr %call.i301337.i, i64 64
   %history.i.i.i310.i = getelementptr inbounds nuw i8, ptr %call.i301337.i, i64 80
   %711 = getelementptr inbounds nuw i8, ptr %call.i301337.i, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %711, i8 0, i64 5, i1 false), !noalias !353
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %711, i8 0, i64 5, i1 false), !noalias !353
   store ptr %call.i529578.i, ptr %source.i.i306.i, align 8, !noalias !353
   %target.i311.i = getelementptr inbounds nuw i8, ptr %call.i301337.i, i64 40
   store ptr %call.i339363.i, ptr %target.i311.i, align 8, !noalias !353
@@ -25053,7 +25053,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %__cur.sroa.10.026 = phi ptr [ %__cur.sroa.10.1, %_ZNSt15_Deque_iteratorIN3ue217rose_literal_infoERS1_PS1_EppEv.exit ], [ %3, %for.body.preheader ]
   %__cur.sroa.14.025 = phi ptr [ %__cur.sroa.14.1, %_ZNSt15_Deque_iteratorIN3ue217rose_literal_infoERS1_PS1_EppEv.exit ], [ %2, %for.body.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %__cur.sroa.0.028, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i.i)
   store ptr %5, ptr %__cur.sroa.0.028, align 8

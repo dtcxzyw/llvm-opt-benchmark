@@ -67602,7 +67602,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %29, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %27, align 8, !tbaa !1617
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load ptr, ptr %2, align 8, !tbaa !81

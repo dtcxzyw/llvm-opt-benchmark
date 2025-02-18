@@ -704,7 +704,7 @@ for.body97:                                       ; preds = %for.body97.lr.ph, %
   %indvars.iv629 = phi i64 [ 1, %for.body97.lr.ph ], [ %indvars.iv.next630, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit154 ]
   %indvars.iv627 = phi i64 [ -1, %for.body97.lr.ph ], [ %indvars.iv.next628, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit154 ]
   %indvars.iv622 = phi i64 [ 0, %for.body97.lr.ph ], [ %indvars.iv.next623, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit154 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i141 = ptrtoint ptr %arrayidx94.val64 to i64
   %sub.ptr.rhs.cast.i142 = ptrtoint ptr %arrayidx94.val63 to i64
   %sub.ptr.sub.i143 = sub i64 %sub.ptr.lhs.cast.i141, %sub.ptr.rhs.cast.i142
@@ -898,7 +898,7 @@ for.body141:                                      ; preds = %for.body141.lr.ph, 
   %indvars.iv640 = phi i64 [ 1, %for.body141.lr.ph ], [ %indvars.iv.next641, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196 ]
   %indvars.iv637 = phi i64 [ -1, %for.body141.lr.ph ], [ %indvars.iv.next638, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196 ]
   %indvars.iv632 = phi i64 [ 0, %for.body141.lr.ph ], [ %indvars.iv.next633, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i159 = ptrtoint ptr %arrayidx124.val68 to i64
   %sub.ptr.rhs.cast.i160 = ptrtoint ptr %arrayidx124.val67 to i64
   %sub.ptr.sub.i161 = sub i64 %sub.ptr.lhs.cast.i159, %sub.ptr.rhs.cast.i160
@@ -1893,7 +1893,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i.i
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 24
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_finish3.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_finish3.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %cmp1.not18.i.i.i.i = icmp eq i64 %storemerge27.i.i.i, 1
   br i1 %cmp1.not18.i.i.i.i, label %if.end22.i, label %for.body.i.i.preheader.i.i
 

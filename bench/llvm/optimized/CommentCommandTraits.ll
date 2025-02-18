@@ -2839,7 +2839,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit: ; preds = %37, %40
   %.0.i.i.i = phi ptr [ %39, %37 ], [ %41, %40 ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store ptr %.0.i.i.i.i, ptr %.0.i.i.i, align 8, !tbaa !33
   %43 = load i32, ptr %0, align 8, !tbaa !6
   %44 = add i32 %43, 1

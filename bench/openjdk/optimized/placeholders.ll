@@ -506,7 +506,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %9, %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
   %.not.i.i.i.i16 = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i16, label %_ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i17, label %53
 

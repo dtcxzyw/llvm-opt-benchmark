@@ -3422,7 +3422,7 @@ if.then27:                                        ; preds = %if.end24
 if.end29:                                         ; preds = %if.end24
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %23, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 48, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)

@@ -982,7 +982,7 @@ define internal fastcc range(i32 0, 2) i32 @apply_filter(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #22
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   store ptr @filter_buffer_or_fd, ptr %15, align 8, !tbaa !63
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %34, align 8, !tbaa !65

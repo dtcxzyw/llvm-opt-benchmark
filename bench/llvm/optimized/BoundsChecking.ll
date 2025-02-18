@@ -2021,7 +2021,7 @@ _ZL17addBoundsCheckingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_15ScalarEvolu
 
 799:                                              ; preds = %_ZL17addBoundsCheckingRN4llvm8FunctionERNS_17TargetLibraryInfoERNS_15ScalarEvolutionERKNS_18BoundsCheckingPass7OptionsE.exit
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %800, i8 0, i64 64, i1 false), !alias.scope !182
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %800, i8 0, i64 64, i1 false), !alias.scope !182
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %801, ptr %0, align 8, !tbaa !28, !alias.scope !182
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 8

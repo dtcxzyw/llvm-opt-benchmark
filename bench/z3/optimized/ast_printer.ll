@@ -568,7 +568,7 @@ invoke.cont:
   %buf = alloca %class.sbuffer, align 8
   %ref.tmp = alloca %class.params_ref, align 8
   %0 = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   store ptr %0, ptr %buf, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

@@ -4851,7 +4851,7 @@ _ZN8aiStringaSERKS_.exit73:                       ; preds = %123, %137
   store ptr %159, ptr %160, align 8
   %161 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #30
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %162, i8 0, i64 1012, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1012) %162, i8 0, i64 1012, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 1032
   store double -1.000000e+00, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 1040

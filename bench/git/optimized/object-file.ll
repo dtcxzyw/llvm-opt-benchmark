@@ -3785,7 +3785,7 @@ define dso_local i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store ptr %4, ptr %5, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %7, align 8, !tbaa !117
@@ -3954,7 +3954,7 @@ define dso_local ptr @repo_read_object_file(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   store ptr %2, ptr %5, align 8, !tbaa !116
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3989,7 +3989,7 @@ define dso_local ptr @read_object_with_reference(ptr noundef %0, ptr noundef rea
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store ptr %8, ptr %6, align 8, !tbaa !116
   store ptr %9, ptr %15, align 8, !tbaa !117
@@ -4068,7 +4068,7 @@ define dso_local ptr @read_object_with_reference(ptr noundef %0, ptr noundef rea
 46:                                               ; preds = %42
   call void @free(ptr noundef nonnull %19) #27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store ptr %8, ptr %6, align 8, !tbaa !116
   store ptr %9, ptr %15, align 8, !tbaa !117
@@ -5494,7 +5494,7 @@ define dso_local i32 @force_object_loose(ptr noundef %0, i64 noundef %1) local_u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #27
@@ -6089,7 +6089,7 @@ define dso_local void @assert_oid_type(ptr noundef %0, i32 noundef %1) local_unn
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #27
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store ptr %3, ptr %4, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8, !tbaa !117

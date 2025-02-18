@@ -178,7 +178,7 @@ define ptr @evdns_add_server_port_with_base(ptr noundef %0, i32 noundef %1, i32 
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %9, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 0, i64 208, i1 false)
   store i32 %1, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %10, align 4
@@ -468,7 +468,7 @@ define ptr @evdns_add_server_port(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %8, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %8, i8 0, i64 208, i1 false)
   store i32 %0, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %9, align 4
@@ -4855,7 +4855,7 @@ search_state_decref.exit.i:                       ; preds = %._crit_edge.i.i, %1
 
 19:                                               ; preds = %search_state_decref.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i32 1, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 1, ptr %21, align 4
@@ -4927,7 +4927,7 @@ search_state_decref.exit.i.i:                     ; preds = %._crit_edge.i.i.i, 
 
 19:                                               ; preds = %search_state_decref.exit.i.i
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i32 1, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 1, ptr %21, align 4
@@ -4988,7 +4988,7 @@ define void @evdns_base_search_add(ptr noundef captures(none) %0, ptr noundef re
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 1, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %20, align 4
@@ -5071,7 +5071,7 @@ define void @evdns_base_search_ndots_set(ptr noundef captures(none) %0, i32 noun
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 1, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %15, align 4
@@ -5128,7 +5128,7 @@ define void @evdns_search_ndots_set(i32 noundef %0) local_unnamed_addr #2 {
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 1, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %15, align 4
@@ -5245,7 +5245,7 @@ str_matches_option.exit:                          ; preds = %4, %18
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store i32 1, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 1, ptr %37, align 4
@@ -8551,7 +8551,7 @@ free_getaddrinfo_request.exit167:                 ; preds = %151, %154
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %163, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %163, i8 0, i64 12, i1 false)
   store i16 2, ptr %7, align 4
   %164 = load i16, ptr %161, align 8
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %164)
@@ -8562,7 +8562,7 @@ free_getaddrinfo_request.exit167:                 ; preds = %151, %154
 
 167:                                              ; preds = %159
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %168, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %168, i8 0, i64 24, i1 false)
   store i16 10, ptr %8, align 4
   %169 = load i16, ptr %161, align 8
   %rev.i168 = tail call noundef i16 @llvm.bswap.i16(i16 %169)
@@ -13767,7 +13767,7 @@ search_state_decref.exit.i:                       ; preds = %._crit_edge.i.i, %2
 
 30:                                               ; preds = %search_state_decref.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store i32 1, ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 1, ptr %32, align 4
@@ -13799,7 +13799,7 @@ search_postfix_clear.exit:                        ; preds = %search_state_decref
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i32 1, ptr %40, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 1, ptr %43, align 4
@@ -13876,7 +13876,7 @@ search_state_decref.exit.i48:                     ; preds = %._crit_edge.i.i54, 
 
 73:                                               ; preds = %search_state_decref.exit.i48
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   store i32 1, ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 1, ptr %75, align 4
@@ -13916,7 +13916,7 @@ search_postfix_clear.exit55:                      ; preds = %search_state_decref
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   store i32 1, ptr %84, align 8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 1, ptr %87, align 4
@@ -14048,7 +14048,7 @@ search_state_decref.exit.i:                       ; preds = %._crit_edge.i.i, %5
 
 14:                                               ; preds = %search_state_decref.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 1, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %16, align 4
@@ -14089,7 +14089,7 @@ search_postfix_clear.exit:                        ; preds = %search_state_decref
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store i32 1, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 1, ptr %30, align 4

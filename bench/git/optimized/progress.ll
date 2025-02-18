@@ -426,7 +426,7 @@ define internal fastcc noundef ptr @start_progress_delay(ptr noundef %0, ptr nou
 23:                                               ; preds = %5
   store volatile i32 0, ptr @progress_update, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %24, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, i8 0, i64 144, i1 false)
   store ptr @progress_interval, ptr %6, align 8, !tbaa !27
   %25 = call i32 @sigemptyset(ptr noundef nonnull %24) #12
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 136

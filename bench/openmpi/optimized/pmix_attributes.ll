@@ -3856,7 +3856,7 @@ define void @pmix_attributes_print_headers(ptr noundef %0, ptr noundef readonly 
   store i8 0, ptr %21, align 2, !tbaa !80
   %22 = call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef nonnull %3) #18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %23, i8 32, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %23, i8 32, i64 64, i1 false)
   store i8 0, ptr %16, align 4, !tbaa !80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %3, i8 45, i64 35, i1 false), !tbaa !80
   %scevgep = getelementptr inbounds nuw i8, ptr %3, i64 37

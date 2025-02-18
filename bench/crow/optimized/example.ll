@@ -22731,7 +22731,7 @@ _ZN4crow4json6wvalue5resetEv.exit:                ; preds = %25, %_ZNSt10unique_
 _ZNSt10unique_ptrISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4crow4json6wvalueESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S9_EEESt14default_deleteISI_EEaSEOSL_.exit: ; preds = %_ZN4crow4json6wvalue5resetEv.exit
   %28 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %29, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %30, ptr %28, align 8, !tbaa !473
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -25686,7 +25686,7 @@ _ZNSt6vectorIN4crow4json6wvalueESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vect
 
 _ZNSt10unique_ptrISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4crow4json6wvalueESt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S9_EEESt14default_deleteISI_EEaSEOSL_.exit: ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %108, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %108, i8 0, i64 16, i1 false)
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 48
   store ptr %109, ptr %107, align 8, !tbaa !473
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -75290,7 +75290,7 @@ _ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_cod
 30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #37
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %31, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %31, i8 0, i64 144, i1 false)
   store ptr @asio_signal_handler, ptr %5, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = call i32 @sigfillset(ptr noundef nonnull %32) #37
@@ -83768,7 +83768,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #37
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store i16 2, ptr %6, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %9, align 2, !tbaa !14
@@ -83783,7 +83783,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %15, align 2, !tbaa !14
@@ -111715,7 +111715,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #37
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store i16 2, ptr %6, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %9, align 2, !tbaa !14
@@ -111730,7 +111730,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %15, align 2, !tbaa !14

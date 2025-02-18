@@ -38328,7 +38328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.i454: ; preds = %6292, %6
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__11HdSelectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6293, align 8, !noalias !586
   %6296 = getelementptr inbounds nuw i8, ptr %6293, i64 16
   %6297 = getelementptr inbounds nuw i8, ptr %6293, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6297, i8 0, i64 112, i1 false), !noalias !586
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6297, i8 0, i64 112, i1 false), !noalias !586
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11HdSelectionE, i64 16), ptr %6296, align 8, !noalias !586
   br label %6298
 
@@ -38738,7 +38738,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit118.i: ; 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__11HdSelectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6464, align 8, !noalias !599
   %6467 = getelementptr inbounds nuw i8, ptr %6464, i64 16
   %6468 = getelementptr inbounds nuw i8, ptr %6464, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6468, i8 0, i64 112, i1 false), !noalias !599
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6468, i8 0, i64 112, i1 false), !noalias !599
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11HdSelectionE, i64 16), ptr %6467, align 8, !noalias !599
   br label %6469
 

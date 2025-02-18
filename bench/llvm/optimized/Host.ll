@@ -2801,7 +2801,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForBPFEv() loc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) @__const._ZN4llvm3sys6detail20getHostCPUNameForBPFEv.v2_insns, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 1, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 5, ptr %5, align 4, !tbaa !58
@@ -2817,7 +2817,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForBPFEv() loc
 
 12:                                               ; preds = %0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 1, ptr %3, align 8, !tbaa !56
   store i32 5, ptr %5, align 4, !tbaa !58
   %14 = ptrtoint ptr %2 to i64

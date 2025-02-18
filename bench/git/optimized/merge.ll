@@ -3310,7 +3310,7 @@ define internal fastcc void @finish(ptr noundef nonnull %0, ptr noundef readonly
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.suggest_conflicts.msgbuf, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #17
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %23, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %23, i8 0, i64 168, i1 false)
   %24 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !38
   %.not4.i.i = icmp eq i32 %24, 0
   br i1 %.not4.i.i, label %_.exit.i, label %25
@@ -3524,7 +3524,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_tree_trivial(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %7, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %7, i8 0, i64 1112, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 2, ptr %8, align 8, !tbaa !190
   %9 = load ptr, ptr @the_repository, align 8, !tbaa !11

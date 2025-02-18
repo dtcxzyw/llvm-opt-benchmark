@@ -1025,7 +1025,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i8 0, ptr %m_imagecache_owner.i, align 8
   %m_Mw2c.i = getelementptr inbounds nuw i8, ptr %call, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %call, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c.i, align 4
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -1035,7 +1035,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store float 1.000000e+00, ptr %arrayidx12.i.i, align 4
   %m_Mc2w.i = getelementptr inbounds nuw i8, ptr %call, i64 84
   %5 = getelementptr inbounds nuw i8, ptr %call, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mc2w.i, align 4
   %arrayidx6.i1.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   store float 1.000000e+00, ptr %arrayidx6.i1.i, align 4
@@ -1116,7 +1116,7 @@ if.end11:                                         ; preds = %if.then9, %if.end7
   store i8 0, ptr %m_imagecache_owner.i6, align 8
   %m_Mw2c.i7 = getelementptr inbounds nuw i8, ptr %call12, i64 20
   %12 = getelementptr inbounds nuw i8, ptr %call12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c.i7, align 4
   %arrayidx6.i.i8 = getelementptr inbounds nuw i8, ptr %call12, i64 40
   store float 1.000000e+00, ptr %arrayidx6.i.i8, align 4
@@ -1126,7 +1126,7 @@ if.end11:                                         ; preds = %if.then9, %if.end7
   store float 1.000000e+00, ptr %arrayidx12.i.i10, align 4
   %m_Mc2w.i11 = getelementptr inbounds nuw i8, ptr %call12, i64 84
   %13 = getelementptr inbounds nuw i8, ptr %call12, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mc2w.i11, align 4
   %arrayidx6.i1.i12 = getelementptr inbounds nuw i8, ptr %call12, i64 104
   store float 1.000000e+00, ptr %arrayidx6.i1.i12, align 4
@@ -1524,7 +1524,7 @@ entry:
   store i8 0, ptr %m_imagecache_owner, align 8
   %m_Mw2c = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float 1.000000e+00, ptr %arrayidx6.i, align 8
@@ -1534,7 +1534,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx12.i, align 8
   %m_Mc2w = getelementptr inbounds nuw i8, ptr %this, i64 84
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mc2w, align 4
   %arrayidx6.i1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store float 1.000000e+00, ptr %arrayidx6.i1, align 8
@@ -1581,7 +1581,7 @@ entry:
   %agg.tmp4 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %m_Mw2c = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float 1.000000e+00, ptr %arrayidx6.i, align 8
@@ -4134,7 +4134,7 @@ if.then192:                                       ; preds = %if.else190
 
 if.end193:                                        ; preds = %if.else190
   %32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %32, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %32, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %agg.result, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -46979,7 +46979,7 @@ entry:
   %s = alloca %"class.Imath_2_5::Matrix44", align 4
   %t = alloca %"class.Imath_2_5::Matrix44", align 4
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %s, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %s, i64 20
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -47112,7 +47112,7 @@ if.then18:                                        ; preds = %if.then17
 
 if.end19:                                         ; preds = %if.then17
   %22 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %agg.result, align 4
   %arrayidx6.i87 = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store float 1.000000e+00, ptr %arrayidx6.i87, align 4
@@ -47205,7 +47205,7 @@ if.then100:                                       ; preds = %if.then98
 
 if.end102:                                        ; preds = %if.then98
   %38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %38, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %agg.result, align 4
   %arrayidx6.i120 = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store float 1.000000e+00, ptr %arrayidx6.i120, align 4

@@ -756,7 +756,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit80: ; preds = %if.t
   %30 = load ptr, ptr %vfn2.i, align 8
   %call3.i = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef 1)
   %31 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i64 1024, ptr %ref.tmp.i, align 8
   %vtable4.i = load ptr, ptr %call.i, align 8
   %vfn5.i = getelementptr inbounds nuw i8, ptr %vtable4.i, i64 72

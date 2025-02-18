@@ -5781,7 +5781,7 @@ define i32 @SSL_do_handshake(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !392
   %39 = call fastcc i32 @ssl_start_async_job(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @ssl_do_handshake_intern)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
@@ -7048,7 +7048,7 @@ define i32 @SSL_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !392
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 2, ptr %33, align 8, !tbaa !400

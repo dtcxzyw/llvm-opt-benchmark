@@ -41400,7 +41400,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_5flake4NodeEJEEENS_3refIT_EEDpOT0_
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !noalias !202
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !202
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix5flake4NodeE, i64 16), ptr %7, align 8, !noalias !202
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56

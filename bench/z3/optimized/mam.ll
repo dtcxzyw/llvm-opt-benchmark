@@ -13326,7 +13326,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 if.then85:                                        ; preds = %for.cond.i, %if.then79
   %101 = getelementptr inbounds nuw i8, ptr %iregs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %101, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %101, i8 0, i64 64, i1 false)
   store ptr %101, ptr %iregs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %iregs, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -14289,7 +14289,7 @@ _ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE9push_backEOS2_.exit: ; preds = %
 
 if.end:                                           ; preds = %entry, %_Z9is_groundPK4expr.exit
   %19 = getelementptr inbounds nuw i8, ptr %iregs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
   store ptr %19, ptr %iregs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %iregs, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

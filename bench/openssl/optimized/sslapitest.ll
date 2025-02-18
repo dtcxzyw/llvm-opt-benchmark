@@ -19162,9 +19162,9 @@ define internal range(i32 0, 2) i32 @test_quic_tls() #1 {
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %9, ptr noundef nonnull align 1 dereferenceable(3) @__const.test_quic_tls.sparams, i64 3, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8600) %10, i8 0, i64 8592, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8592) %10, i8 0, i64 8592, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8600) %11, i8 0, i64 8592, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8592) %11, i8 0, i64 8592, i1 false)
   store ptr %7, ptr %6, align 8, !tbaa !152
   store ptr %6, ptr %7, align 8, !tbaa !152
   %12 = load ptr, ptr @libctx, align 8, !tbaa !4

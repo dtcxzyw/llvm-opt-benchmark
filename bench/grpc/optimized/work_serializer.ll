@@ -1853,7 +1853,7 @@ entry:
 _ZNSt10unique_ptrIN9grpc_core14WorkSerializer20LegacyWorkSerializerENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry
   %call.i2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24, !noalias !16
   %0 = getelementptr inbounds nuw i8, ptr %call.i2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, i8 0, i64 64, i1 false), !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 64, i1 false), !noalias !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14WorkSerializer20LegacyWorkSerializerE, i64 16), ptr %call.i2, align 8, !noalias !16
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   store i64 1, ptr %refs_.i.i, align 8, !noalias !16

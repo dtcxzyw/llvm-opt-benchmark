@@ -40406,7 +40406,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
   %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %14582, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i.i.i.i, %14562 ]
   %.057.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %14581, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14564, %14562 ]
   %14571 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14571, i8 0, i64 104, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14571, i8 0, i64 104, i1 false), !noalias !521
   store ptr %14571, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %14572 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %14572, align 8, !tbaa !53, !noalias !521
@@ -40444,7 +40444,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_chec
   %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %14598, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14586, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.057.i.i.i34.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %14597, %.lr.ph.i.i.i32.i.i.i.i.i.i.i.i.i.i.i.i ], [ %14564, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration11PropagationESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %14587 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14587, i8 0, i64 104, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14587, i8 0, i64 104, i1 false), !noalias !521
   store ptr %14587, ptr %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %14588 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %14588, align 8, !tbaa !53, !noalias !521
@@ -41098,7 +41098,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration11Pro
   %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i = phi ptr [ %14894, %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i ], [ %.val5.i.i.i.i.i14.i.i.i.i.i, %14877 ]
   %.057.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %14893, %.lr.ph.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i ], [ %14879, %14877 ]
   %14886 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14886, i8 0, i64 72, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14886, i8 0, i64 72, i1 false), !noalias !521
   store ptr %14886, ptr %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %14887 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i, i64 8
   store i64 0, ptr %14887, align 8, !tbaa !53, !noalias !521
@@ -41131,7 +41131,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenE
   %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i = phi ptr [ %14907, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %14898, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.057.i.i.i34.i.i.i.i.i.i.i28.i.i.i.i.i = phi i64 [ %14906, %.lr.ph.i.i.i32.i.i.i.i.i.i.i26.i.i.i.i.i ], [ %14879, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration6FilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %14899 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14899, i8 0, i64 72, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14899, i8 0, i64 72, i1 false), !noalias !521
   store ptr %14899, ptr %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %14900 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i27.i.i.i.i.i, i64 8
   store i64 0, ptr %14900, align 8, !tbaa !53, !noalias !521
@@ -41566,7 +41566,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_118TaintConfiguration6Filt
   %.08.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i = phi ptr [ %15095, %.lr.ph.i.i.i.i.i.i.i.i.i.i75.i.i.i.i.i ], [ %.val5.i.i.i.i.i72.i.i.i.i.i, %15078 ]
   %.057.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i = phi i64 [ %15094, %.lr.ph.i.i.i.i.i.i.i.i.i.i75.i.i.i.i.i ], [ %15080, %15078 ]
   %15087 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15087, i8 0, i64 72, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15087, i8 0, i64 72, i1 false), !noalias !521
   store ptr %15087, ptr %.08.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %15088 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i, i64 8
   store i64 0, ptr %15088, align 8, !tbaa !53, !noalias !521
@@ -41599,7 +41599,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmP
   %.08.i.i.i33.i.i.i.i.i.i.i85.i.i.i.i.i = phi ptr [ %15108, %.lr.ph.i.i.i32.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %15099, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.057.i.i.i34.i.i.i.i.i.i.i86.i.i.i.i.i = phi i64 [ %15107, %.lr.ph.i.i.i32.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %15080, %_ZNKSt6vectorIN12_GLOBAL__N_118TaintConfiguration4SinkESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %15100 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i85.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15100, i8 0, i64 72, i1 false), !noalias !521
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15100, i8 0, i64 72, i1 false), !noalias !521
   store ptr %15100, ptr %.08.i.i.i33.i.i.i.i.i.i.i85.i.i.i.i.i, align 8, !tbaa !325, !noalias !521
   %15101 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i.i85.i.i.i.i.i, i64 8
   store i64 0, ptr %15101, align 8, !tbaa !53, !noalias !521
@@ -42441,17 +42441,17 @@ _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit.i.i: 
   store i64 0, ptr %15337, align 8, !noalias !587
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146) #20, !noalias !590
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15338, i8 0, i64 16, i1 false), !noalias !590
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15338, i8 0, i64 16, i1 false), !noalias !590
   store ptr %15338, ptr %146, align 8, !tbaa !80, !noalias !590
   store i32 0, ptr %15339, align 8, !tbaa !246, !noalias !590
   store i32 2, ptr %15340, align 4, !tbaa !323, !noalias !590
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147) #20, !noalias !590
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15341, i8 0, i64 16, i1 false), !noalias !590
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15341, i8 0, i64 16, i1 false), !noalias !590
   store ptr %15341, ptr %147, align 8, !tbaa !80, !noalias !590
   store i32 0, ptr %15342, align 8, !tbaa !246, !noalias !590
   store i32 2, ptr %15343, align 4, !tbaa !323, !noalias !590
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148) #20, !noalias !590
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15344, i8 0, i64 16, i1 false), !noalias !590
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15344, i8 0, i64 16, i1 false), !noalias !590
   store ptr %15344, ptr %148, align 8, !tbaa !80, !noalias !590
   store i32 0, ptr %15345, align 8, !tbaa !246, !noalias !590
   store i32 2, ptr %15346, align 4, !tbaa !323, !noalias !590
@@ -43894,7 +43894,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EOS0_.exit8.i:
   %4 = alloca %"class.(anonymous namespace)::ArgSet", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %2, align 8, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -43903,7 +43903,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EOS0_.exit8.i:
   store i32 2, ptr %8, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %3, align 8, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -43912,7 +43912,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EOS0_.exit8.i:
   store i32 2, ptr %12, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %4, align 8, !tbaa !80
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -44015,7 +44015,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EOS0_.exit6.i:
   %4 = alloca %"class.(anonymous namespace)::ArgSet", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %3, align 8, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -44024,7 +44024,7 @@ _ZN12_GLOBAL__N_16ArgSetC2EOS0_.exit6.i:
   store i32 2, ptr %8, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -44126,7 +44126,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116GenericTaintRule4SinkEONS_6ArgSe
   %6 = alloca %"class.(anonymous namespace)::ArgSet", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -44135,7 +44135,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116GenericTaintRule4SinkEONS_6ArgSe
   store i32 2, ptr %10, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %5, align 8, !tbaa !80
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -44144,7 +44144,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116GenericTaintRule4SinkEONS_6ArgSe
   store i32 2, ptr %14, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %6, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -47767,7 +47767,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContai
 
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE5beginEv.exit: ; preds = %24, %27
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %18, i8 0, i64 160, i1 false), !alias.scope !1103
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false), !alias.scope !1103
   store ptr %18, ptr %5, align 8, !tbaa !80, !alias.scope !1103
   store i32 0, ptr %19, align 8, !tbaa !246, !alias.scope !1103
   store i32 20, ptr %20, align 4, !tbaa !323, !alias.scope !1103
@@ -49369,7 +49369,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_17Imu
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE5beginEv.exit: ; preds = %10, %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, i8 0, i64 160, i1 false), !alias.scope !1131
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, i8 0, i64 160, i1 false), !alias.scope !1131
   store ptr %20, ptr %5, align 8, !tbaa !80, !alias.scope !1131
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %21, align 8, !tbaa !246, !alias.scope !1131
@@ -50062,7 +50062,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEEEEE5beginEv.exit: ; preds = %24, %27
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %18, i8 0, i64 160, i1 false), !alias.scope !1154
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %18, i8 0, i64 160, i1 false), !alias.scope !1154
   store ptr %18, ptr %5, align 8, !tbaa !80, !alias.scope !1154
   store i32 0, ptr %19, align 8, !tbaa !246, !alias.scope !1154
   store i32 20, ptr %20, align 4, !tbaa !323, !alias.scope !1154
@@ -51233,7 +51233,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_16Imu
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang15LocationContextENS_12ImmutableSetIiNS_17ImutContainerInfoIiEEEEEEE5beginEv.exit: ; preds = %10, %13
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %20, i8 0, i64 160, i1 false), !alias.scope !1178
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %20, i8 0, i64 160, i1 false), !alias.scope !1178
   store ptr %20, ptr %5, align 8, !tbaa !80, !alias.scope !1178
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %21, align 8, !tbaa !246, !alias.scope !1178
@@ -51785,7 +51785,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutC
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE5beginEv.exit: ; preds = %13, %16
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #20
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %23, i8 0, i64 160, i1 false), !alias.scope !1185
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %23, i8 0, i64 160, i1 false), !alias.scope !1185
   store ptr %23, ptr %4, align 8, !tbaa !80, !alias.scope !1185
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %24, align 8, !tbaa !246, !alias.scope !1185
@@ -51821,7 +51821,7 @@ _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE5beginEv.exit: ; preds = %13, 
 _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIiEEE5beginEv.exit9: ; preds = %30, %33
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #20
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %40, i8 0, i64 160, i1 false), !alias.scope !1191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %40, i8 0, i64 160, i1 false), !alias.scope !1191
   store ptr %40, ptr %6, align 8, !tbaa !80, !alias.scope !1191
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %41, align 8, !tbaa !246, !alias.scope !1191

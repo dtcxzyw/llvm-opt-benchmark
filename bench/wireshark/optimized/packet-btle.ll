@@ -8498,7 +8498,7 @@ control_proc_invalid_collision.exit.thread:       ; preds = %16, %13, %8, %7, %2
   %36 = tail call ptr @wmem_file_scope()
   %37 = tail call noalias dereferenceable_or_null(36) ptr @wmem_alloc0(ptr noundef %36, i64 noundef 36) #13
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %38, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %38, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %39 = load i32, ptr %27, align 4
   store i32 %39, ptr %37, align 4
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 20

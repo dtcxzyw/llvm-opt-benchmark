@@ -19198,7 +19198,7 @@ _ZNSt4pairIPN4llvm4TypeENS0_19ConstantExprKeyTypeEEC2IRS2_RS3_TnNSt9enable_ifIXa
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #29
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %50, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %49, align 8, !tbaa !796
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %52 = load i8, ptr %11, align 8, !tbaa !60
@@ -24887,7 +24887,7 @@ _ZN4llvm19ConstantExprKeyTypeD2Ev.exit:           ; preds = %_ZN4llvm19ConstantE
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #29
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %97, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %97, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %96, align 8, !tbaa !796
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %99 = load i8, ptr %81, align 1, !tbaa !60
@@ -35629,7 +35629,7 @@ _ZNSt4pairIPN4llvm4TypeENS0_19ConstantExprKeyTypeEEC2IS2_S3_TnNSt9enable_ifIXaac
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #29
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %32, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %32, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %31, align 8, !tbaa !796
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 1

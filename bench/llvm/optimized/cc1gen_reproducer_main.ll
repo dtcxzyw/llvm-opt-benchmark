@@ -728,7 +728,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %278, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i.i.i, %264 ]
   %.057.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %277, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %266, %264 ]
   %273 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %273, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %273, i8 0, i64 48, i1 false)
   store ptr %273, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38
   %274 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %274, align 8, !tbaa !32
@@ -757,7 +757,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115UnsavedFileHashESaIS1_EE12_M_check_lenEmPKc.exit.
   %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %288, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %282, %_ZNKSt6vectorIN12_GLOBAL__N_115UnsavedFileHashESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %287, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %266, %_ZNKSt6vectorIN12_GLOBAL__N_115UnsavedFileHashESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %283 = getelementptr inbounds nuw i8, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %283, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %283, i8 0, i64 48, i1 false)
   store ptr %283, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38
   %284 = getelementptr inbounds nuw i8, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %284, align 8, !tbaa !32

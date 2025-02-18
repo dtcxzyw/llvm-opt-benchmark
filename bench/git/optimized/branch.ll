@@ -1110,7 +1110,7 @@ define internal fastcc void @setup_tracking(ptr noundef %0, ptr noundef %1, i32 
   %10 = zext i1 %.not to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #14
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   store ptr %5, ptr %7, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32

@@ -5300,7 +5300,7 @@ define linkonce_odr void @_ZSt10_ConstructIN8WasmEdge4Host4WASI6VINodeEJNS2_5INo
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %17, align 8
   store ptr %20, ptr %16, align 8
   store ptr null, ptr %17, align 8
@@ -5475,7 +5475,7 @@ define linkonce_odr void @_ZSt10_ConstructIN8WasmEdge4Host4WASI6VINodeEJNS2_5INo
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %21 = load ptr, ptr %18, align 8
   store ptr %21, ptr %17, align 8
   store ptr null, ptr %18, align 8

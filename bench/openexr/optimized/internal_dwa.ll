@@ -176,7 +176,7 @@ if.end10.sink.split.i:                            ; preds = %if.else.i, %if.end4
 
 initializeFuncs.exit:                             ; preds = %entry, %if.else.i, %if.end10.sink.split.i
   %6 = getelementptr inbounds nuw i8, ptr %me, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %_acCompression = getelementptr inbounds nuw i8, ptr %me, i64 16
   store i32 %acCompression, ptr %_acCompression, align 8
   store ptr %encode, ptr %me, align 8
@@ -2422,7 +2422,7 @@ if.then.i.i:                                      ; preds = %sw.bb333
   br label %LossyDctDecoder_construct.exit
 
 LossyDctDecoder_construct.exit:                   ; preds = %sw.bb333, %if.then.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %81, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   store ptr %arrayidx322, ptr %_channel_decode_data.i.i274, align 8
   store i32 1, ptr %_channel_decode_data_count.i275, align 8
   %111 = load ptr, ptr %alloc_fn346, align 8
@@ -8067,7 +8067,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 LossyDctEncoder_base_construct.exit:              ; preds = %for.body.i
   %_channel_encode_data.i = getelementptr inbounds nuw i8, ptr %e, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %e, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr %rowPtrs, ptr %_channel_encode_data.i, align 8
   %_channel_encode_data_count = getelementptr inbounds nuw i8, ptr %e, i64 48
   store i32 1, ptr %_channel_encode_data_count, align 8

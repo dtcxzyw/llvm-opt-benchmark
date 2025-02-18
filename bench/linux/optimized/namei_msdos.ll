@@ -1396,7 +1396,7 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr noundef readonly
   store i16 0, ptr %10, align 2, !annotation !5
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 11
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %16, i8 0, i64 19, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %16, i8 0, i64 19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %8, ptr noundef align 1 dereferenceable(11) %1, i64 11, i1 false)
   %17 = icmp eq i32 %2, 0
   %18 = select i1 %17, i8 32, i8 16

@@ -1376,7 +1376,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 204:                                              ; preds = %196
   %205 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %205, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
   store ptr @auth_cram_md5, ptr %12, align 8, !tbaa !76
   %206 = call i32 (ptr, ptr, ptr, ...) @imap_exec(ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull @.str.56)
   %.not106.i = icmp eq i32 %206, 0

@@ -450,7 +450,7 @@ lpad.i.i:                                         ; preds = %call.i.i.noexc19
 
 invoke.cont.i14:                                  ; preds = %call.i.i.noexc19
   %28 = getelementptr inbounds nuw i8, ptr %call.i1.i1.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %28, i8 0, i64 144, i1 false), !noalias !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %28, i8 0, i64 144, i1 false), !noalias !14
   %refs_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i.i, align 8, !noalias !14
   %29 = getelementptr inbounds nuw i8, ptr %call.i1.i1.i.i, i64 16

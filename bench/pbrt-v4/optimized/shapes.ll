@@ -13902,7 +13902,7 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %if.then.i54.i
   store float %add6.i679, ptr %agg.tmp384760.sroa.5.0.dndv19.i.i.sroa_idx, align 4
   %shading.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 128
   %73 = getelementptr inbounds nuw i8, ptr %agg.result, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %73, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, i8 0, i64 56, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %shading.i.i, ptr noundef nonnull align 8 dereferenceable(12) %n7.i.i.i, i64 12, i1 false)
   %dpdu23.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 140
   store <2 x float> %dpdu.sroa.0.0, ptr %dpdu23.i.i, align 4

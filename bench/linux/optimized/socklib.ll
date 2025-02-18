@@ -26,7 +26,7 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr noundef read
   %3 = alloca %struct.xdr_skb_reader, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !6
   store ptr %1, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112

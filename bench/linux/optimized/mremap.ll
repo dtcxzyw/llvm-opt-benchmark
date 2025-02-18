@@ -1987,7 +1987,7 @@ define internal fastcc i64 @move_vma(ptr noundef %0, i64 noundef %1, i64 noundef
 172:                                              ; preds = %157
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %174, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 32, i1 false)
   store ptr %173, ptr %11, align 8
   %175 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %109, ptr %175, align 8

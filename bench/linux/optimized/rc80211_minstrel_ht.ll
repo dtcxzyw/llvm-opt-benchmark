@@ -1533,7 +1533,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
 15:                                               ; preds = %11, %4
   %16 = phi i1 [ %14, %11 ], [ true, %4 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10824) %17, i8 0, i64 10816, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10816) %17, i8 0, i64 10816, i1 false)
   store ptr %2, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8

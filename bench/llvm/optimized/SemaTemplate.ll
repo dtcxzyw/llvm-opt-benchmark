@@ -78603,7 +78603,7 @@ define dso_local void @_ZN5clang4Sema24MarkAsLateParsedTemplateEPNS_12FunctionDe
 10:                                               ; preds = %4
   %11 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #33, !noalias !2183
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %12, i8 0, i64 112, i1 false), !noalias !2183
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %12, i8 0, i64 112, i1 false), !noalias !2183
   store ptr %12, ptr %11, align 8, !tbaa !33, !noalias !2183
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %13, align 8, !tbaa !697, !noalias !2183
@@ -109180,7 +109180,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %398, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %398, i8 0, i64 104, i1 false)
   store ptr %398, ptr %15, align 8, !tbaa !1758
   %399 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %399, align 8, !tbaa !1760
@@ -148255,7 +148255,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang12FunctionDeclENS2_24TemplateA
   store ptr %34, ptr %23, align 8, !tbaa !2030
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %36, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %36, i8 0, i64 256, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %37, ptr %35, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -153189,7 +153189,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %403
   %408 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %408, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %408, i8 0, i64 104, i1 false)
   store ptr %408, ptr %15, align 8, !tbaa !1758
   %409 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %409, align 8, !tbaa !1760

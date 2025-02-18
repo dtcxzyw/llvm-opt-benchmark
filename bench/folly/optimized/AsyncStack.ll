@@ -550,7 +550,7 @@ define internal fastcc void @"_ZN5folly14IndestructibleISt10unique_ptrINS_12Sync
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26, !noalias !58
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 32, i1 false), !noalias !58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !noalias !58
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %3, ptr %1, align 8, !tbaa !61, !noalias !58
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

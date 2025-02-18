@@ -1142,7 +1142,7 @@ ll_binary_merge.exit:                             ; preds = %35, %38, %41, %42
 
 47:                                               ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 48, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 2, ptr %49, align 4, !tbaa !57
   %50 = load i8, ptr %9, align 8

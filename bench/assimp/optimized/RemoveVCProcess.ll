@@ -225,7 +225,7 @@ _Z11ArrayDeleteI9aiTextureEvRPPT_Rj.exit:         ; preds = %._crit_edge.i51, %5
   %64 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull %3, i32 noundef 12, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %4) #13
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %65, i8 0, i64 1004, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1004) %65, i8 0, i64 1004, i1 false)
   store i32 22, ptr %4, align 4
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %66, ptr noundef nonnull align 1 dereferenceable(22) @.str.3, i64 22, i1 false)

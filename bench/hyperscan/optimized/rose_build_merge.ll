@@ -20439,7 +20439,7 @@ invoke.cont32.i:                                  ; preds = %lor.lhs.false.i.i.i
   %retval.sroa.0.1.i = phi ptr [ null, %call.i.i.i.i.noexc ], [ null, %if.then.i168 ], [ %retval.sroa.0.032.i, %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St5dequeINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISD_EEENS_10_Select1stESt8equal_toIS2_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueISG_Lb1EEE.exit.i ], [ null, %for.inc.i ], [ %174, %_ZNKSt8__detail15_Hashtable_baseIN3ue27left_idESt4pairIKS2_St5dequeINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISD_EEENS_10_Select1stESt8equal_toIS2_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueISG_Lb1EEE.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i154 ], [ null, %if.end3.i.i.i152 ]
   %second.i.i180 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i, i64 48
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %merged.i) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %117, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %117, i8 0, i64 64, i1 false)
   store i64 8, ptr %_M_map_size.i, align 8
   %call5.i.i4.i.i184 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
           to label %call5.i.i4.i.i.noexc unwind label %lpad34.i

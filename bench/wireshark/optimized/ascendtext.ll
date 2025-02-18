@@ -51,7 +51,7 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #5
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %7) #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -379,7 +379,7 @@ define internal fastcc noundef zeroext i1 @parse_ascend(ptr noundef captures(non
   %8 = alloca %struct.ascend_state_t, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, i8 0, i64 160, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %11 = zext i32 %3 to i64
   tail call void @ws_buffer_assure_space(ptr noundef nonnull %10, i64 noundef %11)

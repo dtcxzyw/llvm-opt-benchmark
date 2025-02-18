@@ -13449,7 +13449,7 @@ define dso_local i32 @job_mgr_signal_jobs(ptr noundef %0, i32 noundef %1, ptr no
   %9 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #27
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -18551,7 +18551,7 @@ define dso_local ptr @pack_all_jobs(i16 noundef zeroext %0, i32 noundef %1, i32 
   %6 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #27
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %8 = tail call ptr @init_buf(i32 noundef 16384) #27
   %9 = icmp ugt i16 %3, 10239
   br i1 %9, label %10, label %_pack_init_job_info.exit
@@ -18800,7 +18800,7 @@ define dso_local ptr @pack_spec_jobs(ptr noundef %0, i16 noundef zeroext %1, i32
   %7 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   %9 = tail call ptr @init_buf(i32 noundef 16384) #27
   %10 = icmp ugt i16 %4, 10239
   br i1 %10, label %11, label %_pack_init_job_info.exit

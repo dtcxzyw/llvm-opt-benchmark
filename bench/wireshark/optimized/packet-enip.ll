@@ -4154,7 +4154,7 @@ classify_packet.exit:                             ; preds = %12, %13, %14, %.thr
   %19 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0.i, ptr %21, align 4
   %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)

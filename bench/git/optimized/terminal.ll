@@ -591,7 +591,7 @@ is_known_escape_sequence.exit:                    ; preds = %42, %._crit_edge.i
 80:                                               ; preds = %84, %79
   store i64 0, ptr %2, align 8, !tbaa !29
   store i64 500000, ptr %40, align 8, !tbaa !31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %41, i8 0, i64 120, i1 false), !tbaa !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, i8 0, i64 120, i1 false), !tbaa !32
   store i64 1, ptr %3, align 8, !tbaa !32
   %81 = call i32 @select(i32 noundef 1, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #13
   %.not.i16 = icmp eq i32 %81, 0

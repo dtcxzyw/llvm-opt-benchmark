@@ -6634,7 +6634,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %27, ptr noundef nonnull align 8 dereferenceable(60) %3, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = load double, ptr %18, align 8
   store double %30, ptr %28, align 8
   %31 = load double, ptr %.sroa.2.0..sroa_idx, align 8

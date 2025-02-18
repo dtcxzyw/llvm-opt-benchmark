@@ -945,7 +945,7 @@ _ZN5ZXing10DataMatrix10EdgeTracer25updateDirectionFromOriginENS_6PointTIdEE.exit
   %414 = fdiv double %.sroa.2.0.copyload.i.i.i, %.sroa.speculated.i.i.i226.i.i
   store double %413, ptr %190, align 8, !noalias !15
   store double %414, ptr %191, align 8, !noalias !15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %212, i8 0, i64 16, i1 false), !noalias !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false), !noalias !15
   store double 0x7FF8000000000000, ptr %194, align 8, !noalias !15
   store double 0x7FF8000000000000, ptr %195, align 8, !noalias !15
   store double 0x7FF8000000000000, ptr %196, align 8, !noalias !15

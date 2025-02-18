@@ -2152,7 +2152,7 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %14, %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 96, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !11
   %20 = and i32 %1, 12
   %21 = icmp eq i32 %20, 12
   br i1 %21, label %22, label %29
@@ -2762,7 +2762,7 @@ define dso_local i32 @io_send_zc(ptr noundef %0, i32 noundef %1) local_unnamed_a
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !annotation !11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 96, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, i8 0, i64 96, i1 false), !annotation !11
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = and i64 %11, 32

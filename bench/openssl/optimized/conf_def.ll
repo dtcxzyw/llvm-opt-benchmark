@@ -83,7 +83,7 @@ define internal range(i32 0, 2) i32 @def_init_default(ptr noundef writeonly capt
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr @default_method, ptr %0, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @CONF_type_default, ptr %5, align 8, !tbaa !15
@@ -2310,7 +2310,7 @@ define internal range(i32 0, 2) i32 @def_init_WIN32(ptr noundef writeonly captur
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr @WIN32_method, ptr %0, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @CONF_type_win32, ptr %5, align 8, !tbaa !15

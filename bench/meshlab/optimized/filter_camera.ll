@@ -1708,7 +1708,7 @@ define void @_ZN18FilterCameraPlugin17initParameterListEPK7QActionRK12MeshDocume
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %5, i8 0, i64 56, i1 false)
   %202 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %203, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %203, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %202, align 4
   %204 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store float 1.000000e+00, ptr %204, align 4
@@ -6140,7 +6140,7 @@ _ZN7QStringD2Ev.exit1064:                         ; preds = %_ZN5QListI7QStringE
   br label %1261
 
 1261:                                             ; preds = %1260, %1258, %1255
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -8634,7 +8634,7 @@ define void @_ZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParam
 
 103:                                              ; preds = %7
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %104, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %104, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %14, align 4
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store float 1.000000e+00, ptr %105, align 4
@@ -9037,7 +9037,7 @@ _ZN7QStringD2Ev.exit564:                          ; preds = %187, %_ZN9QtPrivate
   %.sroa.01264.0.vec.extract = extractelement <2 x float> %.sroa.01264.0, i64 0
   %.sroa.01264.4.vec.extract = extractelement <2 x float> %.sroa.01264.0, i64 1
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %235, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %235, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %15, align 4
   %236 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float 1.000000e+00, ptr %236, align 4
@@ -9055,7 +9055,7 @@ _ZN7QStringD2Ev.exit564:                          ; preds = %187, %_ZN9QtPrivate
   %243 = fneg float %.sroa.01264.4.vec.extract
   %244 = fneg float %.sroa.9.0
   %245 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %245, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %245, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %16, align 4
   %246 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store float 1.000000e+00, ptr %246, align 4
@@ -9357,7 +9357,7 @@ _ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit: ; preds = %_ZN3vcg4Box3IfE3A
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.01245.01488, i64 992
   call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %362, ptr noundef nonnull align 4 dereferenceable(64) %25)
   %363 = getelementptr inbounds nuw i8, ptr %.sroa.01245.01488, i64 1152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %363, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %363, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %295, align 4
   %364 = getelementptr inbounds nuw i8, ptr %.sroa.01245.01488, i64 1168
   store float 1.000000e+00, ptr %364, align 4
@@ -9649,7 +9649,7 @@ _ZN7QStringD2Ev.exit623:                          ; preds = %417, %_ZN9QtPrivate
 
 449:                                              ; preds = %7
   %450 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %450, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %450, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %34, align 4
   %451 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store float 1.000000e+00, ptr %451, align 4
@@ -9685,7 +9685,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i627: ; preds = %_ZN9QtPrivate8RefCo
   br label %461
 
 461:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i627, %_ZN9QtPrivate8RefCount5derefEv.exit.i628, %456
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %450, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %450, i8 0, i64 56, i1 false)
   store float %455, ptr %34, align 4
   store float %455, ptr %451, align 4
   store float %455, ptr %452, align 4
@@ -9910,7 +9910,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i660: ; preds = %_ZN9QtPrivate8RefCo
   %.sroa.01220.0.vec.extract = extractelement <2 x float> %.sroa.01220.0, i64 0
   %.sroa.01220.4.vec.extract = extractelement <2 x float> %.sroa.01220.0, i64 1
   %521 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %521, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %521, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %35, align 4
   %522 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store float 1.000000e+00, ptr %522, align 4
@@ -9928,7 +9928,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i660: ; preds = %_ZN9QtPrivate8RefCo
   %529 = fneg float %.sroa.01220.4.vec.extract
   %530 = fneg float %.sroa.11.0
   %531 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %531, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %531, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %36, align 4
   %532 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store float 1.000000e+00, ptr %532, align 4
@@ -10187,7 +10187,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i709:   ; preds = %632, %629, %_ZNK3vc
 
 .loopexit1434:                                    ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i709, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit704
   %634 = getelementptr inbounds nuw i8, ptr %.sroa.01211.01479, i64 1152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %634, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %634, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %581, align 4
   %635 = getelementptr inbounds nuw i8, ptr %.sroa.01211.01479, i64 1168
   store float 1.000000e+00, ptr %635, align 4
@@ -10546,7 +10546,7 @@ _ZN7QStringD2Ev.exit738:                          ; preds = %717, %_ZN9QtPrivate
 
 768:                                              ; preds = %7
   %769 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %769, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %769, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %51, align 4
   %770 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store float 1.000000e+00, ptr %770, align 4
@@ -10638,7 +10638,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i756: ; preds = %_ZN9QtPrivate8RefCo
   br label %794
 
 794:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i756, %_ZN9QtPrivate8RefCount5derefEv.exit.i757, %789
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %769, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %769, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %51, align 4
   store float 1.000000e+00, ptr %770, align 4
   store float 1.000000e+00, ptr %771, align 4
@@ -10842,7 +10842,7 @@ _ZN7QStringD2Ev.exit775:                          ; preds = %808, %_ZN9QtPrivate
   %.sroa.01190.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1557, i64 1
   %851 = fneg float %.sroa.01190.4.vec.extract
   %852 = fneg float %.sroa.22.0.copyload.i789.sink
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %769, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %769, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %51, align 4
   store float 1.000000e+00, ptr %770, align 4
   store float 1.000000e+00, ptr %771, align 4
@@ -11016,7 +11016,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i809:   ; preds = %920, %917, %_ZNK3vc
 
 .loopexit1437:                                    ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i809, %867
   %922 = getelementptr inbounds nuw i8, ptr %.sroa.01185.01470, i64 1152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %922, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %922, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %869, align 4
   %923 = getelementptr inbounds nuw i8, ptr %.sroa.01185.01470, i64 1168
   store float 1.000000e+00, ptr %923, align 4
@@ -11688,7 +11688,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i891:   ; preds = %1132, %1129, %_ZNK3
 
 .loopexit1440:                                    ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i891, %1079
   %1134 = getelementptr inbounds nuw i8, ptr %.sroa.01162.01461, i64 1152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1134, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %1134, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %1081, align 4
   %1135 = getelementptr inbounds nuw i8, ptr %.sroa.01162.01461, i64 1168
   store float 1.000000e+00, ptr %1135, align 4

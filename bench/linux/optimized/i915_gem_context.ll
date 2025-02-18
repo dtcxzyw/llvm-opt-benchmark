@@ -1537,7 +1537,7 @@ thread-pre-split:                                 ; preds = %.loopexit61
 188:                                              ; preds = %187, %183, %177
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
   %189 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %189, i8 0, i64 16, i1 false), !annotation !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false), !annotation !51
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @mutex_lock(ptr noundef nonnull %190) #17
   tail call void @__rcu_read_lock() #17

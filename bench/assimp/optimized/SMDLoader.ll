@@ -2775,7 +2775,7 @@ define void @_ZN6Assimp11SMDImporter21CreateOutputMaterialsEv(ptr noundef nonnul
   %69 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %4, i32 noundef 12, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #28
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %70, i8 0, i64 1008, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %70, i8 0, i64 1008, i1 false)
   store i32 15, ptr %5, align 4
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %71, ptr noundef nonnull align 1 dereferenceable(15) @.str.25, i64 15, i1 false)

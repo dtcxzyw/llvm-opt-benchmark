@@ -2592,7 +2592,7 @@ _ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_position
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %81, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %81, i8 0, i64 48, i1 false)
   %82 = load float, ptr %2, align 16
   %.sroa.0148.8.vec.extract = extractelement <4 x float> %spec.select, i64 2
   %83 = bitcast float %.sroa.0148.8.vec.extract to i32

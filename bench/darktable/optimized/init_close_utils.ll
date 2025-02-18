@@ -42,7 +42,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2752) %10, i8 0, i64 2752, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 767432
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 767440
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %12, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 767616
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 767648
   %15 = and i32 %1, 2

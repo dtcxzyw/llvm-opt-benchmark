@@ -410,7 +410,7 @@ define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr noundef captures(non
 sub_0:                                            ; preds = %10, %4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %7, align 8

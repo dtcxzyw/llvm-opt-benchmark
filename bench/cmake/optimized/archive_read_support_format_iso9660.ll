@@ -3127,7 +3127,7 @@ define internal fastcc range(i64 0, -1) i64 @isodate7(ptr noundef readonly captu
   %2 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = load i8, ptr %0, align 1, !tbaa !45
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3909,7 +3909,7 @@ parse_rockridge_SL1.exit:                         ; preds = %255, %262, %268, %2
   %385 = or i32 %384, 1
   store i32 %385, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %386 = load i8, ptr %303, align 1, !tbaa !45
   %387 = zext i8 %386 to i32
   store i32 %387, ptr %21, align 4, !tbaa !162
@@ -4017,7 +4017,7 @@ isodate7.exit.i:                                  ; preds = %401, %383
   %443 = or i32 %442, 2
   store i32 %443, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %444 = load i8, ptr %.3.i, align 1, !tbaa !45
   %445 = zext i8 %444 to i32
   store i32 %445, ptr %27, align 4, !tbaa !162
@@ -4125,7 +4125,7 @@ isodate7.exit119.i:                               ; preds = %459, %441
   %501 = or i32 %500, 4
   store i32 %501, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %502 = load i8, ptr %.4.i, align 1, !tbaa !45
   %503 = zext i8 %502 to i32
   store i32 %503, ptr %33, align 4, !tbaa !162
@@ -4233,7 +4233,7 @@ isodate7.exit142.i:                               ; preds = %517, %499
   %559 = or i32 %558, 8
   store i32 %559, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   %560 = load i8, ptr %.5.i, align 1, !tbaa !45
   %561 = zext i8 %560 to i32
   store i32 %561, ptr %39, align 4, !tbaa !162
@@ -4482,7 +4482,7 @@ define internal fastcc range(i64 0, -1) i64 @isodate17(ptr noundef readonly capt
   %2 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = load i8, ptr %0, align 1, !tbaa !45
   %5 = zext i8 %4 to i32
   %6 = mul nuw nsw i32 %5, 1000

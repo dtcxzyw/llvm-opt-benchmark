@@ -1825,7 +1825,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   %26 = load i32, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -1981,7 +1981,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr %1, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %6, ptr %20, align 8
@@ -2042,7 +2042,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   %29 = load i32, ptr %17, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
@@ -2272,7 +2272,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   store ptr %.0.i28, ptr %11, align 8
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %12, ptr %78, align 8

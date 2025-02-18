@@ -3955,7 +3955,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 456:                                              ; preds = %455, %452, %447, %447, %447, %447
   %457 = phi ptr [ %454, %452 ], [ %449, %447 ], [ %449, %447 ], [ %449, %447 ], [ %449, %447 ], [ null, %455 ]
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %50, i8 0, i64 27, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %50, i8 0, i64 27, i1 false), !annotation !5
   %458 = load ptr, ptr %33, align 8
   %459 = load i32, ptr %35, align 4
   %460 = icmp ugt i32 %459, 16777215

@@ -226,7 +226,7 @@ define internal void @x942kdf_reset(ptr noundef %0) #0 {
   %27 = load i64, ptr %26, align 8, !tbaa !26
   tail call void @CRYPTO_clear_free(ptr noundef %25, i64 noundef %27, ptr noundef nonnull @.str, i32 noundef 362) #7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %28, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %28, i8 0, i64 152, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 1, ptr %29, align 8, !tbaa !14

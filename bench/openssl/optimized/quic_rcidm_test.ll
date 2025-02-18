@@ -53,10 +53,10 @@ define internal range(i32 0, 2) i32 @test_rcidm(i32 noundef %0) #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store i64 2, ptr %2, align 8, !tbaa !4

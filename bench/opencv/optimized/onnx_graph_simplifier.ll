@@ -18792,7 +18792,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph3C2Ev
   %47 = alloca %"class.std::__cxx11::basic_string", align 8
   %48 = alloca %"class.std::allocator.127", align 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56

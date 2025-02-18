@@ -7193,7 +7193,7 @@ _ZNSt8functionIFviEEC2EOS1_.exit:                 ; preds = %15, %42
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %22) #47
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %59, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %59, i8 0, i64 108, i1 false)
   store i16 1, ptr %22, align 2, !tbaa !175
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #47
   invoke void @_ZN7httplib6detail39unescape_abstract_namespace_unix_domainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull readonly align 8 dereferenceable(32) %0)
@@ -28216,7 +28216,7 @@ _ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7httplib17M
 
 _ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7httplib17MultipartFormDataESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7httplib17MultipartFormDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7httplib17MultipartFormDataESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %31, i8 0, i64 112, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %0, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45005,7 +45005,7 @@ define noundef i32 @_ZNK7httplib6Server20create_server_socketERKNSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #47
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %37, align 8, !tbaa !150
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -45031,7 +45031,7 @@ define noundef i32 @_ZNK7httplib6Server20create_server_socketERKNSt7__cxx1112bas
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %12) #47
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %49, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %49, i8 0, i64 108, i1 false)
   store i16 1, ptr %12, align 2, !tbaa !175
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #47
   invoke void @_ZN7httplib6detail39unescape_abstract_namespace_unix_domainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %1)
@@ -54395,7 +54395,7 @@ _ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit: ; preds = %_ZN7httplib
 105:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %12) #47
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %106, i8 0, i64 320, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %106, i8 0, i64 320, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %107, ptr %12, align 8, !tbaa !17
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -56080,7 +56080,7 @@ define void @_ZN7httplib10ClientImpl5send_EONS_7RequestE(ptr dead_on_unwind noal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
   %6 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #53, !noalias !981
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %7, i8 0, i64 320, i1 false), !noalias !981
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %7, i8 0, i64 320, i1 false), !noalias !981
   store ptr %7, ptr %6, align 8, !tbaa !17, !noalias !981
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !7, !noalias !981
@@ -65303,7 +65303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !1051)
   %300 = call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #53, !noalias !1051
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %301, i8 0, i64 320, i1 false), !noalias !1051
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %301, i8 0, i64 320, i1 false), !noalias !1051
   store ptr %301, ptr %300, align 8, !tbaa !17, !noalias !1051
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i64 0, ptr %302, align 8, !tbaa !7, !noalias !1051

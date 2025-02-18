@@ -281,7 +281,7 @@ define dso_local void @_ZN4Luau7CodeGen18BaseCodeGenContextC2EmmPFvPvS2_mS2_mES2
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit: ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %11, i8 0, i64 1040, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1040) %11, i8 0, i64 1040, i1 false), !noalias !5
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %9, align 8, !noalias !5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1064
@@ -374,7 +374,7 @@ define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContextC2EmmPFvPvS2_mS
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %11, i8 0, i64 1040, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1040) %11, i8 0, i64 1040, i1 false), !noalias !8
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %9, align 8, !noalias !8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1064
@@ -709,7 +709,7 @@ define dso_local void @_ZN4Luau7CodeGen20SharedCodeGenContextC2EmmPFvPvS2_mS2_mE
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %11, i8 0, i64 1040, i1 false), !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1040) %11, i8 0, i64 1040, i1 false), !noalias !14
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %9, align 8, !noalias !14
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1064
@@ -1461,7 +1461,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueIN4Luau7CodeGen24Standalone
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %.noexc
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %16, i8 0, i64 1040, i1 false), !noalias !22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1040) %16, i8 0, i64 1040, i1 false), !noalias !22
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %14, align 8, !noalias !22
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1064

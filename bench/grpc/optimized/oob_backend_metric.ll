@@ -2848,7 +2848,7 @@ if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.
 _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i: ; preds = %if.end.i.i.i
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23, !noalias !80
   %14 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %14, i8 0, i64 32, i1 false), !noalias !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %14, i8 0, i64 32, i1 false), !noalias !80
   %refs_.i.i.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 4294967296, ptr %refs_.i.i.i.i6.i.i.i, align 8, !noalias !80
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 16), ptr %call.i.i.i.i, align 8, !noalias !80

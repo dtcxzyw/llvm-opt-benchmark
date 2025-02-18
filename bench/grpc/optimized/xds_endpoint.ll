@@ -3582,7 +3582,7 @@ if.then167.i:                                     ; preds = %invoke.cont164.i
 
 call.i112.noexc.i:                                ; preds = %if.then167.i
   %230 = getelementptr inbounds nuw i8, ptr %call.i112115.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %230, i8 0, i64 312, i1 false), !noalias !78
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(312) %230, i8 0, i64 312, i1 false), !noalias !78
   %refs_.i.i.i113.i = getelementptr inbounds nuw i8, ptr %call.i112115.i, i64 8
   store i64 1, ptr %refs_.i.i.i113.i, align 8, !noalias !78
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %call.i112115.i, align 8, !noalias !78

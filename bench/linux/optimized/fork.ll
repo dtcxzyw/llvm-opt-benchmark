@@ -1686,7 +1686,7 @@ define dso_local noundef range(i32 -16, 1) i32 @replace_mm_exe_file(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store ptr %8, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 1, ptr %10, align 8
@@ -2666,7 +2666,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   call void @acct_clear_integrals(ptr noundef nonnull %72) #18
   %186 = getelementptr inbounds nuw i8, ptr %72, i64 1632
   %187 = getelementptr inbounds nuw i8, ptr %72, i64 1640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %187, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %187, i8 0, i64 72, i1 false)
   store i64 -1, ptr %186, align 8
   %188 = getelementptr i8, ptr %72, i64 1656
   store i64 -1, ptr %188, align 8
@@ -3944,7 +3944,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
   store ptr %28, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %30, align 8
@@ -5305,7 +5305,7 @@ define dso_local i32 @user_mode_thread(ptr noundef %0, ptr noundef %1, i64 nound
   %6 = and i64 %2, 4286578176
   %7 = or disjoint i64 %6, 8388864
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   store i64 %7, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = and i32 %5, 255
@@ -5337,7 +5337,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_vfork(ptr rea
   %2 = alloca %struct.kernel_clone_args, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false)
   store i64 16640, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 17, ptr %4, align 8
@@ -5472,7 +5472,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
   br i1 %11, label %85, label %12, !prof !11
 
 12:                                               ; preds = %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 40, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false), !annotation !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !12
   %13 = tail call i64 @llvm.umin.i64(i64 %1, i64 88)

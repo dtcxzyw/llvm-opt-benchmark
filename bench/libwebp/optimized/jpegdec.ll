@@ -59,7 +59,7 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %1, ptr %17, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %18, i8 0, i64 648, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %18, i8 0, i64 648, i1 false)
   %19 = call ptr @jpeg_std_error(ptr noundef nonnull %8) #18
   store volatile ptr %19, ptr %7, align 8, !tbaa !16
   store ptr @my_error_exit, ptr %8, align 8, !tbaa !38

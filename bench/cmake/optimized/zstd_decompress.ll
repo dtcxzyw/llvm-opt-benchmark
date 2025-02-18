@@ -84,7 +84,7 @@ define dso_local noundef ptr @ZSTD_initStaticDCtx(ptr noundef %0, i64 noundef %1
   store i32 0, ptr %17, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30256
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30240
   store i64 0, ptr %20, align 8
   store i64 134217729, ptr %18, align 8, !tbaa !30
@@ -1552,7 +1552,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
 
 223:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, i8 0, i64 48, i1 false)
   store i32 10505, ptr %9, align 8, !tbaa !92
   store i32 0, ptr %53, align 4, !tbaa !97
   %224 = load ptr, ptr %54, align 8, !tbaa !98
@@ -2144,7 +2144,7 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
 183:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %184, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %184, i8 0, i64 48, i1 false)
   store i32 10505, ptr %6, align 8, !tbaa !92
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %185, align 4, !tbaa !97
@@ -2355,7 +2355,7 @@ define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1,
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store i32 10505, ptr %5, align 8, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %12, align 4, !tbaa !97
@@ -2913,7 +2913,7 @@ define dso_local noundef ptr @ZSTD_initStaticDStream(ptr noundef %0, i64 noundef
   store i32 0, ptr %17, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30256
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30240
   store i64 0, ptr %20, align 8
   store i64 134217729, ptr %18, align 8, !tbaa !30

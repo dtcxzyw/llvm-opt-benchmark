@@ -836,7 +836,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @devkmsg_read(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store ptr %9, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %11) #28

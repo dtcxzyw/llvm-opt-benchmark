@@ -218,7 +218,7 @@ _ZSt11make_sharedIN5ZXing6Pdf41718DecoderResultExtraEJEESt10shared_ptrINSt9enabl
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ZXing6Pdf41718DecoderResultExtraESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %44, align 8, !noalias !4
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %48, i8 0, i64 192, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %48, i8 0, i64 192, i1 false), !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5ZXing6Pdf41718DecoderResultExtraE, i64 16), ptr %47, align 8, !noalias !4
   store i32 -1, ptr %48, align 8, !noalias !4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32

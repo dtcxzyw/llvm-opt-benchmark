@@ -955,7 +955,7 @@ define dso_local noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noun
   %50 = call ptr @list_iterator_create(ptr noundef %49) #11
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 184
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24

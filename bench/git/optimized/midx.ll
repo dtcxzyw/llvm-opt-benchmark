@@ -2225,7 +2225,7 @@ define dso_local void @clear_incremental_midx_files_ext(ptr noundef %0, ptr noun
   %5 = alloca %struct.clear_midx_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = zext i32 %3 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call ptr @xmalloc(i64 noundef %8) #22

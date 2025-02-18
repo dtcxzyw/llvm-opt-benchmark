@@ -425,7 +425,7 @@ for.body.i.i.i46:                                 ; preds = %for.body.i.i.i46, %
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 -1, i64 16, i1 false)
   br label %return
 
@@ -470,7 +470,7 @@ sw.bb14:                                          ; preds = %entry
 
 sw.bb15:                                          ; preds = %entry
   %6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i64 -8589934592, ptr %agg.result, align 8
   %arrayidx.i.i26.i.i.i71 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i71, align 8
@@ -531,7 +531,7 @@ if.else33:                                        ; preds = %sw.bb30
 
 sw.bb34:                                          ; preds = %entry
   %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 -4294967296, ptr %agg.result, align 8
   %arrayidx.i.i26.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i88, align 8
@@ -2090,7 +2090,7 @@ if.else.i:
   %mode = alloca %"struct.ue2::ParseMode", align 1
   %frombool = zext i1 %nocase to i8
   %0 = getelementptr inbounds nuw i8, ptr %mode, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %0, i8 0, i64 5, i1 false)
   store i8 %frombool, ptr %mode, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %call.i3.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !57

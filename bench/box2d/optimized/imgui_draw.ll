@@ -14345,7 +14345,7 @@ define dso_local noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImF
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, i8 0, i64 136, i1 false)
   store i8 1, ptr %10, align 4, !tbaa !224
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 2, ptr %12, align 8, !tbaa !226

@@ -194,7 +194,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %117 = icmp sgt i32 %116, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %118, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5

@@ -1232,7 +1232,7 @@ entry:
   store i32 %xor4.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.phi.trans.insert.i, align 4
   %1 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 16
   %2 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %2, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %2, i8 0, i64 248, i1 false)
   store ptr %1, ptr %stack.i.i, align 8
   %m_pos.i.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 8
   %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 12

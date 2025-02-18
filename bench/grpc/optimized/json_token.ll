@@ -223,7 +223,7 @@ entry:
   %agg.tmp26 = alloca %"class.absl::lts_20230802::Status", align 8
   store i64 0, ptr %error, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store ptr @.str, ptr %agg.result, align 8
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 48
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8

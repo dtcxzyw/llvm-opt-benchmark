@@ -885,7 +885,7 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
   %.val.i = load ptr, ptr %57, align 8, !tbaa !13
   %376 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val.i) #20
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %377, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %377, i8 0, i64 104, i1 false)
   store ptr %373, ptr %376, align 8, !tbaa !64
   %378 = load i32, ptr %32, align 4, !tbaa !33
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 12
@@ -1032,7 +1032,7 @@ Super_AddGateToTable.exit.i97:                    ; preds = %394, %._crit_edge.i
   %.val843.i = load ptr, ptr %57, align 8, !tbaa !13
   %447 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val843.i) #20
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %448, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %448, i8 0, i64 104, i1 false)
   store ptr %444, ptr %447, align 8, !tbaa !64
   %449 = load i32, ptr %32, align 4, !tbaa !33
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 12
@@ -1225,7 +1225,7 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   %.val844.us.i = load ptr, ptr %57, align 8, !tbaa !13
   %534 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val844.us.i) #20
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %535, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %535, i8 0, i64 104, i1 false)
   store ptr %531, ptr %534, align 8, !tbaa !64
   %536 = load i32, ptr %32, align 4, !tbaa !33
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 12
@@ -1472,7 +1472,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   %.val845.us.us.i = load ptr, ptr %57, align 8, !tbaa !13
   %637 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val845.us.us.i) #20
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %638, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %638, i8 0, i64 104, i1 false)
   store ptr %634, ptr %637, align 8, !tbaa !64
   %639 = load i32, ptr %32, align 4, !tbaa !33
   %640 = getelementptr inbounds nuw i8, ptr %637, i64 12
@@ -1768,7 +1768,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %.val846.us.us.us.i = load ptr, ptr %57, align 8, !tbaa !13
   %756 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val846.us.us.us.i) #20
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %757, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %757, i8 0, i64 104, i1 false)
   store ptr %753, ptr %756, align 8, !tbaa !64
   %758 = load i32, ptr %32, align 4, !tbaa !33
   %759 = getelementptr inbounds nuw i8, ptr %756, i64 12
@@ -2120,7 +2120,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %.val847.us.us.us.us.i = load ptr, ptr %57, align 8, !tbaa !13
   %893 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %.val847.us.us.us.us.i) #20
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %894, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %894, i8 0, i64 104, i1 false)
   store ptr %890, ptr %893, align 8, !tbaa !64
   %895 = load i32, ptr %32, align 4, !tbaa !33
   %896 = getelementptr inbounds nuw i8, ptr %893, i64 12

@@ -214,7 +214,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %invoke.cont2.i, %10
 
 invoke.cont2:                                     ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
   %15 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %15, i8 0, i64 208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %15, i8 0, i64 208, i1 false)
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call, align 8

@@ -189,7 +189,7 @@ define dso_local void @ext4_fc_start_update(ptr noundef %0) local_unnamed_addr #
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 24, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !annotation !7
   store ptr %17, ptr %2, align 8
   store i32 10, ptr %23, align 8
   store i32 0, ptr %24, align 8
@@ -333,7 +333,7 @@ define dso_local void @ext4_fc_del(ptr noundef %0) local_unnamed_addr #0 align 1
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 24, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !annotation !7
   store ptr %19, ptr %2, align 8
   store i32 10, ptr %20, align 8
   store i32 0, ptr %21, align 8

@@ -916,7 +916,7 @@ _ZN12_GLOBAL__N_115ThreadSanitizerC2Ev.exit:      ; preds = %4, %9, %22, %24
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_115ThreadSanitizerC2Ev.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %31, i8 0, i64 64, i1 false), !alias.scope !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, i8 0, i64 64, i1 false), !alias.scope !61
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %36
 
@@ -6066,7 +6066,7 @@ define dso_local void @_ZN4llvm25ModuleThreadSanitizerPass3runERNS_6ModuleERNS_1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 64, i1 false), !alias.scope !339
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false), !alias.scope !339
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %24, ptr %0, align 8, !tbaa !28, !alias.scope !339
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -223,7 +223,7 @@ if.then.i.i.i.i.i117:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node10permission12FSPermissionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false), !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !noalias !10
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10permission12FSPermissionE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
   tail call void @_ZN4node10permission12FSPermission9RadixTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19, !noalias !10
   %granted_out_fs_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32

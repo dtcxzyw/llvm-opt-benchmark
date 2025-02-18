@@ -4060,7 +4060,7 @@ _ZN7QStringD2Ev.exit138:                          ; preds = %96, %_ZN9QtPrivate8
   br label %106
 
 106:                                              ; preds = %105, %103, %_ZN7QStringD2Ev.exit138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
@@ -4375,7 +4375,7 @@ _ZN7QStringD2Ev.exit173:                          ; preds = %_ZN10QByteArrayD2Ev
   br label %218
 
 218:                                              ; preds = %217, %215, %212
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
@@ -4495,7 +4495,7 @@ _ZN3vcg9AlignPair11InitFixVertEPNS0_6A2MeshERNS0_5ParamERNS_13GridStaticPtrINS0_
   br label %273
 
 273:                                              ; preds = %272, %270, %267
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
@@ -6301,7 +6301,7 @@ _ZN3vcg8Matrix44IdE9ConstructIfEES1_RKNS0_IT_EE.exit: ; preds = %83
 
 88:                                               ; preds = %_ZN3vcg8Matrix44IdE9ConstructIfEES1_RKNS0_IT_EE.exit
   %89 = getelementptr inbounds nuw i8, ptr %39, i64 1136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %89, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %89, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %82, align 4
   %90 = getelementptr inbounds nuw i8, ptr %39, i64 1152
   store float 1.000000e+00, ptr %90, align 4
@@ -16389,7 +16389,7 @@ define linkonce_odr void @_ZN3vcg8MeshTreeI9MeshModelfE10ProcessArcEiiRNS_8Matri
   br label %87
 
 87:                                               ; preds = %86, %84, %81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
@@ -16497,7 +16497,7 @@ _ZN3vcg9AlignPair11InitFixVertEPNS0_6A2MeshERNS0_5ParamERNS_13GridStaticPtrINS0_
   br label %140
 
 140:                                              ; preds = %139, %137, %134
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 8), i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 40), align 8
   store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IdE8IdentityEvE3tmp, i64 80), align 8
@@ -16945,7 +16945,7 @@ declare void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 derefe
 define linkonce_odr noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh8initVertERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44.201", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double 1.000000e+00, ptr %5, align 8
@@ -17153,7 +17153,7 @@ _ZN3vcg3tri14UpdateBoundingINS_9AlignPair6A2MeshEE3BoxERS3_.exit: ; preds = %_ZN
 define linkonce_odr noundef zeroext i1 @_ZN3vcg9AlignPair6A2Mesh4initERKNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44.201", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double 1.000000e+00, ptr %5, align 8
@@ -17939,7 +17939,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS_9AlignPair8A2VertexES
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 112, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %38, i8 0, i64 108, i1 false)
   store double 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -31801,7 +31801,7 @@ _ZN3vcg4Box3IdE3AddERKNS_6Point3IdEE.exit:        ; preds = %_ZNK3vcg4Box3IdE6Is
   %69 = fmul double %64, %67
   %70 = fmul double %67, %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %71, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %71, i8 0, i64 112, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -31929,7 +31929,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load double, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %56, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %56, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %7, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double 1.000000e+00, ptr %57, align 8
@@ -38042,7 +38042,7 @@ define linkonce_odr void @_ZN3vcg15RotoTranslationIdE8toMatrixERNS_8Matrix44IdEE
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false)
   %12 = tail call double @cos(double noundef %6) #22
   %13 = tail call double @cos(double noundef %8) #22
   %14 = tail call double @cos(double noundef %10) #22
@@ -38092,7 +38092,7 @@ define linkonce_odr void @_ZN3vcg15RotoTranslationIdE8toMatrixERNS_8Matrix44IdEE
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load double, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %50, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %50, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double 1.000000e+00, ptr %51, align 8
@@ -38757,7 +38757,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %22 = load double, ptr %21, align 16
   %23 = fsub <2 x double> %20, %.sroa.4.24.vec.insert
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %24, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %24, i8 0, i64 96, i1 false)
   %25 = fsub <2 x double> %16, %18
   %.sroa.563.56.vec.extract = extractelement <2 x double> %25, i64 1
   %.sroa.074.0.vec.insert = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -38765,7 +38765,7 @@ define linkonce_odr void @_ZN3vcg23ComputeRigidMatchMatrixIdEEvRSt6vectorINS_6Po
   %.sroa.074.8.vec.insert = shufflevector <2 x double> %.sroa.074.0.vec.insert, <2 x double> %23, <2 x i32> <i32 0, i32 2>
   %.sroa.1.24.vec.extract = extractelement <2 x double> %23, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
   %27 = extractelement <2 x double> %12, i64 0
   %28 = extractelement <2 x double> %18, i64 0
   %29 = fadd double %22, %28

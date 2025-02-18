@@ -357,7 +357,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Cec4_ManSetParams(ptr noundef writeonly captures(none) initializes((0, 112)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   store i32 2, ptr %0, align 8, !tbaa !44
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %3, align 8, !tbaa !46
@@ -11694,7 +11694,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #31
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %13, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %13, i8 0, i64 88, i1 false)
   store i32 2, ptr %6, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 1, ptr %14, align 8, !tbaa !46
@@ -11758,7 +11758,7 @@ define ptr @Cec4_ManSimulateTest3(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store ptr null, ptr %4, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 2, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 1, ptr %7, align 8, !tbaa !46
@@ -11795,7 +11795,7 @@ define ptr @Cec4_ManSimulateTest4(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store ptr null, ptr %5, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store i32 2, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 1, ptr %8, align 8, !tbaa !46
@@ -11829,7 +11829,7 @@ define range(i32 0, 2) i32 @Cec4_ManSimulateOnlyTest(ptr noundef %0, i32 noundef
   %3 = alloca %struct.Cec_ParFra_t_, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 2, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 1, ptr %5, align 8, !tbaa !46
@@ -11880,7 +11880,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #31
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %13, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %13, i8 0, i64 88, i1 false)
   store i32 2, ptr %6, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 1, ptr %14, align 8, !tbaa !46

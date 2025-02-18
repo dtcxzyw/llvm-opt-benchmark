@@ -3366,7 +3366,7 @@ _ZNKSt6vectorIN3vcg8Matrix44IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
   %10 = alloca %class.QDomElement, align 8
   %11 = alloca %class.QDomNode, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %4, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 1.000000e+00, ptr %13, align 4
@@ -23809,7 +23809,7 @@ _ZN3vcg8Matrix33IfEaSERKS1_.exit592:              ; preds = %1157
   store ptr @_ZN9QListData11shared_nullE, ptr %617, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %618, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %619, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %620, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %620, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %621, align 4
   store float 1.000000e+00, ptr %622, align 4
   store float 1.000000e+00, ptr %616, align 4
@@ -25646,7 +25646,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE21createTransformM
   %23 = alloca %class.QString, align 8
   %24 = alloca %"class.vcg::Matrix44", align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %25, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %0, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %26, align 4
@@ -25754,7 +25754,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %_ZN7QStringD2Ev.exi
           to label %72 unwind label %76
 
 72:                                               ; preds = %63
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %25, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %0, align 4
   store float 1.000000e+00, ptr %26, align 4
   store float 1.000000e+00, ptr %27, align 4
@@ -25887,7 +25887,7 @@ _ZN7QStringD2Ev.exit41:                           ; preds = %_ZN7QStringD2Ev.exi
 
 127:                                              ; preds = %118
   %128 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %128, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %128, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %10, align 4
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store float 1.000000e+00, ptr %129, align 4
@@ -26540,7 +26540,7 @@ _ZN7QStringD2Ev.exit122:                          ; preds = %_ZN7QStringD2Ev.exi
 
 434:                                              ; preds = %425
   %435 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %435, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %435, i8 0, i64 56, i1 false)
   store float %415, ptr %10, align 4
   %436 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store float %424, ptr %436, align 4
@@ -26820,7 +26820,7 @@ _ZN3vcg8Matrix44IfEmLERKS1_.exit160:              ; preds = %558
   %592 = fneg float %581
   %593 = fneg float %590
   %594 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %594, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %594, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %10, align 4
   %595 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store float 1.000000e+00, ptr %595, align 4
@@ -31173,7 +31173,7 @@ _ZN7QStringD2Ev.exit222:                          ; preds = %_ZN7QStringC2ERKS_.
   store ptr @_ZN9QListData11shared_nullE, ptr %213, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %214, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %215, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %216, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %216, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %217, align 4
   store float 1.000000e+00, ptr %218, align 4
   store float 1.000000e+00, ptr %212, align 4
@@ -31500,7 +31500,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %423, %_ZN9QtPrivate
   store ptr @_ZN9QListData11shared_nullE, ptr %226, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %227, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %228, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %229, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %229, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %230, align 4
   store float 1.000000e+00, ptr %231, align 4
   store float 1.000000e+00, ptr %225, align 4
@@ -32035,7 +32035,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE28createTextureTra
   %16 = alloca %class.QString, align 8
   %17 = alloca %class.QString, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %18, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 1.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -32228,7 +32228,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %_ZN7QStringD2Ev.exi
 
 88:                                               ; preds = %_ZN7QStringD2Ev.exit39
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %89, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %89, i8 0, i64 28, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float 1.000000e+00, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -32382,7 +32382,7 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %_ZN7QStringD2Ev.exi
 
 154:                                              ; preds = %_ZN7QStringD2Ev.exit53
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %155, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %155, i8 0, i64 24, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float 1.000000e+00, ptr %156, align 4
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 16
@@ -32475,7 +32475,7 @@ _ZN3vcg8Matrix33IfEmLERKS1_.exit61:               ; preds = %190
 
 204:                                              ; preds = %196
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %205, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %205, i8 0, i64 28, i1 false)
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float 1.000000e+00, ptr %206, align 4
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -32617,7 +32617,7 @@ _ZN7QStringD2Ev.exit83:                           ; preds = %_ZN7QStringD2Ev.exi
 
 267:                                              ; preds = %_ZN7QStringD2Ev.exit83
   %268 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %268, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %268, i8 0, i64 28, i1 false)
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float 1.000000e+00, ptr %269, align 4
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -44089,7 +44089,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE10LoadSpher
   %12 = alloca %"class.vcg::Matrix44", align 4
   %13 = alloca %class.CMeshO, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %14, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %7, align 4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float 1.000000e+00, ptr %15, align 4
@@ -44183,7 +44183,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %_ZN7QStringD2Ev.exi
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %46, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %46, i8 0, i64 56, i1 false)
   store float %44, ptr %8, align 4
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store float %44, ptr %47, align 4

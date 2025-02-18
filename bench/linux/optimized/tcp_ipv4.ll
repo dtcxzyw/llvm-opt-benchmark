@@ -2613,7 +2613,7 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
 
 28:                                               ; preds = %20, %18
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %29, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %29, i8 0, i64 56, i1 false)
   %30 = load i16, ptr %13, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %30, ptr %31, align 2
@@ -2659,7 +2659,7 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
   %61 = phi i32 [ %59, %40 ], [ %39, %37 ]
   store i32 %61, ptr %.sroa.phi, align 4
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   store ptr %5, ptr %6, align 8
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 20, ptr %63, align 8
@@ -7964,14 +7964,14 @@ define internal fastcc void @tcp_v4_send_ack(ptr noundef %0, ptr noundef %1, i32
   %19 = getelementptr i8, ptr %15, i64 %18
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %12) #21
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %20, i8 0, i64 40, i1 false), !annotation !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %20, i8 0, i64 40, i1 false), !annotation !38
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #21
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store ptr %12, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 20, ptr %25, align 8

@@ -3785,7 +3785,7 @@ write_preamble.exit:                              ; preds = %69
 write_preamble.exit.thread:                       ; preds = %69, %76, %79, %84, %68, %write_preamble.exit, %61
   %.1 = phi ptr [ %.057, %61 ], [ null, %write_preamble.exit ], [ null, %68 ], [ null, %84 ], [ null, %79 ], [ null, %76 ], [ null, %69 ]
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %100, i8 noundef 0, i64 noundef 144, i1 noundef false) #20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %100, i8 noundef 0, i64 noundef 144, i1 noundef false) #20
   store ptr @read_cleanup, ptr %13, align 8
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store i32 268435456, ptr %101, align 8
@@ -5021,7 +5021,7 @@ define internal fastcc void @print_elapsed_json(ptr noundef %0, ptr noundef %1) 
   %3 = alloca %struct.json_dumper, align 8
   call void @llvm.lifetime.start.p0(i64 1136, ptr nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %4, i8 0, i64 1128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1128) %4, i8 0, i64 1128, i1 false)
   %5 = load ptr, ptr @stderr, align 8
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16

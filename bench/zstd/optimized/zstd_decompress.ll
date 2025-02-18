@@ -1869,7 +1869,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
 
 260:                                              ; preds = %254
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, i8 0, i64 48, i1 false)
   store i32 10507, ptr %9, align 8, !tbaa !103
   store i32 0, ptr %56, align 4, !tbaa !108
   %261 = load ptr, ptr %57, align 8, !tbaa !109
@@ -2487,7 +2487,7 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
 182:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %183, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %183, i8 0, i64 48, i1 false)
   store i32 10507, ptr %6, align 8, !tbaa !103
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %184, align 4, !tbaa !108
@@ -2698,7 +2698,7 @@ define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1,
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store i32 10507, ptr %5, align 8, !tbaa !103
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %12, align 4, !tbaa !108

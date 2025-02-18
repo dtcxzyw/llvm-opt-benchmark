@@ -33265,7 +33265,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %.013.i.i.i, i8 0, i64 56, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %20, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 76
   store float 1.000000e+00, ptr %21, align 4
@@ -33311,7 +33311,7 @@ _ZNKSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE12_M_check_lenEmPKc.exit: ;
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %.013.i.i.i31, i8 0, i64 56, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 56
   %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %36, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %36, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 76
   store float 1.000000e+00, ptr %37, align 4

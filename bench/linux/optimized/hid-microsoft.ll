@@ -626,7 +626,7 @@ define internal void @ms_ff_worker(ptr noundef readonly captures(none) %0) #2 al
   %4 = getelementptr i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, i8 0, i64 6, i1 false)
   store i8 3, ptr %5, align 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 3, ptr %7, align 1

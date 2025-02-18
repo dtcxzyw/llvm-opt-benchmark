@@ -1322,7 +1322,7 @@ define internal void @_ZN12_GLOBAL__N_124ZScore_WithSameMean_Test8TestBodyEv(ptr
   %11 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 100, ptr %2, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 5.000000e+00, ptr %13, align 8, !tbaa !52
@@ -1751,7 +1751,7 @@ define internal void @_ZN12_GLOBAL__N_125ZScore_DifferentMean_Test8TestBodyEv(pt
   %11 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 100, ptr %2, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 5.000000e+00, ptr %13, align 8, !tbaa !52

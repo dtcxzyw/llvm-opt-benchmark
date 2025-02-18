@@ -1935,7 +1935,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
 
 call.i.noexc:                                     ; preds = %invoke.cont69
   %27 = getelementptr inbounds nuw i8, ptr %call.i19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %27, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %call.i19, i64 8
   store i8 1, ptr %27, align 8
   %kWantsCallbacks_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 17

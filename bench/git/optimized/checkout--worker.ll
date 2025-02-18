@@ -199,7 +199,7 @@ st_mult.exit.i:                                   ; preds = %33
   %83 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %.0.i19, i64 %.02438.i
   call void @write_pc_item(ptr noundef %83, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %80, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %80, i8 0, i64 152, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i64, ptr %84, align 8, !tbaa !40
   store i64 %85, ptr %5, align 8, !tbaa !46

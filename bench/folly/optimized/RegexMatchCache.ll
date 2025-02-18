@@ -4947,7 +4947,7 @@ define void @_ZN5folly15RegexMatchCache24ConsistencyReportMatcherC2Ev(ptr nounde
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #43, !noalias !216
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 16, i1 false), !noalias !216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !216
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %5, ptr %3, align 8, !tbaa !219, !noalias !216
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -38213,7 +38213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   br i1 %158, label %159, label %.preheader.i
 
 159:                                              ; preds = %156
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %156, %.preheader.i
@@ -38245,7 +38245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   br i1 %168, label %169, label %.preheader.i254
 
 169:                                              ; preds = %166
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i260
 
 .preheader.i254:                                  ; preds = %166, %.preheader.i254
@@ -38566,7 +38566,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit277.thread323: ; preds = %278, %2
   br i1 %321, label %322, label %.preheader.i279
 
 322:                                              ; preds = %320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit286
 
 .preheader.i279:                                  ; preds = %320, %.preheader.i279
@@ -38732,7 +38732,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %398, label %399, label %.preheader.i291
 
 399:                                              ; preds = %396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i297
 
 .preheader.i291:                                  ; preds = %396, %.preheader.i291
@@ -38853,7 +38853,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %448, label %449, label %.preheader.i300
 
 449:                                              ; preds = %446
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i306
 
 .preheader.i300:                                  ; preds = %446, %.preheader.i300
@@ -38971,7 +38971,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %500, label %501, label %.preheader.i309
 
 501:                                              ; preds = %498
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i315
 
 .preheader.i309:                                  ; preds = %498, %.preheader.i309

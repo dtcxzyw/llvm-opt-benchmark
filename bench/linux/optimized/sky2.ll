@@ -2285,7 +2285,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 220:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, i8 0, i64 32, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false), !annotation !5
   %221 = getelementptr i8, ptr %86, i64 2470
   %222 = load i16, ptr %221, align 2
   %223 = zext i16 %222 to i32

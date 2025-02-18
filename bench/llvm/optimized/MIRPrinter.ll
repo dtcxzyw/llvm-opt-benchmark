@@ -4668,7 +4668,7 @@ _ZNK4llvm15MachineFunction28getEntryValueVariableDbgInfoEv.exit: ; preds = %_ZZN
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %58, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %58, i8 0, i64 160, i1 false)
   store ptr %58, ptr %55, align 8, !tbaa !175
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 0, ptr %59, align 8, !tbaa !177
@@ -5690,7 +5690,7 @@ define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_17ModuleSlotTrackerERNS_
   store i64 0, ptr %18, align 8, !tbaa !177
   store i8 0, ptr %17, align 8, !tbaa !179
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4)
   %39 = add i32 %.033, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.4..sroa_idx, i8 0, i64 16, i1 false)
@@ -13730,7 +13730,7 @@ _ZNSt6vectorIN4llvm4yaml12CalledGlobalESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destr
   %780 = getelementptr inbounds nuw i8, ptr %1, i64 608
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %94) #22
   %781 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %781, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %781, i8 0, i64 16, i1 false)
   %782 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %782, ptr %94, align 8, !tbaa !175
   %783 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -15155,7 +15155,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS0_11StringValueEEEvPKcRT_.exit: ; preds = %_ZN4l
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #22
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %34, ptr %11, align 8, !tbaa !175
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -16299,7 +16299,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EE17_M
   %.08.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !177
@@ -16335,7 +16335,7 @@ _ZNKSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EE12_M_check_lenEmPKc.exit: ; p
   %.08.i.i.i26 = phi ptr [ %36, %.lr.ph.i.i.i25 ], [ %31, %_ZNKSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i27 = phi i64 [ %35, %.lr.ph.i.i.i25 ], [ %1, %_ZNKSt6vectorIN4llvm4yaml15FlowStringValueESaIS2_EE12_M_check_lenEmPKc.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store ptr %32, ptr %.08.i.i.i26, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %33, align 8, !tbaa !177
@@ -17620,7 +17620,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS0_11StringValueEEEvPKcRT_.exit: ; preds = %2, %1
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #22
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %19, ptr %7, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -17681,7 +17681,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm4yaml21MachineFunctionLiveInESaIS2_
   %.08.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !177
@@ -17722,7 +17722,7 @@ _ZNKSt6vectorIN4llvm4yaml21MachineFunctionLiveInESaIS2_EE12_M_check_lenEmPKc.exi
   %.08.i.i.i26 = phi ptr [ %42, %.lr.ph.i.i.i25 ], [ %34, %_ZNKSt6vectorIN4llvm4yaml21MachineFunctionLiveInESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i27 = phi i64 [ %41, %.lr.ph.i.i.i25 ], [ %1, %_ZNKSt6vectorIN4llvm4yaml21MachineFunctionLiveInESaIS2_EE12_M_check_lenEmPKc.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false)
   store ptr %35, ptr %.08.i.i.i26, align 8, !tbaa !175
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %36, align 8, !tbaa !177
@@ -18987,7 +18987,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbbEEvPKcRT_RKT0_.exit46: ; preds = %241, %246, %24
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58) #22
   %251 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %251, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %251, i8 0, i64 16, i1 false)
   %252 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %252, ptr %58, align 8, !tbaa !175
   %253 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -19018,7 +19018,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112bas
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %59) #22
   %262 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %262, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %262, i8 0, i64 16, i1 false)
   %263 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %263, ptr %59, align 8, !tbaa !175
   %264 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -19361,7 +19361,7 @@ _ZN4llvm4yaml2IO11mapOptionalIjjEEvPKcRT_RKT0_.exit57: ; preds = %431, %436, %43
   %440 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %60) #22
   %441 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %441, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %441, i8 0, i64 16, i1 false)
   %442 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %442, ptr %60, align 8, !tbaa !175
   %443 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -19392,7 +19392,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit60:            ; preds = %_ZNKSt7__cxx1112bas
   %451 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61) #22
   %452 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %452, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %452, i8 0, i64 16, i1 false)
   %453 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %453, ptr %61, align 8, !tbaa !175
   %454 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -20749,7 +20749,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbbEEvPKcRT_RKT0_.exit27: ; preds = %170, %175, %17
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32) #22
   %181 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %181, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, i8 0, i64 16, i1 false)
   %182 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %182, ptr %32, align 8, !tbaa !175
   %183 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -20819,7 +20819,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbbEEvPKcRT_RKT0_.exit28: ; preds = %203, %208, %21
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33) #22
   %213 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %213, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, i8 0, i64 16, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %214, ptr %33, align 8, !tbaa !175
   %215 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -20850,7 +20850,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit31:            ; preds = %_ZNKSt7__cxx1112bas
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 168
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34) #22
   %224 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %224, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, i8 0, i64 16, i1 false)
   %225 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %225, ptr %34, align 8, !tbaa !175
   %226 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -20881,7 +20881,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit34:            ; preds = %_ZNKSt7__cxx1112bas
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35) #22
   %235 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %235, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, i8 0, i64 16, i1 false)
   %236 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %236, ptr %35, align 8, !tbaa !175
   %237 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -22390,7 +22390,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS0_13UnsignedValueEEEvPKcRT_.exit: ; preds = %2, 
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27) #22
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %45, ptr %27, align 8, !tbaa !175
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -22583,7 +22583,7 @@ _ZN4llvm4yaml2IO11mapOptionalINS_13TargetStackID5ValueES4_EEvPKcRT_RKT0_.exit: ;
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 104
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29) #22
   %137 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %137, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
   %138 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %138, ptr %29, align 8, !tbaa !175
   %139 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -22661,7 +22661,7 @@ _ZN4llvm4yaml2IO11mapOptionalIbbEEvPKcRT_RKT0_.exit: ; preds = %159, %164, %167
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 176
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31) #22
   %171 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %171, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, i8 0, i64 16, i1 false)
   %172 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %172, ptr %31, align 8, !tbaa !175
   %173 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -22692,7 +22692,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit32:            ; preds = %_ZNKSt7__cxx1112bas
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 224
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32) #22
   %182 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %182, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %182, i8 0, i64 16, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %183, ptr %32, align 8, !tbaa !175
   %184 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -22723,7 +22723,7 @@ _ZN4llvm4yaml11StringValueD2Ev.exit35:            ; preds = %_ZNKSt7__cxx1112bas
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 272
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33) #22
   %193 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %193, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false)
   %194 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %194, ptr %33, align 8, !tbaa !175
   %195 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -24579,7 +24579,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE17_
   %.08.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %19, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 160, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !177
@@ -24630,7 +24630,7 @@ _ZNKSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   %.08.i.i.i26 = phi ptr [ %54, %.lr.ph.i.i.i25 ], [ %40, %_ZNKSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i27 = phi i64 [ %53, %.lr.ph.i.i.i25 ], [ %1, %_ZNKSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12_M_check_lenEmPKc.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %41, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %41, i8 0, i64 160, i1 false)
   store ptr %41, ptr %.08.i.i.i26, align 8, !tbaa !175
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %42, align 8, !tbaa !177
@@ -26435,7 +26435,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaI
   %.08.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !177
@@ -26471,7 +26471,7 @@ _ZNKSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EE12_M_check_lenEmPKc.
   %.08.i.i.i26 = phi ptr [ %36, %.lr.ph.i.i.i25 ], [ %31, %_ZNKSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i27 = phi i64 [ %35, %.lr.ph.i.i.i25 ], [ %1, %_ZNKSt6vectorIN4llvm4yaml12CallSiteInfo10ArgRegPairESaIS3_EE12_M_check_lenEmPKc.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false)
   store ptr %32, ptr %.08.i.i.i26, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %33, align 8, !tbaa !177
@@ -27937,7 +27937,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS0_13UnsignedValueEEEvPKcRT_.exit: ; preds = %2, 
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #22
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %25, ptr %13, align 8, !tbaa !175
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -29955,7 +29955,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm4yaml11StringValueESaIS2_EE17_M_def
   %.08.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !175
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !177
@@ -29991,7 +29991,7 @@ _ZNKSt6vectorIN4llvm4yaml11StringValueESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   %.08.i.i.i26 = phi ptr [ %36, %.lr.ph.i.i.i25 ], [ %31, %_ZNKSt6vectorIN4llvm4yaml11StringValueESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i27 = phi i64 [ %35, %.lr.ph.i.i.i25 ], [ %1, %_ZNKSt6vectorIN4llvm4yaml11StringValueESaIS2_EE12_M_check_lenEmPKc.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store ptr %32, ptr %.08.i.i.i26, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 8
   store i64 0, ptr %33, align 8, !tbaa !177
@@ -32045,7 +32045,7 @@ _ZNSt12_Vector_baseIN4llvm4yaml16EntryValueObjectESaIS2_EE11_M_allocateEm.exit: 
   %21 = phi ptr [ %20, %18 ], [ null, %_ZNKSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12_M_check_lenEmPKc.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %23, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %23, i8 0, i64 160, i1 false)
   store ptr %23, ptr %22, align 8, !tbaa !175
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8, !tbaa !177

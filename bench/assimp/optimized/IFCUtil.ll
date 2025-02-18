@@ -4842,7 +4842,7 @@ _ZN10aiVector3tIdE9NormalizeEv.exit9:             ; preds = %_ZN10aiVector3tIdE9
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 8
   %.sroa.025.0..sroa.025.0..sroa.025.0..sroa.025.0. = load double, ptr %.sroa.025, align 8
@@ -5141,7 +5141,7 @@ _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCar
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 8
   %.sroa.08.0..sroa.08.0..sroa.08.0..sroa.08.0. = load double, ptr %.sroa.08, align 8

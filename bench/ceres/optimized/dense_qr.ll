@@ -396,7 +396,7 @@ _ZNSt10unique_ptrIN5ceres8internal12EigenDenseQRESt14default_deleteIS2_EED2Ev.ex
 
 _ZNSt10unique_ptrIN5ceres8internal13LAPACKDenseQRESt14default_deleteIS2_EED2Ev.exit: ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %15, i8 0, i64 16, i1 false), !noalias !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !31
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5ceres8internal13LAPACKDenseQRE, i64 16), ptr %14, align 8, !tbaa !23, !noalias !31
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %16, align 8, !tbaa !34, !noalias !31

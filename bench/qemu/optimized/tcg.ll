@@ -9063,7 +9063,7 @@ switch.lookup:                                    ; preds = %1030
 
 tcg_out_helper_add_mov.exit.i.i.i:                ; preds = %1045, %1042, %switch.lookup
   %.0.i.i.i.i200 = phi i32 [ 10, %1045 ], [ %1044, %1042 ], [ 2, %switch.lookup ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %991, i8 0, i64 24, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %991, i8 0, i64 24, i1 false), !annotation !5
   %1047 = lshr i32 %1041, 8
   %1048 = and i32 %1047, 255
   store i32 %1048, ptr %6, align 16
@@ -9245,7 +9245,7 @@ tcg_out_qemu_ld_slow_path.exit.i:                 ; preds = %1076, %1069
 
 tcg_out_helper_add_mov.exit.i.i14.i:              ; preds = %1118, %1115, %1107
   %.0.i.i.i15.i = phi i32 [ 10, %1118 ], [ %1117, %1115 ], [ 2, %1107 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %980, i8 0, i64 64, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %980, i8 0, i64 64, i1 false), !annotation !5
   %1120 = lshr i32 %1114, 8
   %1121 = and i32 %1120, 255
   store i32 %1121, ptr %4, align 16

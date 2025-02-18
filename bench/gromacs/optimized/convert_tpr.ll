@@ -402,7 +402,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.14, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -437,7 +437,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.17, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 92
@@ -473,7 +473,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.20, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %65, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %7, align 8
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 92
@@ -506,7 +506,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.23, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %8, align 8
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -532,7 +532,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.25, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %98, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %9, align 8
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -558,7 +558,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.27, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %113, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %113, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx11Int64OptionE, i64 16), ptr %10, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -582,7 +582,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.29, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %127, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %127, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %11, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 137
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -606,7 +606,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.31, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %140, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %140, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx11FloatOptionE, i64 16), ptr %13, align 8
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i8 0, ptr %141, align 8
@@ -632,7 +632,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_110ConvertTpr11initOptionsEPNS_17IOpti
   store ptr @.str.33, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %154 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %154, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %154, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13IntegerOptionE, i64 16), ptr %15, align 8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 64

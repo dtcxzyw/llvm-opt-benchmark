@@ -297,7 +297,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.end.i
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
@@ -2588,7 +2588,7 @@ define internal void @_ZL28ucasemap_internalUTF8ToLowerijPN6icu_7513BreakIterato
 entry:
   %csc = alloca %struct.UCaseContext, align 8
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
@@ -2622,7 +2622,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
@@ -3124,7 +3124,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.then12.i, %if.end8.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %csc.i)
   %1 = getelementptr inbounds nuw i8, ptr %csc.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src.coerce0, ptr %csc.i, align 8
   %limit.i = getelementptr inbounds nuw i8, ptr %csc.i, i64 16
   store i32 %srcLength.addr.0.i, ptr %limit.i, align 8

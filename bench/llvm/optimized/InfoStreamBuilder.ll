@@ -305,7 +305,7 @@ _ZN4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinarySt
   call void @_ZN4llvm18BinaryStreamWriterC1ERNS_20WritableBinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(8) %50) #16
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #16
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %51, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !8
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]

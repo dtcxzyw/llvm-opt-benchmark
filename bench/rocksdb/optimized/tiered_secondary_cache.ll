@@ -378,7 +378,7 @@ if.end23:                                         ; preds = %invoke.cont
 
 invoke.cont24:                                    ; preds = %if.end23
   %24 = getelementptr inbounds nuw i8, ptr %call25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %24, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %24, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i64 16), ptr %call25, align 8
   %inner_handle_.i = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr null, ptr %inner_handle_.i, align 8

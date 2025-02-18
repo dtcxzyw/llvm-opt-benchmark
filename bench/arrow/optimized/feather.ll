@@ -828,7 +828,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status7In
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !noalias !81
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 24, i1 false), !noalias !81
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false), !noalias !81
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
@@ -2435,7 +2435,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %764, %762
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %771, align 8, !tbaa !42, !noalias !159
   %774 = getelementptr inbounds nuw i8, ptr %771, i64 16
   %775 = getelementptr inbounds nuw i8, ptr %771, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %775, i8 0, i64 80, i1 false), !noalias !159
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %775, i8 0, i64 80, i1 false), !noalias !159
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2E, i64 16), ptr %774, align 8, !tbaa !42, !noalias !159
   %776 = getelementptr inbounds nuw i8, ptr %771, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %776, i8 0, i64 32, i1 false), !noalias !159

@@ -147,7 +147,7 @@ define internal void @kdf_pkcs12_reset(ptr noundef %0) #0 {
   %9 = load i64, ptr %8, align 8, !tbaa !17
   tail call void @CRYPTO_clear_free(ptr noundef %7, i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 155) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !3
   ret void
 }

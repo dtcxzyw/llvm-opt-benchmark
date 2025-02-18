@@ -2560,7 +2560,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 340
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %37, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %37, i8 0, i64 132, i1 false)
   store i32 24, ptr %36, align 4
   br label %38
 
@@ -2594,7 +2594,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 340
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %59, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %59, i8 0, i64 132, i1 false)
   store i32 52, ptr %58, align 4
   %60 = getelementptr i8, ptr %0, i64 7188
   %61 = load i32, ptr %60, align 4
@@ -4581,7 +4581,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
   %114 = icmp eq i32 %113, 0
   %115 = select i1 %114, i32 52, i32 24
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %116, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %116, i8 0, i64 132, i1 false)
   store i32 %115, ptr %112, align 4
   br i1 %114, label %117, label %128
 

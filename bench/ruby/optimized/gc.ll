@@ -8465,7 +8465,7 @@ define dso_local void @rb_objspace_each_objects(ptr noundef %0, ptr noundef %1) 
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #7
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %6, ptr %3, align 8, !tbaa !355
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %8, align 8, !tbaa !357
@@ -8619,7 +8619,7 @@ objspace_available_slots.exit.i:                  ; preds = %5
   %10 = load i64, ptr %9, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store ptr %4, ptr %1, align 8, !tbaa !355
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @gc_set_candidate_object_i, ptr %12, align 8, !tbaa !357
@@ -15047,7 +15047,7 @@ rb_check_arity.exit:                              ; preds = %3
   %21 = load ptr, ptr %20, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #7
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr %21, ptr %4, align 8, !tbaa !355
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @os_obj_of_i, ptr %23, align 8, !tbaa !357
@@ -28973,11 +28973,11 @@ rb_gc_vm_lock.exit:                               ; preds = %.thread80, %76
 78:                                               ; preds = %rb_gc_vm_lock.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #7
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %79, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %79, i8 0, i64 40, i1 false)
   store ptr %74, ptr %11, align 8, !tbaa !672
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #7
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %80, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   store ptr %74, ptr %8, align 8, !tbaa !355
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @desired_compaction_pages_i, ptr %81, align 8, !tbaa !622
@@ -29118,7 +29118,7 @@ rb_objspace_reachable_objects_from_root.exit:     ; preds = %rb_gc_vm_unlock.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #7
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %130, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
   store ptr %74, ptr %4, align 8, !tbaa !355
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @heap_check_moved_i, ptr %131, align 8, !tbaa !357
@@ -29268,7 +29268,7 @@ rb_gc_vm_lock.exit.i:                             ; preds = %15, %1
   store i16 %20, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #7
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr %13, ptr %9, align 8, !tbaa !680
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 832
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24

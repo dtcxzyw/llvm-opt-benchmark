@@ -423,7 +423,7 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %71 = getelementptr ptr, ptr %70, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, i8 0, i64 48, i1 false)
   store i32 -1, ptr %62, align 8
   store i32 -1, ptr %63, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -616,7 +616,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -764,7 +764,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %100 = load ptr, ptr %93, align 8
   %101 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %86, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %101, align 4
   store ptr %101, ptr %7, align 8
   %102 = call noalias ptr @g_strdup(ptr noundef %100)
@@ -824,7 +824,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %130 = load ptr, ptr %123, align 8
   %131 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %116, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %131, align 4
   store ptr %131, ptr %6, align 8
   %132 = call noalias ptr @g_strdup(ptr noundef %130)
@@ -884,7 +884,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %160 = load ptr, ptr %153, align 8
   %161 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %146, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %161, align 4
   store ptr %161, ptr %5, align 8
   %162 = call noalias ptr @g_strdup(ptr noundef %160)
@@ -940,7 +940,7 @@ define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr nou
   %189 = load ptr, ptr %182, align 8
   %190 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %175, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %190, align 4
   store ptr %190, ptr %4, align 8
   %191 = call noalias ptr @g_strdup(ptr noundef %189)
@@ -1010,7 +1010,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #9
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -1179,7 +1179,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
   %108 = load ptr, ptr %101, align 8
   %109 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %78, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %109, align 4
   store ptr %109, ptr %5, align 8
   %110 = call noalias ptr @g_strdup(ptr noundef %108)
@@ -1235,7 +1235,7 @@ define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr nou
   %137 = load ptr, ptr %130, align 8
   %138 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %123, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %138, align 4
   store ptr %138, ptr %4, align 8
   %139 = call noalias ptr @g_strdup(ptr noundef %137)
@@ -1311,7 +1311,7 @@ define internal void @analyze_pdu_hfids(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %11, align 4
   store ptr %11, ptr %4, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %1)
@@ -1394,7 +1394,7 @@ define internal fastcc void @analyze_transform_hfrs(ptr noundef readonly capture
   %27 = load ptr, ptr %23, align 8
   %28 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 noundef 0, i64 noundef 24, i1 noundef false) #9
   store i32 -1, ptr %28, align 4
   store ptr %28, ptr %5, align 8
   %29 = call noalias ptr @g_strdup(ptr noundef %27)

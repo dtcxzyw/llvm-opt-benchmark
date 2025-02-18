@@ -71462,7 +71462,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %79, i8 0, i64 208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %79, i8 0, i64 208, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %80, ptr %77, align 8, !tbaa !12
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -72178,7 +72178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %_Z
 
 355:                                              ; preds = %353
   %356 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %356, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %356, i8 0, i64 200, i1 false)
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 16
   store ptr %357, ptr %354, align 8, !tbaa !12
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
@@ -96026,7 +96026,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i35: ; preds = %_ZNK1
   %indvars.iv = phi i64 [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i35.lr.ph ], [ %indvars.iv.next, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29 ]
   %127 = call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #39
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %128, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %128, i8 0, i64 200, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr %129, ptr %127, align 8, !tbaa !12
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -100945,7 +100945,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i348: ; preds = %_ZNK
 
 866:                                              ; preds = %861
   %867 = getelementptr inbounds nuw i8, ptr %865, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %867, i8 0, i64 208, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %867, i8 0, i64 208, i1 false)
   %868 = getelementptr inbounds nuw i8, ptr %865, i64 16
   store ptr %868, ptr %865, align 8, !tbaa !12
   %869 = getelementptr inbounds nuw i8, ptr %865, i64 8

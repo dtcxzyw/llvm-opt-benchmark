@@ -823,7 +823,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef captures(address_
 29:                                               ; preds = %22, %22, %22
   call void @llvm.lifetime.start.p0(i64 13376, ptr nonnull %3) #12
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13376) %30, i8 0, i64 13352, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13352) %30, i8 0, i64 13352, i1 false)
   %31 = call ptr @cli_max_calloc(i64 noundef 26624, i64 noundef 1) #12
   store ptr %31, ptr %3, align 8, !tbaa !47
   %.not.i = icmp eq ptr %31, null

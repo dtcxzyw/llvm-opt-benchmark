@@ -1893,7 +1893,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %.val = load ptr, ptr %7, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #17
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store i32 -1, ptr %4, align 8, !tbaa !66
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1901,7 +1901,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   store i32 0, ptr %11, align 4, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 2, ptr %9, align 4, !tbaa !69
   tail call void (...) @Extra_UtilGetoptReset() #17
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 60

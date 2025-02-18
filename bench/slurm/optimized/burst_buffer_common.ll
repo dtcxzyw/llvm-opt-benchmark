@@ -4122,7 +4122,7 @@ define dso_local i32 @bb_post_persist_create(ptr noundef readonly captures(addre
   %13 = load i64, ptr %12, align 8
   %14 = lshr i64 %13, 20
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, i8 0, i64 104, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
@@ -4273,7 +4273,7 @@ define dso_local i32 @bb_post_persist_delete(ptr noundef readonly captures(none)
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 20
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 104, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %3, align 8

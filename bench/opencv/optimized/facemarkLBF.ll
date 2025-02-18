@@ -11672,7 +11672,7 @@ define hidden noundef double @_ZN2cv4face15FacemarkLBFImpl3LBF12calcVarianceERKS
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store ptr %19, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 80

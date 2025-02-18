@@ -122,7 +122,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
 28:                                               ; preds = %.loopexit
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store ptr %1, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %2, ptr %31, align 8
@@ -312,7 +312,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %21
 define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %6, align 8
@@ -410,7 +410,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %4, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %7, align 8

@@ -776,7 +776,7 @@ define range(i32 0, 2) i32 @ssl3_clear(ptr noundef %0) local_unnamed_addr #4 {
   %56 = load i64, ptr %12, align 8, !tbaa !96
   %57 = and i64 %56, 8192
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 360
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %58, i8 0, i64 904, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(904) %58, i8 0, i64 904, i1 false)
   store i64 %57, ptr %12, align 8, !tbaa !96
   %59 = tail call i32 @ssl_free_wbio_buffer(ptr noundef nonnull %11) #18
   %.not52 = icmp eq i32 %59, 0

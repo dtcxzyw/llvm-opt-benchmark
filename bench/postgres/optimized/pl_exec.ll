@@ -4505,7 +4505,7 @@ setup_param_list.exit.i:                          ; preds = %298, %294
   %301 = load ptr, ptr @MyProc, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 72
   %303 = load i32, ptr %302, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
   store ptr %.0.i.i, ptr %73, align 8
   %304 = load i8, ptr %94, align 2, !range !3, !noundef !4
   store i8 %304, ptr %122, align 8
@@ -5815,7 +5815,7 @@ get_stmt_mcontext.exit:                           ; preds = %917, %920
   unreachable
 
 945:                                              ; preds = %937
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %126, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false)
   store i32 16, ptr %60, align 8
   %946 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %947 = load i32, ptr %946, align 4
@@ -6881,7 +6881,7 @@ get_stmt_mcontext.exit.i:                         ; preds = %1444, %1441
 
 setup_param_list.exit.i150:                       ; preds = %1477, %1473
   %.0.i.i151 = phi ptr [ %1478, %1477 ], [ null, %1473 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %100, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false)
   store ptr %.0.i.i151, ptr %39, align 8
   %1480 = load i8, ptr %94, align 2, !range !3, !noundef !4
   store i8 %1480, ptr %100, align 8
@@ -6962,7 +6962,7 @@ setup_param_list.exit.i150:                       ; preds = %1477, %1473
   br label %exec_eval_cleanup.exit.i155
 
 exec_eval_cleanup.exit.i155:                      ; preds = %1511, %1509
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %103, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 32, i1 false)
   %1514 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %1515 = load ptr, ptr %1514, align 8
   %1516 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1515)
@@ -7798,7 +7798,7 @@ exec_eval_cleanup.exit.i186:                      ; preds = %1848, %1846
   %1851 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %1852 = load ptr, ptr %1851, align 8
   %1853 = call fastcc ptr @exec_eval_using_params(ptr noundef nonnull %0, ptr noundef %1852)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 32, i1 false)
   store ptr %1853, ptr %20, align 8
   %1854 = load i8, ptr %94, align 2, !range !3, !noundef !4
   store i8 %1854, ptr %95, align 8
@@ -8117,7 +8117,7 @@ get_stmt_mcontext.exit.i190:                      ; preds = %1964, %1961
   unreachable
 
 2014:                                             ; preds = %2006
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   store i32 16, ptr %14, align 8
   %2015 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %2016 = load i32, ptr %2015, align 4

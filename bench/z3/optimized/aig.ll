@@ -10704,7 +10704,7 @@ while.body.lr.ph:
   %rs = alloca %class.ref_vector, align 8
   %0 = getelementptr inbounds nuw i8, ptr %roots, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %roots, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 120, i1 false)
   store ptr %0, ptr %roots, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %roots, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %roots, i64 12

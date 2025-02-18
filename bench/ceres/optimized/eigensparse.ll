@@ -412,7 +412,7 @@ define hidden void @_ZN5ceres8internal19EigenSparseCholesky6CreateENS0_12Orderin
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #30, !noalias !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %6, i8 0, i64 200, i1 false), !noalias !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %6, i8 0, i64 200, i1 false), !noalias !3
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i64 16), ptr %5, align 8, !tbaa !6, !noalias !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 41
@@ -462,7 +462,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i2, %.b
 19:                                               ; preds = %2
   %20 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #30, !noalias !34
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %21, i8 0, i64 200, i1 false), !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %21, i8 0, i64 200, i1 false), !noalias !34
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIdLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i64 16), ptr %20, align 8, !tbaa !6, !noalias !34
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 41
@@ -541,7 +541,7 @@ define hidden void @_ZN5ceres8internal24FloatEigenSparseCholesky6CreateENS0_12Or
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #30, !noalias !44
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %6, i8 0, i64 192, i1 false), !noalias !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %6, i8 0, i64 192, i1 false), !noalias !44
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_11AMDOrderingIiEEEEEE, i64 16), ptr %5, align 8, !tbaa !6, !noalias !44
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 41
@@ -591,7 +591,7 @@ common.resume:                                    ; preds = %.body.i.i.i.i2, %.b
 19:                                               ; preds = %2
   %20 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #30, !noalias !61
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %21, i8 0, i64 192, i1 false), !noalias !61
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %21, i8 0, i64 192, i1 false), !noalias !61
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5ceres8internal27EigenSparseCholeskyTemplateIN5Eigen14SimplicialLDLTINS2_12SparseMatrixIfLi0EiEELi2ENS2_15NaturalOrderingIiEEEEEE, i64 16), ptr %20, align 8, !tbaa !6, !noalias !61
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 41

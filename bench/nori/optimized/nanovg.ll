@@ -18576,7 +18576,7 @@ nvgSave.exit:                                     ; preds = %20
   store <2 x float> splat (float 1.000000e+00), ptr %.sroa.3.0..sroa_idx7.i.i, align 4
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %41, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %41, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 244
   store float 1.000000e+00, ptr %42, align 4
@@ -18636,7 +18636,7 @@ nvgSave.exit:                                     ; preds = %20
 
 68:                                               ; preds = %nvgSave.exit
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   store i32 512, ptr %2, align 8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 512, ptr %70, align 4
@@ -18741,7 +18741,7 @@ define dso_local void @nvgReset(ptr noundef captures(none) %0) local_unnamed_add
   store <2 x float> splat (float 1.000000e+00), ptr %.sroa.3.0..sroa_idx7.i, align 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %19, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %19, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store float 0.000000e+00, ptr %20, align 4
@@ -18948,7 +18948,7 @@ nvgSave.exit:
   store <2 x float> splat (float 1.000000e+00), ptr %.sroa.3.0..sroa_idx7.i.i, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %17, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %17, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store float 1.000000e+00, ptr %18, align 4
@@ -20155,7 +20155,7 @@ define dso_local void @nvgStrokeColor(ptr noundef captures(none) %0, <2 x float>
   %8 = getelementptr i8, ptr %0, i64 232
   %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %10, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %11, align 4
@@ -20246,7 +20246,7 @@ define dso_local void @nvgFillColor(ptr noundef captures(none) %0, <2 x float> %
   %8 = getelementptr i8, ptr %0, i64 156
   %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %10, i8 0, i64 52, i1 false)
   store float 1.000000e+00, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %11, align 4
@@ -20551,7 +20551,7 @@ define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias writable writeo
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias writable sret(%struct.NVGpaint) align 4 captures(none) initializes((0, 76)) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #35 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = tail call float @cosf(float noundef %6) #57
   %12 = tail call float @sinf(float noundef %6) #57
   store float %11, ptr %0, align 4
@@ -56805,7 +56805,7 @@ nvg__lastPoint.exit:                              ; preds = %15
   %61 = sext i32 %58 to i64
   %62 = getelementptr inbounds %struct.NVGpoint, ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %63, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   store float %1, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float %2, ptr %64, align 4

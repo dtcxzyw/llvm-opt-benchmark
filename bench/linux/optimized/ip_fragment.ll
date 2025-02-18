@@ -848,7 +848,7 @@ define internal void @ip4_frag_init(ptr noundef captures(none) initializes((8, 2
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, i8 0, i64 12, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, i8 0, i64 12, i1 false), !annotation !9
   store i32 %16, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %18, ptr %20, align 4

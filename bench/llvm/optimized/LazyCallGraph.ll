@@ -604,7 +604,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm13Lazy
   %11 = alloca %class.anon, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #18
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %7, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -7349,7 +7349,7 @@ define dso_local ptr @JS_NewContextRaw(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(472) %10, i8 0, i64 467, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(467) %10, i8 0, i64 467, i1 false)
   store i32 1, ptr %8, align 8, !tbaa !200
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 5, ptr %11, align 4
@@ -50302,7 +50302,7 @@ JS_FreeAtomStruct.exit.i.i:                       ; preds = %57, %48, %._crit_ed
 
 74:                                               ; preds = %2
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(280) %75, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %75, i8 0, i64 240, i1 false)
   store i32 1, ptr %7, align 8, !tbaa !499
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %76, align 4, !tbaa !432
@@ -52732,7 +52732,7 @@ define dso_local ptr @JS_WriteObject2(ptr noundef %0, ptr noundef writeonly capt
   %9 = alloca %struct.BCWriterState, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #41
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, i8 0, i64 136, i1 false)
   store ptr %0, ptr %9, align 8, !tbaa !528
   %11 = and i32 %4, 1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -53541,7 +53541,7 @@ define dso_local { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %1, i64
   %12 = add i32 %10, %11
   store i32 %12, ptr %9, align 4, !tbaa !285
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
   store ptr %0, ptr %5, align 8, !tbaa !556
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !559
@@ -56412,7 +56412,7 @@ define dso_local { i64, i64 } @JS_ParseJSON2(ptr noundef %0, ptr noundef %1, i64
   %6 = alloca %struct.JSParseState, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #41
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   store ptr %0, ptr %6, align 8, !tbaa !467
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %8, align 8, !tbaa !481
@@ -61061,7 +61061,7 @@ define internal { i64, i64 } @js_map_constructor(ptr noundef %0, i64 %1, i64 %2,
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %32, i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %32, i8 0, i64 44, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %33, ptr %33, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -64349,7 +64349,7 @@ define internal { i64, i64 } @__JS_EvalInternal(ptr noundef %0, i64 %1, i64 %2, 
   %13 = alloca %struct.JSParseState, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #41
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, i8 0, i64 120, i1 false)
   store ptr %0, ptr %13, align 8, !tbaa !467
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %5, ptr %15, align 8, !tbaa !481
@@ -93537,7 +93537,7 @@ define internal fastcc ptr @async_func_init(ptr noundef %0, i64 %1, i64 %2, i64 
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %21, i8 0, i64 164, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(164) %21, i8 0, i64 164, i1 false)
   store i32 1, ptr %12, align 8, !tbaa !126
   %22 = load ptr, ptr %8, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -132192,7 +132192,7 @@ define internal fastcc ptr @js_new_function_def(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(552) %19, i8 0, i64 532, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(532) %19, i8 0, i64 532, i1 false)
   store ptr %0, ptr %11, align 8, !tbaa !972
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %20, ptr %20, align 8, !tbaa !60

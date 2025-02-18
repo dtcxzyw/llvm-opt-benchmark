@@ -13408,7 +13408,7 @@ define internal fastcc void @dumpEncoding(ptr noundef %0) unnamed_addr #5 {
   tail call void @appendPQExpBufferStr(ptr noundef %6, ptr noundef nonnull @.str.694) #14
   %11 = tail call i32 @createDumpId() #14
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 112, i1 false)
   store ptr @.str.733, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @.str.733, ptr %13, align 8
@@ -13434,7 +13434,7 @@ define internal fastcc void @dumpStdStrings(ptr noundef %0) unnamed_addr #5 {
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %7, ptr noundef nonnull @.str.736, ptr noundef nonnull %6) #14
   %8 = tail call i32 @createDumpId() #14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
   store ptr @.str.737, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @.str.737, ptr %10, align 8
@@ -13509,7 +13509,7 @@ define internal fastcc void @dumpSearchPath(ptr noundef %0) unnamed_addr #5 {
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.742, ptr noundef %28) #14
   %29 = call i32 @createDumpId() #14
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %30, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %30, i8 0, i64 112, i1 false)
   store ptr @.str.743, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr @.str.743, ptr %31, align 8
@@ -14163,7 +14163,7 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
   call void @appendPQExpBufferStr(ptr noundef %306, ptr noundef %318) #14
   %319 = call i32 @createDumpId() #14
   %320 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %320, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %320, i8 0, i64 112, i1 false)
   store ptr @.str.719, ptr %8, align 8
   %321 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @.str.719, ptr %321, align 8

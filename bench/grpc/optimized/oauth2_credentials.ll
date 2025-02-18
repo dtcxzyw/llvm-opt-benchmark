@@ -516,7 +516,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   store i64 0, ptr %error, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr @.str, ptr %agg.result, align 8
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 48
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
@@ -2742,7 +2742,7 @@ invoke.cont37:                                    ; preds = %invoke.cont11, %inv
 
 call.i.noexc:                                     ; preds = %invoke.cont37
   %21 = getelementptr inbounds nuw i8, ptr %call.i27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %21, i8 0, i64 96, i1 false), !noalias !24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %21, i8 0, i64 96, i1 false), !noalias !24
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i27, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV40grpc_oauth2_pending_get_request_metadata, i64 16), ptr %call.i27, align 8, !noalias !24
@@ -3445,7 +3445,7 @@ if.then1:                                         ; preds = %do.body
 do.end:                                           ; preds = %do.body
   %call.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #34, !noalias !46
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %1, i8 0, i64 144, i1 false), !noalias !46
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %1, i8 0, i64 144, i1 false), !noalias !46
   %refs_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !46
   store i32 2, ptr %1, align 8, !noalias !46

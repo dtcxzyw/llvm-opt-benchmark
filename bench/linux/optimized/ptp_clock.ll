@@ -204,7 +204,7 @@ define dso_local ptr @ptp_clock_register(ptr noundef %0, ptr noundef %1) #0 alig
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 1168
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 1192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %78, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   store volatile ptr %77, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 1176
   store volatile ptr %77, ptr %79, align 8

@@ -3775,7 +3775,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml27XMLText12ShallowCloneEPNS0_11XMLDocu
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLTextE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i8 0, ptr %14, align 8
@@ -3811,7 +3811,7 @@ _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLTextE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i8 0, ptr %9, align 8
@@ -4026,7 +4026,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml210XMLComment12ShallowCloneEPNS0_11XML
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLCommentE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %7, ptr %14, align 8
@@ -4056,7 +4056,7 @@ _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLCommentE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %2, ptr %9, align 8
@@ -4260,7 +4260,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml214XMLDeclaration12ShallowCloneEPNS0_1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml214XMLDeclarationE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %7, ptr %14, align 8
@@ -4292,7 +4292,7 @@ _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml214XMLDeclarationE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %2, ptr %9, align 8
@@ -4492,7 +4492,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml210XMLUnknown12ShallowCloneEPNS0_11XML
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLUnknownE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %7, ptr %14, align 8
@@ -4522,7 +4522,7 @@ _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLUnknownE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %2, ptr %9, align 8
@@ -5581,7 +5581,7 @@ _ZN2cv8tinyxml27XMLNode8SetValueEPKcb.exit:       ; preds = %10, %15, %19
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLTextE, i64 16), ptr %30, align 8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i8 0, ptr %36, align 8
@@ -6573,7 +6573,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml210XMLElement12ShallowCloneEPNS0_11XML
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLElementE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 0, ptr %14, align 8
@@ -6654,7 +6654,7 @@ _ZN2cv8tinyxml210XMLElement7SetNameEPKcb.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLElementE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 0, ptr %9, align 8

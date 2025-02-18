@@ -158,7 +158,7 @@ define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %0, ptr no
   %7 = alloca %struct.wait_entry, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store ptr %4, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = ptrtoint ptr %0 to i64

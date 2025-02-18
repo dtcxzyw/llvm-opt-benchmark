@@ -2703,7 +2703,7 @@ define dso_local noundef ptr @_ZN4pbrt11PixelSensor13CreateDefaultEN4pstd3pmr21p
 entry:
   %ref.tmp = alloca %"class.pbrt::ParameterDictionary", align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   %call.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #24
   %1 = ptrtoint ptr %call.i.i to i64
   store i64 %1, ptr %ref.tmp, align 8

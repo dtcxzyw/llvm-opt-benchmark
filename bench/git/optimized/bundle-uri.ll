@@ -93,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @init_bundle_list(ptr noundef initializes((0, 72)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %3, align 4, !tbaa !4
   store i32 1, ptr %0, align 8, !tbaa !13
@@ -401,7 +401,7 @@ define dso_local i32 @fetch_bundle_uri(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !32
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.9, i32 noundef 815, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %12) #16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %14, align 4, !tbaa !4
   store i32 1, ptr %5, align 8, !tbaa !13
@@ -696,7 +696,7 @@ copy_uri_to_file.exit:                            ; preds = %download_https_uri_
 84:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %85, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, i8 0, i64 64, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %86, align 4, !tbaa !4
   store i32 1, ptr %5, align 8, !tbaa !13
@@ -882,7 +882,7 @@ define dso_local i32 @fetch_bundle_list(ptr noundef %0, ptr noundef %1) local_un
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %12, align 4, !tbaa !4
   store i32 1, ptr %4, align 8, !tbaa !13
@@ -1397,7 +1397,7 @@ define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.bundle_list_update.id, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #16
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16

@@ -1340,7 +1340,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.45, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -1372,7 +1372,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.48, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx14FileNameOptionE, i64 16), ptr %6, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 92
@@ -1402,7 +1402,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.51, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12DoubleOptionE, i64 16), ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i8 0, ptr %58, align 8
@@ -1422,7 +1422,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.2, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %69, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_113NormalizationEEE, i64 16), ptr %8, align 8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -1447,7 +1447,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.54, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %9, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 261
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1465,7 +1465,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.56, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %95, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13BooleanOptionE, i64 16), ptr %10, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 262
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -1483,7 +1483,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.58, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %106 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %106, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12DoubleOptionE, i64 16), ptr %11, align 8
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i8 0, ptr %107, align 8
@@ -1503,7 +1503,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.60, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %118, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %118, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12DoubleOptionE, i64 16), ptr %12, align 8
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i8 0, ptr %119, align 8
@@ -1523,7 +1523,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.62, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %130, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx10EnumOptionINS_15analysismodules12_GLOBAL__N_111SurfaceTypeEEE, i64 16), ptr %13, align 8
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -1545,7 +1545,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.64, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %143, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %143, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx15SelectionOptionE, i64 16), ptr %14, align 8
   %144 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr @.str.12, ptr %144, align 8
@@ -1568,7 +1568,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_15SelectionOptionEEEPNT_8InfoTypeERKS3_.
   store ptr @.str.66, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %157, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %157, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx15SelectionOptionE, i64 16), ptr %15, align 8
   %158 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr @.str.12, ptr %158, align 8

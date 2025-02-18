@@ -2661,7 +2661,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %23, %22
 .thread:                                          ; preds = %3, %26
   %30 = phi ptr [ %28, %26 ], [ %12, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %32, align 8, !tbaa !94
   store i64 0, ptr %0, align 8, !tbaa !96
@@ -4254,7 +4254,7 @@ _ZN4llvm5APIntD2Ev.exit30:                        ; preds = %189, %186
 
 219:                                              ; preds = %209
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %220, i8 0, i64 24, i1 false), !alias.scope !272
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, i8 0, i64 24, i1 false), !alias.scope !272
   store i32 1, ptr %220, align 8, !tbaa !94, !alias.scope !272
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !272
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4533,7 +4533,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %77, %75
 
 98:                                               ; preds = %87
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 24, i1 false), !alias.scope !281
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false), !alias.scope !281
   store i32 1, ptr %99, align 8, !tbaa !94, !alias.scope !281
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !281
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4608,7 +4608,7 @@ _ZN4llvm10OffsetSpanC2ERKS0_.exit:                ; preds = %98, %84, %86, %123,
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 24, i1 false), !alias.scope !287
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false), !alias.scope !287
   store i32 1, ptr %132, align 8, !tbaa !94, !alias.scope !287
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !287
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4636,7 +4636,7 @@ _ZN4llvm10OffsetSpanC2ERKS0_.exit:                ; preds = %98, %84, %86, %123,
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, i8 0, i64 24, i1 false), !alias.scope !290
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false), !alias.scope !290
   store i32 1, ptr %142, align 8, !tbaa !94, !alias.scope !290
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !290
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4729,7 +4729,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !293
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !293
   store i32 1, ptr %7, align 8, !tbaa !94, !alias.scope !293
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !293
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4738,7 +4738,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !304
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !304
   store i32 1, ptr %10, align 8, !tbaa !94, !alias.scope !304
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !304
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4747,7 +4747,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false), !alias.scope !315
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !315
   store i32 1, ptr %13, align 8, !tbaa !94, !alias.scope !315
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !315
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4756,7 +4756,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !326
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !326
   store i32 1, ptr %16, align 8, !tbaa !94, !alias.scope !326
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !326
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4769,7 +4769,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false), !alias.scope !337
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !alias.scope !337
   store i32 1, ptr %20, align 8, !tbaa !94, !alias.scope !337
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !337
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4778,7 +4778,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false), !alias.scope !348
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !348
   store i32 1, ptr %23, align 8, !tbaa !94, !alias.scope !348
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !348
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4787,7 +4787,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false), !alias.scope !359
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !359
   store i32 1, ptr %26, align 8, !tbaa !94, !alias.scope !359
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !359
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4796,7 +4796,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 24, i1 false), !alias.scope !370
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false), !alias.scope !370
   store i32 1, ptr %29, align 8, !tbaa !94, !alias.scope !370
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !370
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4805,7 +4805,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false), !alias.scope !381
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !381
   store i32 1, ptr %32, align 8, !tbaa !94, !alias.scope !381
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !381
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4818,7 +4818,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 24, i1 false), !alias.scope !392
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false), !alias.scope !392
   store i32 1, ptr %36, align 8, !tbaa !94, !alias.scope !392
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !392
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4827,7 +4827,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 38:                                               ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !403
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !403
   store i32 1, ptr %39, align 8, !tbaa !94, !alias.scope !403
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !403
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4836,7 +4836,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 41:                                               ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 24, i1 false), !alias.scope !412
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !alias.scope !412
   store i32 1, ptr %42, align 8, !tbaa !94, !alias.scope !412
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !412
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4845,7 +4845,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 44:                                               ; preds = %3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !421
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !421
   store i32 1, ptr %45, align 8, !tbaa !94, !alias.scope !421
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !421
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4854,7 +4854,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 24, i1 false), !alias.scope !430
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false), !alias.scope !430
   store i32 1, ptr %48, align 8, !tbaa !94, !alias.scope !430
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !430
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4863,7 +4863,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 50:                                               ; preds = %3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 24, i1 false), !alias.scope !439
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false), !alias.scope !439
   store i32 1, ptr %51, align 8, !tbaa !94, !alias.scope !439
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !439
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4872,7 +4872,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 53:                                               ; preds = %3
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false), !alias.scope !448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false), !alias.scope !448
   store i32 1, ptr %54, align 8, !tbaa !94, !alias.scope !448
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !448
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4881,7 +4881,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 56:                                               ; preds = %3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 24, i1 false), !alias.scope !457
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !alias.scope !457
   store i32 1, ptr %57, align 8, !tbaa !94, !alias.scope !457
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !457
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4890,7 +4890,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 59:                                               ; preds = %3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 24, i1 false), !alias.scope !466
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false), !alias.scope !466
   store i32 1, ptr %60, align 8, !tbaa !94, !alias.scope !466
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !466
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4899,7 +4899,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 62:                                               ; preds = %3
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 24, i1 false), !alias.scope !475
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false), !alias.scope !475
   store i32 1, ptr %63, align 8, !tbaa !94, !alias.scope !475
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !475
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4908,7 +4908,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 65:                                               ; preds = %3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 24, i1 false), !alias.scope !484
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false), !alias.scope !484
   store i32 1, ptr %66, align 8, !tbaa !94, !alias.scope !484
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !484
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4917,7 +4917,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 68:                                               ; preds = %3
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 24, i1 false), !alias.scope !493
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false), !alias.scope !493
   store i32 1, ptr %69, align 8, !tbaa !94, !alias.scope !493
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !493
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4926,7 +4926,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 71:                                               ; preds = %3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 0, i64 24, i1 false), !alias.scope !502
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false), !alias.scope !502
   store i32 1, ptr %72, align 8, !tbaa !94, !alias.scope !502
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !502
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4935,7 +4935,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 74:                                               ; preds = %3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 24, i1 false), !alias.scope !511
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false), !alias.scope !511
   store i32 1, ptr %75, align 8, !tbaa !94, !alias.scope !511
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !511
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4944,7 +4944,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 77:                                               ; preds = %3
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 24, i1 false), !alias.scope !520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false), !alias.scope !520
   store i32 1, ptr %78, align 8, !tbaa !94, !alias.scope !520
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !520
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4953,7 +4953,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 80:                                               ; preds = %3
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 24, i1 false), !alias.scope !529
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false), !alias.scope !529
   store i32 1, ptr %81, align 8, !tbaa !94, !alias.scope !529
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !529
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4962,7 +4962,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 83:                                               ; preds = %3
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 24, i1 false), !alias.scope !538
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false), !alias.scope !538
   store i32 1, ptr %84, align 8, !tbaa !94, !alias.scope !538
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !538
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4971,7 +4971,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 86:                                               ; preds = %3
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 24, i1 false), !alias.scope !547
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false), !alias.scope !547
   store i32 1, ptr %87, align 8, !tbaa !94, !alias.scope !547
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !547
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4980,7 +4980,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 89:                                               ; preds = %3
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 24, i1 false), !alias.scope !556
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false), !alias.scope !556
   store i32 1, ptr %90, align 8, !tbaa !94, !alias.scope !556
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !556
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4997,7 +4997,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 94:                                               ; preds = %3
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 24, i1 false), !alias.scope !565
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false), !alias.scope !565
   store i32 1, ptr %95, align 8, !tbaa !94, !alias.scope !565
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !565
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5006,7 +5006,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 97:                                               ; preds = %3
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 24, i1 false), !alias.scope !574
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false), !alias.scope !574
   store i32 1, ptr %98, align 8, !tbaa !94, !alias.scope !574
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !574
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5015,7 +5015,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 100:                                              ; preds = %3
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 0, i64 24, i1 false), !alias.scope !583
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false), !alias.scope !583
   store i32 1, ptr %101, align 8, !tbaa !94, !alias.scope !583
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !583
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5024,7 +5024,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 103:                                              ; preds = %3
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, i8 0, i64 24, i1 false), !alias.scope !592
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false), !alias.scope !592
   store i32 1, ptr %104, align 8, !tbaa !94, !alias.scope !592
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !592
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5033,7 +5033,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 106:                                              ; preds = %3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 0, i64 24, i1 false), !alias.scope !601
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false), !alias.scope !601
   store i32 1, ptr %107, align 8, !tbaa !94, !alias.scope !601
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !601
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5042,7 +5042,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 109:                                              ; preds = %3
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, i8 0, i64 24, i1 false), !alias.scope !610
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false), !alias.scope !610
   store i32 1, ptr %110, align 8, !tbaa !94, !alias.scope !610
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !610
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5051,7 +5051,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 24, i1 false), !alias.scope !623
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false), !alias.scope !623
   store i32 1, ptr %113, align 8, !tbaa !94, !alias.scope !623
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !623
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5060,7 +5060,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 115:                                              ; preds = %3
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false), !alias.scope !636
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false), !alias.scope !636
   store i32 1, ptr %116, align 8, !tbaa !94, !alias.scope !636
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !636
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5069,7 +5069,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 118:                                              ; preds = %3
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false), !alias.scope !649
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false), !alias.scope !649
   store i32 1, ptr %119, align 8, !tbaa !94, !alias.scope !649
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !649
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5078,7 +5078,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 121:                                              ; preds = %3
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false), !alias.scope !662
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false), !alias.scope !662
   store i32 1, ptr %122, align 8, !tbaa !94, !alias.scope !662
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !662
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5087,7 +5087,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 124:                                              ; preds = %3
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, i8 0, i64 24, i1 false), !alias.scope !675
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, i8 0, i64 24, i1 false), !alias.scope !675
   store i32 1, ptr %125, align 8, !tbaa !94, !alias.scope !675
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !675
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5096,7 +5096,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 127:                                              ; preds = %3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 24, i1 false), !alias.scope !688
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, i8 0, i64 24, i1 false), !alias.scope !688
   store i32 1, ptr %128, align 8, !tbaa !94, !alias.scope !688
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !688
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5105,7 +5105,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 130:                                              ; preds = %3
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, i8 0, i64 24, i1 false), !alias.scope !701
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false), !alias.scope !701
   store i32 1, ptr %131, align 8, !tbaa !94, !alias.scope !701
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !701
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5114,7 +5114,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 133:                                              ; preds = %3
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, i8 0, i64 24, i1 false), !alias.scope !714
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false), !alias.scope !714
   store i32 1, ptr %134, align 8, !tbaa !94, !alias.scope !714
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !714
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5123,7 +5123,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 136:                                              ; preds = %3
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, i8 0, i64 24, i1 false), !alias.scope !727
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false), !alias.scope !727
   store i32 1, ptr %137, align 8, !tbaa !94, !alias.scope !727
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !727
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5132,7 +5132,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 139:                                              ; preds = %3
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, i8 0, i64 24, i1 false), !alias.scope !740
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false), !alias.scope !740
   store i32 1, ptr %140, align 8, !tbaa !94, !alias.scope !740
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !740
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5141,7 +5141,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 142:                                              ; preds = %3
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 24, i1 false), !alias.scope !747
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 24, i1 false), !alias.scope !747
   store i32 1, ptr %143, align 8, !tbaa !94, !alias.scope !747
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !747
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5150,7 +5150,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 145:                                              ; preds = %3
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %146, i8 0, i64 24, i1 false), !alias.scope !760
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false), !alias.scope !760
   store i32 1, ptr %146, align 8, !tbaa !94, !alias.scope !760
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !760
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5159,7 +5159,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 148:                                              ; preds = %3
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %149, i8 0, i64 24, i1 false), !alias.scope !773
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false), !alias.scope !773
   store i32 1, ptr %149, align 8, !tbaa !94, !alias.scope !773
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !773
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5168,7 +5168,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 151:                                              ; preds = %3
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, i8 0, i64 24, i1 false), !alias.scope !784
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, i8 0, i64 24, i1 false), !alias.scope !784
   store i32 1, ptr %152, align 8, !tbaa !94, !alias.scope !784
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !784
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5177,7 +5177,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 154:                                              ; preds = %3
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, i8 0, i64 24, i1 false), !alias.scope !795
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false), !alias.scope !795
   store i32 1, ptr %155, align 8, !tbaa !94, !alias.scope !795
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !795
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5186,7 +5186,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 157:                                              ; preds = %3
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, i8 0, i64 24, i1 false), !alias.scope !806
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false), !alias.scope !806
   store i32 1, ptr %158, align 8, !tbaa !94, !alias.scope !806
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !806
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5207,7 +5207,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 163:                                              ; preds = %3
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, i8 0, i64 24, i1 false), !alias.scope !817
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, i8 0, i64 24, i1 false), !alias.scope !817
   store i32 1, ptr %164, align 8, !tbaa !94, !alias.scope !817
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !817
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5216,7 +5216,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 166:                                              ; preds = %3
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %167, i8 0, i64 24, i1 false), !alias.scope !824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, i8 0, i64 24, i1 false), !alias.scope !824
   store i32 1, ptr %167, align 8, !tbaa !94, !alias.scope !824
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !824
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5225,7 +5225,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 169:                                              ; preds = %3
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %170, i8 0, i64 24, i1 false), !alias.scope !831
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false), !alias.scope !831
   store i32 1, ptr %170, align 8, !tbaa !94, !alias.scope !831
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !831
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5234,7 +5234,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 172:                                              ; preds = %3
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, i8 0, i64 24, i1 false), !alias.scope !842
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, i8 0, i64 24, i1 false), !alias.scope !842
   store i32 1, ptr %173, align 8, !tbaa !94, !alias.scope !842
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !842
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5243,7 +5243,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 175:                                              ; preds = %3
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, i8 0, i64 24, i1 false), !alias.scope !849
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false), !alias.scope !849
   store i32 1, ptr %176, align 8, !tbaa !94, !alias.scope !849
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !849
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5252,7 +5252,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 178:                                              ; preds = %3
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, i8 0, i64 24, i1 false), !alias.scope !858
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false), !alias.scope !858
   store i32 1, ptr %179, align 8, !tbaa !94, !alias.scope !858
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !858
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5261,7 +5261,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 181:                                              ; preds = %3
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %182, i8 0, i64 24, i1 false), !alias.scope !867
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, i8 0, i64 24, i1 false), !alias.scope !867
   store i32 1, ptr %182, align 8, !tbaa !94, !alias.scope !867
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !867
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5270,7 +5270,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 184:                                              ; preds = %3
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, i8 0, i64 24, i1 false), !alias.scope !874
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false), !alias.scope !874
   store i32 1, ptr %185, align 8, !tbaa !94, !alias.scope !874
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !874
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5279,7 +5279,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 187:                                              ; preds = %3
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, i8 0, i64 24, i1 false), !alias.scope !883
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, i8 0, i64 24, i1 false), !alias.scope !883
   store i32 1, ptr %188, align 8, !tbaa !94, !alias.scope !883
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !883
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5288,7 +5288,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_23ObjectSizeOffsetVisi
 
 190:                                              ; preds = %3
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %191, i8 0, i64 24, i1 false), !alias.scope !892
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %191, i8 0, i64 24, i1 false), !alias.scope !892
   store i32 1, ptr %191, align 8, !tbaa !94, !alias.scope !892
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !892
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5416,7 +5416,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionENS_10OffsetSpanELj8E
   store ptr %63, ptr %52, align 8, !tbaa !261
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store i32 1, ptr %65, align 8, !tbaa !94
   store i64 0, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -5483,7 +5483,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %19, %20, %2
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread12: ; preds = %20, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false), !alias.scope !901
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !901
   store i32 1, ptr %22, align 8, !tbaa !94, !alias.scope !901
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !901
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5677,7 +5677,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor24visitConstantPointerNu
 
 14:                                               ; preds = %9, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false), !alias.scope !905
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !alias.scope !905
   store i32 1, ptr %15, align 8, !tbaa !94, !alias.scope !905
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !905
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5785,7 +5785,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor16visitGlobalAliasERNS_1
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !908
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !908
   store i32 1, ptr %6, align 8, !tbaa !94, !alias.scope !908
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !908
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5878,7 +5878,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %15, 
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread15: ; preds = %20, %28, %32, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 24, i1 false), !alias.scope !911
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false), !alias.scope !911
   store i32 1, ptr %33, align 8, !tbaa !94, !alias.scope !911
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !911
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6262,7 +6262,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor15visitAllocaInstERNS_10
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false), !alias.scope !917
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !917
   store i32 1, ptr %32, align 8, !tbaa !94, !alias.scope !917
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !917
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6292,7 +6292,7 @@ _ZN4llvm7isUIntNEjm.exit:                         ; preds = %34
 
 42:                                               ; preds = %_ZN4llvm7isUIntNEjm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 24, i1 false), !alias.scope !920
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !920
   store i32 1, ptr %43, align 8, !tbaa !94, !alias.scope !920
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !920
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6558,7 +6558,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %150, %147, %144
 
 _ZN4llvm23ObjectSizeOffsetVisitor18CheckedZextOrTruncERNS_5APIntE.exit: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 24, i1 false), !alias.scope !926
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, i8 0, i64 24, i1 false), !alias.scope !926
   store i32 1, ptr %154, align 8, !tbaa !94, !alias.scope !926
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !926
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6595,7 +6595,7 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %162, %159, %156
 
 .thread39:                                        ; preds = %_ZN4llvm5APIntD2Ev.exit25
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %168, i8 0, i64 24, i1 false), !alias.scope !929
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false), !alias.scope !929
   store i32 1, ptr %168, align 8, !tbaa !94, !alias.scope !929
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !929
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6732,7 +6732,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm5APInt
 _ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exit.thread43: ; preds = %116, %_ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #22
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %222, i8 0, i64 24, i1 false), !alias.scope !932
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %222, i8 0, i64 24, i1 false), !alias.scope !932
   store i32 1, ptr %222, align 8, !tbaa !94, !alias.scope !932
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !932
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6848,7 +6848,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor13visitCallBaseERNS_8Cal
 
 29:                                               ; preds = %14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false), !alias.scope !938
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !938
   store i32 1, ptr %30, align 8, !tbaa !94, !alias.scope !938
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !938
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6971,7 +6971,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm5APInt
 75:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 24, i1 false), !alias.scope !941
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false), !alias.scope !941
   store i32 1, ptr %76, align 8, !tbaa !94, !alias.scope !941
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !941
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6986,7 +6986,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm5APInt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor23visitExtractElementInstERNS_18ExtractElementInstE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::OffsetSpan") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(388) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !944
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !944
   store i32 1, ptr %4, align 8, !tbaa !94, !alias.scope !944
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !944
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6997,7 +6997,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor23visitExtractElementIns
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor21visitExtractValueInstERNS_16ExtractValueInstE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::OffsetSpan") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(388) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !947
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !947
   store i32 1, ptr %4, align 8, !tbaa !94, !alias.scope !947
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !947
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7010,7 +7010,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor17visitIntToPtrInstERNS_12IntToPtrInstE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::OffsetSpan") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(388) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !950
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !950
   store i32 1, ptr %4, align 8, !tbaa !94, !alias.scope !950
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !950
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8604,7 +8604,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor13visitLoadInstERNS_8Loa
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !alias.scope !994
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !994
   store i32 1, ptr %9, align 8, !tbaa !94, !alias.scope !994
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !994
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8759,7 +8759,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor18combineOffsetRangeENS_
 
 26:                                               ; preds = %18, %4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false), !alias.scope !1006
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !alias.scope !1006
   store i32 1, ptr %27, align 8, !tbaa !94, !alias.scope !1006
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !1006
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9168,7 +9168,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i26:                  ; preds = %194, %192
 
 _ZNK4llvm10OffsetSpaneqERKS0_.exit.thread:        ; preds = %176, %_ZNK4llvm5APInteqERKS0_.exit.i, %185, %_ZNK4llvm10OffsetSpaneqERKS0_.exit
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 24, i1 false), !alias.scope !1009
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, i8 0, i64 24, i1 false), !alias.scope !1009
   store i32 1, ptr %202, align 8, !tbaa !94, !alias.scope !1009
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !1009
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9197,7 +9197,7 @@ define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor12visitPHINodeERNS_7PHIN
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false), !alias.scope !1012
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !1012
   store i32 1, ptr %14, align 8, !tbaa !94, !alias.scope !1012
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !1012
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9568,7 +9568,7 @@ _ZN4llvm10OffsetSpanD2Ev.exit4:                   ; preds = %_ZN4llvm5APIntD2Ev.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm23ObjectSizeOffsetVisitor16visitInstructionERNS_11InstructionE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::OffsetSpan") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(388) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !1023
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !1023
   store i32 1, ptr %4, align 8, !tbaa !94, !alias.scope !1023
   store i64 0, ptr %0, align 8, !tbaa !96, !alias.scope !1023
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13375,7 +13375,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockENS_10OffsetSpanELj8EN
   store ptr %63, ptr %52, align 8, !tbaa !953
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store i32 1, ptr %65, align 8, !tbaa !94
   store i64 0, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 32

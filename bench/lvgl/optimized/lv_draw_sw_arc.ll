@@ -146,7 +146,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   %84 = add i32 %.neg179, %.fr178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %85, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11) #6
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %87 = load i32, ptr %86, align 8, !tbaa !35
@@ -185,7 +185,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16) #6
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %103, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, i8 0, i64 64, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %102, ptr %104, align 8, !tbaa !38
   %105 = load i8, ptr %23, align 8, !tbaa !3

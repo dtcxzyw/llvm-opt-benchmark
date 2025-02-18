@@ -424,7 +424,7 @@ define dso_local void @_ZN4llvm26InterleavedLoadCombinePass3runERNS_8FunctionERN
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 64, i1 false), !alias.scope !69
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false), !alias.scope !69
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %33
 

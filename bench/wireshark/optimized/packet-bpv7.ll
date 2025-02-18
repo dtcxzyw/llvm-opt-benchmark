@@ -5300,7 +5300,7 @@ define internal noundef ptr @fragment_bundle_ident_temporary_key(ptr readnone ca
 define internal noalias noundef ptr @fragment_bundle_ident_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %5, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
   %6 = load i32, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4

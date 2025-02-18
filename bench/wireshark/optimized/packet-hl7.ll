@@ -1334,7 +1334,7 @@ define internal i32 @dissect_hl7(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = sub i32 %20, %.03471
   %32 = add i32 %31, 2
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %8, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %8, i8 0, i64 7, i1 false)
   %33 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %33, i32 noundef 35, ptr noundef nonnull @.str.20)
   %34 = load ptr, ptr %9, align 8

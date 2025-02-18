@@ -2906,7 +2906,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit: ; preds = %._crit_edge.
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %33, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %33, i8 0, i64 5, i1 false)
   store i8 1, ptr %9, align 1
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 1, ptr %34, align 1

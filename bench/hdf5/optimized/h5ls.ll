@@ -5350,7 +5350,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr readn
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #20
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %14) #20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %15, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %15, i8 0, i64 1112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 568
   store i32 2, ptr %16, align 8, !tbaa !99

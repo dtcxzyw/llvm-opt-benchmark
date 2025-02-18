@@ -704,7 +704,7 @@ define dso_local i32 @vduse_dev_handler(ptr noundef %0) local_unnamed_addr #2 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 152, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %5, i8 0, i64 148, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(148) %5, i8 0, i64 148, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8248
   %7 = load i32, ptr %6, align 8
   %8 = call i64 @read(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 152) #20
@@ -1150,7 +1150,7 @@ define dso_local i32 @vduse_dev_setup_queue(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds %struct.VduseVirtq, ptr %5, i64 %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   %9 = icmp sgt i32 %2, 1024
   br i1 %9, label %23, label %10
 

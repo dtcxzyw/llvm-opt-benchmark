@@ -37559,7 +37559,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAn
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAnalysisEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #29
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !1047
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !1047
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !35, !alias.scope !1047
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -45110,7 +45110,7 @@ _ZN4llvm8po_beginIPNS_10BasicBlockEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Gr
   store i32 1, ptr %13, align 8, !tbaa !33, !alias.scope !1256
   call void @_ZN4llvm11po_iteratorIPNS_10BasicBlockENS_11SmallPtrSetIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %26, i8 0, i64 408, i1 false), !alias.scope !1262
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %26, i8 0, i64 408, i1 false), !alias.scope !1262
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %27, ptr %4, align 8, !tbaa !35, !alias.scope !1262
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8

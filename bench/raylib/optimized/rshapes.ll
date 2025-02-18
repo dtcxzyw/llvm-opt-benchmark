@@ -249,7 +249,7 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   %.sroa.041.4.vec.extract47 = extractelement <2 x float> %0, i64 1
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %6, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %7 = fsub <2 x float> %1, %0
   %8 = extractelement <2 x float> %7, i64 1
   %9 = fsub <2 x float> %1, %0
@@ -2999,7 +2999,7 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
 .lr.ph:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %7, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
   %8 = add nsw i32 %1, -3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3227,7 +3227,7 @@ define void @DrawSplineCatmullRom(ptr noundef readonly captures(none) %0, i32 no
   %.sroa.057.0.copyload = load <2 x float>, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %8, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %9 = fmul float %2, 5.000000e-01
   tail call void @DrawCircleSector(<2 x float> %.sroa.057.0.copyload, float noundef %9, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
   %10 = add nsw i32 %1, -3
@@ -3424,7 +3424,7 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
   %.sroa.050.0.vec.extract52.i = extractelement <2 x float> %19, i64 0
   %.sroa.050.4.vec.extract54.i = extractelement <2 x float> %19, i64 1
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %8, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %.sroa.049.4.vec.extract.i = extractelement <2 x float> %20, i64 1
   %.sroa.048.4.vec.extract.i = extractelement <2 x float> %21, i64 1
   %.sroa.049.0.vec.extract.i = extractelement <2 x float> %20, i64 0
@@ -3520,7 +3520,7 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %.sroa.050.4.vec.extract54 = extractelement <2 x float> %0, i64 1
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %7, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
   %.sroa.049.4.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.048.4.vec.extract = extractelement <2 x float> %2, i64 1
   %.sroa.049.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -3645,7 +3645,7 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %.sroa.055.4.vec.extract59 = extractelement <2 x float> %0, i64 1
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %8, i8 0, i64 384, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
   %.sroa.054.4.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.053.4.vec.extract = extractelement <2 x float> %2, i64 1
   %.sroa.052.4.vec.extract = extractelement <2 x float> %3, i64 1

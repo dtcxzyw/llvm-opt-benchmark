@@ -21303,7 +21303,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL8SyncRuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit250:              ; preds = %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = getelementptr inbounds nuw i8, ptr %446, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %448, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %448, i8 0, i64 48, i1 false)
   %449 = trunc nuw i8 %.087.lcssa582 to i1
   %450 = select i1 %449, i8 6, i8 5
   store i8 %450, ptr %446, align 8

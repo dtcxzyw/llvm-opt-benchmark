@@ -34,7 +34,7 @@ if.then8:                                         ; preds = %if.end2
 
 if.end9:                                          ; preds = %if.end2
   %1 = getelementptr inbounds nuw i8, ptr %call3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store ptr %call5, ptr %call3, align 8
   %columns11 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i32 %add, ptr %columns11, align 8

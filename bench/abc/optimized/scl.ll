@@ -3374,7 +3374,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #12
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %6, i8 0, i64 52, i1 false)
   store i32 5, ptr %4, align 4, !tbaa !107
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 50, ptr %7, align 4, !tbaa !109

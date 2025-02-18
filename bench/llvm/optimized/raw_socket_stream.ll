@@ -541,7 +541,7 @@ define internal fastcc void @_ZL13setSocketAddrN4llvm9StringRefE(ptr dead_on_unw
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 0, i64 108, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 0, i64 108, i1 false)
   store i16 1, ptr %0, align 2, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20

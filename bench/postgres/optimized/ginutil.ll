@@ -153,7 +153,7 @@ define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr n
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9656) %5, i8 0, i64 9648, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9648) %5, i8 0, i64 9648, i1 false)
   store ptr %1, ptr %0, align 8
   %6 = load i32, ptr %4, align 8
   %7 = icmp eq i32 %6, 1

@@ -2376,7 +2376,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjN12_GLOBAL__N_117FrameIndexesCache19FrameIn
   store i32 %675, ptr %710, align 4, !tbaa !248
   %717 = getelementptr inbounds nuw i8, ptr %710, i64 8
   %718 = getelementptr inbounds nuw i8, ptr %710, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %718, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %718, i8 0, i64 40, i1 false)
   store ptr %718, ptr %717, align 8, !tbaa !25
   %719 = getelementptr inbounds nuw i8, ptr %710, i64 16
   store i32 0, ptr %719, align 8, !tbaa !26
@@ -7103,7 +7103,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockENS_8SmallSetISt4pai
   store ptr %57, ptr %48, align 8, !tbaa !237
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %59, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 80, i1 false)
   store ptr %59, ptr %58, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %60, align 8, !tbaa !26

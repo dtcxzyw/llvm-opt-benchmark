@@ -17026,7 +17026,7 @@ entry:
   %cmp = icmp slt i32 %n_threads, 1
   %spec.store.select = select i1 %cmp, i32 4, i32 %n_threads
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %n_nodes = getelementptr inbounds nuw i8, ptr %cgraph, i64 4
   %1 = load i32, ptr %n_nodes, align 4
   %cmp1156 = icmp sgt i32 %1, 0

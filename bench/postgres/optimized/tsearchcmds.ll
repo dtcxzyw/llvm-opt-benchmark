@@ -96,7 +96,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %15 = tail call ptr @table_open(i32 noundef 3601, i32 noundef 3) #10
   %16 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %5) #10
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %17, i8 0, i64 48, i1 false)
   store i64 0, ptr %7, align 8
   %18 = call i32 @GetNewOidWithIndex(ptr noundef %15, i32 noundef 3607, i16 noundef signext 1) #10
   %19 = zext i32 %18 to i64
@@ -531,7 +531,7 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   call fastcc void @verify_dictoptions(i32 noundef %.1, ptr noundef %.138)
   %39 = call ptr @table_open(i32 noundef 3600, i32 noundef 3) #10
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %40, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, i8 0, i64 6, i1 false)
   %41 = call i32 @GetNewOidWithIndex(ptr noundef %39, i32 noundef 3605, i16 noundef signext 1) #10
   %42 = zext i32 %41 to i64
@@ -1415,7 +1415,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   %16 = call ptr @table_open(i32 noundef 3764, i32 noundef 3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = call i32 @GetNewOidWithIndex(ptr noundef %16, i32 noundef 3767, i16 noundef signext 1) #10
   %19 = zext i32 %18 to i64
   store i64 %19, ptr %5, align 16

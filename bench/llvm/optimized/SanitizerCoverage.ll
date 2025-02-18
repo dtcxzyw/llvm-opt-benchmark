@@ -4158,7 +4158,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit167.i:  ; preds = %1296, %1276
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
   %1328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1328, i8 0, i64 64, i1 false), !alias.scope !338
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1328, i8 0, i64 64, i1 false), !alias.scope !338
   %1329 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1329, ptr %0, align 8, !tbaa !28, !alias.scope !338
   %1330 = getelementptr inbounds nuw i8, ptr %0, i64 8

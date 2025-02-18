@@ -48,7 +48,7 @@ define void @jpeg_CreateDecompress(ptr noundef initializes((8, 16)) %0, i32 noun
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(632) %26, i8 0, i64 624, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %26, i8 0, i64 624, i1 false)
   store ptr %23, ptr %0, align 8, !tbaa !30
   store ptr %25, ptr %24, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32

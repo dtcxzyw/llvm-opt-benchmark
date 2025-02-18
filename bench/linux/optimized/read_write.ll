@@ -832,7 +832,7 @@ define dso_local i64 @__kernel_read(ptr noundef %0, ptr noundef %1, i64 noundef 
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   store i32 %31, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i16 %62, ptr %66, align 4
@@ -1152,7 +1152,7 @@ define dso_local i64 @vfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   store i32 %59, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i16 %90, ptr %94, align 4
@@ -1805,7 +1805,7 @@ define dso_local i64 @vfs_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
   store i32 %83, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i16 %114, ptr %118, align 4
@@ -3003,7 +3003,7 @@ define internal fastcc range(i64 -528, -529) i64 @do_iter_readv_writev(ptr nound
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i32 %8, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i16 %39, ptr %43, align 4

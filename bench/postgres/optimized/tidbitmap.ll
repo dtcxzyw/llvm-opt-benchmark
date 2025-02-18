@@ -339,7 +339,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %50, %33, %pagetable
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %90, i8 0, i64 43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %90, i8 0, i64 43, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %89, %.preheader.preheader.i
@@ -746,7 +746,7 @@ pagetable_delete.exit:                            ; preds = %24, %.loopexit74, %
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %83, i8 0, i64 42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %83, i8 0, i64 42, i1 false)
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %.preheader72.preheader, %82
@@ -784,7 +784,7 @@ pagetable_delete.exit:                            ; preds = %24, %.loopexit74, %
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %73, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %102, i8 0, i64 42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %102, i8 0, i64 42, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %101
@@ -1068,7 +1068,7 @@ pagetable_lookup.exit.thread.i:                   ; preds = %45, %26, %pagetable
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %89, i8 0, i64 43, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %89, i8 0, i64 43, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %88, %.preheader.preheader.i

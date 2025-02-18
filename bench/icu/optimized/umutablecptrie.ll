@@ -4040,7 +4040,7 @@ if.then175.i:                                     ; preds = %if.end169.i
 
 if.end176.i:                                      ; preds = %if.end169.i
   %326 = getelementptr inbounds nuw i8, ptr %call173.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %326, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %326, i8 0, i64 32, i1 false)
   %indexLength177.i = getelementptr inbounds nuw i8, ptr %call173.i, i64 16
   store i32 %indexLength.0145.i, ptr %indexLength177.i, align 8
   %dataLength178.i = getelementptr inbounds nuw i8, ptr %trie, i64 28

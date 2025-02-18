@@ -1926,7 +1926,7 @@ _ZN12_GLOBAL__N_114BlockExtractor11runOnModuleERN4llvm6ModuleE.exit: ; preds = %
 
 564:                                              ; preds = %_ZN12_GLOBAL__N_114BlockExtractor11runOnModuleERN4llvm6ModuleE.exit
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %565, i8 0, i64 64, i1 false), !alias.scope !163
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %565, i8 0, i64 64, i1 false), !alias.scope !163
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %570
 

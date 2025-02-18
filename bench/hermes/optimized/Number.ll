@@ -700,7 +700,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %while.bo
 while.end:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %_ZN4llvh11SmallStringILj32EE6appendIPcEEvT_S4_.exit
   %conv.i.lcssa = phi i64 [ %conv.i209, %_ZN4llvh11SmallStringILj32EE6appendIPcEEvT_S4_.exit ], [ %conv.i, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %m, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %m, i64 16
   store ptr %add.ptr.i.i.i.i.i.i45, ptr %m, align 8
   %Size.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %m, i64 8
@@ -1183,7 +1183,7 @@ if.end61:                                         ; preds = %if.end51, %_ZNK6her
   %fneg64 = fneg double %x.0
   %x.1 = select i1 %cmp62, double %fneg64, double %x.0
   %21 = getelementptr inbounds nuw i8, ptr %n, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %n, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8
@@ -1552,7 +1552,7 @@ if.end84:                                         ; preds = %if.end78
   %conv = fptosi double %18 to i32
   %cmp85 = fcmp olt double %x.0, 0.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %n, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %n, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8

@@ -8542,7 +8542,7 @@ define hidden noundef zeroext i1 @_ZN17NumItersCriterion4doneEv(ptr noundef nonn
 define hidden void @_ZN15PipelineBuilderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #35
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %3, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %3, i8 0, i64 240, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -18376,7 +18376,7 @@ define hidden void @_ZN15PipelineBuilder5buildEv(ptr dead_on_unwind noalias writ
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %5, i8 0, i64 240, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %5, i8 0, i64 240, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -22593,7 +22593,7 @@ _ZNSt6vectorISt10shared_ptrI8PipelineESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt1
 
 562:                                              ; preds = %_ZNSt6vectorISt10shared_ptrI8PipelineESaIS2_EE7reserveEm.exit
   %563 = getelementptr inbounds nuw i8, ptr %561, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %563, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %563, i8 0, i64 240, i1 false)
   %564 = getelementptr inbounds nuw i8, ptr %561, i64 48
   store ptr %564, ptr %561, align 8
   %565 = getelementptr inbounds nuw i8, ptr %561, i64 8

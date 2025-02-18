@@ -369,7 +369,7 @@ if.then6.i:                                       ; preds = %do.end.i
 
 2:                                                ; preds = %if.then6.i
   %3 = getelementptr inbounds nuw i8, ptr %addr_normalized, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %3, i8 0, i64 120, i1 false)
   store i16 2, ptr %addr_normalized, align 4
   %sin_addr.i = getelementptr inbounds nuw i8, ptr %addr_normalized, i64 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 20
@@ -936,7 +936,7 @@ if.then6.i:                                       ; preds = %do.end.i
 
 _Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit: ; preds = %if.then6.i
   %6 = getelementptr inbounds nuw i8, ptr %addr_normalized, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %6, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %6, i8 0, i64 120, i1 false)
   store i16 2, ptr %addr_normalized, align 4
   %sin_addr.i = getelementptr inbounds nuw i8, ptr %addr_normalized, i64 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 20

@@ -2480,7 +2480,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit149.i:          ; preds = %_ZNSt16_Sp_counted_
   %1118 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %1119 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %1120 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1120, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1120, i8 0, i64 16, i1 false)
   store ptr %1113, ptr %1119, align 8
   %1121 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %1122 = getelementptr inbounds nuw i8, ptr %58, i64 80

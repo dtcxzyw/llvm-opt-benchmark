@@ -29772,7 +29772,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
   %.056 = phi ptr [ %4, %3 ], [ null, %1 ]
   call void @llvm.lifetime.start.p0(i64 1136, ptr nonnull %2) #39
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %6, i8 0, i64 1128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1128) %6, i8 0, i64 1128, i1 false)
   %7 = load ptr, ptr @stdout, align 8
   store ptr %7, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16

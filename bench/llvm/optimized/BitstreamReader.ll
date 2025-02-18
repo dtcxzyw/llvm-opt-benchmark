@@ -3878,7 +3878,7 @@ define dso_local void @_ZN4llvm15BitstreamCursor16ReadAbbrevRecordEv(ptr dead_on
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16, align 8, !tbaa !41, !noalias !393
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %20, i8 0, i64 512, i1 false), !noalias !393
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %20, i8 0, i64 512, i1 false), !noalias !393
   store ptr %20, ptr %19, align 8, !tbaa !29, !noalias !393
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 0, ptr %21, align 8, !tbaa !27, !noalias !393

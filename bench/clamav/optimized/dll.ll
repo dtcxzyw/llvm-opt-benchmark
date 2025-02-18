@@ -36,7 +36,7 @@ define noundef ptr @RAROpenArchive(ptr noundef captures(none) initializes((12, 1
   %2 = alloca %struct.RAROpenArchiveDataEx, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, i8 0, i64 168, i1 false)
   %4 = load ptr, ptr %0, align 1, !tbaa !3
   store ptr %4, ptr %2, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

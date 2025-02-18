@@ -7539,7 +7539,7 @@ define linkonce_odr void @_ZN4llvm10post_orderIPKNS_15DomTreeNodeBaseINS_10Basic
   store i32 1, ptr %13, align 8, !tbaa !73, !alias.scope !359
   call void @_ZN4llvm11po_iteratorIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_11SmallPtrSetIS5_Lj8EEELb0ENS_11GraphTraitsIS5_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %23, i8 0, i64 280, i1 false), !alias.scope !369
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %23, i8 0, i64 280, i1 false), !alias.scope !369
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %24, ptr %4, align 8, !tbaa !35, !alias.scope !369
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -20645,7 +20645,7 @@ _ZN4llvm8po_beginIPNS_10BasicBlockEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Gr
   store i32 1, ptr %13, align 8, !tbaa !73, !alias.scope !754
   call void @_ZN4llvm11po_iteratorIPNS_10BasicBlockENS_11SmallPtrSetIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %26, i8 0, i64 408, i1 false), !alias.scope !758
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %26, i8 0, i64 408, i1 false), !alias.scope !758
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %27, ptr %4, align 8, !tbaa !35, !alias.scope !758
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8

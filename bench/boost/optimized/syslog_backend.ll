@@ -2014,7 +2014,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backend17set_local_address
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 12, ptr noundef nonnull @.str.10, i32 noundef %13) #33
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #33
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   store i16 2, ptr %5, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 0, ptr %16, align 2, !tbaa !28
@@ -5480,7 +5480,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backen
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   %11 = icmp eq i32 %9, 2
   %spec.select.i = select i1 %11, i16 2, i16 10
   store i16 %spec.select.i, ptr %4, align 4, !tbaa !28
@@ -20612,7 +20612,7 @@ _ZNSt12__shared_ptrISt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3udpEEES
 
 74:                                               ; preds = %71, %71
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   store i16 2, ptr %9, align 4, !tbaa !28
   store i16 0, ptr %56, align 2, !tbaa !28
   store i32 0, ptr %57, align 4, !tbaa !28

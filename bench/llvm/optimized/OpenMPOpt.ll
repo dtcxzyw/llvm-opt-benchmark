@@ -4211,7 +4211,7 @@ _ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12
 
 315:                                              ; preds = %._crit_edge126.thread
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %316, i8 0, i64 64, i1 false), !alias.scope !330
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %316, i8 0, i64 64, i1 false), !alias.scope !330
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %317, ptr %0, align 8, !tbaa !35, !alias.scope !330
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4515,7 +4515,7 @@ _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_1
 
 452:                                              ; preds = %.loopexit
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %453, i8 0, i64 64, i1 false), !alias.scope !369
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %453, i8 0, i64 64, i1 false), !alias.scope !369
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %458
 
@@ -11153,7 +11153,7 @@ _ZN4llvm16AttributorConfigC2ERKS0_.exit:          ; preds = %90, %_ZN4llvm9SetVe
   %175 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %176 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %177, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %177, i8 0, i64 32, i1 false)
   %178 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store i8 0, ptr %178, align 1, !tbaa !352
   store i8 0, ptr %17, align 8, !tbaa !888
@@ -11251,7 +11251,7 @@ _ZN4llvm16AttributorConfigD2Ev.exit:              ; preds = %_ZNSt14_Function_ba
 
 217:                                              ; preds = %_ZN4llvm16AttributorConfigD2Ev.exit
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %218, i8 0, i64 64, i1 false), !alias.scope !889
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %218, i8 0, i64 64, i1 false), !alias.scope !889
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %223
 
@@ -19149,7 +19149,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !33, !alias.scope !1077
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !1083
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !1083
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !35, !alias.scope !1083
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -90096,7 +90096,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i32 2, ptr %284, align 4, !tbaa !34
   %285 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 80
   %286 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(337) %286, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %286, i8 0, i64 304, i1 false)
   %287 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 96
   %288 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 105
   store i8 1, ptr %288, align 1, !tbaa !1064
@@ -90190,7 +90190,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store i32 2, ptr %335, align 4, !tbaa !34
   %336 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9.i, i64 80
   %337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9.i, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(337) %337, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %337, i8 0, i64 304, i1 false)
   %338 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9.i, i64 96
   %339 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9.i, i64 105
   store i8 1, ptr %339, align 1, !tbaa !1064

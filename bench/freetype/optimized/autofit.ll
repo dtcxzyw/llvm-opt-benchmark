@@ -1525,7 +1525,7 @@ define internal range(i32 -1, 1) i32 @af_latin_metrics_init(ptr noundef initiali
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %25 = load ptr, ptr %24, align 8, !tbaa !120
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5160) %26, i8 0, i64 5152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5152) %26, i8 0, i64 5152, i1 false)
   store ptr %25, ptr %12, align 16, !tbaa !121
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3263,10 +3263,10 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(i64 12904, ptr nonnull %11) #20
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %12) #20
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5160) %15, i8 0, i64 5152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5152) %15, i8 0, i64 5152, i1 false)
   store ptr %14, ptr %11, align 16, !tbaa !121
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %16, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %16, i8 0, i64 104, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %17, align 16, !tbaa !218
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4502,7 +4502,7 @@ define internal fastcc void @af_cjk_metrics_init_widths(ptr noundef captures(non
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %9 = load ptr, ptr %8, align 8, !tbaa !120
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5160) %10, i8 0, i64 5152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5152) %10, i8 0, i64 5152, i1 false)
   store ptr %9, ptr %4, align 16, !tbaa !121
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96

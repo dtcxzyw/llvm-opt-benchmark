@@ -4896,7 +4896,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel17lowerCallOperandsEPKNS_8
   %29 = getelementptr inbounds nuw %"class.llvm::Use", ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %31 = load i16, ptr %15, align 8
   %32 = and i16 %31, -32768
   store i16 %32, ptr %15, align 8
@@ -7589,7 +7589,7 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit: ; preds
   %104 = getelementptr inbounds nuw %"class.llvm::Use", ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %106 = load i16, ptr %19, align 8
   %107 = and i16 %106, -32768
   store i16 %107, ptr %19, align 8

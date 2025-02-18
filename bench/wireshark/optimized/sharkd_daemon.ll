@@ -341,7 +341,7 @@ define internal fastcc i32 @socket_init(ptr noundef %0) unnamed_addr #0 {
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %26, i8 noundef 0, i64 noundef 108, i1 noundef false) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %26, i8 noundef 0, i64 noundef 108, i1 noundef false) #10
   store i16 1, ptr %2, align 2
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %28 = call i64 @g_strlcpy(ptr noundef nonnull %27, ptr noundef %9, i64 noundef 108)

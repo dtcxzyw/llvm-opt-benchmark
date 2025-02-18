@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Sec_MiterStatus(ptr dead_on_unwind noalias writable writeonly sret(%struct.Sec_MtrStatus_t_) align 4 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %4 = getelementptr i8, ptr %1, i64 108
   %.val = load i32, ptr %4, align 4, !tbaa !3
   store i32 %.val, ptr %0, align 4, !tbaa !21

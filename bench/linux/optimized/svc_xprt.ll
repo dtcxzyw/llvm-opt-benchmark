@@ -620,7 +620,7 @@ define dso_local void @svc_xprt_put(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @svc_xprt_init(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 520)) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %5, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   store ptr %1, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -811,7 +811,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr noundef readonl
   store i64 0, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #18
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %34, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store i16 10, ptr %9, align 4
   store i16 %11, ptr %14, align 2
   switch i32 %3, label %.thread [

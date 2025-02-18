@@ -8411,7 +8411,7 @@ _ZN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EE17ReferenceSegmentsEv.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #44
   store ptr null, ptr %26, align 8, !tbaa !467
   store i32 0, ptr %27, align 8, !tbaa !469
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %34, i8 0, i64 58, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %34, i8 0, i64 58, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %25, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   store ptr %45, ptr %7, align 8, !tbaa !534
@@ -55636,7 +55636,7 @@ define void @_ZN6duckdb15ArrayColumnData8FetchRowENS_15TransactionDataERNS_16Col
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1599)
   %18 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #45, !noalias !1599
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %19, i8 0, i64 16, i1 false), !noalias !1599
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !1599
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %20, ptr %18, align 8, !tbaa !927, !noalias !1599
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -59690,7 +59690,7 @@ define void @_ZN6duckdb14ListColumnData8FetchRowENS_15TransactionDataERNS_16Colu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1630)
   %18 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #45, !noalias !1630
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %19, i8 0, i64 16, i1 false), !noalias !1630
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !1630
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %20, ptr %18, align 8, !tbaa !927, !noalias !1630
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -104195,7 +104195,7 @@ define void @_ZN6duckdb18StandardColumnData8FetchRowENS_15TransactionDataERNS_16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2744)
   %14 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #45, !noalias !2744
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %15, i8 0, i64 16, i1 false), !noalias !2744
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !2744
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %16, ptr %14, align 8, !tbaa !927, !noalias !2744
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -106923,7 +106923,7 @@ define void @_ZN6duckdb16StructColumnData8FetchRowENS_15TransactionDataERNS_16Co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2791)
   %39 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #45, !noalias !2791
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %40, i8 0, i64 16, i1 false), !noalias !2791
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, i8 0, i64 16, i1 false), !noalias !2791
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store ptr %41, ptr %39, align 8, !tbaa !927, !noalias !2791
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8

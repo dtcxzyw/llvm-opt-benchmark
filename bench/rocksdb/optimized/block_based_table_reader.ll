@@ -3522,7 +3522,7 @@ terminate.lpad.i.i.i837:                          ; preds = %if.then.i.i.i834
 
 invoke.cont452.thread:                            ; preds = %if.then.i.i.i834, %if.else.i.i.i, %delete.notnull.i.i.i840
   %341 = getelementptr inbounds nuw i8, ptr %arrayidx448, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %341, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %341, i8 0, i64 16, i1 false)
   store ptr %call.i827829, ptr %arrayidx448, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %arrayidx448, i64 24
   store i8 1, ptr %own_value_4.i, align 8
@@ -4578,7 +4578,7 @@ terminate.lpad.i.i.i129:                          ; preds = %if.then.i.i.i128
 
 _ZN7rocksdb13CachableEntryINS_11Block_kDataEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i128
   %71 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %72, ptr %out_parsed_block, align 8
@@ -33204,7 +33204,7 @@ terminate.lpad.i.i.i131:                          ; preds = %if.then.i.i.i130
 
 _ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i130
   %71 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %72, ptr %out_parsed_block, align 8
@@ -34777,7 +34777,7 @@ terminate.lpad.i.i.i63:                           ; preds = %if.then.i.i.i59
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i59, %if.else.i.i.i65, %delete.notnull.i.i.i69
   %77 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %77, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   %78 = load ptr, ptr %block_holder, align 8
   store ptr %78, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -35842,7 +35842,7 @@ land.rhs.i128:                                    ; preds = %if.end56
 if.end.i:                                         ; preds = %land.rhs.i128, %if.end56
   call void @_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15ReleaseResourceEv(ptr noundef nonnull align 8 dereferenceable(25) %out_parsed_block) #34
   %64 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %64, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %65, ptr %out_parsed_block, align 8
@@ -37132,7 +37132,7 @@ land.rhs.i60:                                     ; preds = %if.else52
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.else52, %land.rhs.i60
   call void @_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15ReleaseResourceEv(ptr noundef nonnull align 8 dereferenceable(25) %out_parsed_block) #34
   %71 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = load ptr, ptr %block_holder, align 8
   store ptr %72, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -38293,7 +38293,7 @@ terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i54
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i54, %if.else.i.i.i60, %delete.notnull.i.i.i64
   %71 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = load ptr, ptr %block_holder, align 8
   store ptr %72, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -39284,7 +39284,7 @@ terminate.lpad.i.i.i130:                          ; preds = %if.then.i.i.i129
 
 _ZN7rocksdb13CachableEntryINS_12Block_kIndexEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i129
   %72 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %72, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   %73 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %73, ptr %out_parsed_block, align 8
@@ -40633,7 +40633,7 @@ terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i54
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i54, %if.else.i.i.i60, %delete.notnull.i.i.i64
   %74 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %74, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %75 = load ptr, ptr %block_holder, align 8
   store ptr %75, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -41744,7 +41744,7 @@ terminate.lpad.i.i.i130:                          ; preds = %if.then.i.i.i129
 
 _ZN7rocksdb13CachableEntryINS_27Block_kFilterPartitionIndexEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i129
   %72 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %72, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   %73 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %73, ptr %out_parsed_block, align 8
@@ -43093,7 +43093,7 @@ terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i54
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i54, %if.else.i.i.i60, %delete.notnull.i.i.i64
   %74 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %74, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %75 = load ptr, ptr %block_holder, align 8
   store ptr %75, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -44193,7 +44193,7 @@ terminate.lpad.i.i.i129:                          ; preds = %if.then.i.i.i128
 
 _ZN7rocksdb13CachableEntryINS_20Block_kRangeDeletionEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i128
   %71 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %71, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %72, ptr %out_parsed_block, align 8
@@ -45534,7 +45534,7 @@ terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i54
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i54, %if.else.i.i.i60, %delete.notnull.i.i.i64
   %74 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %74, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %75 = load ptr, ptr %block_holder, align 8
   store ptr %75, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24
@@ -46429,7 +46429,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 
 _ZN7rocksdb13CachableEntryINS_16Block_kMetaIndexEE5ResetEv.exit.i: ; preds = %delete.notnull.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %50, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   %51 = load ptr, ptr %block, align 8
   store ptr null, ptr %block, align 8
   store ptr %51, ptr %out_parsed_block, align 8
@@ -47751,7 +47751,7 @@ terminate.lpad.i.i.i58:                           ; preds = %if.then.i.i.i54
 
 nrvo.skipdtor.critedge.thread:                    ; preds = %if.then.i.i.i54, %if.else.i.i.i60, %delete.notnull.i.i.i64
   %74 = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %74, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %75 = load ptr, ptr %block_holder, align 8
   store ptr %75, ptr %out_parsed_block, align 8
   %own_value_4.i = getelementptr inbounds nuw i8, ptr %out_parsed_block, i64 24

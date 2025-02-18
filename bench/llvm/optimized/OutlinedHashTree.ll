@@ -545,7 +545,7 @@ define dso_local void @_ZN4llvm16OutlinedHashTree6insertERKSt4pairINS_11SmallVec
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 48, i1 false), !noalias !51
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 48, i1 false), !noalias !51
   store ptr %44, ptr %43, align 8, !tbaa !48, !noalias !51
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i64 1, ptr %46, align 8, !tbaa !47, !noalias !51

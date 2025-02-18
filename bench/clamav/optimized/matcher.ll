@@ -1454,7 +1454,7 @@ define i32 @cli_bcapi_matchicon(ptr noundef readonly captures(none) %0, ptr noun
   %21 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 0, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !87
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %22, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %22, i8 0, i64 368, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !136
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 52
@@ -2811,7 +2811,7 @@ lsig_eval.exit:                                   ; preds = %31, %37, %49, %.loo
 
 173:                                              ; preds = %25, %25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %174 = load ptr, ptr %13, align 8, !tbaa !67
   store ptr %174, ptr %14, align 8, !tbaa !188
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 88

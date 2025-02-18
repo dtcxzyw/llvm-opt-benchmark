@@ -1770,7 +1770,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx.i, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %255, i64 1072
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 1076
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %257, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %257, i8 0, i64 12, i1 false)
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %255, i64 1088
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 1040
@@ -4505,7 +4505,7 @@ _ZNSt3mapIiSt6vectorI14aiVertexWeightSaIS1_EESt4lessIiESaISt4pairIKiS3_EEED2Ev.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %834, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %835, align 4
   %858 = getelementptr inbounds nuw i8, ptr %829, i64 1104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %858, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %858, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %837, align 4
   %859 = getelementptr inbounds nuw i8, ptr %829, i64 1068
   store float %855, ptr %859, align 4

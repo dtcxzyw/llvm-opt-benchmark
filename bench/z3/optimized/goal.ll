@@ -1491,7 +1491,7 @@ if.then10:                                        ; preds = %if.then
 while.body.lr.ph:                                 ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit, %_ZNK11ast_manager5is_orEPK4expr.exit
   %16 = getelementptr inbounds nuw i8, ptr %todo, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %todo, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %17, i8 0, i64 1016, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %17, i8 0, i64 1016, i1 false)
   store ptr %16, ptr %todo, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %todo, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %todo, i64 12

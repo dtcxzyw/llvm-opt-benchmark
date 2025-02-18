@@ -713,7 +713,7 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
 48:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
   %.025 = phi ptr [ %19, %.lr.ph ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %30, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 28, i1 false)
   %49 = load i32, ptr %.025, align 8, !tbaa !91
   store i32 %49, ptr %5, align 4, !tbaa !96
   %50 = getelementptr inbounds nuw i8, ptr %.025, i64 8

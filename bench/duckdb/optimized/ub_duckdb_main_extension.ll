@@ -54113,7 +54113,7 @@ define linkonce_odr void @_ZN14duckdb_httplib10ClientImpl5send_EONS_7RequestE(pt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
   %6 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #35, !noalias !1129
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %7, i8 0, i64 248, i1 false), !noalias !1129
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %7, i8 0, i64 248, i1 false), !noalias !1129
   store ptr %7, ptr %6, align 8, !tbaa !13, !noalias !1129
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !20, !noalias !1129
@@ -85911,7 +85911,7 @@ define linkonce_odr noundef i32 @_ZN14duckdb_httplib6detail13create_socketIZNS0_
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %13) #31
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %36, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %36, i8 0, i64 108, i1 false)
   store i16 1, ptr %13, align 2, !tbaa !1510
   %37 = load i64, ptr %30, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp samesign eq i64 %37, 0

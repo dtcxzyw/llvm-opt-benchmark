@@ -1753,7 +1753,7 @@ invoke.cont645.i:                                 ; preds = %invoke.cont641.i
   %85 = getelementptr inbounds nuw i8, ptr %call.i321.i, i64 8
   %_ZN12SmartPtrTest10NamedClass7mnCountE.promoted.i.i = load i32, ptr @_ZN12SmartPtrTest10NamedClass7mnCountE, align 4, !noalias !8
   %86 = getelementptr inbounds nuw i8, ptr %call.i321.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, i8 0, i64 56, i1 false), !noalias !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %86, i8 0, i64 56, i1 false), !noalias !8
   %87 = add i32 %_ZN12SmartPtrTest10NamedClass7mnCountE.promoted.i.i, 4
   store i32 %87, ptr @_ZN12SmartPtrTest10NamedClass7mnCountE, align 4, !noalias !8
   store ptr @.str.52, ptr %85, align 8

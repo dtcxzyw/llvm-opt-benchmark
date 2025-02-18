@@ -2160,7 +2160,7 @@ _ZNSt6vectorISt4pairIPKN4llvm6RecordEjESaIS5_EEC2ERKS7_.exit.i: ; preds = %.lr.p
 _ZSt9make_pairIRKPN4llvm11SmallVectorIjLj11EEEN12_GLOBAL__N_119BuiltinTableEntriesEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_.exit.i.i: ; preds = %_ZNSt6vectorISt4pairIPKN4llvm6RecordEjESaIS5_EEC2ERKS7_.exit.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %19) #21
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %20) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %485, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %485, i8 0, i64 64, i1 false)
   store ptr %485, ptr %20, align 8, !tbaa !10
   store i32 0, ptr %486, align 8, !tbaa !16
   store i32 4, ptr %487, align 4, !tbaa !17

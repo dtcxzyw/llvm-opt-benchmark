@@ -3646,7 +3646,7 @@ define weak_odr void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 412
   %276 = load float, ptr %275, align 4, !noalias !285
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %277, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %277, i8 0, i64 16, i1 false)
   store <4 x float> %254, ptr %0, align 16
   store <4 x float> %274, ptr %7, align 16
   store float %193, ptr %8, align 16

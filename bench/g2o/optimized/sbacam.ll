@@ -86,7 +86,7 @@ define void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 captures(
   %.sroa.0.i.i = alloca [4 x double], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %9, i8 0, i64 40, i1 false), !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false), !tbaa !3
   store double %1, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %2, ptr %10, align 8, !tbaa !3

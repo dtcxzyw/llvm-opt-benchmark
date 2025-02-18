@@ -1222,7 +1222,7 @@ define void @_ZN10Parameters6toShotEb(ptr dead_on_unwind noalias writable sret(%
   %25 = load double, ptr %24, align 8
   %26 = fptrunc double %25 to float
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %27, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %27, i8 0, i64 48, i1 false)
   %28 = tail call noundef float @cosf(float noundef %20) #26
   %29 = tail call noundef float @cosf(float noundef %23) #26
   %30 = tail call noundef float @cosf(float noundef %26) #26

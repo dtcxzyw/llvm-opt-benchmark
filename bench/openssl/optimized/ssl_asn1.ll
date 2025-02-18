@@ -90,7 +90,7 @@ define i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %29, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %29, i8 0, i64 184, i1 false)
   store i32 1, ptr %3, align 8, !tbaa !24
   %30 = load i32, ptr %0, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -103,7 +103,7 @@ define i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .critedge:                                        ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %35, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %35, i8 0, i64 184, i1 false)
   store i32 1, ptr %3, align 8, !tbaa !24
   %36 = load i32, ptr %0, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 4

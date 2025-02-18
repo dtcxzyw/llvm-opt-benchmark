@@ -858,7 +858,7 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8392) %5, i8 0, i64 8388, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8388) %5, i8 0, i64 8388, i1 false)
   br label %_iop_gui_alloc.exit
 
 _iop_gui_alloc.exit:                              ; preds = %1, %4

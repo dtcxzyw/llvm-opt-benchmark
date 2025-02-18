@@ -8058,7 +8058,7 @@ define internal fastcc zeroext i1 @pdo_call_fetch_object_constructor(ptr noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store i64 64, ptr %4, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.0.val, ptr %7, align 8, !tbaa !192

@@ -451,7 +451,7 @@ define internal range(i32 1, 3) i32 @cache_redzone_test() #0 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #21
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #21
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = call i32 @sigemptyset(ptr noundef nonnull %7) #21

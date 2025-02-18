@@ -99,7 +99,7 @@ includes_nul.exit:                                ; preds = %7
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %38, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %38, i8 0, i64 108, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %39, ptr nonnull align 1 %1, i64 %spec.store.select, i1 false)
   store i16 1, ptr %5, align 2
@@ -365,7 +365,7 @@ includes_nul.exit:                                ; preds = %6
 
 25:                                               ; preds = %24, %16
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %26, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %26, i8 0, i64 108, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %27, ptr nonnull align 1 %2, i64 %spec.store.select, i1 false)
   store i16 1, ptr %7, align 2

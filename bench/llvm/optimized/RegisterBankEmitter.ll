@@ -4024,7 +4024,7 @@ _ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_119RegisterBankEmitter27emitBaseClassIm
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.014.i.i433.i = phi ptr [ %1830, %.lr.ph.i.i.i ], [ %1825, %.lr.ph.preheader.i.i.i ]
   %1826 = getelementptr inbounds nuw i8, ptr %.014.i.i433.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1826, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1826, i8 0, i64 48, i1 false)
   store ptr %1826, ptr %.014.i.i433.i, align 8, !tbaa !260
   %1827 = getelementptr inbounds nuw i8, ptr %.014.i.i433.i, i64 8
   store i64 0, ptr %1827, align 8, !tbaa !176

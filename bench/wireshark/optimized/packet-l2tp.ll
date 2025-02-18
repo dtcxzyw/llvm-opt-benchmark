@@ -1895,7 +1895,7 @@ define internal fastcc void @process_l2tpv3_control(ptr noundef %0, ptr noundef 
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %88, i8 noundef 0, i64 noundef 104, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %88, i8 noundef 0, i64 noundef 104, i1 noundef false) #11
   store ptr %4, ptr %6, align 8
   %89 = tail call ptr @wmem_file_scope()
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -111,7 +111,7 @@ dsa_minimum_size.exit:                            ; preds = %8
   %28 = sub i64 %1, %.072
   %29 = lshr i64 %28, 12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6192) %30, i8 0, i64 6188, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6188) %30, i8 0, i64 6188, i1 false)
   %31 = xor i32 %3, 216163848
   store i32 %31, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24

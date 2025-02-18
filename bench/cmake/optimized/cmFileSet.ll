@@ -2720,7 +2720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
 
 249:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %198
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %88, i8 0, i64 48, i1 false)
   store ptr %62, ptr %27, align 8, !tbaa !34
   store i64 0, ptr %63, align 8, !tbaa !30
   store i8 0, ptr %64, align 8, !tbaa !115

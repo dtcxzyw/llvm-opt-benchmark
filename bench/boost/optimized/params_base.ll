@@ -127,7 +127,7 @@ define void @_ZNK5boost4urls11params_base8iteratordeEv(ptr dead_on_unwind noalia
   %.sroa.03.0.copyload = load i24, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4urls12string_token22implementation_defined13return_stringE, i64 16), ptr %6, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -174,7 +174,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.sroa.0.0.copyload = load i24, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #15
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4urls12string_token22implementation_defined13return_stringE, i64 16), ptr %8, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24

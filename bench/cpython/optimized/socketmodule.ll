@@ -2230,7 +2230,7 @@ define internal ptr @socket_getaddrinfo(ptr noundef readonly captures(none) %0, 
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   %63 = load i32, ptr %8, align 4, !tbaa !35
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %63, ptr %64, align 4, !tbaa !51
@@ -3011,7 +3011,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %12, align 4, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3121,7 +3121,7 @@ define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly cap
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %61, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %61, i8 0, i64 14, i1 false)
   store i16 2, ptr %2, align 4, !tbaa !72
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %62, align 4, !tbaa !75
@@ -10496,7 +10496,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 241:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %242, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %242, i8 0, i64 12, i1 false)
   store i16 31, ptr %2, align 2, !tbaa !206
   %243 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %244 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.576, ptr noundef nonnull %19, ptr noundef nonnull %243) #13
@@ -10759,7 +10759,7 @@ idna_cleanup.exit306:                             ; preds = %203, %210, %212, %2
 
 361:                                              ; preds = %359
   %362 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %362, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %362, i8 0, i64 12, i1 false)
   store i16 30, ptr %2, align 4, !tbaa !212
   %363 = load i32, ptr %31, align 4, !tbaa !35
   %364 = trunc i32 %363 to i8
@@ -11732,7 +11732,7 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #13
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
   %13 = call fastcc i32 @getsockaddrlen(ptr noundef %0, ptr noundef %9)
   %.not = icmp eq i32 %13, 0

@@ -537,7 +537,7 @@ define dso_local void @batch_finish(ptr noundef %0, i32 noundef %1) local_unname
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1385,7 +1385,7 @@ define internal fastcc void @_one_step_complete_msg(ptr noundef readonly capture
   %14 = and i1 %11, %10
   %.028 = select i1 %14, i32 0, i32 %1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -2296,7 +2296,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %292, %290
   %332 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @.str.60, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %333, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %333, i8 0, i64 24, i1 false)
   store i32 1, ptr %28, align 8
   %334 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 2, ptr %334, align 4

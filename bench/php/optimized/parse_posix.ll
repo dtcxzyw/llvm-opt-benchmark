@@ -1256,7 +1256,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40

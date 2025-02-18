@@ -3578,7 +3578,7 @@ sane_qsort.exit.i.i:                              ; preds = %._crit_edge.i.i146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %29) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1334, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1334, i8 0, i64 64, i1 false)
   store ptr %28, ptr %29, align 8, !tbaa !161
   store ptr %27, ptr %1335, align 8, !tbaa !164
   %1340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 56), align 8, !tbaa !9
@@ -8856,7 +8856,7 @@ oe_set_type.exit.i.thread:                        ; preds = %21
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #25
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %26, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false)
   store ptr %7, ptr %8, align 8, !tbaa !161
   %27 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %28 = call i32 @packed_object_info(ptr noundef %27, ptr noundef nonnull %22, i64 noundef %.pre12, ptr noundef nonnull %8) #25
@@ -10126,7 +10126,7 @@ define internal fastcc void @drop_reused_delta(ptr noundef nonnull %0) unnamed_a
   %10 = getelementptr inbounds nuw %struct.object_entry, ptr %5, i64 %9, i32 6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #25
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   %12 = load i32, ptr %10, align 4, !tbaa !30

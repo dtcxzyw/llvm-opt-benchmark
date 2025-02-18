@@ -4395,7 +4395,7 @@ entry:
   store i8 0, ptr %trimTrailingSpaces.i, align 8
   %chomp.i = getelementptr inbounds nuw i8, ptr %params, i64 28
   %0 = getelementptr inbounds nuw i8, ptr %params, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %0, i8 0, i64 3, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %chomp.i, i8 0, i64 13, i1 false)
   store i32 1, ptr %indent.i, align 4
   %detectIndent = getelementptr inbounds nuw i8, ptr %params, i64 16

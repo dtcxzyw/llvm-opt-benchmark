@@ -3235,7 +3235,7 @@ _ZN2cv5aruco12CharucoBoardD2Ev.exit:              ; preds = %_ZN2cv5aruco12Charu
   %590 = load i64, ptr %239, align 8
   %591 = or i64 %590, %242
   store i64 %591, ptr %239, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %231, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %231, i8 0, i64 12, i1 false)
   store i32 %358, ptr %39, align 4
   br label %592
 
@@ -3871,7 +3871,7 @@ _ZN2cv3MatC2INS_3VecIiLi4EEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %_ZN2cv5ar
   %803 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %804 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %805 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %805, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %805, i8 0, i64 16, i1 false)
   store ptr %799, ptr %804, align 8
   %806 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %807 = getelementptr inbounds nuw i8, ptr %49, i64 80

@@ -287,7 +287,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %82 = phi i1 [ false, %68 ], [ %80, %78 ]
   call void %75(ptr noundef %70, i1 noundef zeroext %82) #10
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %83, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %4, i8 0, i64 18, i1 false)
   %84 = call i32 @GetNewOidWithIndex(ptr noundef %42, i32 noundef 6114, i16 noundef signext 1) #10
   %85 = zext i32 %84 to i64

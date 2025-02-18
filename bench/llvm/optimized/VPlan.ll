@@ -16680,7 +16680,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_30VPBlockShallowTraversalWrap
   store ptr %13, ptr %10, align 8, !tbaa !348, !alias.scope !833
   store ptr %13, ptr %11, align 8, !tbaa !352, !alias.scope !833
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false), !alias.scope !840
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !alias.scope !840
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %4, align 8, !tbaa !28, !alias.scope !840
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18114,7 +18114,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_30VPBlockShallowTraversalWrap
   store ptr %13, ptr %10, align 8, !tbaa !581, !alias.scope !858
   store ptr %13, ptr %11, align 8, !tbaa !585, !alias.scope !858
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false), !alias.scope !864
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !alias.scope !864
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %4, align 8, !tbaa !28, !alias.scope !864
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18341,7 +18341,7 @@ _ZN4llvm8po_beginINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEEENS_11po
   store i32 1, ptr %12, align 8, !tbaa !26, !alias.scope !875
   call void @_ZN4llvm11po_iteratorINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS4_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %28, i8 0, i64 408, i1 false), !alias.scope !890
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %28, i8 0, i64 408, i1 false), !alias.scope !890
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %29, ptr %4, align 8, !tbaa !28, !alias.scope !890
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22479,7 +22479,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalINS_30VPBloc
   store i32 1, ptr %12, align 8, !tbaa !26, !alias.scope !990
   call void @_ZN4llvm11po_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS4_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %22, i8 0, i64 280, i1 false), !alias.scope !998
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %22, i8 0, i64 280, i1 false), !alias.scope !998
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %23, ptr %4, align 8, !tbaa !28, !alias.scope !998
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -24669,7 +24669,7 @@ _ZN4llvm8po_beginINS_27VPBlockDeepTraversalWrapperIPKNS_11VPBlockBaseEEEEENS_11p
   store i32 1, ptr %12, align 8, !tbaa !26, !alias.scope !1051
   call void @_ZN4llvm11po_iteratorINS_27VPBlockDeepTraversalWrapperIPKNS_11VPBlockBaseEEENS_11SmallPtrSetIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %28, i8 0, i64 408, i1 false), !alias.scope !1066
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %28, i8 0, i64 408, i1 false), !alias.scope !1066
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %29, ptr %4, align 8, !tbaa !28, !alias.scope !1066
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8

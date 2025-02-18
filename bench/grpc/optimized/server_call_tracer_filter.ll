@@ -593,7 +593,7 @@ do.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false), !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !7
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !7
   call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %1, ptr nonnull @.str.8, i32 76), !noalias !7
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !7
@@ -720,7 +720,7 @@ if.then1:                                         ; preds = %invoke.cont
   %channel_data = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %18 = load ptr, ptr %channel_data, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %18, align 8
   %event_engine_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   invoke void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.8, i32 76)

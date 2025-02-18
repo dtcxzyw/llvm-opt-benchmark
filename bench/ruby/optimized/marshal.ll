@@ -308,7 +308,7 @@ define hidden i64 @ruby_marshal_read_long(ptr noundef captures(none) %0, i64 nou
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 noundef 0, i64 noundef 80, i1 noundef false) #22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 noundef 0, i64 noundef 80, i1 noundef false) #22
   %6 = load ptr, ptr %0, align 8, !tbaa !20
   %7 = call i64 @rb_setup_fake_str(ptr noundef nonnull %3, ptr noundef %6, i64 noundef %1, ptr noundef null) #22
   store i64 %7, ptr %4, align 8, !tbaa !22

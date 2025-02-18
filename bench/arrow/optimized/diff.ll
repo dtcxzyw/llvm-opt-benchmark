@@ -34491,7 +34491,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2272: ; preds = %3540,
           to label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274 unwind label %.loopexit
 
 _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274: ; preds = %3545, %3542
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %332, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %332, i8 0, i64 48, i1 false)
   %.sroa.0.0.copyload.i.i2275 = load i64, ptr %271, align 8, !tbaa !101
   %3553 = trunc i64 %.sroa.0.0.copyload.i.i2275 to i32
   store i32 %3553, ptr %164, align 8, !tbaa !1491
@@ -44869,7 +44869,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2272: ; preds = %3543,
           to label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274 unwind label %.loopexit
 
 _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274: ; preds = %3548, %3545
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %333, i8 0, i64 48, i1 false)
   %.sroa.0.0.copyload.i.i2275 = load i64, ptr %272, align 8, !tbaa !101
   %3556 = trunc i64 %.sroa.0.0.copyload.i.i2275 to i32
   store i32 %3556, ptr %164, align 8, !tbaa !1491
@@ -55647,7 +55647,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2272: ; preds = %3543,
           to label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274 unwind label %.loopexit
 
 _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274: ; preds = %3548, %3545
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %333, i8 0, i64 48, i1 false)
   %.sroa.0.0.copyload.i.i2275 = load i64, ptr %272, align 8, !tbaa !101
   %3556 = trunc i64 %.sroa.0.0.copyload.i.i2275 to i32
   store i32 %3556, ptr %164, align 8, !tbaa !1491
@@ -65567,7 +65567,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2272: ; preds = %3543,
           to label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274 unwind label %.loopexit
 
 _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit2274: ; preds = %3548, %3545
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %333, i8 0, i64 48, i1 false)
   %.sroa.0.0.copyload.i.i2275 = load i64, ptr %272, align 8, !tbaa !101
   %3556 = trunc i64 %.sroa.0.0.copyload.i.i2275 to i32
   store i32 %3556, ptr %164, align 8, !tbaa !1491

@@ -620,7 +620,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr noundef reado
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 32, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8
   %7 = icmp eq i32 %2, 2

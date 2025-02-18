@@ -31961,7 +31961,7 @@ stbir__check_output_stuff.exit:                   ; preds = %38, %36
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, i8 0, i64 40, i1 false)
   store double 1.000000e+00, ptr %56, align 8, !tbaa !991
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store double 1.000000e+00, ptr %58, align 8, !tbaa !992

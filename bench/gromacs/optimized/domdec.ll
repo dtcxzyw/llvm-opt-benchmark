@@ -10866,7 +10866,7 @@ _ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i: ; preds = %.noexc95, %1072, %1
   unreachable
 
 1131:                                             ; preds = %1121
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %1120, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1120, i8 0, i64 40, i1 false)
   %1132 = trunc nuw nsw i64 %indvars.iv201.i to i32
   store i32 %1132, ptr %11, align 4
   %1133 = getelementptr inbounds nuw i8, ptr %1122, i64 4

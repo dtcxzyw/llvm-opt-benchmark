@@ -543,7 +543,7 @@ define dso_local void @status_printf(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define dso_local void @wt_status_prepare(ptr noundef %0, ptr noundef captures(none) initializes((0, 1224)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1224) %3, i8 0, i64 1216, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %3, i8 0, i64 1216, i1 false)
   store ptr %0, ptr %1, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(675) %4, ptr noundef nonnull align 16 dereferenceable(675) @default_wt_status_colors, i64 675, i1 false)
@@ -855,7 +855,7 @@ wt_status_collect_changes_initial.exit:           ; preds = %128, %55
   %134 = load ptr, ptr %0, align 8, !tbaa !29
   call void @repo_init_revisions(ptr noundef %134, ptr noundef nonnull %3, ptr noundef null) #20
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
   %136 = load i32, ptr %52, align 8, !tbaa !96
   %.not.i25 = icmp eq i32 %136, 0
   br i1 %.not.i25, label %142, label %137
@@ -4446,7 +4446,7 @@ _.exit239.i:                                      ; preds = %1029, %1027, %_.exi
   %1040 = getelementptr inbounds nuw i8, ptr %3, i64 1788
   store i32 1, ptr %1040, align 4, !tbaa !86
   %1041 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1041, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1041, i8 0, i64 16, i1 false)
   %1042 = load i32, ptr %768, align 8, !tbaa !96
   %.not.i242.i = icmp eq i32 %1042, 0
   br i1 %.not.i242.i, label %1048, label %1043

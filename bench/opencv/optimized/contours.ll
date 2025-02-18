@@ -511,7 +511,7 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
 72:                                               ; preds = %61
   %73 = call ptr @cvAlloc(i64 noundef 1432)
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1432) %74, i8 0, i64 1416, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1416) %74, i8 0, i64 1416, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %1, ptr %75, align 8
   store ptr %1, ptr %73, align 8

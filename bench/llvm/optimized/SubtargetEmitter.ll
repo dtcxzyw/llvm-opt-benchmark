@@ -10205,7 +10205,7 @@ _ZNSt6vectorIN4llvm19MCWriteProcResEntryESaIS1_EE6resizeEm.exit.i: ; preds = %42
   %428 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %429 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %430 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %430, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %430, i8 0, i64 96, i1 false)
   %431 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %432 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %433 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25

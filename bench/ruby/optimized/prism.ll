@@ -27418,7 +27418,7 @@ accept1.exit1106:                                 ; preds = %context_push.exit11
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #31
   %779 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %779, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %779, i8 0, i64 40, i1 false)
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %781 = load ptr, ptr %780, align 8, !tbaa !241
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 336

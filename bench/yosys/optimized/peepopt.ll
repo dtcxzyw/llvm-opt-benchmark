@@ -4717,7 +4717,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit21.thread.i.i.i.i: ; preds = %_ZNK5Yosys5RTL
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %169)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %170)
   %2031 = load ptr, ptr %217, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %282, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %282, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 8 dereferenceable(64) %218, i64 16, i1 false)
   %2032 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %282, ptr noundef nonnull align 8 dereferenceable(24) %262)
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.loopexit.i.i.i.loopexit
@@ -14354,7 +14354,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit41.thread.i.i.i.i: ; preds = %_ZNK5Yosys5RTL
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %140)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %141)
   %5829 = load ptr, ptr %390, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %412, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %412, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %131, ptr noundef nonnull align 8 dereferenceable(64) %231, i64 16, i1 false)
   %5830 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %412, ptr noundef nonnull align 8 dereferenceable(24) %398)
           to label %.noexc.i.i.i.i.i101 unwind label %.loopexit.split-lp.i.i.loopexit.i.i.i99.loopexit
@@ -57565,7 +57565,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit79.thread:    ; preds = %_ZN5Yosys5RTLIL7Sig
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %311 = load ptr, ptr %308, align 8
   %312 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %312, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %312, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 16, i1 false)
   %313 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %312, ptr noundef nonnull align 8 dereferenceable(24) %256)
           to label %.noexc.i unwind label %.loopexit.split-lp.i
@@ -60648,7 +60648,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110peepopt_pm8block_18Ei(ptr nounde
   store i32 0, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %19, i8 0, i64 56, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 16, i1 false)

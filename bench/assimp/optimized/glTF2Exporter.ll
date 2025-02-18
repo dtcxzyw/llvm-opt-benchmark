@@ -1956,7 +1956,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN5glTF25AssetC2EPN6Assimp8IOSystemEPN9rapidjson36IGenericRemoteSchemaDocumentProviderINS4_21GenericSchemaDocumentINS4_12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEESB_EEEE(ptr noundef nonnull align 8 dereferenceable(3328) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   store ptr %6, ptr %4, align 8
@@ -65954,7 +65954,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5glTF215CustomExtensionESaIS1_EE1
   %.013.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 144, i1 false)
   store ptr %19, ptr %.013.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store i64 0, ptr %20, align 8
@@ -65993,7 +65993,7 @@ _ZNKSt6vectorIN5glTF215CustomExtensionESaIS1_EE12_M_check_lenEmPKc.exit: ; preds
   %.013.i.i.i41 = phi ptr [ %40, %.lr.ph.i.i.i40 ], [ %33, %_ZNKSt6vectorIN5glTF215CustomExtensionESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i42 = phi i64 [ %39, %.lr.ph.i.i.i40 ], [ %1, %_ZNKSt6vectorIN5glTF215CustomExtensionESaIS1_EE12_M_check_lenEmPKc.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %34, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %34, i8 0, i64 144, i1 false)
   store ptr %34, ptr %.013.i.i.i41, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 8
   store i64 0, ptr %35, align 8

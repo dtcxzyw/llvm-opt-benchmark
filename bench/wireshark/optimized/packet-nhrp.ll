@@ -469,7 +469,7 @@ define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr n
 
 25:                                               ; preds = %21, %5
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, i8 noundef 0, i64 noundef 12, i1 noundef false) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, i8 noundef 0, i64 noundef 12, i1 noundef false) #4
   %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 17)
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 10
   store i8 %27, ptr %28, align 2

@@ -7896,7 +7896,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm35MachinePostDominatorTreeWrapperPa
   %3 = alloca %"class.llvm::MachinePostDominatorTree", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 136, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

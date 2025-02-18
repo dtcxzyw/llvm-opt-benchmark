@@ -3373,7 +3373,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$10fill_bytes17h95be2fef704090
   store <8 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %7, align 8, !alias.scope !980, !noalias !974
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %48, i8 0, i64 65, i1 false), !alias.scope !980, !noalias !974
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %48, i8 0, i64 65, i1 false), !alias.scope !980, !noalias !974
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i64 1, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !985, !noalias !990
   call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %7, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef range(i64 1, 0) 1), !noalias !996
@@ -3853,7 +3853,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h4d548383a27d5cddE.exit.i": ; preds = %140
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11), !noalias !1407
   store <8 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %11, align 8, !alias.scope !1413, !noalias !1407
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %42, i8 0, i64 65, i1 false), !alias.scope !1413, !noalias !1407
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %42, i8 0, i64 65, i1 false), !alias.scope !1413, !noalias !1407
   store i64 1, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1418, !noalias !1423
   call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %11, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef range(i64 1, 0) 1), !noalias !1429
   store i8 0, ptr %43, align 8, !alias.scope !1430, !noalias !1423

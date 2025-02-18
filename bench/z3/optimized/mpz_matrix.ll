@@ -2379,7 +2379,7 @@ invoke.cont22:
 
 invoke.cont26:                                    ; preds = %invoke.cont22
   %1 = getelementptr inbounds nuw i8, ptr %rows, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %1, i8 0, i64 512, i1 false)
   store ptr %1, ptr %rows, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

@@ -2014,7 +2014,7 @@ define dso_local void @kthread_flush_work(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.kthread_flush_work, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 40, i1 false), !annotation !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !26
   store ptr %2, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %4, align 8
@@ -2249,7 +2249,7 @@ define dso_local void @kthread_flush_worker(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.kthread_flush_work, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 40, i1 false), !annotation !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !26
   store ptr %2, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %4, align 8
@@ -2300,7 +2300,7 @@ define dso_local void @kthread_destroy_worker(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 40, i1 false), !annotation !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !26
   store ptr %2, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %9, align 8

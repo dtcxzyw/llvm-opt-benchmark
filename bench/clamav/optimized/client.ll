@@ -330,7 +330,7 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) getelementptr inbounds nuw (i8, ptr @nixsock, i64 2), i8 0, i64 108, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) getelementptr inbounds nuw (i8, ptr @nixsock, i64 2), i8 0, i64 108, i1 false)
   store i16 1, ptr @nixsock, align 2, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9

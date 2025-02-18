@@ -8716,7 +8716,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %land.lhs.true
   store i8 1, ptr %is_finished63, align 8
   store ptr @.str, ptr %result.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %size_.i.i, i8 0, i64 14, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i8 10, ptr %status, align 8
   store i8 0, ptr %retryable_6.i, align 1
   store i8 0, ptr %scope_10.i, align 1

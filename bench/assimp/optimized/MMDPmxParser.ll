@@ -6636,7 +6636,7 @@ _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit: ; pre
   %.idx.i = phi i64 [ 8, %693 ], [ %.add.i, %695 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %691, i64 %.idx.i
   %696 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %696, i8 0, i64 160, i1 false), !noalias !82
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %696, i8 0, i64 160, i1 false), !noalias !82
   store ptr %696, ptr %.ptr.ptr.i, align 8, !noalias !82
   %697 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 8
   store i64 0, ptr %697, align 8, !noalias !82

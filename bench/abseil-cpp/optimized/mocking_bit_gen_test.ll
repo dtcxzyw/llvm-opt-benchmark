@@ -122141,7 +122141,7 @@ define internal void @_ZN12_GLOBAL__N_127MockingBitGen_NiceMock_Test8TestBodyEv(
   %38 = ptrtoint ptr %11 to i64
   call void @_ZN7testing4Mock23AllowUninterestingCallsEm(i64 noundef %38)
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %39, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %39, i8 0, i64 304, i1 false)
   store i64 1, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
@@ -124082,7 +124082,7 @@ define internal void @_ZN12_GLOBAL__N_128MockingBitGen_NaggyMock_Test8TestBodyEv
   %24 = ptrtoint ptr %7 to i64
   call void @_ZN7testing4Mock22WarnUninterestingCallsEm(i64 noundef %24)
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %25, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %25, i8 0, i64 304, i1 false)
   store i64 1, ptr %7, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
@@ -125774,7 +125774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %.noexc11 unwind label %216
 
 .noexc11:                                         ; preds = %58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %21, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %21, i8 0, i64 304, i1 false)
   store i64 1, ptr %6, align 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2201)
@@ -126768,7 +126768,7 @@ define internal void @_ZN12_GLOBAL__N_137MockingBitGen_StrictMock_TooMany_Test8T
   %32 = ptrtoint ptr %16 to i64
   call void @_ZN7testing4Mock22FailUninterestingCallsEm(i64 noundef %32)
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %33, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %33, i8 0, i64 304, i1 false)
   store i64 1, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8

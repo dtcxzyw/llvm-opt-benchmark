@@ -3495,7 +3495,7 @@ define internal void @dm_submit_bio(ptr noundef %0) #0 align 16 {
 37:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #23
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 16, i1 false), !annotation !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false), !annotation !52
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 255

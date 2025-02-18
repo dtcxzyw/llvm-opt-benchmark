@@ -617,7 +617,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp11IRRImporter19BuildSingleQ
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1312
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %12, i8 0, i64 188, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %12, i8 0, i64 188, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %9, i8 0, i64 1044, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i32 8, ptr %6, align 8
@@ -2947,7 +2947,7 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1040
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %25, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %25, i8 0, i64 1024, i1 false)
   store i32 1, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 1048
   store ptr null, ptr %26, align 8
@@ -3107,7 +3107,7 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE9push_backERKS1_.exit46: ; preds = %_Z
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 1040
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %81, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %81, i8 0, i64 1024, i1 false)
   store i32 1, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 1048
   store ptr null, ptr %82, align 8
@@ -9518,7 +9518,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
 
 305:                                              ; preds = %302
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %306, i8 0, i64 1004, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1004) %306, i8 0, i64 1004, i1 false)
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 1032
   store double -1.000000e+00, ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 1040
@@ -9938,7 +9938,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml
   %25 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #32
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %29, align 8
@@ -11705,7 +11705,7 @@ define linkonce_odr hidden void @_ZN4pugi12xml_document11load_bufferEPKvmjNS_12x
 _ZN4pugi12xml_document5resetEv.exit:              ; preds = %.lr.ph22.i.i, %._crit_edge.i.i
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 32728, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -13475,7 +13475,7 @@ thread-pre-split:                                 ; preds = %.preheader316, %.ba
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   store ptr %31, ptr %38, align 8
   %41 = load i64, ptr %32, align 8
   %42 = load ptr, ptr %31, align 8
@@ -13650,7 +13650,7 @@ select.unfold:                                    ; preds = %72, %select.unfold.
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %128, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 32, i1 false)
   store ptr %119, ptr %126, align 8
   %129 = load i64, ptr %120, align 8
   %130 = load ptr, ptr %119, align 8
@@ -14199,7 +14199,7 @@ select.unfold295:                                 ; preds = %157, %select.unfold
 
 381:                                              ; preds = %378
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %382, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %382, i8 0, i64 32, i1 false)
   store ptr %373, ptr %380, align 8
   %383 = load i64, ptr %374, align 8
   %384 = load ptr, ptr %373, align 8
@@ -14327,7 +14327,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl15append_new_nodeEPNS_15xml
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   store ptr %1, ptr %10, align 8
   %13 = load i64, ptr %4, align 8
   %14 = load ptr, ptr %1, align 8
@@ -14521,7 +14521,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
   store ptr %54, ptr %61, align 8
   %64 = load i64, ptr %55, align 8
   %65 = load ptr, ptr %54, align 8
@@ -14600,7 +14600,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %102, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   store ptr %93, ptr %100, align 8
   %103 = load i64, ptr %94, align 8
   %104 = load ptr, ptr %93, align 8
@@ -14902,7 +14902,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser17parse_exclama
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   store ptr %16, ptr %23, align 8
   %26 = load i64, ptr %17, align 8
   %27 = load ptr, ptr %16, align 8

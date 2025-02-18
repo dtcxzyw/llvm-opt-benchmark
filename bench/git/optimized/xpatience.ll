@@ -605,7 +605,7 @@ binary_search.exit.thread.i:                      ; preds = %120, %134, %binary_
   %.val51.val = load i64, ptr %0, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %242 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %242, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, i8 0, i64 32, i1 false)
   %243 = and i64 %.val51.val, -49153
   store i64 %243, ptr %7, align 8, !tbaa !58
   %244 = call i32 @xdl_fall_back_diff(ptr noundef %1, ptr noundef nonnull %7, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef range(i32 1, 0) %5) #6

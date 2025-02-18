@@ -655,7 +655,7 @@ _ZNSt10unique_ptrIN4llvm13CodeGenTargetESt14default_deleteIS1_EED2Ev.exit: ; pre
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %197 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !59
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %198, i8 0, i64 104, i1 false), !noalias !59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %198, i8 0, i64 104, i1 false), !noalias !59
   store ptr %198, ptr %197, align 8, !tbaa !62, !noalias !59
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i64 0, ptr %199, align 8, !tbaa !65, !noalias !59
@@ -1214,7 +1214,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEPN12_GLOBAL__N_111GenericEnumEN
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %398 = call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #24, !noalias !134
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %399, i8 0, i64 288, i1 false), !noalias !134
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %399, i8 0, i64 288, i1 false), !noalias !134
   store ptr %399, ptr %398, align 8, !tbaa !62, !noalias !134
   %400 = getelementptr inbounds nuw i8, ptr %398, i64 8
   store i64 0, ptr %400, align 8, !tbaa !65, !noalias !134
@@ -3835,7 +3835,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %1409, %1417
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %1421 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !201
   %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %1422, i8 0, i64 104, i1 false), !noalias !201
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %1422, i8 0, i64 104, i1 false), !noalias !201
   store ptr %1422, ptr %1421, align 8, !tbaa !62, !noalias !201
   %1423 = getelementptr inbounds nuw i8, ptr %1421, i64 8
   store i64 0, ptr %1423, align 8, !tbaa !65, !noalias !201
@@ -4074,7 +4074,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit565:               ; preds = %_ZNK4llvm6Record12i
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %1499 = call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #24, !noalias !209
   %1500 = getelementptr inbounds nuw i8, ptr %1499, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %1500, i8 0, i64 288, i1 false), !noalias !209
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %1500, i8 0, i64 288, i1 false), !noalias !209
   store ptr %1500, ptr %1499, align 8, !tbaa !62, !noalias !209
   %1501 = getelementptr inbounds nuw i8, ptr %1499, i64 8
   store i64 0, ptr %1501, align 8, !tbaa !65, !noalias !209
@@ -7338,7 +7338,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   %28 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !333
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %29, i8 0, i64 104, i1 false), !noalias !333
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %29, i8 0, i64 104, i1 false), !noalias !333
   store ptr %29, ptr %28, align 8, !tbaa !62, !noalias !333
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %30, align 8, !tbaa !65, !noalias !333

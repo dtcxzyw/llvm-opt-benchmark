@@ -1806,7 +1806,7 @@ kwsysProcessSetNonBlocking.exit28.i:              ; preds = %111
 152:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #25
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %153, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %153, i8 0, i64 144, i1 false)
   store ptr @kwsysProcessesSignalHandler, ptr %6, align 8, !tbaa !54
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 268435461, ptr %154, align 8, !tbaa !66

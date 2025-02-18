@@ -757,7 +757,7 @@ aeron_frame_info_add.exit:                        ; preds = %134, %108, %105
   %156 = add i32 %.0103182, 20
   %157 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %156)
   %158 = add nsw i32 %143, -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
   store i32 %155, ptr %94, align 4
   store i32 %157, ptr %95, align 8
   store i32 %149, ptr %96, align 4
@@ -889,7 +889,7 @@ dissect_aeron_pad.exit:                           ; preds = %142, %147, %proto_i
   %229 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %228)
   %230 = add i32 %.0103182, 20
   %231 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %230)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %85, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
   store i32 %229, ptr %86, align 4
   store i32 %231, ptr %87, align 8
   store i32 %223, ptr %88, align 4
@@ -1030,7 +1030,7 @@ dissect_aeron_heartbeat.exit:                     ; preds = %220, %proto_item_se
   %306 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %305)
   %307 = add i32 %.0103182, 20
   %308 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %307)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
   store i32 %306, ptr %78, align 4
   store i32 %308, ptr %79, align 8
   store i32 %300, ptr %80, align 4
@@ -1425,7 +1425,7 @@ dissect_aeron_data.exit:                          ; preds = %291, %297, %492, %4
   %510 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %509)
   %511 = add i32 %.0103182, 24
   %512 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %511)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %71, i8 noundef 0, i64 noundef 48, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, i8 noundef 0, i64 noundef 48, i1 noundef false) #14
   store i32 %506, ptr %72, align 4
   store i32 %508, ptr %71, align 8
   store i32 3, ptr %8, align 8
@@ -1522,7 +1522,7 @@ dissect_aeron_nak.exit:                           ; preds = %497, %500, %proto_i
   %571 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %570)
   %572 = add i32 %.0103182, 28
   %573 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %572)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
   store i32 %565, ptr %63, align 4
   store i32 1, ptr %7, align 8
   %574 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
@@ -1855,7 +1855,7 @@ proto_item_set_generated.exit.i144:               ; preds = %696, %693, %677
   %776 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %775)
   %777 = add i32 %.0103182, 24
   %778 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %777)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
   store i32 %774, ptr %55, align 4
   store i32 %778, ptr %56, align 8
   store i32 0, ptr %57, align 4

@@ -16,7 +16,7 @@ define dso_local i32 @virtio_gpu_mode_dumb_create(ptr noundef %0, ptr noundef re
   %6 = alloca %struct.virtio_gpu_object_params, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8

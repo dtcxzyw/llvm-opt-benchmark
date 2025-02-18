@@ -4453,12 +4453,12 @@ _ZN5arrowgeERKNS_15BasicDecimal256ES2_.exit:      ; preds = %34
   %44 = ashr i64 %43, 63
   %45 = or i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !46
   %47 = icmp slt i64 %44, 0
   br i1 %47, label %.preheader.preheader.i.i.i, label %_ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit
 
 .preheader.preheader.i.i.i:                       ; preds = %41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !7, !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !7, !alias.scope !46
   br label %_ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit
 
 _ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exit: ; preds = %41, %.preheader.preheader.i.i.i

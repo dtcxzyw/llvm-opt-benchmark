@@ -2166,7 +2166,7 @@ define linkonce_odr dso_local void @_ZN10GhostBumps11CreateSceneEv(ptr noundef n
   store <2 x float> %.sroa.02.4.vec.insert.i444, ptr %81, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %82, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %82, i8 0, i64 20, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %84 = load float, ptr %83, align 8, !tbaa !19
   store float %84, ptr %4, align 4, !tbaa !104

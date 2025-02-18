@@ -6486,7 +6486,7 @@ define void @_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm(ptr noundef %
   %20 = phi i32 [ 1, %11 ], [ 1, %8 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store i32 10506, ptr %3, align 8, !tbaa !312
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %20, ptr %22, align 4, !tbaa !317
@@ -6672,7 +6672,7 @@ _ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit: ; preds = %46,
   %83 = phi i32 [ 1, %74 ], [ 1, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
   store i32 10506, ptr %6, align 8, !tbaa !312
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %83, ptr %85, align 4, !tbaa !317
@@ -14440,7 +14440,7 @@ _ZN11duckdb_zstdL24ZSTD_matchState_dictModeEPKNS_17ZSTD_matchState_tE.exit: ; pr
 79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %80, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   %81 = getelementptr i8, ptr %0, i64 424
   %.val146 = load ptr, ptr %81, align 8, !tbaa !147
   %.not = icmp eq ptr %.val146, null

@@ -9295,7 +9295,7 @@ _ZN12_GLOBAL__N_119SampleProfileLoader11runOnModuleERN4llvm6ModuleEPNS1_15Analys
 
 1715:                                             ; preds = %_ZN12_GLOBAL__N_119SampleProfileLoader11runOnModuleERN4llvm6ModuleEPNS1_15AnalysisManagerIS2_JEEEPNS1_18ProfileSummaryInfoE.exit
   %1716 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1716, i8 0, i64 64, i1 false), !alias.scope !769
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1716, i8 0, i64 64, i1 false), !alias.scope !769
   %1717 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1717, ptr %0, align 8, !tbaa !28, !alias.scope !769
   %1718 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23748,7 +23748,7 @@ _ZNSt6vectorIPN4llvm10sampleprof21ProfiledCallGraphNodeESaIS3_EE9push_backERKS3_
   store ptr %217, ptr %238, align 8, !tbaa !1159
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %240, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %240, i8 0, i64 32, i1 false)
   store ptr %239, ptr %239, align 8, !tbaa !1145
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %241, i8 0, i64 20, i1 false)
@@ -24047,7 +24047,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_10sampleprof21ProfiledCallGraphEdgeENS_8Dense
   store ptr %358, ptr %378, align 8, !tbaa !1159
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %380, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %380, i8 0, i64 32, i1 false)
   store ptr %379, ptr %379, align 8, !tbaa !1145
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %381, i8 0, i64 20, i1 false)
@@ -27806,7 +27806,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
   store ptr %3, ptr %25, align 8, !tbaa !1159
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   store ptr %26, ptr %26, align 8, !tbaa !1145
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 20, i1 false)

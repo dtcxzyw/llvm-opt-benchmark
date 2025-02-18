@@ -4366,7 +4366,7 @@ if.end:                                           ; preds = %invoke.cont3
 
 call.i.noexc:                                     ; preds = %if.end
   %57 = getelementptr inbounds nuw i8, ptr %call.i12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %57, i8 0, i64 160, i1 false), !noalias !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %57, i8 0, i64 160, i1 false), !noalias !66
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !66
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15Chttp2ConnectorE, i64 16), ptr %call.i12, align 8, !noalias !66

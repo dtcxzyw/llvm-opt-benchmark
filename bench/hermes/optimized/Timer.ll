@@ -1710,7 +1710,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 _ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit: ; preds = %for.body.i.i.i.i.i.i, %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %3 = getelementptr inbounds nuw i8, ptr %Total, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %TimersToPrint, align 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not223 = icmp eq ptr %4, %5

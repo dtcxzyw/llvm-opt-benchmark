@@ -2277,7 +2277,7 @@ define dso_local void @__flush_workqueue(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.wq_flusher, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !14
   store ptr %2, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %4, align 8
@@ -3111,7 +3111,7 @@ define internal fastcc noundef zeroext i1 @__flush_work(ptr noundef %0) unnamed_
   br label %120
 
 11:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !14
   %12 = tail call i32 @__SCT__might_resched() #26
   tail call void @__rcu_read_lock() #26
   %13 = load volatile i64, ptr %0, align 8
@@ -4086,7 +4086,7 @@ define dso_local noundef ptr @alloc_workqueue(ptr noundef readonly captures(none
   store volatile ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 216
   %113 = getelementptr inbounds nuw i8, ptr %95, i64 240
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %113, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   store volatile ptr %112, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %95, i64 224
   store volatile ptr %112, ptr %114, align 8
@@ -9950,7 +9950,7 @@ define internal fastcc ptr @alloc_unbound_pwq(ptr noundef %0, ptr noundef readon
   store volatile ptr %181, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %165, i64 216
   %184 = getelementptr inbounds nuw i8, ptr %165, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %184, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   store volatile ptr %183, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %165, i64 224
   store volatile ptr %183, ptr %185, align 8

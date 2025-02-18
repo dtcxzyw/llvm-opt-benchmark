@@ -242,7 +242,7 @@ define dso_local noundef i64 @sapi_cli_single_write(ptr noundef %0, i64 noundef 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 120, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 120, i1 false), !tbaa !11
   store i64 2, ptr %3, align 8, !tbaa !11
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !13
   store i64 %18, ptr %4, align 8, !tbaa !21

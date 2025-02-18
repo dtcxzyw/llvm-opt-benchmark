@@ -440,7 +440,7 @@ define internal noundef range(i32 -22, 1) i32 @cmdline_parse_movablecore(ptr nou
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid optsize memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local void @__init_single_page(ptr noundef initializes((0, 8), (24, 64)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 section ".meminit.text" align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = zext i32 %3 to i64
   %7 = shl i64 %2, 56
   %8 = and i64 %7, 216172782113783808
@@ -726,7 +726,7 @@ define dso_local void @memmap_init_range(i64 noundef %0, i32 noundef %1, i64 nou
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr %struct.page, ptr %31, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
   store i64 %23, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 52
   store volatile i32 1, ptr %34, align 4
@@ -3100,7 +3100,7 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
   %82 = inttoptr i64 %81 to ptr
   %83 = getelementptr %struct.page, ptr %82, i64 %14
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, i8 0, i64 40, i1 false)
   store i64 %12, ptr %83, align 16
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 52
   store volatile i32 1, ptr %85, align 4

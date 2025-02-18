@@ -711,7 +711,7 @@ define dso_local void @ieee80211_process_addba_request(ptr noundef readnone capt
   %25 = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #10
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 40, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false), !annotation !5
   store ptr %24, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %25, ptr %27, align 8

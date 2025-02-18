@@ -2013,7 +2013,7 @@ data_indep_addressing.exit:                       ; preds = %9
 data_indep_addressing.exit.thread92:              ; preds = %9, %data_indep_addressing.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %13, i8 0, i64 976, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %13, i8 0, i64 976, i1 false)
   %14 = zext i32 %1 to i64
   store i64 %14, ptr %6, align 8, !tbaa !40
   %15 = zext i32 %2 to i64

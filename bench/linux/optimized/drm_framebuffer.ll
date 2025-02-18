@@ -146,7 +146,7 @@ define dso_local i32 @drm_mode_addfb(ptr noundef %0, ptr noundef captures(none) 
   %4 = alloca %struct.drm_mode_fb_cmd2, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 176

@@ -1460,7 +1460,7 @@ define internal void @lg4ff_set_range_dfp(ptr noundef %0, i16 noundef zeroext %1
   %24 = icmp ugt i16 %1, 200
   %25 = select i1 %24, i32 3, i32 2
   %26 = getelementptr i8, ptr %20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %26, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %26, i8 0, i64 20, i1 false)
   store i32 %25, ptr %22, align 4
   %27 = load ptr, ptr %15, align 8
   tail call void @hid_hw_request(ptr noundef %0, ptr noundef %27, i32 noundef 9) #15

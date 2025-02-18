@@ -1569,7 +1569,7 @@ _ZL7Connectt.exit.thread289:                      ; preds = %275
 277:                                              ; preds = %273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
   %278 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %278, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %278, i8 0, i64 12, i1 false)
   store i16 2, ptr %7, align 4, !tbaa !110
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %270)
   %279 = getelementptr inbounds nuw i8, ptr %7, i64 2

@@ -949,11 +949,11 @@ define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(non
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 36, i1 false)
   store i32 1, ptr %28, align 4, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %31, i8 0, i64 36, i1 false)
   store i32 1, ptr %30, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %32, i8 0, i64 40, i1 false)
@@ -2399,7 +2399,7 @@ define internal fastcc range(i32 -1, 1) i32 @ge_frombytes_vartime(ptr noundef no
   store i32 %160, ptr %161, align 4, !tbaa !9
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %163, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %163, i8 0, i64 36, i1 false)
   store i32 1, ptr %162, align 4, !tbaa !9
   call fastcc void @fe_sq(ptr noundef %9, ptr noundef %14)
   call fastcc void @fe_mul(ptr noundef %10, ptr noundef nonnull %9, ptr noundef nonnull @d)
@@ -3348,11 +3348,11 @@ ge_p3_to_cached.exit110:                          ; preds = %229
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %239, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %239, i8 0, i64 36, i1 false)
   store i32 1, ptr %238, align 4, !tbaa !9
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %241, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %241, i8 0, i64 36, i1 false)
   store i32 1, ptr %240, align 4, !tbaa !9
   br label %242
 
@@ -5479,11 +5479,11 @@ define internal fastcc void @table_select(ptr noundef nonnull captures(none) ini
   %6 = shl i8 %5, 1
   %7 = sub i8 %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   store i32 1, ptr %0, align 4, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %10, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i32 1, ptr %9, align 4, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %11, i8 0, i64 40, i1 false)

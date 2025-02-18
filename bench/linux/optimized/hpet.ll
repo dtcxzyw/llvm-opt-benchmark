@@ -1863,7 +1863,7 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
   %1 = alloca %struct.hpet_data, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #19
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   %3 = load i64, ptr @hpet_address, align 8
   store i64 %3, ptr %1, align 8
   %4 = load ptr, ptr @hpet_virt_address, align 8

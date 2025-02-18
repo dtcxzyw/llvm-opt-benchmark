@@ -4905,7 +4905,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %7 = alloca %struct.scan_control, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 64, i1 false), !annotation !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !annotation !24
   store i64 32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -5828,7 +5828,7 @@ define dso_local i64 @shrink_all_memory(i64 noundef %0) local_unnamed_addr #1 al
   %2 = alloca %struct.scan_control, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 64, i1 false), !annotation !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !24
   store i64 %0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -7168,7 +7168,7 @@ node_pagecache_reclaimable.exit:                  ; preds = %16, %21, %24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #14
   %64 = tail call i64 @llvm.umax.i64(i64 %63, i64 32)
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %65, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %65, i8 0, i64 104, i1 false)
   store i64 %64, ptr %4, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %67 = load i32, ptr @node_reclaim_mode, align 4

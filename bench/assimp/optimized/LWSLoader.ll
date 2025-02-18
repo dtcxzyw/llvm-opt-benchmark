@@ -7721,7 +7721,7 @@ _ZNK6Assimp3LWS8NodeDesceqEj.exit.thread:         ; preds = %1163, %1162, %_ZNK6
 
 1275:                                             ; preds = %1272
   %1276 = getelementptr inbounds nuw i8, ptr %1274, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %1276, i8 0, i64 1012, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1012) %1276, i8 0, i64 1012, i1 false)
   %1277 = getelementptr inbounds nuw i8, ptr %1274, i64 1032
   %1278 = getelementptr inbounds nuw i8, ptr %1274, i64 1040
   %1279 = getelementptr inbounds nuw i8, ptr %1274, i64 1048

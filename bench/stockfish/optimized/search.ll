@@ -1268,7 +1268,7 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i237
   %231 = getelementptr inbounds nuw i8, ptr %211, i64 48
   %232 = load ptr, ptr %231, align 8
   store ptr %232, ptr %230, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, i8 0, i64 16, i1 false)
   %.not18.i.i.i.i = icmp eq i64 %storemerge26.i.i.i, 1
   br i1 %.not18.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.preheader.i.i
 
@@ -1485,7 +1485,7 @@ select.unfold.i.i.i266:                           ; preds = %.lr.ph.i.i.i245
   %322 = getelementptr inbounds nuw i8, ptr %298, i64 48
   %323 = load ptr, ptr %322, align 8
   store ptr %323, ptr %321, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %319, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, i8 0, i64 16, i1 false)
   %.not18.i.i.i.i250 = icmp eq i64 %storemerge26.i.i.i248, 1
   br i1 %.not18.i.i.i.i250, label %.loopexit.i258, label %.lr.ph.i.i.preheader.i.i251
 

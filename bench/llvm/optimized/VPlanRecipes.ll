@@ -8718,7 +8718,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm12VPRecipe
   store i32 0, ptr %33, align 8, !tbaa !383
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %35, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %35, i8 0, i64 5, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 72
@@ -12206,7 +12206,7 @@ define dso_local void @_ZN4llvm20VPReductionEVLRecipe7executeERNS_16VPTransformS
   store i32 0, ptr %38, align 8, !tbaa !383
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %40, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, i8 0, i64 5, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %37, ptr %41, align 8, !tbaa !387
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 161
@@ -14046,7 +14046,7 @@ _ZNK4llvm19VPWidenMemoryRecipe7getMaskEv.exit.thread: ; preds = %_ZN4llvm8DebugL
   store i32 0, ptr %96, align 8, !tbaa !383
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %98, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %98, i8 0, i64 5, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %45, ptr %99, align 8, !tbaa !387
   store ptr %.042, ptr %97, align 8, !tbaa !386
@@ -14646,7 +14646,7 @@ _ZNK4llvm19VPWidenMemoryRecipe7getMaskEv.exit.thread: ; preds = %63, %_ZNK4llvm1
   store i32 0, ptr %116, align 8, !tbaa !383
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %118, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %118, i8 0, i64 5, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %40, ptr %119, align 8, !tbaa !387
   store ptr %.044, ptr %117, align 8, !tbaa !386

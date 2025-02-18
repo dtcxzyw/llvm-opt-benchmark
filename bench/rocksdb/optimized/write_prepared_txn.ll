@@ -1758,7 +1758,7 @@ invoke.cont18:                                    ; preds = %_ZN7rocksdb18WriteP
   %15 = phi ptr [ %10, %_ZN7rocksdb18WritePreparedTxnDB14GetCFHandleMapEv.exit ], [ %10, %if.then.i.i.i.i.i.i15 ], [ %.pre, %if.else.i.i.i.i.i.i17 ]
   %rate_limiter_priority.i = getelementptr inbounds nuw i8, ptr %roptions, i64 44
   %16 = getelementptr inbounds nuw i8, ptr %roptions, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %16, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %value_size_soft_limit.i = getelementptr inbounds nuw i8, ptr %roptions, i64 48
   store i64 -1, ptr %value_size_soft_limit.i, align 8
@@ -5086,7 +5086,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
   %28 = load ptr, ptr %call24, align 8
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %29, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)

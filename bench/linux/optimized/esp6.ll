@@ -2714,7 +2714,7 @@ define internal i32 @esp6_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.esp_info, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 40, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 41
   store i8 1, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 192

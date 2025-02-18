@@ -1354,7 +1354,7 @@ _ZN12_GLOBAL__N_111CrossDSOCFI11runOnModuleERN4llvm6ModuleE.exit: ; preds = %_ZN
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %588, i64 noundef %591, i64 noundef 8) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #11
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %592, i8 0, i64 64, i1 false), !alias.scope !221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %592, i8 0, i64 64, i1 false), !alias.scope !221
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %593, ptr %0, align 8, !tbaa !224, !alias.scope !221
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_tb_unlo
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @acpi_tb_init_table_descriptor(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 1
@@ -159,7 +159,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 1
@@ -183,7 +183,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
 22:                                               ; preds = %7, %6
   %.ph = phi ptr [ %8, %7 ], [ %3, %6 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.ph, i64 4
   %25 = load i32, ptr %24, align 1

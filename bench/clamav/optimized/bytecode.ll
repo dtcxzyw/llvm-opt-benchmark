@@ -10086,7 +10086,7 @@ define i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef readonly captures(a
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 1064
   store ptr %44, ptr %45, align 8, !tbaa !233
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %46, i8 0, i64 640, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %46, i8 0, i64 640, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !234
   store i32 %48, ptr %9, align 8, !tbaa !235

@@ -9801,7 +9801,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
 91:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %15) #18
   %92 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %92, i8 0, i64 104, i1 false), !annotation !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %92, i8 0, i64 104, i1 false), !annotation !30
   store ptr %0, ptr %15, align 8
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 136

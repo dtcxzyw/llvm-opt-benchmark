@@ -1760,7 +1760,7 @@ _ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %413, i8 0, i64 64, i1 false), !alias.scope !194
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %413, i8 0, i64 64, i1 false), !alias.scope !194
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %414, ptr %0, align 8, !tbaa !28, !alias.scope !194
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 8

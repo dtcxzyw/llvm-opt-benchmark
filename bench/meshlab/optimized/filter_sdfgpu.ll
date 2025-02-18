@@ -9462,7 +9462,7 @@ define void @_ZN12SdfGpuPlugin15fillFrameBufferEbP9MeshModel(ptr noundef nonnull
 7:                                                ; preds = %3
   call void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %8, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, i8 0, i64 5, i1 false)
   store i8 1, ptr %5, align 1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 1, ptr %9, align 1

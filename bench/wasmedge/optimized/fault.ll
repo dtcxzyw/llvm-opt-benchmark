@@ -29,7 +29,7 @@ define void @_ZN8WasmEdge5FaultC2Ev(ptr noundef nonnull align 8 dereferenceable(
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false)
   store ptr @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 4, ptr %9, align 8

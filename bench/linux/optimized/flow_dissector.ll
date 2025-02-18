@@ -719,7 +719,7 @@ define dso_local void @skb_flow_dissect_hash(ptr noundef readonly captures(none)
 define dso_local i32 @bpf_flow_dissect(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %8, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i16 %2, ptr %9, align 2
   %10 = trunc i32 %3 to i16

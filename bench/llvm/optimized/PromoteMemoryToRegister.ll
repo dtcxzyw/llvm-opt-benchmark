@@ -1068,7 +1068,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_122AssignmentTrackingInfoEE7reserveEm.ex
 .lr.ph.i.i119:                                    ; preds = %.lr.ph.i.i119, %.lr.ph.preheader.i.i118
   %.014.i.i = phi ptr [ %140, %.lr.ph.i.i119 ], [ %133, %.lr.ph.preheader.i.i118 ]
   %134 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %134, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %134, i8 0, i64 112, i1 false)
   store ptr %134, ptr %.014.i.i, align 8, !tbaa !57
   %135 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   store i32 0, ptr %135, align 8, !tbaa !160

@@ -4734,7 +4734,7 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %6, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 76
@@ -4780,7 +4780,7 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable
   store i32 %31, ptr %38, align 4
   %39 = sitofp i32 %31 to float
   %40 = fmul float %39, 0x3FA2E6AA00000000
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %7, align 4
   store float 1.000000e+00, ptr %9, align 4
   store float 1.000000e+00, ptr %10, align 4
@@ -8334,7 +8334,7 @@ define void @_ZN6GLArea7setViewEv(ptr noundef nonnull align 8 dereferenceable(16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %57 = load float, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %58, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %58, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %2, align 4
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float 1.000000e+00, ptr %59, align 4
@@ -8349,7 +8349,7 @@ define void @_ZN6GLArea7setViewEv(ptr noundef nonnull align 8 dereferenceable(16
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store float %57, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %65, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %65, i8 0, i64 56, i1 false)
   store float 4.000000e+00, ptr %3, align 4
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float 4.000000e+00, ptr %66, align 4
@@ -12908,7 +12908,7 @@ _ZN6GLArea2mmEv.exit504:                          ; preds = %688, %691
   br label %699
 
 699:                                              ; preds = %698, %696, %_ZN6GLArea2mmEv.exit504
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -28542,7 +28542,7 @@ define void @_ZN6GLArea25loadViewFromViewStateFileERK12QDomDocument(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %7, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store float 1.000000e+00, ptr %32, align 4
@@ -29535,7 +29535,7 @@ _ZN6GLArea2trEPKcS1_i.exit:
   %41 = alloca %"class.vcg::Shot", align 4
   %42 = alloca %class.QByteArray, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %43, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, i8 0, i64 20, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -29580,7 +29580,7 @@ _ZN6GLArea2trEPKcS1_i.exit:
   store i32 %68, ptr %75, align 4
   %76 = sitofp i32 %68 to float
   %77 = fmul float %76, 0x3FA2E6AA00000000
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %45, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %44, align 4
   store float 1.000000e+00, ptr %46, align 4
   store float 1.000000e+00, ptr %47, align 4
@@ -30333,7 +30333,7 @@ define void @_ZN6GLArea14initializeShotERN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nou
   store float %64, ptr %1, align 4
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %66, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store float 1.000000e+00, ptr %67, align 4
@@ -30758,7 +30758,7 @@ define void @_ZN6GLArea25loadShotFromTextAlignFileERK12QDomDocument(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %6, i8 0, i64 56, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %23, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store float 1.000000e+00, ptr %24, align 4
@@ -40798,7 +40798,7 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %14, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 1.000000e+00, ptr %15, align 4
@@ -40827,7 +40827,7 @@ define linkonce_odr void @_ZN6GLArea13track2ShotCPUIfEEN3vcg4ShotIT_NS1_8Matrix4
   %27 = load float, ptr %26, align 4, !noalias !377
   %28 = fneg float %27
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, i8 0, i64 56, i1 false), !noalias !377
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %29, i8 0, i64 56, i1 false), !noalias !377
   store float 1.000000e+00, ptr %6, align 4, !noalias !377
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store float 1.000000e+00, ptr %30, align 4, !noalias !377

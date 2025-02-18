@@ -4145,7 +4145,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang12DynTypedNode12DenseMapInfo12g
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %9, align 8, !tbaa !704
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %8, ptr %3, align 8
@@ -4170,7 +4170,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang12DynTypedNode12DenseMapInfo12g
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %22, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %20, align 8, !tbaa !704
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = ptrtoint ptr %.sroa.012.0.copyload to i64

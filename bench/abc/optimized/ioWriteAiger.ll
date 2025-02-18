@@ -2072,7 +2072,7 @@ sub_1:                                            ; preds = %.critedge
 
 .critedge.tail.thread:                            ; preds = %sub_1, %.critedge, %.critedge.tail
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 4096, ptr %38, align 4, !tbaa !77
   %39 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #13

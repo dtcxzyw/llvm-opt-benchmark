@@ -664,7 +664,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %retval.0.i.i.i.i.i.i40 = phi ptr [ %10, %if.then.i.i.i.i.i.i41 ], [ %call7.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %12 = getelementptr inbounds nuw i8, ptr %canonicalPath, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false), !alias.scope !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !alias.scope !15
   store ptr %12, ptr %canonicalPath, align 8, !alias.scope !15
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %canonicalPath, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !15

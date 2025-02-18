@@ -1434,7 +1434,7 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
   %67 = zext i32 %66 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 40, i1 false), !annotation !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, i8 0, i64 40, i1 false), !annotation !41
   store ptr %64, ptr %5, align 8
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %67, ptr %69, align 8
@@ -1619,7 +1619,7 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
   %182 = zext i32 %181 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #12
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %183, i8 0, i64 40, i1 false), !annotation !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %183, i8 0, i64 40, i1 false), !annotation !41
   store ptr %179, ptr %3, align 8
   %184 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %182, ptr %184, align 8
@@ -3035,7 +3035,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 704:                                              ; preds = %700
   %705 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 26) #12
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %706, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %706, i8 0, i64 17, i1 false)
   store i8 -35, ptr %705, align 1
   %707 = getelementptr inbounds nuw i8, ptr %705, i64 1
   store i8 24, ptr %707, align 1

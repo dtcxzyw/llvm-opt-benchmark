@@ -212,7 +212,7 @@ cpool_addunix.exit.thread40:                      ; preds = %53, %66
   store i8 1, ptr %85, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 33
   store i8 1, ptr %86, align 1, !tbaa !30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   store i32 1, ptr %2, align 8, !tbaa !39
   store i32 1, ptr %12, align 8, !tbaa !36
   store i32 0, ptr %13, align 4, !tbaa !40

@@ -149,7 +149,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %f.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinit.i)
   %0 = getelementptr inbounds nuw i8, ptr %cinit.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   store i64 104, ptr %cinit.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %cinit.i, i64 88
   store i32 -2, ptr %1, align 8
@@ -652,7 +652,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %cinit.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %md.i)
   %0 = getelementptr inbounds nuw i8, ptr %cinit.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   store i64 104, ptr %cinit.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %cinit.i, i64 88
   store i32 -2, ptr %1, align 8

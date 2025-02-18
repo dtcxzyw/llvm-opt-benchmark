@@ -292,7 +292,7 @@ define dso_local noundef i32 @io_async_cancel(ptr noundef %0, i32 noundef %1) lo
   %3 = alloca %struct.io_cancel_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
@@ -554,7 +554,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %6 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !11
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16

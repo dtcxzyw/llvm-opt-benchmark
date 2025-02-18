@@ -42611,7 +42611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr %47, ptr %46, align 8, !tbaa !96
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 0, ptr %48, align 8, !tbaa !97
@@ -42688,7 +42688,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
 78:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   store ptr %80, ptr %79, align 8, !tbaa !96
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i32 0, ptr %81, align 8, !tbaa !97
@@ -53032,7 +53032,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread177:      ; preds = %_ZN4llvmeqENS_9Stri
 205:                                              ; preds = %199
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %207, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
   store ptr %207, ptr %206, align 8, !tbaa !96
   %208 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store i32 0, ptr %208, align 8, !tbaa !97
@@ -53105,7 +53105,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116FieldInitializerESaIS1_EE12_M_check_lenEmPKc.exit
 238:                                              ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116FieldInitializerESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %239 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %240 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %240, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
   store ptr %240, ptr %239, align 8, !tbaa !96
   %241 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store i32 0, ptr %241, align 8, !tbaa !97
@@ -55494,7 +55494,7 @@ _ZNSt6vectorIN12_GLOBAL__N_117StructInitializerESaIS1_EE6insertIN9__gnu_cxx17__n
   store i32 2, ptr %41, align 8, !tbaa !663
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_110StructInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull readonly align 8 dereferenceable(88) %42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %95, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %95, i8 0, i64 17, i1 false)
   store i8 1, ptr %96, align 1, !tbaa !960
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %98, i8 0, i64 44, i1 false)

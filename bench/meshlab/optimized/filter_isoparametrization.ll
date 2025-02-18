@@ -16048,7 +16048,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -96143,7 +96143,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EE
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -96313,7 +96313,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %40, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   store float 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 564

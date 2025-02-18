@@ -107,7 +107,7 @@ define dso_local void @_ZN4llvm28LocalStackSlotAllocationPass3runERNS_15MachineF
   %5 = alloca %"class.(anonymous namespace)::LocalStackSlotImpl", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1732,7 +1732,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118LocalStackSlotPass20runOn
   %3 = alloca %"class.(anonymous namespace)::LocalStackSlotImpl", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

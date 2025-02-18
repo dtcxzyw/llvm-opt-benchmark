@@ -380,7 +380,7 @@ define hidden void @_ZN2cv6detail8tracking8internal18TrackerFeatureHAARC2ERKNS3_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail8tracking7feature15CvHaarEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %18, i8 0, i64 352, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %18, i8 0, i64 352, i1 false), !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail8tracking7feature18CvFeatureEvaluatorE, i64 16), ptr %17, align 8, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 56
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #18, !noalias !4

@@ -18009,7 +18009,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 if.then84:                                        ; preds = %for.cond.i, %if.then78
   %129 = getelementptr inbounds nuw i8, ptr %iregs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %129, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, i8 0, i64 64, i1 false)
   store ptr %129, ptr %iregs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %iregs, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -20218,7 +20218,7 @@ _ZN6vectorIPN1q11instructionELb0EjE9push_backEOS2_.exit: ; preds = %lor.lhs.fals
 if.end:                                           ; preds = %entry.if.end_crit_edge, %_Z9is_groundPK4expr.exit
   %idx.ext.i15.pre-phi = phi i64 [ %.pre100, %entry.if.end_crit_edge ], [ %idx.ext.i.i.i, %_Z9is_groundPK4expr.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %iregs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %18, ptr %iregs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %iregs, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

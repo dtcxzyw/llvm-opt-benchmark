@@ -29142,7 +29142,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %87, ptr %6, align 8, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -29866,7 +29866,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #26
   %340 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %340, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %340, i8 0, i64 16, i1 false)
   %341 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %341, ptr %17, align 8, !tbaa !4
   %342 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -32554,7 +32554,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %87, ptr %6, align 8, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -33278,7 +33278,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #26
   %340 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %340, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %340, i8 0, i64 16, i1 false)
   %341 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %341, ptr %17, align 8, !tbaa !4
   %342 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -47895,7 +47895,7 @@ _ZN4entt13basic_storageIN4test5emptyENS_6entityESaIS2_EvEC2Ev.exit: ; preds = %1
 30:                                               ; preds = %_ZN4entt13basic_storageIN4test5emptyENS_6entityESaIS2_EvEC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %32, ptr %3, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -48198,7 +48198,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
   %147 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %147, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %148, ptr %8, align 8, !tbaa !4
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -49099,7 +49099,7 @@ _ZN4entt13basic_storageIvNS_6entityESaIvEvEC2Ev.exit: ; preds = %1, %21, %23
 30:                                               ; preds = %_ZN4entt13basic_storageIvNS_6entityESaIvEvEC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %32, ptr %3, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -49402,7 +49402,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
   %147 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %147, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %148, ptr %8, align 8, !tbaa !4
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -60376,7 +60376,7 @@ define linkonce_odr hidden void @_ZN30StorageNoInstance_Emplace_TestIN4test5empt
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4entt13basic_storageIN4test5emptyENS_6entityESaIS2_EvEE, i64 16), ptr %2, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %3, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -60681,7 +60681,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %141, ptr %8, align 8, !tbaa !4
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -61274,7 +61274,7 @@ define linkonce_odr hidden void @_ZN30StorageNoInstance_Emplace_TestIvE8TestBody
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4entt13basic_storageIvNS_6entityESaIvEvEE, i64 16), ptr %2, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %3, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -61579,7 +61579,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %141, ptr %8, align 8, !tbaa !4
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 8

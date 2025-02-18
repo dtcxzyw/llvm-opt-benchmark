@@ -61,7 +61,7 @@ define dso_local void @drm_modeset_lock_all(ptr noundef %0) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @mutex_lock(ptr noundef nonnull %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !9
   %10 = inttoptr i64 %9 to ptr
   store ptr %10, ptr %3, align 8
@@ -248,7 +248,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_modeset_acquire_init(ptr noundef initializes((0, 64)) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !9
   %5 = inttoptr i64 %4 to ptr
   store ptr %5, ptr %0, align 8

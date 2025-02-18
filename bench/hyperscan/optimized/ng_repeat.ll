@@ -1056,7 +1056,7 @@ if.end11.i:                                       ; preds = %_ZNKSt13unordered_m
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %33, i64 -16
   %last.sroa.0.0.copyload.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %props.i.i = getelementptr inbounds nuw i8, ptr %last.sroa.0.0.copyload.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %m_header.i.i.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %last.sroa.0.0.copyload.i, i64 136
   %__begin1.sroa.0.033.i = load ptr, ptr %m_header.i.i.i.i.i.i.i81, align 8
   %cmp.i.i.i.i.i.i.i13.not34.i = icmp eq ptr %__begin1.sroa.0.033.i, %m_header.i.i.i.i.i.i.i81
@@ -28689,7 +28689,7 @@ call.i.i.noexc:                                   ; preds = %call.i163.noexc
   %reports.i.i.i = getelementptr inbounds nuw i8, ptr %call.i163169, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i163169, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %call.i163169, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i163169, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i163169, i64 64
@@ -31418,7 +31418,7 @@ invoke.cont3:                                     ; preds = %entry
   %reports.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64

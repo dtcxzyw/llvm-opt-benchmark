@@ -72,7 +72,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(184) %7, i8 0, i64 180, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(180) %7, i8 0, i64 180, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %6

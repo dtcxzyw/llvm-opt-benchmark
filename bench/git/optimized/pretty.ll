@@ -2875,7 +2875,7 @@ define dso_local void @repo_format_commit_message(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8) #19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 216, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %10, i8 0, i64 216, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !131
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %11, align 8, !tbaa !137

@@ -753,7 +753,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
   store ptr %20, ptr %16, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %21, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %21, i8 0, i64 296, i1 false)
   store i64 499, ptr %6, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 512, ptr %22, align 8, !tbaa !37
@@ -4741,7 +4741,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
   store ptr %21, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %26, i8 0, i64 288, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %26, i8 0, i64 288, i1 false)
   store i64 %.pre.pre, ptr %6, align 8, !tbaa !32
   %27 = zext i8 %.val18.pre.pre to i32
   %28 = icmp ult i8 %.val18.pre.pre, 67
@@ -5150,7 +5150,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_15CordRepExterna
   store ptr %20, ptr %17, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %21, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %21, i8 0, i64 304, i1 false)
   %22 = load i64, ptr %14, align 8, !tbaa !20
   store i64 %22, ptr %6, align 8, !tbaa !32
   %23 = add i64 %22, 40
@@ -5556,7 +5556,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper3RefINS0_15CordRepExternalEEEPT_S
   store ptr %26, ptr %18, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %27, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %27, i8 0, i64 304, i1 false)
   %28 = load i64, ptr %14, align 8, !tbaa !20
   store i64 %28, ptr %6, align 8, !tbaa !32
   %29 = add i64 %28, 40
@@ -5949,7 +5949,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
   store ptr %25, ptr %21, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %26, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %26, i8 0, i64 296, i1 false)
   store i64 1010, ptr %6, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1056, ptr %27, align 8, !tbaa !37
@@ -6537,7 +6537,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
   %101 = phi ptr [ %92, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i41 ], [ %75, %79 ]
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #22
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %102, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %102, i8 0, i64 296, i1 false)
   %103 = load i64, ptr %48, align 8, !tbaa !20
   store i64 %103, ptr %6, align 8, !tbaa !32
   %.val23 = load i8, ptr %17, align 4, !tbaa !215
@@ -7314,7 +7314,7 @@ _ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit104: ; preds
   %147 = phi ptr [ %127, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %109, %108 ]
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %10) #22
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %148, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %148, i8 0, i64 296, i1 false)
   %149 = load i64, ptr %142, align 8, !tbaa !20
   store i64 %149, ptr %10, align 8, !tbaa !32
   %.val62 = load i8, ptr %60, align 4, !tbaa !215
@@ -9669,7 +9669,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_19RefHelper10NeedsUnrefINS0_7CordRepEEEPT_S6
   store ptr %257, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %11) #22
   %261 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %261, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %261, i8 0, i64 296, i1 false)
   %262 = load i64, ptr %194, align 8, !tbaa !20
   store i64 %262, ptr %11, align 8, !tbaa !32
   %263 = add i64 %182, 200
@@ -10173,7 +10173,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
   call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %7) #22
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %26, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %26, i8 0, i64 296, i1 false)
   %27 = load i64, ptr %15, align 8, !tbaa !20
   store i64 %27, ptr %7, align 8, !tbaa !32
   %.val = load i8, ptr %18, align 4, !tbaa !215

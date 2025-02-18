@@ -31,7 +31,7 @@ define hidden ptr @avifIOCreateMemoryReader(ptr noundef %0, i64 noundef %1) loca
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr @avifIOMemoryReaderDestroy, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @avifIOMemoryReaderRead, ptr %7, align 8
@@ -107,7 +107,7 @@ define hidden ptr @avifIOCreateFileReader(ptr noundef readonly captures(none) %0
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %2, ptr %12, align 8
   store ptr @avifIOFileReaderDestroy, ptr %9, align 8

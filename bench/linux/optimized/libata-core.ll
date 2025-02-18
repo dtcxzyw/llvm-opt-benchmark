@@ -6942,7 +6942,7 @@ select.unfold.backedge:                           ; preds = %119
 
 156:                                              ; preds = %154, %154
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %157 = load ptr, ptr %0, align 64
   %158 = load ptr, ptr %157, align 64
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 168
@@ -7026,7 +7026,7 @@ select.unfold.backedge:                           ; preds = %119
   br label %.loopexit
 
 201:                                              ; preds = %.thread15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   %202 = load ptr, ptr %0, align 64
   %203 = load ptr, ptr %202, align 64
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 168
@@ -7093,7 +7093,7 @@ define dso_local i32 @ata_dev_set_feature(ptr noundef %0, i8 noundef zeroext %1,
   %4 = alloca %struct.ata_taskfile, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %0, align 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -7202,7 +7202,7 @@ define dso_local void @ata_dev_power_set_standby(ptr noundef %0) local_unnamed_a
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #31
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %15 = load i8, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 9
@@ -7267,7 +7267,7 @@ define dso_local void @ata_dev_power_set_standby(ptr noundef %0) local_unnamed_a
 
 53:                                               ; preds = %50, %50
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr %0, align 64
   %56 = load ptr, ptr %55, align 64
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 168
@@ -7326,7 +7326,7 @@ define dso_local void @ata_dev_power_set_active(ptr noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %1, %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr %0, align 64
   %9 = load ptr, ptr %8, align 64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
@@ -7364,7 +7364,7 @@ define dso_local void @ata_dev_power_set_active(ptr noundef %0) local_unnamed_ad
 28:                                               ; preds = %26, %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #31
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %11, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -7463,7 +7463,7 @@ define dso_local i32 @ata_read_log_page(ptr noundef %0, i8 noundef zeroext %1, i
 
 33:                                               ; preds = %62, %13
   %34 = phi ptr [ %65, %62 ], [ %8, %13 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
   %36 = load i8, ptr %35, align 8
   store i8 %36, ptr %14, align 1
@@ -8033,7 +8033,7 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
   %319 = icmp ne i16 %318, 0
   %320 = and i1 %319, %317
   %321 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %321, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %321, i8 0, i64 24, i1 false)
   %322 = load ptr, ptr %203, align 64
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 168
   %324 = load i8, ptr %323, align 8
@@ -8191,7 +8191,7 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
   %430 = phi i1 [ %428, %426 ], [ false, %418 ], [ false, %423 ]
   %431 = add nsw i64 %388, -1
   %432 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %432, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %432, i8 0, i64 24, i1 false)
   %433 = load ptr, ptr %0, align 64
   %434 = load ptr, ptr %433, align 64
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 168
@@ -10009,7 +10009,7 @@ define internal fastcc void @ata_dev_config_sense_reporting(ptr noundef %0) unna
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #31
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %0, align 64
   %19 = load ptr, ptr %18, align 64
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
@@ -14996,7 +14996,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0
 define dso_local void @ata_link_init(ptr noundef %0, ptr noundef initializes((0, 12), (744, 1152)) %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr i8, ptr %1, i64 744
   %5 = getelementptr i8, ptr %1, i64 748
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(408) %5, i8 0, i64 404, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(404) %5, i8 0, i64 404, i1 false)
   store ptr %0, ptr %1, align 64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %2, ptr %6, align 8
@@ -18520,7 +18520,7 @@ define internal fastcc void @ata_parse_force_param() unnamed_addr #20 section ".
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #31
   store ptr @.str.36, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #31
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   store i32 -1, ptr %3, align 8
   store i32 -1, ptr %25, align 4
   store ptr %31, ptr %1, align 8

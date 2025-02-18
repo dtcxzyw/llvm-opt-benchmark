@@ -92,7 +92,7 @@ define dso_local range(i32 -14, 1) i32 @autofs_expire_run(ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 268, ptr nonnull %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(268) %7, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %8 = load i32, ptr %6, align 8
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4

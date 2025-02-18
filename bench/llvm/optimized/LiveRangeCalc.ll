@@ -866,7 +866,7 @@ _ZSt9make_pairIPN4llvm9LiveRangeESt4pairINS0_9BitVectorES4_EES3_INSt25__strip_re
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #13
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #13
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %164, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %164, i8 0, i64 56, i1 false)
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %165, ptr %12, align 8, !tbaa !45
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -875,7 +875,7 @@ _ZSt9make_pairIPN4llvm9LiveRangeESt4pairINS0_9BitVectorES4_EES3_INSt25__strip_re
   store i32 6, ptr %167, align 4, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #13
   %168 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %168, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %168, i8 0, i64 56, i1 false)
   %169 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %169, ptr %13, align 8, !tbaa !45
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 8

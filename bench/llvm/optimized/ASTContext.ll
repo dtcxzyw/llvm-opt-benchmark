@@ -144170,7 +144170,7 @@ _ZL14mergeTypeListsRN5clang10ASTContextERN4llvm15SmallVectorImplINS_8QualTypeEEE
   store i32 2, ptr %0, align 8, !tbaa !1341
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, i8 0, i64 24, i1 false)
   %153 = load ptr, ptr %4, align 8, !tbaa !419
   %154 = load i32, ptr %39, align 8, !tbaa !425
   %155 = zext i32 %154 to i64
@@ -162879,7 +162879,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16Foldin
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #31
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 128, i1 false), !alias.scope !2189
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !alias.scope !2189
   store ptr %8, ptr %2, align 8, !tbaa !419, !alias.scope !2189
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %9, align 8, !tbaa !425, !alias.scope !2189
@@ -170902,7 +170902,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #31
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 128, i1 false), !alias.scope !2269
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false), !alias.scope !2269
   store ptr %9, ptr %3, align 8, !tbaa !419, !alias.scope !2269
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %10, align 8, !tbaa !425, !alias.scope !2269
@@ -170974,7 +170974,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #31
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 0, i64 128, i1 false), !alias.scope !2275
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 128, i1 false), !alias.scope !2275
   store ptr %12, ptr %4, align 8, !tbaa !419, !alias.scope !2275
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %13, align 8, !tbaa !425, !alias.scope !2275
@@ -171129,7 +171129,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   store i32 %23, ptr %6, align 8, !tbaa !2286
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #31
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, i8 0, i64 128, i1 false), !alias.scope !2288
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, i8 0, i64 128, i1 false), !alias.scope !2288
   store ptr %24, ptr %5, align 8, !tbaa !419, !alias.scope !2288
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %25, align 8, !tbaa !425, !alias.scope !2288
@@ -171237,7 +171237,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_16Foldin
   store i32 0, ptr %9, align 4, !tbaa !2287
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #31
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 128, i1 false), !alias.scope !2294
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 128, i1 false), !alias.scope !2294
   store ptr %10, ptr %4, align 8, !tbaa !419, !alias.scope !2294
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %11, align 8, !tbaa !425, !alias.scope !2294
@@ -171311,7 +171311,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_16FoldingSetNodeIDEPN5clang8AutoTypeENS_1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #31
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #31
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %33, i8 0, i64 128, i1 false), !alias.scope !2299
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %33, i8 0, i64 128, i1 false), !alias.scope !2299
   store ptr %33, ptr %5, align 8, !tbaa !419, !alias.scope !2299
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %34, align 8, !tbaa !425, !alias.scope !2299

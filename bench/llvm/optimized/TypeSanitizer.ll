@@ -1545,7 +1545,7 @@ _ZN12_GLOBAL__N_113TypeSanitizer17instrumentGlobalsERN4llvm6ModuleE.exit: ; pred
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_113TypeSanitizer16sanitizeFunctionERN4llvm8FunctionERKNS1_17TargetLibraryInfoE.exit, %_ZN12_GLOBAL__N_113TypeSanitizer17instrumentGlobalsERN4llvm6ModuleE.exit
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %324, i8 0, i64 64, i1 false), !alias.scope !283
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %324, i8 0, i64 64, i1 false), !alias.scope !283
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %325, ptr %0, align 8, !tbaa !28, !alias.scope !283
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 8

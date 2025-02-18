@@ -7754,7 +7754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i190: ; preds = %
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit194:         ; preds = %323, %321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i190, %298, %296
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %69, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %69, i8 0, i64 12, i1 false)
   store i16 1, ptr %66, align 8, !tbaa !523
   %324 = load i32, ptr %9, align 8, !tbaa !507
   store i32 %324, ptr %14, align 8, !tbaa !507
@@ -8393,7 +8393,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit.i: ; 
   %613 = load ptr, ptr %540, align 8, !tbaa !406
   %614 = load ptr, ptr %541, align 8, !tbaa !445
   %615 = call i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %612, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(696) %613, ptr noundef nonnull align 8 dereferenceable(849) %614) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %545, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %545, i8 0, i64 12, i1 false)
   store i16 23, ptr %542, align 8, !tbaa !523
   store i32 %615, ptr %7, align 8, !tbaa !507
   store i32 0, ptr %543, align 4, !tbaa !569
@@ -8801,7 +8801,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
 .thread435:                                       ; preds = %354, %.thread426._crit_edge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #22
   %780 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %780, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %780, i8 0, i64 12, i1 false)
   %781 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i16 1, ptr %781, align 8, !tbaa !523
   %782 = load i32, ptr %9, align 8, !tbaa !507
@@ -9449,7 +9449,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit288:         ; preds = %_ZNSt7__cxx1112basi
   %.0134 = phi i1 [ %817, %814 ], [ false, %953 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit271 ], [ true, %826 ]
   %1071 = load i32, ptr %9, align 8, !tbaa !507
   %1072 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1072, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1072, i8 0, i64 12, i1 false)
   store i16 1, ptr %46, align 8, !tbaa !523
   store i32 %1071, ptr %9, align 8, !tbaa !507
   %1073 = getelementptr inbounds nuw i8, ptr %9, i64 4

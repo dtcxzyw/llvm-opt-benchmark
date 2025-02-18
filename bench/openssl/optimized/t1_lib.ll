@@ -1633,7 +1633,7 @@ define range(i32 0, 2) i32 @tls1_set_groups_list(ptr noundef %0, ptr noundef cap
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 80, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 1, ptr %14, align 8, !tbaa !161
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8

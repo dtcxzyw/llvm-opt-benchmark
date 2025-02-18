@@ -15899,7 +15899,7 @@ define internal fastcc void @_ZN10open_spiel10battleship12_GLOBAL__N_115ComputeG
   %10 = alloca %"class.std::vector.24", align 8
   call void @_ZN10open_spiel10algorithms12GetAllStatesB5cxx11ERKNS_4GameEibbb(ptr dead_on_unwind nonnull writable sret(%"class.std::map.101") align 8 %2, ptr noundef nonnull align 8 dereferenceable(280) %.0.val, i32 noundef 2147483647, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false)
   store i32 1, ptr %0, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %12, align 4

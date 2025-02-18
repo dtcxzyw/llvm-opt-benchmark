@@ -5107,7 +5107,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %3, %9
 12:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #21
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, i8 0, i64 240, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %4, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -1098,7 +1098,7 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   br i1 %508, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i, label %.lr.ph.i105.i
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i, %441
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %355, i8 0, i64 280, i1 false), !alias.scope !152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %355, i8 0, i64 280, i1 false), !alias.scope !152
   store ptr %356, ptr %32, align 8, !tbaa !122, !alias.scope !152
   store i32 8, ptr %357, align 8, !tbaa !126, !alias.scope !152
   store i32 0, ptr %358, align 4, !tbaa !129, !alias.scope !152

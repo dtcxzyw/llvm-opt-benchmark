@@ -774,7 +774,7 @@ define internal fastcc void @_homography(ptr noundef nonnull %0, float noundef %
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store float 1.000000e+00, ptr %71, align 16, !tbaa !103
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %72, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   store float %22, ptr %12, align 16, !tbaa !103
   %73 = fneg reassoc nsz arcp contract afn float %23
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -14576,7 +14576,7 @@ define internal fastcc void @edge_enhance_1d(ptr noundef nonnull readonly captur
   store double -1.000000e+00, ptr %12, align 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #33
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %7, align 16
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 2.000000e+00, ptr %14, align 8

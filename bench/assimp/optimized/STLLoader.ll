@@ -568,7 +568,7 @@ _ZN6Assimp12_GLOBAL__N_110IsAsciiSTLEPKcm.exit.thread: ; preds = %.critedge.i.i.
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %6) #20
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %95, i8 0, i64 1008, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %95, i8 0, i64 1008, i1 false)
   store i32 15, ptr %6, align 4
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %96, ptr noundef nonnull align 1 dereferenceable(15) @.str.6, i64 15, i1 false)

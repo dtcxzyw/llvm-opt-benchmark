@@ -2913,11 +2913,11 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit778: ; preds = %1058
 1072:                                             ; preds = %1069
   %1073 = getelementptr inbounds nuw i8, ptr %1071, i64 1072
   %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1132) %1074, i8 0, i64 1056, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1056) %1074, i8 0, i64 1056, i1 false)
   %1075 = getelementptr inbounds nuw i8, ptr %1071, i64 1076
   %1076 = getelementptr inbounds nuw i8, ptr %1071, i64 1116
   %1077 = getelementptr inbounds nuw i8, ptr %1071, i64 1080
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1077, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1077, i8 0, i64 36, i1 false)
   store float 0x401921FB60000000, ptr %1076, align 4
   %1078 = getelementptr inbounds nuw i8, ptr %1071, i64 1120
   store float 0x401921FB60000000, ptr %1078, align 4

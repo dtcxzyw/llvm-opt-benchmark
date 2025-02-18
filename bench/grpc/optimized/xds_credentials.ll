@@ -987,7 +987,7 @@ if.then24:                                        ; preds = %invoke.cont20
 
 invoke.cont25:                                    ; preds = %if.then24
   %9 = getelementptr inbounds nuw i8, ptr %call.i2324, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %9, i8 0, i64 208, i1 false), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %9, i8 0, i64 208, i1 false), !noalias !25
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2324, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !25
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call.i2324, align 8, !noalias !25
@@ -1573,7 +1573,7 @@ ehcleanup80.thread117:                            ; preds = %if.then
 
 _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEC2INS_22XdsCertificateProviderEEERKNS0_IT_EE.exit: ; preds = %if.then
   %3 = getelementptr inbounds nuw i8, ptr %call.i14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %3, i8 0, i64 208, i1 false), !noalias !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %3, i8 0, i64 208, i1 false), !noalias !42
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !42
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28grpc_tls_credentials_options, i64 16), ptr %call.i14, align 8, !noalias !42

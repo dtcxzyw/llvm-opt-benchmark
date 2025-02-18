@@ -4080,7 +4080,7 @@ define dso_local i32 @ext4_convert_inline_data(ptr noundef %0) local_unnamed_add
   br i1 %29, label %71, label %30
 
 30:                                               ; preds = %27, %14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   %31 = tail call i32 @ext4_writepage_trans_blocks(ptr noundef %0) #9
   store ptr null, ptr %2, align 8
   %32 = call i32 @ext4_get_inode_loc(ptr noundef %0, ptr noundef nonnull %2) #9

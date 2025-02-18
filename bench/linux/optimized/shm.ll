@@ -991,7 +991,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_shmctl(i
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 784
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
@@ -1239,7 +1239,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
 57:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #12
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %58, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   store i32 %56, ptr %8, align 4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %52, ptr %59, align 4

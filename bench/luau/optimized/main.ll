@@ -14019,7 +14019,7 @@ _ZNSt6vectorIN7doctest6StringESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN7d
   store i64 %602, ptr %311, align 8
   store i32 0, ptr %312, align 8
   %603 = call i32 @sigaltstack(ptr noundef nonnull %2, ptr noundef nonnull @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler11oldSigStackE) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %313, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %313, i8 0, i64 144, i1 false)
   store ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSignalEi, ptr %3, align 8
   store i32 134217728, ptr %314, align 8
   br label %604

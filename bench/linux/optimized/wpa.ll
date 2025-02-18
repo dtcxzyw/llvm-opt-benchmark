@@ -1044,7 +1044,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 116:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %117, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
   %118 = load i16, ptr %79, align 2
@@ -1648,7 +1648,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
 115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %116, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %117 = getelementptr inbounds nuw i8, ptr %78, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %117, i64 6, i1 false)

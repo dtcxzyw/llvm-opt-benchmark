@@ -108,7 +108,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   store ptr %42, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %2) #13
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %44, i8 0, i64 1008, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %44, i8 0, i64 1008, i1 false)
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   invoke void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
           to label %46 unwind label %67

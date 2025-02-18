@@ -36804,7 +36804,7 @@ define internal void @_ZN12_GLOBAL__N_125Status_AbslStringify_Test8TestBodyEv(pt
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %37, ptr %12, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -37344,7 +37344,7 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %209, %212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #23
   %216 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %216, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, i8 0, i64 16, i1 false)
   %217 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %217, ptr %22, align 8, !tbaa !26
   %218 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -37786,7 +37786,7 @@ _ZN4absl4CordD2Ev.exit145:                        ; preds = %328, %331
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #23
   %358 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %358, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %358, i8 0, i64 16, i1 false)
   %359 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %359, ptr %33, align 8, !tbaa !26
   %360 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -38779,7 +38779,7 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %63, ptr %10, align 8, !tbaa !26
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8

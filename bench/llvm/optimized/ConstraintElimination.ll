@@ -12952,7 +12952,7 @@ _ZN12_GLOBAL__N_112ConstraintTyC2EN4llvm11SmallVectorIlLj8EEEbbb.exit: ; preds =
   br i1 %.not.i16, label %89, label %78
 
 78:                                               ; preds = %72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %77, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %77, i8 0, i64 232, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %79, ptr %0, align 8, !tbaa !32
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13357,7 +13357,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit116: ; preds
 
 62:                                               ; preds = %.critedge4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %63, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %63, i8 0, i64 232, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %64, ptr %0, align 8, !tbaa !32
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14102,7 +14102,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i154: ; pr
 
 395:                                              ; preds = %"_ZZNK12_GLOBAL__N_114ConstraintInfo13getConstraintEN4llvm7CmpInst9PredicateEPNS1_5ValueES5_RNS1_15SmallVectorImplIS5_EEbENK3$_0clES5_.exit156"
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %396, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %396, i8 0, i64 232, i1 false)
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %397, ptr %0, align 8, !tbaa !32
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14131,7 +14131,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i154: ; pr
 
 410:                                              ; preds = %.critedge100
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %411, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %411, i8 0, i64 232, i1 false)
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %412, ptr %0, align 8, !tbaa !32
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14166,7 +14166,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i154: ; pr
 
 427:                                              ; preds = %423
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %428, i8 0, i64 232, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %428, i8 0, i64 232, i1 false)
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %429, ptr %0, align 8, !tbaa !32
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 8

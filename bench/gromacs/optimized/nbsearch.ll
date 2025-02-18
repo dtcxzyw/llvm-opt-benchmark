@@ -4789,7 +4789,7 @@ define noundef zeroext i1 @_ZNK3gmx26AnalysisNeighborhoodSearch8isWithinERKNS_29
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %17, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 -1, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 108
@@ -5702,7 +5702,7 @@ define noundef float @_ZNK3gmx26AnalysisNeighborhoodSearch15minimumDistanceERKNS
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %21, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store i32 -1, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 108
@@ -6611,7 +6611,7 @@ define void @_ZNK3gmx26AnalysisNeighborhoodSearch12nearestPointERKNS_29AnalysisN
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i32 -1, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 108

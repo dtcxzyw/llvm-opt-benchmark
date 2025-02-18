@@ -1487,7 +1487,7 @@ define dso_local void @_ZN4llvm13RegBankSelect14computeMappingERNS_12MachineInst
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %7, align 8, !tbaa !312
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit
 
@@ -1989,7 +1989,7 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   br i1 %274, label %275, label %276
 
 275:                                              ; preds = %271
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %7, align 8, !tbaa !312
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit113
 
@@ -2017,7 +2017,7 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   br i1 %290, label %291, label %292
 
 291:                                              ; preds = %283
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %7, align 8, !tbaa !312
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit113
 
@@ -2028,7 +2028,7 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   br i1 %295, label %296, label %297
 
 296:                                              ; preds = %292
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %7, align 8, !tbaa !312
   br label %_ZN4llvm13RegBankSelect11MappingCost12addLocalCostEm.exit113
 
@@ -2448,7 +2448,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect11MappingCost12addLo
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %0, align 8, !tbaa !312
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit
 
@@ -2489,7 +2489,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect11MappingCost15addNo
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 -1, i64 16, i1 false)
   store i64 -2, ptr %0, align 8, !tbaa !312
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit
 
@@ -5931,7 +5931,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   store i32 1, ptr %15, align 8, !tbaa !26, !alias.scope !417
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !428
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !428
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !28, !alias.scope !428
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -391,7 +391,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %17) #15
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %23, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, i8 0, i64 128, i1 false)
   store ptr %15, ptr %17, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %16, ptr %24, align 8, !tbaa !16

@@ -1295,7 +1295,7 @@ _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %_ZN4llvm11raw_ostre
   br i1 %159, label %164, label %234
 
 164:                                              ; preds = %.lr.ph
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %129, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, i8 0, i64 40, i1 false)
   store i32 -1, ptr %13, align 8, !tbaa !124
   store i32 -1, ptr %109, align 4, !tbaa !129
   store i32 -1, ptr %110, align 8, !tbaa !130
@@ -7669,7 +7669,7 @@ define dso_local void @_ZNK4llvm15DWARFDebugNames5Entry4dumpERNS_13ScopedPrinter
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 296
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef nonnull align 8 dereferenceable(48) ptr %79(ptr noundef nonnull align 8 dereferenceable(44) %1) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %65, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, i8 0, i64 40, i1 false)
   store i32 -1, ptr %8, align 8, !tbaa !124
   store i32 -1, ptr %46, align 4, !tbaa !129
   store i32 -1, ptr %47, align 8, !tbaa !130

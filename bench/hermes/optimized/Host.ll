@@ -1433,7 +1433,7 @@ entry:
   %attr = alloca %struct.bpf_prog_load_attr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %insns, ptr noundef nonnull align 8 dereferenceable(40) @__const._ZN4llvh3sys6detail20getHostCPUNameForBPFEv.insns, i64 40, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %attr, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 1, ptr %attr, align 8
   %insn_cnt = getelementptr inbounds nuw i8, ptr %attr, i64 4
   store i32 5, ptr %insn_cnt, align 4

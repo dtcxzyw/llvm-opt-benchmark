@@ -1968,7 +1968,7 @@ define dso_local ptr @pci_host_bridge_acpi_msi_domain(ptr noundef %0) local_unna
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store ptr %7, ptr %2, align 8
   %11 = call ptr @irq_find_matching_fwspec(ptr noundef nonnull %2, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #9

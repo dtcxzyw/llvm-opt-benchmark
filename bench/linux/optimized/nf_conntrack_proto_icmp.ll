@@ -369,7 +369,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr nou
 
 43:                                               ; preds = %42, %42, %42, %42, %42
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, i8 0, i64 12, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 180

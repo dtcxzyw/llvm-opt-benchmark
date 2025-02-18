@@ -554,7 +554,7 @@ define range(i32 -4, 1) i32 @faiss_SearchParametersIVF_new_with(ptr noundef writ
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %1, ptr %16, align 8, !tbaa !6
   store i64 %2, ptr %17, align 8, !tbaa !11
   store i64 %3, ptr %18, align 8, !tbaa !27

@@ -3903,7 +3903,7 @@ define dso_local void @slurmdb_init_res_rec(ptr noundef %0, i1 noundef zeroext %
 
 5:                                                ; preds = %4, %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4053,7 +4053,7 @@ define dso_local void @slurmdb_init_tres_cond(ptr noundef captures(address_is_nu
 
 _free_tres_cond_members.exit:                     ; preds = %15, %12, %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   store i64 4294967294, ptr %0, align 8
   br label %17
 

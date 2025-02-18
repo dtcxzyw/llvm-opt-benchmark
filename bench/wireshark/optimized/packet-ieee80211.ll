@@ -33222,7 +33222,7 @@ define internal range(i32 1, 18) i32 @dissect_time_adv(ptr noundef %0, ptr readn
   %18 = load i32, ptr @ett_tag_time_adv_tree, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 noundef 0, i64 noundef 32, i1 noundef false) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 noundef 0, i64 noundef 32, i1 noundef false) #24
   %21 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1)
   %22 = zext i16 %21 to i32
   %23 = add nsw i32 %22, -1900

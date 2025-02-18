@@ -1834,7 +1834,7 @@ Vec_FltFill.exit:                                 ; preds = %Vec_FltGrow.exit.i,
   store ptr %112, ptr %113, align 8, !tbaa !109
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   store i32 20, ptr %114, align 8, !tbaa !81
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 124
   store i32 1048575, ptr %116, align 4, !tbaa !84
@@ -10382,7 +10382,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Jf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   store i32 6, ptr %0, align 8, !tbaa !93
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %3, align 4, !tbaa !159
@@ -10820,7 +10820,7 @@ define ptr @Jf_ManDeriveCnf(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %3 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   store i32 6, ptr %3, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 8, ptr %5, align 4, !tbaa !159
@@ -10854,7 +10854,7 @@ define ptr @Jf_ManDeriveCnfMiter(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %3 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   store i32 6, ptr %3, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 8, ptr %5, align 4, !tbaa !159
@@ -10909,7 +10909,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #30
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %13, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, i8 0, i64 256, i1 false)
   store i32 6, ptr %5, align 8, !tbaa !93
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 8, ptr %14, align 4, !tbaa !159
@@ -10984,7 +10984,7 @@ define void @Jf_ManTestCnf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Jf_Par_t_, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %3, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   store i32 6, ptr %2, align 8, !tbaa !93
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 8, ptr %4, align 4, !tbaa !159

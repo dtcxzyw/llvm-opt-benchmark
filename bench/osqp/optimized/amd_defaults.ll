@@ -10,7 +10,7 @@ define void @amd_l_defaults(ptr noundef writeonly captures(address_is_null) %0) 
 
 .preheader.preheader:                             ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false), !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !3
   store double 1.000000e+01, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 1.000000e+00, ptr %3, align 8, !tbaa !3

@@ -4244,7 +4244,7 @@ define internal range(i32 0, 2) i32 @RADIX_THREAD_worker_main(ptr noundef %0) #1
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %8) #12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   store ptr %11, ptr %2, align 8, !tbaa !24

@@ -630,7 +630,7 @@ _ZNSt13unordered_mapIN5folly5RangeIPKcEESt10shared_ptrINS0_10symbolizer8ElfCache
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %35, align 8, !tbaa !60, !noalias !72
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %40, i8 0, i64 592, i1 false), !noalias !72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %40, i8 0, i64 592, i1 false), !noalias !72
   store ptr %40, ptr %39, align 8, !tbaa !78, !noalias !72
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %41, align 8, !tbaa !80, !noalias !72

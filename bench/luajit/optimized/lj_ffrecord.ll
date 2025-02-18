@@ -4900,7 +4900,7 @@ define internal void @recff_buffer_decode(ptr noundef %0, ptr noundef readonly c
   store i16 0, ptr %12, align 2, !tbaa !4
   %19 = tail call i32 @lj_opt_fold(ptr noundef %0) #9
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24

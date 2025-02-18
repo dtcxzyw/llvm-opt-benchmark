@@ -16907,7 +16907,7 @@ common.resume:                                    ; preds = %.body79, %184, %188
   br label %233
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdb5c5433f0e195abE.exit.thread": ; preds = %207
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %74, i8 0, i64 12, i1 false), !alias.scope !5050
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %74, i8 0, i64 12, i1 false), !alias.scope !5050
   store i32 0, ptr %.sroa.710.0..sroa_idx11.i, align 16, !alias.scope !5050
   store i8 %125, ptr %.sroa.9.0..sroa_idx15.i, align 8, !alias.scope !5050
   store i64 2, ptr %65, align 8, !alias.scope !5050

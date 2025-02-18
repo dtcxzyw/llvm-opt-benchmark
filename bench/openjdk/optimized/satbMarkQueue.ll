@@ -63,7 +63,7 @@ define hidden void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr nounde
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
   store volatile ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %5, align 8

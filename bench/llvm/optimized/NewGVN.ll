@@ -11755,7 +11755,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression15BasicExpression12getHa
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %15, align 8, !tbaa !723
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -12023,7 +12023,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression16MemoryExpression12getH
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   store i64 -49064778989728563, ptr %15, align 8, !tbaa !723
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -12039,7 +12039,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression16MemoryExpression12getH
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %27, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %25, align 8, !tbaa !723
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %23, ptr %2, align 8
@@ -12438,7 +12438,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression24AggregateValueExpressi
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   store i64 -49064778989728563, ptr %15, align 8, !tbaa !723
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -12460,7 +12460,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression24AggregateValueExpressi
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %33, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %33, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %31, align 8, !tbaa !723
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %23, ptr %2, align 8
@@ -12740,7 +12740,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression13PHIExpression12getHash
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 96, i1 false)
   store i64 -49064778989728563, ptr %15, align 8, !tbaa !723
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -12756,7 +12756,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression13PHIExpression12getHash
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %27, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %25, align 8, !tbaa !723
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %23, ptr %2, align 8
@@ -14667,7 +14667,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_15DomTreeNodeBaseINS_10Basic
   store ptr %14, ptr %11, align 8, !tbaa !391, !alias.scope !786
   store ptr %14, ptr %12, align 8, !tbaa !395, !alias.scope !786
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !792
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !792
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !35, !alias.scope !792
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -20533,7 +20533,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !33, !alias.scope !896
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !902
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !902
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !35, !alias.scope !902
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -25085,7 +25085,7 @@ define linkonce_odr void @_ZN4llvm5nodesIPNS_13DominatorTreeEEENS_14iterator_ran
   store ptr %16, ptr %13, align 8, !tbaa !391, !alias.scope !973
   store ptr %16, ptr %14, align 8, !tbaa !395, !alias.scope !973
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, i8 0, i64 72, i1 false), !alias.scope !983
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false), !alias.scope !983
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %4, align 8, !tbaa !35, !alias.scope !983
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -36377,7 +36377,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression18ConstantExpression12ge
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %11, align 8, !tbaa !723
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -36971,7 +36971,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression18VariableExpression12ge
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %11, align 8, !tbaa !723
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %6, ptr %3, align 8
@@ -45595,7 +45595,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm13GVNExpression17UnknownExpression12get
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %7, align 8, !tbaa !723
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %5, ptr %2, align 8

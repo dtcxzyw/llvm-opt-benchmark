@@ -33,7 +33,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.end.i
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
@@ -1844,7 +1844,7 @@ define noundef range(i32 0, -2147483648) i32 @ustrcase_internalToLower_75(i32 no
 entry:
   %csc = alloca %struct.UCaseContext, align 8
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
@@ -1887,7 +1887,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8

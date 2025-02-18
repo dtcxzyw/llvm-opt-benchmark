@@ -1091,7 +1091,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %227 = getelementptr [256 x ptr], ptr %225, i64 0, i64 %226
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %229, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %229, i8 0, i64 48, i1 false)
   %230 = load i32, ptr %5, align 4
   store i32 %230, ptr %6, align 4
   %231 = load i32, ptr %210, align 4

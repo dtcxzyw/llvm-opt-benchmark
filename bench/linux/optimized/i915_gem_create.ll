@@ -371,7 +371,7 @@ define dso_local i32 @i915_gem_create_ext_ioctl(ptr noundef %0, ptr noundef %1, 
   %4 = alloca %struct.create_ext, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4

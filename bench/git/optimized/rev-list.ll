@@ -280,7 +280,7 @@ parse_missing_action_value.exit.thread.loopexit:  ; preds = %57
 69:                                               ; preds = %65, %.loopexit261
   %70 = call i32 @setup_revisions(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %15) #11
   %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store ptr %13, ptr %14, align 8, !tbaa !67
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %73 = load i64, ptr %72, align 8
@@ -1540,7 +1540,7 @@ get_object_disk_usage.exit:                       ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.print_disk_usage.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #11
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %141, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %141, i8 0, i64 168, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %143 = load i32, ptr %142, align 8, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 4

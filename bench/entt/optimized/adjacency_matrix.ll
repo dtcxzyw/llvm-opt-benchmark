@@ -29993,7 +29993,7 @@ _ZN7testing7MessageD2Ev.exit114:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #24
   %249 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %249, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, i8 0, i64 16, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %250, ptr %15, align 8, !tbaa !512
   %251 = getelementptr inbounds nuw i8, ptr %15, i64 8

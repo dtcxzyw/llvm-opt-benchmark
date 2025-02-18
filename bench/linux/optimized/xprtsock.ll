@@ -3525,7 +3525,7 @@ define internal i32 @xs_udp_send_request(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
   store ptr %6, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -5524,7 +5524,7 @@ define internal void @xs_tcp_tls_setup_socket(ptr noundef %0) #0 align 16 {
   %98 = getelementptr i8, ptr %0, i64 -464
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #12
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %99, i8 0, i64 56, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %99, i8 0, i64 56, i1 false), !annotation !11
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 1480
   %101 = load ptr, ptr %100, align 8
   store ptr %101, ptr %2, align 8

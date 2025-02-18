@@ -42,7 +42,7 @@ define ptr @wc_PKCS12_new_ex(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr %0, ptr %2, align 8, !tbaa !3
   br label %6
 
@@ -2093,7 +2093,7 @@ define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnon
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store ptr %13, ptr %30, align 8, !tbaa !3
   %36 = icmp slt i32 %10, 1
   %spec.store.select = select i1 %36, i32 2048, i32 %10

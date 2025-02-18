@@ -646,7 +646,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8

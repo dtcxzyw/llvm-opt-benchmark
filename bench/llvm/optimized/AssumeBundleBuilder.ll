@@ -9884,7 +9884,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_8FunctionEEENS_14iterator_ra
   store ptr %19, ptr %16, align 8, !tbaa !335, !alias.scope !565
   store ptr %19, ptr %17, align 8, !tbaa !339, !alias.scope !565
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 72, i1 false), !alias.scope !571
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false), !alias.scope !571
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %4, align 8, !tbaa !28, !alias.scope !571
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8

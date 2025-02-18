@@ -532,7 +532,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   %13 = and i64 %2, 1
   %14 = icmp eq i64 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   %16 = load i64, ptr @__supported_pte_mask, align 8
   %17 = select i1 %14, i64 -1, i64 %16
   %18 = and i64 %17, %2
@@ -1445,7 +1445,7 @@ define dso_local range(i32 -2147483648, 1) i32 @kernel_map_pages_in_pgd(ptr noun
   store i64 %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false), !annotation !25
   store ptr %6, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %9, align 8

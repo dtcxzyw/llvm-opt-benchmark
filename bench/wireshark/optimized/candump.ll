@@ -252,7 +252,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %14, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %14, i8 0, i64 68, i1 false)
   %15 = load i8, ptr %12, align 2
   %16 = icmp ugt i8 %15, 64
   br i1 %16, label %17, label %22
@@ -296,7 +296,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
 35:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, i8 0, i64 12, i1 false)
   %37 = load i8, ptr %12, align 2
   %38 = icmp ugt i8 %37, 8
   br i1 %38, label %39, label %44

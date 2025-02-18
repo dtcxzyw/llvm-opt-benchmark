@@ -2230,7 +2230,7 @@ _ZN10QByteArrayD2Ev.exit88:                       ; preds = %72, %_ZN9QtPrivate8
   %106 = call noundef float @powf(float noundef %105, float noundef 0x3FD5555560000000) #23
   %107 = fdiv float 1.000000e+00, %106
   %108 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %108, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %108, i8 0, i64 56, i1 false)
   store float %107, ptr %14, align 4
   %109 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store float %107, ptr %109, align 4

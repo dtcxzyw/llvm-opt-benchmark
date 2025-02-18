@@ -912,7 +912,7 @@ define hidden void @_ZN5ceres8internal21SchurComplementSolver9SolveImplEPNS0_17B
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %49, i8 0, i64 16, i1 false), !noalias !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %49, i8 0, i64 16, i1 false), !noalias !85
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EEE, i64 16), ptr %47, align 8, !tbaa !16, !noalias !85
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !noalias !85
@@ -7001,7 +7001,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal27SchurEliminatorForOneFBlock
   %135 = load i32, ptr %134, align 4, !tbaa !429
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds double, ptr %3, i64 %136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %98, i8 0, i64 56, i1 false), !tbaa !100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false), !tbaa !100
   %138 = load double, ptr %137, align 8, !tbaa !100
   %139 = fmul double %138, %138
   store double %139, ptr %14, align 16, !tbaa !100

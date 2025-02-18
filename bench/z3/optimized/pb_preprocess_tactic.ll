@@ -12277,7 +12277,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit: ; preds = %_ZNK8obj_m
   store i32 %xor4.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %stack, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %7, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %7, i8 0, i64 248, i1 false)
   store ptr %6, ptr %stack, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 12

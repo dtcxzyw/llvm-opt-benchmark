@@ -507,7 +507,7 @@ switch.edge:
 25:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #10
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %26, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %26, i8 0, i64 68, i1 false)
   %27 = load i32, ptr %22, align 4
   %28 = and i32 %27, %23
   %29 = or disjoint i32 %28, %24
@@ -532,7 +532,7 @@ switch.edge:
 39:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, i8 0, i64 12, i1 false)
   %41 = load i32, ptr %22, align 4
   %42 = and i32 %41, %23
   %43 = select i1 %14, i32 536870912, i32 0

@@ -19916,7 +19916,7 @@ define void @Exa_ManExactSynthesis6_(ptr noundef readnone captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #41
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %6) #41
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(800) %9, i8 0, i64 768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %9, i8 0, i64 768, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !tbaa !21

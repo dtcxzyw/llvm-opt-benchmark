@@ -204,7 +204,7 @@ define internal i32 @virtio_gpu_resource_create_ioctl(ptr noundef readonly captu
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 62136
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = icmp eq i8 %12, 0

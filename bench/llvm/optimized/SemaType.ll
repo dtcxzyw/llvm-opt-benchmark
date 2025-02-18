@@ -37373,7 +37373,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread: ; preds = %26,
   %155 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %156 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %157 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %157, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %157, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   store i32 24, ptr %12, align 8, !tbaa !1643
   %158 = getelementptr inbounds nuw i8, ptr %12, i64 24

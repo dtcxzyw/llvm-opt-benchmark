@@ -845,7 +845,7 @@ _ZNSt8functionIFvRKiEEC2IRKS_IFviEEvEEOT_.exit.thread: ; preds = %2
   store ptr @_ZNSt17_Function_handlerIFvRKiESt8functionIFviEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %7, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %16, null

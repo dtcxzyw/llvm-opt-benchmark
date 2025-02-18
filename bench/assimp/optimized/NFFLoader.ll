@@ -15545,7 +15545,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4527 = getelementptr inbounds nuw i8, ptr %4335, i64 232
   store i32 %.06234063, ptr %4527, align 8
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %78) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %4327, i8 0, i64 1008, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1008) %4327, i8 0, i64 1008, i1 false)
   store i32 15, ptr %78, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(15) %4321, ptr noundef nonnull align 1 dereferenceable(15) @.str.75, i64 15, i1 false)
   store i8 0, ptr %4322, align 1

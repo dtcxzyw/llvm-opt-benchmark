@@ -3206,7 +3206,7 @@ define internal range(i32 -1, 1) i32 @fetch_refs_via_pack(ptr noundef %0, i32 no
   %6 = load ptr, ptr %5, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #21
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 136, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !131
   store ptr %9, ptr %4, align 8, !tbaa !132

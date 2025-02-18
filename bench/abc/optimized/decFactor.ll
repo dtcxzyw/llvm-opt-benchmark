@@ -397,7 +397,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %62, %83
   %88 = sext i32 %85 to i64
   %89 = getelementptr inbounds %struct.Dec_Node_t_, ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store i32 %63, ptr %89, align 8, !tbaa !16
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %65, ptr %91, align 4, !tbaa !16
@@ -466,7 +466,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %107, %122
   %127 = sext i32 %124 to i64
   %128 = getelementptr inbounds %struct.Dec_Node_t_, ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %132 = shl i32 %108, 16
@@ -584,7 +584,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %3, %30
   %35 = sext i32 %32 to i64
   %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i32 %11, ptr %36, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %13, ptr %38, align 4, !tbaa !16
@@ -653,7 +653,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %54, %69
   %74 = sext i32 %71 to i64
   %75 = getelementptr inbounds %struct.Dec_Node_t_, ptr %72, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = shl i32 %55, 16
@@ -860,7 +860,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %21, %30
   %35 = sext i32 %32 to i64
   %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = shl i32 %10, 15
@@ -918,7 +918,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %53, %62
   %67 = sext i32 %64 to i64
   %68 = getelementptr inbounds %struct.Dec_Node_t_, ptr %65, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   store i32 %10, ptr %68, align 8, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %13, ptr %70, align 4, !tbaa !16

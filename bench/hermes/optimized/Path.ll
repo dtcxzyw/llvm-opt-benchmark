@@ -256,7 +256,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden void @_ZN4llvh3sys4path3endENS_9StringRefE(ptr noalias writeonly sret(%"class.llvh::sys::path::const_iterator") align 8 captures(none) initializes((0, 40)) %agg.result, ptr %path.coerce0, i64 %path.coerce1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %path.coerce0, ptr %agg.result, align 8
   %path.sroa.2.0.Path.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %path.coerce1, ptr %path.sroa.2.0.Path.sroa_idx, align 8
@@ -496,7 +496,7 @@ define hidden void @_ZN4llvh3sys4path6rbeginENS_9StringRefENS1_5StyleE(ptr noali
 entry:
   %I = alloca %"class.llvh::sys::path::reverse_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %I, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %Path.coerce0, ptr %I, align 8
   %Path.sroa.2.0.Path1.sroa_idx = getelementptr inbounds nuw i8, ptr %I, i64 8
   store i64 %Path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx, align 8
@@ -3038,7 +3038,7 @@ entry:
   %I.i = alloca %"class.llvh::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i)
   %0 = getelementptr inbounds nuw i8, ptr %I.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 16, i1 false), !noalias !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !noalias !32
   store ptr %path.coerce0, ptr %I.i, align 8, !noalias !32
   %Path.sroa.2.0.Path1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %I.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i, align 8, !noalias !32
@@ -3062,7 +3062,7 @@ entry:
   %I.i.i = alloca %"class.llvh::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i.i)
   %0 = getelementptr inbounds nuw i8, ptr %I.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 16, i1 false), !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !noalias !35
   store ptr %path.coerce0, ptr %I.i.i, align 8, !noalias !35
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %I.i.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !35
@@ -3121,7 +3121,7 @@ entry:
   %I.i.i = alloca %"class.llvh::sys::path::reverse_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i.i)
   %0 = getelementptr inbounds nuw i8, ptr %I.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 16, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !noalias !38
   store ptr %path.coerce0, ptr %I.i.i, align 8, !noalias !38
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %I.i.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !38
@@ -3287,7 +3287,7 @@ entry:
   %1 = extractvalue { ptr, i64 } %call, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %I.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %2, i8 0, i64 16, i1 false), !noalias !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !noalias !41
   store ptr %0, ptr %I.i.i, align 8, !noalias !41
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %I.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !41
@@ -3358,7 +3358,7 @@ entry:
   %1 = extractvalue { ptr, i64 } %call, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %I.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %2, i8 0, i64 16, i1 false), !noalias !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !noalias !44
   store ptr %0, ptr %I.i.i.i, align 8, !noalias !44
   %Path.sroa.2.0.Path1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %I.i.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i.i, align 8, !noalias !44
@@ -3435,7 +3435,7 @@ entry:
   %1 = extractvalue { ptr, i64 } %call, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %I.i.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %I.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %2, i8 0, i64 16, i1 false), !noalias !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !noalias !47
   store ptr %0, ptr %I.i.i.i, align 8, !noalias !47
   %Path.sroa.2.0.Path1.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %I.i.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i.i, align 8, !noalias !47

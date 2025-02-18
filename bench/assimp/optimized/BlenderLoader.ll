@@ -6667,7 +6667,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norma
 .noexc94:                                         ; preds = %172
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 1044
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1084) %176, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %176, i8 0, i64 1024, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 1048
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 1052
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 1056
@@ -8164,7 +8164,7 @@ _ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp7Blender8MaterialEERS4_PS4_EppEv.e
 
 _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.exit.i: ; preds = %235, %233
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %4) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %79, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %79, i8 0, i64 1024, i1 false)
   %237 = load i32, ptr %80, align 8
   %238 = add i32 %237, 1
   store i32 %238, ptr %80, align 8
@@ -8936,7 +8936,7 @@ define hidden void @_ZN6Assimp15BlenderImporter18AddSentinelTextureEP10aiMateria
   %6 = alloca %struct.aiString, align 4
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %7, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
@@ -9024,7 +9024,7 @@ define hidden void @_ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKN
 _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.exit: ; preds = %15, %17
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %6) #26
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %19, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %19, i8 0, i64 1024, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
@@ -13243,7 +13243,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp15BlenderImporter13ConvertC
   %6 = tail call noalias noundef nonnull dereferenceable(1084) ptr @_Znwm(i64 noundef 1084) #27
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1044
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1084) %8, i8 0, i64 1024, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1052
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1056
@@ -13306,7 +13306,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp15BlenderImporter12ConvertL
   %6 = tail call noalias noundef nonnull dereferenceable(1132) ptr @_Znwm(i64 noundef 1132) #27
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1072
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1132) %8, i8 0, i64 1068, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1068) %8, i8 0, i64 1068, i1 false)
   store float 1.000000e+00, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1076
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1116

@@ -63214,7 +63214,7 @@ _ZNSt4pairIPKN4llvm4LoopENS0_15ScalarEvolution17BackedgeTakenInfoEEC2IRS3_S5_TnN
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #31
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %3, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -63895,7 +63895,7 @@ _ZNSt4pairIPKN4llvm4LoopENS0_15ScalarEvolution17BackedgeTakenInfoEEC2IRS3_S5_TnN
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #31
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #31
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -102838,7 +102838,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPKNS_4LoopEEENS_14iterator_range
   store ptr %14, ptr %11, align 8, !tbaa !2006, !alias.scope !2069
   store ptr %14, ptr %12, align 8, !tbaa !2010, !alias.scope !2069
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !2075
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !2075
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !2075
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

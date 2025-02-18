@@ -873,7 +873,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEE10_M
 
 _ZNSt8optionalIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit: ; preds = %entry, %_ZNSt22_Optional_payload_baseIN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerEE10_M_destroyEv.exit.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core16GrpcXdsBootstrap13GrpcXdsServerE, i64 16), ptr %dst, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   %channel_creds_config_.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
@@ -1732,7 +1732,7 @@ if.then42.i:                                      ; preds = %_ZN9grpc_core19Load
 
 call.i63.noexc.i:                                 ; preds = %if.then42.i
   %55 = getelementptr inbounds nuw i8, ptr %call.i6366.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %55, i8 0, i64 312, i1 false), !noalias !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(312) %55, i8 0, i64 312, i1 false), !noalias !21
   %refs_.i.i.i64.i = getelementptr inbounds nuw i8, ptr %call.i6366.i, i64 8
   store i64 1, ptr %refs_.i.i.i64.i, align 8, !noalias !21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsEndpointResource10DropConfigE, i64 16), ptr %call.i6366.i, align 8, !noalias !21
@@ -2516,7 +2516,7 @@ define internal noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderINS_13RefCou
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #25, !noalias !41
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %0, i8 0, i64 192, i1 false), !noalias !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %0, i8 0, i64 192, i1 false), !noalias !41
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !41
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsClusterImplLbConfigE, i64 16), ptr %call.i, align 8, !noalias !41

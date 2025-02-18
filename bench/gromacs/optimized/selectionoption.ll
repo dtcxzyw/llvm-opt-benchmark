@@ -5288,7 +5288,7 @@ define void @_ZN3gmx19SelectionFileOptionC2EPKc(ptr noundef nonnull writeonly al
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx19SelectionFileOptionE, i64 16), ptr %0, align 8
   store ptr @.str.33, ptr %6, align 8
   ret void

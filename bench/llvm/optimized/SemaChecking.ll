@@ -54794,7 +54794,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %_ZNK5clang4Type5get
 
 573:                                              ; preds = %566
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %27) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %524, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %524, i8 0, i64 128, i1 false)
   store ptr %509, ptr %27, align 8, !tbaa !1036
   store i32 0, ptr %510, align 8, !tbaa !1037
   store i32 32, ptr %511, align 4, !tbaa !1038

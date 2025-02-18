@@ -1426,7 +1426,7 @@ define void @b2CollidePolygonAndCapsule(ptr dead_on_unwind noalias writable sret
   %12 = load <2 x float>, ptr %4, align 4
   %13 = load <2 x float>, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 112, i1 false), !alias.scope !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 112, i1 false), !alias.scope !26
   store <2 x float> %12, ptr %8, align 8, !alias.scope !26
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %13, ptr %15, align 8, !alias.scope !26
@@ -2426,7 +2426,7 @@ define void @b2CollideSegmentAndPolygon(ptr dead_on_unwind noalias writable sret
   %10 = load <2 x float>, ptr %1, align 4
   %11 = load <2 x float>, ptr %9, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 0, i64 112, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 112, i1 false), !alias.scope !40
   store <2 x float> %10, ptr %8, align 8, !alias.scope !40
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %11, ptr %13, align 8, !alias.scope !40
@@ -2706,7 +2706,7 @@ define void @b2CollideChainSegmentAndCapsule(ptr dead_on_unwind noalias writable
   %13 = load <2 x float>, ptr %4, align 4
   %14 = load <2 x float>, ptr %10, align 4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 0, i64 112, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 112, i1 false), !alias.scope !43
   store <2 x float> %13, ptr %9, align 8, !alias.scope !43
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store <2 x float> %14, ptr %16, align 8, !alias.scope !43

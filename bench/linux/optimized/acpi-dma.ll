@@ -430,7 +430,7 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly 
   %9 = select i1 %7, ptr %8, ptr null
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %11, align 8
   store i32 -1, ptr %3, align 8

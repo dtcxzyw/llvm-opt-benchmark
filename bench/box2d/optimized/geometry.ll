@@ -72,7 +72,7 @@ define void @b2MakePolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %8, i8 0, i64 96, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %8, i8 0, i64 96, i1 false), !alias.scope !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %9, align 4, !tbaa !18, !alias.scope !13
   store float -5.000000e-01, ptr %0, align 4, !tbaa !9, !alias.scope !13
@@ -262,7 +262,7 @@ b2Normalize.exit:                                 ; preds = %63, %82
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeSquare(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %3, i8 0, i64 96, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %3, i8 0, i64 96, i1 false), !alias.scope !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %4, align 4, !tbaa !18, !alias.scope !25
   %5 = fneg float %1
@@ -317,7 +317,7 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %10, i8 0, i64 96, i1 false), !alias.scope !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 96, i1 false), !alias.scope !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %11, align 4, !tbaa !18, !alias.scope !28
   store float -5.000000e-01, ptr %0, align 4, !tbaa !9, !alias.scope !28
@@ -524,7 +524,7 @@ b2Normalize.exit:                                 ; preds = %75, %94
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeBox(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %4, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %5, align 4, !tbaa !18
   %6 = fneg float %1
@@ -564,7 +564,7 @@ define void @b2MakeBox(ptr dead_on_unwind noalias writable writeonly sret(%struc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeRoundedBox(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, i8 0, i64 96, i1 false), !alias.scope !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 96, i1 false), !alias.scope !35
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %6, align 4, !tbaa !18, !alias.scope !35
   %7 = fneg float %1
@@ -602,7 +602,7 @@ define void @b2MakeRoundedBox(ptr dead_on_unwind noalias writable writeonly sret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeOffsetBox(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1, float noundef %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %7, align 4, !tbaa !18
   %8 = fneg float %1
@@ -685,7 +685,7 @@ define void @b2MakeOffsetBox(ptr dead_on_unwind noalias writable writeonly sret(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2MakeOffsetRoundedBox(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Polygon) align 4 captures(none) initializes((0, 144)) %0, float noundef %1, float noundef %2, <2 x float> %3, <2 x float> %4, float noundef %5) local_unnamed_addr #7 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %7, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %7, i8 0, i64 96, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 4, ptr %8, align 4, !tbaa !18
   %9 = fneg float %1

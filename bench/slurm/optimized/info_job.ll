@@ -859,7 +859,7 @@ switch.early.test:                                ; preds = %26
 58:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20) #16
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %61 = load ptr, ptr %18, align 8
   store ptr %61, ptr %60, align 8

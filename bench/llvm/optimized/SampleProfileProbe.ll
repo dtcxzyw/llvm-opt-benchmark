@@ -5784,7 +5784,7 @@ define dso_local void @_ZN4llvm22SampleProfileProbePass3runERNS_6ModuleERNS_15An
 
 ._crit_edge:                                      ; preds = %70, %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, i8 0, i64 64, i1 false), !alias.scope !399
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false), !alias.scope !399
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %0, align 8, !tbaa !28, !alias.scope !399
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6539,7 +6539,7 @@ define dso_local void @_ZN4llvm21PseudoProbeUpdatePass3runERNS_6ModuleERNS_15Ana
 
 .loopexit:                                        ; preds = %18, %7, %4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, i8 0, i64 64, i1 false), !alias.scope !409
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false), !alias.scope !409
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %21, ptr %0, align 8, !tbaa !28, !alias.scope !409
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8

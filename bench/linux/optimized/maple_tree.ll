@@ -2565,7 +2565,7 @@ define dso_local ptr @mas_store(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %1, ptr %5, align 8
@@ -2985,7 +2985,7 @@ define dso_local i32 @mas_store_gfp(ptr noundef %0, ptr noundef %1, i32 noundef 
   %4 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %1, ptr %6, align 8
@@ -3164,7 +3164,7 @@ define dso_local void @mas_store_prealloc(ptr noundef %0, ptr noundef %1) #1 ali
   %3 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %1, ptr %5, align 8
@@ -4899,7 +4899,7 @@ define dso_local i32 @mas_preallocate(ptr noundef %0, ptr noundef %1, i32 nounde
   %4 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %1, ptr %6, align 8
@@ -7346,7 +7346,7 @@ define dso_local ptr @mas_erase(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %4, align 8
@@ -8174,7 +8174,7 @@ define dso_local i32 @mtree_store_range(ptr noundef %0, i64 noundef %1, i64 noun
   store i32 0, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #18
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
   store ptr %6, ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %3, ptr %16, align 8
@@ -8349,7 +8349,7 @@ define internal fastcc void @mas_insert(ptr noundef %0, ptr noundef %1) unnamed_
   %3 = alloca %struct.ma_wr_state, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %1, ptr %5, align 8
@@ -10557,7 +10557,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr noundef readonly captures
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #18
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
   store ptr %4, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = load ptr, ptr %10, align 8
@@ -19223,7 +19223,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   br label %58
 
 58:                                               ; preds = %.thread, %30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, i8 0, i64 128, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false), !annotation !13
   %59 = ptrtoint ptr %1 to i64
   %60 = and i64 %59, -256
   %61 = inttoptr i64 %60 to ptr

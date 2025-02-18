@@ -2700,7 +2700,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %111, %113, %114
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %124, %126
   %130 = load ptr, ptr %0, align 8, !tbaa !138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %48, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %48, i8 0, i64 40, i1 false)
   store i32 -1, ptr %9, align 8, !tbaa !140
   store i32 -1, ptr %29, align 4, !tbaa !141
   store i32 -1, ptr %30, align 8, !tbaa !142
@@ -26040,7 +26040,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %16, %14
   %20 = load ptr, ptr %19, align 8, !tbaa !1233
   %21 = load ptr, ptr %3, align 8, !tbaa !138
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %22, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %23, align 4, !tbaa !141
@@ -26183,7 +26183,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %16, %14
   %20 = load ptr, ptr %19, align 8, !tbaa !1236
   %21 = load ptr, ptr %3, align 8, !tbaa !138
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %22, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %23, align 4, !tbaa !141
@@ -26329,7 +26329,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %17, %15
   %21 = load ptr, ptr %20, align 8, !tbaa !1239
   %22 = load ptr, ptr %4, align 8, !tbaa !138
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %23, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !140
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %24, align 4, !tbaa !141
@@ -26415,7 +26415,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit.i.i.i:           ; preds = %_ZNKSt7__cxx1112bas
   %59 = load ptr, ptr %58, align 8, !tbaa !1240
   %60 = load ptr, ptr %4, align 8, !tbaa !138
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %61, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 40, i1 false)
   store i32 -1, ptr %3, align 8, !tbaa !140
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %62, align 4, !tbaa !141

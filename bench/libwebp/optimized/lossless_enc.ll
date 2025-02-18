@@ -46,7 +46,7 @@ define hidden void @VP8LBitEntropyInit(ptr noundef writeonly captures(none) init
 define hidden void @VP8LBitsEntropyUnrefined(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) initializes((8, 24)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   store i32 -1, ptr %4, align 4, !tbaa !3
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
@@ -1230,7 +1230,7 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   store i32 -1, ptr %6, align 4, !tbaa !3
   %8 = icmp sgt i32 %1, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1425,7 +1425,7 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   store i32 -1, ptr %9, align 4, !tbaa !3
   %11 = icmp sgt i32 %2, 1
   br i1 %11, label %.lr.ph, label %._crit_edge

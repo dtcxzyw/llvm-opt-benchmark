@@ -4835,7 +4835,7 @@ define void @_ZNK10open_spiel9laser_tag13LaserTagState14ChanceOutcomesEv(ptr dea
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader

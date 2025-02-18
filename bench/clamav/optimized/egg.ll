@@ -2471,7 +2471,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %15, i8 0, i64 104, i1 false)
   store ptr %0, ptr %5, align 8, !tbaa !91
   %16 = trunc i64 %1 to i32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2655,7 +2655,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
   store ptr %0, ptr %5, align 8, !tbaa !98
   %16 = trunc i64 %1 to i32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -121,7 +121,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
@@ -157,7 +157,7 @@ if.then.i.i14:                                    ; preds = %if.then.i.i5.i.i, %
   %_M_manager.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 16
   %_M_invoker.i.i.i40 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i37, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37, i64 16, i1 false)

@@ -8567,7 +8567,7 @@ if.end.i.i:                                       ; preds = %_ZN3ue26dstateD2Ev.
 invoke.cont8:                                     ; preds = %if.end.i.i, %_ZN3ue26dstateD2Ev.exit
   %_M_map_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %q, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %q, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %32, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i.i, align 8
   %call5.i.i2.i.i1.i.i.i114 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
           to label %call5.i.i2.i.i1.i.i.i.noexc unwind label %lpad
@@ -14162,7 +14162,7 @@ invoke.cont3:                                     ; preds = %entry
   %reports.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   %m_storage_start.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %reports.i.i, align 8
   %m_size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64

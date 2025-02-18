@@ -6148,7 +6148,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i.i ], [ %99, %.noexc74 ]
   %.057.i.i.i.i.i = phi i64 [ %108, %.lr.ph.i.i.i.i.i ], [ %94, %.noexc74 ]
   %102 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %102, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %102, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
@@ -6183,7 +6183,7 @@ _ZNSt6vectorIN8LightGBM9SplitInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i75: ;
   %.08.i.i.i.i.i79 = phi ptr [ %121, %.lr.ph.i.i.i.i.i78 ], [ %111, %.noexc85 ]
   %.057.i.i.i.i.i80 = phi i64 [ %120, %.lr.ph.i.i.i.i.i78 ], [ %94, %.noexc85 ]
   %114 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %114, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %114, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i79, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 24
@@ -7107,7 +7107,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %.057.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i ], [ %20, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %27, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %27, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
@@ -7143,7 +7143,7 @@ _ZNSt6vectorIN8LightGBM9SplitInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i23: ;
   %.08.i.i.i.i.i27 = phi ptr [ %47, %.lr.ph.i.i.i.i.i26 ], [ %37, %.noexc33 ]
   %.057.i.i.i.i.i28 = phi i64 [ %46, %.lr.ph.i.i.i.i.i26 ], [ %20, %.noexc33 ]
   %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i27, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 24
@@ -9214,7 +9214,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i.i ], [ %99, %.noexc74 ]
   %.057.i.i.i.i.i = phi i64 [ %108, %.lr.ph.i.i.i.i.i ], [ %94, %.noexc74 ]
   %102 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %102, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %102, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
@@ -9249,7 +9249,7 @@ _ZNSt6vectorIN8LightGBM9SplitInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i75: ;
   %.08.i.i.i.i.i79 = phi ptr [ %121, %.lr.ph.i.i.i.i.i78 ], [ %111, %.noexc85 ]
   %.057.i.i.i.i.i80 = phi i64 [ %120, %.lr.ph.i.i.i.i.i78 ], [ %94, %.noexc85 ]
   %114 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %114, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %114, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i79, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i79, i64 24
@@ -10169,7 +10169,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %.08.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %.057.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i ], [ %20, %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %27, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %27, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
@@ -10205,7 +10205,7 @@ _ZNSt6vectorIN8LightGBM9SplitInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i23: ;
   %.08.i.i.i.i.i27 = phi ptr [ %47, %.lr.ph.i.i.i.i.i26 ], [ %37, %.noexc33 ]
   %.057.i.i.i.i.i28 = phi i64 [ %46, %.lr.ph.i.i.i.i.i26 ], [ %20, %.noexc33 ]
   %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 112, i1 false)
   store i32 -1, ptr %.08.i.i.i.i.i27, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i27, i64 24

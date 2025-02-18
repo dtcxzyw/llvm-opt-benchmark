@@ -15010,7 +15010,7 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_engine(ptr noundef nonn
   %10 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 16, i1 false), !tbaa !112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false), !tbaa !112
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %12, align 8, !tbaa !112
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24

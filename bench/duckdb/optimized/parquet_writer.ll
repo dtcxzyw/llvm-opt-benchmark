@@ -976,7 +976,7 @@ define void @_ZN6duckdb13ChildFieldIDsC2Ev(ptr noundef nonnull writeonly align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26, !noalias !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %3, i8 0, i64 16, i1 false), !noalias !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !noalias !3
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %4, ptr %2, align 8, !tbaa !6, !noalias !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8

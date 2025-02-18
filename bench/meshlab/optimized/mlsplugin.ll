@@ -30401,7 +30401,7 @@ define linkonce_odr void @_ZN3vcg9implicits13WeingartenMapIfEC2ERKNS_6Point3IfEE
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %20, ptr %.sroa.22.0..sroa_idx, align 4
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float 1.000000e+00, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16

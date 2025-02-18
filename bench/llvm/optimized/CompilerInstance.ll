@@ -1790,7 +1790,7 @@ _ZN5clang16CompilerInstance9setTargetEPNS_10TargetInfoE.exit: ; preds = %18, %23
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang13TargetOptionsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %53, align 8, !tbaa !9, !noalias !198
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %57, i8 0, i64 520, i1 false), !noalias !198
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %57, i8 0, i64 520, i1 false), !noalias !198
   store ptr %57, ptr %56, align 8, !tbaa !204, !noalias !198
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i64 0, ptr %58, align 8, !tbaa !154, !noalias !198

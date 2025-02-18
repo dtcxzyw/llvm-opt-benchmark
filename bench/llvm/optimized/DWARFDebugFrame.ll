@@ -1230,7 +1230,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #24
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !52
@@ -1912,7 +1912,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #24
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !52
@@ -2474,7 +2474,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #24
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !52
@@ -2807,7 +2807,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:
   %3 = alloca %"struct.llvm::DIDumpOptions", align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #24
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 -1, ptr %2, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4, !tbaa !52

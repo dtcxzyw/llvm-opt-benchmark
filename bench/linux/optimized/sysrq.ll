@@ -676,7 +676,7 @@ define internal void @moom_callback(ptr readnone captures(none) %0) #2 align 16 
   %2 = alloca %struct.oom_control, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %9, label %6

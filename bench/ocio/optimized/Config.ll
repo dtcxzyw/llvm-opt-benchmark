@@ -2939,7 +2939,7 @@ invoke.cont51:                                    ; preds = %invoke.cont50
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16CIOPOciozArchiveESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i19, align 8, !noalias !18
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i19, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, i8 0, i64 80, i1 false), !noalias !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 80, i1 false), !noalias !18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16CIOPOciozArchiveE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #29, !noalias !18
   %16 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i19, i64 64

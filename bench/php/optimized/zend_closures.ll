@@ -337,7 +337,7 @@ zend_parse_arg_object.exit:                       ; preds = %13, %14
 57:                                               ; preds = %34
   %58 = call noalias ptr @_emalloc_384() #13
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, i8 0, i64 48, i1 false)
   store i32 1, ptr %58, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 17, ptr %60, align 4, !tbaa !15
@@ -2738,9 +2738,9 @@ define internal void @zend_closure_call_magic(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i64 64, ptr %3, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %1, ptr %8, align 8, !tbaa !42

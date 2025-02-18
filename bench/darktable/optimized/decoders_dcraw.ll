@@ -9876,7 +9876,7 @@ define void @_ZN6LibRaw17sony_arw_load_rawEv(ptr noundef nonnull align 8 derefer
 .noexc:
   %1 = tail call noalias noundef nonnull dereferenceable(65540) ptr @_Znwm(i64 noundef 65540) #16
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65540) %2, i8 0, i64 65538, i1 false), !tbaa !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65538) %2, i8 0, i64 65538, i1 false), !tbaa !86
   store i16 15, ptr %1, align 2, !tbaa !86
   br label %.lr.ph.preheader
 

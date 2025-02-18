@@ -3641,7 +3641,7 @@ define linkonce_odr void @_ZN4llvm5nodesIPNS_13DominatorTreeEEENS_14iterator_ran
   store ptr %16, ptr %13, align 8, !tbaa !143, !alias.scope !186
   store ptr %16, ptr %14, align 8, !tbaa !147, !alias.scope !186
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, i8 0, i64 72, i1 false), !alias.scope !199
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false), !alias.scope !199
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %4, align 8, !tbaa !167, !alias.scope !199
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8074,7 +8074,7 @@ define linkonce_odr void @_ZN4llvm5nodesIPNS_17PostDominatorTreeEEENS_14iterator
   store ptr %16, ptr %13, align 8, !tbaa !143, !alias.scope !350
   store ptr %16, ptr %14, align 8, !tbaa !147, !alias.scope !350
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %17, i8 0, i64 72, i1 false), !alias.scope !360
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false), !alias.scope !360
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %4, align 8, !tbaa !167, !alias.scope !360
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8

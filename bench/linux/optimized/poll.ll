@@ -558,7 +558,7 @@ define dso_local range(i32 0, 3) i32 @io_arm_poll_handler(ptr noundef %0, i32 no
   br i1 %23, label %.thread7, label %24
 
 24:                                               ; preds = %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !27
   %25 = and i32 %10, 67108864
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 -1073741814, i32 -2147483638
@@ -1615,7 +1615,7 @@ define dso_local range(i32 -2147483648, 1) i32 @io_poll_add(ptr noundef %0, i32 
   %3 = alloca %struct.io_poll_table, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !27
   store ptr @io_poll_queue_proc, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -1930,7 +1930,7 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   %156 = and i32 %1, -3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %157 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %157, i8 0, i64 32, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, i8 0, i64 32, i1 false), !annotation !27
   store ptr @io_poll_queue_proc, ptr %3, align 8
   %158 = getelementptr inbounds nuw i8, ptr %129, i64 88
   %159 = load ptr, ptr %158, align 8

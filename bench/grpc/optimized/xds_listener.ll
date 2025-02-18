@@ -3937,7 +3937,7 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %if.then4.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core19XdsListenerResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i44, align 8, !noalias !154
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i.i44, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i.i44, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %24, i8 0, i64 232, i1 false), !noalias !154
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %24, i8 0, i64 232, i1 false), !noalias !154
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsListenerResourceE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !154
   %listener.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i.i.i44, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(297) %listener.i.i.i.i.i.i.i.i.i.i, i8 0, i64 72, i1 false), !noalias !154
@@ -6889,7 +6889,7 @@ _ZNSt10shared_ptrIN9grpc_core19XdsListenerResourceEED2Ev.exit.i.i: ; preds = %if
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core19XdsListenerResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i150.i.i, align 8, !noalias !195
   %_M_impl.i.i.i.i.i.i.i50.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i150.i.i, i64 16
   %358 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i150.i.i, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %358, i8 0, i64 232, i1 false), !noalias !195
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %358, i8 0, i64 232, i1 false), !noalias !195
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19XdsListenerResourceE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i50.i, align 8, !noalias !195
   %listener.i.i.i.i.i.i.i.i.i51.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i150.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(297) %listener.i.i.i.i.i.i.i.i.i51.i, i8 0, i64 72, i1 false), !noalias !195

@@ -102546,7 +102546,7 @@ _ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit: ; preds = %_ZN5clang17Diagn
   %.0.i37 = phi ptr [ %565, %_ZNK4llvm11PagedVectorIPN5clang4DeclELm128EEixEm.exit18.i ], [ %239, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_11SmallVectorINS2_12GlobalDeclIDELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_.exit ], [ %239, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i ], [ null, %_ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread ], [ null, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit171 ], [ null, %442 ], [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i86 ]
   %566 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #41, !noalias !4541
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %567, i8 0, i64 112, i1 false), !noalias !4541
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %567, i8 0, i64 112, i1 false), !noalias !4541
   store ptr %567, ptr %566, align 8, !tbaa !697, !noalias !4541
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store i32 0, ptr %568, align 8, !tbaa !698, !noalias !4541

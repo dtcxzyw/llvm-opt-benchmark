@@ -190,7 +190,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %0, i32 noundef %1, ptr
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %4, ptr %15, align 2, !tbaa !3
@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %0, i32 noundef %1, ptr
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i16 10, ptr %0, align 4, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %4, ptr %21, align 2, !tbaa !3

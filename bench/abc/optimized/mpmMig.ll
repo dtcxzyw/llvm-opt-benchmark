@@ -33,7 +33,7 @@ Mig_ManAppendObj.exit:
   %8 = getelementptr i8, ptr %0, i64 28
   %9 = tail call noalias dereferenceable_or_null(65568) ptr @malloc(i64 noundef 65568) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65568) %10, i8 -1, i64 65560, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65560) %10, i8 -1, i64 65560, i1 false)
   store ptr %0, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32

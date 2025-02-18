@@ -2461,7 +2461,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -2499,7 +2499,7 @@ entry:
   %1 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i)
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 57, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %2, i8 0, i64 57, i1 false)
   store i32 1179403647, ptr %add.ptr, align 1
   %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   store i8 2, ptr %arrayidx, align 1
@@ -2695,7 +2695,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -2800,7 +2800,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -4091,7 +4091,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4817,7 +4817,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -7419,7 +7419,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE12get_got_addrERNS0_7ContextIS2_EE.exit: ; pred
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i)
   %add.i = add i64 %cond.i.i, %19
   %20 = getelementptr inbounds nuw i8, ptr %esym.0280, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %20, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %20, i8 0, i64 18, i1 false)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %strtab8.0279 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i18 = trunc i64 %sub.ptr.sub.i to i32
@@ -7495,7 +7495,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE14get_gottp_addrERNS0_7ContextIS2_EE.exit: ; pr
   %36 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i31)
   %add.i38 = add i64 %cond.i.i37, %36
   %37 = getelementptr inbounds nuw i8, ptr %esym.1285, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %37, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %37, i8 0, i64 18, i1 false)
   %sub.ptr.lhs.cast.i39 = ptrtoint ptr %strtab8.1284 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %conv.i42 = trunc i64 %sub.ptr.sub.i41 to i32
@@ -7572,7 +7572,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit: ; pr
   %53 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i67)
   %add.i74 = add i64 %cond.i.i73, %53
   %54 = getelementptr inbounds nuw i8, ptr %esym.2291, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %54, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %54, i8 0, i64 18, i1 false)
   %sub.ptr.lhs.cast.i75 = ptrtoint ptr %strtab8.2290 to i64
   %sub.ptr.sub.i77 = sub i64 %sub.ptr.lhs.cast.i75, %sub.ptr.rhs.cast.i76
   %conv.i78 = trunc i64 %sub.ptr.sub.i77 to i32
@@ -7649,7 +7649,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE16get_tlsdesc_addrERNS0_7ContextIS2_EE.exit: ; 
   %70 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i.i103)
   %add.i110 = add i64 %cond.i.i109, %70
   %71 = getelementptr inbounds nuw i8, ptr %esym.3297, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %71, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %71, i8 0, i64 18, i1 false)
   %sub.ptr.lhs.cast.i111 = ptrtoint ptr %strtab8.3296 to i64
   %sub.ptr.sub.i113 = sub i64 %sub.ptr.lhs.cast.i111, %sub.ptr.rhs.cast.i112
   %conv.i114 = trunc i64 %sub.ptr.sub.i113 to i32
@@ -7692,7 +7692,7 @@ if.then80:                                        ; preds = %for.end78
   %mul.i = shl nuw nsw i64 %conv.i134, 3
   %add.i135 = add i64 %77, %mul.i
   %78 = getelementptr inbounds nuw i8, ptr %esym.3.lcssa, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %78, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %78, i8 0, i64 18, i1 false)
   %sub.ptr.lhs.cast.i136 = ptrtoint ptr %strtab8.3.lcssa to i64
   %sub.ptr.rhs.cast.i137 = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub.i138 = sub i64 %sub.ptr.lhs.cast.i136, %sub.ptr.rhs.cast.i137
@@ -7726,7 +7726,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7836,7 +7836,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -8257,7 +8257,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE12get_plt_addrERNS0_7ContextIS2_EE.exit: ; pred
   %sub.ptr.lhs.cast = ptrtoint ptr %strtab8.033 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %24 = getelementptr inbounds nuw i8, ptr %esym.031, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %24, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %24, i8 0, i64 18, i1 false)
   %conv.i = trunc i64 %sub.ptr.sub to i32
   %25 = tail call noundef i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %25, ptr %esym.031, align 1
@@ -8297,7 +8297,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -8590,7 +8590,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE12get_plt_addrERNS0_7ContextIS2_EE.exit: ; pred
   %sub.ptr.lhs.cast = ptrtoint ptr %strtab8.033 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %24 = getelementptr inbounds nuw i8, ptr %esym.031, i64 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %24, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %24, i8 0, i64 18, i1 false)
   %conv.i = trunc i64 %sub.ptr.sub to i32
   %25 = tail call noundef i32 @llvm.bswap.i32(i32 %conv.i)
   store i32 %25, ptr %esym.031, align 1
@@ -8631,11 +8631,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13RelPltSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 9, ptr %name.i, align 8
@@ -8767,11 +8767,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13RelDynSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 9, ptr %name.i, align 8
@@ -8969,11 +8969,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf14RelrDynSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 9, ptr %name.i, align 8
@@ -9108,7 +9108,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -9219,7 +9219,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -9403,7 +9403,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -9597,11 +9597,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf14DynamicSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 8, ptr %name.i, align 8
@@ -10365,11 +10365,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13SymtabSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 7, ptr %name.i, align 8
@@ -10626,11 +10626,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13DynsymSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   %symbols = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -11322,7 +11322,7 @@ define weak_odr dso_local void @_ZN4mold3elf14to_output_esymINS0_5S390XEEENS0_6E
 entry:
   %get_st_shndx = alloca %class.anon.496, align 1
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, i8 0, i64 12, i1 false)
   %1 = tail call noundef i32 @llvm.bswap.i32(i32 %st_name)
   store i32 %1, ptr %agg.result, align 1
   %2 = load ptr, ptr %sym, align 8
@@ -11628,11 +11628,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf11HashSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 5, ptr %name.i, align 8
@@ -11872,7 +11872,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -13273,12 +13273,12 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13MergedSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   %estimator = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -13313,7 +13313,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -13817,7 +13817,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -13927,11 +13927,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf19EhFrameRelocSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   store i64 14, ptr %name.i, align 8
@@ -14593,7 +14593,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i64 72057594037927936, ptr %sh_addralign.i, align 8
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -15270,11 +15270,11 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %1, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i, i8 0, i64 96, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf13VersymSectionINS0_5S390XEEE, i64 16), ptr %this, align 8
   %contents = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -15341,7 +15341,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -16241,7 +16241,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -16687,7 +16687,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -17149,7 +17149,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -17228,7 +17228,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)
@@ -17324,7 +17324,7 @@ entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sh_addralign.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %sh_entsize.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %uncompressed_data.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %sh_entsize.i, i8 0, i64 18, i1 false)

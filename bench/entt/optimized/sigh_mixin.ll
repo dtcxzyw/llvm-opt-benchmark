@@ -24105,7 +24105,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EE4bindIRNS_14basic_registryIS1_S2_E
   store i8 0, ptr %170, align 1, !tbaa !443
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #27
   %171 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, i8 0, i64 16, i1 false)
   %172 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %172, ptr %14, align 8, !tbaa !4
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -24618,7 +24618,7 @@ _ZN7testing7MessageD2Ev.exit473:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #27
   %358 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %358, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %358, i8 0, i64 16, i1 false)
   %359 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %359, ptr %22, align 8, !tbaa !4
   %360 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -25362,7 +25362,7 @@ _ZN7testing7MessageD2Ev.exit542:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #27
   %628 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %628, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %628, i8 0, i64 16, i1 false)
   %629 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %629, ptr %35, align 8, !tbaa !4
   %630 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -25954,7 +25954,7 @@ _ZN7testing7MessageD2Ev.exit593:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #27
   %840 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %840, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %840, i8 0, i64 16, i1 false)
   %841 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %841, ptr %49, align 8, !tbaa !4
   %842 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -26695,7 +26695,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EE5clearEv.exit: ; preds = %1106, %.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #27
   %1115 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1115, i8 0, i64 16, i1 false)
   %1116 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %1116, ptr %70, align 8, !tbaa !4
   %1117 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -126435,7 +126435,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %222, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #27
   %227 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %227, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, i8 0, i64 16, i1 false)
   %228 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %228, ptr %16, align 8, !tbaa !4
   %229 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -127153,7 +127153,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i523: ; preds = %498, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #27
   %503 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %503, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %503, i8 0, i64 16, i1 false)
   %504 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %504, ptr %26, align 8, !tbaa !4
   %505 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -128055,7 +128055,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i616: ; preds = %840, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #27
   %845 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %845, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %845, i8 0, i64 16, i1 false)
   %846 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %846, ptr %40, align 8, !tbaa !4
   %847 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -128666,7 +128666,7 @@ _ZN7testing7MessageD2Ev.exit663:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #27
   %1055 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1055, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1055, i8 0, i64 16, i1 false)
   %1056 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %1056, ptr %54, align 8, !tbaa !4
   %1057 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -129254,7 +129254,7 @@ _ZN7testing7MessageD2Ev.exit709:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #27
   %1263 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1263, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1263, i8 0, i64 16, i1 false)
   %1264 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %1264, ptr %67, align 8, !tbaa !4
   %1265 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -129713,7 +129713,7 @@ _ZN7testing7MessageD2Ev.exit742:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #27
   %1424 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1424, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1424, i8 0, i64 16, i1 false)
   %1425 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %1425, ptr %76, align 8, !tbaa !4
   %1426 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -130193,7 +130193,7 @@ _ZN7testing7MessageD2Ev.exit781:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88) #27
   %1594 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1594, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1594, i8 0, i64 16, i1 false)
   %1595 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %1595, ptr %88, align 8, !tbaa !4
   %1596 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -130846,7 +130846,7 @@ _ZN4entt16basic_sparse_setINS_6entityEN4test18throwing_allocatorIS1_EEE5eraseES1
 1824:                                             ; preds = %1823
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103) #27
   %1825 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1825, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1825, i8 0, i64 16, i1 false)
   %1826 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %1826, ptr %103, align 8, !tbaa !4
   %1827 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -133199,7 +133199,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %222, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #27
   %227 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %227, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, i8 0, i64 16, i1 false)
   %228 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %228, ptr %16, align 8, !tbaa !4
   %229 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -133917,7 +133917,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i523: ; preds = %498, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #27
   %503 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %503, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %503, i8 0, i64 16, i1 false)
   %504 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %504, ptr %26, align 8, !tbaa !4
   %505 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -134819,7 +134819,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i616: ; preds = %840, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #27
   %845 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %845, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %845, i8 0, i64 16, i1 false)
   %846 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %846, ptr %40, align 8, !tbaa !4
   %847 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -135430,7 +135430,7 @@ _ZN7testing7MessageD2Ev.exit663:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #27
   %1055 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1055, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1055, i8 0, i64 16, i1 false)
   %1056 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %1056, ptr %54, align 8, !tbaa !4
   %1057 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -136018,7 +136018,7 @@ _ZN7testing7MessageD2Ev.exit709:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #27
   %1263 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1263, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1263, i8 0, i64 16, i1 false)
   %1264 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %1264, ptr %67, align 8, !tbaa !4
   %1265 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -136477,7 +136477,7 @@ _ZN7testing7MessageD2Ev.exit742:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #27
   %1424 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1424, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1424, i8 0, i64 16, i1 false)
   %1425 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %1425, ptr %76, align 8, !tbaa !4
   %1426 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -136957,7 +136957,7 @@ _ZN7testing7MessageD2Ev.exit781:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88) #27
   %1594 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1594, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1594, i8 0, i64 16, i1 false)
   %1595 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %1595, ptr %88, align 8, !tbaa !4
   %1596 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -137612,7 +137612,7 @@ _ZN4entt16basic_sparse_setINS_6entityEN4test18throwing_allocatorIS1_EEE5eraseES1
 1825:                                             ; preds = %1824
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103) #27
   %1826 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1826, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1826, i8 0, i64 16, i1 false)
   %1827 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %1827, ptr %103, align 8, !tbaa !4
   %1828 = getelementptr inbounds nuw i8, ptr %103, i64 8

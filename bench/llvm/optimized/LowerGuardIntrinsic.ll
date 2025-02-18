@@ -146,7 +146,7 @@ _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit:   ; preds = %.loopexit.i, %62
 
 63:                                               ; preds = %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %64, i8 0, i64 64, i1 false), !alias.scope !39
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, i8 0, i64 64, i1 false), !alias.scope !39
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %65, ptr %0, align 8, !tbaa !42, !alias.scope !39
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8

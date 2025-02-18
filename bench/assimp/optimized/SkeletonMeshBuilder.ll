@@ -4387,7 +4387,7 @@ define noalias noundef nonnull ptr @_ZN6Assimp19SkeletonMeshBuilder10CreateMeshE
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %9, i8 0, i64 188, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %9, i8 0, i64 188, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %6, i8 0, i64 1044, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -6121,7 +6121,7 @@ define i32 @H5T_top_term_package() local_unnamed_addr #0 {
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 -1, i64 16, i1 false)
   %14 = load i32, ptr @H5T_g.0, align 8, !tbaa !59
   %15 = icmp sgt i32 %14, 0
@@ -10534,7 +10534,7 @@ define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly
   %7 = alloca %struct.H5T_conv_ctx_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %9 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   %11 = load i8, ptr @H5_libterm_g, align 1, !range !7

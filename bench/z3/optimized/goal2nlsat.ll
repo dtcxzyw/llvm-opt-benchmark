@@ -1658,7 +1658,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %land.rhs.i.i
 
 if.end.thread:                                    ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit, %entry, %land.rhs.i.i
   %5 = getelementptr inbounds nuw i8, ptr %ls, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   store ptr %5, ptr %ls, align 8
   %m_pos.i.i18 = getelementptr inbounds nuw i8, ptr %ls, i64 8
   store i32 0, ptr %m_pos.i.i18, align 8
@@ -1671,7 +1671,7 @@ if.end:                                           ; preds = %_ZNK11ast_manager5i
   %6 = load i32, ptr %m_num_args.i, align 8
   %m_args.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %ls, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %7, ptr %ls, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %ls, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -2703,7 +2703,7 @@ entry:
   %fs = alloca %"class.polynomial::manager::factors", align 8
   %ref.tmp6 = alloca %class.obj_ref.40, align 8
   %0 = getelementptr inbounds nuw i8, ptr %is_even, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %0, ptr %is_even, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %is_even, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

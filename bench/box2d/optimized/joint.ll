@@ -249,7 +249,7 @@ define void @b2DefaultWheelJointDef(ptr dead_on_unwind noalias writable writeonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @b2DefaultExplosionDef(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ExplosionDef) align 8 captures(none) initializes((0, 32)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i64 -1, ptr %0, align 8, !tbaa !50
   ret void
 }
@@ -715,7 +715,7 @@ b2JointSimArray_Add.exit:                         ; preds = %.b2JointSimArray_Re
   %117 = sext i32 %115 to i64
   %118 = getelementptr inbounds %struct.b2JointSim, ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %119, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %119, i8 0, i64 160, i1 false)
   store i32 %19, ptr %118, align 4, !tbaa !128
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %10, ptr %120, align 4, !tbaa !160
@@ -771,7 +771,7 @@ b2JointSimArray_Add.exit163:                      ; preds = %.b2JointSimArray_Re
   %144 = sext i32 %142 to i64
   %145 = getelementptr inbounds %struct.b2JointSim, ptr %141, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %146, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %146, i8 0, i64 160, i1 false)
   store i32 %19, ptr %145, align 4, !tbaa !128
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 %10, ptr %147, align 4, !tbaa !160
@@ -848,7 +848,7 @@ b2JointSimArray_Add.exit169:                      ; preds = %.b2JointSimArray_Re
   %181 = sext i32 %179 to i64
   %182 = getelementptr inbounds %struct.b2JointSim, ptr %178, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %183, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %183, i8 0, i64 160, i1 false)
   store i32 %19, ptr %182, align 4, !tbaa !128
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 %10, ptr %184, align 4, !tbaa !160

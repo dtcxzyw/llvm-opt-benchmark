@@ -637,7 +637,7 @@ curl_mime_subparts.exit:                          ; preds = %120, %91
 
 curl_mime_addpart.exit.thread:                    ; preds = %.lr.ph.split
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %127, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %127, i8 0, i64 424, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 432
   store i64 1, ptr %128, align 8, !tbaa !25
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 128
@@ -1169,7 +1169,7 @@ define dso_local ptr @curl_mime_addpart(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %6, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %6, i8 0, i64 424, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 432
   store i64 1, ptr %7, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 128

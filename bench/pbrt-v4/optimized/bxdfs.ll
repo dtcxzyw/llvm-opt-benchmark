@@ -11318,7 +11318,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %T, i64 8
   store <2 x float> %T.coerce1, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %mul.i = fmul float %h, %h
   %sub = fsub float 1.000000e+00, %mul.i
   %cmp.i.i = fcmp ogt float %sub, 0.000000e+00

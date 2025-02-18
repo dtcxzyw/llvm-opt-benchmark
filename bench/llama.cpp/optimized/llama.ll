@@ -9192,7 +9192,7 @@ if.end.i:                                         ; preds = %for.end
 
 _ZNSt6vectorI23llama_grammar_candidateSaIS0_EE7reserveEm.exit.thread: ; preds = %if.end.i
   %9 = getelementptr inbounds nuw i8, ptr %candidates_grammar, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %_M_end_of_storage.i.i29128 = getelementptr inbounds nuw i8, ptr %candidates_grammar, i64 16
   br label %for.end49
 
@@ -75590,7 +75590,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.body.
   %__cur.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %if.then ]
   %__n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %for.body.i.i.i ], [ %__n, %if.then ]
   %3 = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 -1, ptr %__cur.06.i.i.i, align 8
   %delta.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i, i64 4
   store i32 0, ptr %delta.i.i.i.i.i, align 4
@@ -75633,7 +75633,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorI13lla
   %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i30, %for.body.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorI13llama_kv_cellSaIS0_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i29, %for.body.i.i.i21 ], [ %__n, %_ZNKSt6vectorI13llama_kv_cellSaIS0_EE12_M_check_lenEmPKc.exit ]
   %6 = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i22, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 -1, ptr %__cur.06.i.i.i22, align 8
   %delta.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i22, i64 4
   store i32 0, ptr %delta.i.i.i.i.i24, align 4

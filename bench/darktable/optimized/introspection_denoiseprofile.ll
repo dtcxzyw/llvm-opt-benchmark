@@ -972,7 +972,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_iop_denoiseprofile_params_t, align 4
   call void @llvm.lifetime.start.p0(i64 412, ptr nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(412) %3, i8 0, i64 376, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(376) %3, i8 0, i64 376, i1 false)
   store float 1.000000e+00, ptr %2, align 4, !tbaa !112
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 7.000000e+00, ptr %4, align 4, !tbaa !116

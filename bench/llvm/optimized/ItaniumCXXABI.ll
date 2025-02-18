@@ -1174,7 +1174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   %132 = load ptr, ptr %36, align 8, !tbaa !405
   %133 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv(ptr noundef nonnull align 8 dereferenceable(232) %132) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %56, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %56, i8 0, i64 128, i1 false)
   store ptr %38, ptr %13, align 8, !tbaa !348
   store i32 0, ptr %39, align 8, !tbaa !349
   store i32 16, ptr %40, align 4, !tbaa !350
@@ -1845,7 +1845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %112 = load ptr, ptr %27, align 8, !tbaa !405
   %113 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv(ptr noundef nonnull align 8 dereferenceable(232) %112) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %34, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %34, i8 0, i64 128, i1 false)
   store ptr %29, ptr %8, align 8, !tbaa !348
   store i32 0, ptr %30, align 8, !tbaa !349
   store i32 16, ptr %31, align 4, !tbaa !350
@@ -9343,7 +9343,7 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI26getImplicitConstructorAr
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %0, align 8, !tbaa !348
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25397,7 +25397,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %_ZNK5clang13Referen
   %64 = call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %63, i64 %.sroa.014.0) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %65, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %65, i8 0, i64 128, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %66, ptr %5, align 8, !tbaa !348
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -26355,7 +26355,7 @@ define internal void @_ZN12_GLOBAL__N_18XLCXXABI18registerGlobalDtorERN5clang7Co
   %.sroa.0.0.copyload.i30.i = load i64, ptr %81, align 8, !tbaa !384
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16) #22
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %82, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %82, i8 0, i64 128, i1 false)
   store ptr %82, ptr %16, align 8, !tbaa !348
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %83, align 8, !tbaa !349

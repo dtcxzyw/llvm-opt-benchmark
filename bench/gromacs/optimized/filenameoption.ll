@@ -1783,7 +1783,7 @@ define void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind no
 
 .thread:                                          ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %._crit_edge
 

@@ -13595,7 +13595,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   store i64 %99, ptr %103, align 8, !tbaa !141, !noalias !400
   %104 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %105, i8 0, i64 56, i1 false), !noalias !400
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %105, i8 0, i64 56, i1 false), !noalias !400
   %106 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %107 = getelementptr inbounds nuw i8, ptr %79, i64 72
   store ptr %96, ptr %104, align 8, !tbaa !169, !noalias !400
@@ -24370,7 +24370,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   store i64 %93, ptr %97, align 8, !tbaa !141, !noalias !628
   %98 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %99 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %99, i8 0, i64 56, i1 false), !noalias !628
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %99, i8 0, i64 56, i1 false), !noalias !628
   %100 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %101 = getelementptr inbounds nuw i8, ptr %72, i64 72
   store ptr %90, ptr %98, align 8, !tbaa !169, !noalias !628

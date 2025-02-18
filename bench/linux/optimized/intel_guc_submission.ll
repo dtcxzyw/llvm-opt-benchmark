@@ -2515,7 +2515,7 @@ define internal void @guc_bump_inflight_request_prio(ptr noundef captures(none) 
 84:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %3) #20
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %85, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %85, i8 0, i64 32, i1 false), !annotation !47
   %86 = load i16, ptr %83, align 8
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 4107, ptr %87, align 4
@@ -2651,7 +2651,7 @@ define internal void @guc_retire_inflight_request_prio(ptr noundef captures(none
 67:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %2) #20
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %68, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %68, i8 0, i64 32, i1 false), !annotation !47
   %69 = load i16, ptr %66, align 8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4107, ptr %70, align 4
@@ -4459,7 +4459,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
 100:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %6) #20
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(116) %101, i8 0, i64 68, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %101, i8 0, i64 68, i1 false), !annotation !47
   store i32 17921, ptr %6, align 16
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %102, align 4
@@ -4758,7 +4758,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
 308:                                              ; preds = %304
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %309, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %309, i8 0, i64 32, i1 false), !annotation !47
   store i32 17921, ptr %4, align 16
   %310 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %307, ptr %310, align 4
@@ -7303,7 +7303,7 @@ define internal fastcc i32 @guc_context_policy_init_v70(ptr noundef %0, i1 nound
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %3) #20
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %8, i8 0, i64 16, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !47
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 5440
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
@@ -7849,7 +7849,7 @@ define internal void @add_to_context(ptr noundef %0) #0 align 16 {
 95:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %2) #20
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %96, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %96, i8 0, i64 32, i1 false), !annotation !47
   %97 = load i16, ptr %94, align 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4107, ptr %98, align 4
@@ -7994,7 +7994,7 @@ define internal void @remove_from_context(ptr noundef %0) #0 align 16 {
 73:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %2) #20
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %74, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %74, i8 0, i64 32, i1 false), !annotation !47
   %75 = load i16, ptr %72, align 8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4107, ptr %76, align 4
@@ -9673,7 +9673,7 @@ define internal fastcc void @__guc_context_set_preemption_timeout(ptr noundef %0
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %5) #20
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %20, i8 0, i64 32, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %20, i8 0, i64 32, i1 false), !annotation !47
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4107, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8

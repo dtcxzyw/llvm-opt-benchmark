@@ -1442,7 +1442,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define internal fastcc void @_ZSt11make_uniqueIN5arrow4util12_GLOBAL__N_112RegistryImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_() unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %2, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %3, ptr %1, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

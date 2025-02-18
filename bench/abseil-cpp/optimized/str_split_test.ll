@@ -156739,7 +156739,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal19btree_set_cont
   store i8 1, ptr %9, align 1, !tbaa !3838, !alias.scope !3835
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false), !tbaa !28, !alias.scope !3835
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !tbaa !28, !alias.scope !3835
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %3, align 8, !tbaa !53, !noalias !3835
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !3835
@@ -161766,7 +161766,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal19btree_set_cont
   store i8 1, ptr %9, align 1, !tbaa !3925, !alias.scope !3922
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 56, i1 false), !tbaa !28, !alias.scope !3922
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false), !tbaa !28, !alias.scope !3922
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %3, align 8, !tbaa !53, !noalias !3922
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !3922
@@ -175879,7 +175879,7 @@ define linkonce_odr dso_local { ptr, i32 } @_ZN4absl18container_internal24btree_
   store i8 1, ptr %8, align 1, !tbaa !3838, !alias.scope !4168
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 40, i1 false), !tbaa !28, !alias.scope !4168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !tbaa !28, !alias.scope !4168
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !53, !noalias !4168
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !4168
@@ -180756,7 +180756,7 @@ define linkonce_odr dso_local { ptr, i32 } @_ZN4absl18container_internal24btree_
   store i8 1, ptr %8, align 1, !tbaa !3925, !alias.scope !4248
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 56, i1 false), !tbaa !28, !alias.scope !4248
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false), !tbaa !28, !alias.scope !4248
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !53, !noalias !4248
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !4248

@@ -4147,7 +4147,7 @@ _ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i:  ; preds = %_ZL10skipPGOGenRKN4
 _ZL22InstrumentAllFunctionsRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEENS2_IFPNS_21BranchProbabilityInfoES6_EEENS2_IFPNS_18BlockFrequencyInfoES6_EEENS2_IFPNS_8LoopInfoES6_EEENS_22PGOInstrumentationTypeE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %129, i8 0, i64 64, i1 false), !alias.scope !268
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, i8 0, i64 64, i1 false), !alias.scope !268
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %130, ptr %0, align 8, !tbaa !28, !alias.scope !268
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4336,7 +4336,7 @@ define dso_local void @_ZN4llvm21PGOInstrumentationUse3runERNS_6ModuleERNS_15Ana
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %35, i8 0, i64 64, i1 false), !alias.scope !283
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 64, i1 false), !alias.scope !283
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %37
 

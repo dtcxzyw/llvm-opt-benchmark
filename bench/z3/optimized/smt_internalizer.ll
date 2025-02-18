@@ -2367,7 +2367,7 @@ for.inc:                                          ; preds = %invoke.cont19
 
 sw.bb22:                                          ; preds = %invoke.cont10
   %28 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   store ptr %28, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -8911,7 +8911,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
   %retval.sroa.0.0.i = phi i32 [ %10, %if.then12.i ], [ %shl.i.i, %if.else13.i ], [ 0, %if.else.i ]
   %accumulator.ret.tr.i = xor i32 %retval.sroa.0.0.i, %accumulator.tr.lcssa.i
   %14 = getelementptr inbounds nuw i8, ptr %buffer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store ptr %14, ptr %buffer, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 12
@@ -9339,7 +9339,7 @@ invoke.cont5:                                     ; preds = %if.else.i, %if.else
   %retval.sroa.0.0.i = phi i32 [ %10, %if.then12.i ], [ %shl.i.i, %if.else13.i ], [ 0, %if.else.i ]
   %accumulator.ret.tr.i = xor i32 %retval.sroa.0.0.i, %accumulator.tr.lcssa.i
   %14 = getelementptr inbounds nuw i8, ptr %buffer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store ptr %14, ptr %buffer, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 12
@@ -11923,7 +11923,7 @@ entry:
   %m_clause_proof = getelementptr inbounds nuw i8, ptr %this, i64 7560
   tail call void @_ZN3smt12clause_proof3addEjPKN3sat7literalENS_11clause_kindEPNS_13justificationE(ptr noundef nonnull align 8 dereferenceable(1392) %m_clause_proof, i32 noundef %num_lits, ptr noundef %lits, i32 noundef %k, ptr noundef %j)
   %0 = getelementptr inbounds nuw i8, ptr %simp_lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr %0, ptr %simp_lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %simp_lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -13271,7 +13271,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store ptr %2, ptr %tmp, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

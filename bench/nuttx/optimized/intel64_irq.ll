@@ -189,7 +189,7 @@ up_apic_init.exit:                                ; preds = %32
   br i1 %exitcond.not.i, label %up_ioapic_init.exit, label %.lr.ph.i, !llvm.loop !14
 
 up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_init.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 192), i8 0, i64 3904, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3904) getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 192), i8 0, i64 3904, i1 false)
   store i16 ptrtoint (ptr @vector_isr0 to i16), ptr @g_idt_entries, align 16
   %50 = lshr i64 ptrtoint (ptr @vector_isr0 to i64), 16
   %51 = trunc i64 %50 to i16

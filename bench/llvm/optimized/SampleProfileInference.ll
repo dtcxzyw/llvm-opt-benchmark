@@ -5383,7 +5383,7 @@ define dso_local void @_ZN4llvm18applyFlowInferenceERNS_12FlowFunctionE(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i64 1073741824, ptr %6, align 8, !tbaa !245
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_133SampleProfileEvenFlowDistributionE, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   store i8 %8, ptr %2, align 8, !tbaa !104

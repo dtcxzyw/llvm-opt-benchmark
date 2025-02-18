@@ -4766,7 +4766,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit720:              ; preds = %239
   %2020 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   %2021 = getelementptr inbounds nuw i8, ptr %2020, i64 8
   %2022 = getelementptr inbounds nuw i8, ptr %2020, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2022, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2022, i8 0, i64 48, i1 false)
   store i8 5, ptr %2020, align 8
   store i32 0, ptr %2021, align 8
   %.sroa.21060.sroa.1.0..sroa.21060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2020, i64 16
@@ -4839,7 +4839,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit752:              ; preds = %239
   %2047 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   %2048 = getelementptr inbounds nuw i8, ptr %2047, i64 8
   %2049 = getelementptr inbounds nuw i8, ptr %2047, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2049, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2049, i8 0, i64 48, i1 false)
   store i8 6, ptr %2047, align 8
   store i32 0, ptr %2048, align 8
   %.sroa.21041.sroa.1.0..sroa.21041.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2047, i64 16
@@ -4912,7 +4912,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit784:              ; preds = %239
   %2074 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   %2075 = getelementptr inbounds nuw i8, ptr %2074, i64 8
   %2076 = getelementptr inbounds nuw i8, ptr %2074, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2076, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2076, i8 0, i64 48, i1 false)
   store i8 7, ptr %2074, align 8
   store i32 0, ptr %2075, align 8
   %.sroa.2.sroa.1.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2074, i64 16

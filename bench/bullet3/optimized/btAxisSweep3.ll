@@ -263,7 +263,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItEC2ERK9btVector3S
 23:                                               ; preds = %22
   %24 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 40, i32 noundef 16)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTV15btNullPairCache, i64 16), ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 1, ptr %26, align 8, !tbaa !26
@@ -451,7 +451,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjEC2ERK9btVector3S
 23:                                               ; preds = %22
   %24 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 40, i32 noundef 16)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTV15btNullPairCache, i64 16), ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 1, ptr %26, align 8, !tbaa !26

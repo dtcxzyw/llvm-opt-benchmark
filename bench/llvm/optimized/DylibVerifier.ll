@@ -5127,7 +5127,7 @@ _ZN4llvm5MachO9RecordLocC2ERKS1_.exit:            ; preds = %._crit_edge.i.i.i, 
 
 36:                                               ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %38, ptr %0, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8

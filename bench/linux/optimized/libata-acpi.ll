@@ -512,7 +512,7 @@ define dso_local void @ata_acpi_dissociate(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %10, i8 0, i64 56, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %10, i8 0, i64 56, i1 false), !annotation !6
   store i32 3, ptr %4, align 16
   store i32 20, ptr %11, align 4
   store ptr %2, ptr %12, align 8
@@ -578,7 +578,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_stm(ptr noundef %0, ptr
   store i64 0, ptr %4, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 56, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !6
   store i32 3, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 20, ptr %7, align 4
@@ -780,7 +780,7 @@ define dso_local void @ata_acpi_on_resume(ptr noundef %0) local_unnamed_addr #0 
   store i64 3, ptr %3, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %22, i8 0, i64 56, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %22, i8 0, i64 56, i1 false), !annotation !6
   store i32 3, ptr %4, align 16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 20, ptr %23, align 4

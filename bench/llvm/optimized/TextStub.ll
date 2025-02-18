@@ -4967,7 +4967,7 @@ define internal fastcc void @_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL_
   %.08.i.i.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i, %69 ]
   %.057.i.i.i.i.i.i.i.i.i = phi i64 [ %82, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %71, %69 ]
   %78 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %78, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %78, i8 0, i64 120, i1 false)
   store ptr %78, ptr %.08.i.i.i.i.i.i.i.i.i, align 8, !tbaa !116
   %79 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i.i, i64 8
   store i32 0, ptr %79, align 8, !tbaa !117
@@ -4997,7 +4997,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EE12_M_check_lenEmPKc.exit.i.
   %.08.i.i.i33.i.i.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i32.i.i.i.i.i.i ], [ %87, %_ZNKSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ]
   %.057.i.i.i34.i.i.i.i.i.i = phi i64 [ %92, %.lr.ph.i.i.i32.i.i.i.i.i.i ], [ %71, %_ZNKSt6vectorIN12_GLOBAL__N_113SymbolSectionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %88, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %88, i8 0, i64 120, i1 false)
   store ptr %88, ptr %.08.i.i.i33.i.i.i.i.i.i, align 8, !tbaa !116
   %89 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i.i.i.i, i64 8
   store i32 0, ptr %89, align 8, !tbaa !117

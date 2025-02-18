@@ -3955,7 +3955,7 @@ define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr noundef readonly
   %3 = alloca %struct.TriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -5194,7 +5194,7 @@ define dso_local noundef zeroext i1 @ExecBRInsertTriggers(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store i32 441, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 12, ptr %12, align 4
@@ -5442,7 +5442,7 @@ define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store i32 441, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 20, ptr %9, align 4
@@ -5555,7 +5555,7 @@ define dso_local void @ExecBSDeleteTriggers(ptr noundef %0, ptr noundef readonly
   %3 = alloca %struct.TriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -5681,7 +5681,7 @@ define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr no
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #16
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #16
   store i8 0, ptr %10, align 1
   %16 = icmp eq ptr %4, null
@@ -6079,7 +6079,7 @@ define dso_local noundef zeroext i1 @ExecIRDeleteTriggers(ptr noundef %0, ptr no
   %7 = tail call ptr @ExecGetTriggerOldSlot(ptr noundef %0, ptr noundef %1) #16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store i32 441, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 21, ptr %9, align 4
@@ -6166,7 +6166,7 @@ define dso_local void @ExecBSUpdateTriggers(ptr noundef %0, ptr noundef %1) loca
   %3 = alloca %struct.TriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -6306,7 +6306,7 @@ define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr no
   store i8 0, ptr %13, align 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #16
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
   %20 = tail call i32 @ExecUpdateLockMode(ptr noundef %0, ptr noundef %2) #16
   %21 = icmp eq ptr %4, null
   br i1 %21, label %22, label %40
@@ -6680,7 +6680,7 @@ define dso_local noundef zeroext i1 @ExecIRUpdateTriggers(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i32 441, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %11, align 4
@@ -6789,7 +6789,7 @@ define dso_local void @ExecBSTruncateTriggers(ptr noundef %0, ptr noundef readon
   %3 = alloca %struct.TriggerData, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

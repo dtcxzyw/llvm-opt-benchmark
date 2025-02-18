@@ -16691,7 +16691,7 @@ define linkonce_odr void @_ZN6duckdb19ParquetMetaDataBindILNS_27ParquetMetadataO
 
 .noexc:                                           ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %19, i8 0, i64 80, i1 false), !noalias !589
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %19, i8 0, i64 80, i1 false), !noalias !589
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !589
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false), !noalias !589

@@ -1345,7 +1345,7 @@ define internal zeroext i1 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca %struct.commview_ncf_header, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -1768,7 +1768,7 @@ define internal zeroext i1 @commview_ncfx_dump(ptr noundef %0, ptr noundef %1, p
   %6 = alloca %struct.commview_ncfx_header, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %8 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9

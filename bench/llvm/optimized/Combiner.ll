@@ -379,7 +379,7 @@ _ZNSt10unique_ptrIN4llvm13CSEMIRBuilderESt14default_deleteIS1_EED2Ev.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %49 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #18, !noalias !168
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %50, i8 0, i64 88, i1 false), !noalias !168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %50, i8 0, i64 88, i1 false), !noalias !168
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -1526,7 +1526,7 @@ define linkonce_odr void @_ZN4llvm10post_orderIPNS_15MachineFunctionEEENS_14iter
   store i32 1, ptr %15, align 8, !tbaa !23, !alias.scope !279
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !284
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !284
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !4, !alias.scope !284
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

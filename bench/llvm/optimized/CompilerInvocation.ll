@@ -1691,7 +1691,7 @@ define dso_local void @_ZN5clang22CompilerInvocationBaseC2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang13TargetOptionsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !tbaa !15, !noalias !23
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %13, i8 0, i64 520, i1 false), !noalias !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %13, i8 0, i64 520, i1 false), !noalias !23
   store ptr %13, ptr %12, align 8, !tbaa !29, !noalias !23
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %14, align 8, !tbaa !32, !noalias !23
@@ -2014,7 +2014,7 @@ define dso_local void @_ZN5clang22CompilerInvocationBaseC2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang17FileSystemOptionsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %172, align 8, !tbaa !15, !noalias !205
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, i8 0, i64 16, i1 false), !noalias !205
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false), !noalias !205
   store ptr %176, ptr %175, align 8, !tbaa !29, !noalias !205
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i64 0, ptr %177, align 8, !tbaa !32, !noalias !205

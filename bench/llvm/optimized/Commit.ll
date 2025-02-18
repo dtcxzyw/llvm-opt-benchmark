@@ -511,7 +511,7 @@ define dso_local void @_ZN5clang4edit6Commit9addInsertENS_14SourceLocationENS0_1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #10
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 0, ptr %7, align 8, !tbaa !78
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %1, ptr %13, align 8, !tbaa !3

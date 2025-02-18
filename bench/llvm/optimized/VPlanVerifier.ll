@@ -6276,7 +6276,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_30VPBlockShallowTraversalWrap
   store ptr %13, ptr %10, align 8, !tbaa !130, !alias.scope !381
   store ptr %13, ptr %11, align 8, !tbaa !135, !alias.scope !381
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false), !alias.scope !387
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !alias.scope !387
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %4, align 8, !tbaa !66, !alias.scope !387
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8

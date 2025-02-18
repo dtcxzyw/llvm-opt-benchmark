@@ -6481,7 +6481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %5) #34
   %410 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %411 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %411, i8 0, i64 1016, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1016) %411, i8 0, i64 1016, i1 false)
   %412 = load i64, ptr %404, align 8
   store i64 %412, ptr %410, align 4
   %413 = load i32, ptr %408, align 8
@@ -54373,7 +54373,7 @@ define hidden void @_Z15WritePropStringPK7aiSceneRN6Assimp3FBX4NodeERKNSt7__cxx1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %7) #34
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %9, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null

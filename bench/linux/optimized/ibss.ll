@@ -1049,7 +1049,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %175 = add nsw i64 %171, -36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #15
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %176, i8 0, i64 40, i1 false), !annotation !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %176, i8 0, i64 40, i1 false), !annotation !35
   store ptr %174, ptr %8, align 8
   %177 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %175, ptr %177, align 8
@@ -1466,7 +1466,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %438 = zext nneg i32 %434 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
   %439 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %439, i8 0, i64 40, i1 false), !annotation !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %439, i8 0, i64 40, i1 false), !annotation !35
   store ptr %437, ptr %3, align 8
   %440 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %438, ptr %440, align 8

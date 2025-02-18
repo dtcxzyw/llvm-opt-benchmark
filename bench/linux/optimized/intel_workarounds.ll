@@ -2877,13 +2877,13 @@ define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720,
 45:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %46, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   store i32 1073759235, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store i32 1073759491, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -3086,7 +3086,7 @@ define internal fastcc void @tgl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %15 = or i32 %14, 268435456
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 %15, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
@@ -3098,25 +3098,25 @@ define internal fastcc void @tgl_whitelist_build(ptr noundef captures(none) %0) 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i32 28688, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %21, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i32 28696, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i32 29444, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %18, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3149,7 +3149,7 @@ define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #10
   %18 = or i32 %17, 268435456
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 %18, ptr %9, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #10
@@ -3190,13 +3190,13 @@ define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 29468, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %31, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
@@ -3208,7 +3208,7 @@ define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %35 = or i32 %34, 268435456
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store i32 %35, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
@@ -3217,7 +3217,7 @@ define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %39 = or i32 %38, 268435456
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   store i32 %39, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -3226,7 +3226,7 @@ define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %43 = or i32 %42, 268435456
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store i32 %43, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3252,7 +3252,7 @@ define internal fastcc void @cml_whitelist_build(ptr noundef captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %11 = or i32 %10, 268435456
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 %11, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %7, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3279,31 +3279,31 @@ define internal fastcc void @cfl_whitelist_build(ptr noundef captures(none) %0) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 268444489, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3329,31 +3329,31 @@ define internal fastcc void @glk_whitelist_build(ptr noundef captures(none) %0) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 29468, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3379,25 +3379,25 @@ define internal fastcc void @kbl_whitelist_build(ptr noundef captures(none) %0) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
@@ -3436,25 +3436,25 @@ define internal fastcc void @bxt_whitelist_build(ptr noundef captures(none) %0) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 8776, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 9600, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 29444, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 28692, ptr %2, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %10, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
@@ -3480,25 +3480,25 @@ define internal fastcc void @skl_whitelist_build(ptr noundef captures(none) %0) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 8776, ptr %6, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 9600, ptr %5, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 29444, ptr %4, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 28692, ptr %3, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %11, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10

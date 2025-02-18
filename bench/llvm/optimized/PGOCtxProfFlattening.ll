@@ -93,7 +93,7 @@ define dso_local void @_ZN4llvm24PGOCtxProfFlatteningPass3runERNS_6ModuleERNS_15
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false), !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false), !alias.scope !10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %19, ptr %0, align 8, !tbaa !13, !alias.scope !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -229,7 +229,7 @@ _ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
   call void @_ZN4llvm18ProfileSummaryInfo7refreshEv(ptr noundef nonnull align 8 dereferenceable(80) %80) #13
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %94, i8 0, i64 64, i1 false), !alias.scope !141
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, i8 0, i64 64, i1 false), !alias.scope !141
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %95, ptr %0, align 8, !tbaa !13, !alias.scope !141
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8

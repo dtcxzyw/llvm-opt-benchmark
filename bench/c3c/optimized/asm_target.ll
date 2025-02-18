@@ -3876,7 +3876,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 define internal void @clobbers_make(ptr dead_on_unwind noalias nonnull writable sret(%struct.Clobbers) align 8 captures(none) initializes((0, 32)) %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = zext nneg i32 %1 to i64
   %6 = shl nuw nsw i64 1, %5
   store i64 %6, ptr %0, align 8

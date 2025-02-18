@@ -719,7 +719,7 @@ define dso_local i32 @key_instantiate_and_link(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
@@ -1347,7 +1347,7 @@ define internal fastcc ptr @__key_create_or_update(ptr noundef %0, ptr noundef r
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, i8 0, i64 72, i1 false)
   store ptr %2, ptr %10, align 8
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %3, ptr %56, align 8

@@ -44,7 +44,7 @@ entry:
   store ptr null, ptr %ret, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %0 = getelementptr inbounds nuw i8, ptr %inits, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 96, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false), !alias.scope !4
   store i64 104, ptr %inits, align 8, !alias.scope !4
   %1 = getelementptr inbounds nuw i8, ptr %inits, i64 88
   store i32 -2, ptr %1, align 8, !alias.scope !4
@@ -461,7 +461,7 @@ entry:
   store ptr null, ptr %ret, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %0 = getelementptr inbounds nuw i8, ptr %inits, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 96, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false), !alias.scope !7
   store i64 104, ptr %inits, align 8, !alias.scope !7
   %1 = getelementptr inbounds nuw i8, ptr %inits, i64 88
   store i32 -2, ptr %1, align 8, !alias.scope !7
@@ -655,7 +655,7 @@ entry:
   store ptr null, ptr %ret, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %0 = getelementptr inbounds nuw i8, ptr %inits, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 96, i1 false), !alias.scope !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false), !alias.scope !10
   store i64 104, ptr %inits, align 8, !alias.scope !10
   %1 = getelementptr inbounds nuw i8, ptr %inits, i64 88
   store i32 -2, ptr %1, align 8, !alias.scope !10

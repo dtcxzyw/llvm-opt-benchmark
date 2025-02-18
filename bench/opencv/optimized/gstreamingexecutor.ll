@@ -9776,7 +9776,7 @@ _ZN3ade6HandleINS_4EdgeEEC2ERKS2_.exit.i593:      ; preds = %3401, %3398, %3394
 
 .noexc604:                                        ; preds = %3437
   %3439 = getelementptr inbounds nuw i8, ptr %3438, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(280) %3439, i8 0, i64 264, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %3439, i8 0, i64 264, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv5gimpl6stream11DesyncQueueE, i64 16), ptr %3438, align 8
   %3440 = getelementptr inbounds nuw i8, ptr %3438, i64 8
   store i64 0, ptr %3440, align 8
@@ -17869,7 +17869,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19DataQueueC2Em(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5gimpl6stream9SyncQueueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !361
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %8, i8 0, i64 144, i1 false), !noalias !361
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false), !noalias !361
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv5gimpl6stream9SyncQueueE, i64 16), ptr %7, align 8, !noalias !361
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %9, i8 0, i64 80, i1 false), !noalias !361
@@ -42705,7 +42705,7 @@ define linkonce_odr hidden void @_ZN2cv5gimpl18GStreamingExecutor12Synchronizer1
   %3 = alloca %"class.cv::gimpl::stream::SyncQueue", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv5gimpl6stream9SyncQueueE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %6, i8 0, i64 80, i1 false)
@@ -61672,7 +61672,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
   %.014 = phi ptr [ %9, %5 ], [ %0, %2 ]
   %.01013 = phi i64 [ %8, %5 ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.014, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv5gimpl6stream9SyncQueueE, i64 16), ptr %.014, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %4, i8 0, i64 80, i1 false)

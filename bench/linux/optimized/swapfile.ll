@@ -28,7 +28,7 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %9, i8 0, i64 200, i1 false)
   store ptr %8, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 80

@@ -12503,7 +12503,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParser11NextSectionEv
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(792) %14, ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #24
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %20, i8 0, i64 240, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %2, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -572,7 +572,7 @@ define weak_odr void @_ZN5boost7archive21basic_text_iprimitiveISt13basic_istream
   store i8 0, ptr %22, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %24, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, i8 0, i64 9, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48

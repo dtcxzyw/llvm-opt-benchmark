@@ -889,7 +889,7 @@ RSTRING_PTR.exit:                                 ; preds = %65, %70
 
 RSTRING_PTR.exit155:                              ; preds = %77, %83
   %.sroa.2.0.i154 = phi ptr [ %.sroa.2.0.copyload.i153, %83 ], [ %82, %77 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 noundef 0, i64 noundef 48, i1 noundef false) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %56, i8 noundef 0, i64 noundef 48, i1 noundef false) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %13, i8 noundef 0, i64 noundef 2048, i1 noundef false) #10
   store ptr %13, ptr %11, align 8, !tbaa !34
   store i32 2048, ptr %46, align 8, !tbaa !38

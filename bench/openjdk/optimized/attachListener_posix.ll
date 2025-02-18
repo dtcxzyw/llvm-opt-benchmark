@@ -109,7 +109,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN19PosixAttachListener4initEv() lo
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %20, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %20, i8 0, i64 108, i1 false)
   store i16 1, ptr %3, align 2
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %22 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %2) #18

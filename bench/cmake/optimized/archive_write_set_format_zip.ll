@@ -3595,7 +3595,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %33, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store i32 101075792, ptr %2, align 16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 44, ptr %34, align 4, !tbaa !41

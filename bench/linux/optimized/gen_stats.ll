@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_queue(ptr noundef
   %5 = alloca %struct.gnet_stats_queue, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = icmp eq ptr %1, null
   br i1 %7, label %49, label %8
 

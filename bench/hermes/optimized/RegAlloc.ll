@@ -2380,7 +2380,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes11InstructionELb1EE9push_backERKS3_.e
   store i32 %add.i, ptr %Size.i.i, align 8
   %instructionInterval_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ref.tmp6, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8

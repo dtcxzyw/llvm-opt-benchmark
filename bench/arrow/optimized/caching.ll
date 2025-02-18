@@ -331,7 +331,7 @@ define void @_ZN5arrow2io8internal14ReadRangeCacheC2ESt10shared_ptrINS0_16Random
 9:                                                ; preds = %5
   %10 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %11, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %11, i8 0, i64 152, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5arrow2io8internal14ReadRangeCache4ImplE, i64 16), ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -357,7 +357,7 @@ _ZN5arrow2io8internal14ReadRangeCache8LazyImplC2Ev.exit: ; preds = %9
 17:                                               ; preds = %5
   %18 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %19, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %19, i8 0, i64 112, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5arrow2io8internal14ReadRangeCache4ImplE, i64 16), ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)

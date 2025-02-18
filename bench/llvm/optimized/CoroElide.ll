@@ -3580,7 +3580,7 @@ _ZN12_GLOBAL__N_112CoroIdEliderD2Ev.exit:         ; preds = %_ZN4llvm11SmallVect
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_112CoroIdEliderD2Ev.exit
   %1592 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1592, i8 0, i64 64, i1 false), !alias.scope !273
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1592, i8 0, i64 64, i1 false), !alias.scope !273
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1593, ptr %0, align 8, !tbaa !21, !alias.scope !273
   %1594 = getelementptr inbounds nuw i8, ptr %0, i64 8

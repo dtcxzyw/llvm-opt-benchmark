@@ -2780,7 +2780,7 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly c
   %12 = call ptr @wmem_file_scope()
   %13 = call noalias dereferenceable_or_null(336) ptr @wmem_alloc(ptr noundef %12, i64 noundef 336) #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(336) %14, i8 noundef 0, i64 noundef 332, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(332) %14, i8 noundef 0, i64 noundef 332, i1 noundef false) #12
   %15 = load i32, ptr @camelsrt_global_SessionId, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr @camelsrt_global_SessionId, align 4

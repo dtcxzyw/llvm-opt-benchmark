@@ -4152,7 +4152,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %587 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %588 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %589 = getelementptr inbounds nuw i8, ptr %27, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %586, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %586, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %27, align 4
   store float 1.000000e+00, ptr %587, align 4
   store float 1.000000e+00, ptr %588, align 4
@@ -4167,7 +4167,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %594 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %595 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %596 = getelementptr inbounds nuw i8, ptr %28, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %593, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %593, i8 0, i64 56, i1 false)
   store float %408, ptr %28, align 4
   store float %408, ptr %594, align 4
   store float %408, ptr %595, align 4
@@ -5009,7 +5009,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %940 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %941 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %942 = getelementptr inbounds nuw i8, ptr %36, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %939, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %939, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %36, align 4
   store float 1.000000e+00, ptr %940, align 4
   store float 1.000000e+00, ptr %941, align 4
@@ -5024,7 +5024,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %947 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %948 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %949 = getelementptr inbounds nuw i8, ptr %37, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %946, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %946, i8 0, i64 56, i1 false)
   store float %750, ptr %37, align 4
   store float %750, ptr %947, align 4
   store float %750, ptr %948, align 4

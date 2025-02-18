@@ -781,7 +781,7 @@ define dso_local noundef nonnull ptr @_ZN5State7AddEdgeEPK4Rule(ptr noundef nonn
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(156) %6, i8 0, i64 92, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %6, i8 0, i64 92, i1 false)
   store i64 -1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 136

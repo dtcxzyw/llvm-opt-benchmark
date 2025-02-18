@@ -1835,7 +1835,7 @@ define dso_local i32 @irq_create_of_mapping(ptr noundef readonly captures(none) 
   %2 = alloca %struct.irq_fwspec, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 72, i1 false), !annotation !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !43
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2262,7 +2262,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_twocell(ptr rea
   %7 = alloca %struct.irq_fwspec, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 72, i1 false), !annotation !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false), !annotation !43
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %3, ptr %9, align 8
   %10 = icmp eq i32 %3, 0

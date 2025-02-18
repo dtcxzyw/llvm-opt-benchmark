@@ -1050,7 +1050,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %record.i, i8 0, i64 32, i1 false)
   %value.i.i = getelementptr inbounds nuw i8, ptr %record.i, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %record.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %val, i64 16, i1 false)
   %expiration2.i = getelementptr inbounds nuw i8, ptr %record.i, i64 16
@@ -1112,7 +1112,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %record, i8 0, i64 32, i1 false)
   %value.i = getelementptr inbounds nuw i8, ptr %record, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %record, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key.i, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i, ptr noundef nonnull align 8 dereferenceable(16) %val, i64 16, i1 false)
   %expiration2 = getelementptr inbounds nuw i8, ptr %record, i64 16
@@ -1616,7 +1616,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %record.i, i8 0, i64 32, i1 false)
   %value.i.i = getelementptr inbounds nuw i8, ptr %record.i, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %record.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %key, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %val, i64 16, i1 false)
   invoke void @_ZN7rocksdb13BlobLogRecord14EncodeHeaderToEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %record.i, ptr noundef nonnull %buf)

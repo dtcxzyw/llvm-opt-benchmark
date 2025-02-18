@@ -19626,7 +19626,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr readnone captures(n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %7, i8 0, i64 52, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #32
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -24420,7 +24420,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #32
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store i32 5, ptr %4, align 4, !tbaa !327
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1000, ptr %7, align 4, !tbaa !329
@@ -29800,7 +29800,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraig(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #32
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -81770,7 +81770,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly c
   %4 = alloca %struct.Bmc_BCorePar_t_, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16

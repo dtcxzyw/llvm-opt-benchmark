@@ -461,7 +461,7 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 40, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false), !annotation !5
   store ptr %0, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %13, align 8

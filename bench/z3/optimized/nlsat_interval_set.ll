@@ -424,7 +424,7 @@ if.end7:                                          ; preds = %if.end5
 
 if.end13:                                         ; preds = %if.end7
   %0 = getelementptr inbounds nuw i8, ptr %result, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4112) %0, i8 0, i64 4096, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %0, i8 0, i64 4096, i1 false)
   store ptr %0, ptr %result, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -2004,7 +2004,7 @@ define hidden noundef ptr @_ZNK5nlsat20interval_set_manager12get_intervalEPKNS_1
 entry:
   %result = alloca %class.sbuffer, align 8
   %0 = getelementptr inbounds nuw i8, ptr %result, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4112) %0, i8 0, i64 4096, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %0, i8 0, i64 4096, i1 false)
   store ptr %0, ptr %result, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

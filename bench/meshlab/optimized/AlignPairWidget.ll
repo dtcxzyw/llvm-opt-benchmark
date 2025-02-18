@@ -1641,7 +1641,7 @@ define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRendering
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %8, i8 0, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, i8 0, i64 3, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 21

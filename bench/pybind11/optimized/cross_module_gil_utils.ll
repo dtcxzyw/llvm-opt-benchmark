@@ -7199,7 +7199,7 @@ _ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %63, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %64, ptr %61, align 8
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -10003,7 +10003,7 @@ _ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_Type
   %550 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %548, ptr %550, align 8
   %551 = getelementptr inbounds nuw i8, ptr %548, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %551, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %551, i8 0, i64 16, i1 false)
   %552 = load ptr, ptr %45, align 8
   store ptr %552, ptr %548, align 8
   %553 = getelementptr inbounds nuw i8, ptr %548, i64 8
@@ -11363,7 +11363,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail13get_type_infoERKSt1
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %15, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -15290,7 +15290,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %9, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8

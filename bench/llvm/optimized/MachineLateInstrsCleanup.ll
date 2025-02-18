@@ -2140,7 +2140,7 @@ define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_124MachineLateInstrsClea
   %.08.i.i.i.i = phi ptr [ %21, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %.val4, %9 ]
   %.057.i.i.i.i = phi i64 [ %20, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i.i ], [ %10, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store i32 1, ptr %.08.i.i.i.i, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 4
   store i32 0, ptr %19, align 4, !tbaa !244
@@ -2176,7 +2176,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_c
   %.08.i.i.i33.i = phi ptr [ %29, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %25, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.057.i.i.i34.i = phi i64 [ %28, %_ZSt10_ConstructIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapEJEEvPT_DpOT0_.exit.i.i.i40.i ], [ %10, %_ZNKSt6vectorIN12_GLOBAL__N_124MachineLateInstrsCleanup9Reg2MIMapESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i32 1, ptr %.08.i.i.i33.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i, i64 4
   store i32 0, ptr %27, align 4, !tbaa !244
@@ -2440,7 +2440,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   store i32 1, ptr %15, align 8, !tbaa !171, !alias.scope !286
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %25, i8 0, i64 280, i1 false), !alias.scope !303
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %25, i8 0, i64 280, i1 false), !alias.scope !303
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !288, !alias.scope !303
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

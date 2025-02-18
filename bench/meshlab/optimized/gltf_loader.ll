@@ -117992,7 +117992,7 @@ define void @_ZN4gltf10loadMeshesERKNSt7__cxx114listIP9MeshModelSaIS3_EEERNS1_Ii
   br label %_ZN3vcg8Matrix44IfE8IdentityEv.exit
 
 _ZN3vcg8Matrix44IfE8IdentityEv.exit:              ; preds = %.lr.ph, %32, %34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -118348,7 +118348,7 @@ define void @_ZN4gltf8internal22getCurrentNodeTrMatrixERKN8tinygltf5ModelEj(ptr 
   br label %_ZN3vcg8Matrix44IfE8IdentityEv.exit
 
 _ZN3vcg8Matrix44IfE8IdentityEv.exit:              ; preds = %3, %14, %16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 4), i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 20), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3vcg8Matrix44IfE8IdentityEvE3tmp, i64 40), align 4
@@ -118413,7 +118413,7 @@ _ZN3vcg8Matrix44IdE16transposeInPlaceEv.exit:     ; preds = %38
 
 44:                                               ; preds = %_ZN3vcg8Matrix44IfE8IdentityEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %45, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store double 1.000000e+00, ptr %46, align 8
@@ -118422,7 +118422,7 @@ _ZN3vcg8Matrix44IdE16transposeInPlaceEv.exit:     ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store double 1.000000e+00, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %49, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double 1.000000e+00, ptr %50, align 8
@@ -118431,7 +118431,7 @@ _ZN3vcg8Matrix44IdE16transposeInPlaceEv.exit:     ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store double 1.000000e+00, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %53, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %53, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double 1.000000e+00, ptr %54, align 8

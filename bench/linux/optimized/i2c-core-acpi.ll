@@ -304,7 +304,7 @@ define dso_local i32 @i2c_acpi_find_bus_speed(ptr noundef %0) #2 align 16 {
 7:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = load ptr, ptr %4, align 8
   %10 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %9) #9
   %11 = getelementptr i8, ptr %9, i64 -16
@@ -578,7 +578,7 @@ define dso_local ptr @i2c_acpi_new_device_by_fwnode(ptr noundef %0, i32 noundef 
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   store ptr %2, ptr %4, align 8
   %13 = getelementptr i8, ptr %0, i64 -8
   %14 = load ptr, ptr %13, align 8
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, 
   %7 = alloca %struct.i2c_acpi_lookup, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 -1, ptr %9, align 4

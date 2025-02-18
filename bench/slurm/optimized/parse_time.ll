@@ -707,7 +707,7 @@ thread-pre-split:                                 ; preds = %242, %240
   %.3105125 = phi i32 [ %.0102, %.thread120 ], [ %.3105126131, %298 ], [ %.3105126131, %296 ], [ %.3105, %258 ], [ %.3105, %273 ]
   %.3109123 = phi i32 [ %.0106, %.thread120 ], [ %.3109124132, %298 ], [ %.3109124132, %296 ], [ %.3109, %258 ], [ %.3109, %273 ]
   %304 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %304, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %304, i8 0, i64 32, i1 false)
   store i32 %.0100, ptr %9, align 8
   %305 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.3105125, ptr %305, align 4

@@ -850,7 +850,7 @@ define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayC2Ev(ptr 
 if.then.i.i:
   %m_length.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %this, align 8
   store i64 4, ptr %m_length.i, align 8
   %m_numColorComponents.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1067,7 +1067,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i46, i64 16
   %m_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i46, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i46, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
   store i64 4, ptr %m_length.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %m_numColorComponents.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i46, i64 32
@@ -1426,7 +1426,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN19OpenColorIO_v2
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i115, i64 16
   %m_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i115, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i115, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false), !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !16
   store i64 4, ptr %m_length.i.i.i.i.i.i.i.i.i, align 8, !noalias !16
   %m_numColorComponents.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i115, i64 32
@@ -2156,7 +2156,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:
   %m_array = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %m_array, align 8
   store i64 4, ptr %m_length.i.i, align 8
   %m_numColorComponents.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2300,7 +2300,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:
   %m_array = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %m_array, align 8
   store i64 4, ptr %m_length.i.i, align 8
   %m_numColorComponents.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -5133,7 +5133,7 @@ entry:
   %m_array.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 184
   %m_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 192
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayE, i64 16), ptr %m_array.i.i.i.i, align 8
   store i64 4, ptr %m_length.i.i.i.i.i.i, align 8
   %m_numColorComponents.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 200

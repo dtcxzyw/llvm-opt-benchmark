@@ -5694,7 +5694,7 @@ invoke.cont6:                                     ; preds = %if.end3
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %10 = load i64, ptr %t.i.i.i, align 8
@@ -11838,7 +11838,7 @@ if.then6:                                         ; preds = %if.then
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %4 = load i64, ptr %t.i.i.i, align 8
@@ -11942,7 +11942,7 @@ invoke.cont4:
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %1 = load i64, ptr %t.i.i.i, align 8
@@ -12045,7 +12045,7 @@ entry:
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %1 = load i64, ptr %t.i.i.i, align 8
@@ -13098,7 +13098,7 @@ if.then5:                                         ; preds = %if.end3
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %3 = load i64, ptr %t.i.i.i, align 8
@@ -13127,7 +13127,7 @@ invoke.cont10:                                    ; preds = %if.then5, %if.then7
   store i8 0, ptr %m_printdtr.i65, align 1
   %m_starttime.i66 = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %input_mutex_timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i64)
   %call.i.i.i67 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i64) #35
   %7 = load i64, ptr %t.i.i.i64, align 8
@@ -15450,7 +15450,7 @@ entry:
   store i32 1073741824, ptr %m_max_mip_res, align 4
   %m_Mw2c = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 8
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %this, i64 188
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -15460,7 +15460,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx12.i, align 4
   %m_Mc2w = getelementptr inbounds nuw i8, ptr %this, i64 232
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 236
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mc2w, align 8
   %arrayidx6.i4 = getelementptr inbounds nuw i8, ptr %this, i64 252
   store float 1.000000e+00, ptr %arrayidx6.i4, align 4
@@ -15830,7 +15830,7 @@ invoke.cont:
   store i8 1, ptr %m_latlong_y_up_default, align 1
   %m_Mw2c = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %m_Mw2c, align 8
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %this, i64 188
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -21714,7 +21714,7 @@ invoke.cont72:                                    ; preds = %for.cond59
   %m_filename.i = getelementptr inbounds nuw i8, ptr %38, i64 16
   %39 = load ptr, ptr %m_filename.i, align 8, !noalias !312
   store i8 0, ptr %m_printdtr.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #35
   %40 = load i64, ptr %t.i.i.i, align 8

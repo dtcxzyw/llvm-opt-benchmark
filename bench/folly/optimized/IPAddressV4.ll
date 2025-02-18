@@ -5586,7 +5586,7 @@ define void @_ZNK5folly11IPAddressV414getIPv6For6To4Ev(ptr dead_on_unwind noalia
   %3 = alloca %"struct.std::array.26", align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
   %5 = load i32, ptr @_ZN5folly11IPAddressV611PREFIX_6TO4E, align 4, !tbaa !44
   %6 = lshr i32 %5, 8
   %7 = trunc i32 %6 to i8

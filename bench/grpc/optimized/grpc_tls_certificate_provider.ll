@@ -322,7 +322,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #26
   %0 = getelementptr inbounds nuw i8, ptr %call.i2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 96, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, i8 0, i64 96, i1 false), !noalias !4
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %call.i2, align 8, !noalias !4
@@ -771,7 +771,7 @@ entry:
 
 invoke.cont3:                                     ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %call.i4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %0, i8 0, i64 96, i1 false), !noalias !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, i8 0, i64 96, i1 false), !noalias !13
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32grpc_tls_certificate_distributor, i64 16), ptr %call.i4, align 8, !noalias !13

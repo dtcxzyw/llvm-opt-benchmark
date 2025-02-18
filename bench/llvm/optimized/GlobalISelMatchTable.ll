@@ -906,7 +906,7 @@ define weak_odr void @_ZN4llvm2gi13optimizeRulesINS0_12GroupMatcherEEESt6vectorI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   %8 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #33, !noalias !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 16, i1 false), !noalias !3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !3
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm2gi12GroupMatcherE, i64 16), ptr %8, align 8, !tbaa !6, !noalias !3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1275,7 +1275,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm2gi7MatcherESt14default_deleteIS3_EESaIS6_EE12
 70:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm2gi7MatcherESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS0_INS2_12GroupMatcherES4_ISA_EEEEERS6_DpOT_.exit, %14
   %71 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #33, !noalias !48
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %72, i8 0, i64 16, i1 false), !noalias !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %72, i8 0, i64 16, i1 false), !noalias !48
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm2gi12GroupMatcherE, i64 16), ptr %71, align 8, !tbaa !6, !noalias !48
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -1311,7 +1311,7 @@ define weak_odr void @_ZN4llvm2gi13optimizeRulesINS0_13SwitchMatcherEEESt6vector
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #33, !noalias !51
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %9, i8 0, i64 32, i1 false), !noalias !51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !51
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm2gi13SwitchMatcherE, i64 16), ptr %8, align 8, !tbaa !6, !noalias !51
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1814,7 +1814,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm2gi7MatcherESt14default_deleteIS3_EESaIS6_EE12
 70:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm2gi7MatcherESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS0_INS2_13SwitchMatcherES4_ISA_EEEEERS6_DpOT_.exit, %14
   %71 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #33, !noalias !86
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %72, i8 0, i64 32, i1 false), !noalias !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %72, i8 0, i64 32, i1 false), !noalias !86
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm2gi13SwitchMatcherE, i64 16), ptr %71, align 8, !tbaa !6, !noalias !86
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 48

@@ -313,7 +313,7 @@ land.rhs.i:                                       ; preds = %if.then
 
 if.end.i:                                         ; preds = %land.rhs.i, %if.then
   tail call void @_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15ReleaseResourceEv(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %cache_.i3, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %cache_.i3, i8 0, i64 17, i1 false)
   store ptr %0, ptr %uncompression_dict, align 8
   br label %_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15SetUnownedValueEPS1_.exit
 

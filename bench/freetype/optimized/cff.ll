@@ -4387,7 +4387,7 @@ define internal i32 @cff_load_private_dict(ptr noundef %0, ptr noundef initializ
   %40 = load ptr, ptr %35, align 8, !tbaa !450
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, i8 0, i64 64, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 %33, ptr %42, align 4, !tbaa !454
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -8166,7 +8166,7 @@ define internal fastcc i32 @cff_index_init(ptr noundef initializes((0, 64)) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !190
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !189
   %9 = tail call i64 @FT_Stream_Pos(ptr noundef %1) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8657,7 +8657,7 @@ define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef capture
   %21 = load ptr, ptr %20, align 8, !tbaa !450
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #19
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store i32 %5, ptr %23, align 4, !tbaa !454
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -8684,7 +8684,7 @@ cff_parser_init.exit:                             ; preds = %8
   store ptr %27, ptr %32, align 8, !tbaa !462
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %33, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %33, i8 0, i64 304, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 -6553600, ptr %34, align 8, !tbaa !156
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48

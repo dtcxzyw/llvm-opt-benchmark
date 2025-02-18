@@ -21807,7 +21807,7 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule18write_state_bufferERSt6ve
   %3 = alloca %"class.colvarmodule::memory_stream", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i64 68719476736, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %6, align 8

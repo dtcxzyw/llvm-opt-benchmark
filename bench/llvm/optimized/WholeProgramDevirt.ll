@@ -4576,7 +4576,7 @@ _ZN12_GLOBAL__N_112DevirtModule13runForTestingERN4llvm6ModuleENS1_12function_ref
 
 408:                                              ; preds = %_ZN12_GLOBAL__N_112DevirtModule13runForTestingERN4llvm6ModuleENS1_12function_refIFRNS1_9AAResultsERNS1_8FunctionEEEENS4_IFRNS1_25OptimizationRemarkEmitterEPS7_EEENS4_IFRNS1_13DominatorTreeES8_EEE.exit
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %409, i8 0, i64 64, i1 false), !alias.scope !271
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %409, i8 0, i64 64, i1 false), !alias.scope !271
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %410, ptr %0, align 8, !tbaa !28, !alias.scope !271
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4638,7 +4638,7 @@ _ZN12_GLOBAL__N_112DevirtModule13runForTestingERN4llvm6ModuleENS1_12function_ref
 
 438:                                              ; preds = %418
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %439, i8 0, i64 64, i1 false), !alias.scope !285
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %439, i8 0, i64 64, i1 false), !alias.scope !285
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %440, ptr %0, align 8, !tbaa !28, !alias.scope !285
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35850,7 +35850,7 @@ _ZNSt4pairIKmS_IN4llvm9StringRefENS1_13TypeIdSummaryEEEC2IS0_S4_TnNSt9enable_ifI
   %38 = extractvalue { ptr, i64 } %36, 1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #24
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %39, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   store i32 5, ptr %6, align 8, !tbaa !1335
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %40, i8 0, i64 21, i1 false)
@@ -37146,7 +37146,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114VTableSlotInfo11addCallSiteEPN4l
   %5 = alloca %"class.std::vector.283", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !445
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8

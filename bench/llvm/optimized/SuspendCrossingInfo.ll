@@ -2556,7 +2556,7 @@ _ZN4llvm15SmallVectorImplINS_19SuspendCrossingInfo9BlockDataEE7reserveEm.exit: ;
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.012 = phi ptr [ %47, %.lr.ph ], [ %38, %.lr.ph.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %39, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %39, i8 0, i64 136, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   store ptr %40, ptr %.012, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %.012, i64 8
@@ -2870,7 +2870,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !9, !alias.scope !105
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !119
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !106, !alias.scope !119
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -1243,7 +1243,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %9, i8 0, i64 20, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %55, i8 0, i64 33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %55, i8 0, i64 33, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %40, ptr %56, align 8
   store i64 %3, ptr %54, align 8

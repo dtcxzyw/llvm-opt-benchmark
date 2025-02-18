@@ -194,7 +194,7 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %75, i8 0, i64 220, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(220) %75, i8 0, i64 220, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %74
@@ -491,7 +491,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %92, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %92, i8 0, i64 76, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %91
@@ -737,7 +737,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %82, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %82, i8 0, i64 20, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %81

@@ -404,7 +404,7 @@ log_config_init.exit:                             ; preds = %4, %15
   %28 = or disjoint i64 %27, 17592186044416
   store i64 %28, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %7, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 2, ptr %30, align 4, !tbaa !20
@@ -1185,7 +1185,7 @@ define internal fastcc i32 @cmd_log_walk_no_free(ptr noundef nonnull %0) unnamed
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #22
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   store ptr @early_output, ptr %2, align 8, !tbaa !77
   %7 = call i32 @sigemptyset(ptr noundef nonnull %6) #22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 136
@@ -1411,7 +1411,7 @@ log_config_init.exit:                             ; preds = %4, %15
   %28 = or i64 %27, 562949953421312
   store i64 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %7, align 8, !tbaa !18
   call fastcc void @cmd_log_init_defaults(ptr noundef %6, ptr noundef %5)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 300
@@ -3089,7 +3089,7 @@ format_config_init.exit:                          ; preds = %4, %422
   %457 = getelementptr inbounds nuw i8, ptr %30, i64 2056
   store i32 1, ptr %457, align 8, !tbaa !69
   %458 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %458, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %458, i8 0, i64 16, i1 false)
   store ptr @.str, ptr %31, align 8, !tbaa !18
   %459 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 2, ptr %459, align 4, !tbaa !20

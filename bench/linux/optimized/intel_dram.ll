@@ -770,10 +770,10 @@ default.unreachable2:                             ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8912
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %25, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %25, i8 0, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %26, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, i8 0, i64 6, i1 false)
   %27 = load ptr, ptr %5, align 8
   %28 = tail call i32 %27(ptr noundef nonnull %4, i32 1331212, i1 noundef zeroext true) #8
   %29 = call fastcc i32 @skl_dram_get_channel_info(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %28), !range !10

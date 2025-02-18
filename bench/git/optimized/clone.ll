@@ -2845,7 +2845,7 @@ _.exit.i418:                                      ; preds = %1050, %1048
   %1064 = load ptr, ptr @the_repository, align 8, !tbaa !8
   %1065 = call i32 @repo_hold_locked_index(ptr noundef %1064, ptr noundef nonnull %6, i32 noundef 1) #20
   %1066 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %1066, i8 0, i64 1104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1104) %1066, i8 0, i64 1104, i1 false)
   %1067 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %1067, align 4, !tbaa !110
   store i32 1, ptr %7, align 8, !tbaa !127

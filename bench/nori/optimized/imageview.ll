@@ -1572,7 +1572,7 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit: ; preds = %98
   store float 1.000000e+00, ptr %103, align 4, !alias.scope !11
   %104 = sitofp i32 %.sroa.0.0.extract.trunc to float
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %105, i8 0, i64 44, i1 false), !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %105, i8 0, i64 44, i1 false), !alias.scope !14
   br label %106
 
 106:                                              ; preds = %106, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit
@@ -1619,7 +1619,7 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   store float 0.000000e+00, ptr %130, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %131, i8 0, i64 60, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %131, i8 0, i64 60, i1 false), !alias.scope !18
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store float 1.000000e+00, ptr %10, align 4, !alias.scope !18
   br label %133

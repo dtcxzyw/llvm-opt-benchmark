@@ -8923,7 +8923,7 @@ define hidden void @_ZN6Assimp11XFileParser26ParseDataObjectSkinWeightsEPNS_5XFi
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr %16, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %17, align 8
@@ -16375,7 +16375,7 @@ _ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit: ; preds = 
   %21 = phi ptr [ %20, %18 ], [ null, %_ZNKSt6vectorIN6Assimp5XFile4BoneESaIS2_EE12_M_check_lenEmPKc.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %23, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8

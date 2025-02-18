@@ -14871,7 +14871,7 @@ define dso_local void @_ZN10btSoftBody6rotateERK12btQuaternion(ptr noundef nonnu
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load float, ptr %1, align 4, !tbaa !235
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !235
@@ -34223,7 +34223,7 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit30: ; preds = %63, %65, %87
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #45
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %119, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
   store i8 1, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -35064,7 +35064,7 @@ _ZNK10btSoftBody4Body15angularVelocityEv.exit14:  ; preds = %18, %20, %22
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #45
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %55, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   store i8 1, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 100

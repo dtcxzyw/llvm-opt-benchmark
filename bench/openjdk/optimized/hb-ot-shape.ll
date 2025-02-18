@@ -1669,7 +1669,7 @@ _ZN9hb_font_t9has_glyphEj.exit.i.i:               ; preds = %119, %110
 
 124:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit.i.i
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %125, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, i8 0, i64 16, i1 false)
   store i32 9676, ptr %18, align 4
   call fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_info_tP11hb_buffer_t(ptr noundef nonnull %18, ptr noundef nonnull %2)
   call void @_ZN11hb_buffer_t12clear_outputEv(ptr noundef nonnull align 8 dereferenceable(220) %2)

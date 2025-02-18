@@ -377,7 +377,7 @@ define dso_local range(i32 0, 2) i32 @cmd_rebase(i32 noundef %0, ptr noundef %1,
   %46 = alloca %struct.diff_options, align 8
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %22) #19
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %47, i8 0, i64 352, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %47, i8 0, i64 352, i1 false)
   store i32 -1, ptr %22, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 -1, ptr %48, align 4, !tbaa !19
@@ -1859,7 +1859,7 @@ state_dir_path.exit:                              ; preds = %723, %725
 731:                                              ; preds = %state_dir_path.exit
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %43) #19
   %732 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %732, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %732, i8 0, i64 176, i1 false)
   %733 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 -1, ptr %733, align 4, !tbaa !84
   %734 = getelementptr inbounds nuw i8, ptr %43, i64 104
@@ -4181,7 +4181,7 @@ _.exit.i.i:                                       ; preds = %1684, %1682
 1710:                                             ; preds = %1708
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
   %1711 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1711, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1711, i8 0, i64 48, i1 false)
   %1712 = call i32 @unlink(ptr noundef %1678) #19
   call void @free(ptr noundef %1678) #19
   call void @child_process_clear(ptr noundef nonnull %6) #19
@@ -5560,7 +5560,7 @@ state_dir_path.exit:                              ; preds = %20, %22
 33:                                               ; preds = %state_dir_path.exit
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #19
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %34, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %34, i8 0, i64 176, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %35, align 4, !tbaa !84
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -5806,7 +5806,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_up_to_date(ptr noundef non
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.cleanup_autostash.dir, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8, !tbaa !73
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6053,7 +6053,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_replay_opts(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 192)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %4, align 4, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104

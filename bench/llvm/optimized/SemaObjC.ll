@@ -10753,7 +10753,7 @@ define dso_local void @_ZN5clang8SemaObjC17checkRetainCyclesEPNS_7VarDeclEPNS_4E
   %4 = alloca %"struct.clang::(anonymous namespace)::RetainCycleOwner", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !17
   %7 = and i64 %.sroa.0.0.copyload.i.i, -16

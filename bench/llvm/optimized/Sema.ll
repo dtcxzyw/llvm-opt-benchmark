@@ -3107,7 +3107,7 @@ _ZNSt10unique_ptrIN5clang5NSAPIESt14default_deleteIS1_EE5resetEPS1_.exit: ; pred
 572:                                              ; preds = %_ZNSt10unique_ptrIN5clang5NSAPIESt14default_deleteIS1_EE5resetEPS1_.exit
   %573 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #29
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %574, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %574, i8 0, i64 304, i1 false)
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 16
   store ptr %575, ptr %573, align 8, !tbaa !1322
   %576 = getelementptr inbounds nuw i8, ptr %573, i64 8
@@ -3176,7 +3176,7 @@ _ZNSt10unique_ptrIN5clang17CXXFieldCollectorESt14default_deleteIS1_EE5resetEPS1_
   call void @_ZN5clang10SemaOpenMP30InitDataSharingAttributesStackEv(ptr noundef nonnull align 8 dereferenceable(528) %597) #28
   %598 = call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #29, !noalias !1542
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %599, i8 0, i64 112, i1 false), !noalias !1542
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %599, i8 0, i64 112, i1 false), !noalias !1542
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang4sema15SemaPPCallbacksE, i64 16), ptr %598, align 8, !tbaa !889, !noalias !1542
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 8
   store ptr null, ptr %600, align 8, !tbaa !1545, !noalias !1542
@@ -17361,7 +17361,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #28
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #28
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   store i32 1, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %16, align 4, !tbaa !1889

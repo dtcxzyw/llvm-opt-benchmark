@@ -499,7 +499,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i.i: ; preds = %42
   store ptr %46, ptr %24, align 8, !tbaa !71, !noalias !39
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 2, ptr %45, align 8, !tbaa !57
   store ptr null, ptr %47, align 8, !tbaa !72
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 24

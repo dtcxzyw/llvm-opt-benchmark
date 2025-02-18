@@ -148,7 +148,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
 .critedge2.thread.thread122:                      ; preds = %52
   %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %56, align 4
   br label %112
 
@@ -225,14 +225,14 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %.07196107117.ph = phi i32 [ %22, %21 ], [ %.07195, %31 ]
   %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %87, i8 0, i64 12, i1 false)
   store i32 %.07196107117.ph, ptr %86, align 4
   br label %94
 
 .critedge2.thread:                                ; preds = %.critedge2
   %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %88, align 4
   switch i32 %.045.ph, label %default.unreachable [
     i32 1, label %90

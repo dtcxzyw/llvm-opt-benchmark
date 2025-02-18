@@ -512,7 +512,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %66 = load double, ptr %65, align 8
   %67 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %62, i64 %.014, i32 2
   %68 = load double, ptr %67, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %27, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %27, i8 0, i64 368, i1 false)
   store double %64, ptr %2, align 16
   store double %66, ptr %28, align 8
   store double %68, ptr %27, align 16
@@ -1034,7 +1034,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %58 = load double, ptr %57, align 8
   %59 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %54, i64 %.014, i32 2
   %60 = load double, ptr %59, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %19, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %19, i8 0, i64 368, i1 false)
   store double %56, ptr %1, align 16
   store double %58, ptr %20, align 8
   store double %60, ptr %19, align 16
@@ -1679,7 +1679,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %103 = load double, ptr %102, align 8
   %104 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %99, i64 %.01129, i32 2
   %105 = load double, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %62, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %62, i8 0, i64 368, i1 false)
   store double %101, ptr %2, align 16
   store double %103, ptr %63, align 8
   store double %105, ptr %62, align 16
@@ -2375,7 +2375,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %96 = load double, ptr %95, align 8
   %97 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %92, i64 %.01129, i32 2
   %98 = load double, ptr %97, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %55, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %55, i8 0, i64 368, i1 false)
   store double %94, ptr %2, align 16
   store double %96, ptr %56, align 8
   store double %98, ptr %55, align 16
@@ -3029,7 +3029,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %95 = load double, ptr %94, align 8
   %96 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %91, i64 %.084, i32 2
   %97 = load double, ptr %96, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %56, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %56, i8 0, i64 368, i1 false)
   store double %93, ptr %1, align 16
   store double %95, ptr %57, align 8
   store double %97, ptr %56, align 16
@@ -3681,7 +3681,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %95 = load double, ptr %94, align 8
   %96 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %91, i64 %.084, i32 2
   %97 = load double, ptr %96, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %56, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %56, i8 0, i64 368, i1 false)
   store double %93, ptr %1, align 16
   store double %95, ptr %57, align 8
   store double %97, ptr %56, align 16
@@ -4319,7 +4319,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %83 = load double, ptr %82, align 8
   %84 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %79, i64 %.050, i32 2
   %85 = load double, ptr %84, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %44, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %44, i8 0, i64 368, i1 false)
   store double %81, ptr %1, align 16
   store double %83, ptr %45, align 8
   store double %85, ptr %44, align 16
@@ -5391,7 +5391,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %_ZNSt6vectorIN12co
   %65 = load double, ptr %64, align 8
   %66 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %61, i64 %.01225, i32 2
   %67 = load double, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %23, i8 0, i64 368, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %23, i8 0, i64 368, i1 false)
   store double %63, ptr %3, align 16
   store double %65, ptr %24, align 8
   store double %67, ptr %23, align 16

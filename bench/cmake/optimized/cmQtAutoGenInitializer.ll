@@ -12099,7 +12099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463: ; preds = %_Z
 
 .noexc467:                                        ; preds = %.thread1248
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %551, i8 0, i64 56, i1 false), !noalias !598
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %551, i8 0, i64 56, i1 false), !noalias !598
   store ptr %551, ptr %550, align 8, !tbaa !217, !noalias !598
   %552 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i64 0, ptr %552, align 8, !tbaa !218, !noalias !598
@@ -31405,7 +31405,7 @@ define internal fastcc void @"_ZZN22cmQtAutoGenInitializer13InitScanFilesEvENK3$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1229)
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33, !noalias !1229
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, i8 0, i64 56, i1 false), !noalias !1229
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, i8 0, i64 56, i1 false), !noalias !1229
   store ptr %7, ptr %6, align 8, !tbaa !217, !noalias !1229
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %8, align 8, !tbaa !218, !noalias !1229

@@ -3507,7 +3507,7 @@ define internal fastcc range(i32 0, 2) i32 @LogStreamerMain(ptr noundef %0) unna
   %2 = alloca %struct.StreamCtl, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store i1 true, ptr @in_log_streamer, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

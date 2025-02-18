@@ -2245,7 +2245,7 @@ _ZSt8_DestroyIP17InteractionOfTypeS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt
   br label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE5clearEv.exit.i
 
 _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5clearEv.exit.i: ; preds = %_ZSt8_DestroyIP17InteractionOfTypeS0_EvT_S2_RSaIT0_E.exit.i.i.i, %634
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %235, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %235, i8 0, i64 44, i1 false)
   store float -4.092030e+05, ptr %25, align 4
   %645 = load ptr, ptr %583, align 8
   %646 = load ptr, ptr %606, align 8

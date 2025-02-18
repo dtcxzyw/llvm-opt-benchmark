@@ -1638,7 +1638,7 @@ define internal fastcc ptr @pg_get_triggerdef_worker(i32 noundef %0, i1 noundef 
   %147 = getelementptr inbounds nuw i8, ptr %136, i64 209
   store i8 1, ptr %147, align 1
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %148, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %148, i8 0, i64 152, i1 false)
   %149 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %124, ptr nonnull %136) #11
   store ptr %149, ptr %7, align 8
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -10059,7 +10059,7 @@ define dso_local ptr @select_rtable_names_for_explain(ptr noundef %0, ptr nounde
   %3 = alloca %struct.deparse_namespace, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 152, i1 false)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -10292,7 +10292,7 @@ define dso_local ptr @get_range_partbound_string(ptr noundef readonly captures(a
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
   %3 = tail call ptr @makeStringInfo() #11
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store ptr %3, ptr %2, align 8
   tail call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 40) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

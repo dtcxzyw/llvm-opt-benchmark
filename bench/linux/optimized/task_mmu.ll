@@ -507,7 +507,7 @@ define internal range(i64 -2147483648, 13) i64 @clear_refs_write(ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #13
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, i8 0, i64 56, i1 false)
   store ptr %34, ptr %7, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 1, ptr %36, align 8
@@ -1434,7 +1434,7 @@ define internal ptr @m_start(ptr noundef readonly captures(none) %0, ptr noundef
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   store ptr %59, ptr %58, align 8
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %5, ptr %61, align 8
@@ -3199,7 +3199,7 @@ define internal i32 @show_smaps_rollup(ptr noundef %0, ptr readnone captures(non
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   store ptr %9, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %11, align 8

@@ -19,7 +19,7 @@ define dso_local range(i32 0, 2) i32 @cmd_update_server_info(i32 noundef %0, ptr
   store i32 0, ptr %5, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %7, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %7, i8 0, i64 160, i1 false)
   store i32 8, ptr %6, align 16, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 102, ptr %8, align 4, !tbaa !13

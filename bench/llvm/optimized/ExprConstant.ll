@@ -8927,7 +8927,7 @@ define internal fastcc noundef zeroext i1 @_ZL19EvaluateDestructionRKN5clang10AS
   store ptr null, ptr %62, align 8, !tbaa !620
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 920
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 872
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %64, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %64, i8 0, i64 20, i1 false)
   store ptr %61, ptr %63, align 8, !tbaa !621
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 928
   store ptr %61, ptr %65, align 8, !tbaa !622

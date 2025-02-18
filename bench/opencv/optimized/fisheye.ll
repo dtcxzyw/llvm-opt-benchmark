@@ -7161,7 +7161,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %278
   %297 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %298 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %299 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %299, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, i8 0, i64 16, i1 false)
   store ptr %295, ptr %298, align 8
   %300 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %301 = getelementptr inbounds nuw i8, ptr %47, i64 80
@@ -7245,7 +7245,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %278
   %332 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %333 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %334 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %334, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %334, i8 0, i64 16, i1 false)
   store ptr %330, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %336 = getelementptr inbounds nuw i8, ptr %49, i64 80
@@ -7378,7 +7378,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %278
   %393 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %394 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %395 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %395, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %395, i8 0, i64 16, i1 false)
   store ptr %391, ptr %394, align 8
   %396 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %397 = getelementptr inbounds nuw i8, ptr %54, i64 80
@@ -7468,7 +7468,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %278
   %433 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %434 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %435 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %435, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %435, i8 0, i64 16, i1 false)
   store ptr %431, ptr %434, align 8
   %436 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %437 = getelementptr inbounds nuw i8, ptr %56, i64 80
@@ -7546,7 +7546,7 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %278
   %472 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %473 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %474 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %474, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %474, i8 0, i64 16, i1 false)
   store ptr %470, ptr %473, align 8
   %475 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %476 = getelementptr inbounds nuw i8, ptr %58, i64 80

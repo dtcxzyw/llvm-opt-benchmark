@@ -993,7 +993,7 @@ delete_only.exit.thread97:                        ; preds = %276
 281:                                              ; preds = %278
   store i32 1, ptr @use_keepalive, align 4, !tbaa !4
   %282 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %282, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, i8 0, i64 40, i1 false)
   store ptr @copy_to_sideband, ptr %17, align 8, !tbaa !77
   %283 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 -1, ptr %283, align 8, !tbaa !79
@@ -1298,7 +1298,7 @@ delete_only.exit:                                 ; preds = %401, %prepare_shall
 
 405:                                              ; preds = %404
   %406 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %406, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %406, i8 0, i64 40, i1 false)
   store ptr @copy_to_sideband, ptr %16, align 8, !tbaa !77
   %407 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 -1, ptr %407, align 8, !tbaa !79
@@ -2788,7 +2788,7 @@ define internal fastcc i32 @run_receive_hook(ptr noundef nonnull %0, ptr noundef
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %57, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, i8 0, i64 40, i1 false)
   store ptr @copy_to_sideband, ptr %7, align 8, !tbaa !77
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1, ptr %58, align 8, !tbaa !79
@@ -4103,7 +4103,7 @@ define internal fastcc i32 @run_proc_receive_hook(ptr noundef nonnull %0, ptr no
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   store ptr @copy_to_sideband, ptr %4, align 8, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %18, align 8, !tbaa !79

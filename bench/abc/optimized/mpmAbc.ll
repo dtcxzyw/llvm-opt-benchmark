@@ -2724,7 +2724,7 @@ define internal fastcc ptr @Mig_ManAppendObj(ptr noundef %0) unnamed_addr #8 {
 7:                                                ; preds = %1
   %8 = tail call noalias dereferenceable_or_null(65568) ptr @malloc(i64 noundef 65568) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65568) %9, i8 -1, i64 65560, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65560) %9, i8 -1, i64 65560, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %4, align 8, !tbaa !70

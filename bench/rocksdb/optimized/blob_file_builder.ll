@@ -2056,7 +2056,7 @@ entry:
   %blob_file_number = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %0 = getelementptr inbounds nuw i8, ptr %footer, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %blob_count_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %1 = load i64, ptr %blob_count_, align 8
   store i64 %1, ptr %footer, align 8

@@ -9150,7 +9150,7 @@ _ZN4llvh8OptionalIN6hermes18SourceMapGeneratorEEaSEOS2_.exit: ; preds = %for.end
   %stringsToIndex_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 152
   %sourcesMetadata_.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 176
   %24 = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %24, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %24, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sourceMapGen, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp61, i8 0, i64 24, i1 false)
   %lines_.i = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 24
@@ -15574,7 +15574,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %rootPath, i64 8
   store i64 %rootPath.coerce1, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %path, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %path, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %path, i64 8

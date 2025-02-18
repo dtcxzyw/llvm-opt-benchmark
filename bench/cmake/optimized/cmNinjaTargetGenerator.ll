@@ -11604,7 +11604,7 @@ define dso_local void @_ZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx
   %149 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %60) #29
   %150 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %150, i8 0, i64 320, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %150, i8 0, i64 320, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !88
   %153 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2912) %152)
@@ -19954,7 +19954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %19) #29
   %83 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %83, i8 0, i64 336, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %83, i8 0, i64 336, i1 false)
   %84 = load ptr, ptr %3, align 8, !tbaa !736
   store ptr %84, ptr %19, align 8, !tbaa !736
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8

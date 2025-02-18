@@ -3844,7 +3844,7 @@ _ZN12_GLOBAL__N_119InductiveRangeCheck19parseRangeCheckICmpEPN4llvm4LoopEPNS1_8I
 341:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
   %342 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %342, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %342, i8 0, i64 24, i1 false)
   %343 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.034, ptr %343, align 8, !tbaa !157
   %344 = getelementptr inbounds nuw i8, ptr %.1, i64 32

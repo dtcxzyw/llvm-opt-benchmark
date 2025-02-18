@@ -856,7 +856,7 @@ list_length.exit260.thread:                       ; preds = %337, %list_length.e
   %.0190 = phi i64 [ %403, %396 ], [ 0, %.thread281 ]
   %406 = call ptr @table_open(i32 noundef 3381, i32 noundef 3) #10
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %407, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %407, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
   %408 = call i32 @GetNewOidWithIndex(ptr noundef %406, i32 noundef 3380, i16 noundef signext 1) #10
   %409 = zext i32 %408 to i64

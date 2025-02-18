@@ -2083,7 +2083,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 define dso_local i32 @uv_ip4_addr(ptr noundef %ip, i32 noundef %port, ptr noundef initializes((0, 16)) %addr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, i8 0, i64 12, i1 false)
   store i16 2, ptr %addr, align 4
   %conv = trunc i32 %port to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26
@@ -2107,7 +2107,7 @@ define dso_local i32 @uv_ip6_addr(ptr noundef %ip, i32 noundef %port, ptr nounde
 entry:
   %address_part = alloca [40 x i8], align 16
   %0 = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i16 10, ptr %addr, align 4
   %conv = trunc i32 %port to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26

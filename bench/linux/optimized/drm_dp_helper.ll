@@ -5362,7 +5362,7 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef captures(address_is
   %6 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #18
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #18

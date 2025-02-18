@@ -3011,7 +3011,7 @@ if.then.i.i:                                      ; preds = %entry
 invoke.cont:                                      ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 56, i1 false), !alias.scope !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false), !alias.scope !35
   %kind_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i32, ptr %kind_.i.i.i, align 8, !noalias !35
   %cmp.i.i.i = icmp eq i32 %1, 0
@@ -3058,7 +3058,7 @@ invoke.cont:                                      ; preds = %entry
 define void @_ZNK8facebook5velox6memory14MemoryPoolImpl11statsLockedEv(ptr noalias writeonly sret(%"struct.facebook::velox::memory::MemoryPool::Stats") align 8 captures(none) initializes((0, 88)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i32, ptr %kind_.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 0

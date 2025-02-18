@@ -7305,7 +7305,7 @@ _ZN2cv3MatC2IfEERKSt6vectorIT_SaIS3_EEb.exit.i:   ; preds = %881
   %896 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %897 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %898 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %898, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %898, i8 0, i64 16, i1 false)
   store ptr %889, ptr %897, align 8
   %899 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %900 = getelementptr inbounds nuw i8, ptr %67, i64 80

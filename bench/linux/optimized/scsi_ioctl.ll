@@ -971,7 +971,7 @@ define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noun
   %273 = trunc i64 %272 to i32
   store i32 %273, ptr %270, align 8
   %274 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %274, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %274, i8 0, i64 80, i1 false)
   store i32 83, ptr %15, align 8
   %275 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %276 = getelementptr inbounds nuw i8, ptr %14, i64 24

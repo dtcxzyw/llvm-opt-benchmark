@@ -9338,7 +9338,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i60.i: ; preds = %_ZNK4llvm9Stri
 102:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i60.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %103, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, i8 0, i64 64, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %104, ptr %0, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8

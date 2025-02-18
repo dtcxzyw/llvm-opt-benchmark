@@ -481,7 +481,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   store i64 %13, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %57, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %57, i8 0, i64 44, i1 false)
   %58 = call noundef i32 @_ZN2os22active_processor_countEv() #11
   %59 = mul i32 %58, 5000
   %60 = add i32 %59, -5000
@@ -3359,7 +3359,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
   store i64 %4, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %64, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %64, i8 0, i64 44, i1 false)
   %65 = call noundef i32 @_ZN2os22active_processor_countEv() #11
   %66 = mul i32 %65, 5000
   %67 = add i32 %66, -5000

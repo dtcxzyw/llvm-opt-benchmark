@@ -59,7 +59,7 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_bio(ptr noundef %0, ptr noundef %1) 
   %3 = alloca %struct.encoder_process_data_st, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8, !tbaa !14
@@ -229,7 +229,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit:  ; preds = %OSSL_ENCODER_INSTAN
   %.0.i128136139145 = phi ptr [ %46, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
   %.0.i130140144 = phi ptr [ %48, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
   %.0.i132 = phi ptr [ %52, %45 ], [ null, %OSSL_ENCODER_INSTANCE_get_encoder.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
   %53 = load ptr, ptr %0, align 8, !tbaa !3
   store ptr %53, ptr %3, align 8, !tbaa !3
   store i32 %34, ptr %20, align 8, !tbaa !19

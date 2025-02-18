@@ -9927,7 +9927,7 @@ define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5S
 
 _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EE7reserveEm.exit.thread: ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 8

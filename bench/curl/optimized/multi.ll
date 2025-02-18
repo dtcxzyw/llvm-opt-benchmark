@@ -5117,7 +5117,7 @@ define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %0, i1 nou
   %10 = alloca %struct.Curl_hash_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #19
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %11, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %11, i8 0, i64 184, i1 false)
   store ptr %0, ptr %9, align 8, !tbaa !226
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = tail call { i64, i32 } @Curl_now() #19

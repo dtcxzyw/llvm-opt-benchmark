@@ -289,7 +289,7 @@ define dso_local noundef i32 @i915_gem_object_wait_priority(ptr noundef readonly
   %4 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 40, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
   %8 = and i32 %1, 4
@@ -357,11 +357,11 @@ define dso_local i32 @i915_gem_object_wait(ptr noundef readonly captures(none) %
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 40, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !17
   %10 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 40, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false), !annotation !17
   %12 = and i32 %1, 4
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 1, i32 2

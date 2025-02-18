@@ -22901,7 +22901,7 @@ entry:
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
   %m_begins.i = getelementptr inbounds nuw i8, ptr %seq, i64 2072
   %1 = getelementptr inbounds nuw i8, ptr %seq, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store ptr %1, ptr %m_begins.i, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 2080
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -22909,7 +22909,7 @@ entry:
   store i32 16, ptr %m_capacity.i.i.i, align 4
   %m_szs.i = getelementptr inbounds nuw i8, ptr %seq, i64 2152
   %2 = getelementptr inbounds nuw i8, ptr %seq, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store ptr %2, ptr %m_szs.i, align 8
   %m_pos.i.i2.i = getelementptr inbounds nuw i8, ptr %seq, i64 2160
   store i32 0, ptr %m_pos.i.i2.i, align 8
@@ -27185,7 +27185,7 @@ entry:
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
   %m_begins.i = getelementptr inbounds nuw i8, ptr %der_seq, i64 2072
   %1 = getelementptr inbounds nuw i8, ptr %der_seq, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store ptr %1, ptr %m_begins.i, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %der_seq, i64 2080
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -27193,7 +27193,7 @@ entry:
   store i32 16, ptr %m_capacity.i.i.i, align 4
   %m_szs.i = getelementptr inbounds nuw i8, ptr %der_seq, i64 2152
   %2 = getelementptr inbounds nuw i8, ptr %der_seq, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store ptr %2, ptr %m_szs.i, align 8
   %m_pos.i.i2.i = getelementptr inbounds nuw i8, ptr %der_seq, i64 2160
   store i32 0, ptr %m_pos.i.i2.i, align 8
@@ -27228,7 +27228,7 @@ invoke.cont9:                                     ; preds = %invoke.cont2
   store i32 256, ptr %m_capacity.i.i.i.i.i40, align 4
   %m_begins.i41 = getelementptr inbounds nuw i8, ptr %prs, i64 2072
   %4 = getelementptr inbounds nuw i8, ptr %prs, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store ptr %4, ptr %m_begins.i41, align 8
   %m_pos.i.i.i42 = getelementptr inbounds nuw i8, ptr %prs, i64 2080
   store i32 0, ptr %m_pos.i.i.i42, align 8
@@ -27236,7 +27236,7 @@ invoke.cont9:                                     ; preds = %invoke.cont2
   store i32 16, ptr %m_capacity.i.i.i43, align 4
   %m_szs.i44 = getelementptr inbounds nuw i8, ptr %prs, i64 2152
   %5 = getelementptr inbounds nuw i8, ptr %prs, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   store ptr %5, ptr %m_szs.i44, align 8
   %m_pos.i.i2.i45 = getelementptr inbounds nuw i8, ptr %prs, i64 2160
   store i32 0, ptr %m_pos.i.i2.i45, align 8
@@ -27250,7 +27250,7 @@ invoke.cont9:                                     ; preds = %invoke.cont2
 
 invoke.cont26:                                    ; preds = %invoke.cont9
   %7 = getelementptr inbounds nuw i8, ptr %taqrs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   store ptr %7, ptr %taqrs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %taqrs, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %taqrs, i64 12
@@ -27267,7 +27267,7 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   store i32 256, ptr %m_capacity.i.i.i.i.i51, align 4
   %m_begins.i52 = getelementptr inbounds nuw i8, ptr %qs, i64 2072
   %8 = getelementptr inbounds nuw i8, ptr %qs, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store ptr %8, ptr %m_begins.i52, align 8
   %m_pos.i.i.i53 = getelementptr inbounds nuw i8, ptr %qs, i64 2080
   store i32 0, ptr %m_pos.i.i.i53, align 8
@@ -27275,7 +27275,7 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   store i32 16, ptr %m_capacity.i.i.i54, align 4
   %m_szs.i55 = getelementptr inbounds nuw i8, ptr %qs, i64 2152
   %9 = getelementptr inbounds nuw i8, ptr %qs, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   store ptr %9, ptr %m_szs.i55, align 8
   %m_pos.i.i2.i56 = getelementptr inbounds nuw i8, ptr %qs, i64 2160
   store i32 0, ptr %m_pos.i.i2.i56, align 8
@@ -27294,7 +27294,7 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   %A.i68 = getelementptr inbounds nuw i8, ptr %new_M_s, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %A.i68, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %new_taqrs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 128, i1 false)
   store ptr %10, ptr %new_taqrs, align 8
   %m_pos.i.i70 = getelementptr inbounds nuw i8, ptr %new_taqrs, i64 8
   store i32 0, ptr %m_pos.i.i70, align 8
@@ -27310,7 +27310,7 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   store i32 256, ptr %m_capacity.i.i.i.i.i75, align 4
   %m_begins.i76 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2072
   %11 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store ptr %11, ptr %m_begins.i76, align 8
   %m_pos.i.i.i77 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2080
   store i32 0, ptr %m_pos.i.i.i77, align 8
@@ -27318,7 +27318,7 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   store i32 16, ptr %m_capacity.i.i.i78, align 4
   %m_szs.i79 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2152
   %12 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr %12, ptr %m_szs.i79, align 8
   %m_pos.i.i2.i80 = getelementptr inbounds nuw i8, ptr %new_prs, i64 2160
   store i32 0, ptr %m_pos.i.i2.i80, align 8
@@ -27333,21 +27333,21 @@ invoke.cont26:                                    ; preds = %invoke.cont9
   %m_capacity.i.i.i85 = getelementptr inbounds nuw i8, ptr %new_scs, i64 20
   store i32 32, ptr %m_capacity.i.i.i85, align 4
   %13 = getelementptr inbounds nuw i8, ptr %sc_cardinalities, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 128, i1 false)
   store ptr %13, ptr %sc_cardinalities, align 8
   %m_pos.i.i87 = getelementptr inbounds nuw i8, ptr %sc_cardinalities, i64 8
   store i32 0, ptr %m_pos.i.i87, align 8
   %m_capacity.i.i88 = getelementptr inbounds nuw i8, ptr %sc_cardinalities, i64 12
   store i32 32, ptr %m_capacity.i.i88, align 4
   %14 = getelementptr inbounds nuw i8, ptr %cols_to_keep, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 128, i1 false)
   store ptr %14, ptr %cols_to_keep, align 8
   %m_pos.i.i90 = getelementptr inbounds nuw i8, ptr %cols_to_keep, i64 8
   store i32 0, ptr %m_pos.i.i90, align 8
   %m_capacity.i.i91 = getelementptr inbounds nuw i8, ptr %cols_to_keep, i64 12
   store i32 32, ptr %m_capacity.i.i91, align 4
   %15 = getelementptr inbounds nuw i8, ptr %new_row_idxs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, i8 0, i64 128, i1 false)
   store ptr %15, ptr %new_row_idxs, align 8
   %m_pos.i.i93 = getelementptr inbounds nuw i8, ptr %new_row_idxs, i64 8
   store i32 0, ptr %m_pos.i.i93, align 8
@@ -27406,11 +27406,11 @@ invoke.cont43:                                    ; preds = %while.body
   store ptr %m_initial_buffer.i.i.i.i.i.i509, ptr %m_buffer.i.i.i.i, align 8
   store i32 0, ptr %m_pos.i.i.i.i.i.i, align 8
   store i32 256, ptr %m_capacity.i.i.i.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store ptr %17, ptr %m_begins.i.i, align 8
   store i32 0, ptr %m_pos.i.i.i.i510, align 8
   store i32 16, ptr %m_capacity.i.i.i.i511, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %18, ptr %m_szs.i.i, align 8
   store i32 0, ptr %m_pos.i.i2.i.i, align 8
   store i32 16, ptr %m_capacity.i.i3.i.i, align 4
@@ -40981,11 +40981,11 @@ invoke.cont6:                                     ; preds = %entry.if.end_crit_e
   store ptr %m_initial_buffer.i.i.i.i.i, ptr %m_buffer.i.i.i, align 8
   store i32 0, ptr %m_pos.i.i.i.i.i, align 8
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store ptr %6, ptr %m_begins.i174, align 8
   store i32 0, ptr %m_pos.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %7, ptr %m_szs.i175, align 8
   store i32 0, ptr %m_pos.i.i2.i, align 8
   store i32 16, ptr %m_capacity.i.i3.i, align 4
@@ -41108,11 +41108,11 @@ invoke.cont25:                                    ; preds = %invoke.cont20
   store ptr %m_initial_buffer.i.i.i.i.i181, ptr %m_buffer.i.i.i180, align 8
   store i32 0, ptr %m_pos.i.i.i.i.i182, align 8
   store i32 256, ptr %m_capacity.i.i.i.i.i183, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store ptr %8, ptr %m_begins.i184, align 8
   store i32 0, ptr %m_pos.i.i.i185, align 8
   store i32 16, ptr %m_capacity.i.i.i186, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   store ptr %9, ptr %m_szs.i187, align 8
   store i32 0, ptr %m_pos.i.i2.i188, align 8
   store i32 16, ptr %m_capacity.i.i3.i189, align 4
@@ -41845,7 +41845,7 @@ entry:
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
   %m_begins.i = getelementptr inbounds nuw i8, ptr %seq, i64 2072
   %1 = getelementptr inbounds nuw i8, ptr %seq, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store ptr %1, ptr %m_begins.i, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 2080
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -41853,7 +41853,7 @@ entry:
   store i32 16, ptr %m_capacity.i.i.i, align 4
   %m_szs.i = getelementptr inbounds nuw i8, ptr %seq, i64 2152
   %2 = getelementptr inbounds nuw i8, ptr %seq, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store ptr %2, ptr %m_szs.i, align 8
   %m_pos.i.i2.i = getelementptr inbounds nuw i8, ptr %seq, i64 2160
   store i32 0, ptr %m_pos.i.i2.i, align 8
@@ -42413,7 +42413,7 @@ if.else15:                                        ; preds = %if.else9
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
   %m_begins.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2072
   %3 = getelementptr inbounds nuw i8, ptr %seq.i, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store ptr %3, ptr %m_begins.i, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2080
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -42421,7 +42421,7 @@ if.else15:                                        ; preds = %if.else9
   store i32 16, ptr %m_capacity.i.i.i, align 4
   %m_szs.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2152
   %4 = getelementptr inbounds nuw i8, ptr %seq.i, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store ptr %4, ptr %m_szs.i, align 8
   %m_pos.i.i2.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2160
   store i32 0, ptr %m_pos.i.i2.i, align 8
@@ -44864,7 +44864,7 @@ _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit94: ; preds = %_ZNK5arrayIPN11
   store i32 256, ptr %m_capacity.i.i.i.i.i, align 4
   %m_begins.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2072
   %24 = getelementptr inbounds nuw i8, ptr %seq.i, i64 2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   store ptr %24, ptr %m_begins.i, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2080
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -44872,7 +44872,7 @@ _ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit94: ; preds = %_ZNK5arrayIPN11
   store i32 16, ptr %m_capacity.i.i.i, align 4
   %m_szs.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2152
   %25 = getelementptr inbounds nuw i8, ptr %seq.i, i64 2168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   store ptr %25, ptr %m_szs.i, align 8
   %m_pos.i.i2.i = getelementptr inbounds nuw i8, ptr %seq.i, i64 2160
   store i32 0, ptr %m_pos.i.i2.i, align 8
@@ -45188,7 +45188,7 @@ invoke.cont83:                                    ; preds = %invoke.cont78
   %m_prs.i = getelementptr inbounds nuw i8, ptr %52, i64 24
   %m_taqrs.i = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %new_taqrs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %55, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %55, i8 0, i64 128, i1 false)
   store ptr %55, ptr %new_taqrs, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %new_taqrs, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -45362,11 +45362,11 @@ if.end.i210:                                      ; preds = %invoke.cont105
   store ptr %m_initial_buffer.i.i.i.i.i393, ptr %m_buffer.i.i.i392, align 8
   store i32 0, ptr %m_pos.i.i.i.i.i394, align 8
   store i32 256, ptr %m_capacity.i.i.i.i.i395, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %56, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, i8 0, i64 64, i1 false)
   store ptr %56, ptr %m_begins.i396, align 8
   store i32 0, ptr %m_pos.i.i.i397, align 8
   store i32 16, ptr %m_capacity.i.i.i398, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %57, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, i8 0, i64 64, i1 false)
   store ptr %57, ptr %m_szs.i399, align 8
   store i32 0, ptr %m_pos.i.i2.i400, align 8
   store i32 16, ptr %m_capacity.i.i3.i401, align 4
@@ -45498,11 +45498,11 @@ if.end.i271:                                      ; preds = %invoke.cont128
   store ptr %m_initial_buffer.i.i.i.i.i408, ptr %m_buffer.i.i.i407, align 8
   store i32 0, ptr %m_pos.i.i.i.i.i409, align 8
   store i32 256, ptr %m_capacity.i.i.i.i.i410, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %58, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, i8 0, i64 64, i1 false)
   store ptr %58, ptr %m_begins.i411, align 8
   store i32 0, ptr %m_pos.i.i.i412, align 8
   store i32 16, ptr %m_capacity.i.i.i413, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, i8 0, i64 64, i1 false)
   store ptr %59, ptr %m_szs.i414, align 8
   store i32 0, ptr %m_pos.i.i2.i415, align 8
   store i32 16, ptr %m_capacity.i.i3.i416, align 4
@@ -45611,7 +45611,7 @@ for.inc:                                          ; preds = %_ZN6bufferIiLb0ELj3
 
 for.end:                                          ; preds = %_ZNK5arrayIiLb1EE4sizeEv.exit
   %108 = getelementptr inbounds nuw i8, ptr %sc_cardinalities, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %108, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %108, i8 0, i64 128, i1 false)
   store ptr %108, ptr %sc_cardinalities, align 8
   %m_pos.i.i324 = getelementptr inbounds nuw i8, ptr %sc_cardinalities, i64 8
   store i32 0, ptr %m_pos.i.i324, align 8

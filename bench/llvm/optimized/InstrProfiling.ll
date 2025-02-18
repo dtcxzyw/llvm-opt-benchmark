@@ -5148,7 +5148,7 @@ _ZN12_GLOBAL__N_112InstrLowerer5lowerEv.exit.thread18: ; preds = %750, %_ZN12_GL
 
 _ZN12_GLOBAL__N_112InstrLowerer5lowerEv.exit.thread: ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i153.i, %1211, %_ZN12_GLOBAL__N_112InstrLowerer5lowerEv.exit
   %1287 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1287, i8 0, i64 64, i1 false), !alias.scope !394
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1287, i8 0, i64 64, i1 false), !alias.scope !394
   %1288 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1288, ptr %0, align 8, !tbaa !28, !alias.scope !394
   %1289 = getelementptr inbounds nuw i8, ptr %0, i64 8

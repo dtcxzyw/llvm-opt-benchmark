@@ -1285,7 +1285,7 @@ define dso_local range(i32 0, 2) i32 @index_differs_from(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %1, ptr %6, align 8, !tbaa !169
   %8 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1608

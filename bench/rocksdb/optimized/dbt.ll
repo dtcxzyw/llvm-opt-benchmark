@@ -60,7 +60,7 @@ declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #3
 define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %dbt, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %size = getelementptr inbounds nuw i8, ptr %dbt, i64 8
   store i64 %len, ptr %size, align 8
   store ptr %k, ptr %dbt, align 8

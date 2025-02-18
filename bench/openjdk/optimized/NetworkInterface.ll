@@ -1548,7 +1548,7 @@ getFlags.exit:                                    ; preds = %24, %18
   %.03.i.ph = phi i32 [ %19, %18 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 noundef 16) #14
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 0, ptr %33, align 1
@@ -1707,7 +1707,7 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
 13:                                               ; preds = %10, %3
   %.03.i.ph = phi i32 [ %5, %3 ], [ %11, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 15) #14
   %16 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.03.i.ph, i64 noundef 35111, ptr noundef nonnull %4) #14
   %17 = icmp slt i32 %16, 0
@@ -1803,7 +1803,7 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
   %.03.i.ph = phi i32 [ %21, %20 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
   %35 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %11, i64 noundef 15) #14
   %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35105, ptr noundef nonnull %5) #14
   %37 = icmp slt i32 %36, 0
@@ -1929,7 +1929,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   store i8 0, ptr %34, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 15
   store i8 0, ptr %38, align 1
@@ -1986,7 +1986,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   store i8 0, ptr %60, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   %62 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 15
   store i8 0, ptr %63, align 1
@@ -2057,7 +2057,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   store i8 0, ptr %86, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   %88 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #14
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 15
   store i8 0, ptr %89, align 1

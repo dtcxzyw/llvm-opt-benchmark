@@ -8643,7 +8643,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn17ProposalLayerImpl15getObjectScoresE
 .lr.ph.preheader.i:                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %44, i8 0, i64 240, i1 false), !noalias !90
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %44, i8 0, i64 240, i1 false), !noalias !90
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

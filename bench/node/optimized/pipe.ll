@@ -79,7 +79,7 @@ if.end31:                                         ; preds = %if.then26, %if.end2
 
 if.end36:                                         ; preds = %if.end31
   %3 = getelementptr inbounds nuw i8, ptr %saddr, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %3, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %3, i8 0, i64 108, i1 false)
   %sun_path = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr nonnull align 1 %name, i64 %spec.store.select, i1 false)
   store i16 1, ptr %saddr, align 2
@@ -305,7 +305,7 @@ if.end22:                                         ; preds = %if.then18
 
 if.end25:                                         ; preds = %if.end22, %if.end12
   %1 = getelementptr inbounds nuw i8, ptr %saddr, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %1, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %1, i8 0, i64 108, i1 false)
   %sun_path = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr nonnull align 1 %name, i64 %spec.store.select, i1 false)
   store i16 1, ptr %saddr, align 2

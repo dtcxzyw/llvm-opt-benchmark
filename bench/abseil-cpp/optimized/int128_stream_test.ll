@@ -765,7 +765,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116CheckUint128CaseERKNS_15Uint128T
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %25, ptr %7, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3352,7 +3352,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115CheckInt128CaseERKNS_14Int128Tes
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %25, ptr %7, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -1070,7 +1070,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %56, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %56, i8 0, i64 44, i1 false)
   store i32 1179403647, ptr %4, align 4
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 1, ptr %57, align 4
@@ -1870,7 +1870,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %594 = load ptr, ptr %577, align 8
   %595 = getelementptr %struct.core_vma_metadata, ptr %594, i64 %592
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %585, i8 0, i64 24, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %585, i8 0, i64 24, i1 false), !annotation !21
   store i32 1, ptr %6, align 4
   %596 = trunc i64 %593 to i32
   store i32 %596, ptr %578, align 4

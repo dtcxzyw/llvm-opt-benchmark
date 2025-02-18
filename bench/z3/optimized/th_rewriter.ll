@@ -10348,7 +10348,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i:   ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i, %for.body25.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %111, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %111, i8 0, i64 248, i1 false)
   store ptr %110, ptr %stack.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i.i, align 4
   store ptr %112, ptr %110, align 8

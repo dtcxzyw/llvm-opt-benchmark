@@ -228,7 +228,7 @@ define void @_ZN2cv5kinfu6Params13defaultParamsEv(ptr dead_on_unwind noalias wri
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 64, i1 false), !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   br label %8
 
 8:                                                ; preds = %8, %1

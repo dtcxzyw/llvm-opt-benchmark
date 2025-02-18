@@ -582,7 +582,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %0, i8 0, i64 90, i1 false)
   store ptr %call, ptr %m_impl, align 8
   store ptr %data, ptr %call, align 8
   %m_width = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -1129,7 +1129,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %0, i8 0, i64 90, i1 false)
   store ptr %call, ptr %m_impl, align 8
   store ptr %data, ptr %call, align 8
   %m_width = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -1205,7 +1205,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %0, i8 0, i64 90, i1 false)
   store ptr %call, ptr %m_impl, align 8
   store ptr %data, ptr %call, align 8
   %m_width = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -1313,7 +1313,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(98) %0, i8 0, i64 90, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %0, i8 0, i64 90, i1 false)
   store ptr %call, ptr %m_impl, align 8
   store ptr %data, ptr %call, align 8
   %m_width = getelementptr inbounds nuw i8, ptr %call, i64 48

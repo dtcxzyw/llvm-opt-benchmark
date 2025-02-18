@@ -101,7 +101,7 @@ define dso_local range(i32 0, -2147483648) i32 @cmd_revert(i32 noundef %0, ptr n
   %5 = alloca %struct.replay_opts, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, i8 0, i64 176, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -965,7 +965,7 @@ define dso_local range(i32 0, -2147483648) i32 @cmd_cherry_pick(i32 noundef %0, 
   %5 = alloca %struct.replay_opts, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, i8 0, i64 176, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104

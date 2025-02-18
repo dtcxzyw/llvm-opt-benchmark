@@ -2071,7 +2071,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
   %207 = getelementptr inbounds nuw ptr, ptr %197, i64 %206
   store ptr %201, ptr %207, align 8, !tbaa !59
   %208 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %208, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %208, i8 0, i64 24, i1 false)
   store i32 %178, ptr %201, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %201, i64 4
   store i32 %178, ptr %209, align 4, !tbaa !34

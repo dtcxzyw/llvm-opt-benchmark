@@ -270,7 +270,7 @@ define dso_local noundef i32 @_ZN4node6crypto7NodeBIO3NewEP6bio_st(ptr noundef %
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto7NodeBIOE, i64 16), ptr %call, align 8
   %env_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %env_.i, align 8

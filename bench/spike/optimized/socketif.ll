@@ -2392,7 +2392,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %15, %12
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %34, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, i8 0, i64 20, i1 false)
   store i16 2, ptr %2, align 4, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %35, align 2, !tbaa !18
@@ -16003,7 +16003,7 @@ define linkonce_odr void @_ZNK5boost4asio6detail23reactive_socket_serviceINS0_2i
   %7 = alloca %"class.boost::asio::ip::basic_endpoint", align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #33
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store i16 2, ptr %7, align 4, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 0, ptr %9, align 2, !tbaa !18
@@ -16059,7 +16059,7 @@ define linkonce_odr void @_ZNK5boost4asio6detail23reactive_socket_serviceINS0_2i
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !107
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %34, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, i8 0, i64 20, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %35, align 2, !tbaa !18
@@ -53241,7 +53241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   br i1 %158, label %159, label %.preheader.i
 
 159:                                              ; preds = %156
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %156, %.preheader.i
@@ -53273,7 +53273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   br i1 %168, label %169, label %.preheader.i254
 
 169:                                              ; preds = %166
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i260
 
 .preheader.i254:                                  ; preds = %166, %.preheader.i254
@@ -53594,7 +53594,7 @@ _ZNK5boost16cpp_regex_traitsIcE7isctypeEcj.exit277.thread323: ; preds = %278, %2
   br i1 %321, label %322, label %.preheader.i279
 
 322:                                              ; preds = %320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit286
 
 .preheader.i279:                                  ; preds = %320, %.preheader.i279
@@ -53760,7 +53760,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %398, label %399, label %.preheader.i291
 
 399:                                              ; preds = %396
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i297
 
 .preheader.i291:                                  ; preds = %396, %.preheader.i291
@@ -53881,7 +53881,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %448, label %449, label %.preheader.i300
 
 449:                                              ; preds = %446
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i306
 
 .preheader.i300:                                  ; preds = %446, %.preheader.i300
@@ -53999,7 +53999,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %500, label %501, label %.preheader.i309
 
 501:                                              ; preds = %498
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %35, i8 %4, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %35, i8 %4, i64 255, i1 false)
   br label %.loopexit.i315
 
 .preheader.i309:                                  ; preds = %498, %.preheader.i309
@@ -71726,7 +71726,7 @@ _ZN5boost16re_detail_10740019string_out_iteratorINSt7__cxx1112basic_stringIcSt11
   store ptr %2, ptr %39, align 8, !tbaa !968
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %41, i8 0, i64 13, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %41, i8 0, i64 13, i1 false)
   store ptr %8, ptr %40, align 8, !tbaa !556
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %37, ptr %42, align 8, !tbaa !556

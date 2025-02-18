@@ -17062,7 +17062,7 @@ _ZNSt8functionIFSt8optionalIN4Luau13WithPredicateIPKNS1_11TypePackVarEEEERNS1_11
   %394 = getelementptr inbounds nuw i8, ptr %13, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %395 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %395, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %395, i8 0, i64 24, i1 false)
   store ptr @_ZN4Luau19magicFunctionFormatERNS_11TypeCheckerERKSt10shared_ptrINS_5ScopeEERKNS_11AstExprCallENS_13WithPredicateIPKNS_11TypePackVarEEE, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)

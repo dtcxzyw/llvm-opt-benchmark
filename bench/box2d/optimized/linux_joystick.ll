@@ -207,7 +207,7 @@ define internal fastcc range(i32 0, 2) i32 @openJoystickDevice(ptr noundef nonnu
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 7972, ptr nonnull %2) #13
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7972) %19, i8 0, i64 7968, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7968) %19, i8 0, i64 7968, i1 false)
   %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef 526336) #13
   store i32 %20, ptr %2, align 4, !tbaa !99
   %21 = icmp eq i32 %20, -1

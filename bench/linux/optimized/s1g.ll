@@ -360,7 +360,7 @@ define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr nound
   store i32 %38, ptr %36, align 8
   %39 = tail call ptr @skb_put(ptr noundef nonnull %26, i32 noundef 27) #10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %40, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %40, i8 0, i64 25, i1 false)
   store i16 208, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %41, ptr noundef nonnull align 1 dereferenceable(6) %30, i64 6, i1 false)

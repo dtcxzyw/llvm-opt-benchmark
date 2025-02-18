@@ -835,7 +835,7 @@ cleanup.done:                                     ; preds = %entry
   %1 = getelementptr inbounds nuw i8, ptr %info, i64 16
   %lazy_eager_verify_func.i = getelementptr inbounds nuw i8, ptr %info, i64 40
   %2 = getelementptr inbounds nuw i8, ptr %info, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr %verify_func, ptr %lazy_eager_verify_func.i, align 8
   store ptr %prototype, ptr %1, align 8
   call fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_18RegisterERKNS1_13ExtensionInfoE(ptr noundef nonnull align 8 dereferenceable(48) %info)

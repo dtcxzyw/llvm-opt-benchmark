@@ -418,7 +418,7 @@ dom_should_register_error_handlers.exit.thread57: ; preds = %30, %dom_should_reg
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %52, ptr %54, align 8, !tbaa !89
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -431,7 +431,7 @@ dom_should_register_error_handlers.exit.thread57: ; preds = %30, %dom_should_reg
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %15, i64 4256
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 56, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store ptr %59, ptr %61, align 8, !tbaa !94
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -471,7 +471,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %69
 
 76:                                               ; preds = %lxb_encoding_data_by_name.exit
   store ptr %73, ptr %50, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 56, i1 false)
   store ptr %59, ptr %61, align 8, !tbaa !94
   store i64 4096, ptr %62, align 8, !tbaa !95
   store ptr %73, ptr %58, align 8, !tbaa !96
@@ -993,7 +993,7 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %51
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4256
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %57, ptr %60, align 8, !tbaa !94
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1700,7 +1700,7 @@ dom_should_register_error_handlers.exit.thread117: ; preds = %39, %dom_should_re
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %60, ptr %62, align 8, !tbaa !89
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1713,7 +1713,7 @@ dom_should_register_error_handlers.exit.thread117: ; preds = %39, %dom_should_re
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 4256
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %67, ptr %69, align 8, !tbaa !94
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 80
@@ -1753,7 +1753,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %77
 
 84:                                               ; preds = %lxb_encoding_data_by_name.exit
   store ptr %81, ptr %58, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
   store ptr %67, ptr %69, align 8, !tbaa !94
   store i64 4096, ptr %70, align 8, !tbaa !95
   store ptr %81, ptr %66, align 8, !tbaa !96
@@ -1825,7 +1825,7 @@ lxb_encoding_data_by_name.exit105:                ; preds = %109
 
 dom_setup_parser_encoding_manually.exit112:       ; preds = %lxb_encoding_data_by_name.exit105
   store ptr %114, ptr %58, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
   store ptr %67, ptr %69, align 8, !tbaa !94
   store i64 4096, ptr %70, align 8, !tbaa !95
   store ptr %114, ptr %66, align 8, !tbaa !96
@@ -2383,7 +2383,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %13
 
 19:                                               ; preds = %lxb_encoding_data_by_name.exit
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %21, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2394,7 +2394,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %13
 lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_by_name.exit.thread, %lxb_encoding_data_by_name.exit, %19
   %.0.i2 = phi ptr [ null, %lxb_encoding_data_by_name.exit.thread ], [ null, %lxb_encoding_data_by_name.exit ], [ %17, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !94
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16

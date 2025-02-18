@@ -50,7 +50,7 @@ define hidden void @jCreaDecompress(ptr noundef initializes((8, 16)) %0, i32 nou
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(632) %28, i8 0, i64 624, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(624) %28, i8 0, i64 624, i1 false)
   store ptr %25, ptr %0, align 8
   store ptr %27, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32

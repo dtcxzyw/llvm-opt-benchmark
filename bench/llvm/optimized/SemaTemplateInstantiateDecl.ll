@@ -49700,7 +49700,7 @@ _ZN5clang4Sema23ExtParameterInfoBuilder16getPointerOrNullEj.exit.thread: ; preds
 
 _ZNSt8optionalIN5clang17FunctionEffectSetEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS5_.exit: ; preds = %246
   %251 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %251, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %251, i8 0, i64 104, i1 false)
   store ptr %251, ptr %11, align 8, !tbaa !1418
   %252 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %252, align 8, !tbaa !1420

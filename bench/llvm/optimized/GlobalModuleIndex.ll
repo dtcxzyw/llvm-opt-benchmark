@@ -6588,7 +6588,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit142.i: ; preds = %.lr.ph
   %1298 = getelementptr inbounds nuw i8, ptr %1295, i64 16
   %1299 = getelementptr inbounds nuw i8, ptr %1295, i64 32
   %1300 = getelementptr inbounds nuw i8, ptr %1295, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1300, i8 0, i64 464, i1 false), !noalias !581
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %1300, i8 0, i64 464, i1 false), !noalias !581
   store ptr %1299, ptr %1298, align 8, !tbaa !28, !noalias !581
   %1301 = getelementptr inbounds nuw i8, ptr %1295, i64 24
   %1302 = getelementptr inbounds nuw i8, ptr %1295, i64 28

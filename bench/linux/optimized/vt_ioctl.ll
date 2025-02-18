@@ -123,7 +123,7 @@ define dso_local noundef range(i32 -4, 1) i32 @vt_waitactive(i32 noundef %0) loc
   %3 = alloca %struct.vt_event_wait, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 44

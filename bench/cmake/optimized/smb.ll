@@ -482,7 +482,7 @@ define internal i32 @smb_request_state(ptr noundef %0, ptr noundef writeonly cap
 38:                                               ; preds = %28
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 11
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %40, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %40, i8 0, i64 9, i1 false)
   store i8 4, ptr %10, align 1, !tbaa !132
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 -1, ptr %41, align 1, !tbaa !135
@@ -779,7 +779,7 @@ smb_send_tree_connect.exit.thread:                ; preds = %28, %smb_send_tree_
 
 189:                                              ; preds = %178
   %190 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %190, i8 0, i64 47, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %190, i8 0, i64 47, i1 false)
   store i8 24, ptr %8, align 1, !tbaa !146
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 -1, ptr %191, align 1, !tbaa !148
@@ -1500,7 +1500,7 @@ define internal fastcc i32 @smb_send_setup(ptr noundef %0) unnamed_addr #0 {
   %27 = call i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef %26, ptr noundef nonnull %6) #11
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull %7) #11
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %28, i8 0, i64 27, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %28, i8 0, i64 27, i1 false)
   store i8 13, ptr %3, align 1, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 -1, ptr %29, align 1, !tbaa !167

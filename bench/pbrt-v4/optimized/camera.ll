@@ -1846,7 +1846,7 @@ sw.default:                                       ; preds = %entry
   %lambdaMax.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 92
   %9 = load float, ptr %lambdaMax.i.i, align 4, !noalias !54
   %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 28, i1 false), !alias.scope !55
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false), !alias.scope !55
   %sub.i.i.i.i34 = fsub float 1.000000e+00, %7
   %mul.i.i.i.i35 = fmul float %sub.i.i.i.i34, %8
   %mul1.i.i.i.i36 = fmul float %7, %9
@@ -7017,7 +7017,7 @@ _ZN4pbrt13HaltonSampler10GetPixel2DEv.exit:       ; preds = %_ZN4pbrt14RadicalIn
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3.i.i, 1
   %filterWeight.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %13, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %filterWeight.i, align 4
   %conv.i2 = sitofp i32 %pPixel.sroa.0.0.extract.trunc to float
   %c.sroa.0.0.vec.extract.i = extractelement <2 x float> %call3.fca.0.extract, i64 0
@@ -9422,7 +9422,7 @@ _ZN4pbrt12SobolSampler10GetPixel2DEv.exit:        ; preds = %for.body.i
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3.i.i, 1
   %filterWeight.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   %12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store float 1.000000e+00, ptr %filterWeight.i, align 4
   %conv.i1 = sitofp i32 %pPixel.sroa.0.0.extract.trunc to float
   %c.sroa.0.0.vec.extract.i = extractelement <2 x float> %call3.fca.0.extract, i64 0

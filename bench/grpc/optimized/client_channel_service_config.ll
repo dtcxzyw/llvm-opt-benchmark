@@ -1780,7 +1780,7 @@ define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10uni
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #15, !noalias !16
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %0, i8 0, i64 72, i1 false), !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %0, i8 0, i64 72, i1 false), !noalias !16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 16), ptr %call.i, align 8, !noalias !16
   %parsed_lb_config_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr null, ptr %parsed_lb_config_.i.i, align 8, !noalias !16

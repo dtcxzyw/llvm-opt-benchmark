@@ -2294,7 +2294,7 @@ define dso_local range(i32 -1001, 4) i32 @test_wolfSSL_client_server_nofail_memi
   %7 = alloca %struct.test_ssl_memio_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 131384, ptr nonnull %7) #27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131384) %8, i8 0, i64 131376, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131376) %8, i8 0, i64 131376, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(112) %0, i64 112, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -28667,8 +28667,8 @@ define internal noundef i32 @test_wolfSSL_UseSNI_connection() #9 {
 13:                                               ; preds = %0, %13
   %14 = phi i1 [ true, %0 ], [ false, %13 ]
   %.06 = phi i64 [ 0, %0 ], [ 1, %13 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 64, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
   %15 = getelementptr inbounds nuw [2 x %struct.anon.2], ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 0, i64 %.06
   %16 = load ptr, ptr %15, align 16, !tbaa !153
   store ptr %16, ptr %1, align 8, !tbaa !69
@@ -29866,8 +29866,8 @@ define internal range(i32 0, 2) i32 @test_short_session_id() #0 {
   br i1 %switch, label %9, label %.critedge
 
 9:                                                ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 104, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %10 = load ptr, ptr @stderr, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw [2 x %struct.anon.3], ptr @__const.test_short_session_id.params, i64 0, i64 %.05056
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16

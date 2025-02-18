@@ -9838,7 +9838,7 @@ select.unfold:                                    ; preds = %._crit_edge.split.i
   store i32 %185, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0)
   %191 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %191, i8 0, i64 34, i1 false), !alias.scope !1345
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(34) %191, i8 0, i64 34, i1 false), !alias.scope !1345
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val = load i64, ptr %192, align 8, !noundef !4
   store i32 1, ptr %14, align 4, !alias.scope !1348

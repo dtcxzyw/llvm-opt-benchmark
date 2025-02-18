@@ -1849,7 +1849,7 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
 uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %.0.i = phi i32 [ -1, %24 ], [ %29, %.sink.split.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, i8 0, i64 48, i1 false)
   store ptr null, ptr %5, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %31, align 8, !tbaa !67

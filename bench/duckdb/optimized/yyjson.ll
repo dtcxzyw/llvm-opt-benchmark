@@ -1631,7 +1631,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit:       ; preds = %2
 
 14:                                               ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %16, ptr %5, align 8, !tbaa !87
   store ptr %16, ptr %13, align 8, !tbaa !69

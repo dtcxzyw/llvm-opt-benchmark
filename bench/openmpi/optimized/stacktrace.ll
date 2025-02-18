@@ -411,7 +411,7 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
   %.sink = phi i32 [ -1, %40 ], [ %14, %12 ], [ -1, %27 ], [ %48, %46 ], [ %20, %18 ], [ -1, %6 ], [ -1, %0 ]
   store i32 %.sink, ptr @prte_stacktrace_output_fileno, align 4, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %50, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %50, i8 0, i64 144, i1 false)
   store ptr @show_stackframe, ptr %1, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 -2147483644, ptr %51, align 8, !tbaa !26

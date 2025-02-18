@@ -1047,7 +1047,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   store ptr %7, ptr %8, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1096) %10, i8 0, i64 1020, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1020) %10, i8 0, i64 1020, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1032
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1040
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1048

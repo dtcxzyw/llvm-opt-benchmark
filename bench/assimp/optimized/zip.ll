@@ -1334,7 +1334,7 @@ define range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %0, ptr noundef captur
   %6 = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #34
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
   %8 = load i64, ptr %1, align 8
   %9 = or i64 %8, %3
   %10 = icmp ugt i64 %9, 4294967295
@@ -1409,7 +1409,7 @@ define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef capture
   %5 = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8
   %8 = or i64 %7, %3
   %9 = icmp ugt i64 %8, 4294967295
@@ -4506,7 +4506,7 @@ define range(i32 -10000, 1) i32 @mz_uncompress2(ptr noundef %0, ptr noundef capt
   %5 = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %3, align 8
   %8 = load i64, ptr %1, align 8
   %9 = or i64 %8, %7
@@ -12796,7 +12796,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr nounde
   %51 = or disjoint i32 %50, %46
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #34
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %52, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %53, align 8
   %54 = lshr i32 %49, 1
@@ -19394,7 +19394,7 @@ mz_zip_set_error.exit87:                          ; preds = %35
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %50, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %50, i8 0, i64 240, i1 false)
   store i8 80, ptr %2, align 16
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 75, ptr %51, align 1
@@ -24042,7 +24042,7 @@ define range(i32 -22, 1) i32 @zip_create(ptr noundef readonly captures(address_i
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @mz_zip_file_write_func, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 88

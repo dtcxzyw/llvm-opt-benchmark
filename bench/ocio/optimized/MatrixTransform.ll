@@ -965,7 +965,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %m44, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %m44, align 8
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %m44, i64 40
   store double 1.000000e+00, ptr %arrayidx1, align 8
@@ -1145,7 +1145,7 @@ land.lhs.true17:                                  ; preds = %land.lhs.true14
 
 _ZN19OpenColorIO_v2_4dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %land.lhs.true17
   %4 = getelementptr inbounds nuw i8, ptr %m44, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %m44, align 8
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %m44, i64 40
   store double 1.000000e+00, ptr %arrayidx1.i, align 8

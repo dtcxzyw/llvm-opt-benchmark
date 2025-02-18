@@ -750,7 +750,7 @@ show_result_list.exit.i.i:                        ; preds = %288
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_diff.ecb, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %266, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %266, i8 0, i64 40, i1 false)
   store i64 3, ptr %11, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   br label %306

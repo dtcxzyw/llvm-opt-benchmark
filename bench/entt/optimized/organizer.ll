@@ -6929,7 +6929,7 @@ _ZN7testing7MessageD2Ev.exit939:                  ; preds = %_ZNKSt14default_del
   %1814 = getelementptr inbounds nuw i8, ptr %.sroa.0976.0984, i64 32
   %1815 = load ptr, ptr %1814, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1811, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1811, i8 0, i64 16, i1 false)
   store ptr %1809, ptr %161, align 8, !tbaa !78
   store i64 0, ptr %1810, align 8, !tbaa !52
   %1816 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -14171,7 +14171,7 @@ _ZN7testing7MessageD2Ev.exit899:                  ; preds = %_ZNKSt14default_del
   %1737 = getelementptr inbounds nuw i8, ptr %.sroa.0936.0944, i64 32
   %1738 = load ptr, ptr %1737, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1734, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1734, i8 0, i64 16, i1 false)
   store ptr %1732, ptr %154, align 8, !tbaa !78
   store i64 0, ptr %1733, align 8, !tbaa !52
   %1739 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -21039,7 +21039,7 @@ _ZN7testing7MessageD2Ev.exit1021:                 ; preds = %_ZNKSt14default_del
   %1972 = getelementptr inbounds nuw i8, ptr %.sroa.01058.01067, i64 32
   %1973 = load ptr, ptr %1972, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1969, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1969, i8 0, i64 16, i1 false)
   store ptr %1967, ptr %177, align 8, !tbaa !78
   store i64 0, ptr %1968, align 8, !tbaa !52
   %1974 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -28062,7 +28062,7 @@ _ZN7testing7MessageD2Ev.exit1081:                 ; preds = %_ZNKSt14default_del
   %2078 = getelementptr inbounds nuw i8, ptr %.sroa.01118.01134, i64 32
   %2079 = load ptr, ptr %2078, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2075, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2075, i8 0, i64 16, i1 false)
   store ptr %2073, ptr %188, align 8, !tbaa !78
   store i64 0, ptr %2074, align 8, !tbaa !52
   %2080 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
@@ -34374,7 +34374,7 @@ _ZN7testing7MessageD2Ev.exit909:                  ; preds = %_ZNKSt14default_del
   %1769 = getelementptr inbounds nuw i8, ptr %.sroa.0937.0947, i64 32
   %1770 = load ptr, ptr %1769, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1766, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1766, i8 0, i64 16, i1 false)
   store ptr %1764, ptr %158, align 8, !tbaa !78
   store i64 0, ptr %1765, align 8, !tbaa !52
   %1771 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()

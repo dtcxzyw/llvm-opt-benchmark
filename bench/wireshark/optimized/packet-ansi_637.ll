@@ -651,7 +651,7 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
   %1 = alloca [47 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %1) #7
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(376) %2, i8 noundef 0, i64 noundef 344, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %2, i8 noundef 0, i64 noundef 344, i1 noundef false) #7
   store ptr @ett_ansi_637_tele, ptr %1, align 16
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_ansi_637_trans, ptr %3, align 8

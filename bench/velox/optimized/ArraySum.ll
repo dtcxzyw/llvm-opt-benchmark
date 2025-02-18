@@ -1290,7 +1290,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont27.i
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %for.body.lr.ph.i
   %__begin3.sroa.0.025.i = phi ptr [ %6, %for.body.lr.ph.i ], [ %call.i.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.025.i, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !4
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp36.i, align 8, !noalias !4
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4

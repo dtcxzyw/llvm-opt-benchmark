@@ -16,7 +16,7 @@ define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 1, ptr %3, align 4
   %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %6 = icmp slt i32 %5, 0

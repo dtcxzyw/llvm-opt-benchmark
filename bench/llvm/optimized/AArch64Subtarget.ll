@@ -17818,7 +17818,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget24getCustomPBQPConstraintsEv(p
 6:                                                ; preds = %2
   %7 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #27, !noalias !680
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %8, i8 0, i64 168, i1 false), !noalias !680
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %8, i8 0, i64 168, i1 false), !noalias !680
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm21A57ChainingConstraintE, i64 16), ptr %7, align 8, !tbaa !380, !noalias !680
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, i8 0, i64 20, i1 false), !noalias !680

@@ -729,7 +729,7 @@ define dso_local void @_ZN11flatbuffers18NewTsCodeGeneratorEv(ptr dead_on_unwind
 _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_115TsCodeGeneratorESt14default_deleteIS2_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %3, align 8, !tbaa !4
@@ -31331,7 +31331,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %53, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %53, i8 0, i64 104, i1 false)
   store ptr %53, ptr %52, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store i64 0, ptr %54, align 8, !tbaa !19

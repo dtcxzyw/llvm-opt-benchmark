@@ -5541,7 +5541,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ArrayBoundCheckerV220markPartsIn
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @_ZN5clang4ento7SymExpr15symbol_iteratorC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(28) %15) #20, !noalias !881
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 40, i1 false), !noalias !881
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false), !noalias !881
   store ptr %17, ptr %7, align 8, !tbaa !884, !noalias !881
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %18, align 8, !tbaa !885, !noalias !881
@@ -7148,7 +7148,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119StateUpdateReporte
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @_ZN5clang4ento7SymExpr15symbol_iteratorC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(28) %11) #20, !noalias !952
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 40, i1 false), !noalias !952
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !noalias !952
   store ptr %13, ptr %5, align 8, !tbaa !884, !noalias !952
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %14, align 8, !tbaa !885, !noalias !952

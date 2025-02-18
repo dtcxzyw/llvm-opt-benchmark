@@ -553,7 +553,7 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
 35:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false), !annotation !17
   tail call void @__rcu_read_lock() #6
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 784

@@ -30352,7 +30352,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_13AttachRe
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_13AttachRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.252", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 24, i1 false)
@@ -34393,7 +34393,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_13CancelRe
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_13CancelRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -36929,7 +36929,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_15Evaluate
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_15EvaluateRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38308,7 +38308,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_17Initiali
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_17InitializeRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %3, i8 0, i64 208, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 208, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -39155,7 +39155,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_13LaunchRe
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_13LaunchRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.252", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %1, i8 0, i64 24, i1 false)
@@ -40241,7 +40241,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_11NextRequ
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_11NextRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -47640,7 +47640,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_20SetExpre
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_20SetExpressionRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -50601,7 +50601,7 @@ _ZN3dap10Serializer9serializeINS_13SourceRequestESt9enable_ifILb1EvEEEbRKT_.exit
 define linkonce_odr dso_local void @_ZN3dap8optionalINS_6SourceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(305) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.252", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, i8 0, i64 24, i1 false)
@@ -50691,7 +50691,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %35, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %38, ptr %36, align 8, !tbaa !8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -50700,7 +50700,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %40, align 8, !tbaa !127
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %43, ptr %41, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -50709,7 +50709,7 @@ _ZSt8_DestroyIPN3dap3anyES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_Destroy
   store i8 0, ptr %45, align 8, !tbaa !127
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %48, ptr %46, align 8, !tbaa !8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -51221,7 +51221,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_21StartDeb
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_21StartDebuggingRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %4, ptr %1, align 8, !tbaa !200
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -51637,7 +51637,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_15StepBack
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_15StepBackRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52016,7 +52016,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_13StepInRe
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_13StepInRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52698,7 +52698,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_14StepOutR
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_14StepOutRequestEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -54995,7 +54995,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_8optionalI
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_8optionalINS_7variantISt6vectorINS_3anyESaIS4_EEJNS_7booleanENS_7integerEDnNS_6numberESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISG_ESt8equal_toISG_ESaISt4pairIKSG_S4_EEESG_EEEEEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.252", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %1, i8 0, i64 24, i1 false)
@@ -56449,7 +56449,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK3dap13BasicTypeInfoINS_8optionalI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNK3dap13BasicTypeInfoINS_8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9constructEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -64145,7 +64145,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap14DataBreakpointESaIS1_EE1
   %.08.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %19, i8 0, i64 136, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
@@ -64188,7 +64188,7 @@ _ZNKSt6vectorIN3dap14DataBreakpointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = 
   %.08.i.i.i41 = phi ptr [ %46, %.lr.ph.i.i.i40 ], [ %36, %_ZNKSt6vectorIN3dap14DataBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i42 = phi i64 [ %45, %.lr.ph.i.i.i40 ], [ %1, %_ZNKSt6vectorIN3dap14DataBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %37, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %37, i8 0, i64 136, i1 false)
   store ptr %37, ptr %.08.i.i.i41, align 8, !tbaa !8
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 8
   store i64 0, ptr %38, align 8, !tbaa !11
@@ -67877,7 +67877,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap22ExceptionFilterOptionsES
   %.08.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, i8 0, i64 96, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
@@ -67917,7 +67917,7 @@ _ZNKSt6vectorIN3dap22ExceptionFilterOptionsESaIS1_EE12_M_check_lenEmPKc.exit: ; 
   %.08.i.i.i41 = phi ptr [ %42, %.lr.ph.i.i.i40 ], [ %34, %_ZNKSt6vectorIN3dap22ExceptionFilterOptionsESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i42 = phi i64 [ %41, %.lr.ph.i.i.i40 ], [ %1, %_ZNKSt6vectorIN3dap22ExceptionFilterOptionsESaIS1_EE12_M_check_lenEmPKc.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %35, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, i8 0, i64 96, i1 false)
   store ptr %35, ptr %.08.i.i.i41, align 8, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 8
   store i64 0, ptr %36, align 8, !tbaa !11
@@ -69578,7 +69578,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap18FunctionBreakpointESaIS1
   %.08.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, i8 0, i64 96, i1 false)
   store ptr %19, ptr %.08.i.i.i, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
@@ -69618,7 +69618,7 @@ _ZNKSt6vectorIN3dap18FunctionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit: ; pred
   %.08.i.i.i41 = phi ptr [ %42, %.lr.ph.i.i.i40 ], [ %34, %_ZNKSt6vectorIN3dap18FunctionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i42 = phi i64 [ %41, %.lr.ph.i.i.i40 ], [ %1, %_ZNKSt6vectorIN3dap18FunctionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %35, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, i8 0, i64 96, i1 false)
   store ptr %35, ptr %.08.i.i.i41, align 8, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i41, i64 8
   store i64 0, ptr %36, align 8, !tbaa !11
@@ -70345,7 +70345,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap21InstructionBreakpointESa
   %.013.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %19, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %19, i8 0, i64 152, i1 false)
   store ptr %19, ptr %.013.i.i.i, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
@@ -70388,7 +70388,7 @@ _ZNKSt6vectorIN3dap21InstructionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit: ; p
   %.013.i.i.i41 = phi ptr [ %46, %.lr.ph.i.i.i40 ], [ %36, %_ZNKSt6vectorIN3dap21InstructionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i42 = phi i64 [ %45, %.lr.ph.i.i.i40 ], [ %1, %_ZNKSt6vectorIN3dap21InstructionBreakpointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %37, i8 0, i64 152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %37, i8 0, i64 152, i1 false)
   store ptr %37, ptr %.013.i.i.i41, align 8, !tbaa !8
   %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i41, i64 8
   store i64 0, ptr %38, align 8, !tbaa !11

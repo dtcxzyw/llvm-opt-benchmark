@@ -1340,7 +1340,7 @@ entry:
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
   %stackArgs = alloca %struct.UConverterLoadArgs, align 8
   %0 = getelementptr inbounds nuw i8, ptr %stackArgs, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i32 40, ptr %stackArgs, align 8
   %1 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %1, 1

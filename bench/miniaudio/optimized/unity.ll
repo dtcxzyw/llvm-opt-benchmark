@@ -8991,7 +8991,7 @@ define void @ma_resampler_config_init(ptr dead_on_unwind noalias writable writeo
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %6, %7
@@ -9404,7 +9404,7 @@ ma_mutex_init.exit.thread:                        ; preds = %ma_channel_map_copy
 
 200:                                              ; preds = %187
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %201, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %201, i8 0, i64 272, i1 false)
   %202 = load ptr, ptr %73, align 8, !tbaa !273
   store ptr %202, ptr %4, align 8, !tbaa !129
   %203 = load i32, ptr %143, align 8, !tbaa !293
@@ -9437,7 +9437,7 @@ ma_mutex_init.exit.thread:                        ; preds = %ma_channel_map_copy
   %spec.select = select i1 %222, i32 3, i32 %220
   store i32 %spec.select, ptr %221, align 8, !tbaa !121
   %223 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %223, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %223, i8 0, i64 272, i1 false)
   %224 = load ptr, ptr %79, align 8, !tbaa !274
   store ptr %224, ptr %5, align 8, !tbaa !129
   %225 = load i32, ptr %115, align 8, !tbaa !288
@@ -11933,7 +11933,7 @@ ma_aligned_malloc.exit.i:                         ; preds = %78
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 0, ptr %98, align 8, !tbaa !350
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %99, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %99, i8 0, i64 64, i1 false)
   store ptr @ma_gRBDataSourceVTable, ptr %6, align 8, !tbaa !351
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 -1, ptr %100, align 8, !tbaa !352
@@ -19615,7 +19615,7 @@ define void @ma_lpf_config_init(ptr dead_on_unwind noalias writable writeonly sr
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %6, %7
@@ -21140,7 +21140,7 @@ define void @ma_hpf1_config_init(ptr dead_on_unwind noalias writable writeonly s
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %5, %6
@@ -22124,7 +22124,7 @@ define void @ma_hpf_config_init(ptr dead_on_unwind noalias writable writeonly sr
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %6, %7
@@ -24034,7 +24034,7 @@ define void @ma_bpf_config_init(ptr dead_on_unwind noalias writable writeonly sr
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %6, %7
@@ -36802,7 +36802,7 @@ define void @ma_channel_converter_config_init(ptr dead_on_unwind noalias writabl
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %7, %8
@@ -39901,7 +39901,7 @@ define void @ma_data_converter_config_init(ptr dead_on_unwind noalias writable w
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, i8 0, i64 96, i1 false), !alias.scope !1009
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, i8 0, i64 96, i1 false), !alias.scope !1009
   br label %ma_data_converter_config_init_default.exit
 
 ma_data_converter_config_init_default.exit:       ; preds = %7, %8
@@ -44265,7 +44265,7 @@ ma_zero_memory_default.exit:                      ; preds = %8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 0, ptr %26, align 8, !tbaa !350
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %27, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %27, i8 0, i64 64, i1 false)
   store ptr @ma_gRBDataSourceVTable, ptr %7, align 8, !tbaa !351
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 -1, ptr %28, align 8, !tbaa !352
@@ -44345,7 +44345,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 0, ptr %21, align 8, !tbaa !350
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %22, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %22, i8 0, i64 64, i1 false)
   store ptr @ma_gRBDataSourceVTable, ptr %5, align 8, !tbaa !351
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 -1, ptr %23, align 8, !tbaa !352
@@ -47045,7 +47045,7 @@ define void @ma_audio_buffer_config_init(ptr dead_on_unwind noalias writable wri
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %6, %7
@@ -47982,7 +47982,7 @@ define range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_init(i32 noundef %0, i32
 
 ma_zero_memory_default.exit:                      ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %0, ptr %2, align 8, !tbaa !1078
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %1, ptr %6, align 4, !tbaa !1082
@@ -48373,7 +48373,7 @@ ma_zero_memory_default.exit:                      ; preds = %2
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   store ptr @g_ma_paged_audio_buffer_data_source_vtable, ptr %1, align 8, !tbaa !351
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 -1, ptr %10, align 8, !tbaa !352
@@ -50054,7 +50054,7 @@ define void @ma_decoder_config_init(ptr dead_on_unwind noalias writable writeonl
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, i8 0, i64 136, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %4, %5
@@ -50081,7 +50081,7 @@ define void @ma_decoder_config_init_default(ptr dead_on_unwind noalias writable 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 136, i1 false), !alias.scope !1123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 136, i1 false), !alias.scope !1123
   br label %ma_decoder_config_init.exit
 
 ma_decoder_config_init.exit:                      ; preds = %1, %2
@@ -50147,7 +50147,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %7
 
 13:                                               ; preds = %ma_zero_memory_default.exit.i, %10, %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %14, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store ptr @g_ma_wav_ds_vtable, ptr %6, align 8, !tbaa !351
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 -1, ptr %15, align 8, !tbaa !352
@@ -50173,7 +50173,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %7
   store ptr %3, ptr %25, align 8, !tbaa !1140
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %27, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %27, i8 0, i64 392, i1 false)
   store ptr @ma_wav_dr_callback__read, ptr %26, align 8, !tbaa !1141
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr @ma_wav_dr_callback__seek, ptr %28, align 8, !tbaa !1142
@@ -50266,7 +50266,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %10, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, i8 0, i64 392, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !1141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %11, align 8, !tbaa !1142
@@ -50372,7 +50372,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 10:                                               ; preds = %ma_zero_memory_default.exit.i, %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %11, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store ptr @g_ma_wav_ds_vtable, ptr %3, align 8, !tbaa !351
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %12, align 8, !tbaa !352
@@ -50393,7 +50393,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 ma_fopen.exit.i.i:                                ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %21, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %21, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %16, align 8, !tbaa !1141
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr @ma_dr_wav__on_seek_stdio, ptr %22, align 8, !tbaa !1142
@@ -50495,7 +50495,7 @@ ma_fopen.exit.i:                                  ; preds = %5
 
 9:                                                ; preds = %ma_fopen.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %10, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %11, align 8, !tbaa !1142
@@ -50578,7 +50578,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 11:                                               ; preds = %ma_zero_memory_default.exit.i, %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %12, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr @g_ma_wav_ds_vtable, ptr %3, align 8, !tbaa !351
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %13, align 8, !tbaa !352
@@ -50597,7 +50597,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 19:                                               ; preds = %11
   %20 = load ptr, ptr %5, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %21, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %21, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %17, align 8, !tbaa !1141
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr @ma_dr_wav__on_seek_stdio, ptr %22, align 8, !tbaa !1142
@@ -50703,7 +50703,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_file_w(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %10, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %11, align 8, !tbaa !1142
@@ -50786,7 +50786,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %5
 
 11:                                               ; preds = %ma_zero_memory_default.exit.i, %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %12, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr @g_ma_wav_ds_vtable, ptr %4, align 8, !tbaa !351
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 -1, ptr %13, align 8, !tbaa !352
@@ -50804,7 +50804,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %5
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %21, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %21, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %17, align 8, !tbaa !1141
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr @ma_dr_wav__on_seek_memory, ptr %22, align 8, !tbaa !1142
@@ -50903,7 +50903,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_memory(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %9, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %9, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %0, align 8, !tbaa !1141
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %10, align 8, !tbaa !1142
@@ -53868,7 +53868,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %7
 
 13:                                               ; preds = %ma_zero_memory_default.exit.i, %10, %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %14, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %6, align 8, !tbaa !351
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 -1, ptr %15, align 8, !tbaa !352
@@ -53965,7 +53965,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 10:                                               ; preds = %ma_zero_memory_default.exit.i, %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %11, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %3, align 8, !tbaa !351
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %12, align 8, !tbaa !352
@@ -54056,7 +54056,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 11:                                               ; preds = %ma_zero_memory_default.exit.i, %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %12, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %3, align 8, !tbaa !351
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %13, align 8, !tbaa !352
@@ -54148,7 +54148,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %5
 
 12:                                               ; preds = %ma_zero_memory_default.exit.i, %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %13, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %4, align 8, !tbaa !351
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 -1, ptr %14, align 8, !tbaa !352
@@ -58683,7 +58683,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %7
 
 14:                                               ; preds = %ma_zero_memory_default.exit.i, %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %15, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   store ptr @g_ma_mp3_ds_vtable, ptr %6, align 8, !tbaa !351
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 -1, ptr %16, align 8, !tbaa !352
@@ -59008,7 +59008,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 11:                                               ; preds = %ma_zero_memory_default.exit.i, %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %12, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr @g_ma_mp3_ds_vtable, ptr %3, align 8, !tbaa !351
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %13, align 8, !tbaa !352
@@ -59231,7 +59231,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
 
 11:                                               ; preds = %ma_zero_memory_default.exit.i, %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %12, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   store ptr @g_ma_mp3_ds_vtable, ptr %3, align 8, !tbaa !351
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %13, align 8, !tbaa !352
@@ -59455,7 +59455,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %5
 
 12:                                               ; preds = %ma_zero_memory_default.exit.i, %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %13, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   store ptr @g_ma_mp3_ds_vtable, ptr %4, align 8, !tbaa !351
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 -1, ptr %14, align 8, !tbaa !352
@@ -61608,7 +61608,7 @@ ma_data_source_get_data_format.exit.thread.i:     ; preds = %18, %13, %2
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 44
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 0, ptr %.sroa.12.0..sroa_idx.i, align 4
   store i32 %21, ptr %7, align 8, !tbaa !3
@@ -66383,7 +66383,7 @@ define void @ma_encoder_config_init(ptr dead_on_unwind noalias writable writeonl
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %5, %6
@@ -69089,7 +69089,7 @@ ma_zero_memory_default.exit49:                    ; preds = %3
   %.sroa.7.063 = phi i64 [ 0, %.thread ], [ %.sroa.7.0, %21 ], [ %.sroa.7.0, %24 ]
   %.sroa.9.062 = phi i64 [ 0, %.thread ], [ %.sroa.9.0, %21 ], [ %.sroa.9.0, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %28, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   store ptr @g_ma_noise_data_source_vtable, ptr %2, align 8, !tbaa !351
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %29, align 8, !tbaa !352
@@ -71559,7 +71559,7 @@ ma_async_notification_signal.exit.i91:            ; preds = %72, %69, %67
 
 78:                                               ; preds = %ma_resource_manager_pipeline_notifications_acquire_all_fences.exit
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %79, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %79, i8 0, i64 64, i1 false)
   store ptr @g_ma_resource_manager_data_buffer_vtable, ptr %3, align 8, !tbaa !351
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %80, align 8, !tbaa !352
@@ -73280,7 +73280,7 @@ ma_malloc.exit.i:                                 ; preds = %.loopexit.i
 
 ma_zero_memory_default.exit.i:                    ; preds = %ma_malloc.exit.i
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %133, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %133, i8 0, i64 104, i1 false)
   store i32 %.067, ptr %131, align 8, !tbaa !1624
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 1, ptr %134, align 4, !tbaa !1632
@@ -74388,7 +74388,7 @@ ma_zero_memory_default.exit:                      ; preds = %3
   %.sroa.17.0 = phi ptr [ %.sroa.17.0.copyload, %28 ], [ null, %25 ]
   %.sroa.0117.0 = phi ptr [ %.sroa.0117.0.copyload, %28 ], [ null, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %30, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %30, i8 0, i64 64, i1 false)
   store ptr @g_ma_resource_manager_data_stream_vtable, ptr %2, align 8, !tbaa !351
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %31, align 8, !tbaa !352
@@ -81216,7 +81216,7 @@ define void @ma_engine_node_config_init(ptr dead_on_unwind noalias writable writ
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %4, %5
@@ -82438,7 +82438,7 @@ ma_malloc.exit:                                   ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5170, i8 0, i64 60, i1 false), !alias.scope !1793
   %.sroa.8173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 112
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %45, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %45, i8 0, i64 152, i1 false)
   %.sroa.5170.60..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5170, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.5170.60..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !1793
   store i32 1, ptr %9, align 8, !tbaa !3
@@ -85705,7 +85705,7 @@ ma_sound_config_init_2.exit:                      ; preds = %ma_resource_manager
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %7, i8 0, i64 44, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7.0..sroa_idx, i8 0, i64 64, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -89491,7 +89491,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_ex(ptr noundef %0, ptr noundef %1, pt
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %13, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %13, i8 0, i64 392, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !1141
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %14, align 8, !tbaa !1142
@@ -91857,7 +91857,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_with_metadata(ptr noundef %0, ptr nou
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %11, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %11, i8 0, i64 392, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !1141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %12, align 8, !tbaa !1142
@@ -92786,7 +92786,7 @@ ma_fopen.exit:                                    ; preds = %8
 
 12:                                               ; preds = %ma_fopen.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %13, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %13, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %14, align 8, !tbaa !1142
@@ -92858,7 +92858,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_file_ex_w(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %13, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %13, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %14, align 8, !tbaa !1142
@@ -92933,7 +92933,7 @@ ma_fopen.exit:                                    ; preds = %6
 
 11:                                               ; preds = %ma_fopen.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %12, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %12, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %13, align 8, !tbaa !1142
@@ -93006,7 +93006,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_file_with_metadata_w(ptr noundef %0, 
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %12, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %12, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %0, align 8, !tbaa !1141
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %13, align 8, !tbaa !1142
@@ -93209,7 +93209,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_memory_ex(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %12, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %12, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %0, align 8, !tbaa !1141
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %13, align 8, !tbaa !1142
@@ -93353,7 +93353,7 @@ define range(i32 0, 2) i32 @ma_dr_wav_init_memory_with_metadata(ptr noundef %0, 
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %10, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %0, align 8, !tbaa !1141
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %11, align 8, !tbaa !1142
@@ -95852,7 +95852,7 @@ define ptr @ma_dr_wav_open_and_read_pcm_frames_s16(ptr noundef %0, ptr noundef %
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %18, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %18, i8 0, i64 392, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !1141
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %19, align 8, !tbaa !1142
@@ -96050,7 +96050,7 @@ define ptr @ma_dr_wav_open_and_read_pcm_frames_f32(ptr noundef %0, ptr noundef %
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %18, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %18, i8 0, i64 392, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !1141
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %19, align 8, !tbaa !1142
@@ -96248,7 +96248,7 @@ define ptr @ma_dr_wav_open_and_read_pcm_frames_s32(ptr noundef %0, ptr noundef %
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %18, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %18, i8 0, i64 392, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !1141
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %19, align 8, !tbaa !1142
@@ -96449,7 +96449,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_s16(ptr noundef readonly cap
 
 ma_fopen.exit.i.i:                                ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %6, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -96549,7 +96549,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_f32(ptr noundef readonly cap
 
 ma_fopen.exit.i.i:                                ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %6, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -96649,7 +96649,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_s32(ptr noundef readonly cap
 
 ma_fopen.exit.i.i:                                ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %6, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -96748,7 +96748,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_s16_w(ptr noundef %0, ptr no
 15:                                               ; preds = %13
   %16 = load ptr, ptr %6, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -96852,7 +96852,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_f32_w(ptr noundef %0, ptr no
 15:                                               ; preds = %13
   %16 = load ptr, ptr %6, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -96956,7 +96956,7 @@ define ptr @ma_dr_wav_open_file_and_read_pcm_frames_s32_w(ptr noundef %0, ptr no
 15:                                               ; preds = %13
   %16 = load ptr, ptr %6, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %18, align 8, !tbaa !1142
@@ -97058,7 +97058,7 @@ define ptr @ma_dr_wav_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64 no
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %18, align 8, !tbaa !1142
@@ -97157,7 +97157,7 @@ define ptr @ma_dr_wav_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64 no
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %18, align 8, !tbaa !1142
@@ -97256,7 +97256,7 @@ define ptr @ma_dr_wav_open_memory_and_read_pcm_frames_s32(ptr noundef %0, i64 no
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %17, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %17, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %7, align 8, !tbaa !1141
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %18, align 8, !tbaa !1142
@@ -97535,7 +97535,7 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %7, %13
 
 19:                                               ; preds = %ma_dr_flac__init_cpu_caps.exit
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4592) %20, i8 0, i64 4568, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4568) %20, i8 0, i64 4568, i1 false)
   store ptr %0, ptr %12, align 8, !tbaa !1907
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %21, align 8, !tbaa !1909
@@ -97757,7 +97757,7 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %119, %122
 125:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %narrow = add nuw nsw i32 %114, 70496
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65944) %126, i8 0, i64 65904, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65904) %126, i8 0, i64 65904, i1 false)
   store ptr %0, ptr %.0.i, align 8, !tbaa !1223
   %127 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %1, ptr %127, align 8, !tbaa !1313
@@ -110054,7 +110054,7 @@ ma_free.exit74:                                   ; preds = %ma_zero_memory_defa
   %144 = load i32, ptr %143, align 4, !tbaa !1381
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %146, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %146, i8 0, i64 24, i1 false)
   store i32 %142, ptr %145, align 8, !tbaa !1078
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %144, ptr %147, align 4, !tbaa !1082
@@ -123728,7 +123728,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
 
 22:                                               ; preds = %21, %19, %ma_zero_memory_default.exit.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %23, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %.0.i, align 8, !tbaa !351
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i64 -1, ptr %24, align 8, !tbaa !352
@@ -123832,7 +123832,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
 
 19:                                               ; preds = %18, %16, %ma_zero_memory_default.exit.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %20, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %.0.i, align 8, !tbaa !351
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i64 -1, ptr %21, align 8, !tbaa !352
@@ -123937,7 +123937,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
 
 20:                                               ; preds = %19, %17, %ma_zero_memory_default.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %21, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %21, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %.0.i, align 8, !tbaa !351
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i64 -1, ptr %22, align 8, !tbaa !352
@@ -124043,7 +124043,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
 
 21:                                               ; preds = %20, %18, %ma_zero_memory_default.exit.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %22, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %22, i8 0, i64 64, i1 false)
   store ptr @g_ma_flac_ds_vtable, ptr %.0.i, align 8, !tbaa !351
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i64 -1, ptr %23, align 8, !tbaa !352

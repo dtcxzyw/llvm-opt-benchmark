@@ -2714,7 +2714,7 @@ call.i.noexc.i167:                                ; preds = %invoke.cont13.i
   %.pre.i.i.i171 = load i32, ptr %arrayidx.i.i.i.i.i.i.phi.trans.insert.i.i.i, align 4
   %xor4.i.i.i.i.i.i.i.i = or i32 %.pre.i.i.i171, %shl.i.i.i.i.i.i.i.i
   store i32 %xor4.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.phi.trans.insert.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %195, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %195, i8 0, i64 248, i1 false)
   store ptr %194, ptr %stack.i.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i.i.i.i.i, align 4
   store ptr %198, ptr %194, align 8
@@ -5948,7 +5948,7 @@ invoke.cont:
   store i32 %xor4.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.phi.trans.insert.i, align 4
   %3 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %4, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %4, i8 0, i64 248, i1 false)
   store ptr %3, ptr %stack.i.i, align 8
   %m_pos.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 8
   %m_capacity.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %stack.i.i, i64 12
@@ -6895,7 +6895,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i:       ; preds = %_ZN6bufferIP3astLb0
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i, %entry
   %9 = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %stack.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   store ptr %9, ptr %stack.i, align 8
   %m_pos.i.i26.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   %m_capacity.i.i27.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 12

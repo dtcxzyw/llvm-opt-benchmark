@@ -1075,7 +1075,7 @@ define hidden i32 @ssl3_get_client_hello(ptr noundef %0) local_unnamed_addr #0 {
   %29 = load i32, ptr %28, align 8, !tbaa !45
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %31, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !101
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !104

@@ -1543,7 +1543,7 @@ define hidden ptr @lj_serialize_encode(ptr noundef %0, ptr noundef readonly capt
   %3 = alloca %struct.SBufExt, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !40
   %7 = inttoptr i64 %6 to ptr
@@ -1588,7 +1588,7 @@ define hidden void @lj_serialize_decode(ptr noundef %0, ptr noundef writeonly ca
   %4 = alloca %struct.SBufExt, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !24

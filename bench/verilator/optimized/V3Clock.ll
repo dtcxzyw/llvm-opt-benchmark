@@ -806,7 +806,7 @@ _ZN12VNUser1InUseC2Ev.exit.i:                     ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %25, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %25, i8 0, i64 25, i1 false)
   %26 = load ptr, ptr %24, align 8
   store ptr %26, ptr %23, align 8
   %27 = load ptr, ptr %0, align 8

@@ -10099,8 +10099,8 @@ fill_mmfile.exit.thread.i.i.i.i:                  ; preds = %159, %147
 170:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25) #32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false)
   store i64 1, ptr %25, align 8, !tbaa !278
   store i64 0, ptr %24, align 8, !tbaa !276
   %171 = call i32 @xdi_diff_outf(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull @checkdiff_consume_hunk, ptr noundef nonnull @checkdiff_consume, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #32
@@ -18840,7 +18840,7 @@ strbuf_setlen.exit49.i.i:                         ; preds = %542, %strbuf_setlen
   %546 = load ptr, ptr %543, align 8, !tbaa !141
   %547 = call i64 @fill_textconv(ptr noundef %546, ptr noundef %.0194.i, ptr noundef nonnull %5, ptr noundef nonnull %11)
   %548 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %548, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %548, i8 0, i64 48, i1 false)
   %549 = load i32, ptr %347, align 4, !tbaa !154
   %550 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %549) #32
   %551 = load ptr, ptr %543, align 8, !tbaa !141
@@ -19576,7 +19576,7 @@ diff_funcname_pattern.exit328.i:                  ; preds = %thread-pre-split.th
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   %865 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %865, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %865, i8 0, i64 48, i1 false)
   %866 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %867 = load i32, ptr %866, align 8, !tbaa !438
   %.not251.i = icmp eq i32 %867, 0
@@ -21323,9 +21323,9 @@ diff_line_prefix.exit.i:                          ; preds = %20, %15
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %41, align 8, !tbaa !499
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %43, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %45 = load ptr, ptr %44, align 8, !tbaa !458
   call fastcc void @diff_words_fill(ptr noundef nonnull %7, ptr noundef %4, ptr noundef %45)
@@ -22520,7 +22520,7 @@ fill_mmfile.exit.thread:                          ; preds = %203, %190
   %212 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sink.i112, ptr %212, align 8, !tbaa !275
   %213 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %213, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, i8 0, i64 24, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %215 = load i32, ptr %214, align 8, !tbaa !156
   %216 = sext i32 %215 to i64

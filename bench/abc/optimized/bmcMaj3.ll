@@ -2078,7 +2078,7 @@ define noundef i32 @Maj3_ManTest() local_unnamed_addr #3 {
   %2 = alloca %struct.Vec_Int_t_, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   store i32 1, ptr %1, align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 2, ptr %4, align 4

@@ -10898,7 +10898,7 @@ _ZNK5clang14IdentifierInfo5isStrILm13EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Tok
 103:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #22
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %104, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %104, i8 0, i64 12, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i16 425, ptr %105, align 8, !tbaa !23
   %106 = load i32, ptr %6, align 8, !tbaa !267
@@ -10941,7 +10941,7 @@ _ZNK5clang14IdentifierInfo5isStrILm5EEEbRAT__Kc.exit: ; preds = %_ZNK5clang5Toke
 121:                                              ; preds = %_ZNK5clang14IdentifierInfo5isStrILm5EEEbRAT__Kc.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #22
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %122, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %122, i8 0, i64 12, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i16 427, ptr %123, align 8, !tbaa !23
   %124 = load i32, ptr %6, align 8, !tbaa !267

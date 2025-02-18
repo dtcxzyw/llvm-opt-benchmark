@@ -16302,7 +16302,7 @@ define dso_local void @_ZN4llvm20PostGenericScheduler17pickNodeFromQueueERNS_13S
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !892
   store i64 0, ptr %13, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %25, i8 0, i64 14, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %25, i8 0, i64 14, i1 false)
   store ptr %27, ptr %15, align 8, !tbaa !718
   %28 = load i32, ptr %5, align 8, !tbaa !680
   %29 = icmp eq i32 %28, 1

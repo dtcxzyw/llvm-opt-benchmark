@@ -692,7 +692,7 @@ define dso_local noalias noundef ptr @_php_stream_filter_alloc(ptr noundef %0, p
   %9 = phi ptr [ %5, %4 ], [ %7, %6 ]
   %10 = zext i8 %2 to i32
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store ptr %0, ptr %9, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %12, align 8, !tbaa !18

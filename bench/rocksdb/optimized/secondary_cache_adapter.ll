@@ -7609,7 +7609,7 @@ if.then4.i.i.i.i:                                 ; preds = %do.cond.i.i.i.i.i
   %cache_res_mgr_.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   %cache_res_handle_.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %call8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store ptr %16, ptr %cache_res_mgr_.i, align 8
   %_M_refcount.i.i.i6 = getelementptr inbounds nuw i8, ptr %call8, i64 16
   %20 = load i8, ptr @__libc_single_threaded, align 1

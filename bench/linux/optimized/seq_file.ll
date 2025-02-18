@@ -230,7 +230,7 @@ define dso_local i64 @seq_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store i32 %9, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i16 %40, ptr %45, align 4

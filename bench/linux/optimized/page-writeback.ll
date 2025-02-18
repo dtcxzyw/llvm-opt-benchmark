@@ -874,7 +874,7 @@ define dso_local void @wb_update_bandwidth(ptr noundef %0) local_unnamed_addr #0
   %2 = alloca %struct.dirty_throttle_control, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1277,7 +1277,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   %6 = alloca %struct.dirty_throttle_control, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   store ptr %0, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1952,7 +1952,7 @@ define dso_local zeroext i1 @wb_over_bg_thresh(ptr noundef %0) local_unnamed_add
   %4 = alloca %struct.dirty_throttle_control, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -2868,7 +2868,7 @@ define dso_local i32 @do_writepages(ptr noundef %0, ptr noundef %1) local_unname
 62:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #10
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %63, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, i8 0, i64 64, i1 false)
   store ptr %10, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 416

@@ -87983,7 +87983,7 @@ define internal fastcc void @"_ZZN4llvm15OpenMPIRBuilder16createTargetDataERKNS0
   %9 = load ptr, ptr %8, align 8, !tbaa !2048
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #29
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !2598
   %13 = load ptr, ptr %12, align 8, !tbaa !2599
@@ -88173,7 +88173,7 @@ define internal fastcc void @"_ZZN4llvm15OpenMPIRBuilder16createTargetDataERKNS0
   tail call void @_ZN4llvm15OpenMPIRBuilder20emitOffloadingArraysENS_13IRBuilderBase11InsertPointES2_RNS0_10MapInfosTyERNS0_14TargetDataInfoEbNS_12function_refIFvjPNS_5ValueEEEENS7_IFS9_jEEE(ptr noundef nonnull align 8 dereferenceable(3104) %20, ptr noundef nonnull byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %2, ptr noundef nonnull byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %8, ptr noundef nonnull align 8 dereferenceable(952) %30, ptr noundef nonnull align 8 dereferenceable(258) %35, i1 noundef zeroext true, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload, ptr noundef nonnull byval(%"class.llvm::function_ref.508") align 8 %39)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #29
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   %41 = load ptr, ptr %34, align 8, !tbaa !2619
   call void @_ZN4llvm15OpenMPIRBuilder28emitOffloadingArraysArgumentERNS_13IRBuilderBaseERNS0_16TargetDataRTArgsERNS0_14TargetDataInfoEb(ptr noundef nonnull align 8 dereferenceable(3104) %20, ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(258) %41, i1 noundef zeroext false)
   %42 = load ptr, ptr %34, align 8, !tbaa !2619
@@ -90759,7 +90759,7 @@ _ZN4llvm15OpenMPIRBuilder14TargetDataInfoC2Ebb.exit: ; preds = %.lr.ph.i.i.i.i.i
   %44 = call noundef nonnull align 8 dereferenceable(952) ptr %41(i64 noundef %43, ptr noundef nonnull byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %15) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !2779
   %48 = load ptr, ptr %36, align 8, !tbaa !2775

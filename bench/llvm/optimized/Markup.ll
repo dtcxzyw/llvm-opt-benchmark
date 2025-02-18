@@ -601,7 +601,7 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser12parseElementENS_9String
 31:                                               ; preds = %27
   %32 = add i64 %29, 3
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %12, ptr %11, align 8, !tbaa !21
   store i32 0, ptr %13, align 8, !tbaa !23
   store i32 3, ptr %14, align 4, !tbaa !24
@@ -846,7 +846,7 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser22parseTextOutsideMarkupE
   %35 = ptrtoint ptr %.sroa.0.036 to i64
   %36 = sub i64 %34, %35
   %..i.i = call i64 @llvm.umin.i64(i64 %36, i64 %.sroa.7.035)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 16, i1 false), !alias.scope !63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !alias.scope !63
   store ptr %17, ptr %16, align 8, !tbaa !21, !alias.scope !63
   store i32 0, ptr %19, align 8, !tbaa !23, !alias.scope !63
   store i32 3, ptr %20, align 4, !tbaa !24, !alias.scope !63
@@ -930,7 +930,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit:          ; preds = %_ZN4llvm23SmallVect
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #9
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %26, i8 0, i64 16, i1 false), !alias.scope !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !alias.scope !66
   store ptr %25, ptr %24, align 8, !tbaa !21, !alias.scope !66
   store i32 0, ptr %27, align 8, !tbaa !23, !alias.scope !66
   store i32 3, ptr %28, align 4, !tbaa !24, !alias.scope !66
@@ -1027,7 +1027,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit18:        ; preds = %_ZN4llvm23SmallVect
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %117, i8 0, i64 16, i1 false), !alias.scope !70
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false), !alias.scope !70
   store ptr %116, ptr %115, align 8, !tbaa !21, !alias.scope !70
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %118, align 8, !tbaa !23, !alias.scope !70

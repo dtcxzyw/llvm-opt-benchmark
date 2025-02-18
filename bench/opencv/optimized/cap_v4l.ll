@@ -2262,7 +2262,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L6setFpsEi(ptr noundef 
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(204) %11, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(200) %11, i8 0, i64 200, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8748
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %3, align 4
@@ -3306,7 +3306,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L13createBuffersEv(ptr 
 21:                                               ; preds = %.lr.ph79, %._crit_edge
   %indvars.iv86 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next87, %._crit_edge ]
   %.05177 = phi i64 [ 0, %.lr.ph79 ], [ %143, %._crit_edge ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, i8 0, i64 80, i1 false)
   %22 = load i32, ptr %12, align 4
   store i32 %22, ptr %13, align 4
   store i32 1, ptr %14, align 4
@@ -4683,7 +4683,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L9grabFrameEv(ptr nound
 
 25:                                               ; preds = %.lr.ph, %72
   %.02635 = phi i32 [ 0, %.lr.ph ], [ %73, %72 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %24, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, i8 0, i64 80, i1 false)
   %26 = load i32, ptr %19, align 4
   store i32 %26, ptr %20, align 4
   store i32 1, ptr %21, align 4
@@ -6373,7 +6373,7 @@ define hidden noundef zeroext i1 @_ZNK2cv16CvCaptureCAM_V4L11controlInfoEiRjRNS_
 
 _ZN2cvL17capPropertyToV4L2Ei.exit:                ; preds = %switch.hole_check, %4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %55, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %55, i8 0, i64 64, i1 false)
   store i32 -1, ptr %50, align 4
   br label %59
 
@@ -6388,7 +6388,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw [39 x i32], ptr @switch.table._ZNK2cv16CvCaptureCAM_V4L11controlInfoEiRjRNS_5RangeE, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %57, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %57, i8 0, i64 64, i1 false)
   store i32 %switch.load, ptr %50, align 4
   %58 = call noundef zeroext i1 @_ZNK2cv16CvCaptureCAM_V4L8tryIoctlEmPvbi(ptr noundef nonnull align 8 dereferenceable(8784) %0, i64 noundef 3225703972, ptr noundef nonnull %50, i1 noundef zeroext true, i32 noundef 10)
   br i1 %58, label %229, label %59
@@ -7308,7 +7308,7 @@ define hidden noundef double @_ZNK2cv16CvCaptureCAM_V4L11getPropertyEi(ptr nound
 
 53:                                               ; preds = %2
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(204) %54, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(200) %54, i8 0, i64 200, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8748
   %56 = load i32, ptr %55, align 4
   store i32 %56, ptr %3, align 4

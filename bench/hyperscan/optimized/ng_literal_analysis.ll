@@ -5861,7 +5861,7 @@ _ZN3ue212_GLOBAL__N_18LitGraphC2Ev.exit.i:        ; preds = %invoke.cont.i.i
   store i64 %9, ptr %8, align 8
   %_M_map_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %workQ.i, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %workQ.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i.i.i, align 8
   %call5.i.i2.i.i1.i.i.i42.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
           to label %call5.i.i2.i.i1.i.i.i.noexc.i unwind label %lpad.i

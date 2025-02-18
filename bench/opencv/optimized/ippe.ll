@@ -1998,7 +1998,7 @@ _ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit:                ; preds = %276
   %289 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %291 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %291, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, i8 0, i64 16, i1 false)
   store ptr %287, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %293 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -2517,7 +2517,7 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit141:      ; preds = %479, %486, %492
   %548 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %549 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %550 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %550, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %550, i8 0, i64 16, i1 false)
   store ptr %546, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %552 = getelementptr inbounds nuw i8, ptr %23, i64 80
@@ -4388,7 +4388,7 @@ define hidden void @_ZN2cv4IPPE10PoseSolver16computeRotationsEddddddRKNS_12_Outp
   tail call void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
   tail call void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 3, i32 noundef 3, i32 noundef 6, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   %19 = fmul double %6, %6
   %20 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %19)
   %21 = fadd double %20, 1.000000e+00
@@ -6890,7 +6890,7 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit267:      ; preds = %.thread324, %411, %
   %573 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %574 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %575 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %575, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %575, i8 0, i64 16, i1 false)
   store ptr %571, ptr %574, align 8
   %576 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %577 = getelementptr inbounds nuw i8, ptr %9, i64 80

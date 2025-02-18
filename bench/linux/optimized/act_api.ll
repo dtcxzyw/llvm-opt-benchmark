@@ -3044,7 +3044,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noun
 
 78:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 200
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 0
@@ -3423,7 +3423,7 @@ define internal fastcc void @tcf_action_cleanup(ptr noundef nonnull %0) unnamed_
   %2 = alloca %struct.flow_offload_action, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0

@@ -12429,7 +12429,7 @@ define void @_ZN5ImGui31TableSettingsAddSettingsHandlerEv() local_unnamed_addr #
 entry:
   %ini_handler = alloca %struct.ImGuiSettingsHandler, align 8
   %0 = getelementptr inbounds nuw i8, ptr %ini_handler, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr @.str.8, ptr %ini_handler, align 8
   %call = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.8, i64 noundef 0, i32 noundef 0)
   %TypeHash = getelementptr inbounds nuw i8, ptr %ini_handler, i64 8

@@ -13370,7 +13370,7 @@ if.end.i:
   %4 = load ptr, ptr %env_.i.i9, align 8
   %listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %4, ptr %env_.i, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96

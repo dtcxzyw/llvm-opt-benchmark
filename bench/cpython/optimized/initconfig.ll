@@ -2033,7 +2033,7 @@ _PyWideStringList_Clear.exit59:                   ; preds = %101, %_PyWideString
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_PyConfig_InitCompatConfig(ptr noundef writeonly captures(none) initializes((0, 448)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %2, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %2, i8 0, i64 424, i1 false)
   store i32 1, ptr %0, align 8, !tbaa !224
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %3, align 4, !tbaa !225
@@ -2081,7 +2081,7 @@ define dso_local void @_PyConfig_InitCompatConfig(ptr noundef writeonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PyConfig_InitPythonConfig(ptr noundef writeonly captures(none) initializes((0, 448)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %2, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %2, i8 0, i64 424, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2135,7 +2135,7 @@ define dso_local void @PyConfig_InitPythonConfig(ptr noundef writeonly captures(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PyConfig_InitIsolatedConfig(ptr noundef writeonly captures(none) initializes((0, 448)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %2, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %2, i8 0, i64 424, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8782,7 +8782,7 @@ define dso_local noundef ptr @PyInitConfig_Create() local_unnamed_addr #5 {
   tail call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %1) #29
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %5, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %5, i8 0, i64 424, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72

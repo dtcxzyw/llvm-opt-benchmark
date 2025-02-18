@@ -587,7 +587,7 @@ declare dso_local i32 @seq_buf_puts(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @dynevent_cmd_init(ptr noundef writeonly captures(none) initializes((0, 56)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #7 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr %1, ptr %0, align 8
   %7 = zext i32 %2 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

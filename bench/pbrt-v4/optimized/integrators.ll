@@ -52501,7 +52501,7 @@ sw.default:                                       ; preds = %entry
   %lambdaMax.i.i = getelementptr inbounds nuw i8, ptr %ptr, i64 92
   %9 = load float, ptr %lambdaMax.i.i, align 4, !noalias !732
   %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 28, i1 false), !alias.scope !733
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false), !alias.scope !733
   %sub.i.i.i.i34 = fsub float 1.000000e+00, %7
   %mul.i.i.i.i35 = fmul float %sub.i.i.i.i34, %8
   %mul1.i.i.i.i36 = fmul float %7, %9

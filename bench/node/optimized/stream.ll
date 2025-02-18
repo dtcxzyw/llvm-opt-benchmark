@@ -1795,7 +1795,7 @@ return.sink.split.i:                              ; preds = %sw.bb1.i, %if.end5,
 uv__handle_fd.exit:                               ; preds = %if.end5, %return.sink.split.i
   %retval.0.i = phi i32 [ -1, %if.end5 ], [ %6, %return.sink.split.i ]
   %7 = getelementptr inbounds nuw i8, ptr %cmsg, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %7, i8 0, i64 240, i1 false)
   store ptr null, ptr %msg, align 8
   %msg_namelen = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i32 0, ptr %msg_namelen, align 8

@@ -135,7 +135,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 59:                                               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store i32 1, ptr %57, align 4, !tbaa !75
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 %55, ptr %61, align 4, !tbaa !85
@@ -191,7 +191,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %85, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   %86 = icmp eq i32 %29, 6
   %87 = select i1 %86, i32 4, i32 3
   store i32 %87, ptr %82, align 4, !tbaa !75

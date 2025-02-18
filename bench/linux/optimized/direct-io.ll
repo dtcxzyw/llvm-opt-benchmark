@@ -449,7 +449,7 @@ define dso_local ptr @__iomap_dio_rw(ptr noundef %0, ptr noundef %1, ptr noundef
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %13, i8 0, i64 176, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %13, i8 0, i64 176, i1 false)
   store ptr %12, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8

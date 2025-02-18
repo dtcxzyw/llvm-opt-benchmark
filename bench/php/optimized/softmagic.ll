@@ -5016,7 +5016,7 @@ define internal fastcc void @mcopy(ptr noundef captures(none) %0, ptr noundef wr
 
 109:                                              ; preds = %.critedge168
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %110, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %110, i8 0, i64 120, i1 false)
   %111 = zext i32 %5 to i64
   store i64 %111, ptr %1, align 8, !tbaa !28
   br label %122

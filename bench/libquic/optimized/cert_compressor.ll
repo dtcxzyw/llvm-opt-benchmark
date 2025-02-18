@@ -1938,7 +1938,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %24
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %249, align 8, !tbaa !36
   %250 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %250, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %250, i8 0, i64 112, i1 false)
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %248, ptr %251, align 8, !tbaa !41
   %252 = getelementptr inbounds nuw i8, ptr %12, i64 32

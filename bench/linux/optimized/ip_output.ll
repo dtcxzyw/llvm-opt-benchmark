@@ -5156,7 +5156,7 @@ define dso_local void @ip_send_unicast_reply(ptr noundef %0, ptr noundef %1, ptr
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %21, i8 0, i64 26, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %21, i8 0, i64 26, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 34
   store i16 -1, ptr %22, align 2
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 36

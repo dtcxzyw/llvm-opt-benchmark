@@ -120,7 +120,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #14
   %10 = tail call i32 @cl_initialize_crypto() #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @descr, i64 8), i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @descr, i64 8), i8 0, i64 120, i1 false)
   store ptr @.str, ptr @descr, align 8, !tbaa !4
   store i32 16777217, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 8), align 8, !tbaa !12
   store i64 32, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8, !tbaa !13
@@ -801,7 +801,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %358 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef 7) #14
   %359 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #14
   %360 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %360, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %360, i8 0, i64 144, i1 false)
   store ptr @milter_exit, ptr %5, align 8, !tbaa !30
   %361 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %362 = call i32 @sigfillset(ptr noundef nonnull %361) #14

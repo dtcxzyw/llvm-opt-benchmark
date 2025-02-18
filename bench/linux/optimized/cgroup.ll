@@ -14995,7 +14995,7 @@ define internal fastcc void @init_and_link_css(ptr noundef initializes((0, 200))
 
 24:                                               ; preds = %23, %9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %25, i8 0, i64 184, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %25, i8 0, i64 184, i1 false)
   store ptr %2, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %26, align 8

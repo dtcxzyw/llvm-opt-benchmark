@@ -33,7 +33,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_sysctl(ptr nou
 
 16:                                               ; preds = %.lr.ph, %25
   %.0911 = phi ptr [ %0, %.lr.ph ], [ %30, %25 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
   store ptr @uv__random_sysctl.name, ptr %3, align 8
   store i32 3, ptr %7, align 8
   store ptr %4, ptr %8, align 8

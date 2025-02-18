@@ -3688,7 +3688,7 @@ if.then69:                                        ; preds = %land.lhs.true.i168
   %26 = load ptr, ptr %m_data.i183, align 8
   %cond.i184 = select i1 %tobool.i182, ptr %26, ptr %m_data.i183
   %27 = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %27, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 40, i1 false)
   store ptr @.str, ptr %ref.tmp72, align 8
   %float_fmt.i = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 8
   store ptr @.str.1, ptr %float_fmt.i, align 8

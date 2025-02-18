@@ -1893,7 +1893,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN12_GLOBAL__N_112
 
 461:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %462, i8 0, i64 64, i1 false), !alias.scope !301
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %462, i8 0, i64 64, i1 false), !alias.scope !301
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %464
 

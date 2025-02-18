@@ -1161,7 +1161,7 @@ define internal fastcc i32 @parse_dmar_table() unnamed_addr #4 section ".init.te
   store i64 0, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) @constinit, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store ptr %1, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i8 1, ptr %6, align 8
@@ -2140,7 +2140,7 @@ define dso_local void @qi_flush_dev_iotlb_pasid(ptr noundef %0, i16 noundef zero
   %11 = shl nuw i64 1, %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, -1
@@ -2220,7 +2220,7 @@ define dso_local void @qi_flush_pasid_cache(ptr noundef %0, i16 noundef zeroext 
   %5 = alloca %struct.qi_desc, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = zext i32 %3 to i64
   %8 = shl nuw i64 %7, 32
   %9 = zext i16 %1 to i64
@@ -3167,7 +3167,7 @@ dmar_walk_dsm_resource.exit.thread32:             ; preds = %34
 
 dmar_walk_dsm_resource.exit:                      ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %37, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, i8 0, i64 96, i1 false)
   store ptr @dmar_validate_one_drhd, ptr %11, align 8
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr inttoptr (i64 1 to ptr), ptr %38, align 8
@@ -3203,7 +3203,7 @@ dmar_walk_dsm_resource.exit:                      ; preds = %34
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %55, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %55, i8 0, i64 96, i1 false)
   store ptr @dmar_parse_one_drhd, ptr %10, align 8
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %12, ptr %56, align 8
@@ -3316,7 +3316,7 @@ dmar_walk_dsm_resource.exit12:                    ; preds = %76
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %108, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %108, i8 0, i64 96, i1 false)
   store ptr @dmar_hp_release_drhd, ptr %8, align 8
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %110 = load ptr, ptr %109, align 8
@@ -3407,7 +3407,7 @@ dmar_walk_dsm_resource.exit21.thread41:           ; preds = %138
 
 dmar_walk_dsm_resource.exit21:                    ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %141, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %141, i8 0, i64 96, i1 false)
   store ptr @dmar_hp_remove_drhd, ptr %6, align 8
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %143 = load ptr, ptr %142, align 8
@@ -3493,7 +3493,7 @@ dmar_walk_dsm_resource.exit27.thread47:           ; preds = %171
 
 dmar_walk_dsm_resource.exit27:                    ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %174, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %174, i8 0, i64 96, i1 false)
   store ptr @dmar_hp_release_drhd, ptr %4, align 8
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %176 = load ptr, ptr %175, align 8
@@ -3538,7 +3538,7 @@ dmar_walk_dsm_resource.exit27:                    ; preds = %171
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %193, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %193, i8 0, i64 96, i1 false)
   store ptr @dmar_hp_add_drhd, ptr %3, align 8
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %195 = load ptr, ptr %194, align 8

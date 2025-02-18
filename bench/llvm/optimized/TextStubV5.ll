@@ -3682,7 +3682,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   store i16 7, ptr %65, align 8, !tbaa !14
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %69, i8 0, i64 12, i1 false)
   %70 = load ptr, ptr %17, align 8, !tbaa !397, !alias.scope !394
   store ptr %70, ptr %68, align 8, !tbaa !397
   store ptr null, ptr %17, align 8, !tbaa !397, !alias.scope !394
@@ -14924,7 +14924,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i16 7, ptr %127, align 8, !tbaa !14
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %131, i8 0, i64 12, i1 false)
   %132 = load ptr, ptr %11, align 8, !tbaa !397
   store ptr %132, ptr %130, align 8, !tbaa !397
   store ptr null, ptr %11, align 8, !tbaa !397
@@ -17023,7 +17023,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %_ZN4llvm4json5Value
   store i16 7, ptr %121, align 8, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %125, i8 0, i64 12, i1 false)
   %126 = load ptr, ptr %8, align 8, !tbaa !397
   store ptr %126, ptr %124, align 8, !tbaa !397
   store ptr null, ptr %8, align 8, !tbaa !397

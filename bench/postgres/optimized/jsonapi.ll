@@ -140,7 +140,7 @@ define zeroext i1 @IsValidJsonNumber(ptr noundef %0, i64 noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %21, label %8
 
@@ -867,7 +867,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #16
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %42, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %42, i8 0, i64 104, i1 false)
   %43 = load ptr, ptr %38, align 8
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %68 [

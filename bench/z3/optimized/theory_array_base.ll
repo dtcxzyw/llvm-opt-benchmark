@@ -5882,7 +5882,7 @@ define hidden noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr no
 entry:
   %roots = alloca %class.sbuffer, align 8
   %0 = getelementptr inbounds nuw i8, ptr %roots, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr %0, ptr %roots, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %roots, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

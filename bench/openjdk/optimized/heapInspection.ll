@@ -2346,7 +2346,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %50 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4088, i8 noundef zeroext 1, i32 noundef 0) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 56

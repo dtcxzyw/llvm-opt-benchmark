@@ -555,7 +555,7 @@ _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %1
 
 16:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %17, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17, i8 0, i64 144, i1 false)
   store ptr @_ZN13SubprocessSet18SetInterruptedFlagEi, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %18) #20

@@ -1903,7 +1903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 1, ptr %37, align 4, !tbaa !59
   %503 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %504 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %504, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %504, i8 0, i64 328, i1 false)
   store i32 1, ptr %503, align 4, !tbaa !22
   %505 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 0, ptr %505, align 4, !tbaa !22
@@ -3721,7 +3721,7 @@ define dso_local void @_ZN4absl16strings_internal33BigUnsigned_MultiplyByUint32_
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %3) #17
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %9, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %9, i8 0, i64 328, i1 false)
   store i32 1, ptr %8, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %10, align 4, !tbaa !22
@@ -3985,7 +3985,7 @@ define dso_local void @_ZN4absl16strings_internal38BigUnsigned_MultiplyByBigUnsi
   store i32 1, ptr %7, align 4, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %28, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %28, i8 0, i64 328, i1 false)
   store i32 1, ptr %27, align 4, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %29, align 4, !tbaa !22
@@ -3993,7 +3993,7 @@ define dso_local void @_ZN4absl16strings_internal38BigUnsigned_MultiplyByBigUnsi
   store i32 1, ptr %8, align 4, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %31, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %31, i8 0, i64 328, i1 false)
   store i32 1, ptr %30, align 4, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %32, align 4, !tbaa !22
@@ -6723,12 +6723,12 @@ define dso_local void @_ZN4absl16strings_internal29BigUnsigned_FiveToTheNth_Test
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.3, i32 noundef 207, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %4) #17
   store i32 1, ptr %4, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %17, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %17, i8 0, i64 328, i1 false)
   store i32 123, ptr %16, align 4, !tbaa !22
   store i32 0, ptr %18, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %5) #17
   store i32 1, ptr %5, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %20, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %20, i8 0, i64 328, i1 false)
   store i32 123, ptr %19, align 4, !tbaa !22
   store i32 0, ptr %21, align 4, !tbaa !22
   %30 = load i32, ptr %2, align 4, !tbaa !22
@@ -6994,7 +6994,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %91, %_ZNKSt14defaul
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.3, i32 noundef 222, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %11) #17
   store i32 1, ptr %11, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %25, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %25, i8 0, i64 328, i1 false)
   store i32 1, ptr %24, align 4, !tbaa !22
   store i32 0, ptr %26, align 4, !tbaa !22
   %109 = load i32, ptr %9, align 4, !tbaa !22
@@ -7274,12 +7274,12 @@ define dso_local void @_ZN4absl16strings_internal28BigUnsigned_TenToTheNth_Test8
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.3, i32 noundef 235, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %4) #17
   store i32 1, ptr %4, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %19, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %19, i8 0, i64 328, i1 false)
   store i32 123, ptr %18, align 4, !tbaa !22
   store i32 0, ptr %20, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %5) #17
   store i32 1, ptr %5, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %22, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %22, i8 0, i64 328, i1 false)
   store i32 123, ptr %21, align 4, !tbaa !22
   store i32 0, ptr %23, align 4, !tbaa !22
   %36 = load i32, ptr %2, align 4, !tbaa !22
@@ -7545,7 +7545,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %97, %_ZNKSt14defaul
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.3, i32 noundef 248, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.start.p0(i64 340, ptr nonnull %11) #17
   store i32 1, ptr %11, align 4, !tbaa !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %27, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %27, i8 0, i64 328, i1 false)
   store i32 135, ptr %26, align 4, !tbaa !22
   store i32 0, ptr %28, align 4, !tbaa !22
   %115 = load i32, ptr %9, align 4, !tbaa !22

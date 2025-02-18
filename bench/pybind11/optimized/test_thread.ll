@@ -1296,7 +1296,7 @@ common.resume:                                    ; preds = %284, %285, %223, %2
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false), !noalias !14
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %72, i8 0, i64 83, i1 false), !noalias !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %72, i8 0, i64 83, i1 false), !noalias !14
   store ptr %68, ptr %13, align 8, !alias.scope !14
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ21test_submodule_threadRNS_7module_EE3$_0PFNS2_9void_typeEvEFN12_GLOBAL__N_19IntStructEiES9_E7executeINS_6class_ISC_JEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderEiE_vJSP_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSI_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES16_", ptr %73, align 8
@@ -1618,7 +1618,7 @@ _ZN8pybind1122implicitly_convertibleIiN12_GLOBAL__N_19IntStructEEEvv.exit: ; pre
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, i8 0, i64 32, i1 false), !noalias !27
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %180, i8 0, i64 83, i1 false), !noalias !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %180, i8 0, i64 83, i1 false), !noalias !27
   store ptr %176, ptr %6, align 8, !alias.scope !27
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_threadRNS_7module_EE3$_1vJiRKN12_GLOBAL__N_19IntStructEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESP_", ptr %181, align 8
@@ -1809,7 +1809,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i: ; preds = %_ZNKR8pybind
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %240, i8 0, i64 32, i1 false), !noalias !40
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %241, i8 0, i64 83, i1 false), !noalias !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %241, i8 0, i64 83, i1 false), !noalias !40
   store ptr %237, ptr %2, align 8, !alias.scope !40
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_threadRNS_7module_EE3$_2vJiRKN12_GLOBAL__N_19IntStructEEJNS_4nameENS_5scopeENS_7siblingENS_10call_guardIJNS_18gil_scoped_releaseEEEEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESS_", ptr %242, align 8
@@ -2333,7 +2333,7 @@ _ZN8pybind116objectD2Ev.exit48:                   ; preds = %_ZN8pybind116detail
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %62, i8 0, i64 432, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %62, i8 0, i64 432, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -9787,7 +9787,7 @@ _ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_Type
   %559 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %557, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %557, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %560, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %560, i8 0, i64 16, i1 false)
   %561 = load ptr, ptr %45, align 8
   store ptr %561, ptr %557, align 8
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 8

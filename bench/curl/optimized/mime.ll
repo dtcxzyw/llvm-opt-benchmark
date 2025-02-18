@@ -556,7 +556,7 @@ curl_mime_init.exit.thread:                       ; preds = %78
 
 curl_mime_addpart.exit.thread:                    ; preds = %.lr.ph.split
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %94, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %94, i8 0, i64 424, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 432
   store i64 1, ptr %95, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 128
@@ -1000,7 +1000,7 @@ define ptr @curl_mime_addpart(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %6, i8 0, i64 424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(424) %6, i8 0, i64 424, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 432
   store i64 1, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 128

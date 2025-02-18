@@ -591,7 +591,7 @@ define dso_local void @ieee80211_send_4addr_nullfunc(ptr noundef readonly captur
   store i32 %21, ptr %19, align 8
   %22 = tail call ptr @skb_put(ptr noundef nonnull %11, i32 noundef 30) #18
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %23, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %23, i8 0, i64 28, i1 false)
   store i16 840, ptr %22, align 2
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 3632
@@ -2309,7 +2309,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #18
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 52
@@ -4038,7 +4038,7 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
   %636 = zext nneg i32 %632 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #18
   %637 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %637, i8 0, i64 40, i1 false), !annotation !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %637, i8 0, i64 40, i1 false), !annotation !62
   store ptr %635, ptr %4, align 8
   %638 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %636, ptr %638, align 8
@@ -4082,7 +4082,7 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
   %660 = zext nneg i32 %656 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #18
   %661 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %661, i8 0, i64 40, i1 false), !annotation !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %661, i8 0, i64 40, i1 false), !annotation !62
   store ptr %659, ptr %3, align 8
   %662 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %660, ptr %662, align 8
@@ -9947,7 +9947,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %17 = icmp ne i32 %15, 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #18
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 -1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 52
@@ -14751,7 +14751,7 @@ define internal fastcc i32 @ieee80211_determine_chantype(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %15) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %15, i8 0, i64 22, i1 false), !annotation !62
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store ptr %4, ptr %11, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -15830,7 +15830,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %204 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %205 = load i32, ptr %204, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 40, i1 false), !annotation !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false), !annotation !62
   store ptr %3, ptr %6, align 8
   store i64 %60, ptr %59, align 8
   store i64 0, ptr %61, align 8

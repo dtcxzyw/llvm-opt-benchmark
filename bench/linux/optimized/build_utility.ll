@@ -1173,7 +1173,7 @@ define internal i32 @sugov_init(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #42
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   store i32 56, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 6, ptr %13, align 4
@@ -1193,7 +1193,7 @@ define internal i32 @sugov_init(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store volatile ptr %22, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store volatile ptr %22, ptr %24, align 8
@@ -3487,7 +3487,7 @@ define dso_local i32 @out_of_line_wait_on_bit(ptr noundef %0, i32 noundef %1, pt
   %12 = getelementptr %struct.wait_queue_head, ptr @bit_wait_table, i64 %11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #42
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 24, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !annotation !27
   store ptr %0, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %14, align 8
@@ -3520,7 +3520,7 @@ define dso_local i32 @out_of_line_wait_on_bit_timeout(ptr noundef %0, i32 nounde
   %13 = getelementptr %struct.wait_queue_head, ptr @bit_wait_table, i64 %12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #42
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 24, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !annotation !27
   store ptr %0, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %15, align 8
@@ -3710,7 +3710,7 @@ define dso_local i32 @out_of_line_wait_on_bit_lock(ptr noundef %0, i32 noundef %
   %12 = getelementptr %struct.wait_queue_head, ptr @bit_wait_table, i64 %11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #42
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 24, i1 false), !annotation !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !annotation !27
   store ptr %0, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %14, align 8

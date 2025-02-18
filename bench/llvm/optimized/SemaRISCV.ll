@@ -10440,7 +10440,7 @@ _ZN4llvm14StringMapEntryIN12_GLOBAL__N_123RVVOverloadIntrinsicDefEE6createINS_15
   store i64 %393, ptr %408, align 8, !tbaa !793
   %412 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %413 = getelementptr inbounds nuw i8, ptr %408, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %413, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %413, i8 0, i64 32, i1 false)
   store ptr %413, ptr %412, align 8, !tbaa !783
   %414 = getelementptr inbounds nuw i8, ptr %408, i64 16
   store i32 0, ptr %414, align 8, !tbaa !784

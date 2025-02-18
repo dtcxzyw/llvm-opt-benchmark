@@ -12987,7 +12987,7 @@ _ZN5clang11ASTImporter6ImportENS_8QualTypeE.exit134.thread: ; preds = %124, %_ZN
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %172, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %172, i8 0, i64 12, i1 false)
   %173 = load i16, ptr %12, align 8, !tbaa !1264
   store i16 %173, ptr %13, align 8, !tbaa !1264
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 2

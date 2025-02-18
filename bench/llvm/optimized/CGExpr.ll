@@ -16839,7 +16839,7 @@ _ZN5clang7CodeGen6LValue13MakeGlobalRegEPN4llvm5ValueENS_9CharUnitsENS_8QualType
   %176 = and i64 %175, 7
   %177 = or i64 %.sroa.0.0.i.i.i.i150, %176
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 16, i1 false), !alias.scope !1909
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %178, i8 0, i64 16, i1 false), !alias.scope !1909
   %.sroa.4.i.i.7.i.i.7.i.i.7.i.7.i.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.i.i.7.i.i.7.i.i.7.i.7.i.7..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !1910, !noalias !1909
   %.sroa.2.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i, i64 4

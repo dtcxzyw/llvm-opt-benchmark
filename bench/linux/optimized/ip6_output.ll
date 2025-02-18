@@ -2825,7 +2825,7 @@ define dso_local i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %
   %188 = phi i32 [ 0, %169 ], [ %186, %180 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %189, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, i8 0, i64 24, i1 false), !annotation !10
   %190 = add i32 %37, %173
   %191 = sub i32 %171, %190
   %192 = add i32 %191, %188

@@ -96,7 +96,7 @@ define dso_local void @ieee80211_send_bar(ptr noundef %0, ptr noundef readonly c
   store i32 %21, ptr %19, align 8
   %22 = tail call ptr @skb_put(ptr noundef nonnull %10, i32 noundef 20) #10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %23, i8 0, i64 18, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %23, i8 0, i64 18, i1 false)
   store i16 132, ptr %22, align 1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %24, ptr noundef align 1 dereferenceable(6) %1, i64 6, i1 false)

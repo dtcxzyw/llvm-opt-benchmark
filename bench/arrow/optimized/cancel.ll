@@ -2199,7 +2199,7 @@ define internal fastcc void @_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceE
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_115SignalStopStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 136, i1 false)
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceEvE8instance, i64 8), align 8, !tbaa !14
   store ptr %6, ptr @_ZZN5arrow12_GLOBAL__N_115SignalStopState8instanceEvE8instance, align 8, !tbaa !119
   store ptr %6, ptr %6, align 8, !tbaa !120

@@ -591,7 +591,7 @@ define dso_local void @_ZN4llvm16WinEHPreparePass3runERNS_8FunctionERNS_15Analys
   call fastcc void @_ZN12_GLOBAL__N_116WinEHPrepareImplD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, i8 0, i64 64, i1 false), !alias.scope !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false), !alias.scope !77
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %0, align 8, !tbaa !28, !alias.scope !77
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8

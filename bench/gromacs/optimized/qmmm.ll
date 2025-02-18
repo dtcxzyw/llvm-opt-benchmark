@@ -4689,7 +4689,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 define void @_ZN3gmx14QMMMModuleInfo6createEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(880) ptr @_Znwm(i64 noundef 880) #26, !noalias !8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(880) %3, i8 0, i64 864, i1 false), !noalias !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(864) %3, i8 0, i64 864, i1 false), !noalias !8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12_GLOBAL__N_14QMMME, i64 16), ptr %2, align 8, !noalias !8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118QMMMOutputProviderE, i64 16), ptr %4, align 8, !noalias !8
@@ -5716,7 +5716,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store i64 %13, ptr %18, align 8
   %24 = load ptr, ptr %15, align 8
   store ptr %24, ptr %22, align 8
@@ -6363,7 +6363,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9c
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store i64 %13, ptr %18, align 8
   %24 = load ptr, ptr %15, align 8
   store ptr %24, ptr %22, align 8

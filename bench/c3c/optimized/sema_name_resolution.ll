@@ -1976,7 +1976,7 @@ define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nound
 define dso_local ptr @sema_find_symbol(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.NameResolve, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 49
@@ -2092,7 +2092,7 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readon
 define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.NameResolve, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 49

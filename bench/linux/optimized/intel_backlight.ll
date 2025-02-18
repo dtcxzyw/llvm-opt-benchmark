@@ -768,7 +768,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %28, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %29, align 4
   %30 = load i32, ptr %13, align 4

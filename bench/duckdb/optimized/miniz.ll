@@ -1279,7 +1279,7 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz12mz_compress2EPhPmPKh
   %6 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #25
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
   %8 = load i64, ptr %1, align 8, !tbaa !53
   %9 = or i64 %8, %3
   %10 = icmp ugt i64 %9, 4294967295
@@ -1354,7 +1354,7 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz11mz_compressEPhPmPKhm
   %5 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8, !tbaa !53
   %8 = or i64 %7, %3
   %9 = icmp ugt i64 %8, 4294967295
@@ -4429,7 +4429,7 @@ define noundef range(i32 -10000, 1) i32 @_ZN12duckdb_miniz13mz_uncompressEPhPmPK
   %5 = alloca %"struct.duckdb_miniz::mz_stream_s", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8, !tbaa !53
   %8 = or i64 %7, %3
   %9 = icmp ugt i64 %8, 4294967295
@@ -16159,7 +16159,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %50, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %50, i8 0, i64 240, i1 false)
   store i8 80, ptr %2, align 16, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 75, ptr %51, align 1, !tbaa !3

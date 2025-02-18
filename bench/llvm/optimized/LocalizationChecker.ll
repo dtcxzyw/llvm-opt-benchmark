@@ -5592,7 +5592,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOB
   store i32 1, ptr %57, align 8, !tbaa !28, !alias.scope !1074, !noalias !1064
   %72 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %7), !noalias !1064
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #23, !noalias !1064
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %59, i8 0, i64 160, i1 false), !alias.scope !1077, !noalias !1064
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %59, i8 0, i64 160, i1 false), !alias.scope !1077, !noalias !1064
   store ptr %59, ptr %8, align 8, !tbaa !25, !alias.scope !1077, !noalias !1064
   store i32 0, ptr %60, align 8, !tbaa !28, !alias.scope !1077, !noalias !1064
   store i32 20, ptr %61, align 4, !tbaa !29, !alias.scope !1077, !noalias !1064
@@ -5603,7 +5603,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOB
   store i32 1, ptr %63, align 8, !tbaa !28, !alias.scope !1080, !noalias !1064
   %73 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_114LocalizedStateEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5), !noalias !1064
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #23, !noalias !1064
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %66, i8 0, i64 160, i1 false), !alias.scope !1083, !noalias !1064
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %66, i8 0, i64 160, i1 false), !alias.scope !1083, !noalias !1064
   store ptr %66, ptr %6, align 8, !tbaa !25, !alias.scope !1083, !noalias !1064
   store i32 0, ptr %67, align 8, !tbaa !28, !alias.scope !1083, !noalias !1064
   store i32 20, ptr %68, align 4, !tbaa !29, !alias.scope !1083, !noalias !1064

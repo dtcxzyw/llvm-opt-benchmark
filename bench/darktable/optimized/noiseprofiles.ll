@@ -799,7 +799,7 @@ define ptr @dt_noiseprofile_get_matching(ptr noundef %0) local_unnamed_addr #0 {
   %.5154 = phi ptr [ null, %.lr.ph156 ], [ %.6, %99 ]
   %.099153 = phi i32 [ 0, %.lr.ph156 ], [ %100, %99 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %60, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %60, i8 0, i64 48, i1 false)
   %62 = tail call i32 @json_reader_read_element(ptr noundef %12, i32 noundef %.099153) #11
   %63 = tail call ptr @json_reader_list_members(ptr noundef %12) #11
   %64 = load ptr, ptr %63, align 8, !tbaa !52

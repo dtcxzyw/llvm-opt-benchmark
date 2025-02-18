@@ -13644,7 +13644,7 @@ invoke.cont102:                                   ; preds = %invoke.cont99
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %33 = load ptr, ptr %face, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue.i.sroa.gep250, i8 0, i64 16, i1 false), !alias.scope !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %cond-lvalue.i.sroa.gep250, i8 0, i64 16, i1 false), !alias.scope !85
   store i32 2147483647, ptr %cond-lvalue.i.sroa.gep244, align 4, !alias.scope !85
   store i32 2147483647, ptr %textroi, align 4, !alias.scope !85
   store i32 -2147483648, ptr %cond-lvalue.i.sroa.gep247, align 4, !alias.scope !85

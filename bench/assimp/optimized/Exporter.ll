@@ -482,7 +482,7 @@ define linkonce_odr hidden void @_ZN6Assimp12BlobIOSystem10OnDestructERKNSt7__cx
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %8, i8 0, i64 1028, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %8, i8 0, i64 1028, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %6, align 8

@@ -410,7 +410,7 @@ is_port_number.exit:                              ; preds = %12
   %.pre = load i8, ptr %5, align 16, !tbaa !22
   %.077 = trunc i64 %11 to i16
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, i8 0, i64 12, i1 false)
   store i16 2, ptr %6, align 4, !tbaa !22
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.077)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 2

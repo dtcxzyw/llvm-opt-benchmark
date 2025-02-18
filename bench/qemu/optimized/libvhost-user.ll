@@ -590,7 +590,7 @@ define dso_local zeroext i1 @vu_lookup_shared_object(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %4) #21
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %5) #21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %6, i8 0, i64 300, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %6, i8 0, i64 300, i1 false)
   store i32 8, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 9, ptr %7, align 4
@@ -873,7 +873,7 @@ define dso_local noundef zeroext i1 @vu_add_shared_object(ptr noundef %0, ptr no
   %3 = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %4, i8 0, i64 300, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %4, i8 0, i64 300, i1 false)
   store i32 6, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %5, align 4
@@ -907,7 +907,7 @@ define dso_local noundef zeroext i1 @vu_rm_shared_object(ptr noundef %0, ptr nou
   %3 = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %4, i8 0, i64 300, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %4, i8 0, i64 300, i1 false)
   store i32 7, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %5, align 4
@@ -2478,7 +2478,7 @@ define dso_local void @vu_config_change_msg(ptr noundef %0) local_unnamed_addr #
   %2 = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %3, i8 0, i64 320, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %3, i8 0, i64 320, i1 false)
   store i32 2, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %4, align 4

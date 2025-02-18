@@ -176,7 +176,7 @@ define internal fastcc noundef nonnull ptr @_ZN7rocksdbL17LoadPropertiesSetB5cxx
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %_M_single_bucket.i.i, ptr %call, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8

@@ -871,7 +871,7 @@ define dso_local i64 @_ZN5clang10hash_valueERKNS_7APValue10LValueBaseE(ptr nound
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #25
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %24, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %23, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %.0.copyload.i.i.i.i.i.i.i.i, ptr %3, align 8
@@ -924,7 +924,7 @@ define dso_local noundef i32 @_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBase
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %22, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %.0.copyload.i.i.i.i.i.i.i.i.i, ptr %2, align 8

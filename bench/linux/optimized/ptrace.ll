@@ -650,7 +650,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14) #15
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %24, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, i8 0, i64 128, i1 false)
   store i32 5, ptr %14, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 136, ptr %25, align 4
@@ -805,7 +805,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
   %111 = load i32, ptr %10, align 4
   %112 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %95, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %95, i8 0, i64 128, i1 false)
   store i32 5, ptr %9, align 8
   store i32 136, ptr %90, align 4
   store i64 1, ptr %92, align 8

@@ -1443,7 +1443,7 @@ di_read_record.exit.i:                            ; preds = %429
 
 442:                                              ; preds = %440
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %217, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, i8 0, i64 16, i1 false)
   %443 = load ptr, ptr %23, align 8, !tbaa !81
   %444 = getelementptr i8, ptr %443, i64 168
   %.val.i = load ptr, ptr %444, align 8, !tbaa !113
@@ -3918,7 +3918,7 @@ uleb128.exit53:                                   ; preds = %._crit_edge, %._cri
   %38 = trunc i64 %.117.i52.fr to i32
   call void @llvm.lifetime.start.p0(i64 2200, ptr nonnull %8) #16
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2200) %39, i8 0, i64 2184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %39, i8 0, i64 2184, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !47
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8

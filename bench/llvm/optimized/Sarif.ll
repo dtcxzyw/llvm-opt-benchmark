@@ -4602,7 +4602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   store i16 7, ptr %720, align 8, !tbaa !125
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 8
   %724 = getelementptr inbounds nuw i8, ptr %720, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %724, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %724, i8 0, i64 12, i1 false)
   %725 = load ptr, ptr %40, align 8, !tbaa !135
   store ptr %725, ptr %723, align 8, !tbaa !135
   store ptr null, ptr %40, align 8, !tbaa !135
@@ -6585,7 +6585,7 @@ _ZL24createThreadFlowLocationON4llvm4json6ObjectERKN5clang20ThreadFlowImportance
   store i16 7, ptr %203, align 8, !tbaa !125
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %207, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %207, i8 0, i64 12, i1 false)
   %208 = load ptr, ptr %16, align 8, !tbaa !135
   store ptr %208, ptr %206, align 8, !tbaa !135
   store ptr null, ptr %16, align 8, !tbaa !135
@@ -7257,7 +7257,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit36:               ; preds = %_ZN4llvm4json6Objec
   store i16 7, ptr %127, align 8, !tbaa !125
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %132, i8 0, i64 12, i1 false)
   %133 = load ptr, ptr %14, align 8, !tbaa !135
   store ptr %133, ptr %131, align 8, !tbaa !135
   store ptr null, ptr %14, align 8, !tbaa !135
@@ -7722,7 +7722,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
   store i16 7, ptr %164, align 8, !tbaa !125
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %168, i8 0, i64 12, i1 false)
   %169 = load ptr, ptr %11, align 8, !tbaa !135
   store ptr %169, ptr %167, align 8, !tbaa !135
   store ptr null, ptr %11, align 8, !tbaa !135
@@ -7965,7 +7965,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit47:               ; preds = %switch.lookup, %_ZN
   store i16 7, ptr %264, align 8, !tbaa !125
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %269, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %269, i8 0, i64 12, i1 false)
   %270 = load ptr, ptr %6, align 8, !tbaa !135
   store ptr %270, ptr %268, align 8, !tbaa !135
   store ptr null, ptr %6, align 8, !tbaa !135

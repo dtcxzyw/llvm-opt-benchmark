@@ -1274,7 +1274,7 @@ _ZL18hashPartialMappingjjPKN4llvm12RegisterBankE.exit: ; preds = %1, %8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %11, align 8, !tbaa !316
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1296,7 +1296,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm16Reg
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %8, align 8, !tbaa !316
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1847,7 +1847,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16Reg
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %10, align 8, !tbaa !316
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4

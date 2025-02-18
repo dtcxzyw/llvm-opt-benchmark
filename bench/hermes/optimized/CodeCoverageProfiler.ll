@@ -71,7 +71,7 @@ init.check:                                       ; preds = %entry
 init:                                             ; preds = %init.check
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %_M_single_bucket.i.i, ptr %call, align 8
   %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -519,7 +519,7 @@ init.check.i4:                                    ; preds = %_ZNSt10lock_guardIS
 init.i6:                                          ; preds = %init.check.i4
   %call.i7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   %5 = getelementptr inbounds nuw i8, ptr %call.i7, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 48
   store ptr %_M_single_bucket.i.i.i, ptr %call.i7, align 8
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 8

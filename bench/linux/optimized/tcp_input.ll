@@ -4232,7 +4232,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 24, i1 false), !annotation !47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !annotation !47
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1664

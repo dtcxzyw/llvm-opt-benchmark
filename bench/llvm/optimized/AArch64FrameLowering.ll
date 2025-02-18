@@ -23890,7 +23890,7 @@ define dso_local void @_ZNK4llvm20AArch64FrameLowering35processFunctionBeforeFra
 111:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %64) #26
   %112 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %112, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, i8 0, i64 56, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %113, ptr %64, align 8, !tbaa !25
   %114 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -23900,7 +23900,7 @@ define dso_local void @_ZNK4llvm20AArch64FrameLowering35processFunctionBeforeFra
   %116 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %117 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %118 = getelementptr inbounds nuw i8, ptr %64, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %118, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %118, i8 0, i64 56, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %64, i64 88
   store ptr %119, ptr %117, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw i8, ptr %64, i64 80
@@ -23910,7 +23910,7 @@ define dso_local void @_ZNK4llvm20AArch64FrameLowering35processFunctionBeforeFra
   %122 = getelementptr inbounds nuw i8, ptr %64, i64 136
   %123 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %124 = getelementptr inbounds nuw i8, ptr %64, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %124, i8 0, i64 56, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %64, i64 160
   store ptr %125, ptr %123, align 8, !tbaa !25
   %126 = getelementptr inbounds nuw i8, ptr %64, i64 152

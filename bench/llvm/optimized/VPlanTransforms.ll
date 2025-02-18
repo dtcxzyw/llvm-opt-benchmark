@@ -35964,7 +35964,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_30VPBlockShallowTraversalWrap
   store ptr %13, ptr %10, align 8, !tbaa !562, !alias.scope !1243
   store ptr %13, ptr %11, align 8, !tbaa !526, !alias.scope !1243
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false), !alias.scope !1249
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !alias.scope !1249
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %4, align 8, !tbaa !207, !alias.scope !1249
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -42500,7 +42500,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_27VPBlockDeepTraversalWrapper
   call void @_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20, !noalias !1358
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 72, i1 false), !alias.scope !1364
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false), !alias.scope !1364
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %5, align 8, !tbaa !207, !alias.scope !1364
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -48225,7 +48225,7 @@ _ZN4llvm8po_beginINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEEEENS_11po
   store i32 1, ptr %12, align 8, !tbaa !14, !alias.scope !1456
   call void @_ZN4llvm11po_iteratorINS_27VPBlockDeepTraversalWrapperIPNS_11VPBlockBaseEEENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS4_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %28, i8 0, i64 408, i1 false), !alias.scope !1467
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %28, i8 0, i64 408, i1 false), !alias.scope !1467
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %29, ptr %4, align 8, !tbaa !207, !alias.scope !1467
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8

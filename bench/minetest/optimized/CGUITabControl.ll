@@ -1178,7 +1178,7 @@ _ZN3irr3gui11IGUIElement6removeEv.exit:           ; preds = %if.else.i, %if.then
   %LastParentRect.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   %MinSize.i = getelementptr inbounds nuw i8, ptr %call, i64 152
   %13 = getelementptr inbounds nuw i8, ptr %call, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 1, ptr %MinSize.i, align 8, !tbaa !76
   %Height.i10.i = getelementptr inbounds nuw i8, ptr %call, i64 156
   store i32 1, ptr %Height.i10.i, align 4, !tbaa !77
@@ -1693,7 +1693,7 @@ _ZN3irr3gui11IGUIElement6removeEv.exit:           ; preds = %if.else.i, %if.then
   %LastParentRect.i = getelementptr inbounds nuw i8, ptr %call3, i64 112
   %MinSize.i = getelementptr inbounds nuw i8, ptr %call3, i64 152
   %15 = getelementptr inbounds nuw i8, ptr %call3, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store i32 1, ptr %MinSize.i, align 8, !tbaa !76
   %Height.i10.i = getelementptr inbounds nuw i8, ptr %call3, i64 156
   store i32 1, ptr %Height.i10.i, align 4, !tbaa !77

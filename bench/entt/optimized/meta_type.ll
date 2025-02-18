@@ -94313,7 +94313,7 @@ define hidden void @_ZN27MetaType_NameCollision_Test8TestBodyEv(ptr nonnull read
   %28 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %30, ptr %2, align 8, !tbaa !1827
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -94951,7 +94951,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %261, %_ZNKSt14defau
 272:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #28
   %273 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %273, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, i8 0, i64 16, i1 false)
   %274 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %274, ptr %13, align 8, !tbaa !1827
   %275 = getelementptr inbounds nuw i8, ptr %13, i64 8

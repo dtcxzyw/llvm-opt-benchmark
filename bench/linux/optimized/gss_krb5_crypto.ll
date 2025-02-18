@@ -492,7 +492,7 @@ define dso_local i32 @gss_encrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %6 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %7, i8 0, i64 280, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %7, i8 0, i64 280, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %6, i8 0, i64 464, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -744,7 +744,7 @@ define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %5 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 128, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %5, i8 0, i64 464, i1 false), !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1087,7 +1087,7 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
   %7 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6) #8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %8, i8 0, i64 296, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %8, i8 0, i64 296, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
@@ -1254,7 +1254,7 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
   %5 = alloca [464 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 0, i64 144, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36

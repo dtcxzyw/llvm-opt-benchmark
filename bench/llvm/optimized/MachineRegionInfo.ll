@@ -3651,7 +3651,7 @@ define weak_odr void @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFuncti
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #18, !noalias !206
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 72, i1 false), !alias.scope !209, !noalias !206
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false), !alias.scope !209, !noalias !206
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %11, ptr %3, align 8, !tbaa !176, !alias.scope !209, !noalias !206
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3793,7 +3793,7 @@ define weak_odr void @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFuncti
   %18 = inttoptr i64 %17 to ptr
   %19 = call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %18), !noalias !239
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 72, i1 false), !alias.scope !240
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false), !alias.scope !240
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %4, align 8, !tbaa !176, !alias.scope !240
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5279,7 +5279,7 @@ define weak_odr void @_ZN4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctio
   %18 = inttoptr i64 %17 to ptr
   %19 = call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %18), !noalias !351
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 72, i1 false), !alias.scope !352
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false), !alias.scope !352
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %4, align 8, !tbaa !176, !alias.scope !352
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5741,7 +5741,7 @@ define weak_odr void @_ZN4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctio
   %3 = alloca %"class.llvm::df_iterator.125", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 72, i1 false), !alias.scope !378
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !alias.scope !378
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8, !tbaa !176, !alias.scope !378
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5891,7 +5891,7 @@ define weak_odr void @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFuncti
   %3 = alloca %"class.llvm::df_iterator", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 72, i1 false), !alias.scope !398
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !alias.scope !398
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8, !tbaa !176, !alias.scope !398
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5944,7 +5944,7 @@ define weak_odr void @_ZN4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctio
   call void @llvm.experimental.noalias.scope.decl(metadata !406)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #18, !noalias !406
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 72, i1 false), !alias.scope !409, !noalias !406
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false), !alias.scope !409, !noalias !406
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %11, ptr %3, align 8, !tbaa !176, !alias.scope !409, !noalias !406
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6087,7 +6087,7 @@ define weak_odr void @_ZN4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctio
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %4), !noalias !425
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 72, i1 false), !alias.scope !428
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !alias.scope !428
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %0, align 8, !tbaa !176, !alias.scope !428
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6241,7 +6241,7 @@ define weak_odr void @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFuncti
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %4), !noalias !442
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 72, i1 false), !alias.scope !445
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !alias.scope !445
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %0, align 8, !tbaa !176, !alias.scope !445
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8302,7 +8302,7 @@ define linkonce_odr void @_ZN4llvm10post_orderIPNS_15DomTreeNodeBaseINS_17Machin
   store i32 1, ptr %13, align 8, !tbaa !83, !alias.scope !522
   call void @_ZN4llvm11po_iteratorIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_11SmallPtrSetIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %3)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %23, i8 0, i64 280, i1 false), !alias.scope !532
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %23, i8 0, i64 280, i1 false), !alias.scope !532
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %24, ptr %4, align 8, !tbaa !176, !alias.scope !532
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8

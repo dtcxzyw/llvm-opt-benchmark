@@ -331,7 +331,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 180:                                              ; preds = %169
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %181, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %181, i8 0, i64 48, i1 false)
   store ptr %1, ptr %7, align 8
   %182 = load i32, ptr %11, align 8
   %183 = getelementptr inbounds nuw i8, ptr %7, i64 12

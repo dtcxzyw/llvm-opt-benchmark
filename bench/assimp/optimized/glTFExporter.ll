@@ -12257,7 +12257,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %134, i8 0, i64 344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %134, i8 0, i64 344, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -14091,7 +14091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %60, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %60, i8 0, i64 64, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -22140,7 +22140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %60, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %60, i8 0, i64 96, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -23015,7 +23015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %60, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %60, i8 0, i64 96, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -27832,7 +27832,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %134, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %134, i8 0, i64 64, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -28269,7 +28269,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %134, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %134, i8 0, i64 80, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -28698,7 +28698,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %134, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %134, i8 0, i64 104, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -31348,7 +31348,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %134, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %134, i8 0, i64 96, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -34856,7 +34856,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %134, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %134, i8 0, i64 96, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -38982,7 +38982,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %134, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %134, i8 0, i64 88, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -40232,7 +40232,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
 132:                                              ; preds = %122
   %133 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #35
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %134, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %134, i8 0, i64 72, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %136, ptr %135, align 8
@@ -81990,7 +81990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %60, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %60, i8 0, i64 72, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -82177,7 +82177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %60, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %60, i8 0, i64 88, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -83344,7 +83344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %60, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %60, i8 0, i64 200, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -83890,7 +83890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %60, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %60, i8 0, i64 64, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -94764,7 +94764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %60, i8 0, i64 344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %60, i8 0, i64 344, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8
@@ -95175,7 +95175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %59 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #35
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %60, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %60, i8 0, i64 144, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %62, ptr %61, align 8

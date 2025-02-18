@@ -6680,7 +6680,7 @@ define void @ZSTD_CCtx_trace(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   %20 = phi i32 [ 1, %11 ], [ 1, %8 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store i32 10507, ptr %3, align 8, !tbaa !294
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %20, ptr %22, align 4, !tbaa !299
@@ -6866,7 +6866,7 @@ ZSTD_writeEpilogue.exit:                          ; preds = %46, %.thread89.i
   %83 = phi i32 [ 1, %74 ], [ 1, %71 ], [ %81, %77 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
   store i32 10507, ptr %6, align 8, !tbaa !294
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %83, ptr %85, align 4, !tbaa !299
@@ -9430,7 +9430,7 @@ ZSTD_setBufferExpectations.exit:                  ; preds = %.ZSTD_setBufferExpe
 182:                                              ; preds = %178, %176, %174
   %183 = phi i32 [ 1, %176 ], [ 1, %174 ], [ %181, %178 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %110, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 56, i1 false)
   store i32 10507, ptr %5, align 8, !tbaa !294
   store i32 %183, ptr %111, align 4, !tbaa !299
   %184 = load i32, ptr %112, align 8, !tbaa !182
@@ -14646,7 +14646,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
 81:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %82, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   %83 = getelementptr i8, ptr %0, i64 448
   %.val147 = load ptr, ptr %83, align 8, !tbaa !129
   %.not = icmp eq ptr %.val147, null

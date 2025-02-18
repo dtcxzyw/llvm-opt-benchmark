@@ -31,25 +31,25 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE(ptr noundef
   %23 = sub nsw i32 %16, %12
   %24 = shl i32 %23, 3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %25, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   store i32 %18, ptr %0, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %28, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   store i32 %20, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %31, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   store i32 %22, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %34, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %34, i8 0, i64 64, i1 false)
   store i32 %24, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %35, align 4

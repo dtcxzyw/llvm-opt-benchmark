@@ -4815,7 +4815,7 @@ lock_mutex.exit93:                                ; preds = %25, %26
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr %1, ptr %8, align 8, !tbaa !160
   %36 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %37 = call ptr @open_istream(ptr noundef %36, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #24

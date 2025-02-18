@@ -3327,7 +3327,7 @@ define dso_local i64 @_ZN4llvm10hash_valueERKNS_5APIntE(ptr noundef nonnull read
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3349,7 +3349,7 @@ define dso_local i64 @_ZN4llvm10hash_valueERKNS_5APIntE(ptr noundef nonnull read
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #24
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %22, align 8, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %25 = load i32, ptr %4, align 8, !tbaa !51

@@ -170,7 +170,7 @@ define dso_local void @_ZN25TestCallback_timeout_Test8TestBodyEv(ptr nonnull rea
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %24, ptr %4, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8

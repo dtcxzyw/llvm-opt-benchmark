@@ -186,7 +186,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDependencyData5_DataESt14default_deleteIS2_EED2Ev.exit: ; preds = %1
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19, !noalias !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 16, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %5, ptr %3, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -220,7 +220,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDepend
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpExpressionVariablesDependencyData5_DataESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %8
   %10 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19, !noalias !7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %11, i8 0, i64 16, i1 false), !noalias !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %12, ptr %10, align 8, !noalias !7
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8

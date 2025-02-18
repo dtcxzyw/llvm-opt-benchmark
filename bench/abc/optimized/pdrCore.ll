@@ -46,7 +46,7 @@ define range(i32 0, -2147483648) i32 @Hash_DefaultHashFunc(i32 noundef %0, i32 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Pdr_ManSetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 192)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %2, i8 0, i64 160, i1 false)
   store i32 300, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 10000, ptr %3, align 4, !tbaa !12

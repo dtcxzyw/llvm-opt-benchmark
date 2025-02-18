@@ -45,7 +45,7 @@ define internal fastcc i32 @uriParseUriExMmA(ptr noundef %0, ptr noundef %1, ptr
   %.033 = phi ptr [ %3, %10 ], [ @defaultMemoryManager, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   tail call void @uriResetUriA(ptr noundef %13) #7
   %.not.i = icmp ult ptr %1, %2
   br i1 %.not.i, label %15, label %.thread
@@ -886,7 +886,7 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixA(ptr noundef %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   call void @uriResetUriA(ptr noundef nonnull %2) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %3, align 8, !tbaa !3
   %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !49
   %8 = call ptr %7(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7
@@ -1702,7 +1702,7 @@ define internal fastcc i32 @uriParseUriExMmW(ptr noundef %0, ptr noundef %1, ptr
   %.033 = phi ptr [ %3, %10 ], [ @defaultMemoryManager, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   tail call void @uriResetUriW(ptr noundef %13) #7
   %.not.i = icmp ult ptr %1, %2
   br i1 %.not.i, label %15, label %.thread
@@ -2524,7 +2524,7 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %0) local_u
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %4
   call void @uriResetUriW(ptr noundef nonnull %2) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %3, align 8, !tbaa !51
   %7 = load ptr, ptr @defaultMemoryManager, align 8, !tbaa !49
   %8 = call ptr %7(ptr noundef nonnull @defaultMemoryManager, i64 noundef 16) #7

@@ -637,7 +637,7 @@ define internal fastcc noundef zeroext i1 @_ZL13setPropertiesP12AtomPropertyRKSt
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store double 1.000000e+00, ptr %22, align 16
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %23, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store double 1.201100e+01, ptr %18, align 16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double 1.400000e-01, ptr %24, align 8

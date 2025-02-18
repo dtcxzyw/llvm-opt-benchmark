@@ -2199,7 +2199,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
 134:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %72, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %72, i8 0, i64 40, i1 false)
   %135 = load i32, ptr %51, align 8, !noalias !44
   %136 = and i32 %135, 127
   %137 = icmp eq i32 %136, 0

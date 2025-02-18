@@ -28497,7 +28497,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %64 = fmul float %58, %63
   %65 = load float, ptr %2, align 4
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %66, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %66, i8 0, i64 60, i1 false)
   %67 = fmul float %65, 2.000000e+00
   %68 = fsub float %47, %53
   %69 = fdiv float %67, %68
@@ -28527,7 +28527,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store float -1.000000e+00, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %88, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %88, i8 0, i64 56, i1 false)
   %89 = fmul float %50, 5.000000e-01
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float %89, ptr %90, align 4
@@ -28591,7 +28591,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %109
   %112 = fneg float %22
   %113 = fneg float %.sroa.22.0.copyload.i.i
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %114, i8 0, i64 56, i1 false), !noalias !250
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %114, i8 0, i64 56, i1 false), !noalias !250
   store float 1.000000e+00, ptr %6, align 4, !noalias !250
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store float 1.000000e+00, ptr %115, align 4, !noalias !250
@@ -31039,7 +31039,7 @@ _ZN7QVectorI5PatchE5beginEv.exit130:              ; preds = %185, %194, %.noexc1
   %228 = call noundef float @sinf(float noundef %227) #29
   %229 = getelementptr inbounds nuw i8, ptr %.074, i64 96
   %230 = getelementptr inbounds nuw i8, ptr %.074, i64 100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %230, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %230, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %229, align 4
   %231 = getelementptr inbounds nuw i8, ptr %.074, i64 116
   store float 1.000000e+00, ptr %231, align 4

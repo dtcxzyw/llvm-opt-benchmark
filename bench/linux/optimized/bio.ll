@@ -2589,7 +2589,7 @@ define dso_local void @__bio_release_pages(ptr noundef readonly captures(none) %
 44:                                               ; preds = %41, %22
   %45 = phi ptr [ %17, %22 ], [ %.pre, %41 ]
   %46 = phi i64 [ %23, %22 ], [ %43, %41 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false), !annotation !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !26
   %47 = inttoptr i64 %46 to ptr
   store ptr %47, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 12

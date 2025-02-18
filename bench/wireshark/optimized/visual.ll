@@ -659,7 +659,7 @@ define internal noundef zeroext i1 @visual_dump(ptr noundef %0, ptr noundef read
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false)
   %12 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %14, label %13
@@ -864,7 +864,7 @@ define internal zeroext i1 @visual_dump_finish(ptr noundef %0, ptr noundef %1, p
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 188, ptr nonnull %4) #7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %7, i8 0, i64 180, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(180) %7, i8 0, i64 180, i1 false)
   %8 = icmp eq ptr %6, null
   br i1 %8, label %visual_dump_free.exit, label %9
 

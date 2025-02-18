@@ -4788,7 +4788,7 @@ define void @_ZNK5Yosys3Fmt12emit_verilogEv(ptr dead_on_unwind noalias writable 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 152, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %40, i8 0, i64 50, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %40, i8 0, i64 50, i1 false)
   store i32 1, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0116, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %56, i64 16, i1 false)
@@ -4969,7 +4969,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %
 121:                                              ; preds = %41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(58) %39, i8 0, i64 50, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %39, i8 0, i64 50, i1 false)
   store i32 1, ptr %6, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0116, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %122, i64 16, i1 false)

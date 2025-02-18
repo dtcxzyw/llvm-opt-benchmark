@@ -3770,7 +3770,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_121MultilibSerializationEE7reserveEm.exi
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
   %.014.i.i.i.i.i.i.i.i.i.i = phi ptr [ %217, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %209, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i ]
   %210 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %210, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %210, i8 0, i64 104, i1 false)
   store ptr %210, ptr %.014.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   %211 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %211, align 8, !tbaa !14
@@ -4214,7 +4214,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126MultilibGroupSerializationEE7reserveE
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i
   %.014.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %398, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %395, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   %396 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %396, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %396, i8 0, i64 24, i1 false)
   store ptr %396, ptr %.014.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   %397 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i.i.i.i.i.i, i64 8
   store i64 0, ptr %397, align 8, !tbaa !14
@@ -12224,7 +12224,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver11custom_flag11DeclarationEE7reserveEm.e
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.012.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %33, %.lr.ph.preheader.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %34, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %34, i8 0, i64 144, i1 false)
   store ptr %34, ptr %.012.i.i, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   store i64 0, ptr %35, align 8, !tbaa !14
@@ -14802,7 +14802,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver11custom_flag11ValueDetailEE7reserveEm.e
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.012 = phi ptr [ %65, %.lr.ph ], [ %60, %.lr.ph.preheader ]
   %61 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %61, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, i8 0, i64 80, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   store ptr %62, ptr %.012, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %.012, i64 8
@@ -15526,7 +15526,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver11MultilibSet11FlagMatcherEE7reserveEm.e
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.012 = phi ptr [ %62, %.lr.ph ], [ %57, %.lr.ph.preheader ]
   %58 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %58, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   store ptr %59, ptr %.012, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %.012, i64 8

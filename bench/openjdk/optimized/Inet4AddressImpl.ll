@@ -83,7 +83,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   store i32 2, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %18, align 4

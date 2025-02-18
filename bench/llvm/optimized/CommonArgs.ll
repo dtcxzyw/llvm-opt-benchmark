@@ -12028,7 +12028,7 @@ define dso_local void @_ZN5clang6driver5tools16getStatsFileNameERKN4llvm3opt7Arg
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %22, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, i8 0, i64 128, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %0, align 8, !tbaa !211
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12192,7 +12192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %80, %83
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #22
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %84, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %84, i8 0, i64 128, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %85, ptr %0, align 8, !tbaa !211
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8

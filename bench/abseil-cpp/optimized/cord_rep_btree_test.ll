@@ -28502,7 +28502,7 @@ define internal fastcc noalias noundef nonnull ptr @_ZN4absl13cord_internal12_GL
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #33
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %6, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -99978,7 +99978,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store ptr @.str.180, ptr %224, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %357, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, i8 0, i64 16, i1 false)
   store ptr %226, ptr %40, align 8, !tbaa !21
   store i64 0, ptr %227, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #33
@@ -100025,7 +100025,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %
   store ptr @.str.180, ptr %236, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %358, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %358, i8 0, i64 16, i1 false)
   store ptr %238, ptr %45, align 8, !tbaa !21
   store i64 0, ptr %239, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #33
@@ -100072,7 +100072,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i358: ; preds 
   store ptr @.str.180, ptr %248, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %49) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
   store ptr %250, ptr %50, align 8, !tbaa !21
   store i64 0, ptr %251, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #33
@@ -100119,7 +100119,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i375: ; preds 
   store ptr @.str.180, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %360, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %360, i8 0, i64 16, i1 false)
   store ptr %262, ptr %55, align 8, !tbaa !21
   store i64 0, ptr %263, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #33

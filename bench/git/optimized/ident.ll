@@ -422,7 +422,7 @@ strbuf_setlen.exit:                               ; preds = %0, %2
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr noundef writeonly captures(none) initializes((0, 64)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store ptr %1, ptr %0, align 8, !tbaa !27
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i8, ptr %1, i64 %5

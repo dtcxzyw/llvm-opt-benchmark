@@ -35476,7 +35476,7 @@ if.end:                                           ; preds = %_ZN7easylog6loggerI
   %port_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %16 = load atomic i16, ptr %port_ seq_cst, align 8
   %17 = getelementptr inbounds nuw i8, ptr %endpoint, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %17, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   %call.i.i.i = call noundef zeroext i16 @htons(i16 noundef zeroext %16) #40
   store i16 2, ptr %endpoint, align 4
   %18 = getelementptr inbounds nuw i8, ptr %endpoint, i64 2
@@ -37568,7 +37568,7 @@ entry:
   %endpoint = alloca %"class.asio::ip::basic_endpoint", align 4
   %addr_len = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %endpoint, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   store i16 2, ptr %endpoint, align 4
   %sin_port.i.i = getelementptr inbounds nuw i8, ptr %endpoint, i64 2
   store i16 0, ptr %sin_port.i.i, align 2
@@ -37582,7 +37582,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   store i16 2, ptr %agg.result, align 4
   %sin_port.i.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 2
   store i16 0, ptr %sin_port.i.i1, align 2

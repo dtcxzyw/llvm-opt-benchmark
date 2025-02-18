@@ -252,7 +252,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = alloca %struct.build_info_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #5
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   store ptr %0, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %1, ptr %21, align 8

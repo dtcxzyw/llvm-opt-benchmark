@@ -936,7 +936,7 @@ define i32 @evp_pkey_ctx_ctrl_str_to_param(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1076,7 +1076,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
   store i32 %1, ptr %5, align 8, !tbaa !28
   store i32 %1, ptr %10, align 8, !tbaa !29
   store i32 %7, ptr %11, align 8, !tbaa !21

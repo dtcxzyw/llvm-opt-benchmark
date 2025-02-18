@@ -12550,7 +12550,7 @@ define dso_local void @_ZN5ImGui31TableSettingsAddSettingsHandlerEv() local_unna
   %1 = alloca %struct.ImGuiSettingsHandler, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1) #5
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store ptr @.str.11, ptr %1, align 8, !tbaa !587
   %3 = tail call noundef i32 @_Z9ImHashStrPKcmj(ptr noundef nonnull @.str.11, i64 noundef 0, i32 noundef 0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

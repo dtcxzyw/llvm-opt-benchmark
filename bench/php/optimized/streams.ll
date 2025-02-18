@@ -423,7 +423,7 @@ define dso_local noundef ptr @_php_stream_alloc(ptr noundef %0, ptr noundef %1, 
 9:                                                ; preds = %7, %5
   %10 = phi ptr [ %6, %5 ], [ %8, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %11, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %11, i8 0, i64 192, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %10, ptr %12, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56

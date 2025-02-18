@@ -3427,7 +3427,7 @@ entry:
   %p352 = alloca i32, align 4
   %parseError = getelementptr inbounds nuw i8, ptr %this, i64 108
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 116
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %0, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %offset = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 -1, ptr %offset, align 8
   store i32 -1, ptr %parseError, align 4

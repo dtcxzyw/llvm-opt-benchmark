@@ -10701,7 +10701,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
   store ptr null, ptr %79, align 8, !tbaa !1092
   %80 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #37, !noalias !1093
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %81, i8 0, i64 112, i1 false), !noalias !1093
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %81, i8 0, i64 112, i1 false), !noalias !1093
   store ptr %81, ptr %80, align 8, !tbaa !25, !noalias !1093
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 0, ptr %82, align 8, !tbaa !26, !noalias !1093

@@ -27,7 +27,7 @@ define void @jinit_c_coef_controller(ptr noundef %0, i32 noundef %1) local_unnam
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = tail call ptr %14(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 208) #4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %16, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %16, i8 0, i64 200, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %15, ptr %17, align 8, !tbaa !34
   store ptr @start_pass_coef, ptr %15, align 8, !tbaa !35

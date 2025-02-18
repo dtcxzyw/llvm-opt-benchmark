@@ -3023,7 +3023,7 @@ if.then4:                                         ; preds = %if.end
   %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %ps, i64 20
   store i32 16, ptr %m_capacity.i.i.i.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %is_even, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %6, ptr %is_even, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %is_even, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -5076,7 +5076,7 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
   %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %new_factors, i64 20
   store i32 16, ptr %m_capacity.i.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %new_factors_even, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %11, ptr %new_factors_even, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %new_factors_even, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

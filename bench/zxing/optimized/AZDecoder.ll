@@ -2526,7 +2526,7 @@ _ZN5ZXing5AztecL21ParseStructuredAppendERNS_9ByteArrayE.exit.i: ; preds = %_ZN5Z
 
 .critedge.i:                                      ; preds = %_ZN5ZXing5ToIntIivEET_RKNS_8BitArrayEii.exit42.i, %_ZN5ZXing5ToIntIivEET_RKNS_8BitArrayEii.exit.i, %657
   %751 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %751, i8 0, i64 32, i1 false), !noalias !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %751, i8 0, i64 32, i1 false), !noalias !24
   store i32 -1, ptr %15, align 8, !noalias !24
   %752 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 -1, ptr %752, align 4, !noalias !24

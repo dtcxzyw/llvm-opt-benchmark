@@ -6048,7 +6048,7 @@ zend_hash_update_mem.exit123:                     ; preds = %196, %198
   %233 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 1, ptr %233, align 8, !tbaa !76
   %234 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %234, i8 0, i64 18, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %234, i8 0, i64 18, i1 false)
   store i32 101010256, ptr %12, align 4
   %235 = load ptr, ptr %9, align 8, !tbaa !67
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 316
@@ -6703,9 +6703,9 @@ define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr nound
   %25 = load i64, ptr %24, align 8, !tbaa !55
   tail call void @phar_add_virtual_dirs(ptr noundef %20, ptr noundef nonnull %23, i64 noundef %25) #16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(46) %27, i8 0, i64 42, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(42) %27, i8 0, i64 42, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i64 0, ptr %28, align 1
   store i32 67324752, ptr %5, align 4

@@ -20923,7 +20923,7 @@ _ZNK4llvm3EVTeqES0_.exit594:                      ; preds = %switch.lookup
   %413 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %414 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %415 = getelementptr inbounds nuw i8, ptr %73, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %415, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %415, i8 0, i64 16, i1 false)
   store i32 0, ptr %410, align 4
   store i16 -1, ptr %401, align 2, !tbaa !521
   store ptr %73, ptr %414, align 8, !tbaa !522
@@ -24142,7 +24142,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %23, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %17, i8 0, i64 21, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %18, i8 0, i64 21, i1 false)
   store i32 1, ptr %22, align 8, !tbaa !175
@@ -24302,7 +24302,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread: 
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %49, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %43, i8 0, i64 21, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %44, i8 0, i64 21, i1 false)
   store i32 1, ptr %48, align 8, !tbaa !175

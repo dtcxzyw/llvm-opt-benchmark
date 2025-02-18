@@ -2991,7 +2991,7 @@ define internal fastcc i64 @pkey_generate(i32 noundef %0, ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %10 = icmp slt i32 %0, 1
   br i1 %10, label %18, label %.preheader

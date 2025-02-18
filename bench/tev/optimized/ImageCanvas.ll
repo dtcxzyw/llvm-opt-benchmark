@@ -1583,7 +1583,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %33 = fneg float %31
   %.sroa.075.4.vec.insert = insertelement <2 x float> %.sroa.075.0.vec.insert, float %33, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %34, i8 0, i64 32, i1 false), !alias.scope !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %34, i8 0, i64 32, i1 false), !alias.scope !11
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store float 1.000000e+00, ptr %5, align 4, !alias.scope !11
   store <2 x float> %.sroa.075.4.vec.insert, ptr %35, align 4
@@ -1655,7 +1655,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit: ; preds = %39
 
 _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit:       ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %57, i8 0, i64 32, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %57, i8 0, i64 32, i1 false), !alias.scope !23
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store float 1.000000e+00, ptr %8, align 4, !alias.scope !23
   store <2 x float> %.sroa.070.4.vec.insert, ptr %58, align 4
@@ -2583,7 +2583,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit41:     ; preds = %85
   %124 = fadd float %120, 0x3FBC71C6E0000000
   %.sroa.098.4.vec.insert = insertelement <2 x float> %.sroa.098.0.vec.insert, float %124, i64 1
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %125, i8 0, i64 32, i1 false), !alias.scope !57
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %125, i8 0, i64 32, i1 false), !alias.scope !57
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store float 1.000000e+00, ptr %15, align 4, !alias.scope !57
   store <2 x float> %.sroa.098.4.vec.insert, ptr %126, align 4
@@ -2694,7 +2694,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60: ; preds = %146
 
 _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70:     ; preds = %162
   %164 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %164, i8 0, i64 32, i1 false), !alias.scope !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %164, i8 0, i64 32, i1 false), !alias.scope !69
   %165 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store float 1.000000e+00, ptr %18, align 4, !alias.scope !69
   store float -5.000000e-01, ptr %165, align 4
@@ -4141,7 +4141,7 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit25.critedge:     ; preds = %19
   %38 = fmul float %36, 5.000000e-01
   %.sroa.0103.4.vec.insert = insertelement <2 x float> %.sroa.0103.0.vec.insert, float %38, i64 1
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %39, i8 0, i64 32, i1 false), !alias.scope !112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, i8 0, i64 32, i1 false), !alias.scope !112
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store float 1.000000e+00, ptr %9, align 4, !alias.scope !112
   store <2 x float> %.sroa.0103.4.vec.insert, ptr %40, align 4
@@ -4300,7 +4300,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit42:     ; preds = %76
   %123 = fadd float %121, 0x3FBC71C6E0000000
   %.sroa.0113.4.vec.insert = insertelement <2 x float> %.sroa.0113.0.vec.insert, float %123, i64 1
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %124, i8 0, i64 32, i1 false), !alias.scope !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %124, i8 0, i64 32, i1 false), !alias.scope !124
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store float 1.000000e+00, ptr %12, align 4, !alias.scope !124
   store <2 x float> %.sroa.0113.4.vec.insert, ptr %125, align 4
@@ -4792,7 +4792,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %2
   %27 = sitofp i32 %23 to float
   %28 = sitofp i32 %26 to float
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 32, i1 false), !alias.scope !134, !noalias !131
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %29, i8 0, i64 32, i1 false), !alias.scope !134, !noalias !131
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store float 1.000000e+00, ptr %4, align 4, !alias.scope !134, !noalias !131
   store float %27, ptr %30, align 4, !noalias !131
@@ -4906,7 +4906,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge:      ; preds = %3
   %19 = sitofp i32 %15 to float
   %20 = sitofp i32 %18 to float
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 32, i1 false), !alias.scope !144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %21, i8 0, i64 32, i1 false), !alias.scope !144
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store float 1.000000e+00, ptr %6, align 4, !alias.scope !144
   store float %19, ptr %22, align 4
@@ -5492,7 +5492,7 @@ _ZNK7nanogui5ArrayIiLm2EEngEv.exit.critedge.i:    ; preds = %13
   %27 = sitofp i32 %23 to float
   %28 = sitofp i32 %26 to float
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 32, i1 false), !alias.scope !158, !noalias !151
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %29, i8 0, i64 32, i1 false), !alias.scope !158, !noalias !151
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store float 1.000000e+00, ptr %5, align 4, !alias.scope !158, !noalias !151
   store float %27, ptr %30, align 4, !noalias !151
@@ -7293,7 +7293,7 @@ define dso_local void @_ZN3tev11ImageCanvas9translateERKN7nanogui5ArrayIfLm2EEE(
   %3 = alloca %"struct.nanogui::Matrix", align 4
   %4 = alloca %"struct.nanogui::Matrix", align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 32, i1 false), !alias.scope !174
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false), !alias.scope !174
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store float 1.000000e+00, ptr %4, align 4, !alias.scope !174
   %7 = load i64, ptr %1, align 4
@@ -19584,7 +19584,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
 
 148:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit53
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 16, i1 false), !alias.scope !558
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false), !alias.scope !558
   store i8 14, ptr %15, align 8, !alias.scope !558
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %150, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN4tlog4ansiL20ERASE_TO_END_OF_LINEE, i64 1), i64 3, i1 false)
@@ -23730,7 +23730,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev4TaskIvEEEEEENS_19__
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = load i64, ptr %1, align 8
   store i64 %34, ptr %27, align 8
   store ptr null, ptr %1, align 8

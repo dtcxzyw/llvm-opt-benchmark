@@ -704,7 +704,7 @@ define internal fastcc noundef zeroext i1 @pci_mmcfg_reserved(ptr noundef %0, pt
 20:                                               ; preds = %29, %9
   %21 = phi i64 [ %15, %9 ], [ %30, %29 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 48, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false), !annotation !11
   store i64 %11, ptr %4, align 8
   %22 = add i64 %16, %21
   store i64 %22, ptr %17, align 8

@@ -254,7 +254,7 @@ define hidden void @_ZN12ZDriverMinorC2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @_ZN11ZDriverPortC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -516,7 +516,7 @@ define hidden void @_ZN12ZDriverMajorC2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @_ZN11ZDriverPortC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1104

@@ -475,7 +475,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %243 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %242, i64 %239
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #4
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %244, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %244, i8 0, i64 112, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %245 = add nsw i32 %233, 1

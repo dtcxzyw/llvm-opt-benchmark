@@ -1866,7 +1866,7 @@ define void @write_ek_proto_tree(ptr noundef %0, i1 noundef zeroext %1, i1 nound
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 1136, ptr nonnull %8) #21
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %10, i8 0, i64 1128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1128) %10, i8 0, i64 1128, i1 false)
   store ptr %5, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 2, ptr %11, align 8
@@ -2077,7 +2077,7 @@ define void @write_fields_proto_tree(ptr noundef %0, ptr noundef %1, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @write_json_preamble(ptr dead_on_unwind noalias writable sret(%struct.json_dumper) align 8 initializes((0, 1136)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %3, i8 0, i64 1128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1128) %3, i8 0, i64 1128, i1 false)
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %4, align 8

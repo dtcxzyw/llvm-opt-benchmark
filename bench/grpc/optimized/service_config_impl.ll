@@ -665,7 +665,7 @@ if.then:                                          ; preds = %entry, %entry, %ent
 if.end:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #26, !noalias !6
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %1, i8 0, i64 200, i1 false), !noalias !6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %1, i8 0, i64 200, i1 false), !noalias !6
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !6
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core17ServiceConfigImplE, i64 16), ptr %call.i, align 8, !noalias !6

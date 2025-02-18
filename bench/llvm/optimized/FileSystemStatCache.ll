@@ -697,7 +697,7 @@ _ZN4llvm14StringMapEntryINS_3vfs6StatusEE6createINS_20BumpPtrAllocatorImplINS_15
   store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %41, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, i8 0, i64 72, i1 false)
   store ptr %41, ptr %40, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i64 0, ptr %42, align 8, !tbaa !18

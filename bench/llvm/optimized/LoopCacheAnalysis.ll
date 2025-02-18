@@ -3496,7 +3496,7 @@ define linkonce_odr void @_ZN4llvm13breadth_firstIPNS_4LoopEEENS_14iterator_rang
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %24, ptr %19, align 8, !tbaa !272, !alias.scope !263
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %25, i8 0, i64 160, i1 false), !alias.scope !273
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %25, i8 0, i64 160, i1 false), !alias.scope !273
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %26, ptr %4, align 8, !tbaa !28, !alias.scope !273
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8

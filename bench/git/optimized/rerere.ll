@@ -278,7 +278,7 @@ diff_two.exit:                                    ; preds = %110
   %113 = load ptr, ptr @stdout, align 8, !tbaa !33
   %114 = call i32 @fflush(ptr noundef %113)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %97, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
   store i64 3, ptr %6, align 8, !tbaa !35
   %115 = call i32 @xdi_diff(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %116 = load ptr, ptr %8, align 8, !tbaa !37

@@ -2588,7 +2588,7 @@ define internal noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderINS_13RefCou
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !22
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %0, i8 0, i64 16, i1 false), !noalias !22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, i8 0, i64 16, i1 false), !noalias !22
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116PriorityLbConfigE, i64 16), ptr %call.i, align 8, !noalias !22

@@ -2533,7 +2533,7 @@ _ZN12_GLOBAL__N_117DataFlowSanitizerD2Ev.exit:    ; preds = %_ZN12_GLOBAL__N_112
 
 129:                                              ; preds = %_ZN12_GLOBAL__N_117DataFlowSanitizerD2Ev.exit
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %130, i8 0, i64 64, i1 false), !alias.scope !189
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %130, i8 0, i64 64, i1 false), !alias.scope !189
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %131, ptr %0, align 8, !tbaa !28, !alias.scope !189
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16009,7 +16009,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_10BasicBlockEEENS_14iterator
   store ptr %14, ptr %11, align 8, !tbaa !729, !alias.scope !723
   store ptr %14, ptr %12, align 8, !tbaa !518, !alias.scope !723
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !730
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !730
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !730
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

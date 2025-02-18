@@ -320,7 +320,7 @@ EVP_CIPHER_CTX_cleanup.exit:                      ; preds = %16, %19
   %26 = load ptr, ptr %21, align 8, !tbaa !15
   tail call void @free(ptr noundef %26) #14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %27, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %27, i8 0, i64 144, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.0, ptr %28, align 4, !tbaa !19
   br label %29

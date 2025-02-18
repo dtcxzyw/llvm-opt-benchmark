@@ -484,7 +484,7 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   %158 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, i8 0, i64 24, i1 false)
   store i64 %156, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false)
@@ -521,7 +521,7 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %165, %_ZNSt8f
   %172 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %174, i8 0, i64 24, i1 false)
   store i64 %156, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
@@ -558,7 +558,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %179, %_ZNSt8functio
   %186 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, i8 0, i64 24, i1 false)
   store i64 %156, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
@@ -595,7 +595,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %193, %_ZNSt8functio
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %201 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %202 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, i8 0, i64 24, i1 false)
   store i64 %156, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i77)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)

@@ -3411,7 +3411,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %.sroa.speculated = select i1 %.not259, ptr %.sroa.speculate.load.false, ptr %.sroa.0163.1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16)
   %217 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %217, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %217, i8 0, i64 72, i1 false)
   %218 = call noalias noundef ptr @fopen(ptr noundef readonly %213, ptr noundef nonnull @.str.141)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %16, align 8
   %219 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5998,7 +5998,7 @@ _ZL21stbi_write_png_to_memPKhiiiiPi.exit.thread.sink.split.i: ; preds = %1450, %
   %.sroa.speculated207 = select i1 %.not259, ptr %.sroa.speculate.load.false206, ptr %.sroa.0163.1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   %1464 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1464, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1464, i8 0, i64 72, i1 false)
   %1465 = call noalias noundef ptr @fopen(ptr noundef readonly %1460, ptr noundef nonnull @.str.141)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %5, align 8
   %1466 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6058,7 +6058,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %.sroa.speculated210 = select i1 %.not259, ptr %.sroa.speculate.load.false209, ptr %.sroa.0163.1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
   %1491 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1491, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1491, i8 0, i64 72, i1 false)
   %1492 = call noalias noundef ptr @fopen(ptr noundef readonly %1487, ptr noundef nonnull @.str.141)
   store ptr @_ZL17stbi__stdio_writePvS_i, ptr %4, align 8
   %1493 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -2911,7 +2911,7 @@ define internal void @test_bio_dgram_pair_worker() #1 {
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8, !tbaa !12
   %6 = load ptr, ptr @multi_libctx, align 8, !tbaa !16

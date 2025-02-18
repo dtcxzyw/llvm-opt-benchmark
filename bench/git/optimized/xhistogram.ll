@@ -112,7 +112,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
 
 43:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, i8 0, i64 88, i1 false)
   store ptr %1, ptr %12, align 8, !tbaa !26
   store ptr %0, ptr %13, align 8, !tbaa !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -596,7 +596,7 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   %.val = load i64, ptr %0, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %246 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %246, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %246, i8 0, i64 32, i1 false)
   %247 = and i64 %.val, -49153
   store i64 %247, ptr %7, align 8, !tbaa !63
   %248 = call i32 @xdl_fall_back_diff(ptr noundef %1, ptr noundef nonnull %7, i32 noundef %.056115, i32 noundef range(i32 1, 0) %.053116, i32 noundef %.050117, i32 noundef range(i32 1, 0) %.049118) #6

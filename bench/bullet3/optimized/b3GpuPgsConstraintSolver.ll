@@ -309,7 +309,7 @@ define dso_local void @_ZN24b3GpuPgsConstraintSolverC2EP11_cl_contextP13_cl_devi
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %35, i8 0, i64 368, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %35, i8 0, i64 368, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 152
   store i8 1, ptr %36, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 132

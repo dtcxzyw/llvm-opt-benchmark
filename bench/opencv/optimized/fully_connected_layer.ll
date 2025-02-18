@@ -2849,7 +2849,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn27FullyConnectedLayerInt8Impl14FullyC
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn27FullyConnectedLayerInt8Impl14FullyConnectedE, i64 16), ptr %12, align 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %64, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %64, i8 0, i64 28, i1 false)
   store ptr %0, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %1, ptr %65, align 8

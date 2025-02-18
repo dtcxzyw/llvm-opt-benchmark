@@ -5019,7 +5019,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr noundef readonly captures(none) %0, i
   %18 = alloca %"struct.ofbx::Cursor", align 8
   %19 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #32
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(296) %20, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %20, i8 0, i64 128, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4ofbx5SceneE, i64 16), ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -5080,7 +5080,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr noundef readonly captures(none) %0, i
 
 .noexc:                                           ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %51, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4ofbx7ElementE, i64 16), ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -5141,7 +5141,7 @@ define noundef ptr @_ZN4ofbx4loadEPKhi(ptr noundef readonly captures(none) %0, i
 
 .noexc14:                                         ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %74, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4ofbx7ElementE, i64 16), ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
@@ -13230,7 +13230,7 @@ _ZN4ofbxL4readIhEENS_13OptionalErrorIT_EEPNS_6CursorE.exit.i: ; preds = %41
   store ptr %47, ptr %0, align 8, !noalias !197
   %51 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %52, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4ofbx7ElementE, i64 16), ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24

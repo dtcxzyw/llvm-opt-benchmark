@@ -13956,7 +13956,7 @@ _set_boot_time.exit:                              ; preds = %1, %6, %8
 
 13:                                               ; preds = %_set_boot_time.exit
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 0, i64 88, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %2, align 8
@@ -14042,7 +14042,7 @@ _set_boot_time.exit:                              ; preds = %2, %8, %10
 
 15:                                               ; preds = %_set_boot_time.exit
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 88, i1 false)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
@@ -18362,7 +18362,7 @@ define internal fastcc ptr @_resv_select(ptr noundef readonly captures(none) %0,
   %3 = alloca %struct.resv_exc_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %3, align 8
   %6 = tail call ptr @core_bitmap_to_array(ptr noundef %5) #19

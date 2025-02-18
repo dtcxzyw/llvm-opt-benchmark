@@ -23737,7 +23737,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
   store i8 0, ptr %is_blob_index, align 1
   %get_value.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   store i8 1, ptr %get_value.i, align 8
   %merge_operands.i = getelementptr inbounds nuw i8, ptr %get_impl_options, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_operands.i, i8 0, i64 24, i1 false)

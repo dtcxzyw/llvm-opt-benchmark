@@ -2495,7 +2495,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit14:
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %7, i8 0, i64 464, i1 false), !noalias !75
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %7, i8 0, i64 464, i1 false), !noalias !75
   store ptr %6, ptr %5, align 8, !tbaa !45, !noalias !75
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -23099,7 +23099,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit113: ; preds = %_ZNK5cla
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %92, i8 0, i64 480, i1 false), !noalias !647
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %92, i8 0, i64 480, i1 false), !noalias !647
   store ptr %91, ptr %90, align 8, !tbaa !45, !noalias !647
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 28
@@ -23294,7 +23294,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit141: ; preds = %_ZNK5cla
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %194 = getelementptr inbounds nuw i8, ptr %189, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %194, i8 0, i64 480, i1 false), !noalias !653
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %194, i8 0, i64 480, i1 false), !noalias !653
   store ptr %193, ptr %192, align 8, !tbaa !45, !noalias !653
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 28
@@ -24846,7 +24846,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit333: ; preds = %1055, %1
   %1065 = getelementptr inbounds nuw i8, ptr %1062, i64 16
   %1066 = getelementptr inbounds nuw i8, ptr %1062, i64 32
   %1067 = getelementptr inbounds nuw i8, ptr %1062, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1067, i8 0, i64 464, i1 false), !noalias !685
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %1067, i8 0, i64 464, i1 false), !noalias !685
   store ptr %1066, ptr %1065, align 8, !tbaa !45, !noalias !685
   %1068 = getelementptr inbounds nuw i8, ptr %1062, i64 24
   %1069 = getelementptr inbounds nuw i8, ptr %1062, i64 28
@@ -25024,7 +25024,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit368: ; preds = %1138, %_
   %1151 = getelementptr inbounds nuw i8, ptr %1148, i64 16
   %1152 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1153 = getelementptr inbounds nuw i8, ptr %1148, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1153, i8 0, i64 464, i1 false), !noalias !697
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %1153, i8 0, i64 464, i1 false), !noalias !697
   store ptr %1152, ptr %1151, align 8, !tbaa !45, !noalias !697
   %1154 = getelementptr inbounds nuw i8, ptr %1148, i64 24
   %1155 = getelementptr inbounds nuw i8, ptr %1148, i64 28
@@ -26253,7 +26253,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit748:
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %40, i8 0, i64 352, i1 false), !noalias !863
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %40, i8 0, i64 352, i1 false), !noalias !863
   store ptr %39, ptr %38, align 8, !tbaa !45, !noalias !863
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 28
@@ -26473,7 +26473,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit763: ; preds = %_ZNSt7__
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %135, i8 0, i64 480, i1 false), !noalias !871
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %135, i8 0, i64 480, i1 false), !noalias !871
   store ptr %134, ptr %133, align 8, !tbaa !45, !noalias !871
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 28
@@ -26770,7 +26770,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit804: ; preds = %250, %_Z
   %259 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 32
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %261, i8 0, i64 480, i1 false), !noalias !887
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %261, i8 0, i64 480, i1 false), !noalias !887
   store ptr %260, ptr %259, align 8, !tbaa !45, !noalias !887
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %263 = getelementptr inbounds nuw i8, ptr %256, i64 28
@@ -27495,7 +27495,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit902: ; preds = %531
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 16
   %538 = getelementptr inbounds nuw i8, ptr %534, i64 32
   %539 = getelementptr inbounds nuw i8, ptr %534, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %539, i8 0, i64 368, i1 false), !noalias !910
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %539, i8 0, i64 368, i1 false), !noalias !910
   store ptr %538, ptr %537, align 8, !tbaa !45, !noalias !910
   %540 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %541 = getelementptr inbounds nuw i8, ptr %534, i64 28
@@ -38196,7 +38196,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit2499: ; preds = %_ZNK5cl
   %6460 = getelementptr inbounds nuw i8, ptr %6457, i64 16
   %6461 = getelementptr inbounds nuw i8, ptr %6457, i64 32
   %6462 = getelementptr inbounds nuw i8, ptr %6457, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %6462, i8 0, i64 464, i1 false), !noalias !1062
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %6462, i8 0, i64 464, i1 false), !noalias !1062
   store ptr %6461, ptr %6460, align 8, !tbaa !45, !noalias !1062
   %6463 = getelementptr inbounds nuw i8, ptr %6457, i64 24
   %6464 = getelementptr inbounds nuw i8, ptr %6457, i64 28
@@ -39294,7 +39294,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit136:
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %24, i8 0, i64 352, i1 false), !noalias !1075
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %24, i8 0, i64 352, i1 false), !noalias !1075
   store ptr %23, ptr %22, align 8, !tbaa !45, !noalias !1075
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -39435,7 +39435,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit158: ; preds = %76, %_ZN
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %82, i8 0, i64 464, i1 false), !noalias !1081
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %82, i8 0, i64 464, i1 false), !noalias !1081
   store ptr %81, ptr %80, align 8, !tbaa !45, !noalias !1081
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 28
@@ -40103,7 +40103,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit226: ; preds = %_ZNK4llv
   %356 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %357 = getelementptr inbounds nuw i8, ptr %353, i64 32
   %358 = getelementptr inbounds nuw i8, ptr %353, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %358, i8 0, i64 448, i1 false), !noalias !1126
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %358, i8 0, i64 448, i1 false), !noalias !1126
   store ptr %357, ptr %356, align 8, !tbaa !45, !noalias !1126
   %359 = getelementptr inbounds nuw i8, ptr %353, i64 24
   %360 = getelementptr inbounds nuw i8, ptr %353, i64 28
@@ -43201,7 +43201,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit129: ; preds = %.lr.ph74
   %1084 = getelementptr inbounds nuw i8, ptr %1081, i64 16
   %1085 = getelementptr inbounds nuw i8, ptr %1081, i64 32
   %1086 = getelementptr inbounds nuw i8, ptr %1081, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1086, i8 0, i64 432, i1 false), !noalias !1319
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %1086, i8 0, i64 432, i1 false), !noalias !1319
   store ptr %1085, ptr %1084, align 8, !tbaa !45, !noalias !1319
   %1087 = getelementptr inbounds nuw i8, ptr %1081, i64 24
   %1088 = getelementptr inbounds nuw i8, ptr %1081, i64 28
@@ -44147,7 +44147,7 @@ _ZNK4llvm15BitstreamWriter15GetCurrentBitNoEv.exit: ; preds = %2, %32, %_ZNK4llv
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %57, i8 0, i64 368, i1 false), !noalias !1337
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %57, i8 0, i64 368, i1 false), !noalias !1337
   store ptr %56, ptr %55, align 8, !tbaa !45, !noalias !1337
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 28
@@ -44282,7 +44282,7 @@ _ZL20CreateSLocFileAbbrevRN4llvm15BitstreamWriterE.exit: ; preds = %_ZN4llvm15Bi
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %113, i8 0, i64 416, i1 false), !noalias !1343
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %113, i8 0, i64 416, i1 false), !noalias !1343
   store ptr %112, ptr %111, align 8, !tbaa !45, !noalias !1343
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 28
@@ -44409,7 +44409,7 @@ _ZL22CreateSLocBufferAbbrevRN4llvm15BitstreamWriterE.exit: ; preds = %_ZN4llvm15
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %170, i8 0, i64 400, i1 false), !noalias !1349
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %170, i8 0, i64 400, i1 false), !noalias !1349
   store ptr %169, ptr %168, align 8, !tbaa !45, !noalias !1349
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 28
@@ -45655,7 +45655,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit283: ; preds = %._crit_e
   %788 = getelementptr inbounds nuw i8, ptr %785, i64 16
   %789 = getelementptr inbounds nuw i8, ptr %785, i64 32
   %790 = getelementptr inbounds nuw i8, ptr %785, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %790, i8 0, i64 432, i1 false), !noalias !1375
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %790, i8 0, i64 432, i1 false), !noalias !1375
   store ptr %789, ptr %788, align 8, !tbaa !45, !noalias !1375
   %791 = getelementptr inbounds nuw i8, ptr %785, i64 24
   %792 = getelementptr inbounds nuw i8, ptr %785, i64 28
@@ -46759,7 +46759,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit:
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %8, i8 0, i64 496, i1 false), !noalias !1415
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %8, i8 0, i64 496, i1 false), !noalias !1415
   store ptr %7, ptr %6, align 8, !tbaa !45, !noalias !1415
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -50536,7 +50536,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit346: ; preds = %._crit_e
   %1667 = getelementptr inbounds nuw i8, ptr %1664, i64 16
   %1668 = getelementptr inbounds nuw i8, ptr %1664, i64 32
   %1669 = getelementptr inbounds nuw i8, ptr %1664, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %1669, i8 0, i64 432, i1 false), !noalias !1479
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %1669, i8 0, i64 432, i1 false), !noalias !1479
   store ptr %1668, ptr %1667, align 8, !tbaa !45, !noalias !1479
   %1670 = getelementptr inbounds nuw i8, ptr %1664, i64 24
   %1671 = getelementptr inbounds nuw i8, ptr %1664, i64 28
@@ -51839,7 +51839,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit106: ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %35, i8 0, i64 416, i1 false), !noalias !1509
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %35, i8 0, i64 416, i1 false), !noalias !1509
   store ptr %34, ptr %33, align 8, !tbaa !45, !noalias !1509
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 28
@@ -52608,7 +52608,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit214: ; preds = %401
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 16
   %407 = getelementptr inbounds nuw i8, ptr %403, i64 32
   %408 = getelementptr inbounds nuw i8, ptr %403, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %408, i8 0, i64 464, i1 false), !noalias !1527
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %408, i8 0, i64 464, i1 false), !noalias !1527
   store ptr %407, ptr %406, align 8, !tbaa !45, !noalias !1527
   %409 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %410 = getelementptr inbounds nuw i8, ptr %403, i64 28
@@ -52766,7 +52766,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit243: ; preds = %_ZNSt6ve
   %479 = getelementptr inbounds nuw i8, ptr %476, i64 16
   %480 = getelementptr inbounds nuw i8, ptr %476, i64 32
   %481 = getelementptr inbounds nuw i8, ptr %476, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %481, i8 0, i64 480, i1 false), !noalias !1535
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %481, i8 0, i64 480, i1 false), !noalias !1535
   store ptr %480, ptr %479, align 8, !tbaa !45, !noalias !1535
   %482 = getelementptr inbounds nuw i8, ptr %476, i64 24
   %483 = getelementptr inbounds nuw i8, ptr %476, i64 28
@@ -54668,7 +54668,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit272:
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %50, i8 0, i64 240, i1 false), !noalias !1574
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %50, i8 0, i64 240, i1 false), !noalias !1574
   store ptr %49, ptr %48, align 8, !tbaa !45, !noalias !1574
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 28
@@ -54837,7 +54837,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit292: ; preds = %_ZN4llvm
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %115, i8 0, i64 480, i1 false), !noalias !1580
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %115, i8 0, i64 480, i1 false), !noalias !1580
   store ptr %114, ptr %113, align 8, !tbaa !45, !noalias !1580
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 28
@@ -54948,7 +54948,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit324: ; preds = %_ZN4llvm
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %166, i8 0, i64 480, i1 false), !noalias !1586
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %166, i8 0, i64 480, i1 false), !noalias !1586
   store ptr %165, ptr %164, align 8, !tbaa !45, !noalias !1586
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 28
@@ -55059,7 +55059,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit356: ; preds = %_ZN4llvm
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %217 = getelementptr inbounds nuw i8, ptr %212, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %217, i8 0, i64 480, i1 false), !noalias !1592
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %217, i8 0, i64 480, i1 false), !noalias !1592
   store ptr %216, ptr %215, align 8, !tbaa !45, !noalias !1592
   %218 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %219 = getelementptr inbounds nuw i8, ptr %212, i64 28
@@ -55170,7 +55170,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit388: ; preds = %_ZN4llvm
   %266 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %268 = getelementptr inbounds nuw i8, ptr %263, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %268, i8 0, i64 480, i1 false), !noalias !1598
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %268, i8 0, i64 480, i1 false), !noalias !1598
   store ptr %267, ptr %266, align 8, !tbaa !45, !noalias !1598
   %269 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %270 = getelementptr inbounds nuw i8, ptr %263, i64 28
@@ -55281,7 +55281,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit427: ; preds = %313, %_Z
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %318 = getelementptr inbounds nuw i8, ptr %314, i64 32
   %319 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %319, i8 0, i64 464, i1 false), !noalias !1604
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %319, i8 0, i64 464, i1 false), !noalias !1604
   store ptr %318, ptr %317, align 8, !tbaa !45, !noalias !1604
   %320 = getelementptr inbounds nuw i8, ptr %314, i64 24
   %321 = getelementptr inbounds nuw i8, ptr %314, i64 28
@@ -55396,7 +55396,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit459: ; preds = %_ZN4llvm
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %370 = getelementptr inbounds nuw i8, ptr %366, i64 32
   %371 = getelementptr inbounds nuw i8, ptr %366, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %371, i8 0, i64 480, i1 false), !noalias !1610
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %371, i8 0, i64 480, i1 false), !noalias !1610
   store ptr %370, ptr %369, align 8, !tbaa !45, !noalias !1610
   %372 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %373 = getelementptr inbounds nuw i8, ptr %366, i64 28
@@ -55507,7 +55507,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit491: ; preds = %_ZN4llvm
   %420 = getelementptr inbounds nuw i8, ptr %417, i64 16
   %421 = getelementptr inbounds nuw i8, ptr %417, i64 32
   %422 = getelementptr inbounds nuw i8, ptr %417, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %422, i8 0, i64 480, i1 false), !noalias !1616
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %422, i8 0, i64 480, i1 false), !noalias !1616
   store ptr %421, ptr %420, align 8, !tbaa !45, !noalias !1616
   %423 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %424 = getelementptr inbounds nuw i8, ptr %417, i64 28
@@ -55618,7 +55618,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit523: ; preds = %_ZN4llvm
   %471 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %472 = getelementptr inbounds nuw i8, ptr %468, i64 32
   %473 = getelementptr inbounds nuw i8, ptr %468, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %473, i8 0, i64 480, i1 false), !noalias !1622
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %473, i8 0, i64 480, i1 false), !noalias !1622
   store ptr %472, ptr %471, align 8, !tbaa !45, !noalias !1622
   %474 = getelementptr inbounds nuw i8, ptr %468, i64 24
   %475 = getelementptr inbounds nuw i8, ptr %468, i64 28
@@ -55729,7 +55729,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit555: ; preds = %_ZN4llvm
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 16
   %523 = getelementptr inbounds nuw i8, ptr %519, i64 32
   %524 = getelementptr inbounds nuw i8, ptr %519, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %524, i8 0, i64 480, i1 false), !noalias !1628
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %524, i8 0, i64 480, i1 false), !noalias !1628
   store ptr %523, ptr %522, align 8, !tbaa !45, !noalias !1628
   %525 = getelementptr inbounds nuw i8, ptr %519, i64 24
   %526 = getelementptr inbounds nuw i8, ptr %519, i64 28
@@ -55840,7 +55840,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit594: ; preds = %569, %_Z
   %573 = getelementptr inbounds nuw i8, ptr %570, i64 16
   %574 = getelementptr inbounds nuw i8, ptr %570, i64 32
   %575 = getelementptr inbounds nuw i8, ptr %570, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %575, i8 0, i64 464, i1 false), !noalias !1634
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %575, i8 0, i64 464, i1 false), !noalias !1634
   store ptr %574, ptr %573, align 8, !tbaa !45, !noalias !1634
   %576 = getelementptr inbounds nuw i8, ptr %570, i64 24
   %577 = getelementptr inbounds nuw i8, ptr %570, i64 28
@@ -55955,7 +55955,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit626: ; preds = %_ZN4llvm
   %625 = getelementptr inbounds nuw i8, ptr %622, i64 16
   %626 = getelementptr inbounds nuw i8, ptr %622, i64 32
   %627 = getelementptr inbounds nuw i8, ptr %622, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %627, i8 0, i64 480, i1 false), !noalias !1640
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %627, i8 0, i64 480, i1 false), !noalias !1640
   store ptr %626, ptr %625, align 8, !tbaa !45, !noalias !1640
   %628 = getelementptr inbounds nuw i8, ptr %622, i64 24
   %629 = getelementptr inbounds nuw i8, ptr %622, i64 28
@@ -56066,7 +56066,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit665: ; preds = %672, %_Z
   %676 = getelementptr inbounds nuw i8, ptr %673, i64 16
   %677 = getelementptr inbounds nuw i8, ptr %673, i64 32
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %678, i8 0, i64 464, i1 false), !noalias !1646
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %678, i8 0, i64 464, i1 false), !noalias !1646
   store ptr %677, ptr %676, align 8, !tbaa !45, !noalias !1646
   %679 = getelementptr inbounds nuw i8, ptr %673, i64 24
   %680 = getelementptr inbounds nuw i8, ptr %673, i64 28
@@ -56180,7 +56180,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit697: ; preds = %_ZN4llvm
   %728 = getelementptr inbounds nuw i8, ptr %725, i64 16
   %729 = getelementptr inbounds nuw i8, ptr %725, i64 32
   %730 = getelementptr inbounds nuw i8, ptr %725, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %730, i8 0, i64 480, i1 false), !noalias !1652
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %730, i8 0, i64 480, i1 false), !noalias !1652
   store ptr %729, ptr %728, align 8, !tbaa !45, !noalias !1652
   %731 = getelementptr inbounds nuw i8, ptr %725, i64 24
   %732 = getelementptr inbounds nuw i8, ptr %725, i64 28
@@ -60392,7 +60392,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit20:
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %10, i8 0, i64 464, i1 false), !noalias !1754
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %10, i8 0, i64 464, i1 false), !noalias !1754
   store ptr %9, ptr %8, align 8, !tbaa !45, !noalias !1754
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -60525,7 +60525,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit47: ; preds = %52, %_ZN9
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %70, i8 0, i64 464, i1 false), !noalias !1760
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %70, i8 0, i64 464, i1 false), !noalias !1760
   store ptr %69, ptr %68, align 8, !tbaa !45, !noalias !1760
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 28
@@ -60810,7 +60810,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit40: ; preds = %._crit_ed
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %61, i8 0, i64 464, i1 false), !noalias !1770
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %61, i8 0, i64 464, i1 false), !noalias !1770
   store ptr %60, ptr %59, align 8, !tbaa !45, !noalias !1770
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 28
@@ -63432,7 +63432,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit78: ; preds = %.lr.ph89.
   %670 = getelementptr inbounds nuw i8, ptr %667, i64 16
   %671 = getelementptr inbounds nuw i8, ptr %667, i64 32
   %672 = getelementptr inbounds nuw i8, ptr %667, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %672, i8 0, i64 448, i1 false), !noalias !1849
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %672, i8 0, i64 448, i1 false), !noalias !1849
   store ptr %671, ptr %670, align 8, !tbaa !45, !noalias !1849
   %673 = getelementptr inbounds nuw i8, ptr %667, i64 24
   %674 = getelementptr inbounds nuw i8, ptr %667, i64 28
@@ -63565,7 +63565,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit117: ; preds = %_ZN4llvm
   %730 = getelementptr inbounds nuw i8, ptr %727, i64 16
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 32
   %732 = getelementptr inbounds nuw i8, ptr %727, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %732, i8 0, i64 448, i1 false), !noalias !1855
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %732, i8 0, i64 448, i1 false), !noalias !1855
   store ptr %731, ptr %730, align 8, !tbaa !45, !noalias !1855
   %733 = getelementptr inbounds nuw i8, ptr %727, i64 24
   %734 = getelementptr inbounds nuw i8, ptr %727, i64 28
@@ -65717,7 +65717,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit39: ; preds = %.lr.ph187
   %683 = getelementptr inbounds nuw i8, ptr %680, i64 16
   %684 = getelementptr inbounds nuw i8, ptr %680, i64 32
   %685 = getelementptr inbounds nuw i8, ptr %680, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %685, i8 0, i64 464, i1 false), !noalias !2519
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %685, i8 0, i64 464, i1 false), !noalias !2519
   store ptr %684, ptr %683, align 8, !tbaa !45, !noalias !2519
   %686 = getelementptr inbounds nuw i8, ptr %680, i64 24
   %687 = getelementptr inbounds nuw i8, ptr %680, i64 28
@@ -65979,7 +65979,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit70: ; preds = %790, %_ZN
   %794 = getelementptr inbounds nuw i8, ptr %791, i64 16
   %795 = getelementptr inbounds nuw i8, ptr %791, i64 32
   %796 = getelementptr inbounds nuw i8, ptr %791, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %796, i8 0, i64 464, i1 false), !noalias !2525
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %796, i8 0, i64 464, i1 false), !noalias !2525
   store ptr %795, ptr %794, align 8, !tbaa !45, !noalias !2525
   %797 = getelementptr inbounds nuw i8, ptr %791, i64 24
   %798 = getelementptr inbounds nuw i8, ptr %791, i64 28
@@ -75253,7 +75253,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit32: ; preds = %1, %19, %
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %27, i8 0, i64 464, i1 false), !noalias !3186
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %27, i8 0, i64 464, i1 false), !noalias !3186
   store ptr %26, ptr %25, align 8, !tbaa !45, !noalias !3186
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 28
@@ -76269,7 +76269,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit38:
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %14, i8 0, i64 416, i1 false), !noalias !3230
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %14, i8 0, i64 416, i1 false), !noalias !3230
   store ptr %13, ptr %12, align 8, !tbaa !45, !noalias !3230
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -92054,7 +92054,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit280: ; preds = %805
   %810 = getelementptr inbounds nuw i8, ptr %807, i64 16
   %811 = getelementptr inbounds nuw i8, ptr %807, i64 32
   %812 = getelementptr inbounds nuw i8, ptr %807, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %812, i8 0, i64 480, i1 false), !noalias !3960
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %812, i8 0, i64 480, i1 false), !noalias !3960
   store ptr %811, ptr %810, align 8, !tbaa !45, !noalias !3960
   %813 = getelementptr inbounds nuw i8, ptr %807, i64 24
   %814 = getelementptr inbounds nuw i8, ptr %807, i64 28
@@ -99359,7 +99359,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit99: ; preds = %.critedge
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %197, i8 0, i64 464, i1 false), !noalias !4191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %197, i8 0, i64 464, i1 false), !noalias !4191
   store ptr %196, ptr %195, align 8, !tbaa !45, !noalias !4191
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %199 = getelementptr inbounds nuw i8, ptr %192, i64 28
@@ -99785,7 +99785,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit151: ; preds = %_ZNK5cla
   %381 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %382 = getelementptr inbounds nuw i8, ptr %378, i64 32
   %383 = getelementptr inbounds nuw i8, ptr %378, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %383, i8 0, i64 480, i1 false), !noalias !4200
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %383, i8 0, i64 480, i1 false), !noalias !4200
   store ptr %382, ptr %381, align 8, !tbaa !45, !noalias !4200
   %384 = getelementptr inbounds nuw i8, ptr %378, i64 24
   %385 = getelementptr inbounds nuw i8, ptr %378, i64 28
@@ -99904,7 +99904,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit187: ; preds = %428, %_Z
   %435 = getelementptr inbounds nuw i8, ptr %432, i64 16
   %436 = getelementptr inbounds nuw i8, ptr %432, i64 32
   %437 = getelementptr inbounds nuw i8, ptr %432, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %437, i8 0, i64 464, i1 false), !noalias !4206
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %437, i8 0, i64 464, i1 false), !noalias !4206
   store ptr %436, ptr %435, align 8, !tbaa !45, !noalias !4206
   %438 = getelementptr inbounds nuw i8, ptr %432, i64 24
   %439 = getelementptr inbounds nuw i8, ptr %432, i64 28
@@ -100021,7 +100021,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit226: ; preds = %484, %_Z
   %488 = getelementptr inbounds nuw i8, ptr %485, i64 16
   %489 = getelementptr inbounds nuw i8, ptr %485, i64 32
   %490 = getelementptr inbounds nuw i8, ptr %485, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %490, i8 0, i64 464, i1 false), !noalias !4212
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %490, i8 0, i64 464, i1 false), !noalias !4212
   store ptr %489, ptr %488, align 8, !tbaa !45, !noalias !4212
   %491 = getelementptr inbounds nuw i8, ptr %485, i64 24
   %492 = getelementptr inbounds nuw i8, ptr %485, i64 28
@@ -100137,7 +100137,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit265: ; preds = %537, %_Z
   %541 = getelementptr inbounds nuw i8, ptr %538, i64 16
   %542 = getelementptr inbounds nuw i8, ptr %538, i64 32
   %543 = getelementptr inbounds nuw i8, ptr %538, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %543, i8 0, i64 464, i1 false), !noalias !4218
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %543, i8 0, i64 464, i1 false), !noalias !4218
   store ptr %542, ptr %541, align 8, !tbaa !45, !noalias !4218
   %544 = getelementptr inbounds nuw i8, ptr %538, i64 24
   %545 = getelementptr inbounds nuw i8, ptr %538, i64 28
@@ -102656,7 +102656,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit30:
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %11, i8 0, i64 464, i1 false), !noalias !4269
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %11, i8 0, i64 464, i1 false), !noalias !4269
   store ptr %10, ptr %9, align 8, !tbaa !45, !noalias !4269
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -106303,7 +106303,7 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %23, 
 _ZNSt10unique_ptrIN5clang9ASTWriter16DeclIDInFileInfoESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %33
   %37 = call noalias noundef nonnull dereferenceable(1048) ptr @_Znwm(i64 noundef 1048) #36, !noalias !4334
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1048) %38, i8 0, i64 1032, i1 false), !noalias !4334
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1032) %38, i8 0, i64 1032, i1 false), !noalias !4334
   store ptr %38, ptr %37, align 8, !tbaa !45, !noalias !4334
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 0, ptr %39, align 8, !tbaa !42, !noalias !4334

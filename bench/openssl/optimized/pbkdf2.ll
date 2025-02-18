@@ -175,7 +175,7 @@ define internal void @kdf_pbkdf2_reset(ptr noundef %0) #0 {
   %10 = load i64, ptr %9, align 8, !tbaa !20
   tail call void @CRYPTO_clear_free(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 101) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #7
   %12 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %3) #7

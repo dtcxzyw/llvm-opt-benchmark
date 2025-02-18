@@ -730,7 +730,7 @@ define internal range(i32 0, 2) i32 @encode_case_3_dec(ptr noundef %0, i64 nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store i64 0, ptr %5, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
@@ -2261,7 +2261,7 @@ define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %0) #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   store i64 0, ptr %4, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4

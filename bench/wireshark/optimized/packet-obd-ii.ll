@@ -614,7 +614,7 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   %52 = zext i8 %.052 to i32
   %53 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %52)
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
   store ptr %1, ptr %5, align 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %10, ptr %55, align 8
@@ -668,7 +668,7 @@ define internal i32 @dissect_obdii_uds(ptr noundef %0, ptr noundef %1, ptr nound
   %19 = zext i8 %10 to i32
   %20 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
   store ptr %1, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %7, ptr %22, align 4

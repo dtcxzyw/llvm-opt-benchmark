@@ -5219,7 +5219,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiv
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i64 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, i8 0, i64 12, i1 false)
   store ptr %25, ptr %38, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }

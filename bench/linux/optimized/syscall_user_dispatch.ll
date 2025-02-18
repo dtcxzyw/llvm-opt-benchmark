@@ -102,7 +102,7 @@ define internal fastcc void @trigger_sigsys(ptr noundef readonly captures(none) 
   %2 = alloca %struct.kernel_siginfo, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store i32 31, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %4, align 8

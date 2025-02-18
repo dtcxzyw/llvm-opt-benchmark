@@ -478,7 +478,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scope10push_scopeERKN
 
 .noexc2:                                          ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !17
   store ptr %8, ptr %8, align 8, !tbaa !19
@@ -553,7 +553,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scope9pop_scopeEv() l
 
 .noexc1:                                          ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !17
   store ptr %7, ptr %7, align 8, !tbaa !19
@@ -622,7 +622,7 @@ define noundef nonnull align 8 dereferenceable(25) ptr @_ZN5boost3log11v2_mt_pos
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !17
   store ptr %7, ptr %7, align 8, !tbaa !19
@@ -866,7 +866,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix10attributes11named_s
 
 .noexc2:                                          ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !17
   store ptr %8, ptr %8, align 8, !tbaa !19

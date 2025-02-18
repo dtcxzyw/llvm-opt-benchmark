@@ -1023,7 +1023,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @ieee80211_tx_prepare(ptr nou
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store ptr %3, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %6, ptr %9, align 8
@@ -6036,7 +6036,7 @@ codel_dequeue_func.exit38:                        ; preds = %475
   %770 = getelementptr inbounds nuw i8, ptr %.ph50, i64 200
   %771 = load ptr, ptr %770, align 8
   %772 = getelementptr inbounds nuw i8, ptr %.ph50, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %93, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %93, i8 0, i64 48, i1 false)
   store ptr %83, ptr %83, align 8
   store ptr %83, ptr %84, align 8
   store ptr %0, ptr %86, align 8
@@ -6806,7 +6806,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_rate_ctrl(ptr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #20
   %7 = load i32, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -9446,7 +9446,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   store i16 %321, ptr %322, align 2
   %323 = getelementptr inbounds nuw i8, ptr %253, i64 40
   %324 = getelementptr inbounds nuw i8, ptr %253, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %324, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %324, i8 0, i64 40, i1 false)
   %325 = load i32, ptr %7, align 4
   store i32 %325, ptr %323, align 8
   %326 = icmp eq i16 %243, 0
@@ -10325,7 +10325,7 @@ define dso_local ptr @ieee80211_build_data_template(ptr noundef %0, ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   %9 = load ptr, ptr %7, align 8
   store ptr %9, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -11184,7 +11184,7 @@ split:                                            ; preds = %54, %._crit_edge
   %218 = or disjoint i32 %217, %216
   store i32 %218, ptr %214, align 4
   %219 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %219, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %219, i8 0, i64 32, i1 false)
   store ptr %0, ptr %8, align 8
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %221 = load ptr, ptr %220, align 8
@@ -11562,7 +11562,7 @@ define dso_local ptr @ieee80211_pspoll_get(ptr readnone captures(none) %0, ptr n
   store i32 %22, ptr %20, align 8
   %23 = tail call ptr @skb_put(ptr noundef nonnull %12, i32 noundef 16) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %24, i8 0, i64 14, i1 false)
   store i16 164, ptr %23, align 2
   %25 = getelementptr i8, ptr %1, i64 12
   %26 = load i16, ptr %25, align 4
@@ -11656,7 +11656,7 @@ define dso_local ptr @ieee80211_nullfunc_get(ptr readnone captures(none) %0, ptr
   store i32 %45, ptr %43, align 8
   %46 = tail call ptr @skb_put(ptr noundef nonnull %15, i32 noundef 24) #20
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, i8 0, i64 22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %47, i8 0, i64 22, i1 false)
   store i16 328, ptr %46, align 2
   br i1 %27, label %48, label %52
 
@@ -11736,7 +11736,7 @@ define dso_local ptr @ieee80211_probereq_get(ptr noundef readonly captures(none)
   store i32 %22, ptr %20, align 8
   %23 = tail call ptr @skb_put(ptr noundef nonnull %12, i32 noundef 24) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %24, i8 0, i64 22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %24, i8 0, i64 22, i1 false)
   store i16 64, ptr %23, align 2
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, i8 -1, i64 6, i1 false)
@@ -14998,7 +14998,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %373 = or disjoint i32 %372, %371
   store i32 %373, ptr %369, align 4
   %374 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %374, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %374, i8 0, i64 32, i1 false)
   store ptr %0, ptr %9, align 8
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %376 = load ptr, ptr %375, align 8

@@ -49672,7 +49672,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %_value.i, align 4
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -49753,7 +49753,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double 1.000000e+00, ptr %arrayidx6.i.i, align 8
@@ -49834,7 +49834,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %_value.i, align 4
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4
@@ -49966,7 +49966,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IdEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   store double 1.000000e+00, ptr %_value.i, align 8
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double 1.000000e+00, ptr %arrayidx6.i.i, align 8

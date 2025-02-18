@@ -13206,7 +13206,7 @@ Vec_PtrGrow.exit:                                 ; preds = %Vec_IntGrow.exit, %
   %144 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %145 = load i32, ptr %46, align 8, !tbaa !82
   %146 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %146, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
   store i32 16, ptr %144, align 8, !tbaa !72
   %147 = getelementptr inbounds nuw i8, ptr %21, i64 92
   store i32 65535, ptr %147, align 4, !tbaa !75
@@ -13215,7 +13215,7 @@ Vec_PtrGrow.exit:                                 ; preds = %Vec_IntGrow.exit, %
   store ptr %133, ptr %148, align 8, !tbaa !132
   %149 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %150, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   store i32 16, ptr %149, align 8, !tbaa !72
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 132
   store i32 65535, ptr %151, align 4, !tbaa !75
@@ -14050,7 +14050,7 @@ Vec_PtrFreeData.exit124:                          ; preds = %103, %Vec_PtrFreeDa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Lf_ManSetDefaultPars(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %2, i8 0, i64 232, i1 false)
   store i32 6, ptr %0, align 8, !tbaa !64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %3, align 4, !tbaa !81

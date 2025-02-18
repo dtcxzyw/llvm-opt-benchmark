@@ -542,7 +542,7 @@ define dso_local noundef i32 @io_timeout_remove(ptr noundef captures(none) %0, i
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !21
   store ptr %6, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -644,7 +644,7 @@ default.unreachable:                              ; preds = %94, %47
 65:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 16, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false), !annotation !21
   store ptr %6, ptr %3, align 8
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %27, ptr %67, align 8
@@ -1558,7 +1558,7 @@ define internal void @io_req_task_link_timeout(ptr noundef initializes((80, 88))
 17:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !annotation !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %3, align 8

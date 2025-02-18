@@ -12981,7 +12981,7 @@ _ZNK5clang20TemplateIdAnnotation11mightBeTypeEv.exit86: ; preds = %_ZNK5clang20T
   %367 = getelementptr inbounds nuw i8, ptr %20, i64 352
   store ptr null, ptr %367, align 8, !tbaa !1269
   %368 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(172) %368, i8 0, i64 164, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(164) %368, i8 0, i64 164, i1 false)
   %369 = getelementptr inbounds nuw i8, ptr %20, i64 224
   store i32 %.sroa.01.0.copyload.i85, ptr %369, align 8, !tbaa !11
   %370 = getelementptr inbounds nuw i8, ptr %20, i64 228

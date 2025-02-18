@@ -1971,7 +1971,7 @@ define internal fastcc i32 @mei_hbm_dma_setup_req(ptr noundef %0) unnamed_addr #
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   store i32 -2144862208, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %4, i8 0, i64 39, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %4, i8 0, i64 39, i1 false)
   store i8 18, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4

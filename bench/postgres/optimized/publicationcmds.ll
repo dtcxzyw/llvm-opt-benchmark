@@ -141,7 +141,7 @@ define dso_local zeroext i1 @pub_rf_contains_invalid_column(i32 noundef %0, ptr 
 31:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %7, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16

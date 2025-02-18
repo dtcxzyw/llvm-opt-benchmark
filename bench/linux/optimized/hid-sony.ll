@@ -2502,7 +2502,7 @@ define internal void @motion_send_output_report(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(49) %6, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store i8 2, ptr %5, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i8, ptr %7, align 8

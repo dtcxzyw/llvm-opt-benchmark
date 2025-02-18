@@ -96,7 +96,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
   store i64 %4, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %5, ptr %7, align 8

@@ -1191,7 +1191,7 @@ if.then173:                                       ; preds = %for.body169
   store i32 %shr.i2.i.i, ptr %m_u.i.i, align 4
   store i32 %shr.i3.i.i, ptr %m_v.i.i, align 8
   store i32 -1, ptr %m_state.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   store i32 %sub.i.i.i.i, ptr %m_vals.i.i.i, align 4
   store i32 %sub.i.i22.i.i, ptr %m_vals.i23.i.i, align 4
   br label %for.body.i.i.i
@@ -1779,7 +1779,7 @@ entry:
   store i32 -1, ptr %m_state.i, align 8
   %m_vals.i.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, i8 0, i64 12, i1 false)
   %xor.i.i = and i32 %p.coerce, 1
   %tobool.i.not.i.not.i = icmp eq i32 %xor.i.i, 0
   %sub.i.i.i = select i1 %tobool.i.not.i.not.i, i32 -1, i32 1
@@ -1904,7 +1904,7 @@ if.end:
   store i32 -1, ptr %m_state, align 8
   %m_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, i8 0, i64 12, i1 false)
   %xor.i = and i32 %p.coerce, 1
   %tobool.i.not.i.not = icmp eq i32 %xor.i, 0
   %sub.i.i = select i1 %tobool.i.not.i.not, i32 -1, i32 1

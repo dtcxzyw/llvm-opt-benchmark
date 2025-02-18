@@ -1127,7 +1127,7 @@ define ptr @Abc_NtkTestScorr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store i32 1, ptr %56, align 8, !tbaa !92
   %57 = call ptr @Gia_ManFromAig(ptr noundef %51) #11
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %58, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   store ptr %25, ptr %9, align 8, !tbaa !56
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %59, align 8, !tbaa !81
@@ -1165,7 +1165,7 @@ define ptr @Abc_NtkTestScorr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i32 %7, ptr %74, align 8, !tbaa !98
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   store ptr %25, ptr %9, align 8, !tbaa !56
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %51, ptr %76, align 8, !tbaa !81

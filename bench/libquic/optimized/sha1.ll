@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @SHA1_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %2, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %0, align 4, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4, !tbaa !6
@@ -32,7 +32,7 @@ define hidden noundef nonnull ptr @SHA1(ptr noundef %0, i64 noundef %1, ptr noun
   %4 = alloca %struct.sha_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %5, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -271733879, ptr %6, align 4, !tbaa !6

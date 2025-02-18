@@ -2333,7 +2333,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114StructurizeCFG3run
   %67 = inttoptr i64 %66 to ptr
   %68 = call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE7getNodeEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %65, ptr noundef %67) #26, !noalias !260
   %69 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %69, i8 0, i64 72, i1 false), !alias.scope !263
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %69, i8 0, i64 72, i1 false), !alias.scope !263
   %70 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %70, ptr %37, align 8, !tbaa !28, !alias.scope !263
   %71 = getelementptr inbounds nuw i8, ptr %37, i64 8

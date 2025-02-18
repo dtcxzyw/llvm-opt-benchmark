@@ -7158,7 +7158,7 @@ define internal range(i32 0, 2) i32 @tls_hs_fragment_equal(ptr noundef readonly 
 define internal noalias noundef ptr @tls_hs_fragment_temporary_key(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 noundef 0, i64 noundef 3, i1 noundef false) #15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 noundef 0, i64 noundef 3, i1 noundef false) #15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 8
   store ptr %2, ptr %4, align 8

@@ -615,7 +615,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit
   %__begin3.0.idx150 = phi i64 [ 0, %entry ], [ %__begin3.0.add, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit ]
   %__begin3.0.ptr151 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 %__begin3.0.idx150
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   store ptr %_M_single_bucket.i.i.i, ptr %ref.tmp4, align 8
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
@@ -936,7 +936,7 @@ ehcleanup39:                                      ; preds = %ehcleanup38, %lpad7
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit
   %30 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %30, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %30, i8 0, i64 200, i1 false)
   %_M_single_bucket.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 48
   store ptr %_M_single_bucket.i.i.i51, ptr %ref.tmp43, align 8
   %_M_bucket_count.i.i.i52 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8

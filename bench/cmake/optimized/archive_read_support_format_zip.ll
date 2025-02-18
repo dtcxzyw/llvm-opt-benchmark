@@ -1860,7 +1860,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_hea
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 8
   %132 = or disjoint i32 %131, %127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   %133 = lshr i32 %130, 1
   %134 = add nuw nsw i32 %133, 80
   store i32 %134, ptr %75, align 4, !tbaa !117
@@ -2697,7 +2697,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   %74 = shl nuw nsw i32 %73, 8
   %75 = or disjoint i32 %74, %70
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
   %77 = lshr i32 %73, 1
   %78 = add nuw nsw i32 %77, 80
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 20

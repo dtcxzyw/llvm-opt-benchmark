@@ -9205,7 +9205,7 @@ define internal fastcc void @_ZL13StoreCommandsPN13duckdb_brotli18BrotliTwoPassA
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2560
   tail call void @_ZN13duckdb_brotli31BrotliConvertBitDepthsToSymbolsEPKhmPt(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %69)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 6800
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %70, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %70, i8 0, i64 56, i1 false)
   %71 = load i64, ptr %43, align 1
   store i64 %71, ptr %41, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6856

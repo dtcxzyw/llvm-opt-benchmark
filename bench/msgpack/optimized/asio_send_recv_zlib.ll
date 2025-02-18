@@ -1974,7 +1974,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #8 personality ptr @__gx
   store i32 2, ptr %12, align 4
   store i32 0, ptr %13, align 4
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %33, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %33, i8 0, i64 20, i1 false)
   %34 = call noundef zeroext i16 @htons(i16 noundef zeroext 12345) #36
   store i16 2, ptr %15, align 4
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -31319,7 +31319,7 @@ _ZNSt12__shared_ptrISt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3tcpEEES
   ]
 
 51:                                               ; preds = %48, %48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %37, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
   store i16 2, ptr %7, align 4
   store i16 0, ptr %38, align 2
   store i32 0, ptr %39, align 4

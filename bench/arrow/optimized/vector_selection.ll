@@ -2310,7 +2310,7 @@ _ZSt11make_sharedIN5arrow7compute14VectorFunctionEJRNSt7__cxx1112basic_stringIcS
   %438 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %439 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %440 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %440, i8 0, i64 32, i1 false), !noalias !100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %440, i8 0, i64 32, i1 false), !noalias !100
   %441 = getelementptr inbounds nuw i8, ptr %4, i64 124
   %442 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i8 1, ptr %442, align 8, !tbaa !68, !noalias !100
@@ -2636,7 +2636,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit.i.i: ; preds = %568
   store ptr %572, ptr %538, align 8, !tbaa !136, !noalias !100
   %573 = getelementptr inbounds nuw i8, ptr %571, i64 8
   %574 = getelementptr inbounds nuw i8, ptr %571, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %574, i8 0, i64 24, i1 false), !noalias !100
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %574, i8 0, i64 24, i1 false), !noalias !100
   store i32 2, ptr %571, align 8, !tbaa !125, !noalias !100
   store ptr null, ptr %573, align 8, !tbaa !115, !noalias !100
   %575 = getelementptr inbounds nuw i8, ptr %571, i64 24
@@ -5426,7 +5426,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %26, %33, %36
   store ptr %41, ptr %13, align 8, !tbaa !136
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store i32 1, ptr %40, align 8, !tbaa !125
   store ptr %39, ptr %42, align 8, !tbaa !115
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16

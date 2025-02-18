@@ -3636,7 +3636,7 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
   store i32 0, ptr %11, align 4
   %45 = tail call ptr @wmem_file_scope()
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %47 = tail call noalias ptr @wmem_array_new(ptr noundef %45, i64 noundef 4)
   store ptr %47, ptr %10, align 8
   %48 = tail call noalias ptr @wmem_array_new(ptr noundef %45, i64 noundef 40)

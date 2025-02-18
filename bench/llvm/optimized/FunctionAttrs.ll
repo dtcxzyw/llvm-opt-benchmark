@@ -13682,7 +13682,7 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit172.i.i.i: ; preds
 
 .critedge107.i.i.i:                               ; preds = %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit172.i.i.i, %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit, %928, %917, %905, %_ZN4llvm8CallBase7arg_endEv.exit, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.i.i.i, %_ZNK4llvm4User13getOperandUseEj.exit151.i.i.i, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit145.i.i.i, %778, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit.i.i.i, %716, %642, %_ZNK4llvm4User13getOperandUseEj.exit.i.i.i, %557, %.critedge.i.i344, %.critedge.thread.i.i
   store i8 3, ptr %34, align 8, !tbaa !785, !alias.scope !774, !noalias !750
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %100, i8 0, i64 64, i1 false), !alias.scope !774, !noalias !750
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %100, i8 0, i64 64, i1 false), !alias.scope !774, !noalias !750
   store ptr %100, ptr %99, align 8, !tbaa !25, !alias.scope !774, !noalias !750
   store i32 0, ptr %101, align 8, !tbaa !26, !alias.scope !774, !noalias !750
   store i32 2, ptr %102, align 4, !tbaa !27, !alias.scope !774, !noalias !750
@@ -13946,7 +13946,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_116Use
   store ptr %1093, ptr %1209, align 8, !tbaa !300
   %1217 = getelementptr inbounds nuw i8, ptr %1209, i64 8
   %1218 = getelementptr inbounds nuw i8, ptr %1209, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1218, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1218, i8 0, i64 392, i1 false)
   store i32 1, ptr %1217, align 8
   %1219 = getelementptr inbounds nuw i8, ptr %1209, i64 12
   store i32 0, ptr %1219, align 4, !tbaa !811
@@ -14339,7 +14339,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEN12_GLOBAL__N_118Arg
   %.0.i309.i.i.i = phi ptr [ %1389, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16InsertIntoBucketIRKS3_JEEEPSA_SG_OT_DpOT0_.exit.i.i.i.i ], [ %.0.i30.i.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i.i.i ], [ %.0.i3027.i.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.thread.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #23, !noalias !750
   store i8 3, ptr %7, align 8, !tbaa !785, !noalias !750
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %145, i8 0, i64 64, i1 false), !noalias !750
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %145, i8 0, i64 64, i1 false), !noalias !750
   store ptr %145, ptr %144, align 8, !tbaa !25, !noalias !750
   store i32 0, ptr %146, align 8, !tbaa !26, !noalias !750
   store i32 2, ptr %147, align 4, !tbaa !27, !noalias !750
@@ -18287,7 +18287,7 @@ _ZN4llvm17ConstantRangeListD2Ev.exit:             ; preds = %_ZN4llvm23SmallVect
 
 121:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_17ConstantRangeListENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findES4_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 0, i64 64, i1 false)
   store ptr %59, ptr %4, align 8, !tbaa !25
   store i32 0, ptr %60, align 8, !tbaa !26
   store i32 2, ptr %61, align 4, !tbaa !27
@@ -18703,7 +18703,7 @@ _ZN4llvm11SmallVectorISt4pairIPNS_11InstructionEN12_GLOBAL__N_118ArgumentAccessI
 
 258:                                              ; preds = %254, %254
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %221, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %221, i8 0, i64 64, i1 false)
   store ptr %216, ptr %6, align 8, !tbaa !25
   store i32 0, ptr %217, align 8, !tbaa !26
   store i32 2, ptr %218, align 4, !tbaa !27
@@ -18934,7 +18934,7 @@ _ZN4llvm8po_beginIPNS_8FunctionEEENS_11po_iteratorIT_NS_11SmallPtrSetINS_11Graph
   store i32 1, ptr %18, align 8, !tbaa !26, !alias.scope !933
   call void @_ZN4llvm11po_iteratorIPNS_8FunctionENS_11SmallPtrSetIPNS_10BasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(424) %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %31, i8 0, i64 408, i1 false), !alias.scope !939
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %31, i8 0, i64 408, i1 false), !alias.scope !939
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %32, ptr %4, align 8, !tbaa !28, !alias.scope !939
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -19098,7 +19098,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_17ConstantRangeListENS_
   store ptr %57, ptr %48, align 8, !tbaa !300
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, i8 0, i64 64, i1 false)
   store ptr %59, ptr %58, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %60, align 8, !tbaa !26

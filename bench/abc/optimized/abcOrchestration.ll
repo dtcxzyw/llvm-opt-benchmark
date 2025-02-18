@@ -617,7 +617,7 @@ declare void @Abc_NtkStartReverseLevels(ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Abc_NtkStartCutManForRewrite(ptr noundef %0) unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), i8 0, i64 68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 8), i8 0, i64 68, i1 false)
   store i32 4, ptr @Abc_NtkStartCutManForRewrite.Params, align 4, !tbaa !55
   store i32 250, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 4), align 4, !tbaa !57
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForRewrite.Params, i64 20), align 4, !tbaa !58
@@ -5533,7 +5533,7 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   %1055 = and i32 %1054, 1
   store i32 3, ptr %1039, align 8, !tbaa !191
   %1056 = getelementptr inbounds nuw i8, ptr %1041, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1056, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1056, i8 0, i64 16, i1 false)
   %1057 = shl nuw nsw i32 %1049, 15
   %1058 = shl nuw nsw i32 %1055, 16
   %1059 = or disjoint i32 %1058, %1057
@@ -5710,7 +5710,7 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   %1149 = or disjoint i32 %1148, 2
   store i32 3, ptr %1133, align 8, !tbaa !191
   %1150 = getelementptr inbounds nuw i8, ptr %1135, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1150, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1150, i8 0, i64 16, i1 false)
   %1151 = shl nuw nsw i32 %1143, 15
   %1152 = shl nuw nsw i32 %1148, 16
   %1153 = or disjoint i32 %1152, %1151
@@ -6515,7 +6515,7 @@ define noalias noundef ptr @Abc_ManResubQuit1_1(ptr noundef readonly captures(no
 Dec_GraphAddNodeOr.exit:                          ; preds = %4
   store i32 3, ptr %6, align 8, !tbaa !191
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = shl nuw nsw i32 %23, 15
   %32 = shl nuw nsw i32 %29, 16
   %33 = or disjoint i32 %32, %31
@@ -6528,7 +6528,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %4
   %37 = or disjoint i32 %29, 2
   store i32 3, ptr %6, align 8, !tbaa !191
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %39 = shl nuw nsw i32 %23, 15
   %40 = shl nuw nsw i32 %29, 16
   %41 = or disjoint i32 %40, %39
@@ -6616,7 +6616,7 @@ define noalias noundef ptr @Abc_ManResubQuit21_1(ptr noundef readonly captures(n
 Dec_GraphAddNodeOr.exit44:                        ; preds = %5
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %48 = shl nuw nsw i32 %28, 15
@@ -6631,7 +6631,7 @@ Dec_GraphAddNodeOr.exit44:                        ; preds = %5
   store i32 5, ptr %7, align 8, !tbaa !191
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %56 = or disjoint i32 %42, 81920
   store i32 %56, ptr %41, align 8
   %57 = xor i32 %40, 5
@@ -6644,7 +6644,7 @@ Dec_GraphAddNodeAnd.exit57:                       ; preds = %5
   %59 = or disjoint i32 %34, 2
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   store i32 %28, ptr %60, align 8, !tbaa !66
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 76
   store i32 %59, ptr %62, align 4, !tbaa !66
@@ -6656,7 +6656,7 @@ Dec_GraphAddNodeAnd.exit57:                       ; preds = %5
   store i32 5, ptr %7, align 8, !tbaa !191
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   store i32 %58, ptr %67, align 8, !tbaa !66
   store i32 6, ptr %43, align 4, !tbaa !66
   store i32 %42, ptr %41, align 8
@@ -6732,7 +6732,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %5
   %38 = lshr i32 %37, 7
   %39 = and i32 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %41 = shl nuw nsw i32 %35, 15
   %42 = shl nuw nsw i32 %39, 16
   %43 = or disjoint i32 %42, %41
@@ -6753,7 +6753,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %5
   %55 = and i32 %54, 1
   %56 = or disjoint i32 %55, 4
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %58 = shl nuw nsw i32 %48, 15
   %59 = shl nuw nsw i32 %55, 16
   %60 = or disjoint i32 %59, %58
@@ -6774,7 +6774,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %5
   store i32 5, ptr %7, align 8, !tbaa !191
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   br i1 %.not42, label %Dec_GraphAddNodeAnd.exit65, label %Dec_GraphAddNodeOr.exit58
 
 Dec_GraphAddNodeOr.exit58:                        ; preds = %61
@@ -6874,7 +6874,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %6
   %38 = and i32 %37, 1
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %43 = shl nuw nsw i32 %34, 15
@@ -6906,7 +6906,7 @@ Dec_GraphAddNodeOr.exit96:                        ; preds = %Dec_GraphAddNodeOr.
   store i32 6, ptr %8, align 8, !tbaa !191
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 124
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %64 = shl nuw nsw i32 %59, 15
@@ -6933,7 +6933,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %79 = or disjoint i32 %78, 4
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   store i32 %79, ptr %80, align 8, !tbaa !66
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 124
   store i32 %73, ptr %82, align 4, !tbaa !66
@@ -6956,7 +6956,7 @@ Dec_GraphAddNodeAnd.exit109:                      ; preds = %6
   %95 = or disjoint i32 %94, 2
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
   store i32 %88, ptr %96, align 8, !tbaa !66
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 100
   store i32 %95, ptr %98, align 4, !tbaa !66
@@ -6984,7 +6984,7 @@ Dec_GraphAddNodeOr.exit116:                       ; preds = %Dec_GraphAddNodeAnd
   %113 = and i32 %112, 1
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 124
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %118 = shl nuw nsw i32 %113, 15
@@ -7011,7 +7011,7 @@ Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd
   %133 = or disjoint i32 %132, 4
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %135 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
   store i32 %133, ptr %134, align 8, !tbaa !66
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 124
   store i32 %127, ptr %136, align 4, !tbaa !66
@@ -7029,7 +7029,7 @@ Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd
   store i32 7, ptr %8, align 8, !tbaa !191
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, i8 0, i64 16, i1 false)
   br i1 %.not85, label %Dec_GraphAddNodeAnd.exit137, label %Dec_GraphAddNodeOr.exit130
 
 Dec_GraphAddNodeOr.exit130:                       ; preds = %141
@@ -22436,7 +22436,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr noundef captu
   %572 = or disjoint i32 %562, 2
   %573 = getelementptr inbounds nuw i8, ptr %537, i64 72
   %574 = getelementptr inbounds nuw i8, ptr %537, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %574, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %574, i8 0, i64 16, i1 false)
   store i32 %556, ptr %573, align 8, !tbaa !66
   %575 = getelementptr inbounds nuw i8, ptr %537, i64 76
   store i32 %572, ptr %575, align 4, !tbaa !66
@@ -22448,7 +22448,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr noundef captu
   store i32 5, ptr %535, align 8, !tbaa !191
   %580 = getelementptr inbounds nuw i8, ptr %537, i64 96
   %581 = getelementptr inbounds nuw i8, ptr %537, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %581, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %581, i8 0, i64 16, i1 false)
   store i32 %571, ptr %580, align 8, !tbaa !66
   %582 = getelementptr inbounds nuw i8, ptr %537, i64 100
   store i32 6, ptr %582, align 4, !tbaa !66

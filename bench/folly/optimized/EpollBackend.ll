@@ -2969,7 +2969,7 @@ _ZNSt3mapIiN5folly12_GLOBAL__N_114SignalRegistry7SigInfoESt4lessIiESaISt4pairIKi
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.i, i64 40
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #21
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %132, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %132, i8 0, i64 144, i1 false)
   store ptr @_ZN5folly12_GLOBAL__N_112evSigHandlerEi, ptr %5, align 8, !tbaa !55
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 268435456, ptr %133, align 8, !tbaa !158

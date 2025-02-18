@@ -2339,7 +2339,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(976) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %ctx)
   call void @_ZN6recfun4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %recfun_util, ptr noundef nonnull align 8 dereferenceable(976) %call)
   %1 = getelementptr inbounds nuw i8, ptr %var_names, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   store ptr %1, ptr %var_names, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %var_names, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

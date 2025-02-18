@@ -292,7 +292,7 @@ define internal fastcc range(i32 -1, 2) i32 @read_string_inner(ptr noundef %0, p
   store i32 0, ptr @read_string_inner.ps, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false)
   store ptr @recsig, ptr %6, align 8, !tbaa !18
   br label %9
 

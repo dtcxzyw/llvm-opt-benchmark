@@ -3124,7 +3124,7 @@ define dso_local void @intel_panel_sanitize_ssc(ptr noundef %0) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @intel_zero_m_n(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #14 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 1, ptr %0, align 4
   ret void
 }
@@ -16302,7 +16302,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   %4 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %1) #25
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 2, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 18, ptr %6, align 4

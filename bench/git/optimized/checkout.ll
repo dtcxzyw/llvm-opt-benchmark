@@ -16,7 +16,7 @@ define dso_local ptr @unique_tracking_name(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8, !tbaa !4
   %7 = load ptr, ptr @the_repository, align 8, !tbaa !9

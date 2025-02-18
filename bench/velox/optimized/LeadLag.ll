@@ -487,7 +487,7 @@ entry:
   %ref.tmp81 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp82 = alloca %"class.std::allocator.0", align 1
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 48
   store ptr %_M_single_bucket.i.i.i, ptr %ref.tmp1, align 8
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
@@ -579,7 +579,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 invoke.cont20:                                    ; preds = %invoke.cont18
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false)
   %_M_single_bucket.i.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 48
   store ptr %_M_single_bucket.i.i.i42, ptr %ref.tmp21, align 8
   %_M_bucket_count.i.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
@@ -694,7 +694,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
 invoke.cont50:                                    ; preds = %invoke.cont48
   %arrayinit.element51 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %9, i8 0, i64 200, i1 false)
   %_M_single_bucket.i.i.i85 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 48
   store ptr %_M_single_bucket.i.i.i85, ptr %ref.tmp52, align 8
   %_M_bucket_count.i.i.i86 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8

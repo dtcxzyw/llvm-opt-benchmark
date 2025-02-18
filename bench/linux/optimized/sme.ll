@@ -215,7 +215,7 @@ define internal fastcc i32 @cfg80211_conn_do_work(ptr noundef %0, ptr noundef wr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %4) #12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %10, i8 0, i64 768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %10, i8 0, i64 768, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null

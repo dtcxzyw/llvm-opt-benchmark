@@ -2358,7 +2358,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_8SSHStore10ConnectionEJEEENS_3refI
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %9, i8 0, i64 176, i1 false), !noalias !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, i8 0, i64 176, i1 false), !noalias !7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 8), align 8, !noalias !7
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8, !noalias !7

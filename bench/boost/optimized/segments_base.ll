@@ -66,7 +66,7 @@ define void @_ZNK5boost4urls13segments_base8iteratordeB5cxx11Ev(ptr dead_on_unwi
   %.sroa.0.0.copyload = load i24, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost4urls12string_token22implementation_defined13return_stringE, i64 16), ptr %5, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24

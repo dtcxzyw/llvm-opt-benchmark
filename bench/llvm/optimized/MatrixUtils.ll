@@ -602,7 +602,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i56, i64 56
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i56, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i56, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %68, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %68, i8 0, i64 136, i1 false)
   store ptr %67, ptr %66, align 8, !tbaa !124
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i56, i64 64
   store i32 8, ptr %69, align 8, !tbaa !126

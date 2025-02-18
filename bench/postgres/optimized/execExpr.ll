@@ -7584,7 +7584,7 @@ define dso_local noundef ptr @ExecBuildHash32FromAttrs(ptr noundef %0, ptr nound
   store i32 379, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %6, ptr %12, align 8
   %13 = sext i32 %4 to i64
@@ -8453,7 +8453,7 @@ define dso_local noundef ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef
   store i32 379, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #10
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = icmp eq i32 %4, 0
   br i1 %13, label %ExecReadyExpr.exit, label %14
 
@@ -8967,7 +8967,7 @@ define dso_local noundef ptr @ExecBuildParamSetEqual(ptr noundef %0, ptr noundef
   store i32 379, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit, label %11
 

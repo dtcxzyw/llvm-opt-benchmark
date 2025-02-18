@@ -1948,7 +1948,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %3
   store ptr %add.ptr, ptr %end_, align 8
   %4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %5 = load i64, ptr %size_.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %populator.i)
   %call.i = tail call fastcc noundef zeroext i1 @_ZN6hermes3hbc12_GLOBAL__N_111sanityCheckEN4llvh8ArrayRefIhEENS0_12BytecodeFormEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %2, i64 %5, i32 noundef %form, ptr noundef nonnull %errstr_.i)

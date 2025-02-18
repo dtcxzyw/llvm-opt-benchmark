@@ -596,7 +596,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %4, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %4, i8 0, i64 304, i1 false)
   store ptr %4, ptr %2, align 8
   %Size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -745,7 +745,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %6, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %6, i8 0, i64 304, i1 false)
   store ptr %6, ptr %4, align 8
   %Size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1744,7 +1744,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 
 if.then.i.i.i:                                    ; preds = %cond.end
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %7, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %7, i8 0, i64 304, i1 false)
   store ptr %7, ptr %5, align 8
   %Size.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -7437,7 +7437,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %4, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %4, i8 0, i64 304, i1 false)
   store ptr %4, ptr %2, align 8
   %Size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
@@ -9200,7 +9200,7 @@ _ZNSt5dequeIN6hermes3sem12FunctionInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: 
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %10, i8 0, i64 304, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %10, i8 0, i64 304, i1 false)
   store ptr %10, ptr %9, align 8
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8

@@ -2474,7 +2474,7 @@ define noundef i32 @AllocateQueques(i32 noundef %0) local_unnamed_addr #12 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
   %5 = getelementptr inbounds nuw [3 x %struct.que], ptr @s_Que, i64 0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = tail call noalias ptr @malloc(i64 noundef %3) #17
   store ptr %7, ptr %5, align 8, !tbaa !28
   %8 = tail call noalias ptr @malloc(i64 noundef %3) #17

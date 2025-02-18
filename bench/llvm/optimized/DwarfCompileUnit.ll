@@ -14035,7 +14035,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DILocalScopeENS_9SetVectorIPKNS_6MDNo
   store ptr %57, ptr %48, align 8, !tbaa !539
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %60, ptr %58, align 8, !tbaa !28
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 16

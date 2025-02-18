@@ -164,7 +164,7 @@ define dso_local void @_ZN4llvm21RealtimeSanitizerPass3runERNS_6ModuleERNS_15Ana
 
 ._crit_edge:                                      ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit10, %4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %73, i8 0, i64 64, i1 false), !alias.scope !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, i8 0, i64 64, i1 false), !alias.scope !15
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %74, ptr %0, align 8, !tbaa !18, !alias.scope !15
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8

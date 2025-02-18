@@ -36,7 +36,7 @@ define dso_local void @populate_compact_attribute(ptr noundef captures(none) %0,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   store i32 -1, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %14 = load i16, ptr %13, align 4

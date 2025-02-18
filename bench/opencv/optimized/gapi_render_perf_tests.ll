@@ -2473,7 +2473,7 @@ _ZNSt5tupleIJRNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERN2cv5Size_IiE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %59, i64 12, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   %71 = load double, ptr %61, align 8
   store double %71, ptr %69, align 8
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -5061,7 +5061,7 @@ _ZNSt5tupleIJRNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERN2cv5Size_IiE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %96, ptr noundef nonnull align 8 dereferenceable(12) %87, i64 12, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
   %99 = load double, ptr %89, align 8
   store double %99, ptr %97, align 8
   %100 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -7667,7 +7667,7 @@ _ZNSt5tupleIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv5Size_IiE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   %82 = load double, ptr %68, align 8
   store double %82, ptr %80, align 8
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -9033,7 +9033,7 @@ _ZNSt5tupleIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv5Size_IiE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 64
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
   %110 = load double, ptr %96, align 8
   store double %110, ptr %108, align 8
   %111 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -27330,7 +27330,7 @@ define hidden void @_ZN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerform
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %88, ptr noundef nonnull align 8 dereferenceable(60) %17, i64 16, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
   %91 = load double, ptr %70, align 8
   store double %91, ptr %89, align 8
   %92 = load double, ptr %76, align 8
@@ -27469,7 +27469,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 64
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %142 = load double, ptr %124, align 8
   store double %142, ptr %140, align 8
   %143 = load double, ptr %130, align 8
@@ -28969,7 +28969,7 @@ define hidden void @_ZN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerform
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %110, ptr noundef nonnull align 8 dereferenceable(60) %25, i64 16, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
   %113 = load double, ptr %92, align 8
   store double %113, ptr %111, align 8
   %114 = load double, ptr %98, align 8
@@ -29103,7 +29103,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %141, i64 24, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %161, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, i8 0, i64 24, i1 false)
   %162 = load double, ptr %144, align 8
   store double %162, ptr %160, align 8
   %163 = load double, ptr %150, align 8

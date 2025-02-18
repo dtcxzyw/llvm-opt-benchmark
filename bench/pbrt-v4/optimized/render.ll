@@ -964,7 +964,7 @@ land.end223:                                      ; preds = %_ZN4pbrt3LogIJmEEEv
 
 if.then226:                                       ; preds = %land.end223
   %69 = getelementptr inbounds nuw i8, ptr %lambda, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %69, i8 0, i64 28, i1 false), !alias.scope !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, i8 0, i64 28, i1 false), !alias.scope !15
   store float 5.950000e+02, ptr %lambda, align 4, !alias.scope !15
   br label %for.body.i
 

@@ -1303,7 +1303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
 
 413:                                              ; preds = %392
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %308, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %308, i8 0, i64 88, i1 false)
   store ptr %299, ptr %14, align 8
   store i64 0, ptr %300, align 8
   store ptr %302, ptr %301, align 8

@@ -4269,7 +4269,7 @@ _ZNSt6vectorIPKN4llvm17MachineBasicBlockESaIS3_EE7reserveEm.exit: ; preds = %1, 
   store i32 1, ptr %40, align 8, !tbaa !26, !alias.scope !475
   call void @_ZN4llvm11po_iteratorIPKNS_17MachineBasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(296) %2)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %50, i8 0, i64 280, i1 false), !alias.scope !489
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %50, i8 0, i64 280, i1 false), !alias.scope !489
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %51, ptr %3, align 8, !tbaa !28, !alias.scope !489
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8

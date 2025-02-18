@@ -667,7 +667,7 @@ skip_prefix.exit.i:                               ; preds = %88
 
 ._crit_edge34.i.i.i:                              ; preds = %219
   call void @packet_buf_flush(ptr noundef nonnull %14) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %54, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %54, i8 0, i64 88, i1 false)
   store ptr @.str.31, ptr %13, align 8, !tbaa !48
   store i8 1, ptr %55, align 4
   %222 = load ptr, ptr %15, align 8, !tbaa !50
@@ -1109,7 +1109,7 @@ skip_prefix.exit.i53:                             ; preds = %319
 
 ._crit_edge33.i.i.i:                              ; preds = %.lr.ph32.i.i.i, %398
   call void @packet_buf_flush(ptr noundef nonnull %10) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %59, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %59, i8 0, i64 88, i1 false)
   store ptr @.str.106, ptr %8, align 8, !tbaa !48
   %403 = load ptr, ptr %9, align 8, !tbaa !50
   %404 = call fastcc i32 @rpc_service(ptr noundef %8, ptr noundef %340, ptr noundef %403, ptr noundef %10, ptr noundef %11)
@@ -2046,7 +2046,7 @@ define internal fastcc range(i32 -1, 1) i32 @stateless_connect(ptr noundef %0) u
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #17
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.stateless_connect.buf, i64 24, i1 false)
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.153) #19

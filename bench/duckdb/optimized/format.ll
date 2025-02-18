@@ -39491,7 +39491,7 @@ _ZN10duckdb_fmt2v616visit_format_argIRNS0_8internal16custom_formatterINS0_20basi
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %29, i8 0, i64 20, i1 false), !alias.scope !726
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %29, i8 0, i64 20, i1 false), !alias.scope !726
   store i32 32, ptr %28, align 4, !tbaa !117, !alias.scope !726
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 0, ptr %30, align 4, !tbaa !729
@@ -40423,7 +40423,7 @@ _ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13erro
   store i8 0, ptr %122, align 1
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 20, i1 false), !alias.scope !776
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %124, i8 0, i64 20, i1 false), !alias.scope !776
   store i32 32, ptr %123, align 4, !tbaa !117, !alias.scope !776
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 0, ptr %125, align 4, !tbaa !729
@@ -40457,7 +40457,7 @@ _ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13erro
   store i8 0, ptr %134, align 1
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %136, i8 0, i64 20, i1 false), !alias.scope !779
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %136, i8 0, i64 20, i1 false), !alias.scope !779
   store i32 32, ptr %135, align 4, !tbaa !117, !alias.scope !779
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 0, ptr %137, align 4, !tbaa !729
@@ -40491,7 +40491,7 @@ _ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIwEENS1_13erro
   store i8 0, ptr %146, align 1
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 20, i1 false), !alias.scope !782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %148, i8 0, i64 20, i1 false), !alias.scope !782
   store i32 32, ptr %147, align 4, !tbaa !117, !alias.scope !782
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 0, ptr %149, align 4, !tbaa !729

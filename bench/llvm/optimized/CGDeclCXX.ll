@@ -1233,7 +1233,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction16createAtExitSt
   %.sroa.0.0.copyload.i24 = load i64, ptr %54, align 8, !tbaa !604
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #19
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %55, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %55, i8 0, i64 128, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %56, ptr %10, align 8, !tbaa !612
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3029,7 +3029,7 @@ _ZNK5clang4Decl7hasAttrINS_11NoDebugAttrEEEbv.exit.thread: ; preds = %22, %11, %
   %38 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv(ptr noundef nonnull align 8 dereferenceable(232) %37) #19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #19
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %39, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 0, i64 128, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %40, ptr %6, align 8, !tbaa !612
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4410,7 +4410,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction25GenerateCXXGlobalInit
   %28 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv(ptr noundef nonnull align 8 dereferenceable(232) %27) #19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #19
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %29, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, i8 0, i64 128, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %30, ptr %12, align 8, !tbaa !612
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6215,7 +6215,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28GenerateCXXGlobalClea
   %18 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes22arrangeNullaryFunctionEv(ptr noundef nonnull align 8 dereferenceable(232) %17) #19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #19
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 128, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %6, align 8, !tbaa !612
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8

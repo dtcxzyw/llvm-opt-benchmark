@@ -2297,7 +2297,7 @@ define hidden void @dissect_cdma2000_a1_elements(ptr noundef %0, ptr noundef %1,
   %6 = alloca %struct.ansi_a_shared_data_t, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 noundef 0, i64 noundef 72, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 noundef 0, i64 noundef 72, i1 noundef false) #7
   store ptr %2, ptr %6, align 8
   %8 = icmp ugt i32 %4, 1
   br i1 %8, label %.lr.ph50, label %._crit_edge
@@ -7636,7 +7636,7 @@ define internal fastcc void @dissect_bsmap_common(ptr noundef %0, ptr noundef %1
   %6 = zext i1 %3 to i8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 noundef 0, i64 noundef 64, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef 0, i64 noundef 64, i1 noundef false) #7
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 %6, ptr %8, align 1
@@ -11964,7 +11964,7 @@ define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1,
 10:                                               ; preds = %4
   %11 = zext i1 %3 to i8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 noundef 0, i64 noundef 64, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 noundef 0, i64 noundef 64, i1 noundef false) #7
   store ptr %2, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 %11, ptr %13, align 1

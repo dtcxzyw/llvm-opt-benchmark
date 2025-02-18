@@ -17082,7 +17082,7 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit: ; preds = %78, 
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %100, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %100, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %98, align 8, !tbaa !749
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 %59, ptr %15, align 8
@@ -17175,7 +17175,7 @@ _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS
   %162 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %164, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %164, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %162, align 8, !tbaa !749
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 8466425701282611053, ptr %12, align 8
@@ -17286,7 +17286,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %231, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %231, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %229, align 8, !tbaa !749
   %232 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %204, ptr %7, align 8
@@ -17364,7 +17364,7 @@ select.unfold:                                    ; preds = %108
   %276 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %277 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %278 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %278, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %278, i8 0, i64 104, i1 false)
   store i64 -49064778989728563, ptr %276, align 8, !tbaa !749
   %279 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %257, ptr %3, align 8

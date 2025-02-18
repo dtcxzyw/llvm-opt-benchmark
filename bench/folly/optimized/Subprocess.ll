@@ -4884,7 +4884,7 @@ _ZN5folly14checkUnixErrorIJRA6_KcEEEvlDpOT_.exit: ; preds = %35
 
 41:                                               ; preds = %_ZN5folly14checkUnixErrorIJRA6_KcEEEvlDpOT_.exit
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i32 -1, ptr %39, align 4, !tbaa !155
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 -1, ptr %43, align 4, !tbaa !191
@@ -6163,7 +6163,7 @@ _ZNKSt6vectorIN5folly10Subprocess4PipeESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #52
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i32 -1, ptr %20, align 4, !tbaa !155
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 -1, ptr %22, align 4, !tbaa !191

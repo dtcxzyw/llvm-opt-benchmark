@@ -1989,7 +1989,7 @@ define dso_local ptr @uv_strerror(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_ip4_addr(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 16)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   store i16 2, ptr %2, align 4, !tbaa !15
   %5 = trunc i32 %1 to i16
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %5)
@@ -2010,7 +2010,7 @@ define dso_local i32 @uv_ip6_addr(ptr noundef %0, i32 noundef %1, ptr noundef in
   %4 = alloca [40 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #26
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i16 10, ptr %2, align 4, !tbaa !20
   %6 = trunc i32 %1 to i16
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %6)

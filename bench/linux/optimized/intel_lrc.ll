@@ -1617,7 +1617,7 @@ define internal ptr @gen12_emit_indirect_ctx_xcs(ptr noundef readonly captures(n
 
 70:                                               ; preds = %66
   %71 = getelementptr i8, ptr %1, i64 68
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %71, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %71, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %57, align 4
   %72 = getelementptr i8, ptr %1, i64 60
   store i32 2048, ptr %72, align 4
@@ -1778,7 +1778,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
 
 104:                                              ; preds = %87
   %105 = getelementptr i8, ptr %1, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %105, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %105, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %95, align 4
   %106 = getelementptr i8, ptr %1, i64 88
   store i32 2048, ptr %106, align 4
@@ -2633,7 +2633,7 @@ define internal ptr @gen9_init_indirectctx_bb(ptr noundef readonly captures(none
   %21 = getelementptr i8, ptr %1, i64 32
   store i32 1080033280, ptr %20, align 4
   %22 = getelementptr i8, ptr %1, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %22, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %22, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %21, align 4
   %23 = getelementptr i8, ptr %1, i64 36
   store i32 1048608, ptr %23, align 4
@@ -2770,7 +2770,7 @@ define internal ptr @gen8_init_indirectctx_bb(ptr noundef readonly captures(none
   %27 = getelementptr i8, ptr %1, i64 32
   store i32 1080033280, ptr %26, align 4
   %28 = getelementptr i8, ptr %1, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %28, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %28, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %27, align 4
   %29 = getelementptr i8, ptr %1, i64 36
   store i32 1048608, ptr %29, align 4
@@ -2800,7 +2800,7 @@ define internal ptr @gen8_init_indirectctx_bb(ptr noundef readonly captures(none
 46:                                               ; preds = %9, %2
   %47 = phi ptr [ %45, %9 ], [ %3, %2 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %48, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %48, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %47, align 4
   %49 = getelementptr i8, ptr %47, i64 4
   store i32 137379840, ptr %49, align 4

@@ -224,7 +224,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   %.0184 = phi ptr [ %99, %._crit_edge234 ], [ null, %90 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %34, i8 0, i64 28, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %35, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %101, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %101, i8 0, i64 64, i1 false)
   %102 = call i32 @GetNewOidWithIndex(ptr noundef %43, i32 noundef 2667, i16 noundef signext 1) #12
   %103 = zext i32 %102 to i64
   store i64 %103, ptr %35, align 16

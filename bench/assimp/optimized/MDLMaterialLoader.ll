@@ -318,7 +318,7 @@ define hidden void @_ZN6Assimp11MDLImporter28CreateTextureARGB8_3DGS_MDL3EPKh(pt
   %13 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %15, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %15, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %14, i8 0, i64 1036, i1 false)
   %16 = load i32, ptr %6, align 1
   store i32 %16, ptr %13, align 8
@@ -546,7 +546,7 @@ define hidden void @_ZN6Assimp11MDLImporter23CreateTexture_3DGS_MDL4EPKhjPj(ptr 
   %14 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %16, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %16, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %15, i8 0, i64 1036, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %18 = load i32, ptr %17, align 1
@@ -1329,7 +1329,7 @@ _ZN10aiMaterial11AddPropertyIiEE8aiReturnPKT_jPKcjj.exit: ; preds = %21
 _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %39, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %39, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %38, i8 0, i64 1036, i1 false)
   store ptr %37, ptr %8, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -1372,7 +1372,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = 
 55:                                               ; preds = %54, %51
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %10) #21
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %56, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %56, i8 0, i64 1024, i1 false)
   %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %58 = tail call i64 @llvm.umin.i64(i64 %57, i64 1023)
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1593,7 +1593,7 @@ _ZNK7aiTexelneERKS_.exit.i:                       ; preds = %126
   %.0107.ph = phi ptr [ %1, %71 ], [ %65, %63 ], [ %1, %_ZN10aiMaterial11AddPropertyIiEE8aiReturnPKT_jPKcjj.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
   %153 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %153, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %153, i8 0, i64 12, i1 false)
   store float 0x7FF8000000000000, ptr %12, align 8
   %154 = and i32 %4, 16
   %.not128182 = icmp eq i32 %154, 0
@@ -1880,7 +1880,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   %284 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 5, ptr noundef nonnull @.str.17, i32 noundef %281) #21
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %17) #21
   %285 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %285, i8 0, i64 1024, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %285, i8 0, i64 1024, i1 false)
   %286 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #25
   %287 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %288 = add i64 %286, 1
@@ -2098,9 +2098,9 @@ define hidden void @_ZN6Assimp11MDLImporter22SkipSkinLump_3DGS_MDL7EPKhPS2_jjj(p
   call void @llvm.lifetime.start.p0(i64 1064, ptr nonnull %8) #21
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %21, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, i8 0, i64 9, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %22, i8 0, i64 1028, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %22, i8 0, i64 1028, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %5, ptr %23, align 4

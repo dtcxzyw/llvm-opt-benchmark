@@ -352,7 +352,7 @@ evsig_ensure_saved_.exit:                         ; preds = %11
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %37, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %37, i8 0, i64 144, i1 false)
   store ptr %2, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 268435456, ptr %38, align 8

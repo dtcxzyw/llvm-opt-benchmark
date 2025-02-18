@@ -1379,7 +1379,7 @@ define dso_local void @_ZN5clang17ExternalASTMergerC2ERKNS0_14ImporterTargetEN4l
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 20, i1 false), !noalias !482
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 20, i1 false), !noalias !482
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, i8 0, i64 20, i1 false), !noalias !482
   %30 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20, !noalias !484
   tail call void @_ZN5clang22ASTImporterLookupTableC1ERNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(104) %23) #19, !noalias !484
   store ptr %30, ptr %27, align 8, !tbaa !487, !noalias !482

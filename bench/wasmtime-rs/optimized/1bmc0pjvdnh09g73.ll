@@ -7299,7 +7299,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
   %208 = load i64, ptr %207, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5)
   %209 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %209, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %209, i8 0, i64 9, i1 false)
   %210 = trunc i64 %208 to i8
   %211 = and i8 %210, 127
   %212 = icmp ult i64 %208, 128
@@ -8344,7 +8344,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817h4afea6
   %4 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %6 = trunc i64 %1 to i8
   %7 = add i64 %1, 64
   %.02027.i = icmp ult i64 %7, 128
@@ -8454,7 +8454,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_sleb12817hb83e66
   %4 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %6 = trunc i64 %1 to i8
   %7 = add i64 %1, 64
   %.02027.i = icmp ult i64 %7, 128
@@ -8565,7 +8565,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h28306e
   %4 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %6 = trunc i64 %1 to i8
   %7 = and i8 %6, 127
   %8 = icmp ult i64 %1, 128
@@ -8673,7 +8673,7 @@ define hidden noundef i64 @_ZN5gimli5write6writer6Writer13write_uleb12817h82bb31
   %4 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %6 = trunc i64 %1 to i8
   %7 = and i8 %6, 127
   %8 = icmp ult i64 %1, 128

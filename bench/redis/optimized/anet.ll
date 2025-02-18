@@ -831,7 +831,7 @@ define internal fastcc i32 @_anetTcpServer(ptr noundef captures(address_is_null)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 6, ptr noundef nonnull @.str.14, i32 noundef %1) #11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %3, ptr %13, align 4, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1018,7 +1018,7 @@ define dso_local i32 @anetUnixServer(ptr noundef captures(address_is_null) %0, p
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %13, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %13, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %15 = call i64 @redis_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %1, i64 noundef 108) #11

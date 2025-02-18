@@ -2864,7 +2864,7 @@ define i32 @nanoexr_read_header(ptr noundef captures(address_is_null) %0, ptr no
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   store i64 104, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 -2, ptr %15, align 8
@@ -12594,7 +12594,7 @@ define i32 @nanoexr_read_exr(ptr noundef captures(address_is_null) %0, ptr nound
 fill_context_data.exit.i:                         ; preds = %8
   store ptr null, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, i8 0, i64 88, i1 false)
   store i64 104, ptr %16, align 8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store i32 -2, ptr %22, align 8
@@ -15500,7 +15500,7 @@ define internal fastcc i32 @internal_exr_alloc_context(ptr noundef nonnull write
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(552) %16, i8 0, i64 551, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(551) %16, i8 0, i64 551, i1 false)
   %17 = trunc nuw nsw i32 %2 to i8
   store i8 %17, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -17503,7 +17503,7 @@ define internal fastcc i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr no
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   br i1 %.not81.i, label %59, label %56
 
@@ -37448,7 +37448,7 @@ check_for_x86_simd.exit.thread.i:                 ; preds = %24, %check_for_x86_
 
 initializeFuncs.exit:                             ; preds = %4, %25, %.sink.split.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %26, i8 0, i64 192, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %26, i8 0, i64 192, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %27, align 8
   store ptr %2, ptr %0, align 8
@@ -44664,7 +44664,7 @@ define internal fastcc void @LossyDctEncoder_construct(ptr noundef nonnull write
 LossyDctEncoder_base_construct.exit:              ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %35, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr %2, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %36, align 8
@@ -54751,7 +54751,7 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br label %LossyDctDecoder_construct.exit
 
 LossyDctDecoder_construct.exit:                   ; preds = %406, %414
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %337, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %337, i8 0, i64 16, i1 false)
   store ptr %396, ptr %336, align 8
   store i32 1, ptr %338, align 8
   %415 = load ptr, ptr %339, align 8

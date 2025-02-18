@@ -1425,7 +1425,7 @@ define void @_ZN13TextureObject20ComputeRelativeSizesEv(ptr dead_on_unwind noali
 
 ._crit_edge.thread:                               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %._crit_edge50
 
 .lr.ph:                                           ; preds = %2, %.lr.ph

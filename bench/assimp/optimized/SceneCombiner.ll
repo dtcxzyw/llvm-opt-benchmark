@@ -2030,7 +2030,7 @@ _ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_.exit.us: ; preds = %.lr.ph885.s
 .noexc470:                                        ; preds = %436
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 24
   %439 = getelementptr inbounds nuw i8, ptr %437, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %439, i8 0, i64 1028, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %439, i8 0, i64 1028, i1 false)
   store ptr %437, ptr %.1346883, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %437, ptr noundef nonnull readonly align 8 dereferenceable(1060) %433, i64 32, i1 false)
   %440 = icmp eq ptr %437, %433
@@ -5202,7 +5202,7 @@ define void @_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_(ptr noundef writeo
   %6 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %8, i8 0, i64 1028, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %8, i8 0, i64 1028, i1 false)
   store ptr %6, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %6, ptr noundef nonnull align 8 dereferenceable(1060) %1, i64 32, i1 false)
   %9 = icmp eq ptr %6, %1
@@ -5381,7 +5381,7 @@ define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef writeonly
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1272
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 1312
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %13, i8 0, i64 1032, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %13, i8 0, i64 1032, i1 false)
   store ptr %6, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1320) %6, ptr noundef nonnull align 8 dereferenceable(1320) %1, i64 236, i1 false)
   %14 = icmp eq ptr %6, %1
@@ -8498,7 +8498,7 @@ _ZN6Assimp12CopyPtrArrayI11aiAnimationEEvRPPT_PKPKS2_j.exit: ; preds = %34, %29
   %58 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #22
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %60, i8 0, i64 1028, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %60, i8 0, i64 1028, i1 false)
   store ptr %58, ptr %57, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1060) %58, ptr noundef nonnull readonly align 8 dereferenceable(1060) %53, i64 32, i1 false)
   %61 = icmp eq ptr %58, %53

@@ -2634,7 +2634,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @mp_irqdomain_create(i32 no
 
 27:                                               ; preds = %21, %19
   %28 = phi ptr [ %20, %19 ], [ %25, %21 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 64, i1 false), !annotation !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false), !annotation !32
   store ptr %28, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %29, align 8

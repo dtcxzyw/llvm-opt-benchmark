@@ -19025,7 +19025,7 @@ _ZNK10MainWindow3GLAEv.exit:                      ; preds = %112
           to label %137 unwind label %168
 
 137:                                              ; preds = %136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %64, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %64, i8 0, i64 5, i1 false)
   store i8 1, ptr %12, align 1
   store i8 1, ptr %53, align 1
   %138 = load ptr, ptr %87, align 8
@@ -27347,7 +27347,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %68, %_ZN9QtPrivate8
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %126, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %126, i8 0, i64 5, i1 false)
   store i8 1, ptr %14, align 1
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 1, ptr %127, align 1

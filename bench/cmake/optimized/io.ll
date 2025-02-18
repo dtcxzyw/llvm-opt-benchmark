@@ -200,7 +200,7 @@ define dso_local void @_ZN3dap4pipeEv(ptr dead_on_unwind noalias writable writeo
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !tbaa !13, !noalias !30
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 136, i1 false), !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, i8 0, i64 136, i1 false), !noalias !30
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr getelementptr inbounds nuw inrange(-48, 48) (i8, ptr @_ZTVN12_GLOBAL__N_14PipeE, i64 48), ptr %5, align 8, !tbaa !13, !noalias !30
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN12_GLOBAL__N_14PipeE, i64 144), ptr %7, align 8, !tbaa !13, !noalias !30

@@ -1359,7 +1359,7 @@ thread-pre-split387:                              ; preds = %250
 
 290:                                              ; preds = %.critedge
   %291 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %291, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %291, i8 0, i64 68, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %290

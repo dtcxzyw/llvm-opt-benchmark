@@ -1281,7 +1281,7 @@ define void @_ZN15EditPaintPlugin22suggestedRenderingDataER9MeshModelR15MLRender
   %12 = icmp sgt i32 %11, 0
   %spec.select = select i1 %12, i32 3, i32 0
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %13, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %13, i8 0, i64 5, i1 false)
   store i8 1, ptr %4, align 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %14, align 1

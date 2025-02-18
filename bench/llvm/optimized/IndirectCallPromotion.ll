@@ -2633,7 +2633,7 @@ _ZL20promoteIndirectCallsRN4llvm6ModuleEPNS_18ProfileSummaryInfoEbbRNS_15Analysi
 
 270:                                              ; preds = %_ZL20promoteIndirectCallsRN4llvm6ModuleEPNS_18ProfileSummaryInfoEbbRNS_15AnalysisManagerIS0_JEEE.exit
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %271, i8 0, i64 64, i1 false), !alias.scope !366
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %271, i8 0, i64 64, i1 false), !alias.scope !366
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %272, ptr %0, align 8, !tbaa !28, !alias.scope !366
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 8

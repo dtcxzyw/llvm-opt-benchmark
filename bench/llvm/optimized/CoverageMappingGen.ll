@@ -5899,7 +5899,7 @@ _ZN12_GLOBAL__N_127EmptyCoverageMappingBuilder9VisitDeclEPKN5clang4DeclE.exit: ;
   call fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder13gatherFileIDsERN4llvm15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(1960) %7, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #25
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %182, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %182, i8 0, i64 80, i1 false)
   store ptr %182, ptr %5, align 8, !tbaa !25
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %183, align 8, !tbaa !26

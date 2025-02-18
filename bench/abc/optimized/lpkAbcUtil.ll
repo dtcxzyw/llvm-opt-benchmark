@@ -53,7 +53,7 @@ Kit_TruthCopy.exit.preheader:
   %13 = add nsw i64 %12, 232
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %15, i8 0, i64 216, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %15, i8 0, i64 216, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = and i32 %.val, 127
   store ptr %1, ptr %14, align 8, !tbaa !9
@@ -193,7 +193,7 @@ Kit_TruthCopy.exit:
   %9 = add nuw nsw i64 %8, 232
   %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %11, i8 0, i64 216, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %11, i8 0, i64 216, i1 false)
   %12 = load ptr, ptr %0, align 8, !tbaa !9
   %13 = getelementptr i8, ptr %12, i64 4
   %.val = load i32, ptr %13, align 4, !tbaa !3

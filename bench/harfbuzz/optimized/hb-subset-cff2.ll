@@ -13071,7 +13071,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idxprom.i = zext i32 %5 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.CFF::subr_remap_t", ptr %6, i64 %idxprom.i
   %7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store atomic i32 1, ptr %arrayidx.i monotonic, align 4
   %writable.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store atomic i32 1, ptr %writable.i.i.i.i.i.i.i monotonic, align 4
@@ -13208,7 +13208,7 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
   %indvars.iv = phi i64 [ 0, %lor.lhs.false.i.i.i.i.i.i.lr.ph ], [ %indvars.iv.next, %_ZN3CFF12subr_remap_tD2Ev.exit ]
   %arrayidx = getelementptr inbounds nuw %"struct.CFF::subr_remap_t", ptr %call, i64 %indvars.iv
   %1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   store atomic i32 1, ptr %arrayidx monotonic, align 4
   %writable.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store atomic i32 1, ptr %writable.i.i.i.i.i.i monotonic, align 4

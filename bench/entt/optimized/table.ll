@@ -36187,7 +36187,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i:     ; preds = %53, %51, %47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %60, ptr %7, align 8, !tbaa !1280
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -36514,7 +36514,7 @@ _ZN4entt7type_idIcEERKNS_9type_infoEv.exit.i:     ; preds = %179, %177, %172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, i8 0, i64 16, i1 false)
   %186 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %186, ptr %11, align 8, !tbaa !1280
   %187 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -36814,7 +36814,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit144: ; preds = %_ZNKSt7__cxx1112bas
 293:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
   %294 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, i8 0, i64 16, i1 false)
   %295 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %295, ptr %16, align 8, !tbaa !1280
   %296 = getelementptr inbounds nuw i8, ptr %16, i64 8

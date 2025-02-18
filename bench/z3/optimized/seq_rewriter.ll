@@ -35497,7 +35497,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 invoke.cont11:                                    ; preds = %invoke.cont2, %invoke.cont8
   %str.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   %m_initial_buffer.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %m_initial_buffer.i.i, ptr %ref.tmp, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -36390,7 +36390,7 @@ lpad10:                                           ; preds = %if.then2.i.i.i, %in
 
 invoke.cont15:                                    ; preds = %invoke.cont2
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   %m_initial_buffer.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 16
   store ptr %m_initial_buffer.i.i, ptr %ref.tmp17, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 8
@@ -36661,7 +36661,7 @@ invoke.cont61:                                    ; preds = %if.then.i.i.i60, %i
   store ptr %call.i.i5253, ptr %result, align 8
   %52 = load ptr, ptr %this, align 8
   %53 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %53, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   %m_initial_buffer.i.i69 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 16
   store ptr %m_initial_buffer.i.i69, ptr %ref.tmp63, align 8
   %m_pos.i.i70 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 8

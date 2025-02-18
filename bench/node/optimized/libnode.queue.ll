@@ -1713,7 +1713,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs10FileHandleELb0EEC2EPS2_.exit.i: ; preds = %d
   %17 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   %stream_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false), !noalias !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !noalias !48
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !48
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 120), ptr %16, align 8, !noalias !48
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_17FdEntry10ReaderImplE, i64 160), ptr %17, align 8, !noalias !48
@@ -12082,7 +12082,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false), !noalias !193
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !noalias !193
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !193
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntry11EmptyReaderE, i64 104), ptr %0, align 8, !noalias !193
   store ptr %_M_impl.i.i.i.i.i.i, ptr %1, align 8, !noalias !193

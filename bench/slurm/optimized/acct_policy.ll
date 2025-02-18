@@ -8049,7 +8049,7 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_remove_accrue_time.locks, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %8 = load i32, ptr %7, align 8

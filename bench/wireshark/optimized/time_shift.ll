@@ -463,7 +463,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 noundef 0, i64 noundef 48, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 noundef 0, i64 noundef 48, i1 noundef false) #11
   br label %17
 
 17:                                               ; preds = %15, %14

@@ -925,7 +925,7 @@ define dso_local void @InitFileAccess() local_unnamed_addr #0 {
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %12, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %12, i8 0, i64 52, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %11
@@ -1380,7 +1380,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr noundef readonly captures(none) %
 
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %36, i8 0, i64 52, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %35, %.preheader.preheader.i

@@ -19417,7 +19417,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   store ptr %9, ptr %5, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8, !tbaa !15
@@ -19501,7 +19501,7 @@ _ZNSt12_Vector_baseIN4crow12CookieParser6CookieESaIS2_EE11_M_allocateEm.exit: ; 
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN4crow12CookieParser6CookieESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %25, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %25, i8 0, i64 128, i1 false)
   store ptr %25, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %26, align 8, !tbaa !15
@@ -39361,7 +39361,7 @@ _ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_cod
 30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #37
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %31, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %31, i8 0, i64 144, i1 false)
   store ptr @asio_signal_handler, ptr %5, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = call i32 @sigfillset(ptr noundef nonnull %32) #37
@@ -47819,7 +47819,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #37
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store i16 2, ptr %6, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %9, align 2, !tbaa !14
@@ -47834,7 +47834,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %15, align 2, !tbaa !14
@@ -77551,7 +77551,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #37
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store i16 2, ptr %6, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %9, align 2, !tbaa !14
@@ -77566,7 +77566,7 @@ define linkonce_odr dso_local void @_ZNK4asio6detail23reactive_socket_serviceINS
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   store i16 2, ptr %0, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %15, align 2, !tbaa !14

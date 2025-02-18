@@ -2348,7 +2348,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %1 = getelementptr inbounds nuw i8, ptr %call2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %1, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   store i32 944111087, ptr %call2, align 4
   %fFormatVersion = getelementptr inbounds nuw i8, ptr %call2, i64 4
   store i8 2, ptr %fFormatVersion, align 4

@@ -2166,7 +2166,7 @@ define ptr @redisConnectUnixNonBlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.redisOptions, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i32 1, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !22

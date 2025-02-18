@@ -9518,7 +9518,7 @@ ascii_decode.exit:                                ; preds = %._crit_edge.i, %64
 67:                                               ; preds = %ascii_decode.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #41
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, i8 0, i64 48, i1 false)
   store ptr %phi.call61, ptr %9, align 8, !tbaa !229
   %.val11.i.i = load i16, ptr %39, align 2
   %69 = and i16 %.val11.i.i, 16
@@ -13131,7 +13131,7 @@ utf8_count_codepoints.exit:                       ; preds = %.lr.ph60.i, %.loope
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #41
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   store ptr %105, ptr %6, align 8, !tbaa !229
   %109 = getelementptr i8, ptr %105, i64 34
   %.val11.i.i = load i16, ptr %109, align 2

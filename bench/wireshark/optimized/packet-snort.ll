@@ -512,7 +512,7 @@ add_alert_to_session_tree.exit:                   ; preds = %53, %49, %88, %84, 
 103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #13
   %104 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %104, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %104, i8 0, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #13
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 96

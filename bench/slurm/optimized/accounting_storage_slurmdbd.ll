@@ -4206,7 +4206,7 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_down(ptr nound
 12:                                               ; preds = %5, %9
   %.0 = phi ptr [ %11, %9 ], [ %3, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4394,7 +4394,7 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_up(ptr noundef
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5292,7 +5292,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
 
 15:                                               ; preds = %10, %2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %16, i8 0, i64 120, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5867,7 +5867,7 @@ define dso_local i32 @acct_storage_p_reconfig(ptr noundef %0, i1 noundef zeroext
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4
   br i1 %1, label %7, label %6
@@ -5900,7 +5900,7 @@ define dso_local i32 @acct_storage_p_get_stats(ptr noundef %0, ptr noundef write
   %4 = alloca %struct.persist_msg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5977,7 +5977,7 @@ define dso_local i32 @acct_storage_p_clear_stats(ptr noundef %0) local_unnamed_a
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6033,7 +6033,7 @@ define dso_local i32 @acct_storage_p_shutdown(ptr noundef %0) local_unnamed_addr
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16

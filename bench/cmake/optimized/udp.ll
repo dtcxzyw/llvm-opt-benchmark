@@ -1154,7 +1154,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %23
 
 35:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %10, %uv__udp_maybe_deferred_bind.exit
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
   store ptr %3, ptr %7, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %4, ptr %37, align 8, !tbaa !70
@@ -1448,7 +1448,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph63.i.i, %93, 
   br label %114
 
 uv_udp_using_recvmmsg.exit.thread.i:              ; preds = %uv_udp_using_recvmmsg.exit.i, %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   store ptr %8, ptr %9, align 8, !tbaa !69
   store i32 128, ptr %18, align 8, !tbaa !70

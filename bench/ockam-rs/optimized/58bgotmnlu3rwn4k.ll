@@ -5827,7 +5827,7 @@ define hidden noundef align 8 ptr @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Seria
 40:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9), !noalias !1715
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %41, i8 0, i64 9, i1 false), !noalias !1715
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %41, i8 0, i64 9, i1 false), !noalias !1715
   store i8 1, ptr %9, align 1, !noalias !1715
   br label %42
 

@@ -2433,7 +2433,7 @@ _ZN4llvm15SmallVectorImplINS_11MCDwarfFileEE7reserveEm.exit.i.i: ; preds = %127,
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.012.i.i = phi ptr [ %133, %.lr.ph.i.i ], [ %130, %.lr.ph.preheader.i.i ]
   %131 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %131, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %131, i8 0, i64 64, i1 false)
   store ptr %131, ptr %.012.i.i, align 8, !tbaa !380
   %132 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   store i64 0, ptr %132, align 8, !tbaa !354

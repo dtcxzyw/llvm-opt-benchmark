@@ -211,7 +211,7 @@ Kit_GraphAppendNode.exit:                         ; preds = %3, %19
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds %struct.Kit_Node_t_, ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store i32 %1, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %2, ptr %27, align 4, !tbaa !15
@@ -274,7 +274,7 @@ Kit_GraphAppendNode.exit:                         ; preds = %3, %19
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds %struct.Kit_Node_t_, ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = shl i32 %1, 15
@@ -346,7 +346,7 @@ Kit_GraphAddNodeAnd.exit:                         ; preds = %6, %23
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds %struct.Kit_Node_t_, ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 %7, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %2, ptr %31, align 4, !tbaa !15
@@ -400,7 +400,7 @@ Kit_GraphAddNodeAnd.exit42:                       ; preds = %Kit_GraphAddNodeAnd
   %58 = sext i32 %55 to i64
   %59 = getelementptr inbounds %struct.Kit_Node_t_, ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store i32 %1, ptr %59, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %42, ptr %61, align 4, !tbaa !15
@@ -453,7 +453,7 @@ Kit_GraphAddNodeOr.exit:                          ; preds = %Kit_GraphAddNodeAnd
   %87 = sext i32 %84 to i64
   %88 = getelementptr inbounds %struct.Kit_Node_t_, ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i32 16384, ptr %91, align 8
@@ -512,7 +512,7 @@ Kit_GraphAddNodeAnd.exit55:                       ; preds = %99, %115
   %120 = sext i32 %117 to i64
   %121 = getelementptr inbounds %struct.Kit_Node_t_, ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
   store i32 %1, ptr %121, align 8, !tbaa !15
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 %2, ptr %123, align 4, !tbaa !15
@@ -567,7 +567,7 @@ Kit_GraphAddNodeAnd.exit62:                       ; preds = %Kit_GraphAddNodeAnd
   %151 = sext i32 %148 to i64
   %152 = getelementptr inbounds %struct.Kit_Node_t_, ptr %149, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
   store i32 %134, ptr %152, align 8, !tbaa !15
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 %135, ptr %154, align 4, !tbaa !15
@@ -620,7 +620,7 @@ Kit_GraphAddNodeOr.exit69:                        ; preds = %Kit_GraphAddNodeAnd
   %180 = sext i32 %177 to i64
   %181 = getelementptr inbounds %struct.Kit_Node_t_, ptr %178, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %182, i8 0, i64 16, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i32 16384, ptr %184, align 8
@@ -688,7 +688,7 @@ Kit_GraphAddNodeAnd.exit:                         ; preds = %7, %23
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds %struct.Kit_Node_t_, ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 %1, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %2, ptr %31, align 4, !tbaa !15
@@ -742,7 +742,7 @@ Kit_GraphAddNodeAnd.exit40:                       ; preds = %Kit_GraphAddNodeAnd
   %58 = sext i32 %55 to i64
   %59 = getelementptr inbounds %struct.Kit_Node_t_, ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store i32 %42, ptr %59, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %3, ptr %61, align 4, !tbaa !15
@@ -795,7 +795,7 @@ Kit_GraphAddNodeOr.exit:                          ; preds = %Kit_GraphAddNodeAnd
   %87 = sext i32 %84 to i64
   %88 = getelementptr inbounds %struct.Kit_Node_t_, ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i32 16384, ptr %91, align 8
@@ -856,7 +856,7 @@ Kit_GraphAddNodeAnd.exit53:                       ; preds = %99, %117
   %122 = sext i32 %119 to i64
   %123 = getelementptr inbounds %struct.Kit_Node_t_, ptr %120, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   store i32 %1, ptr %123, align 8, !tbaa !15
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 %100, ptr %125, align 4, !tbaa !15
@@ -910,7 +910,7 @@ Kit_GraphAddNodeAnd.exit60:                       ; preds = %Kit_GraphAddNodeAnd
   %152 = sext i32 %149 to i64
   %153 = getelementptr inbounds %struct.Kit_Node_t_, ptr %150, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
   store i32 %136, ptr %153, align 8, !tbaa !15
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 4
   store i32 %101, ptr %155, align 4, !tbaa !15
@@ -963,7 +963,7 @@ Kit_GraphAddNodeOr.exit67:                        ; preds = %Kit_GraphAddNodeAnd
   %181 = sext i32 %178 to i64
   %182 = getelementptr inbounds %struct.Kit_Node_t_, ptr %179, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 0, i64 16, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store i32 16384, ptr %185, align 8

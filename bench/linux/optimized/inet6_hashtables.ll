@@ -474,7 +474,7 @@ define dso_local ptr @inet6_lookup_run_sk_lookup(ptr noundef %0, i32 noundef %1,
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #7
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 16, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !annotation !6
   store i16 10, ptr %11, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %18 = trunc i32 %1 to i16

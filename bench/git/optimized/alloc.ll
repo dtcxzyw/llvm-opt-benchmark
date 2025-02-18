@@ -123,7 +123,7 @@ alloc_node.exit:                                  ; preds = %1, %26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %37, ptr %35, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %38, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %38, i8 0, i64 36, i1 false)
   store i32 6, ptr %36, align 4
   ret ptr %36
 }
@@ -202,7 +202,7 @@ alloc_node.exit:                                  ; preds = %1, %26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store ptr %37, ptr %35, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %38, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %38, i8 0, i64 52, i1 false)
   store i32 4, ptr %36, align 8
   ret ptr %36
 }
@@ -281,7 +281,7 @@ alloc_node.exit:                                  ; preds = %1, %26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr %37, ptr %35, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %38, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %38, i8 0, i64 60, i1 false)
   store i32 8, ptr %36, align 8
   ret ptr %36
 }
@@ -451,7 +451,7 @@ alloc_node.exit:                                  ; preds = %1, %26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store ptr %37, ptr %35, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %38, i8 0, i64 68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %38, i8 0, i64 68, i1 false)
   store i32 2, ptr %36, align 8
   %39 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
   %40 = add i32 %39, 1

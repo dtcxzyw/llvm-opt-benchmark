@@ -184,7 +184,7 @@ _ZN2cv3PtrINS_8img_hash5PHashEEC2IS2_EEPT_.exit:  ; preds = %3
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19PHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !noalias !4
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %27, i8 0, i64 576, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %27, i8 0, i64 576, i1 false), !noalias !4
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_19PHashImplE, i64 16), ptr %26, align 8, !noalias !4
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #17, !noalias !4
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 120
@@ -469,7 +469,7 @@ _ZNSt10shared_ptrIN2cv8img_hash5PHashEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt
 define void @_ZN2cv8img_hash5pHashERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.(anonymous namespace)::PHashImpl", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %4, i8 0, i64 576, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %4, i8 0, i64 576, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_19PHashImplE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17

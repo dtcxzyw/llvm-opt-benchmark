@@ -3695,7 +3695,7 @@ if.then23:                                        ; preds = %invoke.cont21
   %34 = load i32, ptr %arraylen.i9, align 4
   store i32 %34, ptr %arraylen.i29, align 4
   %35 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 40, i1 false)
   store ptr @.str.33, ptr %ref.tmp26, align 8
   %float_fmt.i = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 8
   store ptr @.str.34, ptr %float_fmt.i, align 8

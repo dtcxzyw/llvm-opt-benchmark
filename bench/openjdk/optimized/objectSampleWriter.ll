@@ -439,7 +439,7 @@ _ZL10is_gc_rootPK10StoredEdge.exit:               ; preds = %_ZL26add_old_object
 174:                                              ; preds = %172, %169
   %175 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #10
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 24
   store i64 %7, ptr %177, align 8
   store ptr %1, ptr %175, align 8

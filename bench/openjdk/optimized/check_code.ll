@@ -208,7 +208,7 @@ define zeroext i8 @VerifyClassForMajorVersion(ptr noundef %0, ptr noundef %1, pt
   %8 = alloca %struct.JVM_ExceptionTableEntryType, align 4
   %9 = alloca %struct.context_type, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %10, i8 0, i64 808, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %10, i8 0, i64 808, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16

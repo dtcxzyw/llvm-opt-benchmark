@@ -501,7 +501,7 @@ if.end21:                                         ; preds = %if.end17
   store i32 -1, ptr %fWidthPos, align 4
   store i32 -1, ptr %fPrecisionPos, align 4
   store i32 -1, ptr %fArgPos, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %41, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store i32 -1, ptr %spec, align 4
   store i32 -1, ptr %fWidth, align 4
   store i16 32, ptr %fPadChar, align 4

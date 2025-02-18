@@ -328,7 +328,7 @@ define dso_local noundef ptr @dm_kcopyd_prepare_callback(ptr noundef %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = tail call noalias ptr @mempool_alloc(ptr noundef nonnull %4, i32 noundef 3072) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %6, i8 0, i64 344, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %6, i8 0, i64 344, i1 false)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store ptr %1, ptr %7, align 8

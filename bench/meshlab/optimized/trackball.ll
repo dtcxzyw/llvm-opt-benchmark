@@ -1736,7 +1736,7 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %53, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %53, i8 0, i64 56, i1 false)
   store float %52, ptr %5, align 4
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store float %52, ptr %54, align 4

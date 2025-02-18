@@ -1125,7 +1125,7 @@ _ZNSt6vectorIN5arrow7compute8internal19SelectionKernelDataESaIS3_EE5clearEv.exit
   %.01214.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %12, i64 %.01214.i.i.i.i.i.i.idx
   %51 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   %53 = load i32, ptr %.01214.i.i.i.i.i.i.ptr, align 8, !tbaa !64
   store i32 %53, ptr %.015.i.i.i.i.i.i, align 8, !tbaa !64
   %54 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i.ptr, i64 8

@@ -7543,7 +7543,7 @@ define hidden void @Parse(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.pstate, align 8
   call void @llvm.lifetime.start.p0(i64 16144, ptr nonnull %3) #42
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16144) %4, i8 noundef 0, i64 noundef 16136, i1 noundef false) #42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16136) %4, i8 noundef 0, i64 noundef 16136, i1 noundef false) #42
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224

@@ -747,7 +747,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_134PragmaSTDC_CX_LIMITED_RANGEHandlerESt14defaul
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %158, ptr nonnull @.str.1, i64 4, ptr noundef %157) #23
   %159 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !132
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %160, i8 0, i64 24, i1 false), !noalias !132
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %160, i8 0, i64 24, i1 false), !noalias !132
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store ptr %162, ptr %161, align 8, !tbaa !6, !noalias !132
@@ -20791,7 +20791,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit46:          ; preds = %_ZNSt7__cxx1112basi
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang5TokenEEEPT_m.exit: ; preds = %282, %285
   %.0.i.i.i.i = phi ptr [ %284, %282 ], [ %286, %285 ]
   %287 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %287, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %287, i8 0, i64 12, i1 false)
   %288 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i16 431, ptr %288, align 8, !tbaa !1105
   store i32 %10, ptr %.0.i.i.i.i, align 8, !tbaa !479
@@ -20838,7 +20838,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang5TokenEEEPT_m.exit50: ; preds = %306, %309
   %.0.i.i.i.i49 = phi ptr [ %308, %306 ], [ %310, %309 ]
   %311 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %311, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %311, i8 0, i64 12, i1 false)
   %312 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 16
   store i16 430, ptr %312, align 8, !tbaa !1105
   store i32 %10, ptr %.0.i.i.i.i49, align 8, !tbaa !479
@@ -21472,7 +21472,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit33:          ; preds = %_ZNSt7__cxx1112basi
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang5TokenEEEPT_m.exit: ; preds = %281, %284
   %.0.i.i.i.i = phi ptr [ %283, %281 ], [ %285, %284 ]
   %286 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %286, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %286, i8 0, i64 12, i1 false)
   %287 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i16 432, ptr %287, align 8, !tbaa !1105
   store i32 %10, ptr %.0.i.i.i.i, align 8, !tbaa !479
@@ -28705,7 +28705,7 @@ define internal void @_ZN12_GLOBAL__N_114PragmaMSPragma12HandlePragmaERN5clang12
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 1, ptr %8, align 8, !tbaa !1105
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 441, ptr %10, align 8, !tbaa !1105
   %11 = load i32, ptr %3, align 8, !tbaa !479

@@ -4533,7 +4533,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %27 = load float, ptr %12, align 4
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znam(i64 noundef 80) #25
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %29, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   store float %24, ptr %28, align 4
   %.sroa_idx124 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float %25, ptr %.sroa_idx124, align 4

@@ -632,7 +632,7 @@ define internal fastcc ptr @ddFindTwoLiteralClausesRecur(ptr noundef %0, ptr nou
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, i8 0, i64 12, i1 false)
   store ptr %40, ptr %4, align 8, !tbaa !40
   %44 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   store ptr %44, ptr %40, align 8, !tbaa !34
@@ -763,7 +763,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %100, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %100, i8 0, i64 12, i1 false)
   store ptr %97, ptr %4, align 8, !tbaa !40
   %101 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   store ptr %101, ptr %97, align 8, !tbaa !34

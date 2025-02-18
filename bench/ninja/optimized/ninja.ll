@@ -405,7 +405,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19real_mainEiPPc(i32 noundef %0, pt
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store double -0.000000e+00, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store ptr @.str, ptr %23, align 8
   %35 = load ptr, ptr @stdout, align 8
   %36 = tail call i32 @setvbuf(ptr noundef %35, ptr noundef null, i32 noundef 1, i64 noundef 8192) #27

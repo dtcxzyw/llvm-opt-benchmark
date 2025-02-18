@@ -1739,7 +1739,7 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   %65 = load i32, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %7) #19
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %66, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #19
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %68 = load i16, ptr %67, align 4

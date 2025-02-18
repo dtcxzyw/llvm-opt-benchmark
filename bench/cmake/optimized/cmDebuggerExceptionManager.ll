@@ -1762,13 +1762,13 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerExceptionManager26HandleExcept
   store i8 0, ptr %13, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %16, align 8, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store ptr %18, ptr %17, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %19, align 8, !tbaa !45
@@ -1779,13 +1779,13 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerExceptionManager26HandleExcept
   store ptr %22, ptr %21, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store ptr %24, ptr %23, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 0, ptr %25, align 8, !tbaa !45
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store ptr %27, ptr %26, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 0, ptr %28, align 8, !tbaa !45
@@ -4635,7 +4635,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   store i32 %4, ptr %34, align 8, !tbaa !159
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
   store ptr %36, ptr %35, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 0, ptr %37, align 8, !tbaa !45
@@ -6967,7 +6967,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   store i32 %4, ptr %34, align 8, !tbaa !159
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
   store ptr %36, ptr %35, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 0, ptr %37, align 8, !tbaa !45

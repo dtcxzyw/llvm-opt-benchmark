@@ -25648,7 +25648,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10SeamVertexSaIS3_EES2_I
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 112, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %38, i8 0, i64 108, i1 false)
   store double 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -67513,7 +67513,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 112, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %38, i8 0, i64 108, i1 false)
   store double 1.000000e+00, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 656

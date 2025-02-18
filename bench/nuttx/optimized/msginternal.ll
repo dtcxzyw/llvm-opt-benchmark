@@ -99,7 +99,7 @@ define range(i32 -12, 1) i32 @nxmsg_alloc(ptr noundef writeonly captures(none) %
   %23 = zext i8 %4 to i64
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, i8 0, i64 72, i1 false)
   store ptr %2, ptr %24, align 8
   %26 = add nuw nsw i32 %5, 1
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 56

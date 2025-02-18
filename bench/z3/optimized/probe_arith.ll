@@ -684,7 +684,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %.noe
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %34, i64 %idxprom.i.i.i.i.i.pre-phi.i.i.i
   %xor4.i.i.i.i.i.i.i = or i32 %33, %shl.i.i.i.i.i.i.i
   store i32 %xor4.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %8, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %8, i8 0, i64 248, i1 false)
   store ptr %7, ptr %stack.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i.i.i.i, align 4
   store ptr %cond.i.i, ptr %7, align 8
@@ -2952,7 +2952,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %.noe
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %28, i64 %idxprom.i.i.i.i.i.pre-phi.i.i.i
   %xor4.i.i.i.i.i.i.i = or i32 %27, %shl.i.i.i.i.i.i.i
   store i32 %xor4.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %2, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %2, i8 0, i64 248, i1 false)
   store ptr %1, ptr %stack.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i.i.i.i, align 4
   store ptr %cond.i.i, ptr %1, align 8
@@ -3905,7 +3905,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i:     ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i, %invoke.cont1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   store ptr %9, ptr %stack.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i, align 4
   store ptr %cond.i, ptr %9, align 8
@@ -5062,7 +5062,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i.i: ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i.i, %invoke.cont1.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %11, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %11, i8 0, i64 248, i1 false)
   store ptr %10, ptr %stack.i.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i.i.i, align 4
   store ptr %cond.i.i.i, ptr %10, align 8
@@ -6626,7 +6626,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i:     ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i, %invoke.cont1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   store ptr %9, ptr %stack.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i, align 4
   store ptr %cond.i, ptr %9, align 8
@@ -7632,7 +7632,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i:   ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i, %invoke.cont1.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %11, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %11, i8 0, i64 248, i1 false)
   store ptr %10, ptr %stack.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i.i, align 4
   store ptr %cond.i.i, ptr %10, align 8
@@ -9339,7 +9339,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i.i: ; preds = %_ZN6bufferIP3astLb0
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i.i
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i.i, %invoke.cont1.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %12, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %12, i8 0, i64 248, i1 false)
   store ptr %11, ptr %stack.i.i.i.i, align 8
   store i32 16, ptr %m_capacity.i.i26.i.i.i.i, align 4
   store ptr %cond.i.i.i, ptr %11, align 8

@@ -2015,7 +2015,7 @@ _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.
   store i64 -1, ptr %114, align 8, !tbaa !1126, !noalias !1123
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 88
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 16, i1 false), !noalias !1123
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false), !noalias !1123
   store ptr %112, ptr %106, align 8, !tbaa !17
   store ptr %105, ptr %115, align 8, !tbaa !1127
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 112
@@ -4035,7 +4035,7 @@ _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit.
   store i64 -1, ptr %203, align 8, !tbaa !1126, !noalias !1243
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 88
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %205, i8 0, i64 16, i1 false), !noalias !1243
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, i8 0, i64 16, i1 false), !noalias !1243
   store ptr %201, ptr %193, align 8, !tbaa !17
   store ptr %191, ptr %204, align 8, !tbaa !1127
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 112

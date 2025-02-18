@@ -10287,7 +10287,7 @@ define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr nou
   %13 = inttoptr i64 %12 to ptr
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #27
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 72, i1 false), !annotation !54
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !annotation !54
   store ptr %2, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %15, align 8

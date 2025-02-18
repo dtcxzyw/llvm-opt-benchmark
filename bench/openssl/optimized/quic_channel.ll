@@ -1280,7 +1280,7 @@ define void @ossl_quic_channel_subtick(ptr noundef %0, ptr noundef writeonly cap
   store i64 %34, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %15) #15
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %35, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %35, i8 0, i64 72, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !171
   %.not.i.i.i = icmp eq ptr %37, null
@@ -1769,7 +1769,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %256, %PACKET_buf_in
   %293 = load i64, ptr %292, align 8, !tbaa !189
   store i64 %293, ptr %108, align 8, !tbaa !198
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %109, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, i8 0, i64 72, i1 false)
   %294 = load ptr, ptr %110, align 8, !tbaa !171
   %.not.i129.i.i = icmp eq ptr %294, null
   br i1 %.not.i129.i.i, label %295, label %ch_get_qlog.exit.i.i
@@ -2087,7 +2087,7 @@ PACKET_buf_init.exit.i34.i:                       ; preds = %428, %PACKET_buf_in
 
 PACKET_get_net_4.exit.thread.i.i:                 ; preds = %PACKET_buf_init.exit.i34.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %120, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 32, i1 false)
   store i64 2, ptr %12, align 8, !tbaa !208
   store ptr @.str.105, ptr %121, align 8, !tbaa !209
   store i64 27, ptr %122, align 8, !tbaa !210
@@ -2245,7 +2245,7 @@ ch_tick_tls.exit:                                 ; preds = %477, %478, %484
   store i64 %509, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #15
   %510 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %510, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %510, i8 0, i64 72, i1 false)
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %512 = load ptr, ptr %511, align 8, !tbaa !171
   %.not.i.i.i80 = icmp eq ptr %512, null
@@ -2907,7 +2907,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
   store i64 %60, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #15
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %61, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %61, i8 0, i64 72, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load ptr, ptr %62, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %63, null
@@ -2973,7 +2973,7 @@ ch_record_state_transition.exit:                  ; preds = %57, %64, %68, %71, 
   store i64 %95, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #15
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %96, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %96, i8 0, i64 72, i1 false)
   %97 = load ptr, ptr %62, align 8, !tbaa !171
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %98, label %ch_get_qlog.exit
@@ -3322,7 +3322,7 @@ define internal fastcc ptr @ch_get_qlog(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.qlog_trace_info_st, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !171
   %.not = icmp eq ptr %5, null
@@ -3388,7 +3388,7 @@ define void @ossl_quic_channel_local_close(ptr noundef %0, i64 noundef %1, ptr n
   %4 = alloca %struct.quic_terminate_cause_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = getelementptr i8, ptr %0, i64 1568
   %.val.i = load i64, ptr %6, align 8
   %7 = and i64 %.val.i, 6
@@ -3514,7 +3514,7 @@ copy_tcause.exit:                                 ; preds = %17, %38, %42, %46
   store i64 %50, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #15
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %51, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 72, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !171
   %.not.i.i.i = icmp eq ptr %53, null
@@ -3636,7 +3636,7 @@ ch_on_terminating_timeout.exit:                   ; preds = %copy_tcause.exit, %
 copy_tcause.exit40:                               ; preds = %86, %107, %111, %115
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #15
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %117, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %117, i8 0, i64 72, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %119 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i41 = icmp eq ptr %119, null
@@ -3707,7 +3707,7 @@ ch_get_qlog.exit:                                 ; preds = %copy_tcause.exit40,
   store i64 %153, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #15
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %154, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %154, i8 0, i64 72, i1 false)
   %155 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %155, null
   br i1 %.not.i.i, label %156, label %ch_record_state_transition.exit
@@ -3820,7 +3820,7 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
   store i64 %219, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #15
   %220 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %220, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %220, i8 0, i64 72, i1 false)
   %221 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i.i.i43 = icmp eq ptr %221, null
   br i1 %.not.i.i.i43, label %222, label %ch_on_terminating_timeout.exit48
@@ -3894,7 +3894,7 @@ ch_on_terminating_timeout.exit48:                 ; preds = %216, %222, %226, %2
   store i64 %257, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #15
   %258 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %258, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %258, i8 0, i64 72, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %260 = load ptr, ptr %259, align 8, !tbaa !171
   %.not.i.i.i49 = icmp eq ptr %260, null
@@ -3969,7 +3969,7 @@ ch_on_terminating_timeout.exit54:                 ; preds = %255, %261, %265, %2
   store i64 %296, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #15
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %297, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %297, i8 0, i64 72, i1 false)
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %299 = load ptr, ptr %298, align 8, !tbaa !171
   %.not.i.i55 = icmp eq ptr %299, null
@@ -4041,7 +4041,7 @@ ch_record_state_transition.exit60:                ; preds = %294, %300, %304, %3
   store i64 %332, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #15
   %333 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %333, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %333, i8 0, i64 72, i1 false)
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %335 = load ptr, ptr %334, align 8, !tbaa !171
   %.not.i.i.i61 = icmp eq ptr %335, null
@@ -4134,7 +4134,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef
   store i64 %13, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #15
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %16, null
@@ -4589,7 +4589,7 @@ define void @ossl_quic_channel_raise_net_error(ptr noundef %0) local_unnamed_add
   %2 = alloca %struct.quic_terminate_cause_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 137438953472
@@ -4763,7 +4763,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef in
   store i64 %45, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #15
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, i8 0, i64 72, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %48, null
@@ -5418,7 +5418,7 @@ define internal ptr @ch_get_qlog_cb(ptr noundef %0) #0 {
   %2 = alloca %struct.qlog_trace_info_st, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !171
   %.not.i = icmp eq ptr %5, null
@@ -6446,7 +6446,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   store i64 %227, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #15
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %228, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %228, i8 0, i64 72, i1 false)
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %230 = load ptr, ptr %229, align 8, !tbaa !171
   %.not.i278 = icmp eq ptr %230, null
@@ -6786,7 +6786,7 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
   %36 = and i32 %35, 7
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #15
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 72, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load ptr, ptr %38, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %39, null

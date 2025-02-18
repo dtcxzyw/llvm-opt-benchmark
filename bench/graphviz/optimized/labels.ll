@@ -525,7 +525,7 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
 36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   store ptr %39, ptr %5, align 8, !tbaa !25

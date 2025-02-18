@@ -3813,7 +3813,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, i8 0, i64 48, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 216
   store ptr %17, ptr %37, align 8, !tbaa !234
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 224
@@ -3855,7 +3855,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %58, ptr %59, align 8, !tbaa !255
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %60, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, i8 0, i64 20, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !256
@@ -9879,12 +9879,12 @@ define internal fastcc void @cf2_interpT2CharString(ptr noundef %0, ptr noundef 
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false)
   store ptr %33, ptr %21, align 8, !tbaa !575
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 18632
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18872) %50, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %50, i8 0, i64 240, i1 false)
   store ptr %0, ptr %22, align 8, !tbaa !577
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %2, ptr %51, align 8, !tbaa !586
@@ -9898,7 +9898,7 @@ define internal fastcc void @cf2_interpT2CharString(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 12384
   %57 = getelementptr inbounds nuw i8, ptr %22, i64 12408
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6184) %57, i8 0, i64 6160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6160) %57, i8 0, i64 6160, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %59 = load i8, ptr %58, align 8, !tbaa !313
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 12409
@@ -9912,7 +9912,7 @@ define internal fastcc void @cf2_interpT2CharString(ptr noundef %0, ptr noundef 
   store ptr %52, ptr %63, align 8, !tbaa !591
   %64 = getelementptr inbounds nuw i8, ptr %22, i64 6200
   %65 = getelementptr inbounds nuw i8, ptr %22, i64 6224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6184) %65, i8 0, i64 6160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6160) %65, i8 0, i64 6160, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %22, i64 6225
   store i8 %59, ptr %66, align 1, !tbaa !587
   %67 = getelementptr inbounds nuw i8, ptr %22, i64 6228
@@ -9923,7 +9923,7 @@ define internal fastcc void @cf2_interpT2CharString(ptr noundef %0, ptr noundef 
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 6216
   store ptr %52, ptr %69, align 8, !tbaa !591
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6184) %70, i8 0, i64 6160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6160) %70, i8 0, i64 6160, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 41
   store i8 %59, ptr %71, align 1, !tbaa !587
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 44
@@ -12482,7 +12482,7 @@ ps_builder_check_points.exit1492.thread:          ; preds = %1207, %ps_builder_c
 1240:                                             ; preds = %1239
   store i64 0, ptr %142, align 8, !tbaa !661
   store i64 0, ptr %141, align 8, !tbaa !661
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false)
   store ptr %33, ptr %21, align 8, !tbaa !575
   store i8 1, ptr %149, align 1, !tbaa !662
   br label %.backedge.backedge
@@ -13637,7 +13637,7 @@ cf2_stack_popFixed.exit1564:                      ; preds = %1799, %1801, %1803,
   call fastcc void @cf2_glyphpath_moveTo(ptr noundef %22, i32 noundef %1828, i32 noundef %1829)
   store i64 0, ptr %142, align 8, !tbaa !661
   store i64 0, ptr %141, align 8, !tbaa !661
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false)
   store ptr %33, ptr %21, align 8, !tbaa !575
   store i8 1, ptr %149, align 1, !tbaa !662
   %1830 = icmp sgt i32 %.01034, 0
@@ -13883,14 +13883,14 @@ cf2_buf_readByte.exit.i:                          ; preds = %1925, %1923, %1921,
 1928:                                             ; preds = %1902
   call void @llvm.lifetime.start.p0(i64 6184, ptr nonnull %29) #20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6184) %186, i8 0, i64 6160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6160) %186, i8 0, i64 6160, i1 false)
   %1929 = load i8, ptr %58, align 8, !tbaa !313
   store i8 %1929, ptr %136, align 1, !tbaa !587
   store i32 %36, ptr %137, align 4, !tbaa !588
   store ptr %0, ptr %29, align 8, !tbaa !589
   store ptr %56, ptr %138, align 8, !tbaa !590
   store ptr %52, ptr %139, align 8, !tbaa !591
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %140, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %140, i8 0, i64 40, i1 false)
   store ptr %33, ptr %30, align 8, !tbaa !575
   %.val1293 = load i64, ptr %141, align 8, !tbaa !661
   %.val1294 = load i64, ptr %142, align 8, !tbaa !661
@@ -18230,7 +18230,7 @@ define internal fastcc void @cf2_hintmap_build(ptr noundef captures(none) %0, pt
 21:                                               ; preds = %17
   %22 = load ptr, ptr %3, align 8, !tbaa !575
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
   store ptr %22, ptr %8, align 8, !tbaa !575
   call fastcc void @cf2_hintmap_build(ptr noundef nonnull %19, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i32 noundef %4, i8 noundef zeroext 1)
   br label %24

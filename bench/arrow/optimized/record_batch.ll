@@ -13520,7 +13520,7 @@ _ZNSt8optionalIiEaSESt9nullopt_t.exit:
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 0, ptr %16, align 8, !tbaa !424
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %17, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %17, i8 0, i64 17, i1 false)
   store i32 0, ptr %5, align 8, !tbaa !426
   store i8 1, ptr %13, align 4, !tbaa !437
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8

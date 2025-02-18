@@ -4171,7 +4171,7 @@ _ZN3glw12BoundProgram10setUniformERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 432:                                              ; preds = %_ZN3glw12BoundProgram10setUniformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff.exit
   %433 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %433, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %433, i8 0, i64 5, i1 false)
   store i8 1, ptr %45, align 1
   %434 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 1, ptr %434, align 1

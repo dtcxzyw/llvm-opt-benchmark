@@ -217,7 +217,7 @@ atomic_store_p.exit:                              ; preds = %69
 87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %88, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %88, i8 0, i64 104, i1 false)
   %89 = tail call ptr @je_arena_get_ehooks(ptr noundef nonnull %1) #6
   %.val84 = load i32, ptr %32, align 8, !tbaa !15
   %.not98 = icmp eq i64 %3, 0

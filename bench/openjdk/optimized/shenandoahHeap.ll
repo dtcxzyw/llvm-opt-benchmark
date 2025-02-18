@@ -2304,7 +2304,7 @@ define hidden void @_ZN14ShenandoahHeapC2EP25ShenandoahCollectorPolicy(ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #26
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %40, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %40, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 40

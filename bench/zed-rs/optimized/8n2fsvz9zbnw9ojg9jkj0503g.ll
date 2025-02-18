@@ -5711,9 +5711,9 @@ default.unreachable:                              ; preds = %825
   %905 = lshr i16 %904, 1
   %906 = zext nneg i16 %905 to i64
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %4), !noalias !866
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %338, i8 0, i64 80, i1 false), !noalias !866
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %338, i8 0, i64 80, i1 false), !noalias !866
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %3), !noalias !866
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %339, i8 0, i64 80, i1 false), !noalias !866
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %339, i8 0, i64 80, i1 false), !noalias !866
   %907 = add i16 %902, 1
   %908 = lshr i16 %907, 1
   %909 = zext nneg i16 %908 to i64

@@ -3207,7 +3207,7 @@ entry:
   %M = alloca %"class.Imath_2_5::Matrix33", align 4
   %ref.tmp3 = alloca %"class.Imath_2_5::Matrix33", align 4
   %0 = getelementptr inbounds nuw i8, ptr %M, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %M, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %M, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -3289,7 +3289,7 @@ _ZN9Imath_2_58Matrix33IfE6rotateIfEERKS1_T_.exit: ; preds = %for.inc23.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %ref.tmp.i)
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %ref.tmp3, align 4
   %arrayidx6.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i4, align 4
@@ -10817,7 +10817,7 @@ entry:
   %ref.tmp3 = alloca %"class.Imath_2_5::Matrix33", align 4
   %agg.tmp7 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %0 = getelementptr inbounds nuw i8, ptr %M, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %M, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %M, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -10899,7 +10899,7 @@ _ZN9Imath_2_58Matrix33IfE6rotateIfEERKS1_T_.exit: ; preds = %for.inc23.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %ref.tmp.i)
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 20, i1 false)
   store float 1.000000e+00, ptr %ref.tmp3, align 4
   %arrayidx6.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i4, align 4
@@ -22982,7 +22982,7 @@ if.then186:                                       ; preds = %if.else185
 
 if.end:                                           ; preds = %if.else185
   %30 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %30, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %agg.result, align 4
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i, align 4
@@ -23085,7 +23085,7 @@ if.then271:                                       ; preds = %if.else269
 
 if.end273:                                        ; preds = %if.else269
   %41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %41, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %41, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %agg.result, align 4
   %arrayidx6.i63 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store float 1.000000e+00, ptr %arrayidx6.i63, align 4

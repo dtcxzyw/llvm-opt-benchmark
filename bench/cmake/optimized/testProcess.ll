@@ -500,7 +500,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
 51:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #13
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %52, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %52, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !18
   %53 = call i32 @sigemptyset(ptr noundef nonnull %52) #13
   %54 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #13

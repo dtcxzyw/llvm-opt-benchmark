@@ -1484,7 +1484,7 @@ define dso_local void @cipso_v4_error(ptr noundef %0, i32 noundef %1, i32 nounde
   %4 = alloca [56 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 40, i1 false), !annotation !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 180

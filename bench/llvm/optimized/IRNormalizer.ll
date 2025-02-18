@@ -656,7 +656,7 @@ define dso_local void @_ZNK4llvm16IRNormalizerPass3runERNS_8FunctionERNS_15Analy
   %25 = alloca %"class.(anonymous namespace)::IRNormalizer", align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %25) #21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %26, i8 0, i64 152, i1 false)
   store i64 7695142597291091397, ptr %25, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 20, i1 false)

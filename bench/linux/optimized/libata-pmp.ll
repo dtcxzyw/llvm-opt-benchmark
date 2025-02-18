@@ -1124,7 +1124,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr noundef re
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %8, align 64
   %11 = load ptr, ptr %10, align 64
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 168
@@ -1199,7 +1199,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr noundef r
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %8, align 64
   %11 = load ptr, ptr %10, align 64
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 168
@@ -1785,7 +1785,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr noundef cap
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %33 = load ptr, ptr %31, align 64
   %34 = load ptr, ptr %33, align 64
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
@@ -1829,7 +1829,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr noundef cap
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %58 = load ptr, ptr %56, align 64
   %59 = load ptr, ptr %58, align 64
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
@@ -1869,7 +1869,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr noundef cap
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   %84 = load ptr, ptr %82, align 64
   %85 = load ptr, ptr %84, align 64
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 168

@@ -11837,7 +11837,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %17 = getelementptr %"struct.rocksdb::IngestedFileInfo", ptr %16, i64 %__begin1.sroa.2.0132
   %add.ptr.i.i.i = getelementptr i8, ptr %17, i64 -8192
   %retval.0.i.i = select i1 %cmp.i.i37, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %12, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 96, i1 false)
   store i32 1, ptr %count.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %counts.ptr.i, i8 0, i64 80, i1 false)
   store i32 1, ptr %arrayidx8.i, align 4

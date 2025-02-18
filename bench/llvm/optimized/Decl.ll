@@ -4290,7 +4290,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang9NamedDecl14isLinkageValidEv(ptr 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %8, align 4, !tbaa !673
@@ -5105,7 +5105,7 @@ define dso_local noundef zeroext range(i8 0, 8) i8 @_ZNK5clang9NamedDecl18getLin
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !673
@@ -5147,7 +5147,7 @@ define dso_local noundef zeroext range(i8 0, 8) i8 @_ZNK5clang9NamedDecl16getFor
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !673
@@ -5234,7 +5234,7 @@ define dso_local i8 @_ZNK5clang9NamedDecl23getLinkageAndVisibilityEv(ptr noundef
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !673
@@ -8658,7 +8658,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang7VarDecl18getLanguageLin
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !673
@@ -16219,7 +16219,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang12FunctionDecl18getLangu
   %2 = alloca %"class.clang::LinkageComputer", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !673

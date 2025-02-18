@@ -3629,7 +3629,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEN12_GLOBAL__N_120LowerTypeTest
 
 379:                                              ; preds = %_ZN12_GLOBAL__N_120LowerTypeTestsModule13runForTestingERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEE.exit, %365
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %380, i8 0, i64 64, i1 false), !alias.scope !246
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %380, i8 0, i64 64, i1 false), !alias.scope !246
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %381, ptr %0, align 8, !tbaa !28, !alias.scope !246
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8086,7 +8086,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %1834
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #27
   %1841 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1841, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1841, i8 0, i64 80, i1 false)
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %1834
@@ -43761,7 +43761,7 @@ _ZNSt4pairIKmS_IN4llvm9StringRefENS1_13TypeIdSummaryEEEC2IS0_S4_TnNSt9enable_ifI
   %38 = extractvalue { ptr, i64 } %36, 1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #27
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %39, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   store i32 5, ptr %6, align 8, !tbaa !430
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %40, i8 0, i64 21, i1 false)

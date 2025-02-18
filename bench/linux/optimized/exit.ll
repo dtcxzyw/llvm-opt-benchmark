@@ -2999,7 +2999,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @kernel_wait4(i32 nounde
 23:                                               ; preds = %21, %17, %12, %9
   %24 = phi i32 [ 2, %12 ], [ 2, %17 ], [ 0, %21 ], [ 4, %9 ]
   %25 = phi ptr [ %14, %12 ], [ %20, %17 ], [ %22, %21 ], [ null, %9 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 64, i1 false), !annotation !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !32
   store i32 %24, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8

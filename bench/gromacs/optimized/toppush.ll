@@ -584,7 +584,7 @@ _ZSt8_DestroyIP17InteractionOfTypeS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
 
 _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5clearEv.exit: ; preds = %5, %_ZSt8_DestroyIP17InteractionOfTypeS0_EvT_S2_RSaIT0_E.exit.i.i
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %41, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %41, i8 0, i64 44, i1 false)
   store float -4.092030e+05, ptr %18, align 4
   %sext = shl i64 %26, 32
   %42 = ashr exact i64 %sext, 32
@@ -7136,7 +7136,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit127: ; preds = %230, %_ZNSt6
 268:                                              ; preds = %265, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit127
   call fastcc void @_ZL22atomTypesFromAtomNamesPK22PreprocessingAtomTypesPK25PreprocessingBondAtomTypeN3gmx8ArrayRefIA20_KcEEP14WarningHandler(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %4, ptr noundef %5, ptr nonnull %11, ptr nonnull %44, ptr noundef %7)
   %269 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %269, i8 0, i64 44, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %269, i8 0, i64 44, i1 false)
   store float -4.092030e+05, ptr %19, align 4
   %270 = sext i32 %66 to i64
   %271 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %270

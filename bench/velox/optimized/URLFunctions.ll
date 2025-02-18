@@ -27994,7 +27994,7 @@ if.then.i:                                        ; preds = %sw.bb102
   br i1 %cmp.i, label %if.then2.i, label %for.body.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %if.end.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
@@ -28026,7 +28026,7 @@ if.then.i176:                                     ; preds = %sw.bb104
   br i1 %cmp.i177, label %if.then2.i187, label %for.body.i178
 
 if.then2.i187:                                    ; preds = %if.then.i176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %if.end.i186
 
 for.body.i178:                                    ; preds = %if.then.i176, %for.body.i178
@@ -28339,7 +28339,7 @@ if.then.i239:                                     ; preds = %if.then183
   br i1 %cmp.i240, label %if.then2.i250, label %for.body.i241
 
 if.then2.i250:                                    ; preds = %if.then.i239
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit251
 
 for.body.i241:                                    ; preds = %if.then.i239, %for.body.i241
@@ -28502,7 +28502,7 @@ if.then.i266:                                     ; preds = %if.then296
   br i1 %cmp.i267, label %if.then2.i277, label %for.body.i268
 
 if.then2.i277:                                    ; preds = %if.then.i266
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %if.end.i276
 
 for.body.i268:                                    ; preds = %if.then.i266, %for.body.i268
@@ -28620,7 +28620,7 @@ if.then.i287:                                     ; preds = %if.then343
   br i1 %cmp.i288, label %if.then2.i298, label %for.body.i289
 
 if.then2.i298:                                    ; preds = %if.then.i287
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %if.end.i297
 
 for.body.i289:                                    ; preds = %if.then.i287, %for.body.i289
@@ -28733,7 +28733,7 @@ if.then.i303:                                     ; preds = %sw.bb405
   br i1 %cmp.i304, label %if.then2.i314, label %for.body.i305
 
 if.then2.i314:                                    ; preds = %if.then.i303
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %3, i8 %mask, i64 255, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %3, i8 %mask, i64 255, i1 false)
   br label %if.end.i313
 
 for.body.i305:                                    ; preds = %if.then.i303, %for.body.i305

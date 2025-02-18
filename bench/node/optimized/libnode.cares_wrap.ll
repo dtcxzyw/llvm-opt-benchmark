@@ -1532,7 +1532,7 @@ entry:
   %handle_scope.i.i = alloca %"class.v8::HandleScope", align 8
   %options = alloca %struct.ares_options, align 8
   %0 = getelementptr inbounds nuw i8, ptr %options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   store i32 128, ptr %options, align 8
   %sock_state_cb = getelementptr inbounds nuw i8, ptr %options, i64 72
   store ptr @_ZN4node10cares_wrap12_GLOBAL__N_117ares_sockstate_cbEPviii, ptr %sock_state_cb, align 8
@@ -2293,7 +2293,7 @@ define dso_local noundef ptr @_ZN4node10cares_wrap12NodeAresTask6CreateEPNS0_11C
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #22
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %0, i8 0, i64 168, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %0, i8 0, i64 168, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10cares_wrap12NodeAresTaskE, i64 16), ptr %call, align 8
   %channel1 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %channel, ptr %channel1, align 8
@@ -2460,7 +2460,7 @@ if.end11.i:                                       ; preds = %if.else.i, %if.then
 _ZN4node10cares_wrap11ChannelWrap10StartTimerEv.exit: ; preds = %if.else.i, %if.end11.i
   %call.i14 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #22
   %23 = getelementptr inbounds nuw i8, ptr %call.i14, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %23, i8 0, i64 168, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %23, i8 0, i64 168, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10cares_wrap12NodeAresTaskE, i64 16), ptr %call.i14, align 8
   %channel1.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 8
   store ptr %data, ptr %channel1.i, align 8
@@ -10824,7 +10824,7 @@ _ZSt11make_uniqueIN4node10cares_wrap18GetAddrInfoReqWrapEJRPNS0_11EnvironmentERN
   %verbatim_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   store i8 %frombool, ptr %verbatim_.i.i, align 8, !noalias !51
   %80 = getelementptr inbounds nuw i8, ptr %hints, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %80, i8 0, i64 40, i1 false)
   %ai_family = getelementptr inbounds nuw i8, ptr %hints, i64 4
   store i32 %family.0, ptr %ai_family, align 4
   %ai_socktype = getelementptr inbounds nuw i8, ptr %hints, i64 8

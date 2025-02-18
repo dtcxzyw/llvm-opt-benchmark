@@ -1448,7 +1448,7 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
   %6 = alloca %"class.vcg::Matrix44", align 4
   %7 = alloca %"class.vcg::Matrix44", align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %1, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float 1.000000e+00, ptr %9, align 4
@@ -1562,7 +1562,7 @@ define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %75 = load float, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %76, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %76, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %6, align 4
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store float 1.000000e+00, ptr %77, align 4

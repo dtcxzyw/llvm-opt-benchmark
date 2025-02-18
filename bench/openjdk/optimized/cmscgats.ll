@@ -1520,7 +1520,7 @@ SetDataFormat.exit:                               ; preds = %15, %21, %24, %33
 define hidden range(i32 0, 2) i32 @cmsIT8SaveToFile(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SAVESTREAM, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.5)
   store ptr %5, ptr %3, align 8
   %.not = icmp eq ptr %5, null

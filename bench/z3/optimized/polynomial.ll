@@ -8221,14 +8221,14 @@ if.then.i.i.i.i105:                               ; preds = %if.then.i.i.i101
 
 if.end18:                                         ; preds = %_ZN10polynomial7manager6degreeEPKNS_10polynomialEj.exit
   %51 = getelementptr inbounds nuw i8, ptr %iccp_filter, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %51, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %51, i8 0, i64 512, i1 false)
   store ptr %51, ptr %iccp_filter, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %iccp_filter, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %iccp_filter, i64 12
   store i32 128, ptr %m_capacity.i.i, align 4
   %52 = getelementptr inbounds nuw i8, ptr %iccp_powers, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %52, i8 0, i64 512, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %52, i8 0, i64 512, i1 false)
   store ptr %52, ptr %iccp_powers, align 8
   %m_pos.i.i108 = getelementptr inbounds nuw i8, ptr %iccp_powers, i64 8
   store i32 0, ptr %m_pos.i.i108, align 8
@@ -9345,14 +9345,14 @@ invoke.cont3:
   %i_v = alloca %class._scoped_numeral.40, align 8
   %a = alloca %class._scoped_numeral.40, align 8
   %0 = getelementptr inbounds nuw i8, ptr %u_var_degrees, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   store ptr %0, ptr %u_var_degrees, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %u_var_degrees, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %u_var_degrees, i64 12
   store i32 32, ptr %m_capacity.i.i, align 4
   %1 = getelementptr inbounds nuw i8, ptr %v_var_degrees, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %1, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   store ptr %1, ptr %v_var_degrees, align 8
   %m_pos.i.i61 = getelementptr inbounds nuw i8, ptr %v_var_degrees, i64 8
   store i32 0, ptr %m_pos.i.i61, align 8
@@ -12204,7 +12204,7 @@ _ZN10polynomial7manager6degreeEPKNS_10polynomialEj.exit.thread: ; preds = %if.th
   %m_ms.i.i20224230.ph = phi ptr [ %m_ms.i.i20223, %if.then8.i ], [ %m_ms.i.i20, %if.end.i ]
   %retval.0.i28.ph = phi i32 [ %10, %if.then8.i ], [ 0, %if.end.i ]
   %18 = getelementptr inbounds nuw i8, ptr %pws, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %18, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 128, i1 false)
   store ptr %18, ptr %pws, align 8
   %m_pos.i.i235 = getelementptr inbounds nuw i8, ptr %pws, i64 8
   store i32 0, ptr %m_pos.i.i235, align 8
@@ -12214,7 +12214,7 @@ _ZN10polynomial7manager6degreeEPKNS_10polynomialEj.exit.thread: ; preds = %if.th
 
 _ZN10polynomial7manager6degreeEPKNS_10polynomialEj.exit: ; preds = %_ZNK10polynomial8monomial9degree_ofEj.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %pws, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 128, i1 false)
   store ptr %19, ptr %pws, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %pws, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
@@ -24872,7 +24872,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %coeffs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %1, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %1, i8 0, i64 2048, i1 false)
   store ptr %1, ptr %coeffs, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %coeffs, i64 8
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -27127,7 +27127,7 @@ invoke.cont3:
   %m_manager.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %m_manager.i, align 8
   %2 = getelementptr inbounds nuw i8, ptr %as, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %2, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %2, i8 0, i64 2048, i1 false)
   store ptr %2, ptr %as, align 8
   %m_pos.i.i.i = getelementptr inbounds nuw i8, ptr %as, i64 8
   store i32 0, ptr %m_pos.i.i.i, align 8
@@ -41467,14 +41467,14 @@ entry:
   %m_pos.i = getelementptr inbounds nuw i8, ptr %u_var_degrees, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %vars, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   store ptr %1, ptr %vars, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %vars, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %vars, i64 12
   store i32 32, ptr %m_capacity.i.i, align 4
   %2 = getelementptr inbounds nuw i8, ptr %var_min_degrees, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %2, i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   store ptr %2, ptr %var_min_degrees, align 8
   %m_pos.i.i34 = getelementptr inbounds nuw i8, ptr %var_min_degrees, i64 8
   store i32 0, ptr %m_pos.i.i34, align 8

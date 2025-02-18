@@ -2508,7 +2508,7 @@ _ZNSt8functionIFvPN2cv8obsensor5FrameEEEaSERKS5_.exit: ; preds = %_ZNSt8function
 
 157:                                              ; preds = %127
   %158 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(204) %158, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(200) %158, i8 0, i64 200, i1 false)
   store i32 1, ptr %12, align 4
   %159 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %159, align 4
@@ -2739,7 +2739,7 @@ _ZNSt8functionIFvPN2cv8obsensor5FrameEEEaSERKS5_.exit: ; preds = %_ZNSt8function
 
 262:                                              ; preds = %.lr.ph, %293
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %293 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %235, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %235, i8 0, i64 80, i1 false)
   store i32 1, ptr %230, align 4
   store i32 1, ptr %231, align 4
   %263 = trunc nuw nsw i64 %indvars.iv to i32

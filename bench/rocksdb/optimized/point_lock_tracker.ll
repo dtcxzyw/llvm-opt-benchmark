@@ -933,7 +933,7 @@ entry:
   %r = alloca %"struct.rocksdb::PointLockRequest", align 8
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16PointLockTrackerE, i64 16), ptr %call, align 8
   %tracked_keys_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56

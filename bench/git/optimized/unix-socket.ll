@@ -162,7 +162,7 @@ define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr noundef nonn
   %.023 = phi i32 [ %17, %22 ], [ %8, %4 ]
   %.021 = phi ptr [ %14, %22 ], [ %1, %4 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %32, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %32, i8 0, i64 108, i1 false)
   store i16 1, ptr %0, align 2, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %34 = zext nneg i32 %.023 to i64

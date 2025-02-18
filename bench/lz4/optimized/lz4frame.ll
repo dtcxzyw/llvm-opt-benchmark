@@ -254,7 +254,7 @@ LZ4F_getBlockSize.exit:                           ; preds = %LZ4F_optimalBSID.ex
 
 33:                                               ; preds = %31, %LZ4F_getBlockSize.exit
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, i8 0, i64 12, i1 false)
   store i32 1, ptr %9, align 4, !tbaa !24
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.52.0.copyload.i = load i32, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !10

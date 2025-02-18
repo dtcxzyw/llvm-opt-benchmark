@@ -3151,7 +3151,7 @@ ZSTDMT_getCCtx.exit:                              ; preds = %10, %18
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 24, i1 false), !alias.scope !163
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !alias.scope !163
   store ptr %30, ptr %3, align 8, !tbaa !166, !alias.scope !163
   %33 = udiv i64 %31, 12
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32

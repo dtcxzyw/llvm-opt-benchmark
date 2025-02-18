@@ -4836,7 +4836,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node13SocketAddressESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !94
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %71, i8 0, i64 128, i1 false), !noalias !94
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %71, i8 0, i64 128, i1 false), !noalias !94
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !94
   %buf_.i = getelementptr inbounds nuw i8, ptr %address, i64 16
   %72 = load ptr, ptr %buf_.i, align 8

@@ -903,7 +903,7 @@ define dso_local void @_ZN4llvm13GlobalOptPass3runERNS_6ModuleERNS_15AnalysisMan
 
 41:                                               ; preds = %4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %42, i8 0, i64 64, i1 false), !alias.scope !89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false), !alias.scope !89
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %43, ptr %0, align 8, !tbaa !28, !alias.scope !89
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24182,7 +24182,7 @@ define internal void @"_ZN4llvm12function_refIFvRNS_8FunctionEEE11callback_fnIZN
   %.val = load ptr, ptr %4, align 8, !tbaa !747
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #21
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 64, i1 false), !alias.scope !749
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !alias.scope !749
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %6, ptr %3, align 8, !tbaa !28, !alias.scope !749
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8

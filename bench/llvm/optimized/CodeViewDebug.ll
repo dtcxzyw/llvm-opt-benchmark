@@ -2080,7 +2080,7 @@ _ZNSt4pairIKPKN4llvm10DILocationENS0_13CodeViewDebug10InlineSiteEEC2IRS3_S6_TnNS
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #25
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #25
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, i8 0, i64 120, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %5, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14416,7 +14416,7 @@ _ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8eq
 _ZN4llvm13LexicalScopes16findInlinedScopeEPKNS_12DILocalScopeEPKNS_10DILocationE.exit: ; preds = %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i
   %.0 = phi ptr [ %136, %_ZNSt13unordered_mapISt4pairIPKN4llvm12DILocalScopeEPKNS1_10DILocationEENS1_12LexicalScopeENS1_9pair_hashIS4_S7_EESt8equal_toIS8_ESaIS0_IKS8_S9_EEE4findERSE_.exit.i ], [ %172, %_ZNSt13unordered_mapIPKN4llvm12DILocalScopeENS0_12LexicalScopeESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   store ptr %22, ptr %21, align 8, !tbaa !63
   store i8 0, ptr %24, align 8, !tbaa !584
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %23, i8 0, i64 9, i1 false)
@@ -14565,7 +14565,7 @@ define hidden void @_ZN4llvm13CodeViewDebug17beginFunctionImplEPKNS_15MachineFun
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
   %24 = tail call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #28, !noalias !1232
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(488) %25, i8 0, i64 456, i1 false), !noalias !1232
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(456) %25, i8 0, i64 456, i1 false), !noalias !1232
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store ptr %26, ptr %24, align 8, !tbaa !867, !noalias !1232
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -22430,7 +22430,7 @@ _ZNSt4pairIKPKN4llvm18DILexicalBlockBaseENS0_13CodeViewDebug12LexicalBlockEEC2IR
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7) #25
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %8) #25
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %152, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %152, i8 0, i64 152, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %153, ptr %8, align 8, !tbaa !63
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 8

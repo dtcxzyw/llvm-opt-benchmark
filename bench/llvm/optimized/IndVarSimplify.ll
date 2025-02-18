@@ -2476,7 +2476,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit.i: ; pre
   store ptr %570, ptr %533, align 8, !tbaa !380
   store ptr %571, ptr %534, align 8, !tbaa !384
   store ptr %568, ptr %535, align 8, !tbaa !385
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %537, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %537, i8 0, i64 9, i1 false)
   store ptr %572, ptr %532, align 8, !tbaa !386
   store ptr %568, ptr %536, align 8, !tbaa !387
   %573 = call i16 @_ZN4llvm17simplifyUsersOfIVEPNS_7PHINodeEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_8LoopInfoEPKNS_19TargetTransformInfoERNS_15SmallVectorImplINS_14WeakTrackingVHEEERNS_12SCEVExpanderEPNS_9IVVisitorE(ptr noundef %568, ptr noundef %570, ptr noundef %572, ptr noundef %507, ptr noundef %571, ptr noundef nonnull align 8 dereferenceable(16) %538, ptr noundef nonnull align 8 dereferenceable(792) %70, ptr noundef nonnull %46) #21

@@ -1117,7 +1117,7 @@ define void @mempool_multiple_foreach(ptr noundef readonly captures(none) %0, pt
 define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias writable writeonly sret(%struct.mallinfo) align 4 captures(none) initializes((0, 28)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mempoolinfo_s, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %5) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64

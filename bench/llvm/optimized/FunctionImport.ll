@@ -11239,7 +11239,7 @@ _ZL27doImportingForModuleForTestRN4llvm6ModuleENS_12function_refIFbmPKNS_18Globa
 
 220:                                              ; preds = %_ZL27doImportingForModuleForTestRN4llvm6ModuleENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEE.exit
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %221, i8 0, i64 64, i1 false), !alias.scope !819
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %221, i8 0, i64 64, i1 false), !alias.scope !819
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %222, ptr %0, align 8, !tbaa !28, !alias.scope !819
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 8

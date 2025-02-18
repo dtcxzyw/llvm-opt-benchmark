@@ -10340,7 +10340,7 @@ _ZNK17cmGeneratorTarget21NeedImportLibraryNameERKNSt7__cxx1112basic_stringIcSt11
 _ZNK17cmGeneratorTarget21NeedImportLibraryNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread363: ; preds = %110, %_ZNK17cmGeneratorTarget21NeedImportLibraryNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14) #29
   %120 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %120, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %120, i8 0, i64 80, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %121, ptr %14, align 8, !tbaa !18
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 8

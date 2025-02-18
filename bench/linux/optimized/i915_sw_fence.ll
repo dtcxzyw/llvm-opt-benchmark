@@ -900,7 +900,7 @@ define dso_local i32 @i915_sw_fence_await_reservation(ptr noundef %0, ptr nounde
   br label %12
 
 12:                                               ; preds = %10, %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 40, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !21
   %13 = select i1 %2, i32 2, i32 1
   store ptr %1, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8

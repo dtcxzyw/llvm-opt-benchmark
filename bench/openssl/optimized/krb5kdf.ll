@@ -89,7 +89,7 @@ krb5kdf_free.exit:                                ; preds = %7, %15, %23
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %34 = load i64, ptr %33, align 8, !tbaa !16
   tail call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str, i32 noundef 90) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   store ptr %27, ptr %5, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 79) #7
   br label %krb5kdf_new.exit.thread
@@ -118,7 +118,7 @@ define internal void @krb5kdf_free(ptr noundef %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i64, ptr %11, align 8, !tbaa !16
   tail call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 90) #7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 79) #7
   br label %13
@@ -143,7 +143,7 @@ define internal void @krb5kdf_reset(ptr noundef %0) #0 {
   %11 = load i64, ptr %10, align 8, !tbaa !16
   tail call void @CRYPTO_clear_free(ptr noundef %9, i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 90) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store ptr %2, ptr %0, align 8, !tbaa !3
   ret void
 }

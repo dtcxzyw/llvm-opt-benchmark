@@ -2077,7 +2077,7 @@ define dso_local i64 @ext4_new_meta_blocks(ptr noundef %0, ptr noundef %1, i64 n
   %7 = alloca %struct.ext4_allocation_request, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %2, ptr %9, align 8

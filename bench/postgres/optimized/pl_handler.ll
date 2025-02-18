@@ -466,7 +466,7 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store ptr %2, ptr %1, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -698,7 +698,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
   %64 = call i32 @SPI_connect() #11
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %6, ptr %5, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8

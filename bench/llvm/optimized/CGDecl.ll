@@ -11191,7 +11191,7 @@ _ZN5clang7CodeGen15CodeGenFunction17AllocaTrackerRAII4TakeEv.exit: ; preds = %96
 _ZN5clang7CodeGen14EHCleanupScope19getAuxillaryAllocasEv.exit.thread.i: ; preds = %113
   %116 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %117, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, i8 0, i64 16, i1 false)
   store ptr %117, ptr %116, align 8, !tbaa !672
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i32 0, ptr %118, align 8, !tbaa !673

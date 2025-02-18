@@ -57,7 +57,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %act, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #20
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8

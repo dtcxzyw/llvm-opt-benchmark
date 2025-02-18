@@ -2020,7 +2020,7 @@ _ZNK4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EE12pointer_dataEv.exit.i:
   %3 = load ptr, ptr %env_.i.i3, align 8
   %listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %3, ptr %env_.i, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -10052,7 +10052,7 @@ if.then31:                                        ; preds = %_ZNK2v820FunctionCa
 
 if.end32:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit248
   %29 = getelementptr inbounds nuw i8, ptr %file_path_url, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %29, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, i8 0, i64 72, i1 false)
   store i8 1, ptr %29, align 8
   %type.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %file_path_url, i64 11
   store i8 1, ptr %type.i.i.i.i.i.i.i.i.i, align 1

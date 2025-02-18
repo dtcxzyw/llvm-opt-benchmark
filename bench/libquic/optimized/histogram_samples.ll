@@ -32,7 +32,7 @@ define void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %5, align 8, !tbaa !6
   store i64 %1, ptr %3, align 8, !tbaa !14

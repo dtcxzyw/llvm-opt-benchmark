@@ -2094,7 +2094,7 @@ define internal i64 @sock_s_pack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %4) #16
   %5 = call i64 @rb_string_value(ptr noundef nonnull %3) #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %6, i8 noundef 0, i64 noundef 108, i1 noundef false) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 noundef 0, i64 noundef 108, i1 noundef false) #16
   store i16 1, ptr %4, align 2, !tbaa !99
   %7 = load i64, ptr %3, align 8, !tbaa !10
   %8 = inttoptr i64 %7 to ptr

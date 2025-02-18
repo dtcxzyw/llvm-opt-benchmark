@@ -1877,7 +1877,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i:   ; preds = %if.then.i.i.i318
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i, %invoke.cont197
   %162 = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %163, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %163, i8 0, i64 248, i1 false)
   store ptr %162, ptr %stack.i.i.i, align 8
   %m_pos.i.i28.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 8
   %m_capacity.i.i29.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 12
@@ -3161,7 +3161,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i:   ; preds = %if.then.i.i.i
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit.i.i.i, %entry
   %2 = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %3, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %3, i8 0, i64 248, i1 false)
   store ptr %2, ptr %stack.i.i.i, align 8
   %m_pos.i.i26.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 8
   %m_capacity.i.i27.i.i.i = getelementptr inbounds nuw i8, ptr %stack.i.i.i, i64 12

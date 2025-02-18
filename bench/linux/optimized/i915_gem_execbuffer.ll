@@ -225,7 +225,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
 84:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 728, ptr nonnull %5) #13
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %85, i8 0, i64 688, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %85, i8 0, i64 688, i1 false), !annotation !10
   store ptr %0, ptr %5, align 8
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %86, align 8

@@ -4862,7 +4862,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %1403, %1410, %1413
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #17
   store i32 -1, ptr %32, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %88, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   %1420 = load i32, ptr @hf_rtps_sm_flags, align 4
   %1421 = load i32, ptr @ett_rtps_flags, align 4
   %1422 = zext i8 %113 to i64

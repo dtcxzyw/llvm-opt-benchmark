@@ -8426,7 +8426,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit69.i: ; preds = %1848, %1845, %
   store ptr %1853, ptr %1821, align 8, !tbaa !218, !noalias !247
   %1854 = getelementptr inbounds nuw i8, ptr %1852, i64 8
   %1855 = getelementptr inbounds nuw i8, ptr %1852, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1855, i8 0, i64 24, i1 false), !noalias !247
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1855, i8 0, i64 24, i1 false), !noalias !247
   store i32 1, ptr %1852, align 8, !tbaa !208, !noalias !247
   store ptr %1851, ptr %1854, align 8, !tbaa !140, !noalias !247
   %.not.i.i.i.i231.i = icmp eq ptr %1850, null
@@ -9066,7 +9066,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit98.i: ; preds = %2105, %2102, %
   store ptr %2110, ptr %2080, align 8, !tbaa !218, !noalias !247
   %2111 = getelementptr inbounds nuw i8, ptr %2109, i64 8
   %2112 = getelementptr inbounds nuw i8, ptr %2109, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2112, i8 0, i64 24, i1 false), !noalias !247
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2112, i8 0, i64 24, i1 false), !noalias !247
   store i32 1, ptr %2109, align 8, !tbaa !208, !noalias !247
   store ptr %2108, ptr %2111, align 8, !tbaa !140, !noalias !247
   %.not.i.i.i.i233.i = icmp eq ptr %2107, null
@@ -11544,7 +11544,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit211.i: ; preds = %3099, %3096, 
   store ptr %3104, ptr %3076, align 8, !tbaa !218, !noalias !264
   %3105 = getelementptr inbounds nuw i8, ptr %3103, i64 8
   %3106 = getelementptr inbounds nuw i8, ptr %3103, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3106, i8 0, i64 24, i1 false), !noalias !264
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3106, i8 0, i64 24, i1 false), !noalias !264
   store i32 1, ptr %3103, align 8, !tbaa !208, !noalias !264
   store ptr %3102, ptr %3105, align 8, !tbaa !140, !noalias !264
   %.not.i.i.i.i483.i = icmp eq ptr %3101, null
@@ -12093,7 +12093,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit253.i: ; preds = %3319, %3316, 
   store ptr %3324, ptr %3296, align 8, !tbaa !218, !noalias !264
   %3325 = getelementptr inbounds nuw i8, ptr %3323, i64 8
   %3326 = getelementptr inbounds nuw i8, ptr %3323, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3326, i8 0, i64 24, i1 false), !noalias !264
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3326, i8 0, i64 24, i1 false), !noalias !264
   store i32 1, ptr %3323, align 8, !tbaa !208, !noalias !264
   store ptr %3322, ptr %3325, align 8, !tbaa !140, !noalias !264
   %.not.i.i.i.i484.i = icmp eq ptr %3321, null
@@ -12633,7 +12633,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit296.i: ; preds = %3537, %3534, 
   store ptr %3542, ptr %3516, align 8, !tbaa !218, !noalias !264
   %3543 = getelementptr inbounds nuw i8, ptr %3541, i64 8
   %3544 = getelementptr inbounds nuw i8, ptr %3541, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3544, i8 0, i64 24, i1 false), !noalias !264
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3544, i8 0, i64 24, i1 false), !noalias !264
   store i32 1, ptr %3541, align 8, !tbaa !208, !noalias !264
   store ptr %3540, ptr %3543, align 8, !tbaa !140, !noalias !264
   %.not.i.i.i.i506.i = icmp eq ptr %3539, null
@@ -15394,7 +15394,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit211.i673: ; preds = %4641, %463
   store ptr %4646, ptr %4618, align 8, !tbaa !218, !noalias !273
   %4647 = getelementptr inbounds nuw i8, ptr %4645, i64 8
   %4648 = getelementptr inbounds nuw i8, ptr %4645, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4648, i8 0, i64 24, i1 false), !noalias !273
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4648, i8 0, i64 24, i1 false), !noalias !273
   store i32 1, ptr %4645, align 8, !tbaa !208, !noalias !273
   store ptr %4644, ptr %4647, align 8, !tbaa !140, !noalias !273
   %.not.i.i.i.i483.i677 = icmp eq ptr %4643, null
@@ -15943,7 +15943,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit253.i732: ; preds = %4861, %485
   store ptr %4866, ptr %4838, align 8, !tbaa !218, !noalias !273
   %4867 = getelementptr inbounds nuw i8, ptr %4865, i64 8
   %4868 = getelementptr inbounds nuw i8, ptr %4865, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4868, i8 0, i64 24, i1 false), !noalias !273
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4868, i8 0, i64 24, i1 false), !noalias !273
   store i32 1, ptr %4865, align 8, !tbaa !208, !noalias !273
   store ptr %4864, ptr %4867, align 8, !tbaa !140, !noalias !273
   %.not.i.i.i.i484.i736 = icmp eq ptr %4863, null
@@ -16483,7 +16483,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit296.i792: ; preds = %5079, %507
   store ptr %5084, ptr %5058, align 8, !tbaa !218, !noalias !273
   %5085 = getelementptr inbounds nuw i8, ptr %5083, i64 8
   %5086 = getelementptr inbounds nuw i8, ptr %5083, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5086, i8 0, i64 24, i1 false), !noalias !273
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5086, i8 0, i64 24, i1 false), !noalias !273
   store i32 1, ptr %5083, align 8, !tbaa !208, !noalias !273
   store ptr %5082, ptr %5085, align 8, !tbaa !140, !noalias !273
   %.not.i.i.i.i506.i796 = icmp eq ptr %5081, null
@@ -19244,7 +19244,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit211.i1096: ; preds = %6183, %61
   store ptr %6188, ptr %6160, align 8, !tbaa !218, !noalias !280
   %6189 = getelementptr inbounds nuw i8, ptr %6187, i64 8
   %6190 = getelementptr inbounds nuw i8, ptr %6187, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6190, i8 0, i64 24, i1 false), !noalias !280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6190, i8 0, i64 24, i1 false), !noalias !280
   store i32 1, ptr %6187, align 8, !tbaa !208, !noalias !280
   store ptr %6186, ptr %6189, align 8, !tbaa !140, !noalias !280
   %.not.i.i.i.i483.i1100 = icmp eq ptr %6185, null
@@ -19793,7 +19793,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit253.i1155: ; preds = %6403, %64
   store ptr %6408, ptr %6380, align 8, !tbaa !218, !noalias !280
   %6409 = getelementptr inbounds nuw i8, ptr %6407, i64 8
   %6410 = getelementptr inbounds nuw i8, ptr %6407, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6410, i8 0, i64 24, i1 false), !noalias !280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6410, i8 0, i64 24, i1 false), !noalias !280
   store i32 1, ptr %6407, align 8, !tbaa !208, !noalias !280
   store ptr %6406, ptr %6409, align 8, !tbaa !140, !noalias !280
   %.not.i.i.i.i484.i1159 = icmp eq ptr %6405, null
@@ -20333,7 +20333,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit296.i1215: ; preds = %6621, %66
   store ptr %6626, ptr %6600, align 8, !tbaa !218, !noalias !280
   %6627 = getelementptr inbounds nuw i8, ptr %6625, i64 8
   %6628 = getelementptr inbounds nuw i8, ptr %6625, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6628, i8 0, i64 24, i1 false), !noalias !280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6628, i8 0, i64 24, i1 false), !noalias !280
   store i32 1, ptr %6625, align 8, !tbaa !208, !noalias !280
   store ptr %6624, ptr %6627, align 8, !tbaa !140, !noalias !280
   %.not.i.i.i.i506.i1219 = icmp eq ptr %6623, null
@@ -23094,7 +23094,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit211.i1519: ; preds = %7725, %77
   store ptr %7730, ptr %7702, align 8, !tbaa !218, !noalias !287
   %7731 = getelementptr inbounds nuw i8, ptr %7729, i64 8
   %7732 = getelementptr inbounds nuw i8, ptr %7729, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7732, i8 0, i64 24, i1 false), !noalias !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7732, i8 0, i64 24, i1 false), !noalias !287
   store i32 1, ptr %7729, align 8, !tbaa !208, !noalias !287
   store ptr %7728, ptr %7731, align 8, !tbaa !140, !noalias !287
   %.not.i.i.i.i483.i1523 = icmp eq ptr %7727, null
@@ -23643,7 +23643,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit253.i1578: ; preds = %7945, %79
   store ptr %7950, ptr %7922, align 8, !tbaa !218, !noalias !287
   %7951 = getelementptr inbounds nuw i8, ptr %7949, i64 8
   %7952 = getelementptr inbounds nuw i8, ptr %7949, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7952, i8 0, i64 24, i1 false), !noalias !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7952, i8 0, i64 24, i1 false), !noalias !287
   store i32 1, ptr %7949, align 8, !tbaa !208, !noalias !287
   store ptr %7948, ptr %7951, align 8, !tbaa !140, !noalias !287
   %.not.i.i.i.i484.i1582 = icmp eq ptr %7947, null
@@ -24183,7 +24183,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit296.i1638: ; preds = %8163, %81
   store ptr %8168, ptr %8142, align 8, !tbaa !218, !noalias !287
   %8169 = getelementptr inbounds nuw i8, ptr %8167, i64 8
   %8170 = getelementptr inbounds nuw i8, ptr %8167, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8170, i8 0, i64 24, i1 false), !noalias !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8170, i8 0, i64 24, i1 false), !noalias !287
   store i32 1, ptr %8167, align 8, !tbaa !208, !noalias !287
   store ptr %8166, ptr %8169, align 8, !tbaa !140, !noalias !287
   %.not.i.i.i.i506.i1642 = icmp eq ptr %8165, null
@@ -27355,7 +27355,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -27969,7 +27969,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -29560,7 +29560,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -30138,7 +30138,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -32513,7 +32513,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -33127,7 +33127,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -34718,7 +34718,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -35296,7 +35296,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -37563,7 +37563,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -38177,7 +38177,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -39768,7 +39768,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -40346,7 +40346,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -42619,7 +42619,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -43233,7 +43233,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -44824,7 +44824,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -45402,7 +45402,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -47671,7 +47671,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -48285,7 +48285,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -49876,7 +49876,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -50454,7 +50454,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -52721,7 +52721,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -53335,7 +53335,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -54926,7 +54926,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -55504,7 +55504,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -57771,7 +57771,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -58385,7 +58385,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -59976,7 +59976,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -60554,7 +60554,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -62821,7 +62821,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -63435,7 +63435,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -65026,7 +65026,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -65604,7 +65604,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -67871,7 +67871,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -68485,7 +68485,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -70076,7 +70076,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -70654,7 +70654,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -72921,7 +72921,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %104, %114, %117
   store ptr %122, ptr %90, align 8, !tbaa !218
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
   store i32 1, ptr %121, align 8, !tbaa !208
   store ptr %120, ptr %123, align 8, !tbaa !140
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -73535,7 +73535,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit105: ; preds = %358, %368, %371
   store ptr %376, ptr %346, align 8, !tbaa !218
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, i8 0, i64 24, i1 false)
   store i32 1, ptr %375, align 8, !tbaa !208
   store ptr %374, ptr %377, align 8, !tbaa !140
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
@@ -75126,7 +75126,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit92.i: ; preds = %1037, %1034, %
   store ptr %1042, ptr %994, align 8, !tbaa !218
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 8
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1044, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1044, i8 0, i64 24, i1 false)
   store i32 1, ptr %1041, align 8, !tbaa !208
   store ptr %1040, ptr %1043, align 8, !tbaa !140
   %.not.i.i.i.i188.i = icmp eq ptr %1039, null
@@ -75704,7 +75704,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit141.i: ; preds = %1268, %1265, 
   store ptr %1273, ptr %1016, align 8, !tbaa !218
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1275, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false)
   store i32 1, ptr %1272, align 8, !tbaa !208
   store ptr %1271, ptr %1274, align 8, !tbaa !140
   %.not.i.i.i.i189.i = icmp eq ptr %1270, null
@@ -117822,12 +117822,12 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1636)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1636
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1636
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1639, !noalias !1636
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1639, !noalias !1636
   %48 = icmp slt i8 %47, 0
   br i1 %48, label %.preheader.preheader.i.i.i.i.i.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph21.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1639, !noalias !1636
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1639, !noalias !1636
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i, %.lr.ph21.i.i.i.i
@@ -118065,12 +118065,12 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1650)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1650
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1650
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1653, !noalias !1650
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1653, !noalias !1650
   %134 = icmp slt i8 %133, 0
   br i1 %134, label %.preheader.preheader.i.i.i.i.i41.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i28.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i41.i.i.i.i:         ; preds = %131
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1653, !noalias !1650
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1653, !noalias !1650
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i28.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIaaEET_.exit.i28.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i41.i.i.i.i, %131
@@ -118419,12 +118419,12 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1668)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1668
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1668
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1671, !noalias !1668
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1671, !noalias !1668
   %48 = icmp slt i16 %47, 0
   br i1 %48, label %.preheader.preheader.i.i.i.i.i.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph21.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1671, !noalias !1668
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1671, !noalias !1668
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i, %.lr.ph21.i.i.i.i
@@ -118662,12 +118662,12 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1682)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1682
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1682
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1685, !noalias !1682
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1685, !noalias !1682
   %134 = icmp slt i16 %133, 0
   br i1 %134, label %.preheader.preheader.i.i.i.i.i41.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i28.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i41.i.i.i.i:         ; preds = %131
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1685, !noalias !1682
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1685, !noalias !1682
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i28.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIssEET_.exit.i28.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i41.i.i.i.i, %131
@@ -119016,12 +119016,12 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1700)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1700
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1700
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1703, !noalias !1700
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1703, !noalias !1700
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.preheader.preheader.i.i.i.i.i.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph21.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1703, !noalias !1700
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1703, !noalias !1700
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i, %.lr.ph21.i.i.i.i
@@ -119259,12 +119259,12 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1714)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1714
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1714
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1717, !noalias !1714
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1717, !noalias !1714
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %.preheader.preheader.i.i.i.i.i41.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i28.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i41.i.i.i.i:         ; preds = %131
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1717, !noalias !1714
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1717, !noalias !1714
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i28.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIiiEET_.exit.i28.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i41.i.i.i.i, %131
@@ -119613,12 +119613,12 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1732)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1732
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1732
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1735, !noalias !1732
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1735, !noalias !1732
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %.preheader.preheader.i.i.i.i.i.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %.lr.ph21.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1735, !noalias !1732
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1735, !noalias !1732
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i, %.lr.ph21.i.i.i.i
@@ -119855,12 +119855,12 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1746)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1746
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1746
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1749, !noalias !1746
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1749, !noalias !1746
   %133 = icmp slt i64 %132, 0
   br i1 %133, label %.preheader.preheader.i.i.i.i.i41.i.i.i.i, label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i28.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i41.i.i.i.i:         ; preds = %130
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1749, !noalias !1746
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !1749, !noalias !1746
   br label %_ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i28.i.i.i.i
 
 _ZN5arrow10Decimal256CI2NS_19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEEIllEET_.exit.i28.i.i.i.i: ; preds = %.preheader.preheader.i.i.i.i.i41.i.i.i.i, %130
@@ -120208,7 +120208,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1764)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1764
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1764
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1767, !noalias !1764
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1767, !noalias !1764
   %48 = zext i8 %47 to i64
   store i64 %48, ptr %15, align 8, !tbaa !300, !alias.scope !1767, !noalias !1764
   %49 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1764
@@ -120443,7 +120443,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1778
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1778
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1781, !noalias !1778
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1781, !noalias !1778
   %133 = zext i8 %132 to i64
   store i64 %133, ptr %10, align 8, !tbaa !300, !alias.scope !1781, !noalias !1778
   %134 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1778
@@ -120789,7 +120789,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1796)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1796
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1796
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1799, !noalias !1796
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1799, !noalias !1796
   %48 = zext i16 %47 to i64
   store i64 %48, ptr %15, align 8, !tbaa !300, !alias.scope !1799, !noalias !1796
   %49 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1796
@@ -121024,7 +121024,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1810)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1810
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1810
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1813, !noalias !1810
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1813, !noalias !1810
   %133 = zext i16 %132 to i64
   store i64 %133, ptr %10, align 8, !tbaa !300, !alias.scope !1813, !noalias !1810
   %134 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1810
@@ -121370,7 +121370,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1828)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1828
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1828
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1831, !noalias !1828
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1831, !noalias !1828
   %48 = zext i32 %47 to i64
   store i64 %48, ptr %15, align 8, !tbaa !300, !alias.scope !1831, !noalias !1828
   %49 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1828
@@ -121605,7 +121605,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1842)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1842
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1842
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1845, !noalias !1842
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1845, !noalias !1842
   %133 = zext i32 %132 to i64
   store i64 %133, ptr %10, align 8, !tbaa !300, !alias.scope !1845, !noalias !1842
   %134 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1842
@@ -121951,7 +121951,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   call void @llvm.experimental.noalias.scope.decl(metadata !1860)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #27, !noalias !1860
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #27, !noalias !1860
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 24, i1 false), !alias.scope !1863, !noalias !1860
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !1863, !noalias !1860
   store i64 %47, ptr %15, align 8, !tbaa !300, !alias.scope !1863, !noalias !1860
   %48 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1860
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #27, !noalias !1866
@@ -122185,7 +122185,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13K
   call void @llvm.experimental.noalias.scope.decl(metadata !1874)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27, !noalias !1874
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #27, !noalias !1874
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 24, i1 false), !alias.scope !1877, !noalias !1874
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !1877, !noalias !1874
   store i64 %131, ptr %10, align 8, !tbaa !300, !alias.scope !1877, !noalias !1874
   %132 = load i32, ptr %1, align 4, !tbaa !514, !noalias !1874
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #27, !noalias !1880
@@ -140304,7 +140304,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge.i.i.i.i.i.i.i.i.i, label %64
 
 64:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2648
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2648
   store i64 -128, ptr %13, align 8, !tbaa !300, !alias.scope !2648
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -140313,7 +140313,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %65, label %.critedge6.i.i.i.i.i.i.i.i.i, label %66, !prof !158
 
 66:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !2651
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !2651
   store i64 127, ptr %14, align 8, !tbaa !300, !alias.scope !2651
   %67 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -140564,7 +140564,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %152, label %.critedge.i.i.i.i.i30.i.i.i.i, label %153
 
 153:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2661
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2661
   store i64 -128, ptr %8, align 8, !tbaa !300, !alias.scope !2661
   %154 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -140573,7 +140573,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %154, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %155, !prof !158
 
 155:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !2664
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !2664
   store i64 127, ptr %9, align 8, !tbaa !300, !alias.scope !2664
   %156 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -140826,7 +140826,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge.i.i.i.i.i.i.i.i.i, label %63
 
 63:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2672
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2672
   store i64 -128, ptr %13, align 8, !tbaa !300, !alias.scope !2672
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -140835,7 +140835,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %64, label %.critedge6.i.i.i.i.i.i.i.i.i, label %65, !prof !158
 
 65:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !2675
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !2675
   store i64 127, ptr %14, align 8, !tbaa !300, !alias.scope !2675
   %66 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -141085,7 +141085,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %150, label %.critedge.i.i.i.i.i30.i.i.i.i, label %151
 
 151:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2685
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2685
   store i64 -128, ptr %8, align 8, !tbaa !300, !alias.scope !2685
   %152 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -141094,7 +141094,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %152, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %153, !prof !158
 
 153:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !2688
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !2688
   store i64 127, ptr %9, align 8, !tbaa !300, !alias.scope !2688
   %154 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -141543,7 +141543,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2706
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2706
   store i64 -128, ptr %5, align 8, !tbaa !300, !alias.scope !2706
   %43 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc7 unwind label %28
@@ -141553,7 +141553,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 44:                                               ; preds = %.noexc7
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !2709
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !2709
   store i64 127, ptr %6, align 8, !tbaa !300, !alias.scope !2709
   %46 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -147716,7 +147716,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge.i.i.i.i.i.i.i.i.i, label %64
 
 64:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2883
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2883
   store i64 -32768, ptr %13, align 8, !tbaa !300, !alias.scope !2883
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -147725,7 +147725,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %65, label %.critedge6.i.i.i.i.i.i.i.i.i, label %66, !prof !158
 
 66:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !2886
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !2886
   store i64 32767, ptr %14, align 8, !tbaa !300, !alias.scope !2886
   %67 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -147979,7 +147979,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %155, label %.critedge.i.i.i.i.i30.i.i.i.i, label %156
 
 156:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2896
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2896
   store i64 -32768, ptr %8, align 8, !tbaa !300, !alias.scope !2896
   %157 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -147988,7 +147988,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %157, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %158, !prof !158
 
 158:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !2899
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !2899
   store i64 32767, ptr %9, align 8, !tbaa !300, !alias.scope !2899
   %159 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -148239,7 +148239,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge.i.i.i.i.i.i.i.i.i, label %63
 
 63:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2907
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2907
   store i64 -32768, ptr %13, align 8, !tbaa !300, !alias.scope !2907
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -148248,7 +148248,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %64, label %.critedge6.i.i.i.i.i.i.i.i.i, label %65, !prof !158
 
 65:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !2910
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !2910
   store i64 32767, ptr %14, align 8, !tbaa !300, !alias.scope !2910
   %66 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -148501,7 +148501,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %153, label %.critedge.i.i.i.i.i30.i.i.i.i, label %154
 
 154:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2920
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2920
   store i64 -32768, ptr %8, align 8, !tbaa !300, !alias.scope !2920
   %155 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -148510,7 +148510,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %155, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %156, !prof !158
 
 156:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !2923
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !2923
   store i64 32767, ptr %9, align 8, !tbaa !300, !alias.scope !2923
   %157 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -148962,7 +148962,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2941
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !2941
   store i64 -32768, ptr %5, align 8, !tbaa !300, !alias.scope !2941
   %43 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc7 unwind label %28
@@ -148972,7 +148972,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 44:                                               ; preds = %.noexc7
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !2944
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !2944
   store i64 32767, ptr %6, align 8, !tbaa !300, !alias.scope !2944
   %46 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -155049,7 +155049,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge.i.i.i.i.i.i.i.i.i, label %64
 
 64:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3106
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3106
   store i64 -2147483648, ptr %13, align 8, !tbaa !300, !alias.scope !3106
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -155058,7 +155058,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %65, label %.critedge6.i.i.i.i.i.i.i.i.i, label %66, !prof !158
 
 66:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !3109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !3109
   store i64 2147483647, ptr %14, align 8, !tbaa !300, !alias.scope !3109
   %67 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -155310,7 +155310,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %153, label %.critedge.i.i.i.i.i30.i.i.i.i, label %154
 
 154:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3119
   store i64 -2147483648, ptr %8, align 8, !tbaa !300, !alias.scope !3119
   %155 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -155319,7 +155319,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %155, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %156, !prof !158
 
 156:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3122
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3122
   store i64 2147483647, ptr %9, align 8, !tbaa !300, !alias.scope !3122
   %157 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -155570,7 +155570,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge.i.i.i.i.i.i.i.i.i, label %63
 
 63:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3130
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3130
   store i64 -2147483648, ptr %13, align 8, !tbaa !300, !alias.scope !3130
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -155579,7 +155579,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %64, label %.critedge6.i.i.i.i.i.i.i.i.i, label %65, !prof !158
 
 65:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !3133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !3133
   store i64 2147483647, ptr %14, align 8, !tbaa !300, !alias.scope !3133
   %66 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -155830,7 +155830,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %151, label %.critedge.i.i.i.i.i30.i.i.i.i, label %152
 
 152:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3143
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3143
   store i64 -2147483648, ptr %8, align 8, !tbaa !300, !alias.scope !3143
   %153 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -155839,7 +155839,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %153, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %154, !prof !158
 
 154:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3146
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3146
   store i64 2147483647, ptr %9, align 8, !tbaa !300, !alias.scope !3146
   %155 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -156289,7 +156289,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3164
   store i64 -2147483648, ptr %5, align 8, !tbaa !300, !alias.scope !3164
   %43 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc7 unwind label %28
@@ -156299,7 +156299,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 44:                                               ; preds = %.noexc7
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !3167
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !3167
   store i64 2147483647, ptr %6, align 8, !tbaa !300, !alias.scope !3167
   %46 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -162512,7 +162512,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge.i.i.i.i.i.i.i.i.i, label %64
 
 64:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3329
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3329
   store i64 -9223372036854775808, ptr %13, align 8, !tbaa !300, !alias.scope !3329
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -162521,7 +162521,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %65, label %.critedge6.i.i.i.i.i.i.i.i.i, label %66, !prof !158
 
 66:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !3332
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !3332
   store i64 9223372036854775807, ptr %14, align 8, !tbaa !300, !alias.scope !3332
   %67 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -162774,7 +162774,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %154, label %.critedge.i.i.i.i.i30.i.i.i.i, label %155
 
 155:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3342
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3342
   store i64 -9223372036854775808, ptr %8, align 8, !tbaa !300, !alias.scope !3342
   %156 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -162783,7 +162783,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %156, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %157, !prof !158
 
 157:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3345
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3345
   store i64 9223372036854775807, ptr %9, align 8, !tbaa !300, !alias.scope !3345
   %158 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -163033,7 +163033,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge.i.i.i.i.i.i.i.i.i, label %63
 
 63:                                               ; preds = %.noexc11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3353
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3353
   store i64 -9223372036854775808, ptr %13, align 8, !tbaa !300, !alias.scope !3353
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc12 unwind label %.loopexit
@@ -163042,7 +163042,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %64, label %.critedge6.i.i.i.i.i.i.i.i.i, label %65, !prof !158
 
 65:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 24, i1 false), !alias.scope !3356
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !3356
   store i64 9223372036854775807, ptr %14, align 8, !tbaa !300, !alias.scope !3356
   %66 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -163294,7 +163294,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %152, label %.critedge.i.i.i.i.i30.i.i.i.i, label %153
 
 153:                                              ; preds = %.noexc15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3366
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3366
   store i64 -9223372036854775808, ptr %8, align 8, !tbaa !300, !alias.scope !3366
   %154 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc16 unwind label %.loopexit.split-lp.loopexit
@@ -163303,7 +163303,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %154, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %155, !prof !158
 
 155:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3369
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3369
   store i64 9223372036854775807, ptr %9, align 8, !tbaa !300, !alias.scope !3369
   %156 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -163754,7 +163754,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3387
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 -1, i64 24, i1 false), !tbaa !300, !alias.scope !3387
   store i64 -9223372036854775808, ptr %5, align 8, !tbaa !300, !alias.scope !3387
   %43 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc7 unwind label %28
@@ -163764,7 +163764,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 44:                                               ; preds = %.noexc7
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !3390
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !3390
   store i64 9223372036854775807, ptr %6, align 8, !tbaa !300, !alias.scope !3390
   %46 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -169719,7 +169719,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge6.i.i.i.i.i.i.i.i.i, label %64, !prof !158
 
 64:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3551
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3551
   store i64 255, ptr %14, align 8, !tbaa !300, !alias.scope !3551
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -169978,7 +169978,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %152, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %153, !prof !158
 
 153:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !3561
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !3561
   store i64 255, ptr %9, align 8, !tbaa !300, !alias.scope !3561
   %154 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -170235,7 +170235,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge6.i.i.i.i.i.i.i.i.i, label %63, !prof !158
 
 63:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3569
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3569
   store i64 255, ptr %14, align 8, !tbaa !300, !alias.scope !3569
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -170493,7 +170493,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %150, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %151, !prof !158
 
 151:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !3579
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !3579
   store i64 255, ptr %9, align 8, !tbaa !300, !alias.scope !3579
   %152 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -170950,7 +170950,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 43:                                               ; preds = %.noexc7
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 24, i1 false), !alias.scope !3597
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !3597
   store i64 255, ptr %6, align 8, !tbaa !300, !alias.scope !3597
   %45 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -176975,7 +176975,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge6.i.i.i.i.i.i.i.i.i, label %64, !prof !158
 
 64:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3758
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3758
   store i64 65535, ptr %14, align 8, !tbaa !300, !alias.scope !3758
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -177237,7 +177237,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %155, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %156, !prof !158
 
 156:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !3768
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !3768
   store i64 65535, ptr %9, align 8, !tbaa !300, !alias.scope !3768
   %157 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -177494,7 +177494,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge6.i.i.i.i.i.i.i.i.i, label %63, !prof !158
 
 63:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !3776
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !3776
   store i64 65535, ptr %14, align 8, !tbaa !300, !alias.scope !3776
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -177755,7 +177755,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %153, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %154, !prof !158
 
 154:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !3786
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !3786
   store i64 65535, ptr %9, align 8, !tbaa !300, !alias.scope !3786
   %155 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -178215,7 +178215,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 43:                                               ; preds = %.noexc7
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 24, i1 false), !alias.scope !3804
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !3804
   store i64 65535, ptr %6, align 8, !tbaa !300, !alias.scope !3804
   %45 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -186748,7 +186748,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge6.i.i.i.i.i.i.i.i.i, label %64, !prof !158
 
 64:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !4013
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !4013
   store i64 4294967295, ptr %14, align 8, !tbaa !300, !alias.scope !4013
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -187008,7 +187008,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %153, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %154, !prof !158
 
 154:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !4023
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !4023
   store i64 4294967295, ptr %9, align 8, !tbaa !300, !alias.scope !4023
   %155 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -187265,7 +187265,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge6.i.i.i.i.i.i.i.i.i, label %63, !prof !158
 
 63:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !4031
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !4031
   store i64 4294967295, ptr %14, align 8, !tbaa !300, !alias.scope !4031
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -187524,7 +187524,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %151, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %152, !prof !158
 
 152:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !4041
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !4041
   store i64 4294967295, ptr %9, align 8, !tbaa !300, !alias.scope !4041
   %153 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -187982,7 +187982,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 43:                                               ; preds = %.noexc7
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 24, i1 false), !alias.scope !4059
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !4059
   store i64 4294967295, ptr %6, align 8, !tbaa !300, !alias.scope !4059
   %45 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28
@@ -195721,7 +195721,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %63, label %.critedge6.i.i.i.i.i.i.i.i.i, label %64, !prof !158
 
 64:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !4269
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !4269
   store i64 -1, ptr %14, align 8, !tbaa !300, !alias.scope !4269
   %65 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -195982,7 +195982,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %154, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %155, !prof !158
 
 155:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !4279
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !4279
   store i64 -1, ptr %9, align 8, !tbaa !300, !alias.scope !4279
   %156 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -196238,7 +196238,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %62, label %.critedge6.i.i.i.i.i.i.i.i.i, label %63, !prof !158
 
 63:                                               ; preds = %.noexc12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 24, i1 false), !alias.scope !4287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !4287
   store i64 -1, ptr %14, align 8, !tbaa !300, !alias.scope !4287
   %64 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc13 unwind label %.loopexit
@@ -196498,7 +196498,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %152, label %.critedge6.i.i.i.i.i29.i.i.i.i, label %153, !prof !158
 
 153:                                              ; preds = %.noexc16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 24, i1 false), !alias.scope !4297
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !4297
   store i64 -1, ptr %9, align 8, !tbaa !300, !alias.scope !4297
   %154 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
@@ -196957,7 +196957,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit:      ; preds = %28, %31, %35
 
 43:                                               ; preds = %.noexc7
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 24, i1 false), !alias.scope !4315
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !4315
   store i64 -1, ptr %6, align 8, !tbaa !300, !alias.scope !4315
   %45 = invoke noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc8 unwind label %28

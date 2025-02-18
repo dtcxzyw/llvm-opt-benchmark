@@ -1404,7 +1404,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   store float %33, ptr %34, align 16, !tbaa !189
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %4) #22
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %35, i8 0, i64 240, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %35, i8 0, i64 240, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %8, ptr %36, align 8, !tbaa !190
   store float %1, ptr %4, align 8, !tbaa !200
@@ -4238,7 +4238,7 @@ define void @b2World_GetCounters(ptr dead_on_unwind noalias writable writeonly s
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -1792
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %7, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %8 = getelementptr i8, ptr %5, i64 -776
   %.val = load i32, ptr %8, align 8, !tbaa !378
   %9 = getelementptr i8, ptr %5, i64 -768

@@ -306,7 +306,7 @@ define linkonce_odr void @_ZN5folly6fibers10StackCacheD2Ev(ptr noundef nonnull a
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %12, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %13, ptr %10, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1314,7 +1314,7 @@ define internal void @_ZN5folly6fibers12_GLOBAL__N_120sigsegvSignalHandlerEiP9si
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %22, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %23, ptr %20, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2214,7 +2214,7 @@ _ZN5folly6fibers10StackCache8pagesizeEv.exit:     ; preds = %49, %52, %54
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %73, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %73, i8 0, i64 32, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %74, ptr %71, align 8, !tbaa !18
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 8

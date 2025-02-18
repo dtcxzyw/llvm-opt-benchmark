@@ -1610,7 +1610,7 @@ define internal void @_ZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8T
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #29
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %21, ptr %10, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2184,7 +2184,7 @@ _ZN7testing7MessageD2Ev.exit18.i77:               ; preds = %_ZNKSt14default_del
 218:                                              ; preds = %_ZN7testing7MessageD2Ev.exit.i87, %"_ZZN7testing12_GLOBAL__N_129ThrowingValueTest_Throws_Test8TestBodyEvENK3$_1clEv.exit.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #29
   %219 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %219, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %219, i8 0, i64 16, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %220, ptr %15, align 8, !tbaa !33
   %221 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4452,7 +4452,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #29
   %77 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   store ptr %77, ptr %25, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %78, align 8, !tbaa !31
@@ -4898,7 +4898,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i6:              ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #29
   %236 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %236, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %236, i8 0, i64 16, i1 false)
   store ptr %236, ptr %16, align 8, !tbaa !33
   %237 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %237, align 8, !tbaa !31
@@ -5344,7 +5344,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i39:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %395 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %395, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %395, i8 0, i64 16, i1 false)
   store ptr %395, ptr %7, align 8, !tbaa !33
   %396 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %396, align 8, !tbaa !31
@@ -6326,7 +6326,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   store ptr %91, ptr %12, align 8, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %92, align 8, !tbaa !31
@@ -6752,7 +6752,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i119:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %246 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %246, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, i8 0, i64 16, i1 false)
   store ptr %246, ptr %5, align 8, !tbaa !33
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %247, align 8, !tbaa !31
@@ -7060,7 +7060,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit43.i132: ; preds = %_ZNKSt7__cxx111
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #29
   %359 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
   %360 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %360, ptr %21, align 8, !tbaa !33
   %361 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -7722,7 +7722,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit204: ; preds = %_ZN7test
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #29
   %580 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %580, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %580, i8 0, i64 16, i1 false)
   %581 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %581, ptr %35, align 8, !tbaa !33
   %582 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -9816,7 +9816,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #29
   %91 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   store ptr %91, ptr %40, align 8, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %92, align 8, !tbaa !31
@@ -10230,7 +10230,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i18:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #29
   %244 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %244, i8 0, i64 16, i1 false)
   store ptr %244, ptr %33, align 8, !tbaa !33
   %245 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %245, align 8, !tbaa !31
@@ -10644,7 +10644,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i58:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #29
   %397 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %397, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %397, i8 0, i64 16, i1 false)
   store ptr %397, ptr %26, align 8, !tbaa !33
   %398 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %398, align 8, !tbaa !31
@@ -11058,7 +11058,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i98:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #29
   %550 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %550, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %550, i8 0, i64 16, i1 false)
   store ptr %550, ptr %19, align 8, !tbaa !33
   %551 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %551, align 8, !tbaa !31
@@ -11472,7 +11472,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i138:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %703 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %703, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %703, i8 0, i64 16, i1 false)
   store ptr %703, ptr %12, align 8, !tbaa !33
   %704 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %704, align 8, !tbaa !31
@@ -11886,7 +11886,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i178:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %856 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %856, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %856, i8 0, i64 16, i1 false)
   store ptr %856, ptr %5, align 8, !tbaa !33
   %857 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %857, align 8, !tbaa !31
@@ -12554,7 +12554,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102) #29
   %157 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
   store ptr %157, ptr %102, align 8, !tbaa !33
   %158 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 0, ptr %158, align 8, !tbaa !31
@@ -13005,7 +13005,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i22:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93) #29
   %319 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %319, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, i8 0, i64 16, i1 false)
   store ptr %319, ptr %93, align 8, !tbaa !33
   %320 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 0, ptr %320, align 8, !tbaa !31
@@ -13444,7 +13444,7 @@ _ZN7testing7MessageD2Ev.exit17.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84) #29
   %479 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %479, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %479, i8 0, i64 16, i1 false)
   store ptr %479, ptr %84, align 8, !tbaa !33
   %480 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 0, ptr %480, align 8, !tbaa !31
@@ -13885,7 +13885,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i92:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77) #29
   %640 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %640, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %640, i8 0, i64 16, i1 false)
   store ptr %640, ptr %77, align 8, !tbaa !33
   %641 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 0, ptr %641, align 8, !tbaa !31
@@ -14326,7 +14326,7 @@ _ZN7testing7MessageD2Ev.exit17.i.i134:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68) #29
   %801 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %801, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %801, i8 0, i64 16, i1 false)
   store ptr %801, ptr %68, align 8, !tbaa !33
   %802 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 0, ptr %802, align 8, !tbaa !31
@@ -14767,7 +14767,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i174:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #29
   %962 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %962, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %962, i8 0, i64 16, i1 false)
   store ptr %962, ptr %61, align 8, !tbaa !33
   %963 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %963, align 8, !tbaa !31
@@ -15222,7 +15222,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #29
   %1127 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1127, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1127, i8 0, i64 16, i1 false)
   store ptr %1127, ptr %52, align 8, !tbaa !33
   %1128 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %1128, align 8, !tbaa !31
@@ -15676,7 +15676,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i246:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #29
   %1292 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1292, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1292, i8 0, i64 16, i1 false)
   store ptr %1292, ptr %43, align 8, !tbaa !33
   %1293 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %1293, align 8, !tbaa !31
@@ -16130,7 +16130,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i288:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #29
   %1457 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1457, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1457, i8 0, i64 16, i1 false)
   store ptr %1457, ptr %34, align 8, !tbaa !33
   %1458 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %1458, align 8, !tbaa !31
@@ -16584,7 +16584,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i330:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #29
   %1622 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1622, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1622, i8 0, i64 16, i1 false)
   store ptr %1622, ptr %25, align 8, !tbaa !33
   %1623 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %1623, align 8, !tbaa !31
@@ -17037,7 +17037,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i372:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #29
   %1786 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1786, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1786, i8 0, i64 16, i1 false)
   store ptr %1786, ptr %16, align 8, !tbaa !33
   %1787 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %1787, align 8, !tbaa !31
@@ -17489,7 +17489,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i414:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %1949 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1949, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1949, i8 0, i64 16, i1 false)
   store ptr %1949, ptr %7, align 8, !tbaa !33
   %1950 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %1950, align 8, !tbaa !31
@@ -18219,7 +18219,7 @@ _ZN7testing7MessageD2Ev.exit17.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #29
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   store ptr %70, ptr %19, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %71, align 8, !tbaa !31
@@ -18633,7 +18633,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %223, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   store ptr %223, ptr %12, align 8, !tbaa !33
   %224 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %224, align 8, !tbaa !31
@@ -19047,7 +19047,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i37:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %376 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %376, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
   store ptr %376, ptr %5, align 8, !tbaa !33
   %377 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %377, align 8, !tbaa !31
@@ -19633,7 +19633,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #29
   %90 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store ptr %90, ptr %34, align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %91, align 8, !tbaa !31
@@ -20086,7 +20086,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #29
   %254 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %254, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
   store ptr %254, ptr %25, align 8, !tbaa !33
   %255 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %255, align 8, !tbaa !31
@@ -20540,7 +20540,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i43:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #29
   %419 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %419, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %419, i8 0, i64 16, i1 false)
   store ptr %419, ptr %16, align 8, !tbaa !33
   %420 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %420, align 8, !tbaa !31
@@ -20994,7 +20994,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i85:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %584 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %584, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %584, i8 0, i64 16, i1 false)
   store ptr %584, ptr %7, align 8, !tbaa !33
   %585 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %585, align 8, !tbaa !31
@@ -21620,7 +21620,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #29
   %115 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   store ptr %115, ptr %61, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %116, align 8, !tbaa !31
@@ -22048,7 +22048,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i24:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #29
   %274 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %274, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
   store ptr %274, ptr %54, align 8, !tbaa !33
   %275 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %275, align 8, !tbaa !31
@@ -22476,7 +22476,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i64:             ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #29
   %433 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %433, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
   store ptr %433, ptr %47, align 8, !tbaa !33
   %434 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %434, align 8, !tbaa !31
@@ -22904,7 +22904,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i104:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #29
   %592 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %592, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %592, i8 0, i64 16, i1 false)
   store ptr %592, ptr %40, align 8, !tbaa !33
   %593 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %593, align 8, !tbaa !31
@@ -23332,7 +23332,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i144:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #29
   %751 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %751, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %751, i8 0, i64 16, i1 false)
   store ptr %751, ptr %33, align 8, !tbaa !33
   %752 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %752, align 8, !tbaa !31
@@ -23760,7 +23760,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i184:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #29
   %910 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %910, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %910, i8 0, i64 16, i1 false)
   store ptr %910, ptr %26, align 8, !tbaa !33
   %911 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %911, align 8, !tbaa !31
@@ -24188,7 +24188,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i224:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #29
   %1069 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1069, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1069, i8 0, i64 16, i1 false)
   store ptr %1069, ptr %19, align 8, !tbaa !33
   %1070 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %1070, align 8, !tbaa !31
@@ -24616,7 +24616,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i264:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %1228 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1228, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1228, i8 0, i64 16, i1 false)
   store ptr %1228, ptr %12, align 8, !tbaa !33
   %1229 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %1229, align 8, !tbaa !31
@@ -25044,7 +25044,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i304:            ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %1387 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1387, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1387, i8 0, i64 16, i1 false)
   store ptr %1387, ptr %5, align 8, !tbaa !33
   %1388 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %1388, align 8, !tbaa !31
@@ -25688,7 +25688,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #29
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store ptr %90, ptr %16, align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %91, align 8, !tbaa !31
@@ -26234,7 +26234,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i7:              ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %297 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %297, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %297, i8 0, i64 16, i1 false)
   store ptr %297, ptr %7, align 8, !tbaa !33
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %298, align 8, !tbaa !31
@@ -28999,7 +28999,7 @@ common.resume:                                    ; preds = %.body.i.i1, %_ZN7te
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr %67, ptr %12, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %68, align 8, !tbaa !31
@@ -29531,7 +29531,7 @@ _ZN7testing7MessageD2Ev.exit21.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %244, i8 0, i64 16, i1 false)
   store ptr %244, ptr %5, align 8, !tbaa !33
   %245 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %245, align 8, !tbaa !31
@@ -30642,7 +30642,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   store ptr %59, ptr %7, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %60, align 8, !tbaa !31
@@ -31162,7 +31162,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   store ptr %57, ptr %5, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %58, align 8, !tbaa !31
@@ -32160,7 +32160,7 @@ _ZN7testing7MessageD2Ev.exit19.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   store ptr %70, ptr %7, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %71, align 8, !tbaa !31
@@ -34071,7 +34071,7 @@ common.resume.i:                                  ; preds = %_ZN7testing8interna
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store ptr %53, ptr %4, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %54, align 8, !tbaa !31
@@ -36287,7 +36287,7 @@ define internal void @_ZN7testing12_GLOBAL__N_147ThrowingAllocatorTest_ThrowingC
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %19, ptr %6, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -36685,7 +36685,7 @@ _ZN7testing7MessageD2Ev.exit19.i:                 ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #29
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %165, ptr %10, align 8, !tbaa !33
   %166 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -39707,7 +39707,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i:               ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #29
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   store ptr %91, ptr %16, align 8, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %92, align 8, !tbaa !31
@@ -40254,7 +40254,7 @@ _ZN7testing7MessageD2Ev.exit18.i.i5:              ; preds = %_ZNKSt14default_del
   store i32 0, ptr @_ZN7testing19exceptions_internal9countdownE, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
   %296 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %296, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %296, i8 0, i64 16, i1 false)
   store ptr %296, ptr %7, align 8, !tbaa !33
   %297 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %297, align 8, !tbaa !31

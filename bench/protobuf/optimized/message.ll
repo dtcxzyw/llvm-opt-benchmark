@@ -689,7 +689,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
   %3 = getelementptr inbounds nuw i8, ptr %call.sink2.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.sink2.i.i.i to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
@@ -742,7 +742,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
   %3 = getelementptr inbounds nuw i8, ptr %call.sink2.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.sink2.i.i.i to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
@@ -787,7 +787,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
   %3 = getelementptr inbounds nuw i8, ptr %call.sink2.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %call.sink2.i.i.i to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
@@ -902,7 +902,7 @@ if.end.i.i:                                       ; preds = %_ZNK6google8protobu
 _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal16InternalMetadata9ContainerINS4_15UnknownFieldSetEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISB_JEEESD_SE_SH_EUlSK_E0_JEEEDaOT0_OT1_DpOT2_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %call.sink2.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call.i.i.i, %if.end.i.i ]
   %4 = getelementptr inbounds nuw i8, ptr %call.sink2.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = ptrtoint ptr %call.sink2.i.i to i64
   %or = or i64 %5, 1
   store i64 %or, ptr %this, align 8

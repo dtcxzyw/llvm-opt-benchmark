@@ -695,7 +695,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 35:                                               ; preds = %._crit_edge.i
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store ptr %36, ptr %26, align 8, !tbaa !30
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %37, align 8, !tbaa !33
@@ -909,7 +909,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 117:                                              ; preds = %._crit_edge.i141
   %118 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %118, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   store ptr %118, ptr %108, align 8, !tbaa !30
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 0, ptr %119, align 8, !tbaa !33
@@ -1216,7 +1216,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 230:                                              ; preds = %._crit_edge.i171
   %231 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %231, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %231, i8 0, i64 16, i1 false)
   store ptr %231, ptr %215, align 8, !tbaa !30
   %232 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i64 0, ptr %232, align 8, !tbaa !33
@@ -1364,7 +1364,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 282:                                              ; preds = %._crit_edge.i196
   %283 = getelementptr inbounds nuw i8, ptr %273, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %283, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %283, i8 0, i64 16, i1 false)
   store ptr %283, ptr %273, align 8, !tbaa !30
   %284 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i64 0, ptr %284, align 8, !tbaa !33
@@ -1486,7 +1486,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 324:                                              ; preds = %._crit_edge.i221
   %325 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %325, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %325, i8 0, i64 16, i1 false)
   store ptr %325, ptr %315, align 8, !tbaa !30
   %326 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i64 0, ptr %326, align 8, !tbaa !33
@@ -1619,7 +1619,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 373:                                              ; preds = %._crit_edge.i246
   %374 = getelementptr inbounds nuw i8, ptr %364, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %374, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %374, i8 0, i64 16, i1 false)
   store ptr %374, ptr %364, align 8, !tbaa !30
   %375 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store i64 0, ptr %375, align 8, !tbaa !33
@@ -1872,7 +1872,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 470:                                              ; preds = %._crit_edge.i287
   %471 = getelementptr inbounds nuw i8, ptr %461, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %471, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %471, i8 0, i64 16, i1 false)
   store ptr %471, ptr %461, align 8, !tbaa !30
   %472 = getelementptr inbounds nuw i8, ptr %461, i64 8
   store i64 0, ptr %472, align 8, !tbaa !33
@@ -2067,7 +2067,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 544:                                              ; preds = %._crit_edge.i320
   %545 = getelementptr inbounds nuw i8, ptr %535, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %545, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %545, i8 0, i64 16, i1 false)
   store ptr %545, ptr %535, align 8, !tbaa !30
   %546 = getelementptr inbounds nuw i8, ptr %535, i64 8
   store i64 0, ptr %546, align 8, !tbaa !33
@@ -5943,7 +5943,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %22, ptr %6, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %23, align 8, !tbaa !33
@@ -6008,7 +6008,7 @@ _ZNSt12_Vector_baseIN5faiss14ParameterRangeESaIS1_EE11_M_allocateEm.exit: ; pred
   %21 = phi ptr [ %20, %18 ], [ null, %_ZNKSt6vectorIN5faiss14ParameterRangeESaIS1_EE12_M_check_lenEmPKc.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %23, ptr %22, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8, !tbaa !33

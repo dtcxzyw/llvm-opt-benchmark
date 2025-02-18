@@ -8055,7 +8055,7 @@ if.end58.i.i.i.i:                                 ; preds = %invoke.cont57.i.i.i
 
 invoke.cont62.i.i.i.i:                            ; preds = %if.end58.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %call.i44.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %25, i8 0, i64 16, i1 false), !noalias !78
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, i8 0, i64 16, i1 false), !noalias !78
   %refs_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i44.i.i.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i.i.i, align 8, !noalias !78
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateE, i64 16), ptr %call.i44.i.i.i.i, align 8, !noalias !78

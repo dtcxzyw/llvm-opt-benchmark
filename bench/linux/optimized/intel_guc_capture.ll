@@ -676,7 +676,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 
 161:                                              ; preds = %149
   %162 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %162, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %162, i8 0, i64 72, i1 false)
   br label %163
 
 163:                                              ; preds = %163, %161
@@ -2516,7 +2516,7 @@ default.unreachable:                              ; preds = %388
 
 455:                                              ; preds = %443
   %456 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %456, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %456, i8 0, i64 72, i1 false)
   br label %457
 
 457:                                              ; preds = %457, %455
@@ -3918,7 +3918,7 @@ define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures
 
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %45, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, i8 0, i64 72, i1 false)
   br label %46
 
 46:                                               ; preds = %46, %44

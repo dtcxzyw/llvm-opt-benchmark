@@ -4090,7 +4090,7 @@ points_append.exit136.i.i:                        ; preds = %points_append.exit1
 points_append.exit163.i.i:                        ; preds = %points_append.exit136.i.i
   %2104 = getelementptr inbounds nuw i8, ptr %2098, i64 64
   %2105 = getelementptr inbounds nuw i8, ptr %2098, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2105, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2105, i8 0, i64 16, i1 false)
   store double %.sroa.013.0.i.i, ptr %2104, align 8, !tbaa !70
   %.sroa.2.0..sroa_idx.i.i141.i.i = getelementptr inbounds nuw i8, ptr %2098, i64 72
   store double %.sroa.11.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i141.i.i, align 8, !tbaa !70

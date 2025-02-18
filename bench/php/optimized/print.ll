@@ -704,7 +704,7 @@ file_fmtdate.exit:                                ; preds = %314, %330
   %336 = load i16, ptr %335, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #13
   %337 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %337, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %337, i8 0, i64 48, i1 false)
   %338 = zext i16 %336 to i32
   %339 = shl nuw nsw i32 %338, 1
   %340 = and i32 %339, 62
@@ -880,7 +880,7 @@ define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1,
   %4 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %6 = zext i16 %2 to i32
   %7 = shl nuw nsw i32 %6, 1
   %8 = and i32 %7, 62

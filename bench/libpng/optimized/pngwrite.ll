@@ -2417,7 +2417,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #15
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !198
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %23, align 8, !tbaa !200
@@ -2532,7 +2532,7 @@ png_create_write_struct.exit.thread:              ; preds = %1
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   store ptr %4, ptr %19, align 8, !tbaa !209
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %17, ptr %22, align 8, !tbaa !211
@@ -2598,7 +2598,7 @@ define i32 @png_image_write_to_stdio(ptr noundef %0, ptr noundef %1, i32 noundef
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 264
   store ptr %1, ptr %20, align 8, !tbaa !213
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false)
   store ptr %0, ptr %7, align 8, !tbaa !198
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %22, align 8, !tbaa !200
@@ -3504,7 +3504,7 @@ define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 264
   store ptr %16, ptr %25, align 8, !tbaa !213
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, i8 0, i64 72, i1 false)
   store ptr %0, ptr %7, align 8, !tbaa !198
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %27, align 8, !tbaa !200

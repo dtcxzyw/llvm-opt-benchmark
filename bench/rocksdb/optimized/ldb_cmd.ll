@@ -44976,7 +44976,7 @@ if.end3:                                          ; preds = %if.end
   store i32 16843009, ptr %failed_move_fall_back_to_copy.i, align 1
   %verify_file_checksum.i = getelementptr inbounds nuw i8, ptr %ifo, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %ifo, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 9, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   store i8 1, ptr %verify_file_checksum.i, align 8
   %fail_if_not_bottommost_level.i = getelementptr inbounds nuw i8, ptr %ifo, i64 17
   store i8 0, ptr %fail_if_not_bottommost_level.i, align 1

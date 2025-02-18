@@ -19816,7 +19816,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSERKc.
 113:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #31
   call void @llvm.experimental.noalias.scope.decl(metadata !723)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 48, i1 false), !alias.scope !723
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false), !alias.scope !723
   %114 = load i64, ptr %8, align 8, !tbaa !722, !noalias !723
   %115 = udiv i64 %114, 3600
   %116 = urem i64 %115, 24
@@ -19876,7 +19876,7 @@ _ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEE
 144:                                              ; preds = %49
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #31
   call void @llvm.experimental.noalias.scope.decl(metadata !730)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 48, i1 false), !alias.scope !730
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !alias.scope !730
   %145 = load i64, ptr %8, align 8, !tbaa !722, !noalias !730
   %146 = udiv i64 %145, 3600
   %147 = urem i64 %146, 24

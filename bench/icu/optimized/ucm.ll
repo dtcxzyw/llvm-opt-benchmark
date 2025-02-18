@@ -3383,7 +3383,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132192) %2, i8 0, i64 132176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132176) %2, i8 0, i64 132176, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @uprv_malloc_75(i64 noundef 64) #16
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %ucm_openTable.exit

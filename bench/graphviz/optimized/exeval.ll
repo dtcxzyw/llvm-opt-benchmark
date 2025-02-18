@@ -3921,7 +3921,7 @@ define internal fastcc range(i32 -1, 1) i32 @print(ptr noundef %0, ptr noundef n
 20:                                               ; preds = %13, %17, %4
   %.029 = phi ptr [ %3, %4 ], [ %16, %13 ], [ %18, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %21, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, i8 0, i64 96, i1 false)
   store ptr @prformat, ptr %5, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %0, ptr %22, align 8, !tbaa !87
@@ -4037,7 +4037,7 @@ define internal fastcc i32 @scan(ptr noundef %0, ptr noundef nonnull readonly ca
   %.sroa.04.0 = phi ptr [ %8, %7 ], [ %.sroa.04.1, %16 ], [ %.sroa.04.1, %20 ]
   %.030 = phi ptr [ null, %7 ], [ %19, %16 ], [ %21, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %24, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, i8 0, i64 80, i1 false)
   store ptr @scformat, ptr %4, align 8, !tbaa !83
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %0, ptr %25, align 8, !tbaa !87

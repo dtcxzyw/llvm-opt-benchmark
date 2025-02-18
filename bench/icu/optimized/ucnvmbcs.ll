@@ -4778,7 +4778,7 @@ if.end30:                                         ; preds = %if.then29, %if.end2
 
 if.then34:                                        ; preds = %if.end30
   %10 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %extIndexes36 = getelementptr inbounds nuw i8, ptr %sharedData, i64 288
   %11 = load ptr, ptr %extIndexes36, align 8
   %cmp37 = icmp eq ptr %11, null

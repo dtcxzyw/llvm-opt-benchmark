@@ -8,7 +8,7 @@ define dso_local i32 @uv_loop_init(ptr noundef initializes((8, 848)) %loop) loca
 entry:
   %0 = load ptr, ptr %loop, align 8
   %1 = getelementptr inbounds nuw i8, ptr %loop, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %1, i8 0, i64 840, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(840) %1, i8 0, i64 840, i1 false)
   store ptr %0, ptr %loop, align 8
   %call = tail call ptr @uv__calloc(i64 noundef 1, i64 noundef 480) #4
   %cmp = icmp eq ptr %call, null

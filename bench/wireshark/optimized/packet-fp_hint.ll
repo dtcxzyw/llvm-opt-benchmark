@@ -607,7 +607,7 @@ attach_info.exit:                                 ; preds = %assign_fph_pch.exit
   %256 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %255)
   %257 = add i16 %8, 8
   %258 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %258, i8 noundef 0, i64 noundef 24, i1 noundef false) #5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %258, i8 noundef 0, i64 noundef 24, i1 noundef false) #5
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 2, ptr %259, align 4
   store i32 4, ptr %5, align 4

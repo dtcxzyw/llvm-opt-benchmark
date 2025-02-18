@@ -1526,7 +1526,7 @@ sub_1:                                            ; preds = %sub_0
   %276 = add i32 %275, 2
   call void @trace_probe_log_set_index(i32 noundef %276) #13
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %269, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %269, i8 0, i64 64, i1 false)
   %277 = load ptr, ptr %261, align 8
   store ptr %277, ptr %3, align 8
   store i32 10, ptr %262, align 8

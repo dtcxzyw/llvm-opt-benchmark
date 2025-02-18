@@ -169,7 +169,7 @@ define dso_local noundef i32 @cmd_mktree(i32 noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %54, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %54, i8 0, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #11
   %71 = call i64 @strtoul(ptr noundef nonnull %61, ptr noundef nonnull %6, i32 noundef 8) #11
   %72 = trunc i64 %71 to i32

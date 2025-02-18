@@ -4187,7 +4187,7 @@ _ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit: ; preds = %_ZN3vcg4Box3IfE3A
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 976
   tail call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %55, ptr noundef nonnull align 4 dereferenceable(64) %2)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %2, align 4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store float 1.000000e+00, ptr %57, align 8
@@ -5234,7 +5234,7 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
   %46 = fdiv double 1.000000e+00, %45
   %47 = fptrunc double %46 to float
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %48, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %48, i8 0, i64 56, i1 false)
   store float %47, ptr %16, align 4
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store float %47, ptr %49, align 4
@@ -5245,7 +5245,7 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
   %52 = fdiv double 1.000000e+00, %46
   %53 = fptrunc double %52 to float
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %54, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %54, i8 0, i64 56, i1 false)
   store float %53, ptr %15, align 4
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float %53, ptr %55, align 4
@@ -5254,7 +5254,7 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 60
   store float 1.000000e+00, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %58, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %58, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %17, align 4
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store float 1.000000e+00, ptr %59, align 4
@@ -5265,7 +5265,7 @@ define void @_ZN16CubizationPlugin11applyFilterB5cxx11EPK7QActionRK17RichParamet
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store float 0.000000e+00, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %63, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %63, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %18, align 4
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store float 1.000000e+00, ptr %64, align 4

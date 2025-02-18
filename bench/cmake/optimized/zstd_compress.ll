@@ -6491,7 +6491,7 @@ define dso_local void @ZSTD_CCtx_trace(ptr noundef %0, i64 noundef %1) local_unn
   %20 = phi i32 [ 1, %11 ], [ 1, %8 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store i32 10505, ptr %3, align 8, !tbaa !287
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %20, ptr %22, align 4, !tbaa !292
@@ -6673,7 +6673,7 @@ ZSTD_writeEpilogue.exit:                          ; preds = %44, %.thread76.i
   %81 = phi i32 [ 1, %72 ], [ 1, %69 ], [ %79, %75 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 56, i1 false)
   store i32 10505, ptr %6, align 8, !tbaa !287
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %81, ptr %83, align 4, !tbaa !292
@@ -14487,7 +14487,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
 82:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %83, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %85 = load i32, ptr %84, align 8, !tbaa !337
   %.not142 = icmp eq i32 %85, 0

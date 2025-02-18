@@ -1027,7 +1027,7 @@ cond.end:                                         ; preds = %if.end11, %cond.tru
   store i32 %cond, ptr %m_dither, align 8
   %m_rla = getelementptr inbounds nuw i8, ptr %this, i64 208
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(740) %8, i8 0, i64 724, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(724) %8, i8 0, i64 724, i1 false)
   %full_x = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load i32, ptr %full_x, align 8
   %conv = trunc i32 %9 to i16

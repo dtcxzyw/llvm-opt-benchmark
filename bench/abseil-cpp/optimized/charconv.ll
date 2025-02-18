@@ -1613,7 +1613,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEm
   store i32 %15, ptr %6, align 4, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(336) %17, i8 0, i64 328, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %17, i8 0, i64 328, i1 false)
   %18 = trunc i64 %10 to i32
   store i32 %18, ptr %16, align 4, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -133,7 +133,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   store ptr %16, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %17, i8 noundef 0, i64 noundef 22, i1 noundef false) #5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %17, i8 noundef 0, i64 noundef 22, i1 noundef false) #5
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %18, align 1, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12

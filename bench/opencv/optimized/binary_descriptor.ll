@@ -10608,7 +10608,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit303:                 ; preds = %.loopexit422, %.loo
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 24
   store ptr %435, ptr %125, align 8
   %436 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %436, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %436, i8 0, i64 16, i1 false)
   store ptr %435, ptr %124, align 8
   store double %401, ptr %434, align 8
   %437 = load double, ptr %96, align 8

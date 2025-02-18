@@ -188,7 +188,7 @@ Abc_Clock.exit87:                                 ; preds = %51, %59
   %91 = getelementptr inbounds nuw i8, ptr %calloc, i64 152
   store ptr %90, ptr %91, align 8, !tbaa !38
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %92, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %92, i8 0, i64 248, i1 false)
   store i32 -1, ptr %90, align 8, !tbaa !39
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 32, ptr %93, align 4

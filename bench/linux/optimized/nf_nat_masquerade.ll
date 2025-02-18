@@ -126,7 +126,7 @@ define dso_local i32 @nf_nat_masquerade_ipv4(ptr noundef readonly captures(none)
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %55, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, i8 0, i64 28, i1 false)
   %56 = load i32, ptr %2, align 4
   %57 = or i32 %56, 1
   store i32 %57, ptr %5, align 4
@@ -629,7 +629,7 @@ define internal noundef i32 @masq_inet_event(ptr readnone captures(none) %0, i64
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, i8 0, i64 12, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %4, align 4

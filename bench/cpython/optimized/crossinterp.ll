@@ -1741,7 +1741,7 @@ _xidata_clear.exit:                               ; preds = %9, %12, %14, %17
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyXIData_Init(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr %2, ptr %0, align 8, !tbaa !121
@@ -1784,7 +1784,7 @@ declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_PyXIData_InitWithSize(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr null, ptr %0, align 8, !tbaa !121
@@ -6300,7 +6300,7 @@ define internal noundef i32 @_none_shared(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !129
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr null, ptr %2, align 8, !tbaa !121
@@ -6349,7 +6349,7 @@ define internal range(i32 -1, 1) i32 @_long_shared(ptr noundef readonly captures
   %15 = load ptr, ptr %14, align 8, !tbaa !129
   %16 = inttoptr i64 %4 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %18, align 8, !tbaa !124
   store ptr %16, ptr %2, align 8, !tbaa !121
@@ -6377,7 +6377,7 @@ define internal range(i32 -1, 1) i32 @_bytes_shared(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !129
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr null, ptr %2, align 8, !tbaa !121
@@ -6473,7 +6473,7 @@ define internal range(i32 -1, 1) i32 @_str_shared(ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !129
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr null, ptr %2, align 8, !tbaa !121
@@ -6560,7 +6560,7 @@ define internal noundef i32 @_bool_shared(ptr noundef readonly captures(none) %0
   %7 = zext i1 %6 to i64
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %10, align 8, !tbaa !124
   store ptr %8, ptr %2, align 8, !tbaa !121
@@ -6584,7 +6584,7 @@ define internal range(i32 -1, 1) i32 @_float_shared(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !129
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %7, align 8, !tbaa !124
   store ptr null, ptr %2, align 8, !tbaa !121
@@ -6718,7 +6718,7 @@ _Py_EnterRecursiveCallTstate.exit.thread:         ; preds = %_PyXIData_New.exit,
 ._crit_edge:                                      ; preds = %43, %.preheader
   %49 = load ptr, ptr %5, align 8, !tbaa !129
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %51, align 8, !tbaa !124
   store ptr %16, ptr %2, align 8, !tbaa !121

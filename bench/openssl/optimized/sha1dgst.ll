@@ -259,7 +259,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @SHA1_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %2, i8 0, i64 76, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   store i32 1732584193, ptr %0, align 4, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4, !tbaa !12
@@ -414,7 +414,7 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
 SHA1_Update.exit48:                               ; preds = %52, %64, %.thread62
   %67 = call i32 @SHA1_Final(ptr noundef nonnull %6, ptr noundef nonnull %0)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %68, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %68, i8 0, i64 64, i1 false)
   store i32 1732584193, ptr %0, align 4, !tbaa !11
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %69, align 4, !tbaa !12
@@ -438,7 +438,7 @@ SHA1_Update.exit48:                               ; preds = %52, %64, %.thread62
   call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef nonnull %74, i64 noundef 1) #6
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %77, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %77, i8 0, i64 20, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 24, ptr %18, align 4, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %78, ptr noundef nonnull align 16 dereferenceable(24) %76, i64 24, i1 false)

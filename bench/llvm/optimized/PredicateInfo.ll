@@ -1243,7 +1243,7 @@ _ZN4llvm15SmallVectorImplINS_20PredicateInfoBuilder9ValueInfoEE7reserveEm.exit.i
 .lr.ph.i.i2:                                      ; preds = %.lr.ph.i.i2, %.lr.ph.preheader.i.i
   %.012.i.i = phi ptr [ %49, %.lr.ph.i.i2 ], [ %45, %.lr.ph.preheader.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   store ptr %46, ptr %.012.i.i, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   store i32 0, ptr %47, align 8, !tbaa !26
@@ -1621,7 +1621,7 @@ _ZN4llvm15SmallVectorImplINS_20PredicateInfoBuilder9ValueInfoEE7reserveEm.exit.i
 .lr.ph.i.i2.i:                                    ; preds = %.lr.ph.i.i2.i, %.lr.ph.preheader.i.i.i
   %.012.i.i.i = phi ptr [ %171, %.lr.ph.i.i2.i ], [ %167, %.lr.ph.preheader.i.i.i ]
   %168 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %168, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %168, i8 0, i64 32, i1 false)
   store ptr %168, ptr %.012.i.i.i, align 8, !tbaa !25
   %169 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   store i32 0, ptr %169, align 8, !tbaa !26
@@ -2278,7 +2278,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_20PredicateInfoBuilder9ValueInfoELb0EE4grow
 .lr.ph.i.i2.i:                                    ; preds = %.lr.ph.i.i2.i, %.lr.ph.preheader.i.i.i
   %.012.i.i.i = phi ptr [ %246, %.lr.ph.i.i2.i ], [ %242, %.lr.ph.preheader.i.i.i ]
   %243 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %243, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %243, i8 0, i64 32, i1 false)
   store ptr %243, ptr %.012.i.i.i, align 8, !tbaa !25
   %244 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   store i32 0, ptr %244, align 8, !tbaa !26
@@ -3619,7 +3619,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_15DomTreeNodeBaseINS_10Basic
   store ptr %14, ptr %11, align 8, !tbaa !248, !alias.scope !299
   store ptr %14, ptr %12, align 8, !tbaa !252, !alias.scope !299
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !305
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !305
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !305
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4989,7 +4989,7 @@ define dso_local void @_ZN4llvm13PredicateInfoC2ERNS_8FunctionERNS_13DominatorTr
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 20, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   store ptr %27, ptr %22, align 8, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %28, align 8, !tbaa !26

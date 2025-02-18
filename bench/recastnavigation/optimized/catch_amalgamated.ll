@@ -3942,7 +3942,7 @@ _ZN5Catch9Benchmark6Detail25weighted_average_quantileEiiN9__gnu_cxx17__normal_it
   %71 = tail call double @llvm.fmuladd.f64(double %67, double 1.500000e+00, double %.0.i40)
   %72 = tail call double @llvm.fmuladd.f64(double %67, double 3.000000e+00, double %.0.i40)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %73, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, i8 0, i64 16, i1 false)
   br i1 %.not.i.i.i, label %110, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5Catch9Benchmark6Detail25weighted_average_quantileEiiN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_.exit42
@@ -35584,7 +35584,7 @@ define dso_local void @_ZN5Catch6Detail12makeEnumInfoENS_9StringRefES1_RKSt6vect
   %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #57, !noalias !452
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !noalias !452
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !noalias !452
   store ptr %8, ptr %0, align 8, !alias.scope !452
   store ptr %1, ptr %8, align 8
   store i64 %2, ptr %9, align 8
@@ -36458,7 +36458,7 @@ define dso_local void @_ZN5Catch21FatalConditionHandler15engage_platformEv(ptr n
   store i32 0, ptr %7, align 8
   %8 = call i32 @sigaltstack(ptr noundef nonnull %2, ptr noundef nonnull @_ZN5CatchL11oldSigStackE) #56
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %9, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false)
   store ptr @_ZN5CatchL12handleSignalEi, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 134217728, ptr %10, align 8
@@ -43873,7 +43873,7 @@ define dso_local void @_ZN5Catch10RunContext20invokeActiveTestCaseEv(ptr noundef
   store i32 0, ptr %9, align 8
   %10 = call i32 @sigaltstack(ptr noundef nonnull %2, ptr noundef nonnull @_ZN5CatchL11oldSigStackE) #56
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %11, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, i8 0, i64 144, i1 false)
   store ptr @_ZN5CatchL12handleSignalEi, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 134217728, ptr %12, align 8
@@ -53418,7 +53418,7 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch8Matchers7IsEmptyEv(ptr dead_on_unwind noalias writable sret(%"class.Catch::Matchers::IsEmptyMatcher") align 8 initializes((0, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #56
@@ -54311,7 +54311,7 @@ _ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit: ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch8Matchers5IsNaNEv(ptr dead_on_unwind noalias writable sret(%"class.Catch::Matchers::IsNaNMatcher") align 8 initializes((0, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #56
@@ -54422,7 +54422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch8Matchers7AllTrueEv(ptr dead_on_unwind noalias writable sret(%"class.Catch::Matchers::AllTrueMatcher") align 8 initializes((0, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #56
@@ -54469,7 +54469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch8Matchers8NoneTrueEv(ptr dead_on_unwind noalias writable sret(%"class.Catch::Matchers::NoneTrueMatcher") align 8 initializes((0, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #56
@@ -54516,7 +54516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5Catch8Matchers7AnyTrueEv(ptr dead_on_unwind noalias writable sret(%"class.Catch::Matchers::AnyTrueMatcher") align 8 initializes((0, 40)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #56

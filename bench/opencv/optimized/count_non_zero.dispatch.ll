@@ -872,7 +872,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %165 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %165, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
   store ptr %153, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 80

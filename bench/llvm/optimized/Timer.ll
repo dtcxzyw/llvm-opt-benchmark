@@ -2142,7 +2142,7 @@ _ZL10sortTimersv.exit:                            ; preds = %2, %8
 _ZN4llvm4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %30, %27, %13, %_ZL10sortTimersv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5537,7 +5537,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14object_creatorINS_12TimerGloba
   %10 = alloca i32, align 4
   %11 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #22
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(824) %12, i8 0, i64 808, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(808) %12, i8 0, i64 808, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %13, ptr %11, align 8, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8

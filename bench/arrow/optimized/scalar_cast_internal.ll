@@ -7757,7 +7757,7 @@ _ZN5arrow7compute9InputTypeD2Ev.exit:             ; preds = %_ZNSt12__shared_ptr
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #22
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %111, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, i8 0, i64 40, i1 false)
   store i8 1, ptr %110, align 8, !tbaa !338
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %112, i8 0, i64 20, i1 false)

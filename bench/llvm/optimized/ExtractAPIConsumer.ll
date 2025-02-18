@@ -8712,7 +8712,7 @@ define linkonce_odr hidden void @_ZN5clang10extractapi21MacroDefinitionRecordC2E
   %14 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %15 = alloca %"class.clang::extractapi::AccessControl", align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %16, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 88, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %17, ptr %11, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8

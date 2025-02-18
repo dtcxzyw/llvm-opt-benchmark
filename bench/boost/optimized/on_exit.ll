@@ -158362,7 +158362,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
 35:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #62
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %36, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, i8 0, i64 144, i1 false)
   store ptr @boost_asio_signal_handler, ptr %7, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = call i32 @sigfillset(ptr noundef nonnull %37) #62
@@ -158469,7 +158469,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
 74:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #62
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %75, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %75, i8 0, i64 144, i1 false)
   store ptr @boost_asio_signal_handler, ptr %8, align 8, !tbaa !24
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %77 = call i32 @sigfillset(ptr noundef nonnull %76) #62

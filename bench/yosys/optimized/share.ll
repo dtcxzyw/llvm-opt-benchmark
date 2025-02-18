@@ -119377,7 +119377,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit340:             ; preds = %_ZN5Yosys5RTLIL7Sig
 
 622:                                              ; preds = %508, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit340, %391
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %371, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %381, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %381, i8 0, i64 52, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 16, i1 false)
   %623 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %372, ptr noundef nonnull align 8 dereferenceable(24) %341)
           to label %.noexc341 unwind label %667
@@ -120370,7 +120370,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit458:             ; preds = %_ZN5Yosys5RTLIL7Sig
 
 954:                                              ; preds = %840, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit458, %723
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %703, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %713, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %713, i8 0, i64 52, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 16, i1 false)
   %955 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(24) %673)
           to label %.noexc459 unwind label %999
@@ -124166,7 +124166,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit174:             ; preds = %298, %303, %310
   %340 = getelementptr inbounds nuw i8, ptr %45, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %340, i8 0, i64 56, i1 false)
   %341 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %341, i8 0, i64 52, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %341, i8 0, i64 52, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 16, i1 false)
   %342 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %343 = getelementptr inbounds nuw i8, ptr %13, i64 16

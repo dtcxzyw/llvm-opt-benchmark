@@ -10763,7 +10763,7 @@ define hidden void @_ZN48ranges_test_tuple_parse_calls_element_parse_Test8TestBo
   %5 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #31
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %2, align 8, !tbaa !223
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -41796,7 +41796,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.314", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -41806,7 +41806,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -42585,7 +42585,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.328", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -42595,7 +42595,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -44568,7 +44568,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.342", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -44578,7 +44578,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -54611,7 +54611,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter.374", align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -54621,7 +54621,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %8, align 4, !tbaa !240
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 32768, ptr %9, align 8, !tbaa !238
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i8 32, ptr %11, align 4, !tbaa !23
@@ -54631,7 +54631,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %12, align 4, !tbaa !240
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   store i32 32768, ptr %13, align 8, !tbaa !238
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i8 32, ptr %15, align 4, !tbaa !23
@@ -54641,7 +54641,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %16, align 4, !tbaa !240
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   store i32 32768, ptr %17, align 8, !tbaa !238
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 148
   store i8 32, ptr %19, align 4, !tbaa !23
@@ -55802,7 +55802,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.385", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -55812,7 +55812,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -56345,7 +56345,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.390", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -56665,7 +56665,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.392", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -57861,7 +57861,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.400", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -58009,7 +58009,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.401", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -58271,7 +58271,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.404", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -58633,7 +58633,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.408", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -58781,7 +58781,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.409", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -58940,7 +58940,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.410", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -59236,7 +59236,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -59246,7 +59246,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %11, align 4, !tbaa !240
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store i32 32768, ptr %12, align 8, !tbaa !238
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i8 32, ptr %14, align 4, !tbaa !23
@@ -59419,7 +59419,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %7, align 4, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 32768, ptr %8, align 8, !tbaa !238
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i8 32, ptr %10, align 4, !tbaa !23
@@ -59769,7 +59769,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %8, align 4, !tbaa !240
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 32768, ptr %9, align 8, !tbaa !238
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i8 32, ptr %11, align 4, !tbaa !23
@@ -59917,7 +59917,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.438", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -60464,7 +60464,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.440", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -60628,7 +60628,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.441", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -60777,7 +60777,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.442", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -61927,7 +61927,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter.449", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -62344,7 +62344,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter.452", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -62391,7 +62391,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter.453", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -62788,7 +62788,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %5 = alloca %"struct.fmt::v11::formatter.456", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -63187,7 +63187,7 @@ define internal void @_ZN3fmt3v116detail5valueINS0_7contextEE13format_customIZN3
   %5 = alloca %"struct.fmt::v11::formatter.459", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 32768, ptr %5, align 8, !tbaa !238
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 32, ptr %7, align 4, !tbaa !23
@@ -63244,7 +63244,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   store i32 -1, ptr %8, align 4, !tbaa !240
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 32768, ptr %9, align 8, !tbaa !238
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i8 32, ptr %11, align 4, !tbaa !23
@@ -66427,7 +66427,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.478", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23
@@ -66758,7 +66758,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail5valueINS0_7contextEE13format
   %4 = alloca %"struct.fmt::v11::formatter.479", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 32768, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 32, ptr %6, align 4, !tbaa !23

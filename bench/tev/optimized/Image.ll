@@ -23433,7 +23433,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev4TaskIvEEEEEENS_19__
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %34 = load i64, ptr %1, align 8
   store i64 %34, ptr %27, align 8
   store ptr null, ptr %1, align 8
@@ -25166,7 +25166,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev7ChannelEEEEENS_19__
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %54 = load ptr, ptr %50, align 8
   store ptr %54, ptr %49, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 40
@@ -27938,7 +27938,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5
 
 148:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000ERKS5_.exit53
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 16, i1 false), !alias.scope !676
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false), !alias.scope !676
   store i8 14, ptr %15, align 8, !alias.scope !676
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %150, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN4tlog4ansiL20ERASE_TO_END_OF_LINEE, i64 1), i64 3, i1 false)
@@ -31272,7 +31272,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE9constructB8ne19000
   %57 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr %56, align 8
   store ptr %60, ptr %55, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16

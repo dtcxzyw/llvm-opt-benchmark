@@ -4619,7 +4619,7 @@ define internal fastcc void @_ZL15setupBufferTypePN5clang13CXXRecordDeclERNS_4Se
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 36, i1 false)
   store i32 16, ptr %14, align 4, !tbaa !1163
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %2, ptr %16, align 8, !tbaa !1164

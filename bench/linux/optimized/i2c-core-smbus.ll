@@ -1152,7 +1152,7 @@ define dso_local i32 @i2c_smbus_write_word_data(ptr noundef readonly captures(no
   %4 = alloca %union.i2c_smbus_data, align 2
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %5, i8 0, i64 32, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !14
   store i16 %2, ptr %4, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8

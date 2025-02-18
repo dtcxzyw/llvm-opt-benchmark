@@ -1268,7 +1268,7 @@ lpad:                                             ; preds = %entry
 
 call2.i.noexc65:                                  ; preds = %call2.i.noexc65.lr.ph, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit
   %__begin3.sroa.0.032 = phi ptr [ %0, %call2.i.noexc65.lr.ph ], [ %incdec.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, i8 0, i64 200, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %5, i8 0, i64 200, i1 false)
   store ptr %_M_single_bucket.i.i.i, ptr %ref.tmp6, align 8
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
@@ -1590,7 +1590,7 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !23
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 56, i1 false), !noalias !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false), !noalias !23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !23
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE0EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -1715,7 +1715,7 @@ call5.i.i.i3.i.i.i.i.i65.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i65.i5, align 8, !noalias !33
   %_M_impl.i.i.i.i.i.i.i68.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i65.i5, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i65.i5, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 56, i1 false), !noalias !33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, i8 0, i64 56, i1 false), !noalias !33
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i68.i, align 8, !noalias !33
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE3EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -1834,7 +1834,7 @@ call5.i.i.i3.i.i.i.i.i112.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i112.i7, align 8, !noalias !43
   %_M_impl.i.i.i.i.i.i.i115.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i112.i7, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i112.i7, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, i8 0, i64 56, i1 false), !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 56, i1 false), !noalias !43
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i115.i, align 8, !noalias !43
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE1EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -1953,7 +1953,7 @@ call5.i.i.i3.i.i.i.i.i159.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i159.i9, align 8, !noalias !53
   %_M_impl.i.i.i.i.i.i.i162.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i159.i9, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i159.i9, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, i8 0, i64 56, i1 false), !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 56, i1 false), !noalias !53
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i162.i, align 8, !noalias !53
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE2EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2072,7 +2072,7 @@ call5.i.i.i3.i.i.i.i.i206.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i206.i11, align 8, !noalias !63
   %_M_impl.i.i.i.i.i.i.i209.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i206.i11, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i206.i11, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %61, i8 0, i64 56, i1 false), !noalias !63
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 56, i1 false), !noalias !63
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i209.i, align 8, !noalias !63
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE4EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2191,7 +2191,7 @@ call5.i.i.i3.i.i.i.i.i253.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i253.i13, align 8, !noalias !73
   %_M_impl.i.i.i.i.i.i.i256.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i253.i13, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i253.i13, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, i8 0, i64 56, i1 false), !noalias !73
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, i8 0, i64 56, i1 false), !noalias !73
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i256.i, align 8, !noalias !73
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE10EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2310,7 +2310,7 @@ call5.i.i.i3.i.i.i.i.i300.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i300.i15, align 8, !noalias !83
   %_M_impl.i.i.i.i.i.i.i303.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i300.i15, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i300.i15, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %85, i8 0, i64 56, i1 false), !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %85, i8 0, i64 56, i1 false), !noalias !83
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i303.i, align 8, !noalias !83
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE5EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2429,7 +2429,7 @@ call5.i.i.i3.i.i.i.i.i347.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i347.i17, align 8, !noalias !93
   %_M_impl.i.i.i.i.i.i.i350.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i347.i17, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i347.i17, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %97, i8 0, i64 56, i1 false), !noalias !93
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %97, i8 0, i64 56, i1 false), !noalias !93
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i350.i, align 8, !noalias !93
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE6EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2548,7 +2548,7 @@ call5.i.i.i3.i.i.i.i.i394.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i394.i19, align 8, !noalias !103
   %_M_impl.i.i.i.i.i.i.i397.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i394.i19, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i394.i19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %109, i8 0, i64 56, i1 false), !noalias !103
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %109, i8 0, i64 56, i1 false), !noalias !103
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i397.i, align 8, !noalias !103
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE7EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2667,7 +2667,7 @@ call5.i.i.i3.i.i.i.i.i444.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i444.i21, align 8, !noalias !113
   %_M_impl.i.i.i.i.i.i.i447.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i444.i21, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i444.i21, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %121, i8 0, i64 56, i1 false), !noalias !113
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %121, i8 0, i64 56, i1 false), !noalias !113
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i447.i, align 8, !noalias !113
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE8EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -2786,7 +2786,7 @@ call5.i.i.i3.i.i.i.i.i491.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i491.i23, align 8, !noalias !123
   %_M_impl.i.i.i.i.i.i.i494.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i491.i23, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i491.i23, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %133, i8 0, i64 56, i1 false), !noalias !123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %133, i8 0, i64 56, i1 false), !noalias !123
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i494.i, align 8, !noalias !123
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE9EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i
 
@@ -3444,7 +3444,7 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !139
   %_M_impl.i.i.i.i.i.i16.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 48, i1 false), !noalias !139
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false), !noalias !139
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !139
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -3554,7 +3554,7 @@ call5.i.i.i3.i.i.i.i.i58.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !149
   %_M_impl.i.i.i.i.i.i16.i61.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 48, i1 false), !noalias !149
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false), !noalias !149
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !149
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -3664,7 +3664,7 @@ call5.i.i.i3.i.i.i.i.i98.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !159
   %_M_impl.i.i.i.i.i.i16.i101.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, i8 0, i64 48, i1 false), !noalias !159
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false), !noalias !159
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !159
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -3774,7 +3774,7 @@ call5.i.i.i3.i.i.i.i.i138.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !169
   %_M_impl.i.i.i.i.i.i16.i141.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 48, i1 false), !noalias !169
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, i8 0, i64 48, i1 false), !noalias !169
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !169
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -3884,7 +3884,7 @@ call5.i.i.i3.i.i.i.i.i178.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !179
   %_M_impl.i.i.i.i.i.i16.i181.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, i8 0, i64 48, i1 false), !noalias !179
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, i8 0, i64 48, i1 false), !noalias !179
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !179
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -3994,7 +3994,7 @@ call5.i.i.i3.i.i.i.i.i218.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !189
   %_M_impl.i.i.i.i.i.i16.i221.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 48, i1 false), !noalias !189
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, i8 0, i64 48, i1 false), !noalias !189
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !189
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -4104,7 +4104,7 @@ call5.i.i.i3.i.i.i.i.i258.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !199
   %_M_impl.i.i.i.i.i.i16.i261.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %86, i8 0, i64 48, i1 false), !noalias !199
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, i8 0, i64 48, i1 false), !noalias !199
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !199
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -4214,7 +4214,7 @@ call5.i.i.i3.i.i.i.i.i298.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !209
   %_M_impl.i.i.i.i.i.i16.i301.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %97, i8 0, i64 48, i1 false), !noalias !209
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %97, i8 0, i64 48, i1 false), !noalias !209
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !209
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -4324,7 +4324,7 @@ call5.i.i.i3.i.i.i.i.i338.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !219
   %_M_impl.i.i.i.i.i.i16.i341.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 48, i1 false), !noalias !219
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %108, i8 0, i64 48, i1 false), !noalias !219
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !219
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -4434,7 +4434,7 @@ call5.i.i.i3.i.i.i.i.i381.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !229
   %_M_impl.i.i.i.i.i.i16.i384.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 48, i1 false), !noalias !229
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %119, i8 0, i64 48, i1 false), !noalias !229
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !229
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -4544,7 +4544,7 @@ call5.i.i.i3.i.i.i.i.i421.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !239
   %_M_impl.i.i.i.i.i.i16.i424.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %130, i8 0, i64 48, i1 false), !noalias !239
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %130, i8 0, i64 48, i1 false), !noalias !239
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !239
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb1ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5022,7 +5022,7 @@ call5.i.i.i3.i.i.i.i.i.i.noexc:                   ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i.i4, align 8, !noalias !252
   %_M_impl.i.i.i.i.i.i16.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i4, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 48, i1 false), !noalias !252
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false), !noalias !252
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i.i, align 8, !noalias !252
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE0EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5132,7 +5132,7 @@ call5.i.i.i3.i.i.i.i.i58.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i58.i6, align 8, !noalias !262
   %_M_impl.i.i.i.i.i.i16.i61.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i58.i6, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 48, i1 false), !noalias !262
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false), !noalias !262
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i61.i, align 8, !noalias !262
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE3EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5242,7 +5242,7 @@ call5.i.i.i3.i.i.i.i.i98.i.noexc:                 ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i98.i8, align 8, !noalias !272
   %_M_impl.i.i.i.i.i.i16.i101.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i98.i8, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, i8 0, i64 48, i1 false), !noalias !272
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false), !noalias !272
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i101.i, align 8, !noalias !272
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE1EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5352,7 +5352,7 @@ call5.i.i.i3.i.i.i.i.i138.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i138.i10, align 8, !noalias !282
   %_M_impl.i.i.i.i.i.i16.i141.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i138.i10, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 48, i1 false), !noalias !282
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, i8 0, i64 48, i1 false), !noalias !282
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i141.i, align 8, !noalias !282
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE2EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5462,7 +5462,7 @@ call5.i.i.i3.i.i.i.i.i178.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i178.i12, align 8, !noalias !292
   %_M_impl.i.i.i.i.i.i16.i181.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i178.i12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, i8 0, i64 48, i1 false), !noalias !292
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, i8 0, i64 48, i1 false), !noalias !292
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i181.i, align 8, !noalias !292
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE4EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5572,7 +5572,7 @@ call5.i.i.i3.i.i.i.i.i218.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i218.i14, align 8, !noalias !302
   %_M_impl.i.i.i.i.i.i16.i221.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i218.i14, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 48, i1 false), !noalias !302
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, i8 0, i64 48, i1 false), !noalias !302
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i221.i, align 8, !noalias !302
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE10EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5682,7 +5682,7 @@ call5.i.i.i3.i.i.i.i.i258.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i258.i16, align 8, !noalias !312
   %_M_impl.i.i.i.i.i.i16.i261.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i258.i16, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %86, i8 0, i64 48, i1 false), !noalias !312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, i8 0, i64 48, i1 false), !noalias !312
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i261.i, align 8, !noalias !312
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE5EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5792,7 +5792,7 @@ call5.i.i.i3.i.i.i.i.i298.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i298.i18, align 8, !noalias !322
   %_M_impl.i.i.i.i.i.i16.i301.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i298.i18, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %97, i8 0, i64 48, i1 false), !noalias !322
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %97, i8 0, i64 48, i1 false), !noalias !322
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i301.i, align 8, !noalias !322
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE6EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -5902,7 +5902,7 @@ call5.i.i.i3.i.i.i.i.i338.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i338.i20, align 8, !noalias !332
   %_M_impl.i.i.i.i.i.i16.i341.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i338.i20, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 48, i1 false), !noalias !332
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %108, i8 0, i64 48, i1 false), !noalias !332
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i341.i, align 8, !noalias !332
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE7EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -6012,7 +6012,7 @@ call5.i.i.i3.i.i.i.i.i381.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i381.i22, align 8, !noalias !342
   %_M_impl.i.i.i.i.i.i16.i384.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i381.i22, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 48, i1 false), !noalias !342
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %119, i8 0, i64 48, i1 false), !noalias !342
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i384.i, align 8, !noalias !342
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE8EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 
@@ -6122,7 +6122,7 @@ call5.i.i.i3.i.i.i.i.i421.i.noexc:                ; preds = %_ZNSt10shared_ptrIN
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i421.i24, align 8, !noalias !352
   %_M_impl.i.i.i.i.i.i16.i424.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 16
   %130 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i421.i24, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %130, i8 0, i64 48, i1 false), !noalias !352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %130, i8 0, i64 48, i1 false), !noalias !352
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %_M_impl.i.i.i.i.i.i16.i424.i, align 8, !noalias !352
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_132createTypedArraysIntersectExceptILb0ELNS0_8TypeKindE9EEESt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISA_EE.exit.i
 

@@ -1701,7 +1701,7 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 596:                                              ; preds = %._crit_edge235
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %597, i8 0, i64 64, i1 false), !alias.scope !357
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %597, i8 0, i64 64, i1 false), !alias.scope !357
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %599
 

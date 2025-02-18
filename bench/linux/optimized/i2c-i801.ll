@@ -607,7 +607,7 @@ i801_acpi_remove.exit:                            ; preds = %96, %105
 
 225:                                              ; preds = %219
   %226 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %226, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %226, i8 0, i64 112, i1 false)
   %227 = load i32, ptr %6, align 4
   %228 = and i32 %227, -2
   %229 = zext i32 %228 to i64
@@ -626,7 +626,7 @@ i801_acpi_remove.exit:                            ; preds = %96, %105
   %237 = getelementptr inbounds nuw i8, ptr %216, i64 184
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #15
   %238 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %238, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %238, i8 0, i64 40, i1 false), !annotation !14
   store ptr %237, ptr %4, align 8
   %239 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %239, align 8
@@ -675,7 +675,7 @@ i801_acpi_remove.exit:                            ; preds = %96, %105
   %266 = getelementptr inbounds nuw i8, ptr %216, i64 184
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #15
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %267, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %267, i8 0, i64 40, i1 false), !annotation !14
   store ptr %266, ptr %3, align 8
   %268 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %268, align 8

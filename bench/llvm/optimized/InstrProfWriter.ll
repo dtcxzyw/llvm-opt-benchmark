@@ -5579,7 +5579,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
   store i64 -9121646941414855425, ptr %60, align 8, !tbaa !359
   %162 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %163 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %163, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %163, i8 0, i64 56, i1 false)
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 5288
   %165 = load i8, ptr %164, align 8, !tbaa !66, !range !186, !noundef !187
   %166 = trunc nuw i8 %165 to i1

@@ -314,7 +314,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef captures(address_is_
   %4 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %3) #9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(70) %5, i8 0, i64 22, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %5, i8 0, i64 22, i1 false)
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7

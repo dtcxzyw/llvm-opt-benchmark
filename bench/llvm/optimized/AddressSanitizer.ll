@@ -6757,7 +6757,7 @@ _ZN4llvm17PreservedAnalyses7abandonINS_9GlobalsAAEEEvv.exit: ; preds = %898, %89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183)
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %901, i8 0, i64 64, i1 false), !alias.scope !348
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %901, i8 0, i64 64, i1 false), !alias.scope !348
   %902 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %902, ptr %0, align 8, !tbaa !28, !alias.scope !348
   %903 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27195,7 +27195,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_10BasicBlockEEENS_14iterator
   store ptr %14, ptr %11, align 8, !tbaa !797, !alias.scope !978
   store ptr %14, ptr %12, align 8, !tbaa !801, !alias.scope !978
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 72, i1 false), !alias.scope !984
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false), !alias.scope !984
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %4, align 8, !tbaa !28, !alias.scope !984
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8

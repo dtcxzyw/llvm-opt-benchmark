@@ -1638,7 +1638,7 @@ define internal fastcc noundef i32 @_ZL19GetRandomNumberSeedv() unnamed_addr #0 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 112, i1 false)
   store i64 -49064778989728563, ptr %11, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 %9, ptr %1, align 8

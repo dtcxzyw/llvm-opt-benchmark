@@ -5719,7 +5719,7 @@ invoke.cont44:                                    ; preds = %lor.end
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #30
   %11 = load i64, ptr %t.i.i.i, align 8
@@ -6418,7 +6418,7 @@ invoke.cont269:                                   ; preds = %if.then239, %invoke
   store i8 0, ptr %m_printdtr.i187, align 1
   %m_starttime.i188 = getelementptr inbounds nuw i8, ptr %timer268, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %timer268, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i186)
   %call.i.i.i189 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i186) #30
   %120 = load i64, ptr %t.i.i.i186, align 8
@@ -8211,7 +8211,7 @@ invoke.cont218:                                   ; preds = %if.end32
   store i8 0, ptr %m_printdtr.i, align 1
   %m_starttime.i = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %timer, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
   %call.i.i.i121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #30
   %91 = load i64, ptr %t.i.i.i, align 8

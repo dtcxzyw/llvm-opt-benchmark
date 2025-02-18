@@ -2232,7 +2232,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call5 = tail call noundef nonnull align 8 dereferenceable(992) ptr @_ZN4node4quic11BindingData3GetEPNS_11EnvironmentE(ptr noundef %env) #29
   store ptr %value.coerce, ptr %params, align 8
   %5 = getelementptr inbounds nuw i8, ptr %options, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %5, i8 0, i64 752, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(752) %5, i8 0, i64 752, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic7Session7OptionsE, i64 16), ptr %options, align 8
   %version.i = getelementptr inbounds nuw i8, ptr %options, i64 8
   store i32 1, ptr %version.i, align 8

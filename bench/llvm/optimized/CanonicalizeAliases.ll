@@ -76,7 +76,7 @@ _ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit: ; preds = %.lr.ph.i
 
 25:                                               ; preds = %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %26, i8 0, i64 64, i1 false), !alias.scope !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false), !alias.scope !26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %27, ptr %0, align 8, !tbaa !12, !alias.scope !26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8

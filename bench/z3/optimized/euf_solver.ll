@@ -804,7 +804,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont74
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store i64 %10, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
@@ -847,7 +847,7 @@ if.then.i.i.i46:                                  ; preds = %if.then.i.i.i, %if.
   %_M_manager.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i41, i64 16
   %_M_invoker.i.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i41, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i41, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i64 %10, ptr %ref.tmp.i.i41, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i41, i64 16, i1 false)
@@ -5226,7 +5226,7 @@ if.then.i.i.i:                                    ; preds = %_Z7deallocIN3euf8ac
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 %4, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
@@ -5262,7 +5262,7 @@ if.then.i.i.i9:                                   ; preds = %if.then.i.i.i, %if.
   %_M_manager.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i4, i64 16
   %_M_invoker.i.i.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i4, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i64 %4, ptr %ref.tmp.i.i4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i4, i64 16, i1 false)

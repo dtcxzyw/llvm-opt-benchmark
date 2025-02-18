@@ -2941,7 +2941,7 @@ define linkonce_odr void @_ZN4dmlc9parameter21ParamManagerSingletonIN7xgboost23L
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %13, i8 0, i64 132, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %13, i8 0, i64 132, i1 false)
   store float 5.000000e-01, ptr %5, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 1, ptr %14, align 4
@@ -19621,7 +19621,7 @@ _ZN7xgboost7LearnerC2Ev.exit:                     ; preds = %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %44, i8 0, i64 132, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %44, i8 0, i64 132, i1 false)
   store float 5.000000e-01, ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 468
   store i32 1, ptr %45, align 4

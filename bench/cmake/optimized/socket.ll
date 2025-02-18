@@ -331,7 +331,7 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6Shared6createEPKcS3_(ptr dead
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %7, align 4, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8

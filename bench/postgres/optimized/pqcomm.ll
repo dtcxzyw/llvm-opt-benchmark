@@ -742,7 +742,7 @@ define dso_local range(i32 -1, 1) i32 @ListenServerPort(i32 noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
   store i32 1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %0, ptr %17, align 4
   store i32 1, ptr %13, align 8

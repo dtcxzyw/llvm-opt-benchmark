@@ -6882,7 +6882,7 @@ define internal fastcc void @iocg_kick_waitq(ptr noundef %0, i1 noundef zeroext 
 
 .thread:                                          ; preds = %130, %137, %134
   %145 = phi i64 [ %144, %137 ], [ %126, %134 ], [ %126, %130 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !17
   store i64 %145, ptr %9, align 8
   %146 = load ptr, ptr %5, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 368

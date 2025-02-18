@@ -31,7 +31,7 @@ define hidden noalias noundef ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #0
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %calloc, ptr %6, align 8, !tbaa !6
   tail call fastcc void @x509_verify_param_zero(ptr noundef %1)

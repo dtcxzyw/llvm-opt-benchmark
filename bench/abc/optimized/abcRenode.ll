@@ -28,7 +28,7 @@ define ptr @Abc_NtkRenode(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 15:                                               ; preds = %14, %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %16, i8 0, i64 344, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %16, i8 0, i64 344, i1 false)
   store i32 %1, ptr %12, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %2, ptr %17, align 4, !tbaa !13

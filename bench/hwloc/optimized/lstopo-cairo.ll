@@ -64,7 +64,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #13
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %0, ptr %8, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %8, ptr %14, align 8, !tbaa !12
@@ -1417,7 +1417,7 @@ define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) l
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %3, ptr %15, align 8, !tbaa !12
@@ -1544,7 +1544,7 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %3, ptr %15, align 8, !tbaa !12
@@ -1652,7 +1652,7 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %3, ptr %15, align 8, !tbaa !12
@@ -1758,7 +1758,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %3, ptr %15, align 8, !tbaa !12

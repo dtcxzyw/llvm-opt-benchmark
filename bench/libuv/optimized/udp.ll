@@ -1054,7 +1054,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsg1
   %5 = alloca %struct.msghdr, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %3, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %7, align 8
@@ -1373,7 +1373,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph64.i.i, %91, 
   br label %113
 
 94:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   store ptr %8, ptr %9, align 8
   store i32 128, ptr %18, align 8
@@ -2318,7 +2318,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv109
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
   store ptr %20, ptr %14, align 16
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %16, ptr %22, align 16

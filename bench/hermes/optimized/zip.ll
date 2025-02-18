@@ -1244,7 +1244,7 @@ define hidden range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %pDest, ptr nou
 entry:
   %stream = alloca %struct.mz_stream_s, align 8
   %0 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %1 = load i64, ptr %pDest_len, align 8
   %or = or i64 %1, %source_len
   %cmp = icmp ugt i64 %or, 4294967295
@@ -1319,7 +1319,7 @@ entry:
   %stream.i = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %stream.i)
   %0 = getelementptr inbounds nuw i8, ptr %stream.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 88, i1 false)
   %1 = load i64, ptr %pDest_len, align 8
   %or.i = or i64 %1, %source_len
   %cmp.i = icmp ugt i64 %or.i, 4294967295
@@ -4720,7 +4720,7 @@ define hidden range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %pDest, ptr no
 entry:
   %stream = alloca %struct.mz_stream_s, align 8
   %0 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %1 = load i64, ptr %pDest_len, align 8
   %or = or i64 %1, %source_len
   %cmp = icmp ugt i64 %or, 4294967295
@@ -9512,7 +9512,7 @@ if.end:                                           ; preds = %mz_zip_reader_get_c
   %conv7 = zext i16 %14 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
   %15 = getelementptr inbounds nuw i8, ptr %tm.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %tm_isdst.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 32
   store i32 -1, ptr %tm_isdst.i, align 8
   %shr.i = lshr i32 %conv7, 9

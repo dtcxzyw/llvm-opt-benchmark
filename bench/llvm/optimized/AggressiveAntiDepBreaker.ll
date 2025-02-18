@@ -6987,7 +6987,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm9BitVectorEESt10_Select
   store i32 %10, ptr %7, align 8, !tbaa !534
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store ptr %12, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %13, align 8, !tbaa !26

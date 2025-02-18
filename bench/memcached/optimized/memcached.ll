@@ -2665,7 +2665,7 @@ resp_finish.exit.i:                               ; preds = %953, %950
   br label %transmit_udp.exit
 
 955:                                              ; preds = %923
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   store ptr %2, ptr %23, align 8, !tbaa !101
   %956 = getelementptr inbounds nuw i8, ptr %922, i64 128
   store ptr %956, ptr %3, align 8, !tbaa !119

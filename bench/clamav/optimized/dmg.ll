@@ -1359,7 +1359,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
   br i1 %153, label %dmg_stripe_adc.exit, label %154
 
 154:                                              ; preds = %143
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %103, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, i8 0, i64 64, i1 false)
   %155 = load ptr, ptr %98, align 8, !tbaa !7
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 104
   %157 = load ptr, ptr %156, align 8, !tbaa !26
@@ -1481,7 +1481,7 @@ dmg_stripe_adc.exit:                              ; preds = %143, %159, %162, %1
   br i1 %200, label %dmg_stripe_inflate.exit, label %201
 
 201:                                              ; preds = %190
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %99, i8 0, i64 104, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %99, i8 0, i64 104, i1 false)
   %202 = load ptr, ptr %98, align 8, !tbaa !7
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 104
   %204 = load ptr, ptr %203, align 8, !tbaa !26

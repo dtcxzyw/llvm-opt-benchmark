@@ -43871,14 +43871,14 @@ _ZNSt4pairIPN5clang8TypoExprENS0_4Sema13TypoExprStateEEC2IRKS2_S4_TnNSt9enable_i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #27
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   %16 = load ptr, ptr %1, align 8, !tbaa !2404
   store ptr %16, ptr %5, align 8, !tbaa !2485
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store ptr null, ptr %6, align 8, !tbaa !2328
   store ptr null, ptr %17, align 8, !tbaa !2328
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -58981,7 +58981,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoENS_8SmallSetINS2_14
   store ptr %57, ptr %48, align 8, !tbaa !2191
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store ptr %59, ptr %58, align 8, !tbaa !1038
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %60, align 8, !tbaa !1050

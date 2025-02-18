@@ -766,7 +766,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   %.6443 = phi i32 [ %.7, %283 ], [ %.3488, %227 ]
   %228 = getelementptr inbounds nuw %struct.info_t, ptr %175, i64 %indvars.iv
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33368) %229, i8 0, i64 33360, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33360) %229, i8 0, i64 33360, i1 false)
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store ptr %.0191340682, ptr %230, align 8, !tbaa !34
   %231 = trunc nuw nsw i64 %indvars.iv to i32
@@ -889,8 +889,8 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   br i1 %or.cond5.not, label %.split.us, label %.critedge250.thread
 
 .critedge250.thread:                              ; preds = %._crit_edge446.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %199, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %200, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %200, i8 0, i64 32, i1 false)
   br label %363
 
 .lr.ph451.us:                                     ; preds = %._crit_edge446, %.lr.ph451.us.backedge
@@ -987,8 +987,8 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
 
 .critedge250:                                     ; preds = %313, %301, %.split.us
   %.6.lcssa693 = phi i32 [ %.6.lcssa694, %301 ], [ %.6.lcssa695697, %.split.us ], [ %.6.lcssa694, %313 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %201, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %202, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %201, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 32, i1 false)
   br i1 %186, label %.lr.ph462, label %363
 
 .lr.ph462:                                        ; preds = %.critedge250, %.lr.ph462
@@ -1465,7 +1465,7 @@ gettime_secs.exit:                                ; preds = %1
   %110 = load ptr, ptr %78, align 8, !tbaa !34
   %111 = load i32, ptr %79, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %80, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %80, i8 0, i64 12, i1 false)
   store i16 2, ptr %9, align 4, !tbaa !71
   %112 = trunc i32 %111 to i16
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %112)

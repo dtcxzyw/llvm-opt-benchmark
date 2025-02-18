@@ -1223,7 +1223,7 @@ define internal void @e100_watchdog(ptr noundef %0) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -680
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %2) #19
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 1, ptr %2, align 4
   %5 = load i32, ptr %3, align 64
   %6 = and i32 %5, 8
@@ -3897,7 +3897,7 @@ define internal noundef i32 @e100_configure(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 2, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %8, i8 0, i64 30, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %8, i8 0, i64 30, i1 false)
   store i16 2070, ptr %4, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i80 30903631872, ptr %9, align 1

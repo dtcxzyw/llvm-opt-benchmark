@@ -1608,7 +1608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %_Z
 492:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %28) #19
   %493 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %493, i8 0, i64 1012, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1012) %493, i8 0, i64 1012, i1 false)
   store i32 12, ptr %28, align 4
   %494 = getelementptr inbounds nuw i8, ptr %28, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %494, ptr noundef nonnull align 1 dereferenceable(12) @.str.2, i64 12, i1 false)

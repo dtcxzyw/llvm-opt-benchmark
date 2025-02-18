@@ -54,7 +54,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   store i32 0, ptr %3, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #11
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %20, i8 0, i64 144, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %20, i8 0, i64 144, i1 false)
   store ptr @signal_handler, ptr %4, align 8, !tbaa !11
   %21 = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %4, ptr noundef null) #11
   %22 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #11

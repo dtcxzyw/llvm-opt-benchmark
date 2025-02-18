@@ -174,7 +174,7 @@ define dso_local i32 @crypto_shash_tfm_digest(ptr noundef %0, ptr noundef %1, i3
   %5 = alloca [376 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %6, i8 0, i64 368, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %6, i8 0, i64 368, i1 false), !annotation !6
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4

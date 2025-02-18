@@ -172,7 +172,7 @@ is_specified_ip_address.exit.thread:              ; preds = %21, %is_specified_i
   %.050 = phi ptr [ null, %is_specified_ip_address.exit.thread ], [ %31, %48 ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %16) #19
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %51, i8 noundef 0, i64 noundef 136, i1 noundef false) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %51, i8 noundef 0, i64 noundef 136, i1 noundef false) #19
   store i64 %0, ptr %16, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 4, ptr %52, align 8, !tbaa !27

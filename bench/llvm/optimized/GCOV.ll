@@ -5152,7 +5152,7 @@ _ZN4llvm11max_elementIRKNS_11SmallVectorIjLj4EEEEEDaOT_.exit.i: ; preds = %.lr.p
   %.08.i.i.i.i.i.i = phi ptr [ %448, %.lr.ph.i.i.i.i.i46.i ], [ %.val40.i, %436 ]
   %.057.i.i.i.i.i.i = phi i64 [ %447, %.lr.ph.i.i.i.i.i46.i ], [ %437, %436 ]
   %444 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %444, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %444, i8 0, i64 24, i1 false)
   store ptr %444, ptr %.08.i.i.i.i.i.i, align 8, !tbaa !68
   %445 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   store i32 0, ptr %445, align 8, !tbaa !69
@@ -5179,7 +5179,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ;
   %.08.i.i.i33.i.i.i = phi ptr [ %457, %.lr.ph.i.i.i32.i.i.i ], [ %452, %_ZNKSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.057.i.i.i34.i.i.i = phi i64 [ %456, %.lr.ph.i.i.i32.i.i.i ], [ %437, %_ZNKSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %453 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %453, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %453, i8 0, i64 24, i1 false)
   store ptr %453, ptr %.08.i.i.i33.i.i.i, align 8, !tbaa !68
   %454 = getelementptr inbounds nuw i8, ptr %.08.i.i.i33.i.i.i, i64 8
   store i32 0, ptr %454, align 8, !tbaa !69

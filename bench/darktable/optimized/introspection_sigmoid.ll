@@ -222,7 +222,7 @@ define void @init_presets(ptr noundef initializes((548, 552)) %0) local_unnamed_
 19:                                               ; preds = %7, %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #22
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float 1.000000e+02, ptr %21, align 4, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12

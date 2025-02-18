@@ -1168,7 +1168,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit110: ; preds = %_ZN5arrow7compu
   store ptr %315, ptr %274, align 8, !tbaa !89
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %317, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %317, i8 0, i64 24, i1 false)
   store i32 1, ptr %314, align 8, !tbaa !63
   store ptr %313, ptr %316, align 8, !tbaa !48
   %318 = getelementptr inbounds nuw i8, ptr %314, i64 16
@@ -1808,7 +1808,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit146: ; preds = %_ZN5arrow7compu
   store ptr %577, ptr %545, align 8, !tbaa !89
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %579 = getelementptr inbounds nuw i8, ptr %576, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %579, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %579, i8 0, i64 24, i1 false)
   store i32 1, ptr %576, align 8, !tbaa !63
   store ptr %575, ptr %578, align 8, !tbaa !48
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 16
@@ -2503,7 +2503,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit199: ; preds = %843, %853, %856
   store ptr %861, ptr %807, align 8, !tbaa !89
   %862 = getelementptr inbounds nuw i8, ptr %860, i64 8
   %863 = getelementptr inbounds nuw i8, ptr %860, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %863, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %863, i8 0, i64 24, i1 false)
   store i32 1, ptr %860, align 8, !tbaa !63
   store ptr %859, ptr %862, align 8, !tbaa !48
   %864 = getelementptr inbounds nuw i8, ptr %860, i64 16

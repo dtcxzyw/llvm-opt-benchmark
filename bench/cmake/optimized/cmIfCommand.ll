@@ -3060,7 +3060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %108, i8 0, i64 168, i1 false), !noalias !250
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(168) %108, i8 0, i64 168, i1 false), !noalias !250
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %110, ptr %109, align 8, !tbaa !40, !noalias !250

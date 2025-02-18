@@ -197,7 +197,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #8
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %60, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 80, i1 false)
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %62 = tail call noalias noundef align 8 dereferenceable_or_null(456) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3520, i64 noundef 456) #10
   %63 = icmp eq ptr %62, null

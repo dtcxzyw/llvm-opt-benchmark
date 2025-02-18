@@ -2074,7 +2074,7 @@ define internal noundef range(i32 -16, 1) i32 @alarmtimer_rtc_add_device(ptr nou
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #12
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 40, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false), !annotation !14
   store ptr %0, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %23, align 8

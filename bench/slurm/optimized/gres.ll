@@ -22521,7 +22521,7 @@ define dso_local void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2
   store ptr null, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr %2, ptr %3, align 8
   %5 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %5, 0

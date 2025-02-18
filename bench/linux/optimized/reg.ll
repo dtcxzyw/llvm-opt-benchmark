@@ -7577,7 +7577,7 @@ define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull capture
   %3 = alloca %struct.ieee80211_reg_rule, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %4, i8 0, i64 88, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %4, i8 0, i64 88, i1 false), !annotation !10
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %5
 

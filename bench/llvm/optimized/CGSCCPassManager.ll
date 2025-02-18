@@ -5314,7 +5314,7 @@ _ZN4llvm13SmallDenseSetISt4pairIPNS_13LazyCallGraph4NodeEPNS2_3SCCEELj4ENS_12Den
   store ptr %10, ptr %114, align 8, !tbaa !315
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(792) %116, i8 0, i64 784, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %116, i8 0, i64 784, i1 false)
   store i32 1, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 124
   store i32 0, ptr %117, align 4, !tbaa !316
@@ -8840,7 +8840,7 @@ _ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_34ShouldNotRunFu
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %202
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, i8 0, i64 64, i1 false), !alias.scope !534
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %55, i8 0, i64 64, i1 false), !alias.scope !534
   store ptr %51, ptr %11, align 8, !tbaa !81, !alias.scope !534
   store i32 2, ptr %56, align 8, !tbaa !211, !alias.scope !534
   store i32 0, ptr %57, align 4, !tbaa !77, !alias.scope !534

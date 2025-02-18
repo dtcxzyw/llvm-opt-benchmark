@@ -40,7 +40,7 @@ define void @jinit_d_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   %20 = load ptr, ptr %19, align 8, !tbaa !40
   %21 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 152) #3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %22, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %22, i8 0, i64 144, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %21, ptr %23, align 8, !tbaa !42
   store ptr @start_pass_main, ptr %21, align 8, !tbaa !43

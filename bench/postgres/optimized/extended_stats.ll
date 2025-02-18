@@ -611,7 +611,7 @@ make_build_data.exit:                             ; preds = %._crit_edge196.spli
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12) #10
   %317 = call ptr @table_open(i32 noundef 3429, i32 noundef 3) #10
   store i32 16843009, ptr %39, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %318 = zext i32 %316 to i64
   store i64 %318, ptr %11, align 16
   store i8 0, ptr %12, align 1

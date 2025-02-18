@@ -683,7 +683,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #6 {
 17:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
   store float 0x3FB99999A0000000, ptr %4, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
   call void @b2DefaultChainDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ChainDef) align 8 %5) #8

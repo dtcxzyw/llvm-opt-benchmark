@@ -33,7 +33,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %15, i8 0, i64 412, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(412) %15, i8 0, i64 412, i1 false)
   %16 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 100) #7
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 99
   store i8 0, ptr %17, align 1, !tbaa !3

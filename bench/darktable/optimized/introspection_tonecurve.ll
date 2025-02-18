@@ -1342,7 +1342,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_iop_tonecurve_params_t, align 4
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(520) %3, i8 0, i64 472, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(472) %3, i8 0, i64 472, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 480
   store i32 6, ptr %4, align 4, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 484

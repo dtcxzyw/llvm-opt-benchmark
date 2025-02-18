@@ -440,7 +440,7 @@ generateTypedNode.exit:                           ; preds = %42, %44
 53:                                               ; preds = %51
   store i32 8, ptr %52, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit148
 
 generateTypedNode.exit148:                        ; preds = %51, %53
@@ -497,7 +497,7 @@ generateTypedNode.exit150:                        ; preds = %66, %68
 77:                                               ; preds = %75
   store i32 8, ptr %76, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit152
 
 generateTypedNode.exit152:                        ; preds = %75, %77
@@ -554,7 +554,7 @@ generateTypedNode.exit154:                        ; preds = %90, %92
 101:                                              ; preds = %99
   store i32 8, ptr %100, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit156
 
 generateTypedNode.exit156:                        ; preds = %99, %101
@@ -618,7 +618,7 @@ generateTypedNode.exit158:                        ; preds = %117, %119
 129:                                              ; preds = %127
   store i32 8, ptr %128, align 8, !tbaa !3
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit160
 
 generateTypedNode.exit160:                        ; preds = %127, %129
@@ -762,7 +762,7 @@ getVarName.exit.thread:                           ; preds = %isUnexpectedEOS.exi
 182:                                              ; preds = %179
   store i32 8, ptr %181, align 8, !tbaa !3
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit169
 
 generateTypedNode.exit169:                        ; preds = %179, %182

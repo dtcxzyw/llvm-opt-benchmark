@@ -38,7 +38,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(917632) %0, i8 0, i64 917592, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(917592) %0, i8 0, i64 917592, i1 false)
   %ucm2 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %ucm, ptr %ucm2, align 8
   store ptr @CnvExtClose, ptr %call, align 8
@@ -501,7 +501,7 @@ entry:
   %indexes = alloca [32 x i32], align 16
   %header = alloca %struct._MBCSHeader, align 4
   %0 = getelementptr inbounds nuw i8, ptr %indexes, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %and = and i32 %tableType, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.end

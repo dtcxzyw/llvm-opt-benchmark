@@ -6224,7 +6224,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_scan_args_kw(i32 noundef %0, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   store i32 %0, ptr %6, align 4, !tbaa !107
   %8 = load i8, ptr %3, align 1, !tbaa !32
   %9 = sext i8 %8 to i32

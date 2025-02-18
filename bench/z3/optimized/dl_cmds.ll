@@ -4498,7 +4498,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %if.then
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %if.then, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
   %8 = getelementptr inbounds nuw i8, ptr %var_names, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   store ptr %8, ptr %var_names, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %var_names, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

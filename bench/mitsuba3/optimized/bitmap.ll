@@ -44848,7 +44848,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix33IfEEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store float 1.000000e+00, ptr %6, align 4
@@ -44925,7 +44925,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_2_514TypedAttributeIN9Imath_2_5
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float 1.000000e+00, ptr %6, align 4

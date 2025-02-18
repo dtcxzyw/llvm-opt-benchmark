@@ -26620,7 +26620,7 @@ _ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsItera
   store ptr %183, ptr %47, align 8, !tbaa !737, !noalias !1181
   store ptr %185, ptr %48, align 8, !tbaa !734, !noalias !1181
   store ptr %185, ptr %49, align 8, !tbaa !748, !noalias !1181
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %50, i8 0, i64 72, i1 false), !alias.scope !1189, !noalias !1181
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %50, i8 0, i64 72, i1 false), !alias.scope !1189, !noalias !1181
   store ptr %51, ptr %6, align 8, !tbaa !28, !alias.scope !1189, !noalias !1181
   store i32 8, ptr %52, align 8, !tbaa !29, !alias.scope !1189, !noalias !1181
   store i32 0, ptr %53, align 4, !tbaa !30, !alias.scope !1189, !noalias !1181
@@ -50963,7 +50963,7 @@ _ZN4llvm5VPlan14getCanonicalIVEv.exit.i:          ; preds = %223, %216
   store ptr %249, ptr %63, align 8, !tbaa !1648, !alias.scope !1635, !noalias !1640
   store ptr %250, ptr %64, align 8, !tbaa !1651, !alias.scope !1635, !noalias !1640
   store ptr %250, ptr %65, align 8, !tbaa !1652, !alias.scope !1635, !noalias !1640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %66, i8 0, i64 72, i1 false), !alias.scope !1653, !noalias !1640
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %66, i8 0, i64 72, i1 false), !alias.scope !1653, !noalias !1640
   store ptr %67, ptr %6, align 8, !tbaa !28, !alias.scope !1653, !noalias !1640
   store i32 8, ptr %68, align 8, !tbaa !29, !alias.scope !1653, !noalias !1640
   store i32 0, ptr %69, align 4, !tbaa !30, !alias.scope !1653, !noalias !1640
@@ -81520,7 +81520,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAn
 65:                                               ; preds = %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAnalysisEEEPNT_6ResultERS1_.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #29
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %66, i8 0, i64 64, i1 false), !alias.scope !2435
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false), !alias.scope !2435
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %67, ptr %3, align 8, !tbaa !28, !alias.scope !2435
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -85756,7 +85756,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_27VPBlockDeepTraversalWrapper
   call void @_ZNSt6vectorISt4pairIPN4llvm11VPBlockBaseESt8optionalINS1_23VPAllSuccessorsIteratorIS3_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29, !noalias !2501
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 72, i1 false), !alias.scope !2507
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false), !alias.scope !2507
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %5, align 8, !tbaa !28, !alias.scope !2507
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -94844,7 +94844,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstINS_30VPBlockShallowTraversalWrap
   store ptr %13, ptr %10, align 8, !tbaa !1651, !alias.scope !2647
   store ptr %13, ptr %11, align 8, !tbaa !1652, !alias.scope !2647
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %14, i8 0, i64 72, i1 false), !alias.scope !2653
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false), !alias.scope !2653
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %4, align 8, !tbaa !28, !alias.scope !2653
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -112741,7 +112741,7 @@ _ZN4llvm15SmallVectorImplINS_26LoopVectorizationCostModel13RegisterUsageEE7reser
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm26LoopVectorizationCostModel13RegisterUsageC2Ev.exit
   %.012 = phi ptr [ %40, %_ZN4llvm26LoopVectorizationCostModel13RegisterUsageC2Ev.exit ], [ %26, %.lr.ph.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %28, i8 0, i64 168, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %28, i8 0, i64 168, i1 false)
   store i32 1, ptr %.012, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.012, i64 4
   store i32 0, ptr %29, align 4, !tbaa !1057
@@ -113464,7 +113464,7 @@ _ZN4llvm15SmallVectorImplINS_14SmallMapVectorIjjLj4EEEE7reserveEm.exit: ; preds 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm14SmallMapVectorIjjLj4EEC2Ev.exit
   %.013 = phi ptr [ %50, %_ZN4llvm14SmallMapVectorIjjLj4EEC2Ev.exit ], [ %43, %.lr.ph.preheader ]
   %44 = getelementptr inbounds nuw i8, ptr %.013, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %44, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %44, i8 0, i64 80, i1 false)
   store i32 1, ptr %.013, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.013, i64 4
   store i32 0, ptr %45, align 4, !tbaa !1057

@@ -4150,7 +4150,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %140 = add i8 %137, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false)
   %141 = zext i8 %140 to i32
   %142 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %141)
   %143 = udiv i16 %142, 1000

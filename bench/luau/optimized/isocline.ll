@@ -7311,7 +7311,7 @@ define internal fastcc ptr @ic_env_create(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %18, i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(120) %18, i8 0, i64 120, i1 false)
   store ptr %7, ptr %14, align 8
   %.val.i = load ptr, ptr %7, align 8
   %19 = tail call ptr %.val.i(i64 noundef 328) #32
@@ -7320,7 +7320,7 @@ define internal fastcc ptr @ic_env_create(ptr noundef %0, ptr noundef %1, ptr no
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %21, i8 0, i64 324, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(324) %21, i8 0, i64 324, i1 false)
   br label %mem_zalloc.exit.i
 
 mem_zalloc.exit.i:                                ; preds = %20, %17
@@ -7603,7 +7603,7 @@ tty_new.exit:                                     ; preds = %tty_init_utf8.exit.
 
 145:                                              ; preds = %tty_new.exit
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %146, i8 0, i64 76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %146, i8 0, i64 76, i1 false)
   store i32 1, ptr %144, align 8
   %147 = call i32 @isatty(i32 noundef 1) #32
   %148 = icmp eq i32 %147, 0
@@ -7961,7 +7961,7 @@ history_new.exit:                                 ; preds = %term_new.exit, %257
 
 262:                                              ; preds = %history_new.exit
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %263, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %263, i8 0, i64 40, i1 false)
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 48
   store ptr %260, ptr %264, align 8
   store ptr @default_filename_completer, ptr %261, align 8
@@ -13309,7 +13309,7 @@ ic_strlen.exit.i.i:                               ; preds = %ic_enable_hint.exit
 
 508:                                              ; preds = %505
   %509 = getelementptr inbounds nuw i8, ptr %507, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %509, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %509, i8 0, i64 7, i1 false)
   %510 = getelementptr inbounds nuw i8, ptr %507, i64 8
   store i64 %.0338482.i.i, ptr %510, align 8
   %511 = getelementptr inbounds nuw i8, ptr %507, i64 16
@@ -14041,7 +14041,7 @@ sbuf_delete_char_before.exit.i.i.i:               ; preds = %ic_memmove.exit.i.i
 
 798:                                              ; preds = %795
   %799 = getelementptr inbounds nuw i8, ptr %797, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %799, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %799, i8 0, i64 7, i1 false)
   %800 = getelementptr inbounds nuw i8, ptr %797, i64 8
   store i64 %.2340.ph.i.i.ph, ptr %800, align 8
   %801 = getelementptr inbounds nuw i8, ptr %797, i64 16
@@ -14145,7 +14145,7 @@ hsearch_pop.exit252.i.i:                          ; preds = %826, %.loopexit421.
 
 840:                                              ; preds = %837
   %841 = getelementptr inbounds nuw i8, ptr %839, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %841, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %841, i8 0, i64 7, i1 false)
   %842 = getelementptr inbounds nuw i8, ptr %839, i64 8
   store i64 %.2340.ph.i.i.ph, ptr %842, align 8
   %843 = getelementptr inbounds nuw i8, ptr %839, i64 16
@@ -14257,7 +14257,7 @@ hsearch_pop.exit267.i.i:                          ; preds = %867, %.loopexit422.
 
 885:                                              ; preds = %881
   %886 = getelementptr inbounds nuw i8, ptr %884, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %886, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %886, i8 0, i64 7, i1 false)
   %887 = getelementptr inbounds nuw i8, ptr %884, i64 8
   store i64 %.2340.ph.i.i.ph, ptr %887, align 8
   %888 = getelementptr inbounds nuw i8, ptr %884, i64 16
@@ -14287,7 +14287,7 @@ hsearch_push.exit271.i.i:                         ; preds = %885, %881
 
 896:                                              ; preds = %893
   %897 = getelementptr inbounds nuw i8, ptr %895, i64 33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %897, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %897, i8 0, i64 7, i1 false)
   %898 = getelementptr inbounds nuw i8, ptr %895, i64 8
   store i64 %.2340.ph.i.i.ph, ptr %898, align 8
   %899 = getelementptr inbounds nuw i8, ptr %895, i64 16
@@ -18560,7 +18560,7 @@ completions_get.exit56.i.backedge.i:              ; preds = %.critedge.i.i, %.cr
 
 120:                                              ; preds = %.loopexit61.i.i
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 32, i1 false)
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %90, ptr %122, align 8
   store ptr %7, ptr %8, align 8
@@ -25710,7 +25710,7 @@ define internal fastcc void @edit_set_pos_at_rowcol(ptr noundef nonnull %0, ptr 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   store i64 %2, ptr %5, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %30, align 8

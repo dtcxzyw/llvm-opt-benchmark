@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CbsP_SetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 184)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %2, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, i8 0, i64 176, i1 false)
   store i32 1000, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 100, ptr %3, align 4, !tbaa !9
@@ -288,7 +288,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntAlloc.exit.t
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %.val, ptr %58, align 4, !tbaa !52
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %59, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %59, i8 0, i64 176, i1 false)
   store i32 1000, ptr %2, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 100, ptr %60, align 4, !tbaa !9

@@ -241,7 +241,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %17, i8 0, i64 32, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, i8 0, i64 32, i1 false), !annotation !5
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %144 [

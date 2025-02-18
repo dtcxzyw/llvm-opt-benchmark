@@ -89181,7 +89181,7 @@ _ZN7testing15AssertionResultD2Ev.exit255:         ; preds = %553, %_ZNKSt14defau
 564:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #29
   %565 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %565, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %565, i8 0, i64 16, i1 false)
   %566 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %566, ptr %22, align 8, !tbaa !4
   %567 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -89576,7 +89576,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 718:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #29
   %719 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %719, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %719, i8 0, i64 16, i1 false)
   %720 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %720, ptr %28, align 8, !tbaa !4
   %721 = getelementptr inbounds nuw i8, ptr %28, i64 8

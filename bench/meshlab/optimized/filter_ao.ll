@@ -5728,7 +5728,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm.exit: ; preds = %131, %_ZNSt12_Ve
           to label %225 unwind label %.loopexit151
 
 225:                                              ; preds = %224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %209, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %209, i8 0, i64 6, i1 false)
   store i8 1, ptr %15, align 1
   %226 = invoke noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 3, ptr noundef nonnull align 1 dereferenceable(7) %15)
           to label %227 unwind label %253
@@ -5819,7 +5819,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit
           to label %259 unwind label %.loopexit151
 
 259:                                              ; preds = %258
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %208, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %208, i8 0, i64 6, i1 false)
   store i8 1, ptr %17, align 1
   %260 = invoke noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 3, ptr noundef nonnull align 1 dereferenceable(7) %17)
           to label %261 unwind label %273

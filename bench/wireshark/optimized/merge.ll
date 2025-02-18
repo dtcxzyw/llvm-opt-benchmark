@@ -440,7 +440,7 @@ merge_select_frame_type.exit:                     ; preds = %.lr.ph.i178, %merge
 
 131:                                              ; preds = %127, %merge_select_frame_type.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %37, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 72, i1 false)
   store i32 %.0.i, ptr %24, align 8
   store i32 %spec.store.select, ptr %29, align 4
   %132 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 1)

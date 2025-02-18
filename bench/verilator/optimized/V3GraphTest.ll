@@ -346,7 +346,7 @@ define dso_local void @_ZN7V3Graph8selfTestEv() #3 align 2 personality ptr @__gx
 
 20:                                               ; preds = %0, %17
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22)
@@ -358,7 +358,7 @@ _ZN11V3GraphTest3runEv.exit:                      ; preds = %20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %2, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -370,7 +370,7 @@ _ZN11V3GraphTest3runEv.exit3:                     ; preds = %_ZN11V3GraphTest3ru
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %3, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26)
@@ -382,7 +382,7 @@ _ZN11V3GraphTest3runEv.exit4:                     ; preds = %_ZN11V3GraphTest3ru
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %4, align 8
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphTest, i64 16), ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28)

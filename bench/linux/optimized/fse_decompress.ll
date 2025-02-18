@@ -1910,7 +1910,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
 390:                                              ; preds = %54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #13
   %391 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %391, i8 0, i64 32, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %391, i8 0, i64 32, i1 false), !annotation !20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #13
   %392 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %12, ptr noundef %29, i64 noundef %30), !range !21

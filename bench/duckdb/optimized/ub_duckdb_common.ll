@@ -68069,7 +68069,7 @@ define void @_ZN6duckdb14GZipFileSystem12CreateStreamEv(ptr dead_on_unwind noali
 _ZNSt10unique_ptrIN6duckdb18MiniZStreamWrapperESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #56, !noalias !1243
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 32, i1 false), !noalias !1243
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !1243
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6duckdb18MiniZStreamWrapperE, i64 16), ptr %2, align 8, !tbaa !32, !noalias !1243
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, i8 0, i64 17, i1 false), !noalias !1243
@@ -81905,7 +81905,7 @@ define void @_ZN6duckdb25HivePartitionedColumnData15AddNewPartitionENS_16HivePar
   call void @llvm.experimental.noalias.scope.decl(metadata !1445)
   %34 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #56, !noalias !1445
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %35, i8 0, i64 32, i1 false), !noalias !1445
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %35, i8 0, i64 32, i1 false), !noalias !1445
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %36, ptr %34, align 8, !tbaa !393, !noalias !1445
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -97711,7 +97711,7 @@ _ZNK6duckdb10unique_ptrINS_15MultiFileReaderESt14default_deleteIS1_ELb1EEptEv.ex
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %32, i8 0, i64 24, i1 false), !noalias !1709
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %32, i8 0, i64 24, i1 false), !noalias !1709
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN6duckdb15MultiFileReaderE, i64 16), ptr %30, align 8, !tbaa !32, !noalias !1709
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -97750,7 +97750,7 @@ define void @_ZN6duckdb15MultiFileReader13CreateDefaultERKNSt7__cxx1112basic_str
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1712)
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #56, !noalias !1712
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 24, i1 false), !noalias !1712
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !1712
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN6duckdb15MultiFileReaderE, i64 16), ptr %3, align 8, !tbaa !32, !noalias !1712
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -119092,7 +119092,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_9DataChunkESt14default_deleteIS2_ELb1EEESa
   call void @llvm.experimental.noalias.scope.decl(metadata !1982)
   %66 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #56, !noalias !1982
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %67, i8 0, i64 32, i1 false), !noalias !1982
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %67, i8 0, i64 32, i1 false), !noalias !1982
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 48
   store ptr %68, ptr %66, align 8, !tbaa !393, !noalias !1982
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -120999,7 +120999,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_17TupleDataPinStateESt14default_deleteIS2_
   call void @llvm.experimental.noalias.scope.decl(metadata !2102)
   %51 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #56, !noalias !2102
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %52, i8 0, i64 88, i1 false), !noalias !2102
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %52, i8 0, i64 88, i1 false), !noalias !2102
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr %53, ptr %51, align 8, !tbaa !2105, !noalias !2102
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8

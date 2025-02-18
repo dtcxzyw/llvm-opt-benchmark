@@ -562,7 +562,7 @@ if.then.i887:                                     ; preds = %_ZNK2v820FunctionCa
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %if.then.i887, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %34 = getelementptr inbounds nuw i8, ptr %options, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
   store ptr @_ZN4node12_GLOBAL__N_111ProcessWrap6OnExitEP12uv_process_sli, ptr %options, align 8
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
   %35 = load ptr, ptr %isolate_data_.i.i, align 8

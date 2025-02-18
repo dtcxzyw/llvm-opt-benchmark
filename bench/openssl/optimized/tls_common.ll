@@ -335,7 +335,7 @@ tls_allow_compression.exit.thread:                ; preds = %9, %tls_allow_compr
 62:                                               ; preds = %54, %52
   %.057 = phi ptr [ %55, %54 ], [ %.pr, %52 ]
   %63 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 40, i1 false)
   store ptr %.057, ptr %46, align 8, !tbaa !3
   store i64 %spec.select, ptr %50, align 8, !tbaa !37
   %64 = add nuw i64 %.05675, 1

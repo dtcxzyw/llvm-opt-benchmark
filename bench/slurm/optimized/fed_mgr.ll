@@ -2575,7 +2575,7 @@ define dso_local i32 @fed_mgr_submit_remote_dependencies(ptr noundef %0, i1 noun
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_is_fed_job.exit.thread, label %9
@@ -7418,7 +7418,7 @@ define internal fastcc range(i32 -1, 1) i32 @_persist_fed_job_cancel(ptr noundef
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %1, ptr %11, align 8
   store ptr null, ptr %9, align 8

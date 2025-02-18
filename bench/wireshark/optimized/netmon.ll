@@ -2105,7 +2105,7 @@ define internal noundef zeroext i1 @netmon_dump_finish(ptr noundef %0, ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %20, i8 noundef 0, i64 noundef 56, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %20, i8 noundef 0, i64 noundef 56, i1 noundef false) #12
   %21 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %28

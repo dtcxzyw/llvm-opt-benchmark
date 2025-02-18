@@ -52,7 +52,7 @@ define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 noundef 0, i64 noundef 1024, i1 noundef false) #6
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %23, i8 noundef 0, i64 noundef 968, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(968) %23, i8 noundef 0, i64 noundef 968, i1 noundef false) #6
   %24 = and i64 %1, 4294967295
   store i64 %24, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -365,7 +365,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp57.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp58.i)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 48
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp1.i, align 8, !noalias !4
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 8
@@ -540,7 +540,7 @@ invoke.cont25.i:                                  ; preds = %invoke.cont23.i
 invoke.cont27.i:                                  ; preds = %invoke.cont25.i
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %11, i8 0, i64 200, i1 false), !noalias !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %11, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i44.i = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 48
   store ptr %_M_single_bucket.i.i.i44.i, ptr %ref.tmp28.i, align 8, !noalias !4
   %_M_bucket_count.i.i.i45.i = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 8
@@ -1484,7 +1484,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp57.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp58.i)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false), !noalias !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false), !noalias !13
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 48
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp1.i, align 8, !noalias !13
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 8
@@ -1659,7 +1659,7 @@ invoke.cont25.i:                                  ; preds = %invoke.cont23.i
 invoke.cont27.i:                                  ; preds = %invoke.cont25.i
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %11, i8 0, i64 200, i1 false), !noalias !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %11, i8 0, i64 200, i1 false), !noalias !13
   %_M_single_bucket.i.i.i44.i = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 48
   store ptr %_M_single_bucket.i.i.i44.i, ptr %ref.tmp28.i, align 8, !noalias !13
   %_M_bucket_count.i.i.i45.i = getelementptr inbounds nuw i8, ptr %ref.tmp28.i, i64 8

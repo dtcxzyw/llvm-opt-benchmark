@@ -2834,7 +2834,7 @@ define range(i32 -1, 1) i32 @tj3Decompress8(ptr noundef %0, ptr noundef %1, i64 
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store ptr @my_progress_monitor, ptr %7, align 8, !tbaa !121
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %0, ptr %43, align 8, !tbaa !125
@@ -4409,7 +4409,7 @@ define range(i32 -1, 1) i32 @tj3Decompress12(ptr noundef %0, ptr noundef %1, i64
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store ptr @my_progress_monitor, ptr %7, align 8, !tbaa !121
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %0, ptr %43, align 8, !tbaa !125
@@ -5907,7 +5907,7 @@ define range(i32 -1, 1) i32 @tj3Decompress16(ptr noundef %0, ptr noundef %1, i64
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store ptr @my_progress_monitor, ptr %7, align 8, !tbaa !121
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %0, ptr %41, align 8, !tbaa !125
@@ -10506,7 +10506,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUVPlanes8(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %46, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   store ptr @my_progress_monitor, ptr %12, align 8, !tbaa !121
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %0, ptr %47, align 8, !tbaa !125
@@ -13517,7 +13517,7 @@ define range(i32 -1, 1) i32 @tj3Transform(ptr noundef %0, ptr noundef %1, i64 no
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store ptr @my_progress_monitor, ptr %8, align 8, !tbaa !121
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %0, ptr %41, align 8, !tbaa !125

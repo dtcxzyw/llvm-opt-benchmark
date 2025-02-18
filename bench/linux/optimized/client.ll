@@ -1361,7 +1361,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
 
 16:                                               ; preds = %._crit_edge, %3
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %9, %3 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 112, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false), !annotation !19
   store ptr %2, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %18, i8 0, i64 36, i1 false)
@@ -2193,7 +2193,7 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !19
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, i8 0, i64 32, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !annotation !19
   store i64 256, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 312
@@ -2495,7 +2495,7 @@ define dso_local ptr @nfs_create_server(ptr noundef readonly captures(none) %0) 
   %200 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #13
   %201 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %201, i8 0, i64 16, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, i8 0, i64 16, i1 false), !annotation !19
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 168
   %203 = load ptr, ptr %202, align 8
   store ptr %203, ptr %2, align 8
@@ -2998,7 +2998,7 @@ define dso_local ptr @nfs_clone_server(ptr noundef readonly captures(none) %0, p
   %120 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #13
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %121, i8 0, i64 16, i1 false), !annotation !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false), !annotation !19
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 168
   %123 = load ptr, ptr %122, align 8
   store ptr %123, ptr %5, align 8

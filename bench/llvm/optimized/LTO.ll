@@ -8914,7 +8914,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_3lto3LTO16GlobalResolutionE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !381
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store ptr %32, ptr %31, align 8, !tbaa !458
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 0, ptr %33, align 8, !tbaa !61

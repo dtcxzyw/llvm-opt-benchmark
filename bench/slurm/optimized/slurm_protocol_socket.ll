@@ -1311,7 +1311,7 @@ define dso_local i32 @slurm_open_unix_stream(ptr noundef %0, i32 noundef %1, ptr
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %19, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %19, i8 0, i64 108, i1 false)
   store i16 1, ptr %4, align 2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %21 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %0) #11

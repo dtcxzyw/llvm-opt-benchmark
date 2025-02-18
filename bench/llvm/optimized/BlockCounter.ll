@@ -360,7 +360,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE3add
   store i32 1, ptr %69, align 8, !tbaa !61, !alias.scope !57, !noalias !46
   %84 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %7), !noalias !46
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8) #17, !noalias !46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %71, i8 0, i64 160, i1 false), !alias.scope !62, !noalias !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %71, i8 0, i64 160, i1 false), !alias.scope !62, !noalias !46
   store ptr %71, ptr %8, align 8, !tbaa !55, !alias.scope !62, !noalias !46
   store i32 0, ptr %72, align 8, !tbaa !61, !alias.scope !62, !noalias !46
   store i32 20, ptr %73, align 4, !tbaa !60, !alias.scope !62, !noalias !46
@@ -371,7 +371,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE3add
   store i32 1, ptr %75, align 8, !tbaa !61, !alias.scope !65, !noalias !46
   %85 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5), !noalias !46
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #17, !noalias !46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %78, i8 0, i64 160, i1 false), !alias.scope !68, !noalias !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %78, i8 0, i64 160, i1 false), !alias.scope !68, !noalias !46
   store ptr %78, ptr %6, align 8, !tbaa !55, !alias.scope !68, !noalias !46
   store i32 0, ptr %79, align 8, !tbaa !61, !alias.scope !68, !noalias !46
   store i32 20, ptr %80, align 4, !tbaa !60, !alias.scope !68, !noalias !46

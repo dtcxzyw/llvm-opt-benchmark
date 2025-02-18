@@ -191,7 +191,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #19
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, i8 0, i64 40, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !6
   store ptr %0, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %11, align 8
@@ -1194,7 +1194,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr noundef capture
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store ptr %8, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 1, ptr %10, align 8

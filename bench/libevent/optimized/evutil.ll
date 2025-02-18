@@ -888,7 +888,7 @@ evutil_parse_servname.exit:                       ; preds = %50, %parse_numeric_
 57:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13) #30
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %58, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i16 10, ptr %13, align 4
   %59 = trunc nuw i32 %.059 to i16
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %59)
@@ -920,7 +920,7 @@ evutil_parse_servname.exit:                       ; preds = %50, %parse_numeric_
   %.095 = phi ptr [ null, %..thread_crit_edge ], [ %66, %67 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #30
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %68, i8 0, i64 12, i1 false)
   store i16 2, ptr %14, align 4
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 %rev.i83.pre-phi, ptr %69, align 2
@@ -981,7 +981,7 @@ evutil_addrinfo_append_.exit:                     ; preds = %67, %82
 85:                                               ; preds = %84, %84
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %15) #30
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %86, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %86, i8 0, i64 20, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %88 = call i32 @evutil_inet_pton_scope(i32 noundef 10, ptr noundef nonnull %0, ptr noundef nonnull %87, ptr noundef nonnull %12)
   %.not70 = icmp eq i32 %88, 1
@@ -1624,7 +1624,7 @@ evutil_check_ifaddrs.exit.thread.i:               ; preds = %._crit_edge.loopexi
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.32) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %50, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, i8 0, i64 12, i1 false)
   store i16 2, ptr %8, align 4
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 13568, ptr %51, align 2
@@ -1675,7 +1675,7 @@ evutil_inet_pton.exit.i:                          ; preds = %65, %62, %59, %56, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #30
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %73, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   store i16 10, ptr %10, align 4
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 13568, ptr %74, align 2
@@ -2902,7 +2902,7 @@ define range(i32 -1, 1) i32 @evutil_parse_sockaddr_port(ptr noundef %0, ptr noun
   %.1496870 = phi ptr [ %10, %44 ], [ %10, %22 ], [ %0, %28 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #30
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %46, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %46, i8 0, i64 20, i1 false)
   store i16 10, ptr %11, align 4
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %.05072)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 2

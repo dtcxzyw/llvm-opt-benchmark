@@ -456,7 +456,7 @@ define i32 @curl_ws_recv(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
 
 .split.preheader:                                 ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
   store ptr %0, ptr %7, align 8, !tbaa !100
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %26, align 8, !tbaa !104

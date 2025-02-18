@@ -288,7 +288,7 @@ define dso_local i32 @acpi_run_osc(ptr noundef %0, ptr noundef captures(address_
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %3, align 8, !annotation !5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %10, i8 0, i64 80, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %10, i8 0, i64 80, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5
   %11 = load ptr, ptr %1, align 8
   %12 = call i32 @guid_parse(ptr noundef %11, ptr noundef nonnull %5) #15

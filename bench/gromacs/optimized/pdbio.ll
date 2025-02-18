@@ -2490,7 +2490,7 @@ _ZL11read_anisouPciP7t_atoms.exit:                ; preds = %._crit_edge.i, %233
   %281 = icmp eq i32 %.0.i, 3
   %282 = fmul double %276, 5.000000e-01
   %spec.select64.i = select i1 %281, double %282, double %276
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %68, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   %283 = fptrunc double %spec.select64.i to float
   store float %283, ptr %7, align 4
   %284 = load double, ptr %22, align 8

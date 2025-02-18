@@ -34495,7 +34495,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit:         ; preds = %entry.if.end_crit_e
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit: ; preds = %_ZN13ast_fast_markILj1EE4markEP3ast.exit, %entry
   %9 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %stack, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %10, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, i8 0, i64 248, i1 false)
   store ptr %9, ptr %stack, align 8
   %m_pos.i.i25 = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %m_capacity.i.i26 = getelementptr inbounds nuw i8, ptr %stack, i64 12
@@ -35424,14 +35424,14 @@ invoke.cont3:
   %agg.tmp.ensured = alloca %class.rational, align 8
   store ptr %f, ptr %f.addr, align 8
   %0 = getelementptr inbounds nuw i8, ptr %lits, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store ptr %0, ptr %lits, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %1 = getelementptr inbounds nuw i8, ptr %xs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store ptr %1, ptr %xs, align 8
   %m_pos.i.i14 = getelementptr inbounds nuw i8, ptr %xs, i64 8
   store i32 0, ptr %m_pos.i.i14, align 8
@@ -48457,7 +48457,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit: ; preds = %_ZNK8obj_m
   store i32 %xor4.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %stack, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %7, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %7, i8 0, i64 248, i1 false)
   store ptr %6, ptr %stack, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 12

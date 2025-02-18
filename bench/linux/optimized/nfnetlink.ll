@@ -754,7 +754,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %208 = load i16, ptr %169, align 4
   %209 = load i32, ptr %144, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %73, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false), !annotation !15
   store ptr %56, ptr %5, align 8
   %210 = load ptr, ptr %207, align 8
   store ptr %210, ptr %67, align 8
@@ -1161,7 +1161,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !15
   %56 = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !annotation !15
   store ptr %9, ptr %5, align 8
   %57 = load ptr, ptr %54, align 8
   store ptr %57, ptr %24, align 8

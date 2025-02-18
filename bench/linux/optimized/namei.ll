@@ -1560,7 +1560,7 @@ define dso_local ptr @ext4_get_parent(ptr noundef readonly captures(none) %0) lo
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !13
   store ptr @dotdot_name, ptr %2, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dotdot_name, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2876,7 +2876,7 @@ define dso_local i32 @__ext4_unlink(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr null, ptr %6, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !13
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -4472,7 +4472,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
 
 597:                                              ; preds = %587, %._crit_edge
   %598 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %598, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %598, i8 0, i64 56, i1 false)
   %599 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %541, ptr %599, align 8
   %600 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4675,7 +4675,7 @@ define internal ptr @ext4_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #0 alig
   store ptr null, ptr %5, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !13
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -5564,7 +5564,7 @@ define internal i32 @ext4_rmdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #13
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false), !annotation !13
   store ptr %22, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
@@ -5903,7 +5903,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %40, i8 0, i64 56, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, i8 0, i64 56, i1 false), !annotation !13
   store ptr %1, ptr %14, align 8
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %41, align 8
@@ -5921,7 +5921,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %50, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #13
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 56, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, i8 0, i64 56, i1 false), !annotation !13
   store ptr %3, ptr %15, align 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %52, align 8
@@ -5980,7 +5980,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #13
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %91, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false), !annotation !13
   store ptr %90, ptr %13, align 8
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %93 = load ptr, ptr %92, align 8
@@ -6021,7 +6021,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #13
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %117, i8 0, i64 40, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %117, i8 0, i64 40, i1 false), !annotation !13
   store ptr %116, ptr %12, align 8
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %119 = load ptr, ptr %118, align 8
@@ -6407,7 +6407,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #13
   %369 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %369, i8 0, i64 56, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %369, i8 0, i64 56, i1 false), !annotation !13
   store ptr %1, ptr %10, align 8
   %370 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %370, align 8
@@ -6425,7 +6425,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %379, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #13
   %380 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %380, i8 0, i64 56, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %380, i8 0, i64 56, i1 false), !annotation !13
   store ptr %3, ptr %11, align 8
   %381 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %381, align 8
@@ -6495,7 +6495,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %421 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #13
   %422 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %422, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %422, i8 0, i64 32, i1 false), !annotation !13
   store ptr %421, ptr %8, align 8
   %423 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %424 = load ptr, ptr %423, align 8
@@ -6536,7 +6536,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #13
   %448 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %448, i8 0, i64 40, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %448, i8 0, i64 40, i1 false), !annotation !13
   store ptr %447, ptr %7, align 8
   %449 = getelementptr inbounds nuw i8, ptr %446, i64 40
   %450 = load ptr, ptr %449, align 8
@@ -9894,7 +9894,7 @@ define internal fastcc void @ext4_rename_delete(ptr noundef %0, ptr noundef read
   store ptr null, ptr %7, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false), !annotation !13
   store ptr %38, ptr %6, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load ptr, ptr %40, align 8
@@ -9943,7 +9943,7 @@ define internal fastcc void @ext4_rename_delete(ptr noundef %0, ptr noundef read
   store ptr null, ptr %5, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false), !annotation !13
   store ptr %65, ptr %4, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %68 = load ptr, ptr %67, align 8
@@ -10017,7 +10017,7 @@ define internal fastcc void @ext4_resetent(ptr noundef %0, ptr noundef readonly 
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !annotation !13
   store ptr %10, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8

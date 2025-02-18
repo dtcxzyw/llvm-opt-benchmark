@@ -722,7 +722,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
 105:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #17
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 32, i1 false)
   store i64 2, ptr %14, align 8, !tbaa !209
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -3278,7 +3278,7 @@ define hidden void @_glfwSetWindowMonitorX11(ptr noundef %0, ptr noundef %1, i32
   %39 = load i32, ptr %38, align 4, !tbaa !341
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #17
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   store i64 2, ptr %12, align 8, !tbaa !209
   %.not.i = icmp ne i32 %39, 0
   %41 = zext i1 %.not.i to i64
@@ -3428,7 +3428,7 @@ define hidden void @_glfwSetWindowDecoratedX11(ptr noundef readonly captures(non
   %3 = alloca %struct.anon.41, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i64 2, ptr %3, align 8, !tbaa !209
   %.not = icmp ne i32 %1, 0
   %5 = zext i1 %.not to i64

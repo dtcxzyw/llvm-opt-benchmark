@@ -704,7 +704,7 @@ define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noun
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   %32 = tail call i32 @GetNewOidWithIndex(ptr noundef %11, i32 noundef 112, i16 noundef signext 1) #9
   %33 = zext i32 %32 to i64
@@ -1258,7 +1258,7 @@ define dso_local { i64, i32 } @CreateForeignServer(ptr noundef readonly captures
 
 38:                                               ; preds = %35, %29
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %39, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   store i64 281474976710656, ptr %3, align 8
   %40 = tail call i32 @GetNewOidWithIndex(ptr noundef %6, i32 noundef 113, i16 noundef signext 1) #9
   %41 = zext i32 %40 to i64
@@ -1640,7 +1640,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %15, %25, %.sink.spl
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @GetForeignDataWrapper(i32 noundef %57) #9
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   store i32 0, ptr %3, align 4
   %60 = tail call i32 @GetNewOidWithIndex(ptr noundef %8, i32 noundef 174, i16 noundef signext 1) #9
   %61 = zext i32 %60 to i64

@@ -5101,7 +5101,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 28:                                               ; preds = %27, %24, %19
   %29 = phi ptr [ %.pre, %27 ], [ %20, %24 ], [ %20, %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %30, i8 0, i64 352, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %30, i8 0, i64 352, i1 false)
   %31 = load i32, ptr %29, align 8, !tbaa !59
   store i32 %31, ptr %5, align 8, !tbaa !170
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8

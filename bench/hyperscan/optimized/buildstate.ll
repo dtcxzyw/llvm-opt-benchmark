@@ -1442,7 +1442,7 @@ call.i.i.noexc:                                   ; preds = %if.then22.i
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
 call3.i.i.noexc:                                  ; preds = %call.i.i.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i64 1024, ptr %ref.tmp.i.i, align 8
   %vtable4.i.i = load ptr, ptr %call.i.i7, align 8
   %vfn5.i.i = getelementptr inbounds nuw i8, ptr %vtable4.i.i, i64 72
@@ -1575,7 +1575,7 @@ call.i64.i.noexc:                                 ; preds = %if.then37.i
           to label %call3.i67.i.noexc unwind label %lpad.loopexit
 
 call3.i67.i.noexc:                                ; preds = %call.i64.i.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i64 1024, ptr %ref.tmp.i61.i, align 8
   %vtable4.i68.i = load ptr, ptr %call.i64.i16, align 8
   %vfn5.i69.i = getelementptr inbounds nuw i8, ptr %vtable4.i68.i, i64 72

@@ -250,7 +250,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
 
 _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %if.else.i.i7.i.i
   %7 = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %7, ptr %buf, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i32 0, ptr %m_pos.i.i, align 8

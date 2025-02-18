@@ -303,7 +303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 32:                                               ; preds = %2
   %33 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #26, !noalias !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %34, i8 0, i64 144, i1 false), !noalias !18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %34, i8 0, i64 144, i1 false), !noalias !18
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %36, ptr %35, align 8, !tbaa !9, !noalias !18

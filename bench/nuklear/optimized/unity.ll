@@ -33425,7 +33425,7 @@ nk_zero.exit907:                                  ; preds = %.loopexit46.i.i901.
 
 .loopexit46.i.i911.thread:                        ; preds = %nk_zero.exit907
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 2028
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(776) %203, i8 0, i64 772, i1 false), !tbaa !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(772) %203, i8 0, i64 772, i1 false), !tbaa !7
   br label %nk_zero.exit917
 
 .loopexit46.i.i911:                               ; preds = %nk_zero.exit907
@@ -33556,7 +33556,7 @@ nk_zero.exit917:                                  ; preds = %.loopexit46.i.i911.
 
 .loopexit46.i.i921.thread:                        ; preds = %nk_zero.exit917
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 2804
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %259, i8 0, i64 212, i1 false), !tbaa !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(212) %259, i8 0, i64 212, i1 false), !tbaa !7
   br label %nk_zero.exit927
 
 .loopexit46.i.i921:                               ; preds = %nk_zero.exit917
@@ -66025,7 +66025,7 @@ define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef captures(address_
 
 .loopexit46.i.i89.thread:                         ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 268
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %29, i8 0, i64 176, i1 false), !tbaa !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %29, i8 0, i64 176, i1 false), !tbaa !7
   br label %nk_zero.exit95
 
 .loopexit46.i.i89:                                ; preds = %25

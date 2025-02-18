@@ -2226,7 +2226,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %980 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i, i64 56
   %981 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i, i64 80
   %982 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %982, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %982, i8 0, i64 136, i1 false)
   store ptr %981, ptr %980, align 8, !tbaa !28
   %983 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i, i64 64
   store i32 8, ptr %983, align 8, !tbaa !29
@@ -4935,7 +4935,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %2255 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i89, i64 56
   %2256 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i89, i64 80
   %2257 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i89, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2257, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2257, i8 0, i64 136, i1 false)
   store ptr %2256, ptr %2255, align 8, !tbaa !28
   %2258 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i89, i64 64
   store i32 8, ptr %2258, align 8, !tbaa !29
@@ -7692,7 +7692,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %3552 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i437, i64 56
   %3553 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i437, i64 80
   %3554 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i437, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3554, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3554, i8 0, i64 136, i1 false)
   store ptr %3553, ptr %3552, align 8, !tbaa !28
   %3555 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i.i437, i64 64
   store i32 8, ptr %3555, align 8, !tbaa !29
@@ -10404,7 +10404,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %4820 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i93.i.i, i64 56
   %4821 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i93.i.i, i64 80
   %4822 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i93.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4822, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4822, i8 0, i64 136, i1 false)
   store ptr %4821, ptr %4820, align 8, !tbaa !28
   %4823 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i93.i.i, i64 64
   store i32 8, ptr %4823, align 8, !tbaa !29
@@ -12103,7 +12103,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %5599 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i72.i.i, i64 56
   %5600 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i72.i.i, i64 80
   %5601 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i72.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5601, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5601, i8 0, i64 136, i1 false)
   store ptr %5600, ptr %5599, align 8, !tbaa !28
   %5602 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i72.i.i, i64 64
   store i32 8, ptr %5602, align 8, !tbaa !29
@@ -13251,7 +13251,7 @@ define linkonce_odr void @_ZN4llvm11depth_firstIPNS_8FunctionEEENS_14iterator_ra
   store ptr %19, ptr %16, align 8, !tbaa !219, !alias.scope !419
   store ptr %19, ptr %17, align 8, !tbaa !223, !alias.scope !419
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 72, i1 false), !alias.scope !428
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false), !alias.scope !428
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %4, align 8, !tbaa !28, !alias.scope !428
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13735,7 +13735,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i, i64 56
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i, i64 80
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %253, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %253, i8 0, i64 136, i1 false)
   store ptr %252, ptr %251, align 8, !tbaa !28
   %254 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i176.i, i64 64
   store i32 8, ptr %254, align 8, !tbaa !29
@@ -16747,7 +16747,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %255 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i189.i, i64 56
   %256 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i189.i, i64 80
   %257 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i189.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %257, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %257, i8 0, i64 136, i1 false)
   store ptr %256, ptr %255, align 8, !tbaa !28
   %258 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i189.i, i64 64
   store i32 8, ptr %258, align 8, !tbaa !29

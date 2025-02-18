@@ -75270,7 +75270,7 @@ define internal void @ibf_dump_object_struct(ptr noundef readonly captures(none)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #38
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 noundef 0, i64 noundef 24, i1 noundef false) #38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 noundef 0, i64 noundef 24, i1 noundef false) #38
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 3, ptr %12, align 8, !tbaa !1124
   store i64 0, ptr %5, align 8, !tbaa !1126

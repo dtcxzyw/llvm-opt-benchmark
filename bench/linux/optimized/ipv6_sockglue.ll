@@ -1308,7 +1308,7 @@ thread-pre-split:                                 ; preds = %35
 
 523:                                              ; preds = %518
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %524, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %524, i8 0, i64 56, i1 false)
   store volatile i32 1, ptr %521, align 4
   %525 = getelementptr inbounds nuw i8, ptr %521, i64 4
   store i32 %520, ptr %525, align 4

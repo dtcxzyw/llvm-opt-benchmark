@@ -14865,7 +14865,7 @@ _ZN12_GLOBAL__N_119AllocaSliceRewriterC2ERKN4llvm10DataLayoutERNS_12AllocaSlices
   store ptr %29, ptr %352, align 8, !tbaa !828
   %1983 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1966) #28
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %9, align 8, !tbaa !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %354, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %354, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_125IRBuilderPrefixedInserterE, i64 16), ptr %10, align 8, !tbaa !3
   store ptr %354, ptr %355, align 8, !tbaa !653
   store i64 0, ptr %356, align 8, !tbaa !625

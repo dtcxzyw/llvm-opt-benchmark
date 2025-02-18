@@ -12981,7 +12981,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Imm
   store i32 1, ptr %20, align 8, !tbaa !345, !alias.scope !1309
   %47 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %8)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %9) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %22, i8 0, i64 160, i1 false), !alias.scope !1312
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %22, i8 0, i64 160, i1 false), !alias.scope !1312
   store ptr %22, ptr %9, align 8, !tbaa !347, !alias.scope !1312
   store i32 0, ptr %23, align 8, !tbaa !345, !alias.scope !1312
   store i32 20, ptr %24, align 4, !tbaa !346, !alias.scope !1312
@@ -12992,7 +12992,7 @@ _ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Imm
   store i32 1, ptr %26, align 8, !tbaa !345, !alias.scope !1315
   %48 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %6)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %29, i8 0, i64 160, i1 false), !alias.scope !1318
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %29, i8 0, i64 160, i1 false), !alias.scope !1318
   store ptr %29, ptr %7, align 8, !tbaa !347, !alias.scope !1318
   store i32 0, ptr %30, align 8, !tbaa !345, !alias.scope !1318
   store i32 20, ptr %31, align 4, !tbaa !346, !alias.scope !1318
@@ -13202,7 +13202,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110Bind
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE5beginEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit68.i.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit68.i, %107
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %35, i8 0, i64 160, i1 false), !alias.scope !1324
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %35, i8 0, i64 160, i1 false), !alias.scope !1324
   store ptr %35, ptr %3, align 8, !tbaa !347, !alias.scope !1324
   store i32 0, ptr %36, align 8, !tbaa !345, !alias.scope !1324
   store i32 20, ptr %37, align 4, !tbaa !346, !alias.scope !1324
@@ -13336,7 +13336,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110Bind
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE5beginEv.exit34.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit.i.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit.i, %155
   %.val2.i.i.i30.i.i.i.i.i.i.i.i73.i = phi i32 [ %.val2.i.i.i30.i.i.i.i.i.i.i.i.pr.i9098, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit.i.thread ], [ 0, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEppEv.exit.i ], [ 0, %155 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %41, i8 0, i64 160, i1 false), !alias.scope !1330
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %41, i8 0, i64 160, i1 false), !alias.scope !1330
   store ptr %41, ptr %5, align 8, !tbaa !347, !alias.scope !1330
   store i32 0, ptr %42, align 8, !tbaa !345, !alias.scope !1330
   store i32 20, ptr %43, align 4, !tbaa !346, !alias.scope !1330
@@ -21278,7 +21278,7 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueIn
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE5beginEv.exit: ; preds = %32, %34
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, i8 0, i64 160, i1 false), !alias.scope !1514
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %19, i8 0, i64 160, i1 false), !alias.scope !1514
   store ptr %19, ptr %6, align 8, !tbaa !347, !alias.scope !1514
   store i32 0, ptr %20, align 8, !tbaa !345, !alias.scope !1514
   store i32 20, ptr %21, align 4, !tbaa !346, !alias.scope !1514
@@ -21307,7 +21307,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE5beginEv.exit.i: ; preds = %42, %40
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 0, i64 160, i1 false), !alias.scope !1520
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %26, i8 0, i64 160, i1 false), !alias.scope !1520
   store ptr %26, ptr %4, align 8, !tbaa !347, !alias.scope !1520
   store i32 0, ptr %27, align 8, !tbaa !345, !alias.scope !1520
   store i32 20, ptr %28, align 4, !tbaa !346, !alias.scope !1520
@@ -22860,7 +22860,7 @@ define linkonce_odr hidden void @_ZNK5clang4ento4SVal7symbolsEv(ptr dead_on_unwi
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @_ZN5clang4ento7SymExpr15symbol_iteratorC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(28) %8) #21, !noalias !1575
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 40, i1 false), !noalias !1575
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !noalias !1575
   store ptr %10, ptr %4, align 8, !tbaa !347, !noalias !1575
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %11, align 8, !tbaa !345, !noalias !1575
@@ -22893,7 +22893,7 @@ _ZN5clang4ento7SymExpr15symbol_iteratorD2Ev.exit.i: ; preds = %15, %9
 _ZN5clang4ento7SymExpr15symbol_iteratorC2ERKS2_.exit13: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #21
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %22, ptr %5, align 8, !tbaa !347
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8

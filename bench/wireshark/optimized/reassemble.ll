@@ -1220,7 +1220,7 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   %41 = phi i32 [ %.pre21.i, %._crit_edge.loopexit.i ], [ %19, %.preheader.i ]
   %42 = and i32 %41, -1114
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %43, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %43, i8 0, i64 5, i1 false)
   br label %44
 
 44:                                               ; preds = %fragment_reset_defragmentation.exit, %23

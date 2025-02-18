@@ -256,7 +256,7 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
 75:                                               ; preds = %71, %67, %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, i8 0, i64 40, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, i8 0, i64 40, i1 false), !annotation !20
   store ptr %28, ptr %2, align 8
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 3, ptr %77, align 8

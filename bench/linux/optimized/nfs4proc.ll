@@ -677,7 +677,7 @@ define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, 
   %5 = alloca %struct.nfs4_exception, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr %2, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2255,7 +2255,7 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   store ptr %1, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1440), ptr %8, align 8
   store ptr %6, ptr %13, align 8
@@ -2808,7 +2808,7 @@ define internal fastcc i32 @nfs4_do_fsinfo(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %11, align 8
   store ptr %13, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store ptr %2, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 480), ptr %8, align 8
@@ -3835,7 +3835,7 @@ define dso_local i32 @nfs4_proc_setclientid(ptr noundef %0, i32 noundef %1, i16 
   store i64 0, ptr %8, align 8, !annotation !60
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 96, i1 false)
   store ptr %8, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %1, ptr %13, align 8
@@ -5128,7 +5128,7 @@ define dso_local i32 @nfs4_proc_secinfo(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %14, ptr %13, align 8
   store ptr %1, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store ptr %2, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1728), ptr %6, align 8
@@ -5364,7 +5364,7 @@ define dso_local i32 @nfs4_proc_get_lease_time(ptr noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store ptr %1, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   store ptr %3, ptr %5, align 8
@@ -5976,7 +5976,7 @@ define internal i32 @nfs4_proc_readlink(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %3, ptr %16, align 4
   store ptr %7, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 24, i1 false), !annotation !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false), !annotation !60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1344), ptr %10, align 8
   store ptr %8, ptr %18, align 8
@@ -8391,7 +8391,7 @@ define internal i32 @nfs4_proc_lock(ptr noundef readonly captures(none) %0, i32 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
   store ptr %51, ptr %20, align 8
   store ptr %2, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
   store ptr %2, ptr %23, align 8
@@ -15747,7 +15747,7 @@ define internal fastcc i32 @_nfs4_proc_remove(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #22
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   store ptr %12, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
   store ptr getelementptr (i8, ptr @nfs4_procedures, i64 1008), ptr %8, align 8

@@ -553,7 +553,7 @@ define internal noundef zeroext i1 @erf_read(ptr noundef %0, ptr noundef %1, ptr
 
 .split49.us:                                      ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   store i32 -21, ptr %2, align 4
   %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4)
   store ptr %49, ptr %3, align 8
@@ -585,7 +585,7 @@ define internal noundef zeroext i1 @erf_read(ptr noundef %0, ptr noundef %1, ptr
 63:                                               ; preds = %58
   %64 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   %.not85.i = icmp eq ptr %64, null
   br i1 %.not85.i, label %65, label %67
 
@@ -4134,7 +4134,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
 
 48:                                               ; preds = %wtap_wtap_encap_to_erf_encap.exit
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %49, i8 noundef 0, i64 noundef 128, i1 noundef false) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %49, i8 noundef 0, i64 noundef 128, i1 noundef false) #16
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = shl i64 %51, 32
@@ -5770,7 +5770,7 @@ define internal fastcc zeroext i1 @erf_write_phdr(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %7, i8 noundef 0, i64 noundef 136, i1 noundef false) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %7, i8 noundef 0, i64 noundef 136, i1 noundef false) #16
   %8 = load i64, ptr %1, align 8
   %9 = trunc i64 %8 to i8
   store i8 %9, ptr %4, align 16

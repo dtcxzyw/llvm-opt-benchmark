@@ -260,7 +260,7 @@ define dso_local void @mpol_rebind_mm(ptr noundef %0, ptr noundef %1) local_unna
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store ptr %4, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 1, ptr %6, align 8
@@ -1042,7 +1042,7 @@ select.unfold:                                    ; preds = %25, %22
 100:                                              ; preds = %.thread32
   %101 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   store ptr %101, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %0, ptr %103, align 8
@@ -1127,7 +1127,7 @@ select.unfold:                                    ; preds = %25, %22
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %148, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %148, i8 0, i64 32, i1 false)
   store ptr %101, ptr %8, align 8
   store i64 %0, ptr %103, align 8
   store i64 %0, ptr %104, align 8

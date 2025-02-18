@@ -40873,21 +40873,21 @@ terminate.lpad.i.i337:                            ; preds = %if.end.i.i.i.i.i336
 
 if.end228:                                        ; preds = %if.end171
   %135 = getelementptr inbounds nuw i8, ptr %szs, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %135, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %135, i8 0, i64 64, i1 false)
   store ptr %135, ptr %szs, align 8
   %m_pos.i.i340 = getelementptr inbounds nuw i8, ptr %szs, i64 8
   store i32 0, ptr %m_pos.i.i340, align 8
   %m_capacity.i.i341 = getelementptr inbounds nuw i8, ptr %szs, i64 12
   store i32 16, ptr %m_capacity.i.i341, align 4
   %136 = getelementptr inbounds nuw i8, ptr %it, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %136, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %136, i8 0, i64 64, i1 false)
   store ptr %136, ptr %it, align 8
   %m_pos.i.i343 = getelementptr inbounds nuw i8, ptr %it, i64 8
   store i32 0, ptr %m_pos.i.i343, align 8
   %m_capacity.i.i344 = getelementptr inbounds nuw i8, ptr %it, i64 12
   store i32 16, ptr %m_capacity.i.i344, align 4
   %137 = getelementptr inbounds nuw i8, ptr %sums, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %137, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %137, i8 0, i64 128, i1 false)
   store ptr %137, ptr %sums, align 8
   %m_pos.i.i346 = getelementptr inbounds nuw i8, ptr %sums, i64 8
   store i32 0, ptr %m_pos.i.i346, align 8

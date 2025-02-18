@@ -11216,7 +11216,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE31p
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 1.000000e+00, ptr %10, align 16
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store double 1.200000e+01, ptr %6, align 16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 4.000000e+00, ptr %12, align 8

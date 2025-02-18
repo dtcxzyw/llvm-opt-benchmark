@@ -4485,7 +4485,7 @@ define noundef i32 @_ZNK6casadi7QpToNlp5solveEPPKdPPdPxS4_Pv(ptr noundef nonnull
   %33 = load i64, ptr %32, align 8, !tbaa !153
   %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, i8 0, i64 16, i1 false), !tbaa !151
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !tbaa !151
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 48, i1 false), !tbaa !151
   store ptr %21, ptr %31, align 8, !tbaa !151
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32

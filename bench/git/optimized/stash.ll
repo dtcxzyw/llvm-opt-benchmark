@@ -612,7 +612,7 @@ define internal range(i32 -1, 1) i32 @drop_stash(i32 noundef %0, ptr noundef %1,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %6, ptr noundef nonnull align 8 dereferenceable(320) @__const.do_push_stash.info, i64 320, i1 false)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %8, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   store i32 8, ptr %7, align 16, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 113, ptr %9, align 4, !tbaa !13
@@ -2850,7 +2850,7 @@ define internal fastcc range(i32 -1, 1) i32 @reset_tree(ptr noundef nonnull %0) 
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !18
   %13 = call i32 @repo_hold_locked_index(ptr noundef %12, ptr noundef nonnull %4, i32 noundef 1) #15
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %14, i8 0, i64 1112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %14, i8 0, i64 1112, i1 false)
   %15 = call ptr @parse_tree_indirect(ptr noundef nonnull %0) #15
   %16 = call i32 @parse_tree_gently(ptr noundef %15, i32 noundef 0) #15
   %.not9 = icmp eq i32 %16, 0

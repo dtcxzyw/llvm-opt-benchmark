@@ -4056,7 +4056,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1666 = phi ptr [ %.pre193, %1623 ], [ %1410, %1408 ], [ %1410, %1616 ], [ %1410, %1537 ], [ %1410, %1431 ], [ %1410, %1621 ], [ %1410, %1614 ], [ %1410, %1609 ], [ %1410, %1607 ], [ %1410, %1593 ], [ %1410, %1570 ], [ %1410, %1573 ], [ %1410, %1579 ], [ %1410, %1567 ], [ %1410, %1556 ], [ %1410, %1552 ], [ %1410, %1542 ], [ %1410, %1531 ], [ %1410, %1517 ], [ %1410, %1512 ], [ %1410, %._crit_edge187 ], [ %1410, %1584 ]
   %1667 = phi ptr [ %.pre191, %1623 ], [ %1411, %1408 ], [ %1411, %1616 ], [ %1411, %1537 ], [ %1411, %1431 ], [ %1411, %1621 ], [ %1411, %1614 ], [ %1411, %1609 ], [ %1411, %1607 ], [ %1411, %1593 ], [ %1411, %1570 ], [ %1411, %1573 ], [ %1411, %1579 ], [ %1411, %1567 ], [ %1411, %1556 ], [ %1411, %1552 ], [ %1411, %1542 ], [ %1411, %1531 ], [ %1411, %1517 ], [ %1411, %1512 ], [ %1411, %._crit_edge187 ], [ %1411, %1584 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 32, i1 false), !annotation !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false), !annotation !43
   %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 68
   %1669 = load i16, ptr %1668, align 4
   %1670 = and i16 %1669, 8191
@@ -5864,7 +5864,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #18
   %436 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %437 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %437, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %437, i8 0, i64 64, i1 false)
   store ptr %408, ptr %436, align 8
   %438 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %438, align 8
@@ -5977,7 +5977,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %502 = load ptr, ptr %501, align 8
   %503 = load i16, ptr %502, align 2
   %504 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %504, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %504, i8 0, i64 64, i1 false)
   %505 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %408, ptr %505, align 8
   %506 = getelementptr inbounds nuw i8, ptr %5, i64 16

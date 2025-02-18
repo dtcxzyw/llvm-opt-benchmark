@@ -836,7 +836,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 93:                                               ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %_ZN5folly5IOBuf10unshareOneEv.exit
   %94 = phi ptr [ %.pre30, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %80, %_ZN5folly5IOBuf10unshareOneEv.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %95, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %95, i8 0, i64 24, i1 false)
   store i32 -356314207, ptr %94, align 1, !tbaa !80
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %1, ptr %96, align 1, !tbaa !83

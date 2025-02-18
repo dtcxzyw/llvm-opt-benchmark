@@ -697,7 +697,7 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
 
 271:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %132, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
   store i64 0, ptr %13, align 8, !tbaa !12
   br label %272

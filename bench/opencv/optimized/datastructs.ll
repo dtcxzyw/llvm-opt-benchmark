@@ -1604,7 +1604,7 @@ cvSliceLength.exit:                               ; preds = %17, %22
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   store i32 64, ptr %4, align 8
   store ptr %0, ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5284,7 +5284,7 @@ cvSliceLength.exit:                               ; preds = %34, %39
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   store i32 64, ptr %5, align 8
   store ptr %0, ptr %73, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5551,7 +5551,7 @@ cvSliceLength.exit:                               ; preds = %20, %23
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   store i32 64, ptr %7, align 8
   store ptr %0, ptr %53, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6062,7 +6062,7 @@ define void @cvSeqInsertSlice(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 
 113:                                              ; preds = %103
   call void @cvSeqPushMulti(ptr noundef nonnull %0, ptr noundef null, i32 noundef %84, i32 noundef 1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   store i32 64, ptr %4, align 8
   store ptr %0, ptr %106, align 8
   %114 = load ptr, ptr %112, align 8
@@ -6104,7 +6104,7 @@ define void @cvSeqInsertSlice(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %143, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 32, i1 false)
   store i32 64, ptr %5, align 8
   store ptr %0, ptr %138, align 8
   %144 = load ptr, ptr %114, align 8
@@ -6234,7 +6234,7 @@ cvStartReadSeq.exit112:                           ; preds = %115, %162
 
 217:                                              ; preds = %103
   call void @cvSeqPushMulti(ptr noundef nonnull %0, ptr noundef null, i32 noundef %84, i32 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   store i32 64, ptr %4, align 8
   store ptr %0, ptr %106, align 8
   %218 = load ptr, ptr %112, align 8
@@ -6276,7 +6276,7 @@ cvStartReadSeq.exit112:                           ; preds = %115, %162
   %245 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %246 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %247, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %247, i8 0, i64 32, i1 false)
   store i32 64, ptr %5, align 8
   store ptr %0, ptr %242, align 8
   %248 = load ptr, ptr %218, align 8
@@ -6421,7 +6421,7 @@ cvStartReadSeq.exit128:                           ; preds = %219, %266
   %340 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %341 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %342 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %342, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %342, i8 0, i64 32, i1 false)
   store i32 64, ptr %5, align 8
   store ptr %.075, ptr %337, align 8
   %343 = load ptr, ptr %.075.sroa.phi160, align 8
@@ -6668,7 +6668,7 @@ define void @cvSeqSort(ptr noundef %0, ptr noundef readonly captures(address_is_
   %66 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %67 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   store i32 64, ptr %26, align 8
   store ptr %0, ptr %63, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10568,7 +10568,7 @@ define i32 @cvSeqPartition(ptr noundef %0, ptr noundef %1, ptr noundef writeonly
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   store i32 64, ptr %9, align 8
   store ptr %0, ptr %55, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10980,7 +10980,7 @@ cvStartAppendToSeq.exit:                          ; preds = %97, %101
 ._crit_edge191:                                   ; preds = %.loopexit175, %._crit_edge
   %246 = call ptr @cvMemStorageAlloc(ptr noundef nonnull %.082169, i64 noundef 96)
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %247, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %247, i8 0, i64 88, i1 false)
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 4
   store i32 96, ptr %248, align 4
   store i32 1117323264, ptr %246, align 8
@@ -13519,7 +13519,7 @@ define noundef ptr @cvCreateGraphScanner(ptr noundef %0, ptr noundef %1, i32 nou
 27:                                               ; preds = %17
   %28 = tail call ptr @cvAlloc(i64 noundef 48)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 44
@@ -14137,7 +14137,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 
 140:                                              ; preds = %138, %137
   %.038.i = phi i32 [ %139, %138 ], [ %122, %137 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   store i32 64, ptr %2, align 8
   store ptr %123, ptr %28, align 8
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 88
@@ -14382,7 +14382,7 @@ define ptr @cvCloneGraph(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 p
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   store i32 64, ptr %3, align 8
   store ptr %0, ptr %55, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -14583,7 +14583,7 @@ cvStartReadSeq.exit:                              ; preds = %63, %85
 ._crit_edge104:                                   ; preds = %172, %._crit_edge
   %179 = phi ptr [ %130, %._crit_edge ], [ %175, %172 ]
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %180, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %180, i8 0, i64 32, i1 false)
   store i32 64, ptr %3, align 8
   store ptr %0, ptr %55, align 8
   %181 = load ptr, ptr %61, align 8

@@ -801,7 +801,7 @@ define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %32, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %13, ptr %33, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -955,7 +955,7 @@ afalg_setup_async_event_notification.exit.i:      ; preds = %77, %75, %58
   %90 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %90, ptr %6, align 8, !tbaa !52
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %91, i8 0, i64 48, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %19, i64 84
   store i32 %49, ptr %92, align 4, !tbaa !54
   %93 = ptrtoint ptr %1 to i64

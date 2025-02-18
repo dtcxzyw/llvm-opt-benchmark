@@ -260,7 +260,7 @@ checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %53, i8 0, i64 304, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %53, i8 0, i64 304, i1 false)
   store ptr @eventHandlerVMInit, ptr %8, align 8
   %54 = load ptr, ptr %2, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 968

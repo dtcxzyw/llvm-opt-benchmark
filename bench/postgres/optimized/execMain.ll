@@ -1833,12 +1833,12 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
 
 .preheader.preheader:                             ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %9, i8 0, i64 376, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %9, i8 0, i64 376, i1 false)
   br label %.loopexit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(392) %11, i8 0, i64 372, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(372) %11, i8 0, i64 372, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %10

@@ -7424,7 +7424,7 @@ if.else:                                          ; preds = %if.then18, %land.lh
   %19 = load i32, ptr %arraylen5.i, align 4
   store i32 %19, ptr %arraylen.i55, align 4
   %20 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   store ptr @.str.36, ptr %ref.tmp25, align 8
   %float_fmt.i = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 8
   store ptr @.str.114, ptr %float_fmt.i, align 8
