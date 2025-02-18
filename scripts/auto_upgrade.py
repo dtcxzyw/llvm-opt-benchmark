@@ -53,6 +53,7 @@ supported_project = [
     "qemu",
     "qoi",
     "quickjs",
+    "raylib",
 ]
 
 modify_only = [
@@ -68,6 +69,7 @@ modify_only = [
     "php",
     "postgres",
     "qemu",
+    "raylib",
 ]
 
 
