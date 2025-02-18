@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/folly/original/Phase.ll'
 source_filename = "bench/folly/original/Phase.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [48 x i8] c"folly-init: unexpected process-phase transition\00", align 1
 @_ZTISt11logic_error = external constant ptr
@@ -9,29 +9,28 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly18set_process_phasesEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
-  %cmp1.not.i = icmp eq i32 %0, 0
-  br i1 %cmp1.not.i, label %_ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit, label %if.then.i
+  %1 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
+  %.not.i = icmp eq i32 %1, 0
+  br i1 %.not.i, label %_ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit, label %2
 
-if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #7
-  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
-          to label %invoke.cont.i unwind label %lpad.i
+2:                                                ; preds = %0
+  %3 = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
+          to label %4 unwind label %5
 
-invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #8
+4:                                                ; preds = %2
+  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #8
   unreachable
 
-lpad.i:                                           ; preds = %if.then.i
-  %1 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #7
-  resume { ptr, i32 } %1
+  tail call void @__cxa_free_exception(ptr nonnull %3) #7
+  resume { ptr, i32 } %6
 
-_ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit: ; preds = %entry
+_ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit: ; preds = %0
   store atomic i32 1, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
-  %call1 = tail call i32 @atexit(ptr noundef nonnull @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv") #7
+  %7 = tail call i32 @atexit(ptr noundef nonnull @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv") #7
   ret void
 }
 
@@ -39,10 +38,9 @@ _ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit: ; preds = %e
 declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 3) i32 @_ZN5folly17get_process_phaseEv() local_unnamed_addr #2 {
-entry:
-  %0 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
-  ret i32 %0
+define noundef i32 @_ZN5folly17get_process_phaseEv() local_unnamed_addr #2 {
+  %1 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
+  ret i32 %1
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -61,27 +59,26 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal void @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv"() #6 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
-  %cmp1.not.i.i = icmp eq i32 %0, 1
-  br i1 %cmp1.not.i.i, label %"_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit", label %if.then.i.i
+  %1 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
+  %.not.i.i = icmp eq i32 %1, 1
+  br i1 %.not.i.i, label %"_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit", label %2
 
-if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #7
-  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
+2:                                                ; preds = %0
+  %3 = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
+          to label %4 unwind label %5
 
-invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #8
+4:                                                ; preds = %2
+  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #8
   unreachable
 
-lpad.i.i:                                         ; preds = %if.then.i.i
-  %1 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #7
-  resume { ptr, i32 } %1
+  tail call void @__cxa_free_exception(ptr nonnull %3) #7
+  resume { ptr, i32 } %6
 
-"_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit": ; preds = %entry
+"_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit": ; preds = %0
   store atomic i32 2, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
   ret void
 }

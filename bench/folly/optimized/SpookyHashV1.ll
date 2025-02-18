@@ -1,328 +1,327 @@
 ; ModuleID = 'bench/folly/original/SpookyHashV1.ll'
 source_filename = "bench/folly/original/SpookyHashV1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly captures(address) %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
-entry:
-  %rem = and i64 %length, 31
-  %0 = load i64, ptr %hash1, align 8, !tbaa !7
-  %1 = load i64, ptr %hash2, align 8, !tbaa !7
-  %cmp = icmp ugt i64 %length, 15
-  br i1 %cmp, label %if.then, label %if.end16
+define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
+  %5 = and i64 %1, 31
+  %6 = load i64, ptr %2, align 8, !tbaa !7
+  %7 = load i64, ptr %3, align 8, !tbaa !7
+  %8 = icmp ugt i64 %1, 15
+  br i1 %8, label %9, label %106
 
-if.then:                                          ; preds = %entry
-  %2 = lshr i64 %length, 3
-  %mul = and i64 %2, 2305843009213693948
-  %add.ptr = getelementptr inbounds nuw i64, ptr %message, i64 %mul
-  %cmp1294.not = icmp eq i64 %mul, 0
-  br i1 %cmp1294.not, label %for.end, label %for.body
+9:                                                ; preds = %4
+  %10 = lshr i64 %1, 3
+  %11 = and i64 %10, 2305843009213693948
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %11
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %if.then, %for.body
-  %u.sroa.0.0299 = phi ptr [ %add.ptr8, %for.body ], [ %message, %if.then ]
-  %d.0298 = phi i64 [ %xor33.i, %for.body ], [ -2401053088876216593, %if.then ]
-  %c.0297 = phi i64 [ %xor30.i, %for.body ], [ -2401053088876216593, %if.then ]
-  %b.0296 = phi i64 [ %add7, %for.body ], [ %1, %if.then ]
-  %a.0295 = phi i64 [ %add5, %for.body ], [ %0, %if.then ]
-  %3 = load i64, ptr %u.sroa.0.0299, align 8, !tbaa !7
-  %add = add i64 %3, %c.0297
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0299, i64 8
-  %4 = load i64, ptr %arrayidx2, align 8, !tbaa !7
-  %add3 = add i64 %4, %d.0298
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add, i64 %add, i64 50)
-  %add.i = add i64 %add3, %or.i.i
-  %xor.i = xor i64 %add.i, %a.0295
-  %or.i104.i = tail call i64 @llvm.fshl.i64(i64 %add3, i64 %add3, i64 52)
-  %add2.i = add i64 %xor.i, %or.i104.i
-  %xor3.i = xor i64 %add2.i, %b.0296
-  %or.i107.i = tail call i64 @llvm.fshl.i64(i64 %xor.i, i64 %xor.i, i64 30)
-  %add5.i = add i64 %xor3.i, %or.i107.i
-  %xor6.i = xor i64 %add5.i, %add.i
-  %or.i110.i = tail call i64 @llvm.fshl.i64(i64 %xor3.i, i64 %xor3.i, i64 41)
-  %add8.i = add i64 %xor6.i, %or.i110.i
-  %xor9.i = xor i64 %add8.i, %add2.i
-  %or.i113.i = tail call i64 @llvm.fshl.i64(i64 %xor6.i, i64 %xor6.i, i64 54)
-  %add11.i = add i64 %xor9.i, %or.i113.i
-  %xor12.i = xor i64 %add11.i, %add5.i
-  %or.i116.i = tail call i64 @llvm.fshl.i64(i64 %xor9.i, i64 %xor9.i, i64 48)
-  %add14.i = add i64 %xor12.i, %or.i116.i
-  %xor15.i = xor i64 %add14.i, %add8.i
-  %or.i119.i = tail call i64 @llvm.fshl.i64(i64 %xor12.i, i64 %xor12.i, i64 38)
-  %add17.i = add i64 %xor15.i, %or.i119.i
-  %xor18.i = xor i64 %add17.i, %add11.i
-  %or.i122.i = tail call i64 @llvm.fshl.i64(i64 %xor15.i, i64 %xor15.i, i64 37)
-  %add20.i = add i64 %xor18.i, %or.i122.i
-  %xor21.i = xor i64 %add20.i, %add14.i
-  %or.i125.i = tail call i64 @llvm.fshl.i64(i64 %xor18.i, i64 %xor18.i, i64 62)
-  %add23.i = add i64 %xor21.i, %or.i125.i
-  %xor24.i = xor i64 %add23.i, %add17.i
-  %or.i128.i = tail call i64 @llvm.fshl.i64(i64 %xor21.i, i64 %xor21.i, i64 34)
-  %add26.i = add i64 %xor24.i, %or.i128.i
-  %xor27.i = xor i64 %add26.i, %add20.i
-  %or.i131.i = tail call i64 @llvm.fshl.i64(i64 %xor24.i, i64 %xor24.i, i64 5)
-  %add29.i = add i64 %xor27.i, %or.i131.i
-  %xor30.i = xor i64 %add29.i, %add23.i
-  %or.i134.i = tail call i64 @llvm.fshl.i64(i64 %xor27.i, i64 %xor27.i, i64 36)
-  %add32.i = add i64 %xor30.i, %or.i134.i
-  %xor33.i = xor i64 %add32.i, %add26.i
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0299, i64 16
-  %5 = load i64, ptr %arrayidx4, align 8, !tbaa !7
-  %add5 = add i64 %add29.i, %5
-  %arrayidx6 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0299, i64 24
-  %6 = load i64, ptr %arrayidx6, align 8, !tbaa !7
-  %add7 = add i64 %add32.i, %6
-  %add.ptr8 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0299, i64 32
-  %cmp1 = icmp ult ptr %add.ptr8, %add.ptr
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !11
+.lr.ph:                                           ; preds = %9, %.lr.ph
+  %.sroa.0.1186 = phi ptr [ %60, %.lr.ph ], [ %0, %9 ]
+  %.0169185 = phi i64 [ %53, %.lr.ph ], [ -2401053088876216593, %9 ]
+  %.1171184 = phi i64 [ %50, %.lr.ph ], [ -2401053088876216593, %9 ]
+  %.1179183 = phi i64 [ %59, %.lr.ph ], [ %7, %9 ]
+  %.1181182 = phi i64 [ %56, %.lr.ph ], [ %6, %9 ]
+  %13 = load i64, ptr %.sroa.0.1186, align 8, !tbaa !7
+  %14 = add i64 %13, %.1171184
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.1186, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !7
+  %17 = add i64 %16, %.0169185
+  %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 50)
+  %19 = add i64 %17, %18
+  %20 = xor i64 %19, %.1181182
+  %21 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 52)
+  %22 = add i64 %20, %21
+  %23 = xor i64 %22, %.1179183
+  %24 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 30)
+  %25 = add i64 %23, %24
+  %26 = xor i64 %25, %19
+  %27 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 41)
+  %28 = add i64 %26, %27
+  %29 = xor i64 %28, %22
+  %30 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 54)
+  %31 = add i64 %29, %30
+  %32 = xor i64 %31, %25
+  %33 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 48)
+  %34 = add i64 %32, %33
+  %35 = xor i64 %34, %28
+  %36 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 38)
+  %37 = add i64 %35, %36
+  %38 = xor i64 %37, %31
+  %39 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 37)
+  %40 = add i64 %38, %39
+  %41 = xor i64 %40, %34
+  %42 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 62)
+  %43 = add i64 %41, %42
+  %44 = xor i64 %43, %37
+  %45 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 34)
+  %46 = add i64 %44, %45
+  %47 = xor i64 %46, %40
+  %48 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 5)
+  %49 = add i64 %47, %48
+  %50 = xor i64 %49, %43
+  %51 = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 36)
+  %52 = add i64 %50, %51
+  %53 = xor i64 %52, %46
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.1186, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !7
+  %56 = add i64 %49, %55
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.1186, i64 24
+  %58 = load i64, ptr %57, align 8, !tbaa !7
+  %59 = add i64 %52, %58
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.1186, i64 32
+  %61 = icmp ult ptr %60, %12
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-for.end:                                          ; preds = %for.body, %if.then
-  %a.0.lcssa = phi i64 [ %0, %if.then ], [ %add5, %for.body ]
-  %b.0.lcssa = phi i64 [ %1, %if.then ], [ %add7, %for.body ]
-  %c.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor30.i, %for.body ]
-  %d.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor33.i, %for.body ]
-  %u.sroa.0.0.lcssa = phi ptr [ %message, %if.then ], [ %add.ptr8, %for.body ]
-  %cmp9 = icmp samesign ugt i64 %rem, 15
-  br i1 %cmp9, label %if.then10, label %if.end16
+._crit_edge:                                      ; preds = %.lr.ph, %9
+  %.1181.lcssa = phi i64 [ %6, %9 ], [ %56, %.lr.ph ]
+  %.1179.lcssa = phi i64 [ %7, %9 ], [ %59, %.lr.ph ]
+  %.1171.lcssa = phi i64 [ -2401053088876216593, %9 ], [ %50, %.lr.ph ]
+  %.0169.lcssa = phi i64 [ -2401053088876216593, %9 ], [ %53, %.lr.ph ]
+  %.sroa.0.1.lcssa = phi ptr [ %0, %9 ], [ %60, %.lr.ph ]
+  %62 = icmp samesign ugt i64 %5, 15
+  br i1 %62, label %63, label %106
 
-if.then10:                                        ; preds = %for.end
-  %7 = load i64, ptr %u.sroa.0.0.lcssa, align 8, !tbaa !7
-  %add12 = add i64 %7, %c.0.lcssa
-  %arrayidx13 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0.lcssa, i64 8
-  %8 = load i64, ptr %arrayidx13, align 8, !tbaa !7
-  %add14 = add i64 %8, %d.0.lcssa
-  %or.i.i122 = tail call i64 @llvm.fshl.i64(i64 %add12, i64 %add12, i64 50)
-  %add.i123 = add i64 %add14, %or.i.i122
-  %xor.i124 = xor i64 %add.i123, %a.0.lcssa
-  %or.i104.i125 = tail call i64 @llvm.fshl.i64(i64 %add14, i64 %add14, i64 52)
-  %add2.i126 = add i64 %xor.i124, %or.i104.i125
-  %xor3.i127 = xor i64 %add2.i126, %b.0.lcssa
-  %or.i107.i128 = tail call i64 @llvm.fshl.i64(i64 %xor.i124, i64 %xor.i124, i64 30)
-  %add5.i129 = add i64 %xor3.i127, %or.i107.i128
-  %xor6.i130 = xor i64 %add5.i129, %add.i123
-  %or.i110.i131 = tail call i64 @llvm.fshl.i64(i64 %xor3.i127, i64 %xor3.i127, i64 41)
-  %add8.i132 = add i64 %xor6.i130, %or.i110.i131
-  %xor9.i133 = xor i64 %add8.i132, %add2.i126
-  %or.i113.i134 = tail call i64 @llvm.fshl.i64(i64 %xor6.i130, i64 %xor6.i130, i64 54)
-  %add11.i135 = add i64 %xor9.i133, %or.i113.i134
-  %xor12.i136 = xor i64 %add11.i135, %add5.i129
-  %or.i116.i137 = tail call i64 @llvm.fshl.i64(i64 %xor9.i133, i64 %xor9.i133, i64 48)
-  %add14.i138 = add i64 %xor12.i136, %or.i116.i137
-  %xor15.i139 = xor i64 %add14.i138, %add8.i132
-  %or.i119.i140 = tail call i64 @llvm.fshl.i64(i64 %xor12.i136, i64 %xor12.i136, i64 38)
-  %add17.i141 = add i64 %xor15.i139, %or.i119.i140
-  %xor18.i142 = xor i64 %add17.i141, %add11.i135
-  %or.i122.i143 = tail call i64 @llvm.fshl.i64(i64 %xor15.i139, i64 %xor15.i139, i64 37)
-  %add20.i144 = add i64 %xor18.i142, %or.i122.i143
-  %xor21.i145 = xor i64 %add20.i144, %add14.i138
-  %or.i125.i146 = tail call i64 @llvm.fshl.i64(i64 %xor18.i142, i64 %xor18.i142, i64 62)
-  %add23.i147 = add i64 %xor21.i145, %or.i125.i146
-  %xor24.i148 = xor i64 %add23.i147, %add17.i141
-  %or.i128.i149 = tail call i64 @llvm.fshl.i64(i64 %xor21.i145, i64 %xor21.i145, i64 34)
-  %add26.i150 = add i64 %xor24.i148, %or.i128.i149
-  %xor27.i151 = xor i64 %add26.i150, %add20.i144
-  %or.i131.i152 = tail call i64 @llvm.fshl.i64(i64 %xor24.i148, i64 %xor24.i148, i64 5)
-  %add29.i153 = add i64 %xor27.i151, %or.i131.i152
-  %xor30.i154 = xor i64 %add29.i153, %add23.i147
-  %or.i134.i155 = tail call i64 @llvm.fshl.i64(i64 %xor27.i151, i64 %xor27.i151, i64 36)
-  %add32.i156 = add i64 %xor30.i154, %or.i134.i155
-  %add.ptr15 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0.lcssa, i64 16
-  %sub = add nsw i64 %rem, -16
-  br label %if.end16
+63:                                               ; preds = %._crit_edge
+  %64 = load i64, ptr %.sroa.0.1.lcssa, align 8, !tbaa !7
+  %65 = add i64 %64, %.1171.lcssa
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !7
+  %68 = add i64 %67, %.0169.lcssa
+  %69 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 50)
+  %70 = add i64 %68, %69
+  %71 = xor i64 %70, %.1181.lcssa
+  %72 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 52)
+  %73 = add i64 %71, %72
+  %74 = xor i64 %73, %.1179.lcssa
+  %75 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 30)
+  %76 = add i64 %74, %75
+  %77 = xor i64 %76, %70
+  %78 = tail call i64 @llvm.fshl.i64(i64 %74, i64 %74, i64 41)
+  %79 = add i64 %77, %78
+  %80 = xor i64 %79, %73
+  %81 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 54)
+  %82 = add i64 %80, %81
+  %83 = xor i64 %82, %76
+  %84 = tail call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 48)
+  %85 = add i64 %83, %84
+  %86 = xor i64 %85, %79
+  %87 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 38)
+  %88 = add i64 %86, %87
+  %89 = xor i64 %88, %82
+  %90 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 37)
+  %91 = add i64 %89, %90
+  %92 = xor i64 %91, %85
+  %93 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 62)
+  %94 = add i64 %92, %93
+  %95 = xor i64 %94, %88
+  %96 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 34)
+  %97 = add i64 %95, %96
+  %98 = xor i64 %97, %91
+  %99 = tail call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 5)
+  %100 = add i64 %98, %99
+  %101 = xor i64 %100, %94
+  %102 = tail call i64 @llvm.fshl.i64(i64 %98, i64 %98, i64 36)
+  %103 = add i64 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa, i64 16
+  %105 = add nsw i64 %5, -16
+  br label %106
 
-if.end16:                                         ; preds = %if.then10, %for.end, %entry
-  %a.1 = phi i64 [ %add29.i153, %if.then10 ], [ %a.0.lcssa, %for.end ], [ %0, %entry ]
-  %b.1 = phi i64 [ %add32.i156, %if.then10 ], [ %b.0.lcssa, %for.end ], [ %1, %entry ]
-  %c.1 = phi i64 [ %xor30.i154, %if.then10 ], [ %c.0.lcssa, %for.end ], [ -2401053088876216593, %entry ]
-  %remainder.1 = phi i64 [ %sub, %if.then10 ], [ %rem, %for.end ], [ %rem, %entry ]
-  %u.sroa.0.2 = phi ptr [ %add.ptr15, %if.then10 ], [ %u.sroa.0.0.lcssa, %for.end ], [ %message, %entry ]
-  %shl = shl i64 %length, 56
-  switch i64 %remainder.1, label %sw.epilog [
-    i64 15, label %sw.bb
-    i64 14, label %sw.bb20
-    i64 13, label %sw.bb25
-    i64 12, label %sw.bb30
-    i64 11, label %sw.bb36
-    i64 10, label %sw.bb41
-    i64 9, label %sw.bb46
-    i64 8, label %sw.bb50
-    i64 7, label %sw.bb53
-    i64 6, label %sw.bb58
-    i64 5, label %sw.bb63
-    i64 4, label %sw.bb68
-    i64 3, label %sw.bb72
-    i64 2, label %sw.bb77
-    i64 1, label %sw.bb82
-    i64 0, label %sw.bb86
+106:                                              ; preds = %._crit_edge, %63, %4
+  %.0180 = phi i64 [ %100, %63 ], [ %.1181.lcssa, %._crit_edge ], [ %6, %4 ]
+  %.0178 = phi i64 [ %103, %63 ], [ %.1179.lcssa, %._crit_edge ], [ %7, %4 ]
+  %.0170 = phi i64 [ %101, %63 ], [ %.1171.lcssa, %._crit_edge ], [ -2401053088876216593, %4 ]
+  %.0 = phi i64 [ %105, %63 ], [ %5, %._crit_edge ], [ %5, %4 ]
+  %.sroa.0.0 = phi ptr [ %104, %63 ], [ %.sroa.0.1.lcssa, %._crit_edge ], [ %0, %4 ]
+  %107 = shl i64 %1, 56
+  switch i64 %.0, label %194 [
+    i64 15, label %108
+    i64 14, label %114
+    i64 13, label %120
+    i64 12, label %126
+    i64 11, label %133
+    i64 10, label %139
+    i64 9, label %145
+    i64 8, label %150
+    i64 7, label %153
+    i64 6, label %159
+    i64 5, label %165
+    i64 4, label %171
+    i64 3, label %175
+    i64 2, label %181
+    i64 1, label %187
+    i64 0, label %191
   ]
 
-sw.bb:                                            ; preds = %if.end16
-  %arrayidx17 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 14
-  %9 = load i8, ptr %arrayidx17, align 1, !tbaa !13
-  %conv = zext i8 %9 to i64
-  %shl18 = shl nuw nsw i64 %conv, 48
-  %add19 = or disjoint i64 %shl18, %shl
-  br label %sw.bb20
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 14
+  %110 = load i8, ptr %109, align 1, !tbaa !13
+  %111 = zext i8 %110 to i64
+  %112 = shl nuw nsw i64 %111, 48
+  %113 = or disjoint i64 %112, %107
+  br label %114
 
-sw.bb20:                                          ; preds = %sw.bb, %if.end16
-  %d.1 = phi i64 [ %shl, %if.end16 ], [ %add19, %sw.bb ]
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 13
-  %10 = load i8, ptr %arrayidx21, align 1, !tbaa !13
-  %conv22 = zext i8 %10 to i64
-  %shl23 = shl nuw nsw i64 %conv22, 40
-  %add24 = add i64 %shl23, %d.1
-  br label %sw.bb25
+114:                                              ; preds = %108, %106
+  %.2 = phi i64 [ %107, %106 ], [ %113, %108 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 13
+  %116 = load i8, ptr %115, align 1, !tbaa !13
+  %117 = zext i8 %116 to i64
+  %118 = shl nuw nsw i64 %117, 40
+  %119 = add i64 %118, %.2
+  br label %120
 
-sw.bb25:                                          ; preds = %sw.bb20, %if.end16
-  %d.2 = phi i64 [ %shl, %if.end16 ], [ %add24, %sw.bb20 ]
-  %arrayidx26 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 12
-  %11 = load i8, ptr %arrayidx26, align 1, !tbaa !13
-  %conv27 = zext i8 %11 to i64
-  %shl28 = shl nuw nsw i64 %conv27, 32
-  %add29 = add i64 %shl28, %d.2
-  br label %sw.bb30
+120:                                              ; preds = %114, %106
+  %.3 = phi i64 [ %107, %106 ], [ %119, %114 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 12
+  %122 = load i8, ptr %121, align 1, !tbaa !13
+  %123 = zext i8 %122 to i64
+  %124 = shl nuw nsw i64 %123, 32
+  %125 = add i64 %124, %.3
+  br label %126
 
-sw.bb30:                                          ; preds = %sw.bb25, %if.end16
-  %d.3 = phi i64 [ %shl, %if.end16 ], [ %add29, %sw.bb25 ]
-  %arrayidx31 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 8
-  %12 = load i32, ptr %arrayidx31, align 4, !tbaa !14
-  %conv32 = zext i32 %12 to i64
-  %add33 = add i64 %d.3, %conv32
-  %13 = load i64, ptr %u.sroa.0.2, align 8, !tbaa !7
-  %add35 = add i64 %13, %c.1
-  br label %sw.epilog
+126:                                              ; preds = %120, %106
+  %.4 = phi i64 [ %107, %106 ], [ %125, %120 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
+  %128 = load i32, ptr %127, align 4, !tbaa !14
+  %129 = zext i32 %128 to i64
+  %130 = add i64 %.4, %129
+  %131 = load i64, ptr %.sroa.0.0, align 8, !tbaa !7
+  %132 = add i64 %131, %.0170
+  br label %194
 
-sw.bb36:                                          ; preds = %if.end16
-  %arrayidx37 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 10
-  %14 = load i8, ptr %arrayidx37, align 1, !tbaa !13
-  %conv38 = zext i8 %14 to i64
-  %shl39 = shl nuw nsw i64 %conv38, 16
-  %add40 = or disjoint i64 %shl39, %shl
-  br label %sw.bb41
+133:                                              ; preds = %106
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 10
+  %135 = load i8, ptr %134, align 1, !tbaa !13
+  %136 = zext i8 %135 to i64
+  %137 = shl nuw nsw i64 %136, 16
+  %138 = or disjoint i64 %137, %107
+  br label %139
 
-sw.bb41:                                          ; preds = %sw.bb36, %if.end16
-  %d.4 = phi i64 [ %shl, %if.end16 ], [ %add40, %sw.bb36 ]
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 9
-  %15 = load i8, ptr %arrayidx42, align 1, !tbaa !13
-  %conv43 = zext i8 %15 to i64
-  %shl44 = shl nuw nsw i64 %conv43, 8
-  %add45 = add nuw i64 %shl44, %d.4
-  br label %sw.bb46
+139:                                              ; preds = %133, %106
+  %.5 = phi i64 [ %107, %106 ], [ %138, %133 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 9
+  %141 = load i8, ptr %140, align 1, !tbaa !13
+  %142 = zext i8 %141 to i64
+  %143 = shl nuw nsw i64 %142, 8
+  %144 = add nuw i64 %143, %.5
+  br label %145
 
-sw.bb46:                                          ; preds = %sw.bb41, %if.end16
-  %d.5 = phi i64 [ %shl, %if.end16 ], [ %add45, %sw.bb41 ]
-  %arrayidx47 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 8
-  %16 = load i8, ptr %arrayidx47, align 1, !tbaa !13
-  %conv48 = zext i8 %16 to i64
-  %add49 = add nuw i64 %d.5, %conv48
-  br label %sw.bb50
+145:                                              ; preds = %139, %106
+  %.6 = phi i64 [ %107, %106 ], [ %144, %139 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
+  %147 = load i8, ptr %146, align 1, !tbaa !13
+  %148 = zext i8 %147 to i64
+  %149 = add nuw i64 %.6, %148
+  br label %150
 
-sw.bb50:                                          ; preds = %sw.bb46, %if.end16
-  %d.6 = phi i64 [ %shl, %if.end16 ], [ %add49, %sw.bb46 ]
-  %17 = load i64, ptr %u.sroa.0.2, align 8, !tbaa !7
-  %add52 = add i64 %17, %c.1
-  br label %sw.epilog
+150:                                              ; preds = %145, %106
+  %.7 = phi i64 [ %107, %106 ], [ %149, %145 ]
+  %151 = load i64, ptr %.sroa.0.0, align 8, !tbaa !7
+  %152 = add i64 %151, %.0170
+  br label %194
 
-sw.bb53:                                          ; preds = %if.end16
-  %arrayidx54 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 6
-  %18 = load i8, ptr %arrayidx54, align 1, !tbaa !13
-  %conv55 = zext i8 %18 to i64
-  %shl56 = shl nuw nsw i64 %conv55, 48
-  %add57 = add i64 %shl56, %c.1
-  br label %sw.bb58
+153:                                              ; preds = %106
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 6
+  %155 = load i8, ptr %154, align 1, !tbaa !13
+  %156 = zext i8 %155 to i64
+  %157 = shl nuw nsw i64 %156, 48
+  %158 = add i64 %157, %.0170
+  br label %159
 
-sw.bb58:                                          ; preds = %sw.bb53, %if.end16
-  %c.2 = phi i64 [ %c.1, %if.end16 ], [ %add57, %sw.bb53 ]
-  %arrayidx59 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 5
-  %19 = load i8, ptr %arrayidx59, align 1, !tbaa !13
-  %conv60 = zext i8 %19 to i64
-  %shl61 = shl nuw nsw i64 %conv60, 40
-  %add62 = add i64 %shl61, %c.2
-  br label %sw.bb63
+159:                                              ; preds = %153, %106
+  %.3173 = phi i64 [ %.0170, %106 ], [ %158, %153 ]
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 5
+  %161 = load i8, ptr %160, align 1, !tbaa !13
+  %162 = zext i8 %161 to i64
+  %163 = shl nuw nsw i64 %162, 40
+  %164 = add i64 %163, %.3173
+  br label %165
 
-sw.bb63:                                          ; preds = %sw.bb58, %if.end16
-  %c.3 = phi i64 [ %c.1, %if.end16 ], [ %add62, %sw.bb58 ]
-  %arrayidx64 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 4
-  %20 = load i8, ptr %arrayidx64, align 1, !tbaa !13
-  %conv65 = zext i8 %20 to i64
-  %shl66 = shl nuw nsw i64 %conv65, 32
-  %add67 = add i64 %shl66, %c.3
-  br label %sw.bb68
+165:                                              ; preds = %159, %106
+  %.4174 = phi i64 [ %.0170, %106 ], [ %164, %159 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
+  %167 = load i8, ptr %166, align 1, !tbaa !13
+  %168 = zext i8 %167 to i64
+  %169 = shl nuw nsw i64 %168, 32
+  %170 = add i64 %169, %.4174
+  br label %171
 
-sw.bb68:                                          ; preds = %sw.bb63, %if.end16
-  %c.4 = phi i64 [ %c.1, %if.end16 ], [ %add67, %sw.bb63 ]
-  %21 = load i32, ptr %u.sroa.0.2, align 4, !tbaa !14
-  %conv70 = zext i32 %21 to i64
-  %add71 = add i64 %c.4, %conv70
-  br label %sw.epilog
+171:                                              ; preds = %165, %106
+  %.5175 = phi i64 [ %.0170, %106 ], [ %170, %165 ]
+  %172 = load i32, ptr %.sroa.0.0, align 4, !tbaa !14
+  %173 = zext i32 %172 to i64
+  %174 = add i64 %.5175, %173
+  br label %194
 
-sw.bb72:                                          ; preds = %if.end16
-  %arrayidx73 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 2
-  %22 = load i8, ptr %arrayidx73, align 1, !tbaa !13
-  %conv74 = zext i8 %22 to i64
-  %shl75 = shl nuw nsw i64 %conv74, 16
-  %add76 = add i64 %shl75, %c.1
-  br label %sw.bb77
+175:                                              ; preds = %106
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
+  %177 = load i8, ptr %176, align 1, !tbaa !13
+  %178 = zext i8 %177 to i64
+  %179 = shl nuw nsw i64 %178, 16
+  %180 = add i64 %179, %.0170
+  br label %181
 
-sw.bb77:                                          ; preds = %sw.bb72, %if.end16
-  %c.5 = phi i64 [ %c.1, %if.end16 ], [ %add76, %sw.bb72 ]
-  %arrayidx78 = getelementptr inbounds nuw i8, ptr %u.sroa.0.2, i64 1
-  %23 = load i8, ptr %arrayidx78, align 1, !tbaa !13
-  %conv79 = zext i8 %23 to i64
-  %shl80 = shl nuw nsw i64 %conv79, 8
-  %add81 = add i64 %shl80, %c.5
-  br label %sw.bb82
+181:                                              ; preds = %175, %106
+  %.6176 = phi i64 [ %.0170, %106 ], [ %180, %175 ]
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1
+  %183 = load i8, ptr %182, align 1, !tbaa !13
+  %184 = zext i8 %183 to i64
+  %185 = shl nuw nsw i64 %184, 8
+  %186 = add i64 %185, %.6176
+  br label %187
 
-sw.bb82:                                          ; preds = %sw.bb77, %if.end16
-  %c.6 = phi i64 [ %c.1, %if.end16 ], [ %add81, %sw.bb77 ]
-  %24 = load i8, ptr %u.sroa.0.2, align 1, !tbaa !13
-  %conv84 = zext i8 %24 to i64
-  %add85 = add i64 %c.6, %conv84
-  br label %sw.epilog
+187:                                              ; preds = %181, %106
+  %.7177 = phi i64 [ %.0170, %106 ], [ %186, %181 ]
+  %188 = load i8, ptr %.sroa.0.0, align 1, !tbaa !13
+  %189 = zext i8 %188 to i64
+  %190 = add i64 %.7177, %189
+  br label %194
 
-sw.bb86:                                          ; preds = %if.end16
-  %add87 = add i64 %c.1, -2401053088876216593
-  %add88 = add i64 %shl, -2401053088876216593
-  br label %sw.epilog
+191:                                              ; preds = %106
+  %192 = add i64 %.0170, -2401053088876216593
+  %193 = add i64 %107, -2401053088876216593
+  br label %194
 
-sw.epilog:                                        ; preds = %sw.bb86, %sw.bb82, %sw.bb68, %sw.bb50, %sw.bb30, %if.end16
-  %c.7 = phi i64 [ %c.1, %if.end16 ], [ %add87, %sw.bb86 ], [ %add85, %sw.bb82 ], [ %add71, %sw.bb68 ], [ %add52, %sw.bb50 ], [ %add35, %sw.bb30 ]
-  %d.7 = phi i64 [ %shl, %if.end16 ], [ %add88, %sw.bb86 ], [ %shl, %sw.bb82 ], [ %shl, %sw.bb68 ], [ %d.6, %sw.bb50 ], [ %add33, %sw.bb30 ]
-  %xor.i158 = xor i64 %d.7, %c.7
-  %or.i.i159 = tail call i64 @llvm.fshl.i64(i64 %c.7, i64 %c.7, i64 15)
-  %add.i160 = add i64 %xor.i158, %or.i.i159
-  %xor1.i = xor i64 %add.i160, %a.1
-  %or.i95.i = tail call i64 @llvm.fshl.i64(i64 %add.i160, i64 %add.i160, i64 52)
-  %add3.i = add i64 %xor1.i, %or.i95.i
-  %xor4.i = xor i64 %add3.i, %b.1
-  %or.i98.i = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 26)
-  %add6.i = add i64 %xor4.i, %or.i98.i
-  %xor7.i = xor i64 %add6.i, %or.i.i159
-  %or.i101.i = tail call i64 @llvm.fshl.i64(i64 %add6.i, i64 %add6.i, i64 51)
-  %add9.i = add i64 %xor7.i, %or.i101.i
-  %xor10.i = xor i64 %add9.i, %or.i95.i
-  %or.i104.i161 = tail call i64 @llvm.fshl.i64(i64 %add9.i, i64 %add9.i, i64 28)
-  %add12.i = add i64 %xor10.i, %or.i104.i161
-  %xor13.i = xor i64 %add12.i, %or.i98.i
-  %or.i107.i162 = tail call i64 @llvm.fshl.i64(i64 %add12.i, i64 %add12.i, i64 9)
-  %add15.i = add i64 %xor13.i, %or.i107.i162
-  %xor16.i = xor i64 %add15.i, %or.i101.i
-  %or.i110.i163 = tail call i64 @llvm.fshl.i64(i64 %add15.i, i64 %add15.i, i64 47)
-  %add18.i = add i64 %xor16.i, %or.i110.i163
-  %xor19.i = xor i64 %add18.i, %or.i104.i161
-  %or.i113.i164 = tail call i64 @llvm.fshl.i64(i64 %add18.i, i64 %add18.i, i64 54)
-  %add21.i = add i64 %xor19.i, %or.i113.i164
-  %xor22.i = xor i64 %add21.i, %or.i107.i162
-  %or.i116.i165 = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 32)
-  %add24.i = add i64 %xor22.i, %or.i116.i165
-  %xor25.i = xor i64 %add24.i, %or.i110.i163
-  %or.i119.i166 = tail call i64 @llvm.fshl.i64(i64 %add24.i, i64 %add24.i, i64 25)
-  %add27.i = add i64 %xor25.i, %or.i119.i166
-  %xor28.i = xor i64 %add27.i, %or.i113.i164
-  %or.i122.i167 = tail call i64 @llvm.fshl.i64(i64 %add27.i, i64 %add27.i, i64 63)
-  %add30.i = add i64 %xor28.i, %or.i122.i167
-  store i64 %or.i122.i167, ptr %hash1, align 8, !tbaa !7
-  store i64 %add30.i, ptr %hash2, align 8, !tbaa !7
+194:                                              ; preds = %191, %187, %171, %150, %126, %106
+  %.2172 = phi i64 [ %.0170, %106 ], [ %192, %191 ], [ %190, %187 ], [ %174, %171 ], [ %152, %150 ], [ %132, %126 ]
+  %.1 = phi i64 [ %107, %106 ], [ %193, %191 ], [ %107, %187 ], [ %107, %171 ], [ %.7, %150 ], [ %130, %126 ]
+  %195 = xor i64 %.1, %.2172
+  %196 = tail call i64 @llvm.fshl.i64(i64 %.2172, i64 %.2172, i64 15)
+  %197 = add i64 %195, %196
+  %198 = xor i64 %197, %.0180
+  %199 = tail call i64 @llvm.fshl.i64(i64 %197, i64 %197, i64 52)
+  %200 = add i64 %198, %199
+  %201 = xor i64 %200, %.0178
+  %202 = tail call i64 @llvm.fshl.i64(i64 %200, i64 %200, i64 26)
+  %203 = add i64 %201, %202
+  %204 = xor i64 %203, %196
+  %205 = tail call i64 @llvm.fshl.i64(i64 %203, i64 %203, i64 51)
+  %206 = add i64 %204, %205
+  %207 = xor i64 %206, %199
+  %208 = tail call i64 @llvm.fshl.i64(i64 %206, i64 %206, i64 28)
+  %209 = add i64 %207, %208
+  %210 = xor i64 %209, %202
+  %211 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %209, i64 9)
+  %212 = add i64 %210, %211
+  %213 = xor i64 %212, %205
+  %214 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 47)
+  %215 = add i64 %213, %214
+  %216 = xor i64 %215, %208
+  %217 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 54)
+  %218 = add i64 %216, %217
+  %219 = xor i64 %218, %211
+  %220 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 32)
+  %221 = add i64 %219, %220
+  %222 = xor i64 %221, %214
+  %223 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 25)
+  %224 = add i64 %222, %223
+  %225 = xor i64 %224, %217
+  %226 = tail call i64 @llvm.fshl.i64(i64 %224, i64 %224, i64 63)
+  %227 = add i64 %225, %226
+  store i64 %226, ptr %2, align 8, !tbaa !7
+  store i64 %227, ptr %3, align 8, !tbaa !7
   ret void
 }
 
@@ -333,345 +332,329 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef captures(address) %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
-entry:
-  %buf = alloca [12 x i64], align 16
-  %cmp = icmp ult i64 %length, 192
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
+  %5 = alloca [12 x i64], align 16
+  %6 = icmp ult i64 %1, 192
+  br i1 %6, label %7, label %.lr.ph.preheader
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr noundef %hash1, ptr noundef %hash2)
-  br label %return
+7:                                                ; preds = %4
+  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %291
 
-if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buf) #6
-  %0 = load i64, ptr %hash1, align 8, !tbaa !7
-  %1 = load i64, ptr %hash2, align 8, !tbaa !7
-  %div = udiv i64 %length, 96
-  %add.ptr.idx1 = mul nuw i64 %div, 96
-  %add.ptr = getelementptr inbounds nuw i8, ptr %message, i64 %add.ptr.idx1
-  %cmp1507 = icmp sgt i64 %add.ptr.idx1, 0
-  br i1 %cmp1507, label %while.body, label %while.end
+.lr.ph.preheader:                                 ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #6
+  %8 = urem i64 %1, 96
+  %.idx = sub nuw i64 %1, %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %10 = load i64, ptr %3, align 8, !tbaa !7
+  %11 = load i64, ptr %2, align 8, !tbaa !7
+  br label %.lr.ph
 
-while.body:                                       ; preds = %if.end, %while.body
-  %u.sroa.0.0520 = phi ptr [ %add.ptr2, %while.body ], [ %message, %if.end ]
-  %h11.0519 = phi i64 [ %or.i208.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h10.0518 = phi i64 [ %add68.i, %while.body ], [ %1, %if.end ]
-  %h9.0517 = phi i64 [ %add62.i, %while.body ], [ %0, %if.end ]
-  %h8.0516 = phi i64 [ %add56.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h7.0515 = phi i64 [ %add50.i, %while.body ], [ %1, %if.end ]
-  %h6.0514 = phi i64 [ %add44.i, %while.body ], [ %0, %if.end ]
-  %h5.0513 = phi i64 [ %add38.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h4.0512 = phi i64 [ %add32.i, %while.body ], [ %1, %if.end ]
-  %h3.0511 = phi i64 [ %add26.i, %while.body ], [ %0, %if.end ]
-  %h2.0510 = phi i64 [ %add20.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h1.0509 = phi i64 [ %xor65.i, %while.body ], [ %1, %if.end ]
-  %h0.0508 = phi i64 [ %xor59.i, %while.body ], [ %0, %if.end ]
-  %2 = load i64, ptr %u.sroa.0.0520, align 8, !tbaa !7
-  %add.i = add i64 %2, %h0.0508
-  %xor.i = xor i64 %h2.0510, %h10.0518
-  %xor1.i = xor i64 %add.i, %h11.0519
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %h1.0509
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 8
-  %3 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %3, %h1.0509
-  %xor5.i = xor i64 %add2.i, %h3.0511
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 16
-  %4 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %4, %xor.i
-  %xor11.i = xor i64 %add8.i, %h4.0512
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 24
-  %5 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %5
-  %xor17.i = xor i64 %add14.i, %h5.0513
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 32
-  %6 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %6
-  %xor23.i = xor i64 %add20.i, %h6.0514
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 40
-  %7 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %7
-  %xor29.i = xor i64 %add26.i, %h7.0515
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 48
-  %8 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %8
-  %xor35.i = xor i64 %add32.i, %h8.0516
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 56
-  %9 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %9
-  %xor41.i = xor i64 %add38.i, %h9.0517
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 64
-  %10 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %10
-  %xor47.i = xor i64 %add44.i, %h10.0518
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 72
-  %11 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %11
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 80
-  %12 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %12
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 88
-  %13 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %13
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %add.ptr2 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0520, i64 96
-  %cmp1 = icmp ult ptr %add.ptr2, %add.ptr
-  br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !16
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.sroa.0.0383 = phi ptr [ %95, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.0382 = phi i64 [ %93, %.lr.ph ], [ -2401053088876216593, %.lr.ph.preheader ]
+  %.0360381 = phi i64 [ %94, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.0361380 = phi i64 [ %87, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.0362379 = phi i64 [ %80, %.lr.ph ], [ -2401053088876216593, %.lr.ph.preheader ]
+  %.0363378 = phi i64 [ %73, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.0364377 = phi i64 [ %66, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.0365376 = phi i64 [ %59, %.lr.ph ], [ -2401053088876216593, %.lr.ph.preheader ]
+  %.0366375 = phi i64 [ %52, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.0367374 = phi i64 [ %45, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.0368373 = phi i64 [ %38, %.lr.ph ], [ -2401053088876216593, %.lr.ph.preheader ]
+  %.0369372 = phi i64 [ %91, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.0370371 = phi i64 [ %84, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %12 = load i64, ptr %.sroa.0.0383, align 8, !tbaa !7
+  %13 = add i64 %12, %.0370371
+  %14 = xor i64 %.0360381, %.0368373
+  %15 = xor i64 %13, %.0382
+  %16 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 11)
+  %17 = add i64 %15, %.0369372
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !7
+  %20 = add i64 %19, %.0369372
+  %21 = xor i64 %17, %.0367374
+  %22 = xor i64 %16, %20
+  %23 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 32)
+  %24 = add i64 %22, %14
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 16
+  %26 = load i64, ptr %25, align 8, !tbaa !7
+  %27 = add i64 %26, %14
+  %28 = xor i64 %24, %.0366375
+  %29 = xor i64 %23, %27
+  %30 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 43)
+  %31 = add i64 %29, %21
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 24
+  %33 = load i64, ptr %32, align 8, !tbaa !7
+  %34 = add i64 %21, %33
+  %35 = xor i64 %31, %.0365376
+  %36 = xor i64 %34, %30
+  %37 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 31)
+  %38 = add i64 %36, %28
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 32
+  %40 = load i64, ptr %39, align 8, !tbaa !7
+  %41 = add i64 %28, %40
+  %42 = xor i64 %38, %.0364377
+  %43 = xor i64 %37, %41
+  %44 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 17)
+  %45 = add i64 %43, %35
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 40
+  %47 = load i64, ptr %46, align 8, !tbaa !7
+  %48 = add i64 %35, %47
+  %49 = xor i64 %45, %.0363378
+  %50 = xor i64 %44, %48
+  %51 = tail call i64 @llvm.fshl.i64(i64 %48, i64 %48, i64 28)
+  %52 = add i64 %50, %42
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 48
+  %54 = load i64, ptr %53, align 8, !tbaa !7
+  %55 = add i64 %42, %54
+  %56 = xor i64 %52, %.0362379
+  %57 = xor i64 %55, %51
+  %58 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 39)
+  %59 = add i64 %57, %49
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 56
+  %61 = load i64, ptr %60, align 8, !tbaa !7
+  %62 = add i64 %49, %61
+  %63 = xor i64 %59, %.0361380
+  %64 = xor i64 %58, %62
+  %65 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 57)
+  %66 = add i64 %64, %56
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 64
+  %68 = load i64, ptr %67, align 8, !tbaa !7
+  %69 = add i64 %56, %68
+  %70 = xor i64 %66, %.0360381
+  %71 = xor i64 %65, %69
+  %72 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 55)
+  %73 = add i64 %71, %63
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 72
+  %75 = load i64, ptr %74, align 8, !tbaa !7
+  %76 = add i64 %63, %75
+  %77 = xor i64 %73, %17
+  %78 = xor i64 %76, %72
+  %79 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 54)
+  %80 = add i64 %78, %70
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 80
+  %82 = load i64, ptr %81, align 8, !tbaa !7
+  %83 = add i64 %70, %82
+  %84 = xor i64 %80, %24
+  %85 = xor i64 %79, %83
+  %86 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 22)
+  %87 = add i64 %85, %77
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 88
+  %89 = load i64, ptr %88, align 8, !tbaa !7
+  %90 = add i64 %77, %89
+  %91 = xor i64 %87, %31
+  %92 = xor i64 %86, %90
+  %93 = tail call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 46)
+  %94 = add i64 %92, %84
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 96
+  %96 = icmp ult ptr %95, %9
+  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-while.end:                                        ; preds = %while.body, %if.end
-  %h0.0.lcssa = phi i64 [ %0, %if.end ], [ %xor59.i, %while.body ]
-  %h1.0.lcssa = phi i64 [ %1, %if.end ], [ %xor65.i, %while.body ]
-  %h2.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add20.i, %while.body ]
-  %h3.0.lcssa = phi i64 [ %0, %if.end ], [ %add26.i, %while.body ]
-  %h4.0.lcssa = phi i64 [ %1, %if.end ], [ %add32.i, %while.body ]
-  %h5.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add38.i, %while.body ]
-  %h6.0.lcssa = phi i64 [ %0, %if.end ], [ %add44.i, %while.body ]
-  %h7.0.lcssa = phi i64 [ %1, %if.end ], [ %add50.i, %while.body ]
-  %h8.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add56.i, %while.body ]
-  %h9.0.lcssa = phi i64 [ %0, %if.end ], [ %add62.i, %while.body ]
-  %h10.0.lcssa = phi i64 [ %1, %if.end ], [ %add68.i, %while.body ]
-  %h11.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %or.i208.i, %while.body ]
-  %add.ptr.idx.neg = mul i64 %div, -96
-  %sub = add i64 %add.ptr.idx.neg, %length
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 8 %add.ptr, i64 %sub, i1 false)
-  %add.ptr4 = getelementptr inbounds i8, ptr %buf, i64 %sub
-  %sub5 = sub i64 96, %sub
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr4, i8 0, i64 %sub5, i1 false)
-  %conv = trunc i64 %sub to i8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 95
-  store i8 %conv, ptr %arrayidx, align 1, !tbaa !13
-  %14 = load i64, ptr %buf, align 16, !tbaa !7
-  %add.i25 = add i64 %14, %h0.0.lcssa
-  %xor.i26 = xor i64 %h10.0.lcssa, %h2.0.lcssa
-  %xor1.i27 = xor i64 %add.i25, %h11.0.lcssa
-  %or.i.i28 = tail call i64 @llvm.fshl.i64(i64 %add.i25, i64 %add.i25, i64 11)
-  %add2.i29 = add i64 %xor1.i27, %h1.0.lcssa
-  %arrayidx3.i30 = getelementptr inbounds nuw i8, ptr %buf, i64 8
-  %15 = load i64, ptr %arrayidx3.i30, align 8, !tbaa !7
-  %add4.i31 = add i64 %15, %h1.0.lcssa
-  %xor5.i32 = xor i64 %add2.i29, %h3.0.lcssa
-  %xor6.i33 = xor i64 %or.i.i28, %add4.i31
-  %or.i178.i34 = tail call i64 @llvm.fshl.i64(i64 %add4.i31, i64 %add4.i31, i64 32)
-  %add8.i35 = add i64 %xor6.i33, %xor.i26
-  %arrayidx9.i36 = getelementptr inbounds nuw i8, ptr %buf, i64 16
-  %16 = load i64, ptr %arrayidx9.i36, align 16, !tbaa !7
-  %add10.i37 = add i64 %16, %xor.i26
-  %xor11.i38 = xor i64 %add8.i35, %h4.0.lcssa
-  %xor12.i39 = xor i64 %or.i178.i34, %add10.i37
-  %or.i181.i40 = tail call i64 @llvm.fshl.i64(i64 %add10.i37, i64 %add10.i37, i64 43)
-  %add14.i41 = add i64 %xor12.i39, %xor5.i32
-  %arrayidx15.i42 = getelementptr inbounds nuw i8, ptr %buf, i64 24
-  %17 = load i64, ptr %arrayidx15.i42, align 8, !tbaa !7
-  %add16.i43 = add i64 %xor5.i32, %17
-  %xor17.i44 = xor i64 %add14.i41, %h5.0.lcssa
-  %xor18.i45 = xor i64 %add16.i43, %or.i181.i40
-  %or.i184.i46 = tail call i64 @llvm.fshl.i64(i64 %add16.i43, i64 %add16.i43, i64 31)
-  %add20.i47 = add i64 %xor18.i45, %xor11.i38
-  %arrayidx21.i48 = getelementptr inbounds nuw i8, ptr %buf, i64 32
-  %18 = load i64, ptr %arrayidx21.i48, align 16, !tbaa !7
-  %add22.i49 = add i64 %xor11.i38, %18
-  %xor23.i50 = xor i64 %add20.i47, %h6.0.lcssa
-  %xor24.i51 = xor i64 %or.i184.i46, %add22.i49
-  %or.i187.i52 = tail call i64 @llvm.fshl.i64(i64 %add22.i49, i64 %add22.i49, i64 17)
-  %add26.i53 = add i64 %xor24.i51, %xor17.i44
-  %arrayidx27.i54 = getelementptr inbounds nuw i8, ptr %buf, i64 40
-  %19 = load i64, ptr %arrayidx27.i54, align 8, !tbaa !7
-  %add28.i55 = add i64 %xor17.i44, %19
-  %xor29.i56 = xor i64 %add26.i53, %h7.0.lcssa
-  %xor30.i57 = xor i64 %or.i187.i52, %add28.i55
-  %or.i190.i58 = tail call i64 @llvm.fshl.i64(i64 %add28.i55, i64 %add28.i55, i64 28)
-  %add32.i59 = add i64 %xor30.i57, %xor23.i50
-  %arrayidx33.i60 = getelementptr inbounds nuw i8, ptr %buf, i64 48
-  %20 = load i64, ptr %arrayidx33.i60, align 16, !tbaa !7
-  %add34.i61 = add i64 %xor23.i50, %20
-  %xor35.i62 = xor i64 %add32.i59, %h8.0.lcssa
-  %xor36.i63 = xor i64 %add34.i61, %or.i190.i58
-  %or.i193.i64 = tail call i64 @llvm.fshl.i64(i64 %add34.i61, i64 %add34.i61, i64 39)
-  %add38.i65 = add i64 %xor36.i63, %xor29.i56
-  %arrayidx39.i66 = getelementptr inbounds nuw i8, ptr %buf, i64 56
-  %21 = load i64, ptr %arrayidx39.i66, align 8, !tbaa !7
-  %add40.i67 = add i64 %xor29.i56, %21
-  %xor41.i68 = xor i64 %add38.i65, %h9.0.lcssa
-  %xor42.i69 = xor i64 %or.i193.i64, %add40.i67
-  %or.i196.i70 = tail call i64 @llvm.fshl.i64(i64 %add40.i67, i64 %add40.i67, i64 57)
-  %add44.i71 = add i64 %xor42.i69, %xor35.i62
-  %arrayidx45.i72 = getelementptr inbounds nuw i8, ptr %buf, i64 64
-  %22 = load i64, ptr %arrayidx45.i72, align 16, !tbaa !7
-  %add46.i73 = add i64 %xor35.i62, %22
-  %xor47.i74 = xor i64 %add44.i71, %h10.0.lcssa
-  %xor48.i75 = xor i64 %or.i196.i70, %add46.i73
-  %or.i199.i76 = tail call i64 @llvm.fshl.i64(i64 %add46.i73, i64 %add46.i73, i64 55)
-  %add50.i77 = add i64 %xor48.i75, %xor41.i68
-  %arrayidx51.i78 = getelementptr inbounds nuw i8, ptr %buf, i64 72
-  %23 = load i64, ptr %arrayidx51.i78, align 8, !tbaa !7
-  %add52.i79 = add i64 %xor41.i68, %23
-  %xor53.i80 = xor i64 %add50.i77, %add2.i29
-  %xor54.i81 = xor i64 %add52.i79, %or.i199.i76
-  %or.i202.i82 = tail call i64 @llvm.fshl.i64(i64 %add52.i79, i64 %add52.i79, i64 54)
-  %add56.i83 = add i64 %xor54.i81, %xor47.i74
-  %arrayidx57.i84 = getelementptr inbounds nuw i8, ptr %buf, i64 80
-  %24 = load i64, ptr %arrayidx57.i84, align 16, !tbaa !7
-  %add58.i85 = add i64 %xor47.i74, %24
-  %xor59.i86 = xor i64 %add56.i83, %add8.i35
-  %xor60.i87 = xor i64 %or.i202.i82, %add58.i85
-  %or.i205.i88 = tail call i64 @llvm.fshl.i64(i64 %add58.i85, i64 %add58.i85, i64 22)
-  %add62.i89 = add i64 %xor60.i87, %xor53.i80
-  %arrayidx63.i90 = getelementptr inbounds nuw i8, ptr %buf, i64 88
-  %25 = load i64, ptr %arrayidx63.i90, align 8, !tbaa !7
-  %add64.i91 = add i64 %xor53.i80, %25
-  %xor65.i92 = xor i64 %add62.i89, %add14.i41
-  %xor66.i93 = xor i64 %or.i205.i88, %add64.i91
-  %or.i208.i94 = tail call i64 @llvm.fshl.i64(i64 %add64.i91, i64 %add64.i91, i64 46)
-  %add68.i95 = add i64 %xor66.i93, %xor59.i86
-  %add.i145 = add i64 %xor65.i92, %or.i208.i94
-  %xor.i146 = xor i64 %add.i145, %add20.i47
-  %or.i.i147 = tail call i64 @llvm.fshl.i64(i64 %xor65.i92, i64 %xor65.i92, i64 44)
-  %add1.i148 = add i64 %xor.i146, %xor59.i86
-  %xor2.i149 = xor i64 %add1.i148, %add26.i53
-  %or.i96.i150 = tail call i64 @llvm.fshl.i64(i64 %xor.i146, i64 %xor.i146, i64 15)
-  %add4.i151 = add i64 %xor2.i149, %or.i.i147
-  %xor5.i152 = xor i64 %add4.i151, %add32.i59
-  %or.i99.i153 = tail call i64 @llvm.fshl.i64(i64 %xor2.i149, i64 %xor2.i149, i64 34)
-  %add7.i154 = add i64 %xor5.i152, %or.i96.i150
-  %xor8.i155 = xor i64 %add7.i154, %add38.i65
-  %or.i102.i156 = tail call i64 @llvm.fshl.i64(i64 %xor5.i152, i64 %xor5.i152, i64 21)
-  %add10.i157 = add i64 %xor8.i155, %or.i99.i153
-  %xor11.i158 = xor i64 %add10.i157, %add44.i71
-  %or.i105.i159 = tail call i64 @llvm.fshl.i64(i64 %xor8.i155, i64 %xor8.i155, i64 38)
-  %add13.i160 = add i64 %xor11.i158, %or.i102.i156
-  %xor14.i161 = xor i64 %add13.i160, %add50.i77
-  %or.i108.i162 = tail call i64 @llvm.fshl.i64(i64 %xor11.i158, i64 %xor11.i158, i64 33)
-  %add16.i163 = add i64 %xor14.i161, %or.i105.i159
-  %xor17.i164 = xor i64 %add16.i163, %add56.i83
-  %or.i111.i165 = tail call i64 @llvm.fshl.i64(i64 %xor14.i161, i64 %xor14.i161, i64 10)
-  %add19.i166 = add i64 %xor17.i164, %or.i108.i162
-  %xor20.i167 = xor i64 %add19.i166, %add62.i89
-  %or.i114.i168 = tail call i64 @llvm.fshl.i64(i64 %xor17.i164, i64 %xor17.i164, i64 13)
-  %add22.i169 = add i64 %xor20.i167, %or.i111.i165
-  %xor23.i170 = xor i64 %add22.i169, %add68.i95
-  %or.i117.i171 = tail call i64 @llvm.fshl.i64(i64 %xor20.i167, i64 %xor20.i167, i64 38)
-  %add25.i172 = add i64 %xor23.i170, %or.i114.i168
-  %xor26.i173 = xor i64 %add25.i172, %add.i145
-  %or.i120.i174 = tail call i64 @llvm.fshl.i64(i64 %xor23.i170, i64 %xor23.i170, i64 53)
-  %add28.i175 = add i64 %xor26.i173, %or.i117.i171
-  %xor29.i176 = xor i64 %add28.i175, %add1.i148
-  %or.i123.i177 = tail call i64 @llvm.fshl.i64(i64 %xor26.i173, i64 %xor26.i173, i64 42)
-  %add31.i178 = add i64 %xor29.i176, %or.i120.i174
-  %xor32.i179 = xor i64 %add31.i178, %add4.i151
-  %or.i126.i180 = tail call i64 @llvm.fshl.i64(i64 %xor29.i176, i64 %xor29.i176, i64 54)
-  %add.i109 = add i64 %xor32.i179, %or.i123.i177
-  %xor.i110 = xor i64 %add.i109, %add7.i154
-  %or.i.i111 = tail call i64 @llvm.fshl.i64(i64 %xor32.i179, i64 %xor32.i179, i64 44)
-  %add1.i112 = add i64 %xor.i110, %or.i126.i180
-  %xor2.i113 = xor i64 %add1.i112, %add10.i157
-  %or.i96.i114 = tail call i64 @llvm.fshl.i64(i64 %xor.i110, i64 %xor.i110, i64 15)
-  %add4.i115 = add i64 %xor2.i113, %or.i.i111
-  %xor5.i116 = xor i64 %add4.i115, %add13.i160
-  %or.i99.i117 = tail call i64 @llvm.fshl.i64(i64 %xor2.i113, i64 %xor2.i113, i64 34)
-  %add7.i118 = add i64 %xor5.i116, %or.i96.i114
-  %xor8.i119 = xor i64 %add7.i118, %add16.i163
-  %or.i102.i120 = tail call i64 @llvm.fshl.i64(i64 %xor5.i116, i64 %xor5.i116, i64 21)
-  %add10.i121 = add i64 %xor8.i119, %or.i99.i117
-  %xor11.i122 = xor i64 %add10.i121, %add19.i166
-  %or.i105.i123 = tail call i64 @llvm.fshl.i64(i64 %xor8.i119, i64 %xor8.i119, i64 38)
-  %add13.i124 = add i64 %xor11.i122, %or.i102.i120
-  %xor14.i125 = xor i64 %add13.i124, %add22.i169
-  %or.i108.i126 = tail call i64 @llvm.fshl.i64(i64 %xor11.i122, i64 %xor11.i122, i64 33)
-  %add16.i127 = add i64 %xor14.i125, %or.i105.i123
-  %xor17.i128 = xor i64 %add16.i127, %add25.i172
-  %or.i111.i129 = tail call i64 @llvm.fshl.i64(i64 %xor14.i125, i64 %xor14.i125, i64 10)
-  %add19.i130 = add i64 %xor17.i128, %or.i108.i126
-  %xor20.i131 = xor i64 %add19.i130, %add28.i175
-  %or.i114.i132 = tail call i64 @llvm.fshl.i64(i64 %xor17.i128, i64 %xor17.i128, i64 13)
-  %add22.i133 = add i64 %xor20.i131, %or.i111.i129
-  %xor23.i134 = xor i64 %add22.i133, %add31.i178
-  %or.i117.i135 = tail call i64 @llvm.fshl.i64(i64 %xor20.i131, i64 %xor20.i131, i64 38)
-  %add25.i136 = add i64 %xor23.i134, %or.i114.i132
-  %xor26.i137 = xor i64 %add25.i136, %add.i109
-  %or.i120.i138 = tail call i64 @llvm.fshl.i64(i64 %xor23.i134, i64 %xor23.i134, i64 53)
-  %add28.i139 = add i64 %xor26.i137, %or.i117.i135
-  %xor29.i140 = xor i64 %add28.i139, %add1.i112
-  %or.i123.i141 = tail call i64 @llvm.fshl.i64(i64 %xor26.i137, i64 %xor26.i137, i64 42)
-  %add31.i142 = add i64 %xor29.i140, %or.i120.i138
-  %xor32.i143 = xor i64 %add31.i142, %add4.i115
-  %or.i126.i144 = tail call i64 @llvm.fshl.i64(i64 %xor29.i140, i64 %xor29.i140, i64 54)
-  %add.i96 = add i64 %xor32.i143, %or.i123.i141
-  %xor.i97 = xor i64 %add.i96, %add7.i118
-  %or.i.i98 = tail call i64 @llvm.fshl.i64(i64 %xor32.i143, i64 %xor32.i143, i64 44)
-  %add1.i = add i64 %xor.i97, %or.i126.i144
-  %xor2.i = xor i64 %add1.i, %add10.i121
-  %or.i96.i = tail call i64 @llvm.fshl.i64(i64 %xor.i97, i64 %xor.i97, i64 15)
-  %add4.i99 = add i64 %xor2.i, %or.i.i98
-  %xor5.i100 = xor i64 %add4.i99, %add13.i124
-  %or.i99.i = tail call i64 @llvm.fshl.i64(i64 %xor2.i, i64 %xor2.i, i64 34)
-  %add7.i = add i64 %xor5.i100, %or.i96.i
-  %xor8.i = xor i64 %add7.i, %add16.i127
-  %or.i102.i = tail call i64 @llvm.fshl.i64(i64 %xor5.i100, i64 %xor5.i100, i64 21)
-  %add10.i101 = add i64 %xor8.i, %or.i99.i
-  %xor11.i102 = xor i64 %add10.i101, %add19.i130
-  %or.i105.i = tail call i64 @llvm.fshl.i64(i64 %xor8.i, i64 %xor8.i, i64 38)
-  %add13.i = add i64 %xor11.i102, %or.i102.i
-  %xor14.i = xor i64 %add13.i, %add22.i133
-  %or.i108.i = tail call i64 @llvm.fshl.i64(i64 %xor11.i102, i64 %xor11.i102, i64 33)
-  %add16.i103 = add i64 %xor14.i, %or.i105.i
-  %xor17.i104 = xor i64 %add16.i103, %add25.i136
-  %or.i111.i = tail call i64 @llvm.fshl.i64(i64 %xor14.i, i64 %xor14.i, i64 10)
-  %add19.i = add i64 %xor17.i104, %or.i108.i
-  %xor20.i = xor i64 %add19.i, %add28.i139
-  %or.i114.i = tail call i64 @llvm.fshl.i64(i64 %xor17.i104, i64 %xor17.i104, i64 13)
-  %add22.i105 = add i64 %xor20.i, %or.i111.i
-  %xor23.i106 = xor i64 %add22.i105, %add31.i142
-  %or.i117.i = tail call i64 @llvm.fshl.i64(i64 %xor20.i, i64 %xor20.i, i64 38)
-  %add25.i = add i64 %xor23.i106, %or.i114.i
-  %xor26.i = xor i64 %add25.i, %add.i96
-  %or.i120.i = tail call i64 @llvm.fshl.i64(i64 %xor23.i106, i64 %xor23.i106, i64 53)
-  %add28.i107 = add i64 %xor26.i, %or.i117.i
-  %xor29.i108 = xor i64 %add28.i107, %add1.i
-  %add31.i = add i64 %xor29.i108, %or.i120.i
-  %xor32.i = xor i64 %add31.i, %add4.i99
-  %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i108, i64 %xor29.i108, i64 54)
-  store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
-  store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf) #6
-  br label %return
+._crit_edge:                                      ; preds = %.lr.ph
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %9, i64 %8, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %98 = sub nuw nsw i64 96, %8
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %97, i8 0, i64 %98, i1 false)
+  %99 = trunc nuw nsw i64 %8 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 95
+  store i8 %99, ptr %100, align 1, !tbaa !13
+  %101 = load i64, ptr %5, align 16, !tbaa !7
+  %102 = add i64 %101, %84
+  %103 = xor i64 %94, %38
+  %104 = xor i64 %102, %93
+  %105 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 11)
+  %106 = add i64 %104, %91
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %108 = load i64, ptr %107, align 8, !tbaa !7
+  %109 = add i64 %108, %91
+  %110 = xor i64 %106, %45
+  %111 = xor i64 %105, %109
+  %112 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 32)
+  %113 = add i64 %111, %103
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %115 = load i64, ptr %114, align 16, !tbaa !7
+  %116 = add i64 %115, %103
+  %117 = xor i64 %113, %52
+  %118 = xor i64 %112, %116
+  %119 = tail call i64 @llvm.fshl.i64(i64 %116, i64 %116, i64 43)
+  %120 = add i64 %118, %110
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %122 = load i64, ptr %121, align 8, !tbaa !7
+  %123 = add i64 %110, %122
+  %124 = xor i64 %120, %59
+  %125 = xor i64 %123, %119
+  %126 = tail call i64 @llvm.fshl.i64(i64 %123, i64 %123, i64 31)
+  %127 = add i64 %125, %117
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %129 = load i64, ptr %128, align 16, !tbaa !7
+  %130 = add i64 %117, %129
+  %131 = xor i64 %127, %66
+  %132 = xor i64 %126, %130
+  %133 = tail call i64 @llvm.fshl.i64(i64 %130, i64 %130, i64 17)
+  %134 = add i64 %132, %124
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %136 = load i64, ptr %135, align 8, !tbaa !7
+  %137 = add i64 %124, %136
+  %138 = xor i64 %134, %73
+  %139 = xor i64 %133, %137
+  %140 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 28)
+  %141 = add i64 %139, %131
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %143 = load i64, ptr %142, align 16, !tbaa !7
+  %144 = add i64 %131, %143
+  %145 = xor i64 %141, %80
+  %146 = xor i64 %144, %140
+  %147 = tail call i64 @llvm.fshl.i64(i64 %144, i64 %144, i64 39)
+  %148 = add i64 %146, %138
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %150 = load i64, ptr %149, align 8, !tbaa !7
+  %151 = add i64 %138, %150
+  %152 = xor i64 %148, %87
+  %153 = xor i64 %147, %151
+  %154 = tail call i64 @llvm.fshl.i64(i64 %151, i64 %151, i64 57)
+  %155 = add i64 %153, %145
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %157 = load i64, ptr %156, align 16, !tbaa !7
+  %158 = add i64 %145, %157
+  %159 = xor i64 %155, %94
+  %160 = xor i64 %154, %158
+  %161 = tail call i64 @llvm.fshl.i64(i64 %158, i64 %158, i64 55)
+  %162 = add i64 %160, %152
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %164 = load i64, ptr %163, align 8, !tbaa !7
+  %165 = add i64 %152, %164
+  %166 = xor i64 %162, %106
+  %167 = xor i64 %165, %161
+  %168 = tail call i64 @llvm.fshl.i64(i64 %165, i64 %165, i64 54)
+  %169 = add i64 %167, %159
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %171 = load i64, ptr %170, align 16, !tbaa !7
+  %172 = add i64 %159, %171
+  %173 = xor i64 %169, %113
+  %174 = xor i64 %168, %172
+  %175 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 22)
+  %176 = add i64 %174, %166
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %178 = load i64, ptr %177, align 8, !tbaa !7
+  %179 = add i64 %166, %178
+  %180 = xor i64 %176, %120
+  %181 = xor i64 %175, %179
+  %182 = tail call i64 @llvm.fshl.i64(i64 %179, i64 %179, i64 46)
+  %183 = add i64 %181, %173
+  %184 = add i64 %180, %182
+  %185 = xor i64 %184, %127
+  %186 = tail call i64 @llvm.fshl.i64(i64 %180, i64 %180, i64 44)
+  %187 = add i64 %185, %173
+  %188 = xor i64 %187, %134
+  %189 = tail call i64 @llvm.fshl.i64(i64 %185, i64 %185, i64 15)
+  %190 = add i64 %188, %186
+  %191 = xor i64 %190, %141
+  %192 = tail call i64 @llvm.fshl.i64(i64 %188, i64 %188, i64 34)
+  %193 = add i64 %191, %189
+  %194 = xor i64 %193, %148
+  %195 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %191, i64 21)
+  %196 = add i64 %194, %192
+  %197 = xor i64 %196, %155
+  %198 = tail call i64 @llvm.fshl.i64(i64 %194, i64 %194, i64 38)
+  %199 = add i64 %197, %195
+  %200 = xor i64 %199, %162
+  %201 = tail call i64 @llvm.fshl.i64(i64 %197, i64 %197, i64 33)
+  %202 = add i64 %200, %198
+  %203 = xor i64 %202, %169
+  %204 = tail call i64 @llvm.fshl.i64(i64 %200, i64 %200, i64 10)
+  %205 = add i64 %203, %201
+  %206 = xor i64 %205, %176
+  %207 = tail call i64 @llvm.fshl.i64(i64 %203, i64 %203, i64 13)
+  %208 = add i64 %206, %204
+  %209 = xor i64 %208, %183
+  %210 = tail call i64 @llvm.fshl.i64(i64 %206, i64 %206, i64 38)
+  %211 = add i64 %209, %207
+  %212 = xor i64 %211, %184
+  %213 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %209, i64 53)
+  %214 = add i64 %212, %210
+  %215 = xor i64 %214, %187
+  %216 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 42)
+  %217 = add i64 %215, %213
+  %218 = xor i64 %217, %190
+  %219 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 54)
+  %220 = add i64 %218, %216
+  %221 = xor i64 %220, %193
+  %222 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 44)
+  %223 = add i64 %221, %219
+  %224 = xor i64 %223, %196
+  %225 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 15)
+  %226 = add i64 %224, %222
+  %227 = xor i64 %226, %199
+  %228 = tail call i64 @llvm.fshl.i64(i64 %224, i64 %224, i64 34)
+  %229 = add i64 %227, %225
+  %230 = xor i64 %229, %202
+  %231 = tail call i64 @llvm.fshl.i64(i64 %227, i64 %227, i64 21)
+  %232 = add i64 %230, %228
+  %233 = xor i64 %232, %205
+  %234 = tail call i64 @llvm.fshl.i64(i64 %230, i64 %230, i64 38)
+  %235 = add i64 %233, %231
+  %236 = xor i64 %235, %208
+  %237 = tail call i64 @llvm.fshl.i64(i64 %233, i64 %233, i64 33)
+  %238 = add i64 %236, %234
+  %239 = xor i64 %238, %211
+  %240 = tail call i64 @llvm.fshl.i64(i64 %236, i64 %236, i64 10)
+  %241 = add i64 %239, %237
+  %242 = xor i64 %241, %214
+  %243 = tail call i64 @llvm.fshl.i64(i64 %239, i64 %239, i64 13)
+  %244 = add i64 %242, %240
+  %245 = xor i64 %244, %217
+  %246 = tail call i64 @llvm.fshl.i64(i64 %242, i64 %242, i64 38)
+  %247 = add i64 %245, %243
+  %248 = xor i64 %247, %220
+  %249 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %245, i64 53)
+  %250 = add i64 %248, %246
+  %251 = xor i64 %250, %223
+  %252 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 42)
+  %253 = add i64 %251, %249
+  %254 = xor i64 %253, %226
+  %255 = tail call i64 @llvm.fshl.i64(i64 %251, i64 %251, i64 54)
+  %256 = add i64 %254, %252
+  %257 = xor i64 %256, %229
+  %258 = tail call i64 @llvm.fshl.i64(i64 %254, i64 %254, i64 44)
+  %259 = add i64 %257, %255
+  %260 = xor i64 %259, %232
+  %261 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 15)
+  %262 = add i64 %260, %258
+  %263 = xor i64 %262, %235
+  %264 = tail call i64 @llvm.fshl.i64(i64 %260, i64 %260, i64 34)
+  %265 = add i64 %263, %261
+  %266 = xor i64 %265, %238
+  %267 = tail call i64 @llvm.fshl.i64(i64 %263, i64 %263, i64 21)
+  %268 = add i64 %266, %264
+  %269 = xor i64 %268, %241
+  %270 = tail call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 38)
+  %271 = add i64 %269, %267
+  %272 = xor i64 %271, %244
+  %273 = tail call i64 @llvm.fshl.i64(i64 %269, i64 %269, i64 33)
+  %274 = add i64 %272, %270
+  %275 = xor i64 %274, %247
+  %276 = tail call i64 @llvm.fshl.i64(i64 %272, i64 %272, i64 10)
+  %277 = add i64 %275, %273
+  %278 = xor i64 %277, %250
+  %279 = tail call i64 @llvm.fshl.i64(i64 %275, i64 %275, i64 13)
+  %280 = add i64 %278, %276
+  %281 = xor i64 %280, %253
+  %282 = tail call i64 @llvm.fshl.i64(i64 %278, i64 %278, i64 38)
+  %283 = add i64 %281, %279
+  %284 = xor i64 %283, %256
+  %285 = tail call i64 @llvm.fshl.i64(i64 %281, i64 %281, i64 53)
+  %286 = add i64 %284, %282
+  %287 = xor i64 %286, %259
+  %288 = add i64 %287, %285
+  %289 = xor i64 %288, %262
+  %290 = tail call i64 @llvm.fshl.i64(i64 %287, i64 %287, i64 54)
+  store i64 %290, ptr %2, align 8, !tbaa !7
+  store i64 %289, ptr %3, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #6
+  br label %291
 
-return:                                           ; preds = %while.end, %if.then
+291:                                              ; preds = %._crit_edge, %7
   ret void
 }
 
@@ -682,791 +665,788 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
-entry:
-  %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288
-  store i64 0, ptr %m_length, align 8, !tbaa !17
-  %m_remainder = getelementptr inbounds nuw i8, ptr %this, i64 296
-  store i8 0, ptr %m_remainder, align 8, !tbaa !19
-  %m_state = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store i64 %seed1, ptr %m_state, align 8, !tbaa !7
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store i64 %seed2, ptr %arrayidx3, align 8, !tbaa !7
+define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 0, ptr %4, align 8, !tbaa !17
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i8 0, ptr %5, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 %1, ptr %6, align 8, !tbaa !7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %2, ptr %7, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly captures(address) %message, i64 noundef %length) local_unnamed_addr #0 align 2 {
-entry:
-  %m_remainder = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %0 = load i8, ptr %m_remainder, align 8, !tbaa !19
-  %conv = zext i8 %0 to i64
-  %add = add i64 %length, %conv
-  %cmp = icmp ult i64 %add, 192
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %5 = load i8, ptr %4, align 8, !tbaa !19
+  %.fr = freeze i8 %5
+  %6 = zext i8 %.fr to i64
+  %7 = add i64 %2, %6
+  %8 = icmp ult i64 %7, 192
+  br i1 %8, label %9, label %15
 
-if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %message, i64 %length, i1 false)
-  %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %1 = load i64, ptr %m_length, align 8, !tbaa !17
-  %add3 = add i64 %1, %length
-  store i64 %add3, ptr %m_length, align 8, !tbaa !17
-  %conv5 = trunc nuw i64 %add to i8
-  store i8 %conv5, ptr %m_remainder, align 8, !tbaa !19
-  br label %cleanup
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %2, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %13 = add i64 %12, %2
+  store i64 %13, ptr %11, align 8, !tbaa !17
+  %14 = trunc nuw i64 %7 to i8
+  store i8 %14, ptr %4, align 8, !tbaa !19
+  br label %320
 
-if.end:                                           ; preds = %entry
-  %m_length7 = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %2 = load i64, ptr %m_length7, align 8, !tbaa !17
-  %cmp8 = icmp ult i64 %2, 192
-  %m_state = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %3 = load i64, ptr %m_state, align 8, !tbaa !7
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %4 = load i64, ptr %arrayidx12, align 8, !tbaa !7
-  br i1 %cmp8, label %if.end37, label %if.else
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %18 = icmp ult i64 %17, 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %20 = load i64, ptr %19, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %22 = load i64, ptr %21, align 8, !tbaa !7
+  br i1 %18, label %44, label %23
 
-if.else:                                          ; preds = %if.end
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %5 = load i64, ptr %arrayidx18, align 8, !tbaa !7
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %6 = load i64, ptr %arrayidx20, align 8, !tbaa !7
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %7 = load i64, ptr %arrayidx22, align 8, !tbaa !7
-  %arrayidx24 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %8 = load i64, ptr %arrayidx24, align 8, !tbaa !7
-  %arrayidx26 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %9 = load i64, ptr %arrayidx26, align 8, !tbaa !7
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %10 = load i64, ptr %arrayidx28, align 8, !tbaa !7
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %11 = load i64, ptr %arrayidx30, align 8, !tbaa !7
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %this, i64 264
-  %12 = load i64, ptr %arrayidx32, align 8, !tbaa !7
-  %arrayidx34 = getelementptr inbounds nuw i8, ptr %this, i64 272
-  %13 = load i64, ptr %arrayidx34, align 8, !tbaa !7
-  %arrayidx36 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %14 = load i64, ptr %arrayidx36, align 8, !tbaa !7
-  br label %if.end37
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %25 = load i64, ptr %24, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %27 = load i64, ptr %26, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %29 = load i64, ptr %28, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %31 = load i64, ptr %30, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %33 = load i64, ptr %32, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %35 = load i64, ptr %34, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %37 = load i64, ptr %36, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %39 = load i64, ptr %38, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %41 = load i64, ptr %40, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %43 = load i64, ptr %42, align 8, !tbaa !7
+  br label %44
 
-if.end37:                                         ; preds = %if.else, %if.end
-  %h2.0 = phi i64 [ %5, %if.else ], [ -2401053088876216593, %if.end ]
-  %h3.0 = phi i64 [ %6, %if.else ], [ %3, %if.end ]
-  %h4.0 = phi i64 [ %7, %if.else ], [ %4, %if.end ]
-  %h5.0 = phi i64 [ %8, %if.else ], [ -2401053088876216593, %if.end ]
-  %h6.0 = phi i64 [ %9, %if.else ], [ %3, %if.end ]
-  %h7.0 = phi i64 [ %10, %if.else ], [ %4, %if.end ]
-  %h8.0 = phi i64 [ %11, %if.else ], [ -2401053088876216593, %if.end ]
-  %h9.0 = phi i64 [ %12, %if.else ], [ %3, %if.end ]
-  %h10.0 = phi i64 [ %13, %if.else ], [ %4, %if.end ]
-  %h11.0 = phi i64 [ %14, %if.else ], [ -2401053088876216593, %if.end ]
-  %add39 = add i64 %2, %length
-  store i64 %add39, ptr %m_length7, align 8, !tbaa !17
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end59, label %if.then42
+44:                                               ; preds = %15, %23
+  %.0355 = phi i64 [ %25, %23 ], [ -2401053088876216593, %15 ]
+  %.0352 = phi i64 [ %27, %23 ], [ %20, %15 ]
+  %.0349 = phi i64 [ %29, %23 ], [ %22, %15 ]
+  %.0346 = phi i64 [ %31, %23 ], [ -2401053088876216593, %15 ]
+  %.0343 = phi i64 [ %33, %23 ], [ %20, %15 ]
+  %.0340 = phi i64 [ %35, %23 ], [ %22, %15 ]
+  %.0337 = phi i64 [ %37, %23 ], [ -2401053088876216593, %15 ]
+  %.0334 = phi i64 [ %39, %23 ], [ %20, %15 ]
+  %.0331 = phi i64 [ %41, %23 ], [ %22, %15 ]
+  %.0330 = phi i64 [ %43, %23 ], [ -2401053088876216593, %15 ]
+  %45 = add i64 %17, %2
+  store i64 %45, ptr %16, align 8, !tbaa !17
+  %.not = icmp eq i8 %.fr, 0
+  br i1 %.not, label %219, label %46
 
-if.then42:                                        ; preds = %if.end37
-  %sub = sub i8 -64, %0
-  %arrayidx50 = getelementptr inbounds nuw i8, ptr %this, i64 %conv
-  %conv51 = zext i8 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx50, ptr align 1 %message, i64 %conv51, i1 false)
-  %15 = load i64, ptr %this, align 8, !tbaa !7
-  %add.i = add i64 %15, %3
-  %xor.i = xor i64 %h10.0, %h2.0
-  %xor1.i = xor i64 %add.i, %h11.0
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %4
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %16 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %16, %4
-  %xor5.i = xor i64 %add2.i, %h3.0
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %17 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %17, %xor.i
-  %xor11.i = xor i64 %add8.i, %h4.0
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %18 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %18
-  %xor17.i = xor i64 %add14.i, %h5.0
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %19 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %19
-  %xor23.i = xor i64 %add20.i, %h6.0
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %20 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %20
-  %xor29.i = xor i64 %add26.i, %h7.0
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %21 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %21
-  %xor35.i = xor i64 %add32.i, %h8.0
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %22 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %22
-  %xor41.i = xor i64 %add38.i, %h9.0
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %23 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %23
-  %xor47.i = xor i64 %add44.i, %h10.0
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %24 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %24
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %25 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %25
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %26 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %26
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %arrayidx54 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %27 = load i64, ptr %arrayidx54, align 8, !tbaa !7
-  %add.i129 = add i64 %xor59.i, %27
-  %xor.i130 = xor i64 %add68.i, %add20.i
-  %xor1.i131 = xor i64 %add.i129, %or.i208.i
-  %or.i.i132 = tail call i64 @llvm.fshl.i64(i64 %add.i129, i64 %add.i129, i64 11)
-  %add2.i133 = add i64 %xor1.i131, %xor65.i
-  %arrayidx3.i134 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %28 = load i64, ptr %arrayidx3.i134, align 8, !tbaa !7
-  %add4.i135 = add i64 %xor65.i, %28
-  %xor5.i136 = xor i64 %add2.i133, %add26.i
-  %xor6.i137 = xor i64 %or.i.i132, %add4.i135
-  %or.i178.i138 = tail call i64 @llvm.fshl.i64(i64 %add4.i135, i64 %add4.i135, i64 32)
-  %add8.i139 = add i64 %xor6.i137, %xor.i130
-  %arrayidx9.i140 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %29 = load i64, ptr %arrayidx9.i140, align 8, !tbaa !7
-  %add10.i141 = add i64 %xor.i130, %29
-  %xor11.i142 = xor i64 %add8.i139, %add32.i
-  %xor12.i143 = xor i64 %or.i178.i138, %add10.i141
-  %or.i181.i144 = tail call i64 @llvm.fshl.i64(i64 %add10.i141, i64 %add10.i141, i64 43)
-  %add14.i145 = add i64 %xor12.i143, %xor5.i136
-  %arrayidx15.i146 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %30 = load i64, ptr %arrayidx15.i146, align 8, !tbaa !7
-  %add16.i147 = add i64 %xor5.i136, %30
-  %xor17.i148 = xor i64 %add14.i145, %add38.i
-  %xor18.i149 = xor i64 %add16.i147, %or.i181.i144
-  %or.i184.i150 = tail call i64 @llvm.fshl.i64(i64 %add16.i147, i64 %add16.i147, i64 31)
-  %add20.i151 = add i64 %xor18.i149, %xor11.i142
-  %arrayidx21.i152 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %31 = load i64, ptr %arrayidx21.i152, align 8, !tbaa !7
-  %add22.i153 = add i64 %xor11.i142, %31
-  %xor23.i154 = xor i64 %add20.i151, %add44.i
-  %xor24.i155 = xor i64 %or.i184.i150, %add22.i153
-  %or.i187.i156 = tail call i64 @llvm.fshl.i64(i64 %add22.i153, i64 %add22.i153, i64 17)
-  %add26.i157 = add i64 %xor24.i155, %xor17.i148
-  %arrayidx27.i158 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %32 = load i64, ptr %arrayidx27.i158, align 8, !tbaa !7
-  %add28.i159 = add i64 %xor17.i148, %32
-  %xor29.i160 = xor i64 %add26.i157, %add50.i
-  %xor30.i161 = xor i64 %or.i187.i156, %add28.i159
-  %or.i190.i162 = tail call i64 @llvm.fshl.i64(i64 %add28.i159, i64 %add28.i159, i64 28)
-  %add32.i163 = add i64 %xor30.i161, %xor23.i154
-  %arrayidx33.i164 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %33 = load i64, ptr %arrayidx33.i164, align 8, !tbaa !7
-  %add34.i165 = add i64 %xor23.i154, %33
-  %xor35.i166 = xor i64 %add32.i163, %add56.i
-  %xor36.i167 = xor i64 %add34.i165, %or.i190.i162
-  %or.i193.i168 = tail call i64 @llvm.fshl.i64(i64 %add34.i165, i64 %add34.i165, i64 39)
-  %add38.i169 = add i64 %xor36.i167, %xor29.i160
-  %arrayidx39.i170 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %34 = load i64, ptr %arrayidx39.i170, align 8, !tbaa !7
-  %add40.i171 = add i64 %xor29.i160, %34
-  %xor41.i172 = xor i64 %add38.i169, %add62.i
-  %xor42.i173 = xor i64 %or.i193.i168, %add40.i171
-  %or.i196.i174 = tail call i64 @llvm.fshl.i64(i64 %add40.i171, i64 %add40.i171, i64 57)
-  %add44.i175 = add i64 %xor42.i173, %xor35.i166
-  %arrayidx45.i176 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %35 = load i64, ptr %arrayidx45.i176, align 8, !tbaa !7
-  %add46.i177 = add i64 %xor35.i166, %35
-  %xor47.i178 = xor i64 %add44.i175, %add68.i
-  %xor48.i179 = xor i64 %or.i196.i174, %add46.i177
-  %or.i199.i180 = tail call i64 @llvm.fshl.i64(i64 %add46.i177, i64 %add46.i177, i64 55)
-  %add50.i181 = add i64 %xor48.i179, %xor41.i172
-  %arrayidx51.i182 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %36 = load i64, ptr %arrayidx51.i182, align 8, !tbaa !7
-  %add52.i183 = add i64 %xor41.i172, %36
-  %xor53.i184 = xor i64 %add50.i181, %add2.i133
-  %xor54.i185 = xor i64 %add52.i183, %or.i199.i180
-  %or.i202.i186 = tail call i64 @llvm.fshl.i64(i64 %add52.i183, i64 %add52.i183, i64 54)
-  %add56.i187 = add i64 %xor54.i185, %xor47.i178
-  %arrayidx57.i188 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %37 = load i64, ptr %arrayidx57.i188, align 8, !tbaa !7
-  %add58.i189 = add i64 %xor47.i178, %37
-  %xor59.i190 = xor i64 %add56.i187, %add8.i139
-  %xor60.i191 = xor i64 %or.i202.i186, %add58.i189
-  %or.i205.i192 = tail call i64 @llvm.fshl.i64(i64 %add58.i189, i64 %add58.i189, i64 22)
-  %add62.i193 = add i64 %xor60.i191, %xor53.i184
-  %arrayidx63.i194 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %38 = load i64, ptr %arrayidx63.i194, align 8, !tbaa !7
-  %add64.i195 = add i64 %xor53.i184, %38
-  %xor65.i196 = xor i64 %add62.i193, %add14.i145
-  %xor66.i197 = xor i64 %or.i205.i192, %add64.i195
-  %or.i208.i198 = tail call i64 @llvm.fshl.i64(i64 %add64.i195, i64 %add64.i195, i64 46)
-  %add68.i199 = add i64 %xor66.i197, %xor59.i190
-  %add.ptr = getelementptr inbounds nuw i8, ptr %message, i64 %conv51
-  %sub57 = sub i64 %length, %conv51
-  br label %if.end59
+46:                                               ; preds = %44
+  %47 = sub i8 -64, %.fr
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %49 = zext i8 %47 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %1, i64 %49, i1 false)
+  %50 = load i64, ptr %0, align 8, !tbaa !7
+  %51 = add i64 %50, %20
+  %52 = xor i64 %.0331, %.0355
+  %53 = xor i64 %51, %.0330
+  %54 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 11)
+  %55 = add i64 %53, %22
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load i64, ptr %56, align 8, !tbaa !7
+  %58 = add i64 %57, %22
+  %59 = xor i64 %55, %.0352
+  %60 = xor i64 %54, %58
+  %61 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 32)
+  %62 = add i64 %60, %52
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load i64, ptr %63, align 8, !tbaa !7
+  %65 = add i64 %64, %52
+  %66 = xor i64 %62, %.0349
+  %67 = xor i64 %61, %65
+  %68 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 43)
+  %69 = add i64 %67, %59
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i64, ptr %70, align 8, !tbaa !7
+  %72 = add i64 %59, %71
+  %73 = xor i64 %69, %.0346
+  %74 = xor i64 %72, %68
+  %75 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 31)
+  %76 = add i64 %74, %66
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %78 = load i64, ptr %77, align 8, !tbaa !7
+  %79 = add i64 %66, %78
+  %80 = xor i64 %76, %.0343
+  %81 = xor i64 %75, %79
+  %82 = tail call i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 17)
+  %83 = add i64 %81, %73
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %85 = load i64, ptr %84, align 8, !tbaa !7
+  %86 = add i64 %73, %85
+  %87 = xor i64 %83, %.0340
+  %88 = xor i64 %82, %86
+  %89 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 28)
+  %90 = add i64 %88, %80
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %92 = load i64, ptr %91, align 8, !tbaa !7
+  %93 = add i64 %80, %92
+  %94 = xor i64 %90, %.0337
+  %95 = xor i64 %93, %89
+  %96 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 39)
+  %97 = add i64 %95, %87
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %99 = load i64, ptr %98, align 8, !tbaa !7
+  %100 = add i64 %87, %99
+  %101 = xor i64 %97, %.0334
+  %102 = xor i64 %96, %100
+  %103 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 57)
+  %104 = add i64 %102, %94
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %106 = load i64, ptr %105, align 8, !tbaa !7
+  %107 = add i64 %94, %106
+  %108 = xor i64 %104, %.0331
+  %109 = xor i64 %103, %107
+  %110 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 55)
+  %111 = add i64 %109, %101
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %113 = load i64, ptr %112, align 8, !tbaa !7
+  %114 = add i64 %101, %113
+  %115 = xor i64 %111, %55
+  %116 = xor i64 %114, %110
+  %117 = tail call i64 @llvm.fshl.i64(i64 %114, i64 %114, i64 54)
+  %118 = add i64 %116, %108
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %120 = load i64, ptr %119, align 8, !tbaa !7
+  %121 = add i64 %108, %120
+  %122 = xor i64 %118, %62
+  %123 = xor i64 %117, %121
+  %124 = tail call i64 @llvm.fshl.i64(i64 %121, i64 %121, i64 22)
+  %125 = add i64 %123, %115
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %127 = load i64, ptr %126, align 8, !tbaa !7
+  %128 = add i64 %115, %127
+  %129 = xor i64 %125, %69
+  %130 = xor i64 %124, %128
+  %131 = tail call i64 @llvm.fshl.i64(i64 %128, i64 %128, i64 46)
+  %132 = add i64 %130, %122
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %134 = load i64, ptr %133, align 8, !tbaa !7
+  %135 = add i64 %122, %134
+  %136 = xor i64 %132, %76
+  %137 = xor i64 %135, %131
+  %138 = tail call i64 @llvm.fshl.i64(i64 %135, i64 %135, i64 11)
+  %139 = add i64 %137, %129
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %141 = load i64, ptr %140, align 8, !tbaa !7
+  %142 = add i64 %129, %141
+  %143 = xor i64 %139, %83
+  %144 = xor i64 %138, %142
+  %145 = tail call i64 @llvm.fshl.i64(i64 %142, i64 %142, i64 32)
+  %146 = add i64 %144, %136
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %148 = load i64, ptr %147, align 8, !tbaa !7
+  %149 = add i64 %136, %148
+  %150 = xor i64 %146, %90
+  %151 = xor i64 %145, %149
+  %152 = tail call i64 @llvm.fshl.i64(i64 %149, i64 %149, i64 43)
+  %153 = add i64 %151, %143
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %155 = load i64, ptr %154, align 8, !tbaa !7
+  %156 = add i64 %143, %155
+  %157 = xor i64 %153, %97
+  %158 = xor i64 %156, %152
+  %159 = tail call i64 @llvm.fshl.i64(i64 %156, i64 %156, i64 31)
+  %160 = add i64 %158, %150
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %162 = load i64, ptr %161, align 8, !tbaa !7
+  %163 = add i64 %150, %162
+  %164 = xor i64 %160, %104
+  %165 = xor i64 %159, %163
+  %166 = tail call i64 @llvm.fshl.i64(i64 %163, i64 %163, i64 17)
+  %167 = add i64 %165, %157
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %169 = load i64, ptr %168, align 8, !tbaa !7
+  %170 = add i64 %157, %169
+  %171 = xor i64 %167, %111
+  %172 = xor i64 %166, %170
+  %173 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 28)
+  %174 = add i64 %172, %164
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %176 = load i64, ptr %175, align 8, !tbaa !7
+  %177 = add i64 %164, %176
+  %178 = xor i64 %174, %118
+  %179 = xor i64 %177, %173
+  %180 = tail call i64 @llvm.fshl.i64(i64 %177, i64 %177, i64 39)
+  %181 = add i64 %179, %171
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %183 = load i64, ptr %182, align 8, !tbaa !7
+  %184 = add i64 %171, %183
+  %185 = xor i64 %181, %125
+  %186 = xor i64 %180, %184
+  %187 = tail call i64 @llvm.fshl.i64(i64 %184, i64 %184, i64 57)
+  %188 = add i64 %186, %178
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %190 = load i64, ptr %189, align 8, !tbaa !7
+  %191 = add i64 %178, %190
+  %192 = xor i64 %188, %132
+  %193 = xor i64 %187, %191
+  %194 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %191, i64 55)
+  %195 = add i64 %193, %185
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %197 = load i64, ptr %196, align 8, !tbaa !7
+  %198 = add i64 %185, %197
+  %199 = xor i64 %195, %139
+  %200 = xor i64 %198, %194
+  %201 = tail call i64 @llvm.fshl.i64(i64 %198, i64 %198, i64 54)
+  %202 = add i64 %200, %192
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %204 = load i64, ptr %203, align 8, !tbaa !7
+  %205 = add i64 %192, %204
+  %206 = xor i64 %202, %146
+  %207 = xor i64 %201, %205
+  %208 = tail call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 22)
+  %209 = add i64 %207, %199
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %211 = load i64, ptr %210, align 8, !tbaa !7
+  %212 = add i64 %199, %211
+  %213 = xor i64 %209, %153
+  %214 = xor i64 %208, %212
+  %215 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 46)
+  %216 = add i64 %214, %206
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 %49
+  %218 = sub i64 %2, %49
+  br label %219
 
-if.end59:                                         ; preds = %if.then42, %if.end37
-  %h0.1 = phi i64 [ %3, %if.end37 ], [ %xor59.i190, %if.then42 ]
-  %h1.1 = phi i64 [ %4, %if.end37 ], [ %xor65.i196, %if.then42 ]
-  %h2.1 = phi i64 [ %h2.0, %if.end37 ], [ %add20.i151, %if.then42 ]
-  %h3.1 = phi i64 [ %h3.0, %if.end37 ], [ %add26.i157, %if.then42 ]
-  %h4.1 = phi i64 [ %h4.0, %if.end37 ], [ %add32.i163, %if.then42 ]
-  %h5.1 = phi i64 [ %h5.0, %if.end37 ], [ %add38.i169, %if.then42 ]
-  %h6.1 = phi i64 [ %h6.0, %if.end37 ], [ %add44.i175, %if.then42 ]
-  %h7.1 = phi i64 [ %h7.0, %if.end37 ], [ %add50.i181, %if.then42 ]
-  %h8.1 = phi i64 [ %h8.0, %if.end37 ], [ %add56.i187, %if.then42 ]
-  %h9.1 = phi i64 [ %h9.0, %if.end37 ], [ %add62.i193, %if.then42 ]
-  %h10.1 = phi i64 [ %h10.0, %if.end37 ], [ %add68.i199, %if.then42 ]
-  %h11.1 = phi i64 [ %h11.0, %if.end37 ], [ %or.i208.i198, %if.then42 ]
-  %u.sroa.0.0 = phi ptr [ %message, %if.end37 ], [ %add.ptr, %if.then42 ]
-  %length.addr.0 = phi i64 [ %length, %if.end37 ], [ %sub57, %if.then42 ]
-  %div = udiv i64 %length.addr.0, 96
-  %add.ptr60.idx1 = mul nuw i64 %div, 96
-  %add.ptr60 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0, i64 %add.ptr60.idx1
-  %add.ptr60.idx.neg = mul i64 %div, 160
-  %sub61 = add i64 %add.ptr60.idx.neg, %length.addr.0
-  %conv62 = trunc i64 %sub61 to i8
-  %cmp63559 = icmp sgt i64 %add.ptr60.idx1, 0
-  br i1 %cmp63559, label %while.body, label %while.end
+219:                                              ; preds = %44, %46
+  %.1362 = phi i64 [ %20, %44 ], [ %206, %46 ]
+  %.1359 = phi i64 [ %22, %44 ], [ %213, %46 ]
+  %.1356 = phi i64 [ %.0355, %44 ], [ %160, %46 ]
+  %.1353 = phi i64 [ %.0352, %44 ], [ %167, %46 ]
+  %.1350 = phi i64 [ %.0349, %44 ], [ %174, %46 ]
+  %.1347 = phi i64 [ %.0346, %44 ], [ %181, %46 ]
+  %.1344 = phi i64 [ %.0343, %44 ], [ %188, %46 ]
+  %.1341 = phi i64 [ %.0340, %44 ], [ %195, %46 ]
+  %.1338 = phi i64 [ %.0337, %44 ], [ %202, %46 ]
+  %.1335 = phi i64 [ %.0334, %44 ], [ %209, %46 ]
+  %.1332 = phi i64 [ %.0331, %44 ], [ %216, %46 ]
+  %.1 = phi i64 [ %.0330, %44 ], [ %215, %46 ]
+  %.sroa.0.0 = phi ptr [ %1, %44 ], [ %217, %46 ]
+  %.0 = phi i64 [ %2, %44 ], [ %218, %46 ]
+  %220 = urem i64 %.0, 96
+  %.idx = sub nuw i64 %.0, %220
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx
+  %222 = trunc nuw nsw i64 %220 to i8
+  %.not388 = icmp eq i64 %.0, %220
+  br i1 %.not388, label %._crit_edge, label %.lr.ph
 
-while.body:                                       ; preds = %if.end59, %while.body
-  %u.sroa.0.1572 = phi ptr [ %add.ptr64, %while.body ], [ %u.sroa.0.0, %if.end59 ]
-  %h11.2571 = phi i64 [ %or.i208.i269, %while.body ], [ %h11.1, %if.end59 ]
-  %h10.2570 = phi i64 [ %add68.i270, %while.body ], [ %h10.1, %if.end59 ]
-  %h9.2569 = phi i64 [ %add62.i264, %while.body ], [ %h9.1, %if.end59 ]
-  %h8.2568 = phi i64 [ %add56.i258, %while.body ], [ %h8.1, %if.end59 ]
-  %h7.2567 = phi i64 [ %add50.i252, %while.body ], [ %h7.1, %if.end59 ]
-  %h6.2566 = phi i64 [ %add44.i246, %while.body ], [ %h6.1, %if.end59 ]
-  %h5.2565 = phi i64 [ %add38.i240, %while.body ], [ %h5.1, %if.end59 ]
-  %h4.2564 = phi i64 [ %add32.i234, %while.body ], [ %h4.1, %if.end59 ]
-  %h3.2563 = phi i64 [ %add26.i228, %while.body ], [ %h3.1, %if.end59 ]
-  %h2.2562 = phi i64 [ %add20.i222, %while.body ], [ %h2.1, %if.end59 ]
-  %h1.2561 = phi i64 [ %xor65.i267, %while.body ], [ %h1.1, %if.end59 ]
-  %h0.2560 = phi i64 [ %xor59.i261, %while.body ], [ %h0.1, %if.end59 ]
-  %39 = load i64, ptr %u.sroa.0.1572, align 8, !tbaa !7
-  %add.i200 = add i64 %39, %h0.2560
-  %xor.i201 = xor i64 %h2.2562, %h10.2570
-  %xor1.i202 = xor i64 %add.i200, %h11.2571
-  %or.i.i203 = tail call i64 @llvm.fshl.i64(i64 %add.i200, i64 %add.i200, i64 11)
-  %add2.i204 = add i64 %xor1.i202, %h1.2561
-  %arrayidx3.i205 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 8
-  %40 = load i64, ptr %arrayidx3.i205, align 8, !tbaa !7
-  %add4.i206 = add i64 %40, %h1.2561
-  %xor5.i207 = xor i64 %add2.i204, %h3.2563
-  %xor6.i208 = xor i64 %or.i.i203, %add4.i206
-  %or.i178.i209 = tail call i64 @llvm.fshl.i64(i64 %add4.i206, i64 %add4.i206, i64 32)
-  %add8.i210 = add i64 %xor6.i208, %xor.i201
-  %arrayidx9.i211 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 16
-  %41 = load i64, ptr %arrayidx9.i211, align 8, !tbaa !7
-  %add10.i212 = add i64 %41, %xor.i201
-  %xor11.i213 = xor i64 %add8.i210, %h4.2564
-  %xor12.i214 = xor i64 %or.i178.i209, %add10.i212
-  %or.i181.i215 = tail call i64 @llvm.fshl.i64(i64 %add10.i212, i64 %add10.i212, i64 43)
-  %add14.i216 = add i64 %xor12.i214, %xor5.i207
-  %arrayidx15.i217 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 24
-  %42 = load i64, ptr %arrayidx15.i217, align 8, !tbaa !7
-  %add16.i218 = add i64 %xor5.i207, %42
-  %xor17.i219 = xor i64 %add14.i216, %h5.2565
-  %xor18.i220 = xor i64 %add16.i218, %or.i181.i215
-  %or.i184.i221 = tail call i64 @llvm.fshl.i64(i64 %add16.i218, i64 %add16.i218, i64 31)
-  %add20.i222 = add i64 %xor18.i220, %xor11.i213
-  %arrayidx21.i223 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 32
-  %43 = load i64, ptr %arrayidx21.i223, align 8, !tbaa !7
-  %add22.i224 = add i64 %xor11.i213, %43
-  %xor23.i225 = xor i64 %add20.i222, %h6.2566
-  %xor24.i226 = xor i64 %or.i184.i221, %add22.i224
-  %or.i187.i227 = tail call i64 @llvm.fshl.i64(i64 %add22.i224, i64 %add22.i224, i64 17)
-  %add26.i228 = add i64 %xor24.i226, %xor17.i219
-  %arrayidx27.i229 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 40
-  %44 = load i64, ptr %arrayidx27.i229, align 8, !tbaa !7
-  %add28.i230 = add i64 %xor17.i219, %44
-  %xor29.i231 = xor i64 %add26.i228, %h7.2567
-  %xor30.i232 = xor i64 %or.i187.i227, %add28.i230
-  %or.i190.i233 = tail call i64 @llvm.fshl.i64(i64 %add28.i230, i64 %add28.i230, i64 28)
-  %add32.i234 = add i64 %xor30.i232, %xor23.i225
-  %arrayidx33.i235 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 48
-  %45 = load i64, ptr %arrayidx33.i235, align 8, !tbaa !7
-  %add34.i236 = add i64 %xor23.i225, %45
-  %xor35.i237 = xor i64 %add32.i234, %h8.2568
-  %xor36.i238 = xor i64 %add34.i236, %or.i190.i233
-  %or.i193.i239 = tail call i64 @llvm.fshl.i64(i64 %add34.i236, i64 %add34.i236, i64 39)
-  %add38.i240 = add i64 %xor36.i238, %xor29.i231
-  %arrayidx39.i241 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 56
-  %46 = load i64, ptr %arrayidx39.i241, align 8, !tbaa !7
-  %add40.i242 = add i64 %xor29.i231, %46
-  %xor41.i243 = xor i64 %add38.i240, %h9.2569
-  %xor42.i244 = xor i64 %or.i193.i239, %add40.i242
-  %or.i196.i245 = tail call i64 @llvm.fshl.i64(i64 %add40.i242, i64 %add40.i242, i64 57)
-  %add44.i246 = add i64 %xor42.i244, %xor35.i237
-  %arrayidx45.i247 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 64
-  %47 = load i64, ptr %arrayidx45.i247, align 8, !tbaa !7
-  %add46.i248 = add i64 %xor35.i237, %47
-  %xor47.i249 = xor i64 %add44.i246, %h10.2570
-  %xor48.i250 = xor i64 %or.i196.i245, %add46.i248
-  %or.i199.i251 = tail call i64 @llvm.fshl.i64(i64 %add46.i248, i64 %add46.i248, i64 55)
-  %add50.i252 = add i64 %xor48.i250, %xor41.i243
-  %arrayidx51.i253 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 72
-  %48 = load i64, ptr %arrayidx51.i253, align 8, !tbaa !7
-  %add52.i254 = add i64 %xor41.i243, %48
-  %xor53.i255 = xor i64 %add50.i252, %add2.i204
-  %xor54.i256 = xor i64 %add52.i254, %or.i199.i251
-  %or.i202.i257 = tail call i64 @llvm.fshl.i64(i64 %add52.i254, i64 %add52.i254, i64 54)
-  %add56.i258 = add i64 %xor54.i256, %xor47.i249
-  %arrayidx57.i259 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 80
-  %49 = load i64, ptr %arrayidx57.i259, align 8, !tbaa !7
-  %add58.i260 = add i64 %xor47.i249, %49
-  %xor59.i261 = xor i64 %add56.i258, %add8.i210
-  %xor60.i262 = xor i64 %or.i202.i257, %add58.i260
-  %or.i205.i263 = tail call i64 @llvm.fshl.i64(i64 %add58.i260, i64 %add58.i260, i64 22)
-  %add62.i264 = add i64 %xor60.i262, %xor53.i255
-  %arrayidx63.i265 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 88
-  %50 = load i64, ptr %arrayidx63.i265, align 8, !tbaa !7
-  %add64.i266 = add i64 %xor53.i255, %50
-  %xor65.i267 = xor i64 %add62.i264, %add14.i216
-  %xor66.i268 = xor i64 %or.i205.i263, %add64.i266
-  %or.i208.i269 = tail call i64 @llvm.fshl.i64(i64 %add64.i266, i64 %add64.i266, i64 46)
-  %add68.i270 = add i64 %xor66.i268, %xor59.i261
-  %add.ptr64 = getelementptr inbounds nuw i8, ptr %u.sroa.0.1572, i64 96
-  %cmp63 = icmp ult ptr %add.ptr64, %add.ptr60
-  br i1 %cmp63, label %while.body, label %while.end, !llvm.loop !20
+.lr.ph:                                           ; preds = %219, %.lr.ph
+  %.sroa.0.1376 = phi ptr [ %306, %.lr.ph ], [ %.sroa.0.0, %219 ]
+  %.2375 = phi i64 [ %304, %.lr.ph ], [ %.1, %219 ]
+  %.2333374 = phi i64 [ %305, %.lr.ph ], [ %.1332, %219 ]
+  %.2336373 = phi i64 [ %298, %.lr.ph ], [ %.1335, %219 ]
+  %.2339372 = phi i64 [ %291, %.lr.ph ], [ %.1338, %219 ]
+  %.2342371 = phi i64 [ %284, %.lr.ph ], [ %.1341, %219 ]
+  %.2345370 = phi i64 [ %277, %.lr.ph ], [ %.1344, %219 ]
+  %.2348369 = phi i64 [ %270, %.lr.ph ], [ %.1347, %219 ]
+  %.2351368 = phi i64 [ %263, %.lr.ph ], [ %.1350, %219 ]
+  %.2354367 = phi i64 [ %256, %.lr.ph ], [ %.1353, %219 ]
+  %.2357366 = phi i64 [ %249, %.lr.ph ], [ %.1356, %219 ]
+  %.2360365 = phi i64 [ %302, %.lr.ph ], [ %.1359, %219 ]
+  %.2363364 = phi i64 [ %295, %.lr.ph ], [ %.1362, %219 ]
+  %223 = load i64, ptr %.sroa.0.1376, align 8, !tbaa !7
+  %224 = add i64 %223, %.2363364
+  %225 = xor i64 %.2333374, %.2357366
+  %226 = xor i64 %224, %.2375
+  %227 = tail call i64 @llvm.fshl.i64(i64 %224, i64 %224, i64 11)
+  %228 = add i64 %226, %.2360365
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 8
+  %230 = load i64, ptr %229, align 8, !tbaa !7
+  %231 = add i64 %230, %.2360365
+  %232 = xor i64 %228, %.2354367
+  %233 = xor i64 %227, %231
+  %234 = tail call i64 @llvm.fshl.i64(i64 %231, i64 %231, i64 32)
+  %235 = add i64 %233, %225
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 16
+  %237 = load i64, ptr %236, align 8, !tbaa !7
+  %238 = add i64 %237, %225
+  %239 = xor i64 %235, %.2351368
+  %240 = xor i64 %234, %238
+  %241 = tail call i64 @llvm.fshl.i64(i64 %238, i64 %238, i64 43)
+  %242 = add i64 %240, %232
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 24
+  %244 = load i64, ptr %243, align 8, !tbaa !7
+  %245 = add i64 %232, %244
+  %246 = xor i64 %242, %.2348369
+  %247 = xor i64 %245, %241
+  %248 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %245, i64 31)
+  %249 = add i64 %247, %239
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 32
+  %251 = load i64, ptr %250, align 8, !tbaa !7
+  %252 = add i64 %239, %251
+  %253 = xor i64 %249, %.2345370
+  %254 = xor i64 %248, %252
+  %255 = tail call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 17)
+  %256 = add i64 %254, %246
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 40
+  %258 = load i64, ptr %257, align 8, !tbaa !7
+  %259 = add i64 %246, %258
+  %260 = xor i64 %256, %.2342371
+  %261 = xor i64 %255, %259
+  %262 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 28)
+  %263 = add i64 %261, %253
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 48
+  %265 = load i64, ptr %264, align 8, !tbaa !7
+  %266 = add i64 %253, %265
+  %267 = xor i64 %263, %.2339372
+  %268 = xor i64 %266, %262
+  %269 = tail call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 39)
+  %270 = add i64 %268, %260
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 56
+  %272 = load i64, ptr %271, align 8, !tbaa !7
+  %273 = add i64 %260, %272
+  %274 = xor i64 %270, %.2336373
+  %275 = xor i64 %269, %273
+  %276 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 57)
+  %277 = add i64 %275, %267
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 64
+  %279 = load i64, ptr %278, align 8, !tbaa !7
+  %280 = add i64 %267, %279
+  %281 = xor i64 %277, %.2333374
+  %282 = xor i64 %276, %280
+  %283 = tail call i64 @llvm.fshl.i64(i64 %280, i64 %280, i64 55)
+  %284 = add i64 %282, %274
+  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 72
+  %286 = load i64, ptr %285, align 8, !tbaa !7
+  %287 = add i64 %274, %286
+  %288 = xor i64 %284, %228
+  %289 = xor i64 %287, %283
+  %290 = tail call i64 @llvm.fshl.i64(i64 %287, i64 %287, i64 54)
+  %291 = add i64 %289, %281
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 80
+  %293 = load i64, ptr %292, align 8, !tbaa !7
+  %294 = add i64 %281, %293
+  %295 = xor i64 %291, %235
+  %296 = xor i64 %290, %294
+  %297 = tail call i64 @llvm.fshl.i64(i64 %294, i64 %294, i64 22)
+  %298 = add i64 %296, %288
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 88
+  %300 = load i64, ptr %299, align 8, !tbaa !7
+  %301 = add i64 %288, %300
+  %302 = xor i64 %298, %242
+  %303 = xor i64 %297, %301
+  %304 = tail call i64 @llvm.fshl.i64(i64 %301, i64 %301, i64 46)
+  %305 = add i64 %303, %295
+  %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 96
+  %307 = icmp ult ptr %306, %221
+  br i1 %307, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-while.end:                                        ; preds = %while.body, %if.end59
-  %h0.2.lcssa = phi i64 [ %h0.1, %if.end59 ], [ %xor59.i261, %while.body ]
-  %h1.2.lcssa = phi i64 [ %h1.1, %if.end59 ], [ %xor65.i267, %while.body ]
-  %h2.2.lcssa = phi i64 [ %h2.1, %if.end59 ], [ %add20.i222, %while.body ]
-  %h3.2.lcssa = phi i64 [ %h3.1, %if.end59 ], [ %add26.i228, %while.body ]
-  %h4.2.lcssa = phi i64 [ %h4.1, %if.end59 ], [ %add32.i234, %while.body ]
-  %h5.2.lcssa = phi i64 [ %h5.1, %if.end59 ], [ %add38.i240, %while.body ]
-  %h6.2.lcssa = phi i64 [ %h6.1, %if.end59 ], [ %add44.i246, %while.body ]
-  %h7.2.lcssa = phi i64 [ %h7.1, %if.end59 ], [ %add50.i252, %while.body ]
-  %h8.2.lcssa = phi i64 [ %h8.1, %if.end59 ], [ %add56.i258, %while.body ]
-  %h9.2.lcssa = phi i64 [ %h9.1, %if.end59 ], [ %add62.i264, %while.body ]
-  %h10.2.lcssa = phi i64 [ %h10.1, %if.end59 ], [ %add68.i270, %while.body ]
-  %h11.2.lcssa = phi i64 [ %h11.1, %if.end59 ], [ %or.i208.i269, %while.body ]
-  store i8 %conv62, ptr %m_remainder, align 8, !tbaa !19
-  %conv68 = and i64 %sub61, 255
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %this, ptr align 8 %add.ptr60, i64 %conv68, i1 false)
-  store i64 %h0.2.lcssa, ptr %m_state, align 8, !tbaa !7
-  store i64 %h1.2.lcssa, ptr %arrayidx12, align 8, !tbaa !7
-  %arrayidx74 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store i64 %h2.2.lcssa, ptr %arrayidx74, align 8, !tbaa !7
-  %arrayidx76 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  store i64 %h3.2.lcssa, ptr %arrayidx76, align 8, !tbaa !7
-  %arrayidx78 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  store i64 %h4.2.lcssa, ptr %arrayidx78, align 8, !tbaa !7
-  %arrayidx80 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  store i64 %h5.2.lcssa, ptr %arrayidx80, align 8, !tbaa !7
-  %arrayidx82 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  store i64 %h6.2.lcssa, ptr %arrayidx82, align 8, !tbaa !7
-  %arrayidx84 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  store i64 %h7.2.lcssa, ptr %arrayidx84, align 8, !tbaa !7
-  %arrayidx86 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  store i64 %h8.2.lcssa, ptr %arrayidx86, align 8, !tbaa !7
-  %arrayidx88 = getelementptr inbounds nuw i8, ptr %this, i64 264
-  store i64 %h9.2.lcssa, ptr %arrayidx88, align 8, !tbaa !7
-  %arrayidx90 = getelementptr inbounds nuw i8, ptr %this, i64 272
-  store i64 %h10.2.lcssa, ptr %arrayidx90, align 8, !tbaa !7
-  %arrayidx92 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store i64 %h11.2.lcssa, ptr %arrayidx92, align 8, !tbaa !7
-  br label %cleanup
+._crit_edge:                                      ; preds = %.lr.ph, %219
+  %.2363.lcssa = phi i64 [ %.1362, %219 ], [ %295, %.lr.ph ]
+  %.2360.lcssa = phi i64 [ %.1359, %219 ], [ %302, %.lr.ph ]
+  %.2357.lcssa = phi i64 [ %.1356, %219 ], [ %249, %.lr.ph ]
+  %.2354.lcssa = phi i64 [ %.1353, %219 ], [ %256, %.lr.ph ]
+  %.2351.lcssa = phi i64 [ %.1350, %219 ], [ %263, %.lr.ph ]
+  %.2348.lcssa = phi i64 [ %.1347, %219 ], [ %270, %.lr.ph ]
+  %.2345.lcssa = phi i64 [ %.1344, %219 ], [ %277, %.lr.ph ]
+  %.2342.lcssa = phi i64 [ %.1341, %219 ], [ %284, %.lr.ph ]
+  %.2339.lcssa = phi i64 [ %.1338, %219 ], [ %291, %.lr.ph ]
+  %.2336.lcssa = phi i64 [ %.1335, %219 ], [ %298, %.lr.ph ]
+  %.2333.lcssa = phi i64 [ %.1332, %219 ], [ %305, %.lr.ph ]
+  %.2.lcssa = phi i64 [ %.1, %219 ], [ %304, %.lr.ph ]
+  store i8 %222, ptr %4, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 8 %221, i64 %220, i1 false)
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 %.2363.lcssa, ptr %308, align 8, !tbaa !7
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i64 %.2360.lcssa, ptr %309, align 8, !tbaa !7
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 %.2357.lcssa, ptr %310, align 8, !tbaa !7
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i64 %.2354.lcssa, ptr %311, align 8, !tbaa !7
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i64 %.2351.lcssa, ptr %312, align 8, !tbaa !7
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 %.2348.lcssa, ptr %313, align 8, !tbaa !7
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 %.2345.lcssa, ptr %314, align 8, !tbaa !7
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %.2342.lcssa, ptr %315, align 8, !tbaa !7
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %.2339.lcssa, ptr %316, align 8, !tbaa !7
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %.2336.lcssa, ptr %317, align 8, !tbaa !7
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %.2333.lcssa, ptr %318, align 8, !tbaa !7
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %.2.lcssa, ptr %319, align 8, !tbaa !7
+  br label %320
 
-cleanup:                                          ; preds = %while.end, %if.then
+320:                                              ; preds = %._crit_edge, %9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(297) %this, ptr noundef captures(none) initializes((0, 8)) %hash1, ptr noundef captures(none) initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
-entry:
-  %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288
-  %0 = load i64, ptr %m_length, align 8, !tbaa !17
-  %cmp = icmp ult i64 %0, 192
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(297) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = icmp ult i64 %5, 192
+  br i1 %6, label %7, label %13
 
-if.then:                                          ; preds = %entry
-  %m_state = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %1 = load i64, ptr %m_state, align 8, !tbaa !7
-  store i64 %1, ptr %hash1, align 8, !tbaa !7
-  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %2 = load i64, ptr %arrayidx3, align 8, !tbaa !7
-  store i64 %2, ptr %hash2, align 8, !tbaa !7
-  %3 = load i64, ptr %m_length, align 8, !tbaa !17
-  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef nonnull %this, i64 noundef %3, ptr noundef nonnull %hash1, ptr noundef nonnull %hash2)
-  br label %return
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %9 = load i64, ptr %8, align 8, !tbaa !7
+  store i64 %9, ptr %1, align 8, !tbaa !7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %11 = load i64, ptr %10, align 8, !tbaa !7
+  store i64 %11, ptr %2, align 8, !tbaa !7
+  %12 = load i64, ptr %4, align 8, !tbaa !17
+  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef nonnull %0, i64 noundef %12, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  br label %322
 
-if.end:                                           ; preds = %entry
-  %m_remainder = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %4 = load i8, ptr %m_remainder, align 8, !tbaa !19
-  %m_state7 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %5 = load i64, ptr %m_state7, align 8, !tbaa !7
-  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %6 = load i64, ptr %arrayidx10, align 8, !tbaa !7
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %7 = load i64, ptr %arrayidx12, align 8, !tbaa !7
-  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %8 = load i64, ptr %arrayidx14, align 8, !tbaa !7
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %9 = load i64, ptr %arrayidx16, align 8, !tbaa !7
-  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %10 = load i64, ptr %arrayidx18, align 8, !tbaa !7
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %11 = load i64, ptr %arrayidx20, align 8, !tbaa !7
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %12 = load i64, ptr %arrayidx22, align 8, !tbaa !7
-  %arrayidx24 = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %13 = load i64, ptr %arrayidx24, align 8, !tbaa !7
-  %arrayidx26 = getelementptr inbounds nuw i8, ptr %this, i64 264
-  %14 = load i64, ptr %arrayidx26, align 8, !tbaa !7
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %this, i64 272
-  %15 = load i64, ptr %arrayidx28, align 8, !tbaa !7
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %16 = load i64, ptr %arrayidx30, align 8, !tbaa !7
-  %cmp31 = icmp ugt i8 %4, 95
-  br i1 %cmp31, label %if.then32, label %if.end35
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %15 = load i8, ptr %14, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %17 = load i64, ptr %16, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %19 = load i64, ptr %18, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %23 = load i64, ptr %22, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %25 = load i64, ptr %24, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %27 = load i64, ptr %26, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %29 = load i64, ptr %28, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %31 = load i64, ptr %30, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %33 = load i64, ptr %32, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %35 = load i64, ptr %34, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %37 = load i64, ptr %36, align 8, !tbaa !7
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %39 = load i64, ptr %38, align 8, !tbaa !7
+  %40 = icmp ugt i8 %15, 95
+  br i1 %40, label %41, label %127
 
-if.then32:                                        ; preds = %if.end
-  %17 = load i64, ptr %this, align 8, !tbaa !7
-  %add.i = add i64 %17, %5
-  %xor.i = xor i64 %15, %7
-  %xor1.i = xor i64 %add.i, %16
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %6
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %18 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %18, %6
-  %xor5.i = xor i64 %add2.i, %8
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %19 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %19, %xor.i
-  %xor11.i = xor i64 %add8.i, %9
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %20 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %20
-  %xor17.i = xor i64 %add14.i, %10
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %21 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %21
-  %xor23.i = xor i64 %add20.i, %11
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %22 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %22
-  %xor29.i = xor i64 %add26.i, %12
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %23 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %23
-  %xor35.i = xor i64 %add32.i, %13
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %24 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %24
-  %xor41.i = xor i64 %add38.i, %14
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %25 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %25
-  %xor47.i = xor i64 %add44.i, %15
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %26 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %26
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %27 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %27
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %28 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %28
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %sub = add i8 %4, -96
-  br label %if.end35
+41:                                               ; preds = %13
+  %42 = load i64, ptr %0, align 8, !tbaa !7
+  %43 = add i64 %42, %17
+  %44 = xor i64 %37, %21
+  %45 = xor i64 %43, %39
+  %46 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 11)
+  %47 = add i64 %45, %19
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !7
+  %50 = add i64 %49, %19
+  %51 = xor i64 %47, %23
+  %52 = xor i64 %46, %50
+  %53 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 32)
+  %54 = add i64 %52, %44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load i64, ptr %55, align 8, !tbaa !7
+  %57 = add i64 %56, %44
+  %58 = xor i64 %54, %25
+  %59 = xor i64 %53, %57
+  %60 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 43)
+  %61 = add i64 %59, %51
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = load i64, ptr %62, align 8, !tbaa !7
+  %64 = add i64 %51, %63
+  %65 = xor i64 %61, %27
+  %66 = xor i64 %64, %60
+  %67 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 31)
+  %68 = add i64 %66, %58
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %70 = load i64, ptr %69, align 8, !tbaa !7
+  %71 = add i64 %58, %70
+  %72 = xor i64 %68, %29
+  %73 = xor i64 %67, %71
+  %74 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 17)
+  %75 = add i64 %73, %65
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load i64, ptr %76, align 8, !tbaa !7
+  %78 = add i64 %65, %77
+  %79 = xor i64 %75, %31
+  %80 = xor i64 %74, %78
+  %81 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 28)
+  %82 = add i64 %80, %72
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %84 = load i64, ptr %83, align 8, !tbaa !7
+  %85 = add i64 %72, %84
+  %86 = xor i64 %82, %33
+  %87 = xor i64 %85, %81
+  %88 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 39)
+  %89 = add i64 %87, %79
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %91 = load i64, ptr %90, align 8, !tbaa !7
+  %92 = add i64 %79, %91
+  %93 = xor i64 %89, %35
+  %94 = xor i64 %88, %92
+  %95 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 57)
+  %96 = add i64 %94, %86
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = load i64, ptr %97, align 8, !tbaa !7
+  %99 = add i64 %86, %98
+  %100 = xor i64 %96, %37
+  %101 = xor i64 %95, %99
+  %102 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 55)
+  %103 = add i64 %101, %93
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %105 = load i64, ptr %104, align 8, !tbaa !7
+  %106 = add i64 %93, %105
+  %107 = xor i64 %103, %47
+  %108 = xor i64 %106, %102
+  %109 = tail call i64 @llvm.fshl.i64(i64 %106, i64 %106, i64 54)
+  %110 = add i64 %108, %100
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %112 = load i64, ptr %111, align 8, !tbaa !7
+  %113 = add i64 %100, %112
+  %114 = xor i64 %110, %54
+  %115 = xor i64 %109, %113
+  %116 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 22)
+  %117 = add i64 %115, %107
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %119 = load i64, ptr %118, align 8, !tbaa !7
+  %120 = add i64 %107, %119
+  %121 = xor i64 %117, %61
+  %122 = xor i64 %116, %120
+  %123 = tail call i64 @llvm.fshl.i64(i64 %120, i64 %120, i64 46)
+  %124 = add i64 %122, %114
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %126 = add i8 %15, -96
+  br label %127
 
-if.end35:                                         ; preds = %if.then32, %if.end
-  %h0.0 = phi i64 [ %xor59.i, %if.then32 ], [ %5, %if.end ]
-  %h1.0 = phi i64 [ %xor65.i, %if.then32 ], [ %6, %if.end ]
-  %h2.0 = phi i64 [ %add20.i, %if.then32 ], [ %7, %if.end ]
-  %h3.0 = phi i64 [ %add26.i, %if.then32 ], [ %8, %if.end ]
-  %h4.0 = phi i64 [ %add32.i, %if.then32 ], [ %9, %if.end ]
-  %h5.0 = phi i64 [ %add38.i, %if.then32 ], [ %10, %if.end ]
-  %h6.0 = phi i64 [ %add44.i, %if.then32 ], [ %11, %if.end ]
-  %h7.0 = phi i64 [ %add50.i, %if.then32 ], [ %12, %if.end ]
-  %h8.0 = phi i64 [ %add56.i, %if.then32 ], [ %13, %if.end ]
-  %h9.0 = phi i64 [ %add62.i, %if.then32 ], [ %14, %if.end ]
-  %h10.0 = phi i64 [ %add68.i, %if.then32 ], [ %15, %if.end ]
-  %h11.0 = phi i64 [ %or.i208.i, %if.then32 ], [ %16, %if.end ]
-  %data.0 = phi ptr [ %add.ptr, %if.then32 ], [ %this, %if.end ]
-  %remainder.0 = phi i8 [ %sub, %if.then32 ], [ %4, %if.end ]
-  %idxprom = zext i8 %remainder.0 to i64
-  %arrayidx36 = getelementptr inbounds nuw i8, ptr %data.0, i64 %idxprom
-  %sub38 = sub nsw i64 96, %idxprom
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx36, i8 0, i64 %sub38, i1 false)
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %data.0, i64 95
-  store i8 %remainder.0, ptr %arrayidx39, align 1, !tbaa !13
-  %29 = load i64, ptr %data.0, align 8, !tbaa !7
-  %add.i52 = add i64 %29, %h0.0
-  %xor.i53 = xor i64 %h10.0, %h2.0
-  %xor1.i54 = xor i64 %add.i52, %h11.0
-  %or.i.i55 = tail call i64 @llvm.fshl.i64(i64 %add.i52, i64 %add.i52, i64 11)
-  %add2.i56 = add i64 %xor1.i54, %h1.0
-  %arrayidx3.i57 = getelementptr inbounds nuw i8, ptr %data.0, i64 8
-  %30 = load i64, ptr %arrayidx3.i57, align 8, !tbaa !7
-  %add4.i58 = add i64 %30, %h1.0
-  %xor5.i59 = xor i64 %add2.i56, %h3.0
-  %xor6.i60 = xor i64 %or.i.i55, %add4.i58
-  %or.i178.i61 = tail call i64 @llvm.fshl.i64(i64 %add4.i58, i64 %add4.i58, i64 32)
-  %add8.i62 = add i64 %xor6.i60, %xor.i53
-  %arrayidx9.i63 = getelementptr inbounds nuw i8, ptr %data.0, i64 16
-  %31 = load i64, ptr %arrayidx9.i63, align 8, !tbaa !7
-  %add10.i64 = add i64 %31, %xor.i53
-  %xor11.i65 = xor i64 %add8.i62, %h4.0
-  %xor12.i66 = xor i64 %or.i178.i61, %add10.i64
-  %or.i181.i67 = tail call i64 @llvm.fshl.i64(i64 %add10.i64, i64 %add10.i64, i64 43)
-  %add14.i68 = add i64 %xor12.i66, %xor5.i59
-  %arrayidx15.i69 = getelementptr inbounds nuw i8, ptr %data.0, i64 24
-  %32 = load i64, ptr %arrayidx15.i69, align 8, !tbaa !7
-  %add16.i70 = add i64 %xor5.i59, %32
-  %xor17.i71 = xor i64 %add14.i68, %h5.0
-  %xor18.i72 = xor i64 %add16.i70, %or.i181.i67
-  %or.i184.i73 = tail call i64 @llvm.fshl.i64(i64 %add16.i70, i64 %add16.i70, i64 31)
-  %add20.i74 = add i64 %xor18.i72, %xor11.i65
-  %arrayidx21.i75 = getelementptr inbounds nuw i8, ptr %data.0, i64 32
-  %33 = load i64, ptr %arrayidx21.i75, align 8, !tbaa !7
-  %add22.i76 = add i64 %xor11.i65, %33
-  %xor23.i77 = xor i64 %add20.i74, %h6.0
-  %xor24.i78 = xor i64 %or.i184.i73, %add22.i76
-  %or.i187.i79 = tail call i64 @llvm.fshl.i64(i64 %add22.i76, i64 %add22.i76, i64 17)
-  %add26.i80 = add i64 %xor24.i78, %xor17.i71
-  %arrayidx27.i81 = getelementptr inbounds nuw i8, ptr %data.0, i64 40
-  %34 = load i64, ptr %arrayidx27.i81, align 8, !tbaa !7
-  %add28.i82 = add i64 %xor17.i71, %34
-  %xor29.i83 = xor i64 %add26.i80, %h7.0
-  %xor30.i84 = xor i64 %or.i187.i79, %add28.i82
-  %or.i190.i85 = tail call i64 @llvm.fshl.i64(i64 %add28.i82, i64 %add28.i82, i64 28)
-  %add32.i86 = add i64 %xor30.i84, %xor23.i77
-  %arrayidx33.i87 = getelementptr inbounds nuw i8, ptr %data.0, i64 48
-  %35 = load i64, ptr %arrayidx33.i87, align 8, !tbaa !7
-  %add34.i88 = add i64 %xor23.i77, %35
-  %xor35.i89 = xor i64 %add32.i86, %h8.0
-  %xor36.i90 = xor i64 %add34.i88, %or.i190.i85
-  %or.i193.i91 = tail call i64 @llvm.fshl.i64(i64 %add34.i88, i64 %add34.i88, i64 39)
-  %add38.i92 = add i64 %xor36.i90, %xor29.i83
-  %arrayidx39.i93 = getelementptr inbounds nuw i8, ptr %data.0, i64 56
-  %36 = load i64, ptr %arrayidx39.i93, align 8, !tbaa !7
-  %add40.i94 = add i64 %xor29.i83, %36
-  %xor41.i95 = xor i64 %add38.i92, %h9.0
-  %xor42.i96 = xor i64 %or.i193.i91, %add40.i94
-  %or.i196.i97 = tail call i64 @llvm.fshl.i64(i64 %add40.i94, i64 %add40.i94, i64 57)
-  %add44.i98 = add i64 %xor42.i96, %xor35.i89
-  %arrayidx45.i99 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
-  %37 = load i64, ptr %arrayidx45.i99, align 8, !tbaa !7
-  %add46.i100 = add i64 %xor35.i89, %37
-  %xor47.i101 = xor i64 %add44.i98, %h10.0
-  %xor48.i102 = xor i64 %or.i196.i97, %add46.i100
-  %or.i199.i103 = tail call i64 @llvm.fshl.i64(i64 %add46.i100, i64 %add46.i100, i64 55)
-  %add50.i104 = add i64 %xor48.i102, %xor41.i95
-  %arrayidx51.i105 = getelementptr inbounds nuw i8, ptr %data.0, i64 72
-  %38 = load i64, ptr %arrayidx51.i105, align 8, !tbaa !7
-  %add52.i106 = add i64 %xor41.i95, %38
-  %xor53.i107 = xor i64 %add50.i104, %add2.i56
-  %xor54.i108 = xor i64 %add52.i106, %or.i199.i103
-  %or.i202.i109 = tail call i64 @llvm.fshl.i64(i64 %add52.i106, i64 %add52.i106, i64 54)
-  %add56.i110 = add i64 %xor54.i108, %xor47.i101
-  %arrayidx57.i111 = getelementptr inbounds nuw i8, ptr %data.0, i64 80
-  %39 = load i64, ptr %arrayidx57.i111, align 8, !tbaa !7
-  %add58.i112 = add i64 %xor47.i101, %39
-  %xor59.i113 = xor i64 %add56.i110, %add8.i62
-  %xor60.i114 = xor i64 %or.i202.i109, %add58.i112
-  %or.i205.i115 = tail call i64 @llvm.fshl.i64(i64 %add58.i112, i64 %add58.i112, i64 22)
-  %add62.i116 = add i64 %xor60.i114, %xor53.i107
-  %arrayidx63.i117 = getelementptr inbounds nuw i8, ptr %data.0, i64 88
-  %40 = load i64, ptr %arrayidx63.i117, align 8, !tbaa !7
-  %add64.i118 = add i64 %xor53.i107, %40
-  %xor65.i119 = xor i64 %add62.i116, %add14.i68
-  %xor66.i120 = xor i64 %or.i205.i115, %add64.i118
-  %or.i208.i121 = tail call i64 @llvm.fshl.i64(i64 %add64.i118, i64 %add64.i118, i64 46)
-  %add68.i122 = add i64 %xor66.i120, %xor59.i113
-  %add.i172 = add i64 %xor65.i119, %or.i208.i121
-  %xor.i173 = xor i64 %add.i172, %add20.i74
-  %or.i.i174 = tail call i64 @llvm.fshl.i64(i64 %xor65.i119, i64 %xor65.i119, i64 44)
-  %add1.i175 = add i64 %xor.i173, %xor59.i113
-  %xor2.i176 = xor i64 %add1.i175, %add26.i80
-  %or.i96.i177 = tail call i64 @llvm.fshl.i64(i64 %xor.i173, i64 %xor.i173, i64 15)
-  %add4.i178 = add i64 %xor2.i176, %or.i.i174
-  %xor5.i179 = xor i64 %add4.i178, %add32.i86
-  %or.i99.i180 = tail call i64 @llvm.fshl.i64(i64 %xor2.i176, i64 %xor2.i176, i64 34)
-  %add7.i181 = add i64 %xor5.i179, %or.i96.i177
-  %xor8.i182 = xor i64 %add7.i181, %add38.i92
-  %or.i102.i183 = tail call i64 @llvm.fshl.i64(i64 %xor5.i179, i64 %xor5.i179, i64 21)
-  %add10.i184 = add i64 %xor8.i182, %or.i99.i180
-  %xor11.i185 = xor i64 %add10.i184, %add44.i98
-  %or.i105.i186 = tail call i64 @llvm.fshl.i64(i64 %xor8.i182, i64 %xor8.i182, i64 38)
-  %add13.i187 = add i64 %xor11.i185, %or.i102.i183
-  %xor14.i188 = xor i64 %add13.i187, %add50.i104
-  %or.i108.i189 = tail call i64 @llvm.fshl.i64(i64 %xor11.i185, i64 %xor11.i185, i64 33)
-  %add16.i190 = add i64 %xor14.i188, %or.i105.i186
-  %xor17.i191 = xor i64 %add16.i190, %add56.i110
-  %or.i111.i192 = tail call i64 @llvm.fshl.i64(i64 %xor14.i188, i64 %xor14.i188, i64 10)
-  %add19.i193 = add i64 %xor17.i191, %or.i108.i189
-  %xor20.i194 = xor i64 %add19.i193, %add62.i116
-  %or.i114.i195 = tail call i64 @llvm.fshl.i64(i64 %xor17.i191, i64 %xor17.i191, i64 13)
-  %add22.i196 = add i64 %xor20.i194, %or.i111.i192
-  %xor23.i197 = xor i64 %add22.i196, %add68.i122
-  %or.i117.i198 = tail call i64 @llvm.fshl.i64(i64 %xor20.i194, i64 %xor20.i194, i64 38)
-  %add25.i199 = add i64 %xor23.i197, %or.i114.i195
-  %xor26.i200 = xor i64 %add25.i199, %add.i172
-  %or.i120.i201 = tail call i64 @llvm.fshl.i64(i64 %xor23.i197, i64 %xor23.i197, i64 53)
-  %add28.i202 = add i64 %xor26.i200, %or.i117.i198
-  %xor29.i203 = xor i64 %add28.i202, %add1.i175
-  %or.i123.i204 = tail call i64 @llvm.fshl.i64(i64 %xor26.i200, i64 %xor26.i200, i64 42)
-  %add31.i205 = add i64 %xor29.i203, %or.i120.i201
-  %xor32.i206 = xor i64 %add31.i205, %add4.i178
-  %or.i126.i207 = tail call i64 @llvm.fshl.i64(i64 %xor29.i203, i64 %xor29.i203, i64 54)
-  %add.i136 = add i64 %xor32.i206, %or.i123.i204
-  %xor.i137 = xor i64 %add.i136, %add7.i181
-  %or.i.i138 = tail call i64 @llvm.fshl.i64(i64 %xor32.i206, i64 %xor32.i206, i64 44)
-  %add1.i139 = add i64 %xor.i137, %or.i126.i207
-  %xor2.i140 = xor i64 %add1.i139, %add10.i184
-  %or.i96.i141 = tail call i64 @llvm.fshl.i64(i64 %xor.i137, i64 %xor.i137, i64 15)
-  %add4.i142 = add i64 %xor2.i140, %or.i.i138
-  %xor5.i143 = xor i64 %add4.i142, %add13.i187
-  %or.i99.i144 = tail call i64 @llvm.fshl.i64(i64 %xor2.i140, i64 %xor2.i140, i64 34)
-  %add7.i145 = add i64 %xor5.i143, %or.i96.i141
-  %xor8.i146 = xor i64 %add7.i145, %add16.i190
-  %or.i102.i147 = tail call i64 @llvm.fshl.i64(i64 %xor5.i143, i64 %xor5.i143, i64 21)
-  %add10.i148 = add i64 %xor8.i146, %or.i99.i144
-  %xor11.i149 = xor i64 %add10.i148, %add19.i193
-  %or.i105.i150 = tail call i64 @llvm.fshl.i64(i64 %xor8.i146, i64 %xor8.i146, i64 38)
-  %add13.i151 = add i64 %xor11.i149, %or.i102.i147
-  %xor14.i152 = xor i64 %add13.i151, %add22.i196
-  %or.i108.i153 = tail call i64 @llvm.fshl.i64(i64 %xor11.i149, i64 %xor11.i149, i64 33)
-  %add16.i154 = add i64 %xor14.i152, %or.i105.i150
-  %xor17.i155 = xor i64 %add16.i154, %add25.i199
-  %or.i111.i156 = tail call i64 @llvm.fshl.i64(i64 %xor14.i152, i64 %xor14.i152, i64 10)
-  %add19.i157 = add i64 %xor17.i155, %or.i108.i153
-  %xor20.i158 = xor i64 %add19.i157, %add28.i202
-  %or.i114.i159 = tail call i64 @llvm.fshl.i64(i64 %xor17.i155, i64 %xor17.i155, i64 13)
-  %add22.i160 = add i64 %xor20.i158, %or.i111.i156
-  %xor23.i161 = xor i64 %add22.i160, %add31.i205
-  %or.i117.i162 = tail call i64 @llvm.fshl.i64(i64 %xor20.i158, i64 %xor20.i158, i64 38)
-  %add25.i163 = add i64 %xor23.i161, %or.i114.i159
-  %xor26.i164 = xor i64 %add25.i163, %add.i136
-  %or.i120.i165 = tail call i64 @llvm.fshl.i64(i64 %xor23.i161, i64 %xor23.i161, i64 53)
-  %add28.i166 = add i64 %xor26.i164, %or.i117.i162
-  %xor29.i167 = xor i64 %add28.i166, %add1.i139
-  %or.i123.i168 = tail call i64 @llvm.fshl.i64(i64 %xor26.i164, i64 %xor26.i164, i64 42)
-  %add31.i169 = add i64 %xor29.i167, %or.i120.i165
-  %xor32.i170 = xor i64 %add31.i169, %add4.i142
-  %or.i126.i171 = tail call i64 @llvm.fshl.i64(i64 %xor29.i167, i64 %xor29.i167, i64 54)
-  %add.i123 = add i64 %xor32.i170, %or.i123.i168
-  %xor.i124 = xor i64 %add.i123, %add7.i145
-  %or.i.i125 = tail call i64 @llvm.fshl.i64(i64 %xor32.i170, i64 %xor32.i170, i64 44)
-  %add1.i = add i64 %xor.i124, %or.i126.i171
-  %xor2.i = xor i64 %add1.i, %add10.i148
-  %or.i96.i = tail call i64 @llvm.fshl.i64(i64 %xor.i124, i64 %xor.i124, i64 15)
-  %add4.i126 = add i64 %xor2.i, %or.i.i125
-  %xor5.i127 = xor i64 %add4.i126, %add13.i151
-  %or.i99.i = tail call i64 @llvm.fshl.i64(i64 %xor2.i, i64 %xor2.i, i64 34)
-  %add7.i = add i64 %xor5.i127, %or.i96.i
-  %xor8.i = xor i64 %add7.i, %add16.i154
-  %or.i102.i = tail call i64 @llvm.fshl.i64(i64 %xor5.i127, i64 %xor5.i127, i64 21)
-  %add10.i128 = add i64 %xor8.i, %or.i99.i
-  %xor11.i129 = xor i64 %add10.i128, %add19.i157
-  %or.i105.i = tail call i64 @llvm.fshl.i64(i64 %xor8.i, i64 %xor8.i, i64 38)
-  %add13.i = add i64 %xor11.i129, %or.i102.i
-  %xor14.i = xor i64 %add13.i, %add22.i160
-  %or.i108.i = tail call i64 @llvm.fshl.i64(i64 %xor11.i129, i64 %xor11.i129, i64 33)
-  %add16.i130 = add i64 %xor14.i, %or.i105.i
-  %xor17.i131 = xor i64 %add16.i130, %add25.i163
-  %or.i111.i = tail call i64 @llvm.fshl.i64(i64 %xor14.i, i64 %xor14.i, i64 10)
-  %add19.i = add i64 %xor17.i131, %or.i108.i
-  %xor20.i = xor i64 %add19.i, %add28.i166
-  %or.i114.i = tail call i64 @llvm.fshl.i64(i64 %xor17.i131, i64 %xor17.i131, i64 13)
-  %add22.i132 = add i64 %xor20.i, %or.i111.i
-  %xor23.i133 = xor i64 %add22.i132, %add31.i169
-  %or.i117.i = tail call i64 @llvm.fshl.i64(i64 %xor20.i, i64 %xor20.i, i64 38)
-  %add25.i = add i64 %xor23.i133, %or.i114.i
-  %xor26.i = xor i64 %add25.i, %add.i123
-  %or.i120.i = tail call i64 @llvm.fshl.i64(i64 %xor23.i133, i64 %xor23.i133, i64 53)
-  %add28.i134 = add i64 %xor26.i, %or.i117.i
-  %xor29.i135 = xor i64 %add28.i134, %add1.i
-  %add31.i = add i64 %xor29.i135, %or.i120.i
-  %xor32.i = xor i64 %add31.i, %add4.i126
-  %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i135, i64 %xor29.i135, i64 54)
-  store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
-  store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  br label %return
+127:                                              ; preds = %41, %13
+  %.0366 = phi i64 [ %114, %41 ], [ %17, %13 ]
+  %.0365 = phi i64 [ %121, %41 ], [ %19, %13 ]
+  %.0364 = phi i64 [ %68, %41 ], [ %21, %13 ]
+  %.0363 = phi i64 [ %75, %41 ], [ %23, %13 ]
+  %.0362 = phi i64 [ %82, %41 ], [ %25, %13 ]
+  %.0361 = phi i64 [ %89, %41 ], [ %27, %13 ]
+  %.0360 = phi i64 [ %96, %41 ], [ %29, %13 ]
+  %.0359 = phi i64 [ %103, %41 ], [ %31, %13 ]
+  %.0358 = phi i64 [ %110, %41 ], [ %33, %13 ]
+  %.0357 = phi i64 [ %117, %41 ], [ %35, %13 ]
+  %.0356 = phi i64 [ %124, %41 ], [ %37, %13 ]
+  %.0355 = phi i64 [ %123, %41 ], [ %39, %13 ]
+  %.016 = phi ptr [ %125, %41 ], [ %0, %13 ]
+  %.0 = phi i8 [ %126, %41 ], [ %15, %13 ]
+  %128 = zext i8 %.0 to i64
+  %129 = getelementptr inbounds nuw i8, ptr %.016, i64 %128
+  %130 = sub nsw i64 96, %128
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %129, i8 0, i64 %130, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %.016, i64 95
+  store i8 %.0, ptr %131, align 1, !tbaa !13
+  %132 = load i64, ptr %.016, align 8, !tbaa !7
+  %133 = add i64 %132, %.0366
+  %134 = xor i64 %.0356, %.0364
+  %135 = xor i64 %133, %.0355
+  %136 = tail call i64 @llvm.fshl.i64(i64 %133, i64 %133, i64 11)
+  %137 = add i64 %135, %.0365
+  %138 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %139 = load i64, ptr %138, align 8, !tbaa !7
+  %140 = add i64 %139, %.0365
+  %141 = xor i64 %137, %.0363
+  %142 = xor i64 %136, %140
+  %143 = tail call i64 @llvm.fshl.i64(i64 %140, i64 %140, i64 32)
+  %144 = add i64 %142, %134
+  %145 = getelementptr inbounds nuw i8, ptr %.016, i64 16
+  %146 = load i64, ptr %145, align 8, !tbaa !7
+  %147 = add i64 %146, %134
+  %148 = xor i64 %144, %.0362
+  %149 = xor i64 %143, %147
+  %150 = tail call i64 @llvm.fshl.i64(i64 %147, i64 %147, i64 43)
+  %151 = add i64 %149, %141
+  %152 = getelementptr inbounds nuw i8, ptr %.016, i64 24
+  %153 = load i64, ptr %152, align 8, !tbaa !7
+  %154 = add i64 %141, %153
+  %155 = xor i64 %151, %.0361
+  %156 = xor i64 %154, %150
+  %157 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 31)
+  %158 = add i64 %156, %148
+  %159 = getelementptr inbounds nuw i8, ptr %.016, i64 32
+  %160 = load i64, ptr %159, align 8, !tbaa !7
+  %161 = add i64 %148, %160
+  %162 = xor i64 %158, %.0360
+  %163 = xor i64 %157, %161
+  %164 = tail call i64 @llvm.fshl.i64(i64 %161, i64 %161, i64 17)
+  %165 = add i64 %163, %155
+  %166 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %167 = load i64, ptr %166, align 8, !tbaa !7
+  %168 = add i64 %155, %167
+  %169 = xor i64 %165, %.0359
+  %170 = xor i64 %164, %168
+  %171 = tail call i64 @llvm.fshl.i64(i64 %168, i64 %168, i64 28)
+  %172 = add i64 %170, %162
+  %173 = getelementptr inbounds nuw i8, ptr %.016, i64 48
+  %174 = load i64, ptr %173, align 8, !tbaa !7
+  %175 = add i64 %162, %174
+  %176 = xor i64 %172, %.0358
+  %177 = xor i64 %175, %171
+  %178 = tail call i64 @llvm.fshl.i64(i64 %175, i64 %175, i64 39)
+  %179 = add i64 %177, %169
+  %180 = getelementptr inbounds nuw i8, ptr %.016, i64 56
+  %181 = load i64, ptr %180, align 8, !tbaa !7
+  %182 = add i64 %169, %181
+  %183 = xor i64 %179, %.0357
+  %184 = xor i64 %178, %182
+  %185 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 57)
+  %186 = add i64 %184, %176
+  %187 = getelementptr inbounds nuw i8, ptr %.016, i64 64
+  %188 = load i64, ptr %187, align 8, !tbaa !7
+  %189 = add i64 %176, %188
+  %190 = xor i64 %186, %.0356
+  %191 = xor i64 %185, %189
+  %192 = tail call i64 @llvm.fshl.i64(i64 %189, i64 %189, i64 55)
+  %193 = add i64 %191, %183
+  %194 = getelementptr inbounds nuw i8, ptr %.016, i64 72
+  %195 = load i64, ptr %194, align 8, !tbaa !7
+  %196 = add i64 %183, %195
+  %197 = xor i64 %193, %137
+  %198 = xor i64 %196, %192
+  %199 = tail call i64 @llvm.fshl.i64(i64 %196, i64 %196, i64 54)
+  %200 = add i64 %198, %190
+  %201 = getelementptr inbounds nuw i8, ptr %.016, i64 80
+  %202 = load i64, ptr %201, align 8, !tbaa !7
+  %203 = add i64 %190, %202
+  %204 = xor i64 %200, %144
+  %205 = xor i64 %199, %203
+  %206 = tail call i64 @llvm.fshl.i64(i64 %203, i64 %203, i64 22)
+  %207 = add i64 %205, %197
+  %208 = getelementptr inbounds nuw i8, ptr %.016, i64 88
+  %209 = load i64, ptr %208, align 8, !tbaa !7
+  %210 = add i64 %197, %209
+  %211 = xor i64 %207, %151
+  %212 = xor i64 %206, %210
+  %213 = tail call i64 @llvm.fshl.i64(i64 %210, i64 %210, i64 46)
+  %214 = add i64 %212, %204
+  %215 = add i64 %211, %213
+  %216 = xor i64 %215, %158
+  %217 = tail call i64 @llvm.fshl.i64(i64 %211, i64 %211, i64 44)
+  %218 = add i64 %216, %204
+  %219 = xor i64 %218, %165
+  %220 = tail call i64 @llvm.fshl.i64(i64 %216, i64 %216, i64 15)
+  %221 = add i64 %219, %217
+  %222 = xor i64 %221, %172
+  %223 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 34)
+  %224 = add i64 %222, %220
+  %225 = xor i64 %224, %179
+  %226 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 21)
+  %227 = add i64 %225, %223
+  %228 = xor i64 %227, %186
+  %229 = tail call i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 38)
+  %230 = add i64 %228, %226
+  %231 = xor i64 %230, %193
+  %232 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 33)
+  %233 = add i64 %231, %229
+  %234 = xor i64 %233, %200
+  %235 = tail call i64 @llvm.fshl.i64(i64 %231, i64 %231, i64 10)
+  %236 = add i64 %234, %232
+  %237 = xor i64 %236, %207
+  %238 = tail call i64 @llvm.fshl.i64(i64 %234, i64 %234, i64 13)
+  %239 = add i64 %237, %235
+  %240 = xor i64 %239, %214
+  %241 = tail call i64 @llvm.fshl.i64(i64 %237, i64 %237, i64 38)
+  %242 = add i64 %240, %238
+  %243 = xor i64 %242, %215
+  %244 = tail call i64 @llvm.fshl.i64(i64 %240, i64 %240, i64 53)
+  %245 = add i64 %243, %241
+  %246 = xor i64 %245, %218
+  %247 = tail call i64 @llvm.fshl.i64(i64 %243, i64 %243, i64 42)
+  %248 = add i64 %246, %244
+  %249 = xor i64 %248, %221
+  %250 = tail call i64 @llvm.fshl.i64(i64 %246, i64 %246, i64 54)
+  %251 = add i64 %249, %247
+  %252 = xor i64 %251, %224
+  %253 = tail call i64 @llvm.fshl.i64(i64 %249, i64 %249, i64 44)
+  %254 = add i64 %252, %250
+  %255 = xor i64 %254, %227
+  %256 = tail call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 15)
+  %257 = add i64 %255, %253
+  %258 = xor i64 %257, %230
+  %259 = tail call i64 @llvm.fshl.i64(i64 %255, i64 %255, i64 34)
+  %260 = add i64 %258, %256
+  %261 = xor i64 %260, %233
+  %262 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 21)
+  %263 = add i64 %261, %259
+  %264 = xor i64 %263, %236
+  %265 = tail call i64 @llvm.fshl.i64(i64 %261, i64 %261, i64 38)
+  %266 = add i64 %264, %262
+  %267 = xor i64 %266, %239
+  %268 = tail call i64 @llvm.fshl.i64(i64 %264, i64 %264, i64 33)
+  %269 = add i64 %267, %265
+  %270 = xor i64 %269, %242
+  %271 = tail call i64 @llvm.fshl.i64(i64 %267, i64 %267, i64 10)
+  %272 = add i64 %270, %268
+  %273 = xor i64 %272, %245
+  %274 = tail call i64 @llvm.fshl.i64(i64 %270, i64 %270, i64 13)
+  %275 = add i64 %273, %271
+  %276 = xor i64 %275, %248
+  %277 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 38)
+  %278 = add i64 %276, %274
+  %279 = xor i64 %278, %251
+  %280 = tail call i64 @llvm.fshl.i64(i64 %276, i64 %276, i64 53)
+  %281 = add i64 %279, %277
+  %282 = xor i64 %281, %254
+  %283 = tail call i64 @llvm.fshl.i64(i64 %279, i64 %279, i64 42)
+  %284 = add i64 %282, %280
+  %285 = xor i64 %284, %257
+  %286 = tail call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 54)
+  %287 = add i64 %285, %283
+  %288 = xor i64 %287, %260
+  %289 = tail call i64 @llvm.fshl.i64(i64 %285, i64 %285, i64 44)
+  %290 = add i64 %288, %286
+  %291 = xor i64 %290, %263
+  %292 = tail call i64 @llvm.fshl.i64(i64 %288, i64 %288, i64 15)
+  %293 = add i64 %291, %289
+  %294 = xor i64 %293, %266
+  %295 = tail call i64 @llvm.fshl.i64(i64 %291, i64 %291, i64 34)
+  %296 = add i64 %294, %292
+  %297 = xor i64 %296, %269
+  %298 = tail call i64 @llvm.fshl.i64(i64 %294, i64 %294, i64 21)
+  %299 = add i64 %297, %295
+  %300 = xor i64 %299, %272
+  %301 = tail call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 38)
+  %302 = add i64 %300, %298
+  %303 = xor i64 %302, %275
+  %304 = tail call i64 @llvm.fshl.i64(i64 %300, i64 %300, i64 33)
+  %305 = add i64 %303, %301
+  %306 = xor i64 %305, %278
+  %307 = tail call i64 @llvm.fshl.i64(i64 %303, i64 %303, i64 10)
+  %308 = add i64 %306, %304
+  %309 = xor i64 %308, %281
+  %310 = tail call i64 @llvm.fshl.i64(i64 %306, i64 %306, i64 13)
+  %311 = add i64 %309, %307
+  %312 = xor i64 %311, %284
+  %313 = tail call i64 @llvm.fshl.i64(i64 %309, i64 %309, i64 38)
+  %314 = add i64 %312, %310
+  %315 = xor i64 %314, %287
+  %316 = tail call i64 @llvm.fshl.i64(i64 %312, i64 %312, i64 53)
+  %317 = add i64 %315, %313
+  %318 = xor i64 %317, %290
+  %319 = add i64 %318, %316
+  %320 = xor i64 %319, %293
+  %321 = tail call i64 @llvm.fshl.i64(i64 %318, i64 %318, i64 54)
+  store i64 %321, ptr %1, align 8, !tbaa !7
+  store i64 %320, ptr %2, align 8, !tbaa !7
+  br label %322
 
-return:                                           ; preds = %if.end35, %if.then
+322:                                              ; preds = %127, %7
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1474,7 +1454,7 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}

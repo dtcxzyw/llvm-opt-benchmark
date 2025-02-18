@@ -1,12 +1,13 @@
 ; ModuleID = 'bench/folly/original/ThreadId.ll'
 source_filename = "bench/folly/original/ThreadId.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.folly::(anonymous namespace)::CacheState" = type { i8 }
 %"struct.std::pair" = type { i64, i64 }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
+%"union.folly::detail::function::Data" = type { %"struct.folly::detail::function::Data::BigTrivialLayout", [24 x i8] }
+%"struct.folly::detail::function::Data::BigTrivialLayout" = type { ptr, i64, i64 }
 %"class.folly::Function.0" = type { %"union.folly::detail::function::Data", ptr, ptr }
 
 $_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_ = comdat any
@@ -21,9 +22,8 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @_ZN5folly18getCurrentThreadIDEv() local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @pthread_self() #14
-  ret i64 %call
+  %1 = tail call i64 @pthread_self() #14
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -31,28 +31,26 @@ declare i64 @pthread_self() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN5folly6detail17getOSThreadIDSlowEv() local_unnamed_addr #2 {
-entry:
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #15
-  ret i64 %call
+  %1 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #15
+  ret i64 %1
 }
 
 ; Function Attrs: nounwind
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  invoke void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef nonnull %this)
-          to label %invoke.cont unwind label %terminate.lpad
+define internal void @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  invoke void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef nonnull %0)
+          to label %2 unwind label %3
 
-invoke.cont:                                      ; preds = %entry
+2:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+3:                                                ; preds = %1
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -64,22 +62,20 @@ declare void @_ZN5folly6AtFork15registerHandlerEPKvNS_8FunctionIFbvEEENS3_IFvvEE
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN5folly6detail8function14FunctionTraitsIFbvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE_EEbRNS1_4DataE(ptr nonnull readnone align 16 captures(none) %p) #6 align 2 {
-entry:
+define internal noundef zeroext i1 @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE_Lb1ELb0EbJEEET2_DpT3_RNS1_4DataE(ptr nonnull readnone align 16 captures(none) %0) #6 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_(i32 noundef %o, ptr noundef %src, ptr noundef %dst) #2 comdat align 2 {
-entry:
-  %cond = icmp eq i32 %o, 0
-  br i1 %cond, label %sw.bb, label %sw.epilog
+define linkonce_odr noundef i64 @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %cond = icmp eq i32 %0, 0
+  br i1 %cond, label %4, label %5
 
-sw.bb:                                            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %dst, ptr noundef nonnull align 1 dereferenceable(16) %src, i64 16, i1 false)
-  br label %sw.epilog
+4:                                                ; preds = %3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
+  br label %5
 
-sw.epilog:                                        ; preds = %sw.bb, %entry
+5:                                                ; preds = %3, %4
   ret i64 0
 }
 
@@ -93,19 +89,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE0_EEvRNS1_4DataE(ptr nonnull readnone align 16 captures(none) %p) #6 align 2 {
-entry:
+define internal void @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE0_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE(ptr nonnull readnone align 16 captures(none) %0) #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE1_EEvRNS1_4DataE(ptr nonnull readnone align 16 captures(none) %p) #9 align 2 {
-entry:
-  %0 = atomicrmw add ptr @_ZN5folly12_GLOBAL__N_110CacheState5epochE, i64 1 monotonic, align 8
+define internal void @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE1_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE(ptr nonnull readnone align 16 captures(none) %0) #9 {
+  %2 = atomicrmw add ptr @_ZN5folly12_GLOBAL__N_110CacheState5epochE, i64 1 monotonic, align 8
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
   tail call void @_ZSt9terminatev() #16
@@ -121,28 +115,27 @@ declare void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN5folly13getOSThreadIDEv() local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i64, ptr @_ZN5folly12_GLOBAL__N_110CacheState5epochE monotonic, align 8
-  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly13getOSThreadIDEvE5cache)
-  %2 = load i64, ptr %1, align 8, !tbaa !7
-  %cmp.not = icmp eq i64 %0, %2
-  br i1 %cmp.not, label %entry.if.end_crit_edge, label %if.then, !prof !12
+  %1 = load atomic i64, ptr @_ZN5folly12_GLOBAL__N_110CacheState5epochE monotonic, align 8
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly13getOSThreadIDEvE5cache)
+  %3 = load i64, ptr %2, align 8, !tbaa !7
+  %.not = icmp eq i64 %1, %3
+  br i1 %.not, label %._crit_edge, label %4, !prof !12
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %second.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %second.phi.trans.insert, align 8, !tbaa !13
-  br label %if.end
+._crit_edge:                                      ; preds = %0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
+  br label %7
 
-if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #15
-  store i64 %0, ptr %1, align 8, !tbaa !7
-  %second3.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %call.i, ptr %second3.i, align 8, !tbaa !13
-  br label %if.end
+4:                                                ; preds = %0
+  %5 = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #15
+  store i64 %1, ptr %2, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %5, ptr %6, align 8, !tbaa !13
+  br label %7
 
-if.end:                                           ; preds = %if.then, %entry.if.end_crit_edge
-  %3 = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %call.i, %if.then ]
-  ret i64 %3
+7:                                                ; preds = %._crit_edge, %4
+  %8 = phi i64 [ %.pre, %._crit_edge ], [ %5, %4 ]
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -150,95 +143,94 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ThreadId.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp.i.i = alloca %"class.folly::Function", align 16
-  %agg.tmp3.i.i = alloca %"class.folly::Function.0", align 16
-  %agg.tmp5.i.i = alloca %"class.folly::Function.0", align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp3.i.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp5.i.i)
-  store ptr null, ptr %agg.tmp.i.i, align 16, !tbaa !14
-  %call_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 48
-  %exec_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 56
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE_EEbRNS1_4DataE, ptr %call_.i.i.i, align 16, !tbaa !15
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i.i.i, align 8, !tbaa !18
-  store ptr null, ptr %agg.tmp3.i.i, align 16, !tbaa !14
-  %call_.i8.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i, i64 48
-  %exec_.i9.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i, i64 56
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE0_EEvRNS1_4DataE, ptr %call_.i8.i.i, align 16, !tbaa !19
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i9.i.i, align 8, !tbaa !21
-  store ptr null, ptr %agg.tmp5.i.i, align 16, !tbaa !14
-  %call_.i10.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp5.i.i, i64 48
-  %exec_.i11.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp5.i.i, i64 56
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE1_EEvRNS1_4DataE, ptr %call_.i10.i.i, align 16, !tbaa !19
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i11.i.i, align 8, !tbaa !21
-  invoke void @_ZN5folly6AtFork15registerHandlerEPKvNS_8FunctionIFbvEEENS3_IFvvEEES7_(ptr noundef nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef nonnull %agg.tmp5.i.i)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
+  %1 = alloca %"class.folly::Function", align 16
+  %2 = alloca %"class.folly::Function.0", align 16
+  %3 = alloca %"class.folly::Function.0", align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  store ptr null, ptr %1, align 16, !tbaa !14
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store ptr @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE_Lb1ELb0EbJEEET2_DpT3_RNS1_4DataE, ptr %4, align 16, !tbaa !15
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %5, align 8, !tbaa !18
+  store ptr null, ptr %2, align 16, !tbaa !14
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE0_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %6, align 16, !tbaa !19
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %7, align 8, !tbaa !21
+  store ptr null, ptr %3, align 16, !tbaa !14
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @_ZN5folly6detail8function5call_IZNS_12_GLOBAL__N_110CacheStateC1EvEUlvE1_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %8, align 16, !tbaa !19
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %9, align 8, !tbaa !21
+  invoke void @_ZN5folly6AtFork15registerHandlerEPKvNS_8FunctionIFbvEEENS3_IFvvEEES7_(ptr noundef nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+          to label %10 unwind label %20
 
-invoke.cont.i.i:                                  ; preds = %entry
-  %0 = load ptr, ptr %exec_.i11.i.i, align 8, !tbaa !21
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i, label %if.end.i.i.i.i
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %9, align 8, !tbaa !21
+  %.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i, label %12
 
-if.end.i.i.i.i:                                   ; preds = %invoke.cont.i.i
-  %call.i.i.i.i = call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #15
+12:                                               ; preds = %10
+  %13 = call noundef i64 %11(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef null) #15
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
 
-_ZN5folly8FunctionIFvvEED2Ev.exit.i.i:            ; preds = %if.end.i.i.i.i, %invoke.cont.i.i
-  %1 = load ptr, ptr %exec_.i9.i.i, align 8, !tbaa !21
-  %tobool.not.i.i13.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i13.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i, label %if.end.i.i14.i.i
+_ZN5folly8FunctionIFvvEED2Ev.exit.i.i:            ; preds = %12, %10
+  %14 = load ptr, ptr %7, align 8, !tbaa !21
+  %.not.i.i2.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i2.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit3.i.i, label %15
 
-if.end.i.i14.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
-  %call.i.i15.i.i = call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #15
-  br label %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i
+15:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
+  %16 = call noundef i64 %14(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef null) #15
+  br label %_ZN5folly8FunctionIFvvEED2Ev.exit3.i.i
 
-_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i:          ; preds = %if.end.i.i14.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
-  %2 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !18
-  %tobool.not.i.i18.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i18.i.i, label %__cxx_global_var_init.exit, label %if.end.i.i19.i.i
+_ZN5folly8FunctionIFvvEED2Ev.exit3.i.i:           ; preds = %15, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i
+  %17 = load ptr, ptr %5, align 8, !tbaa !18
+  %.not.i.i4.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i4.i.i, label %__cxx_global_var_init.exit, label %18
 
-if.end.i.i19.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i
-  %call.i.i20.i.i = call noundef i64 %2(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #15
+18:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit3.i.i
+  %19 = call noundef i64 %17(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %1, ptr noundef null) #15
   br label %__cxx_global_var_init.exit
 
-lpad.i.i:                                         ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+20:                                               ; preds = %0
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %exec_.i11.i.i, align 8, !tbaa !21
-  %tobool.not.i.i22.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i22.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i, label %if.end.i.i23.i.i
+  %22 = load ptr, ptr %9, align 8, !tbaa !21
+  %.not.i.i5.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i5.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i, label %23
 
-if.end.i.i23.i.i:                                 ; preds = %lpad.i.i
-  %call.i.i24.i.i = call noundef i64 %4(i32 noundef 1, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef null) #15
-  br label %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
+23:                                               ; preds = %20
+  %24 = call noundef i64 %22(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef null) #15
+  br label %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i
 
-_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i:          ; preds = %if.end.i.i23.i.i, %lpad.i.i
-  %5 = load ptr, ptr %exec_.i9.i.i, align 8, !tbaa !21
-  %tobool.not.i.i27.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i27.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i, label %if.end.i.i28.i.i
+_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i:           ; preds = %23, %20
+  %25 = load ptr, ptr %7, align 8, !tbaa !21
+  %.not.i.i7.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i7.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit8.i.i, label %26
 
-if.end.i.i28.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
-  %call.i.i29.i.i = call noundef i64 %5(i32 noundef 1, ptr noundef nonnull %agg.tmp3.i.i, ptr noundef null) #15
-  br label %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
+26:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i
+  %27 = call noundef i64 %25(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef null) #15
+  br label %_ZN5folly8FunctionIFvvEED2Ev.exit8.i.i
 
-_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i:          ; preds = %if.end.i.i28.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit25.i.i
-  %6 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !18
-  %tobool.not.i.i32.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i32.i.i, label %_ZN5folly8FunctionIFbvEED2Ev.exit35.i.i, label %if.end.i.i33.i.i
+_ZN5folly8FunctionIFvvEED2Ev.exit8.i.i:           ; preds = %26, %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i
+  %28 = load ptr, ptr %5, align 8, !tbaa !18
+  %.not.i.i9.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i9.i.i, label %_ZN5folly8FunctionIFbvEED2Ev.exit10.i.i, label %29
 
-if.end.i.i33.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
-  %call.i.i34.i.i = call noundef i64 %6(i32 noundef 1, ptr noundef nonnull %agg.tmp.i.i, ptr noundef null) #15
-  br label %_ZN5folly8FunctionIFbvEED2Ev.exit35.i.i
+29:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit8.i.i
+  %30 = call noundef i64 %28(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %1, ptr noundef null) #15
+  br label %_ZN5folly8FunctionIFbvEED2Ev.exit10.i.i
 
-_ZN5folly8FunctionIFbvEED2Ev.exit35.i.i:          ; preds = %if.end.i.i33.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit30.i.i
-  resume { ptr, i32 } %3
+_ZN5folly8FunctionIFbvEED2Ev.exit10.i.i:          ; preds = %29, %_ZN5folly8FunctionIFvvEED2Ev.exit8.i.i
+  resume { ptr, i32 } %21
 
-__cxx_global_var_init.exit:                       ; preds = %if.end.i.i19.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit16.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp3.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp5.i.i)
-  %7 = call i32 @__cxa_atexit(ptr nonnull @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev, ptr nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr nonnull @__dso_handle) #15
+__cxx_global_var_init.exit:                       ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit3.i.i, %18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  %31 = call i32 @__cxa_atexit(ptr nonnull @_ZN5folly12_GLOBAL__N_110CacheStateD2Ev, ptr nonnull @_ZN5folly12_GLOBAL__N_111gCacheStateE, ptr nonnull @__dso_handle) #15
   ret void
 }
 
@@ -252,7 +244,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -274,7 +266,7 @@ attributes #16 = { noreturn nounwind }
 !9 = !{!"long", !10, i64 0}
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C++ TBAA"}
-!12 = !{!"branch_weights", i32 2000, i32 1}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = !{!8, !9, i64 8}
 !14 = !{!10, !10, i64 0}
 !15 = !{!16, !17, i64 48}

@@ -1,30 +1,157 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
+%"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
+%"struct.std::__atomic_base.9" = type { i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.boost::variant" = type { i32, [4 x i8], %"class.boost::aligned_storage" }
-%"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
-%"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<16, 8>::data_t" }
-%"union.boost::detail::aligned_storage::aligned_storage_imp<16, 8>::data_t" = type { [16 x i8] }
-%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::move_assigner" = type { %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base", [4 x i8] }
-%"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::assigner.base" = type <{ ptr, i32 }>
+%"class.folly::ssl::SSLSessionManager" = type { %"class.std::variant" }
+%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
+%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
+%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
+%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
+%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
+%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
+%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
+%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.0" }
+%"union.std::__detail::__variant::_Variadic_union.0" = type { %"struct.std::__detail::__variant::_Uninitialized.1" }
+%"struct.std::__detail::__variant::_Uninitialized.1" = type { %"struct.__gnu_cxx::__aligned_membuf.2" }
+%"struct.__gnu_cxx::__aligned_membuf.2" = type { [16 x i8] }
+%"class.std::allocator" = type { i8 }
+%"struct.std::_Sp_alloc_shared_tag" = type { ptr }
+%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
+%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.__gnu_cxx::__aligned_membuf" }
+%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.(anonymous namespace)::SessionForwarderVisitor" = type { %"class.std::unique_ptr" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
+%"struct.std::_Head_base.5" = type { ptr }
+%"class.std::allocator.6" = type { i8 }
+%"struct.std::__allocated_ptr" = type { ptr, ptr }
+%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<folly::ssl::detail::OpenSSLSession, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
+%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
+%"class.std::_Sp_counted_ptr_inplace<folly::ssl::detail::OpenSSLSession, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
+%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<24, 8>::type" }
+%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
+%"class.folly::ssl::detail::OpenSSLSession" = type { %"class.folly::ssl::SSLSession", %"struct.folly::Synchronized" }
+%"class.folly::ssl::SSLSession" = type { ptr }
+%"struct.folly::Synchronized" = type <{ %"class.std::unique_ptr", %"class.folly::SharedMutexImpl", [4 x i8] }>
+%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i32 }
+%"class.std::type_info" = type { ptr, ptr }
+%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
+%"class.std::exception" = type { ptr }
+%class.anon = type { i8 }
+%class.anon.10 = type { i8 }
+%"class.std::__shared_ptr.13" = type { ptr, %"class.std::__shared_count" }
+%class.anon.15 = type { i8 }
+%class.anon.17 = type { i8 }
+%"struct.folly::overload_detail::visit" = type { i8 }
+%"struct.folly::detail::Overload" = type { i8 }
+%class.anon.20 = type { i8 }
+%"class.std::shared_ptr.12" = type { %"class.std::__shared_ptr.13" }
+%class.anon.22 = type { i8 }
+%class.anon.24 = type { i8 }
+%"struct.folly::detail::Overload.26" = type { i8 }
+%class.anon.28 = type { i8 }
+%class.anon.30 = type { i8 }
+%class.anon.32 = type { ptr }
+%"struct.folly::detail::Overload.33" = type { %"struct.folly::detail::Overload.34" }
+%"struct.folly::detail::Overload.34" = type { %class.anon.32 }
+%class.anon.35 = type { i8 }
+%"class.folly::SharedMutexImpl.37" = type { %"struct.std::atomic" }
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEC2Ev = comdat any
+
+$_ZSt11make_sharedIN5folly3ssl6detail14OpenSSLSessionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_ = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSISA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_ = comdat any
 
 $_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
-$_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev = comdat any
+$_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEED2Ev = comdat any
+
+$_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2Ev = comdat any
+
+$_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
 
 $__clang_call_terminate = comdat any
+
+$_ZNSt8__detail9__variant17_Move_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
+
+$_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
+
+$_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
+
+$_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
+
+$_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_ = comdat any
+
+$_ZNSt8__detail9__variant15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2IJEEESt16in_place_index_tILm0EEDpOT_ = comdat any
+
+$_ZNSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EEC2IJEEESt16in_place_index_tILm0EEDpOT_ = comdat any
+
+$_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEv = comdat any
+
+$_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2Ev = comdat any
+
+$_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv = comdat any
+
+$_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2Ev = comdat any
+
+$_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EEC2Ev = comdat any
+
+$_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EEC2Ev = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5folly3ssl6detail14OpenSSLSessionESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS3_S3_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_ = comdat any
+
+$_ZNSaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E = comdat any
+
+$_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_ = comdat any
+
+$_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv = comdat any
+
+$_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_ = comdat any
+
+$_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn = comdat any
+
+$_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv = comdat any
+
+$_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS9_m = comdat any
+
+$_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS9_PS8_ = comdat any
+
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv = comdat any
+
+$_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_SA_ = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
+
+$_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_ = comdat any
+
+$_ZNSt16allocator_traitsISaIvEE9constructIN5folly3ssl6detail14OpenSSLSessionEJEEEvRS0_PT_DpOT0_ = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -36,1870 +163,5739 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
 
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
+
+$_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_ = comdat any
+
+$_ZSt10_ConstructIN5folly3ssl6detail14OpenSSLSessionEJEEvPT_DpOT0_ = comdat any
+
+$_ZN5folly3ssl6detail14OpenSSLSessionC2Ev = comdat any
+
+$_ZN5folly3ssl10SSLSessionC2Ev = comdat any
+
+$_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEC2Ev = comdat any
+
 $_ZN5folly3ssl6detail14OpenSSLSessionD2Ev = comdat any
 
 $_ZN5folly3ssl6detail14OpenSSLSessionD0Ev = comdat any
 
+$_ZN5folly3ssl10SSLSessionD2Ev = comdat any
+
+$_ZN5folly3ssl10SSLSessionD0Ev = comdat any
+
+$_ZNSt6atomicIjEC2Ej = comdat any
+
+$_ZNSt13__atomic_baseIjEC2Ej = comdat any
+
+$_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev = comdat any
+
 $_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev = comdat any
 
-$_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignISB_EEvOT_ = comdat any
+$_ZNKSt13__atomic_baseIjE4loadESt12memory_order = comdat any
 
-$_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE14variant_assignEOSC_ = comdat any
+$_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv = comdat any
+
+$_ZNKSt13__atomic_baseImE4loadESt12memory_order = comdat any
+
+$_ZNSt13__atomic_baseImE5storeEmSt12memory_order = comdat any
+
+$_ZNK5folly6detail19relaxed_atomic_baseIjEcvjEv = comdat any
+
+$_ZNK5folly6detail19relaxed_atomic_baseIjE4loadEv = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE11get_deleterEv = comdat any
+
+$_ZNK5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS1_ = comdat any
+
+$_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS5_ = comdat any
+
+$_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERS2_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_ = comdat any
+
+$_ZSt12__get_helperILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS4_ = comdat any
+
+$_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EE7_M_headERS4_ = comdat any
+
+$_ZNSt16allocator_traitsISaIvEE7destroyIN5folly3ssl6detail14OpenSSLSessionEEEvRS0_PT_ = comdat any
+
+$_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv = comdat any
+
+$_ZSt8_DestroyIN5folly3ssl6detail14OpenSSLSessionEEvPT_ = comdat any
+
+$_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_ = comdat any
+
+$_ZNSt19_Sp_make_shared_tag5_S_tiEv = comdat any
+
+$_ZNKSt9type_infoeqERKS_ = comdat any
+
+$_ZNKSt9type_info4nameEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE7_M_addrEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE10deallocateERS9_PS8_m = comdat any
+
+$_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS8_m = comdat any
+
+$_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv = comdat any
+
+$_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_ = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSEOS4_ = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_ = comdat any
+
+$_ZSt26__throw_bad_variant_accessb = comdat any
+
+$_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv = comdat any
+
+$_ZNSt8__detail9__variant5__getILm1ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_ = comdat any
+
+$_ZSt26__throw_bad_variant_accessPKc = comdat any
+
+$_ZNSt18bad_variant_accessC2EPKc = comdat any
+
+$_ZNSt9exceptionC2Ev = comdat any
+
+$_ZNSt18bad_variant_accessD0Ev = comdat any
+
+$_ZNKSt18bad_variant_access4whatEv = comdat any
+
+$_ZNKSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_validEv = comdat any
+
+$_ZNSt8__detail9__variant7__get_nILm1ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_ = comdat any
+
+$_ZNRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSEOS6_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2EOS6_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE4swapERS6_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_ = comdat any
+
+$_ZSt4swapIPN5folly3ssl6detail14OpenSSLSessionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
+
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
-$_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implIS6_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_ = comdat any
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
 
-$_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implISB_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_ = comdat any
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
 
-$_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE6assignISB_EEvRKT_ = comdat any
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
 
-$_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignIS6_EEvOT_ = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
+
+$_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_ = comdat any
+
+$_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv = comdat any
+
+$_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJS5_EEvPT_DpOT0_ = comdat any
+
+$_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_ = comdat any
+
+$_ZSt14__variant_castIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEERNSt8__detail9__variant16_Variant_storageILb0EJS5_SA_EEEEDcOT0_ = comdat any
+
+$_ZZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_ENKUlSK_zE_clESK_z = comdat any
+
+$_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_ = comdat any
+
+$_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESJ_SM_ = comdat any
+
+$_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_ = comdat any
+
+$_ZNSt8__detail9__variant5__getILm0ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_ = comdat any
+
+$_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EESF_St14__invoke_otherOT0_DpOT1_ = comdat any
+
+$_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRS7_EEDaSF_ = comdat any
+
+$_ZSt8_DestroyISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEEvPT_ = comdat any
+
+$_ZNSt8__detail9__variant7__get_nILm0ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_ = comdat any
+
+$_ZNRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv = comdat any
+
+$_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_ = comdat any
+
+$_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EESF_St14__invoke_otherOT0_DpOT1_ = comdat any
+
+$_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRSC_EEDaSF_ = comdat any
+
+$_ZSt8_DestroyISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEvPT_ = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EOS4_ = comdat any
+
+$_ZSteqIN5folly3ssl10SSLSessionEEbRKSt10shared_ptrIT_EDn = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EDn = comdat any
+
+$_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E = comdat any
+
+$_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIRSA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISJ_SG_E15is_assignable_vIRSJ_SG_EERSB_E4typeESH_ = comdat any
+
+$_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
+
+$_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2INS1_10SSLSessionEEERKS_IT_EPS3_ = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2Ev = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_10SSLSessionEEERKS_IT_LS5_2EEPS3_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_ = comdat any
+
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv = comdat any
+
+$_ZN9__gnu_cxx21__atomic_add_dispatchEPii = comdat any
+
+$_ZN9__gnu_cxx19__atomic_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx12__atomic_addEPVii = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSERKS4_ = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJRSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSH_E4typeEDpOSI_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSERKS6_ = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_ = comdat any
+
+$_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJRSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_ = comdat any
+
+$_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJRS5_EEvPT_DpOT0_ = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ERKS4_ = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_ = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIS5_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_ = comdat any
+
+$_ZSt3getILm0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_ = comdat any
+
+$_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_ = comdat any
+
+$_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm0EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEaSEOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE5resetEPS0_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE7releaseEv = comdat any
+
+$_ZNSt8__detail9__variant9__emplaceILm0ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_ = comdat any
+
+$_ZSt10_ConstructISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEJS5_EEvPT_DpOT0_ = comdat any
+
+$_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2EOS4_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_ = comdat any
+
+$_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_ = comdat any
+
+$_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_ = comdat any
+
+$_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2EOS4_ = comdat any
+
+$_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERKSt7variantIJDpT_EESI_ = comdat any
+
+$_ZNKSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE3getEv = comdat any
+
+$_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEPS0_ = comdat any
+
+$_ZNKSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv = comdat any
+
+$_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_ = comdat any
+
+$_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERKS5_ = comdat any
+
+$_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERKS2_ = comdat any
+
+$_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S3_EEPS0_ = comdat any
+
+$_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EPS0_ = comdat any
+
+$_ZNSt8__detail9__variant5__getILm0ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_ = comdat any
+
+$_ZNSt8__detail9__variant7__get_nILm0ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_ = comdat any
+
+$_ZNKRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv = comdat any
+
+$_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv = comdat any
+
+$_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv = comdat any
+
+$_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv = comdat any
+
+$_ZNSt8__detail9__variant5__getILm1ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_ = comdat any
+
+$_ZNSt8__detail9__variant7__get_nILm1ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_ = comdat any
+
+$_ZNKRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv = comdat any
+
+$_ZNSt10shared_ptrIN5folly3ssl10SSLSessionEEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_E = comdat any
+
+$_ZNSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_LS4_2EE = comdat any
+
+$_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERSt7variantIJDpT_EESH_ = comdat any
+
+$_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij = comdat any
+
+$_ZNSt13__atomic_baseIjE9fetch_andEjSt12memory_order = comdat any
+
+$_ZNSt14numeric_limitsIiE3maxEv = comdat any
 
 $_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
+$_ZTISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
 $_ZTSSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN5folly3ssl6detail14OpenSSLSessionE = comdat any
 
-$_ZTSN5folly3ssl6detail14OpenSSLSessionE = comdat any
+$_ZTIN5folly3ssl6detail14OpenSSLSessionE = comdat any
 
-$_ZTSN5folly3ssl10SSLSessionE = comdat any
+$_ZTSN5folly3ssl6detail14OpenSSLSessionE = comdat any
 
 $_ZTIN5folly3ssl10SSLSessionE = comdat any
 
-$_ZTIN5folly3ssl6detail14OpenSSLSessionE = comdat any
+$_ZTSN5folly3ssl10SSLSessionE = comdat any
+
+$_ZTVN5folly3ssl10SSLSessionE = comdat any
+
+$_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = comdat any
+
+$_ZTISt19_Sp_make_shared_tag = comdat any
 
 $_ZTSSt19_Sp_make_shared_tag = comdat any
 
 $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
+$_ZTISt18bad_variant_access = comdat any
+
+$_ZTSSt18bad_variant_access = comdat any
+
+$_ZTVSt18bad_variant_access = comdat any
+
 @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN5folly3ssl6detail14OpenSSLSessionE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN5folly3ssl6detail14OpenSSLSessionE, ptr @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev, ptr @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev] }, comdat, align 8
-@_ZTSN5folly3ssl6detail14OpenSSLSessionE = linkonce_odr constant [36 x i8] c"N5folly3ssl6detail14OpenSSLSessionE\00", comdat, align 1
-@_ZTSN5folly3ssl10SSLSessionE = linkonce_odr constant [25 x i8] c"N5folly3ssl10SSLSessionE\00", comdat, align 1
-@_ZTIN5folly3ssl10SSLSessionE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly3ssl10SSLSessionE }, comdat, align 8
 @_ZTIN5folly3ssl6detail14OpenSSLSessionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly3ssl6detail14OpenSSLSessionE, ptr @_ZTIN5folly3ssl10SSLSessionE }, comdat, align 8
+@_ZTSN5folly3ssl6detail14OpenSSLSessionE = linkonce_odr constant [36 x i8] c"N5folly3ssl6detail14OpenSSLSessionE\00", comdat, align 1
+@_ZTIN5folly3ssl10SSLSessionE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly3ssl10SSLSessionE }, comdat, align 8
+@_ZTSN5folly3ssl10SSLSessionE = linkonce_odr constant [25 x i8] c"N5folly3ssl10SSLSessionE\00", comdat, align 1
+@_ZTVN5folly3ssl10SSLSessionE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN5folly3ssl10SSLSessionE, ptr @_ZN5folly3ssl10SSLSessionD2Ev, ptr @_ZN5folly3ssl10SSLSessionD0Ev] }, comdat, align 8
+@_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = linkonce_odr global { i32 } zeroinitializer, comdat, align 4
+@_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE = external global [2048 x %"struct.std::atomic.8"], align 64
+@_ZTISt19_Sp_make_shared_tag = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt19_Sp_make_shared_tag }, comdat, align 8
 @_ZTSSt19_Sp_make_shared_tag = linkonce_odr constant [24 x i8] c"St19_Sp_make_shared_tag\00", comdat, align 1
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
-@__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index = internal unnamed_addr global i32 0, align 4
+@.str = private unnamed_addr constant [31 x i8] c"std::get: variant is valueless\00", align 1
+@.str.1 = private unnamed_addr constant [34 x i8] c"std::get: wrong index for variant\00", align 1
+@_ZTISt18bad_variant_access = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt18bad_variant_access, ptr @_ZTISt9exception }, comdat, align 8
+@_ZTSSt18bad_variant_access = linkonce_odr constant [23 x i8] c"St18bad_variant_access\00", comdat, align 1
+@_ZTISt9exception = external constant ptr
+@_ZTVSt18bad_variant_access = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt18bad_variant_access, ptr @_ZNSt9exceptionD2Ev, ptr @_ZNSt18bad_variant_accessD0Ev, ptr @_ZNKSt18bad_variant_access4whatEv] }, comdat, align 8
+@_ZTVSt9exception = available_externally unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt9exception, ptr @_ZNSt9exceptionD1Ev, ptr @_ZNSt9exceptionD0Ev, ptr @_ZNKSt9exception4whatEv] }, align 8
+@__libc_single_threaded = external global i8, align 1
+@.str.2 = private unnamed_addr constant [33 x i8] c"std::visit: variant is valueless\00", align 1
+@_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index = internal global i32 0, align 4
 @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index = internal global i64 0, align 8
+@llvm.compiler.used = appending global [2 x ptr] [ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj, ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj], section "llvm.metadata"
 
 @_ZN5folly3ssl17SSLSessionManagerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly3ssl17SSLSessionManagerC2Ev
 
-declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #0
+declare void @SSL_SESSION_free(ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl17SSLSessionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr null, ptr %storage_.i, align 8, !tbaa !7
-  store i32 0, ptr %this, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %call5.i.i.i16.i.i.i.i8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
-          to label %invoke.cont unwind label %lpad
+define void @_ZN5folly3ssl17SSLSessionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::shared_ptr", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %6, i32 0, i32 0
+  call void @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %7) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #20
+  invoke void @_ZSt11make_sharedIN5folly3ssl6detail14OpenSSLSessionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %3)
+          to label %8 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !20, !noalias !17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !22, !noalias !17
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2
-  store ptr %0, ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 16
-  %1 = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 32
-  store i64 0, ptr %1, align 8, !noalias !17
-  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
-  store ptr %2, ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
-  %activeSession_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 24
-  store ptr null, ptr %activeSession_.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !17
-  store ptr %call5.i.i.i16.i.i.i.i8, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !17
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %ref.tmp, align 8, !tbaa !27, !alias.scope !17
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignISB_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont
-  %3 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %invoke.cont4
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
-  %cmp.i.i.i = icmp eq i64 %4, 4294967297
-  %5 = trunc i64 %4 to i32
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !23
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  %vtable3.i.i.i = load ptr, ptr %3, align 8, !tbaa !23
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
-  %7 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i = icmp eq i8 %8, 0
-  br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %add.i.i.i.i = add nsw i32 %5, -1
-  store i32 %add.i.i.i.i, ptr %_M_use_count.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi i32 [ %5, %if.then.i.i.i.i ], [ %9, %if.else.i.i.i.i ]
-  %cmp6.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !30
-
-if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #14
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %6, i32 0, i32 0
+  %10 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSISA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_(ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #20
   ret void
 
-lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #20
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %7) #20
+  br label %15
 
-lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #14
-  br label %ehcleanup
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
+}
 
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %11, %lpad3 ], [ %10, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #14
-  call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
-  resume { ptr, i32 } %.pn
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt11make_sharedIN5folly3ssl6detail14OpenSSLSessionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #20
+  %5 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  store ptr %3, ptr %5, align 8, !tbaa !14
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #20
+  ret void
+}
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !25
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSISA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  store i64 1, ptr %5, align 8, !tbaa !18
+  %7 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %14
 
-if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
-  %cmp.i.i = icmp eq i64 %1, 4294967297
-  %2 = trunc i64 %1 to i32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !16
+  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %6)
+          to label %12 unwind label %19
 
-if.then.i.i:                                      ; preds = %if.then.i
-  store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !22
-  %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !23
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !23
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
-  %4 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+12:                                               ; preds = %9
+  %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10) #20
+  br label %18
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !16
+  %16 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %17 unwind label %19
 
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %add.i.i.i = add nsw i32 %2, -1
-  store i32 %add.i.i.i, ptr %_M_use_count.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i
+17:                                               ; preds = %14
+  br label %18
 
-if.else.i.i.i:                                    ; preds = %if.end.i.i
-  %6 = atomicrmw volatile add ptr %_M_use_count.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i
+18:                                               ; preds = %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret ptr %6
 
-invoke.cont.i.i:                                  ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi i32 [ %2, %if.then.i.i.i ], [ %6, %if.else.i.i.i ]
-  %cmp6.i.i = icmp eq i32 %retval.0.i.i.i, 1
-  br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !30
+19:                                               ; preds = %14, %9
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #21
+  unreachable
+}
 
-if.then7.i.i:                                     ; preds = %invoke.cont.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i, %invoke.cont.i.i, %if.then.i.i, %entry
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %this, align 8
-  %.lobit.i.i = ashr i32 %0, 31
-  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %switch.i = icmp eq i32 %.lobit.i.i, %0
-  br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
+define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(17) %3)
+          to label %4 unwind label %5
 
-sw.bb.i.i:                                        ; preds = %entry
-  %1 = load ptr, ptr %storage_.i.i, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i.i, label %.noexc.i, label %if.then.i.i.i.i.i
+4:                                                ; preds = %1
+  ret void
 
-if.then.i.i.i.i.i:                                ; preds = %sw.bb.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %1)
-          to label %.noexc.i unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #16
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #21
   unreachable
+}
 
-.noexc.i:                                         ; preds = %if.then.i.i.i.i.i, %sw.bb.i.i
-  store ptr null, ptr %storage_.i.i, align 8, !tbaa !27
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
+          to label %4 unwind label %5
 
-sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit, label %if.then.i.i.i.i.i.i
+4:                                                ; preds = %1
+  ret void
 
-if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %5, 4294967297
-  %6 = trunc i64 %5 to i32
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #21
+  unreachable
+}
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %vtable3.i.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
-  %8 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %6, -1
-  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit, !prof !30
-
-if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit
-
-_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE15destroy_contentEv.exit: ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb3.i.i, %.noexc.i
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant17_Move_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #16
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #20
+  call void @_ZSt9terminatev() #21
   unreachable
 }
 
-declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+declare ptr @__cxa_begin_catch(ptr)
 
-declare void @_ZSt9terminatev() local_unnamed_addr
+declare void @_ZSt9terminatev()
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant17_Move_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant15_Move_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEECI2NS0_16_Variant_storageILb0EJS7_SC_EEEILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2ILm0EJEEESt16in_place_index_tIXT_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 0
+  call void @_ZNSt8__detail9__variant15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2IJEEESt16in_place_index_tILm0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8, !tbaa !34
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEC2IJEEESt16in_place_index_tILm0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EEC2IJEEESt16in_place_index_tILm0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EEC2IJEEESt16in_place_index_tILm0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Uninitialized", ptr %3, i32 0, i32 0
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 8, i1 false)
+  call void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret void
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  call void @_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  call void @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.5", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !54
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !59
+  %8 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr %9)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  store ptr null, ptr %8, align 8, !tbaa !60
+  %9 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !59
+  %11 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5folly3ssl6detail14OpenSSLSessionESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %12)
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS3_S3_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN5folly3ssl6detail14OpenSSLSessionESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.std::_Sp_alloc_shared_tag", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.6", align 1
+  %8 = alloca %"struct.std::__allocated_ptr", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  store ptr %2, ptr %13, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store ptr %1, ptr %6, align 8, !tbaa !67
+  %14 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #20
+  %15 = getelementptr inbounds nuw %"struct.std::_Sp_alloc_shared_tag", ptr %4, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !69
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %16) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #20
+  invoke void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_(ptr dead_on_unwind writable sret(%"struct.std::__allocated_ptr") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %17 unwind label %28
+
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #20
+  %18 = invoke noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %19 unwind label %32
+
+19:                                               ; preds = %17
+  store ptr %18, ptr %11, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #20
+  %20 = load ptr, ptr %11, align 8, !tbaa !71
+  invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %20)
+          to label %21 unwind label %36
+
+21:                                               ; preds = %19
+  store ptr %20, ptr %12, align 8, !tbaa !71
+  %22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr null) #20
+  %23 = load ptr, ptr %12, align 8, !tbaa !71
+  %24 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %14, i32 0, i32 0
+  store ptr %23, ptr %24, align 8, !tbaa !73
+  %25 = load ptr, ptr %12, align 8, !tbaa !71
+  %26 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %25) #20
+  %27 = load ptr, ptr %6, align 8, !tbaa !67
+  store ptr %26, ptr %27, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #20
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #20
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  ret void
+
+28:                                               ; preds = %3
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  br label %41
+
+32:                                               ; preds = %17
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %9, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %10, align 4
+  br label %40
+
+36:                                               ; preds = %19
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %9, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #20
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #20
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  br label %41
+
+41:                                               ; preds = %40, %28
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #20
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %10, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS3_S3_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSB_(ptr dead_on_unwind noalias writable sret(%"struct.std::__allocated_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %6 = load ptr, ptr %4, align 8, !tbaa !75
+  %7 = call noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS9_m(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef 1)
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS9_PS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %6 = call noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_SA_(ptr noundef %5) #20
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca %"class.std::allocator", align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8, !tbaa !81
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #20
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN5folly3ssl6detail14OpenSSLSessionEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store ptr %1, ptr %4, align 8, !tbaa !83
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8, !tbaa !79
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace<folly::ssl::detail::OpenSSLSession, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !79
+  invoke void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE10deallocateERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11, i64 noundef 1)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERS9_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !75
+  %6 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS9_PS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !75
+  store ptr %2, ptr %6, align 8, !tbaa !71
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !75
+  store ptr %9, ptr %8, align 8, !tbaa !85
+  %10 = getelementptr inbounds nuw %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !71
+  store ptr %11, ptr %10, align 8, !tbaa !79
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !86
+  store i64 %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !18
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !18
+  %16 = icmp ugt i64 %15, 461168601842738790
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
+  unreachable
+
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #22
+  unreachable
+
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !18
+  %21 = mul i64 %20, 40
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #23
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
+  ret i64 230584300921369395
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  ret void
+define linkonce_odr noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_SA_(ptr noundef %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  %vtable.i.i = load ptr, ptr %_M_impl.i, align 8, !tbaa !23
-  %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #14
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !81
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %4, align 8, !tbaa !90
+  %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %5, align 4, !tbaa !93
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::allocator", align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !94
+  %4 = load ptr, ptr %3, align 8
+  invoke void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
   ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #21
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
-entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %cmp, label %cleanup, label %lor.lhs.false
+define linkonce_odr void @_ZNSt16allocator_traitsISaIvEE9constructIN5folly3ssl6detail14OpenSSLSessionEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  invoke void @_ZSt10_ConstructIN5folly3ssl6detail14OpenSSLSessionEJEEvPT_DpOT0_(ptr noundef %5)
+          to label %6 unwind label %7
 
-lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !31
-  %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
-
-if.end.i:                                         ; preds = %lor.lhs.false
-  %1 = load i8, ptr %0, align 1, !tbaa !28
-  %cmp4.not.i = icmp eq i8 %1, 42
-  br i1 %cmp4.not.i, label %cleanup, label %_ZNKSt9type_infoeqERKS_.exit
-
-_ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #14
-  %call6.i.fr = freeze i32 %call6.i
-  %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
-  br label %cleanup
-
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
-  ret ptr %retval.0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %state.i.i = alloca i32, align 4
-  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
-  store ptr %0, ptr %this, align 8, !tbaa !23
-  %activeSession_ = getelementptr inbounds i8, ptr %this, i64 8
-  %mutex_.i = getelementptr inbounds i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #14
-  %1 = load atomic i32, ptr %mutex_.i monotonic, align 8
-  store i32 %1, ptr %state.i.i, align 4, !tbaa !29
-  %cmp.not.i.i = icmp ult i32 %1, 2048
-  br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i, label %if.then.i.i, !prof !33
-
-if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
-  unreachable
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i: ; preds = %if.then.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #14
-  %4 = load ptr, ptr %activeSession_, align 8, !tbaa !27
-  %cmp.not.i2.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i2.i, label %_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.then.i3.i
-
-if.then.i3.i:                                     ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %4)
-          to label %_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit unwind label %terminate.lpad.i4.i
-
-terminate.lpad.i4.i:                              ; preds = %if.then.i3.i
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #16
-  unreachable
-
-_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit: ; preds = %if.then.i3.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i
-  store ptr null, ptr %activeSession_, align 8, !tbaa !27
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %state.i.i.i = alloca i32, align 4
-  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
-  store ptr %0, ptr %this, align 8, !tbaa !23
-  %activeSession_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #14
-  %1 = load atomic i32, ptr %mutex_.i.i monotonic, align 8
-  store i32 %1, ptr %state.i.i.i, align 4, !tbaa !29
-  %cmp.not.i.i.i = icmp ult i32 %1, 2048
-  br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i, label %if.then.i.i.i, !prof !33
-
-if.then.i.i.i:                                    ; preds = %entry
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
-  unreachable
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i: ; preds = %if.then.i.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i) #14
-  %4 = load ptr, ptr %activeSession_.i, align 8, !tbaa !27
-  %cmp.not.i2.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i2.i.i, label %_ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit, label %if.then.i3.i.i
-
-if.then.i3.i.i:                                   ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %4)
-          to label %_ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit unwind label %terminate.lpad.i4.i.i
-
-terminate.lpad.i4.i.i:                            ; preds = %if.then.i3.i.i
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #16
-  unreachable
-
-_ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit:    ; preds = %if.then.i3.i.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %this) #17
-  ret void
-}
-
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
-
-if.end:                                           ; preds = %if.then, %entry
-  store ptr null, ptr %this, align 8, !tbaa !27
+6:                                                ; preds = %2
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1 align 2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignISB_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %rhs) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %temp = alloca %"class.boost::variant", align 8
-  %0 = load i32, ptr %this, align 8
-  %.lobit.i.i = ashr i32 %0, 31
-  %switch.i.not = icmp eq i32 %.lobit.i.i, %0
-  br i1 %switch.i.not, label %if.then, label %sw.bb3.i.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load <2 x ptr>, ptr %rhs, align 8, !tbaa !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rhs, i8 0, i64 16, i1 false)
-  %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !25
-  store <2 x ptr> %1, ptr %storage_.i.i, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
-  %4 = trunc i64 %3 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
-  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %vtable3.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i.i.i, i64 24
-  %6 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  br label %if.end
-
-if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  %7 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %4, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i, label %if.end, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  br label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i6 = getelementptr inbounds i8, ptr %temp, i64 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
-  %9 = load <2 x ptr>, ptr %rhs, align 8, !tbaa !27
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8, !tbaa !25
-  store <2 x ptr> %9, ptr %storage_.i.i6, align 8, !tbaa !27
-  store ptr null, ptr %rhs, align 8, !tbaa !34
-  store i32 1, ptr %temp, align 8, !tbaa !12
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE14variant_assignEOSC_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %temp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  %10 = load i32, ptr %temp, align 8
-  %.lobit.i.i.i = ashr i32 %10, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %10
-  br i1 %switch.i.i, label %sw.bb.i.i.i, label %sw.bb3.i.i.i
-
-sw.bb.i.i.i:                                      ; preds = %invoke.cont
-  %11 = load ptr, ptr %storage_.i.i6, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %11)
-          to label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
-  %12 = landingpad { ptr, i32 }
-          catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #16
-  unreachable
-
-sw.bb3.i.i.i:                                     ; preds = %invoke.cont
-  %14 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %15, 4294967297
-  %16 = trunc i64 %15 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
-  %18 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
-  %19 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i7
-
-if.then.i.i.i.i.i.i.i.i.i7:                       ; preds = %if.end.i.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %16, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
-  %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i7
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i.i.i.i.i7 ], [ %20, %if.else.i.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i, %if.then.i.i.i.i.i.i, %sw.bb.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  br label %if.end
-
-lpad:                                             ; preds = %if.then
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  resume { ptr, i32 } %21
-
-if.end:                                           ; preds = %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, %if.then7.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE14variant_assignEOSC_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %rhs) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %visitor3 = alloca %"class.boost::variant<std::unique_ptr<ssl_session_st, folly::static_function_deleter<ssl_session_st, &SSL_SESSION_free>>, std::shared_ptr<folly::ssl::detail::OpenSSLSession>>::move_assigner", align 8
-  %0 = load i32, ptr %this, align 8
-  %1 = load i32, ptr %rhs, align 8
-  %cmp = icmp eq i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %storage_ = getelementptr inbounds i8, ptr %rhs, i64 8
-  %.lobit.i = ashr i32 %0, 31
-  %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %switch = icmp eq i32 %.lobit.i, %0
-  %2 = load ptr, ptr %storage_, align 8, !tbaa !27
-  br i1 %switch, label %sw.bb.i, label %sw.bb3.i
-
-sw.bb.i:                                          ; preds = %if.then
-  store ptr null, ptr %storage_, align 8, !tbaa !27
-  %3 = load ptr, ptr %storage_.i, align 8, !tbaa !27
-  store ptr %2, ptr %storage_.i, align 8, !tbaa !27
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %3)
-          to label %if.end unwind label %terminate.lpad.i.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #16
-  unreachable
-
-sw.bb3.i:                                         ; preds = %if.then
-  %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 16
-  %6 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8, !tbaa !25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_, i8 0, i64 16, i1 false)
-  store ptr %2, ptr %storage_.i, align 8, !tbaa !27
-  %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr %6, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i35
-
-if.then.i.i.i.i.i.i.i35:                          ; preds = %sw.bb3.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %8, 4294967297
-  %9 = trunc i64 %8 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i35
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
-  %11 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %if.end
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i35
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %9, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
-  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %if.end, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %visitor3) #14
-  %.lobit.i53 = ashr i32 %1, 31
-  %retval.0.i54 = xor i32 %.lobit.i53, %1
-  store ptr %this, ptr %visitor3, align 8, !tbaa !27
-  %rhs_which_.i.i = getelementptr inbounds i8, ptr %visitor3, i64 8
-  store i32 %retval.0.i54, ptr %rhs_which_.i.i, align 8, !tbaa !36
-  %storage_.i9 = getelementptr inbounds i8, ptr %rhs, i64 8
-  %switch75 = icmp eq i32 %retval.0.i54, 0
-  br i1 %switch75, label %sw.bb.i32, label %sw.bb3.i31
-
-sw.bb.i32:                                        ; preds = %if.else
-  call void @_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implIS6_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_(ptr noundef nonnull align 8 dereferenceable(12) %visitor3, ptr noundef nonnull align 8 dereferenceable(8) %storage_.i9) #14
-  br label %_ZN5boost6detail7variant15visitation_implIN4mpl_4int_ILi0EEENS1_20visitation_impl_stepINS_3mpl6l_iterINS7_6l_itemINS3_5long_ILl2EEESt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEENS9_INSA_ILl1EEESt10shared_ptrINSE_3ssl6detail14OpenSSLSessionEENS7_5l_endEEEEEEENS8_ISO_EEEENS_7variantISH_JSN_EE13move_assignerEPvNSV_18has_fallback_type_EEENT1_11result_typeEiiRSZ_T2_NS3_5bool_ILb0EEET3_PT_PT0_.exit
-
-sw.bb3.i31:                                       ; preds = %if.else
-  call void @_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implISB_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_(ptr noundef nonnull align 8 dereferenceable(12) %visitor3, ptr noundef nonnull align 8 dereferenceable(16) %storage_.i9) #14
-  br label %_ZN5boost6detail7variant15visitation_implIN4mpl_4int_ILi0EEENS1_20visitation_impl_stepINS_3mpl6l_iterINS7_6l_itemINS3_5long_ILl2EEESt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEENS9_INSA_ILl1EEESt10shared_ptrINSE_3ssl6detail14OpenSSLSessionEENS7_5l_endEEEEEEENS8_ISO_EEEENS_7variantISH_JSN_EE13move_assignerEPvNSV_18has_fallback_type_EEENT1_11result_typeEiiRSZ_T2_NS3_5bool_ILb0EEET3_PT_PT0_.exit
-
-_ZN5boost6detail7variant15visitation_implIN4mpl_4int_ILi0EEENS1_20visitation_impl_stepINS_3mpl6l_iterINS7_6l_itemINS3_5long_ILl2EEESt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEENS9_INSA_ILl1EEESt10shared_ptrINSE_3ssl6detail14OpenSSLSessionEENS7_5l_endEEEEEEENS8_ISO_EEEENS_7variantISH_JSN_EE13move_assignerEPvNSV_18has_fallback_type_EEENT1_11result_typeEiiRSZ_T2_NS3_5bool_ILb0EEET3_PT_PT0_.exit: ; preds = %sw.bb3.i31, %sw.bb.i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %visitor3) #14
-  br label %if.end
-
-if.end:                                           ; preds = %_ZN5boost6detail7variant15visitation_implIN4mpl_4int_ILi0EEENS1_20visitation_impl_stepINS_3mpl6l_iterINS7_6l_itemINS3_5long_ILl2EEESt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEENS9_INSA_ILl1EEESt10shared_ptrINSE_3ssl6detail14OpenSSLSessionEENS7_5l_endEEEEEEENS8_ISO_EEEENS_7variantISH_JSN_EE13move_assignerEPvNSV_18has_fallback_type_EEENT1_11result_typeEiiRSZ_T2_NS3_5bool_ILb0EEET3_PT_PT0_.exit, %if.then7.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %sw.bb3.i, %if.then.i.i.i.i.i.i.i, %sw.bb.i
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %vtable.i = load ptr, ptr %this, align 8, !tbaa !23
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %0 = load ptr, ptr %vfn.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
-  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
-  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %2 = load i32, ptr %_M_weak_count.i, align 4, !tbaa !29
-  %add.i.i = add nsw i32 %2, -1
-  store i32 %add.i.i, ptr %_M_weak_count.i, align 4, !tbaa !29
-  br label %invoke.cont.i
-
-if.else.i.i:                                      ; preds = %entry
-  %3 = atomicrmw volatile add ptr %_M_weak_count.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i
-
-invoke.cont.i:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ %2, %if.then.i.i ], [ %3, %if.else.i.i ]
-  %cmp.i = icmp eq i32 %retval.0.i.i, 1
-  br i1 %cmp.i, label %if.then.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
-
-if.then.i:                                        ; preds = %invoke.cont.i
-  %vtable2.i = load ptr, ptr %this, align 8, !tbaa !23
-  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
-  %4 = load ptr, ptr %vfn3.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
-
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %if.then.i, %invoke.cont.i
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implIS6_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs_content) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !38
-  %1 = load i32, ptr %0, align 8
-  %.lobit.i.i = ashr i32 %1, 31
-  %storage_.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %switch.i = icmp eq i32 %.lobit.i.i, %1
-  br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
-
-sw.bb.i.i:                                        ; preds = %entry
-  %2 = load ptr, ptr %storage_.i.i, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i.i, label %.noexc.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %sw.bb.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %2)
-          to label %.noexc.i unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
-  unreachable
-
-.noexc.i:                                         ; preds = %if.then.i.i.i.i.i, %sw.bb.i.i
-  store ptr null, ptr %storage_.i.i, align 8, !tbaa !27
-  br label %invoke.cont
-
-sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
-  %7 = trunc i64 %6 to i32
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %vtable3.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
-  %9 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  br label %invoke.cont
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %7, -1
-  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %invoke.cont, !prof !30
-
-if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb3.i.i, %.noexc.i
-  %12 = load ptr, ptr %this, align 8, !tbaa !38
-  %storage_ = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load i64, ptr %rhs_content, align 8, !tbaa !27
-  store i64 %13, ptr %storage_, align 8, !tbaa !27
-  store ptr null, ptr %rhs_content, align 8, !tbaa !27
-  %14 = load ptr, ptr %this, align 8, !tbaa !38
-  %rhs_which_ = getelementptr inbounds i8, ptr %this, i64 8
-  %15 = load i32, ptr %rhs_which_, align 8, !tbaa !36
-  store i32 %15, ptr %14, align 8, !tbaa !12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13move_assigner11assign_implISB_N4mpl_5bool_ILb1EEENSC_18has_fallback_type_EEEvRT_T0_SH_T1_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %rhs_content) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !38
-  %1 = load i32, ptr %0, align 8
-  %.lobit.i.i = ashr i32 %1, 31
-  %storage_.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %switch.i = icmp eq i32 %.lobit.i.i, %1
-  br i1 %switch.i, label %sw.bb.i.i, label %sw.bb3.i.i
-
-sw.bb.i.i:                                        ; preds = %entry
-  %2 = load ptr, ptr %storage_.i.i, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i.i.i, label %.noexc.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %sw.bb.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %2)
-          to label %.noexc.i unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
-  unreachable
-
-.noexc.i:                                         ; preds = %if.then.i.i.i.i.i, %sw.bb.i.i
-  store ptr null, ptr %storage_.i.i, align 8, !tbaa !27
-  br label %invoke.cont
-
-sw.bb3.i.i:                                       ; preds = %entry
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %sw.bb3.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %6, 4294967297
-  %7 = trunc i64 %6 to i32
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %vtable3.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i, i64 24
-  %9 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  br label %invoke.cont
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %7, -1
-  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
-  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %invoke.cont, !prof !30
-
-if.then7.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %sw.bb3.i.i, %.noexc.i
-  %12 = load ptr, ptr %this, align 8, !tbaa !38
-  %storage_ = getelementptr inbounds i8, ptr %12, i64 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !25
-  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %rhs_content, i64 8
-  %13 = load <2 x ptr>, ptr %rhs_content, align 8, !tbaa !27
-  store ptr null, ptr %_M_refcount4.i.i, align 8, !tbaa !25
-  store <2 x ptr> %13, ptr %storage_, align 8, !tbaa !27
-  store ptr null, ptr %rhs_content, align 8, !tbaa !34
-  %rhs_which_ = getelementptr inbounds i8, ptr %this, i64 8
-  %14 = load i32, ptr %rhs_which_, align 8, !tbaa !36
-  store i32 %14, ptr %12, align 8, !tbaa !12
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl17SSLSessionManager10setSessionESt10shared_ptrINS0_10SSLSessionEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %session) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %openSSLSession = alloca %"class.std::shared_ptr", align 8
-  %0 = load ptr, ptr %session, align 8, !tbaa !39
-  %cmp.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i, label %if.then, label %dynamic_cast.end.i
-
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignISB_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  %_M_refcount.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !25
-  %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
-  %cmp.i.i.i = icmp eq i64 %2, 4294967297
-  %3 = trunc i64 %2 to i32
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %4 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  %vtable3.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
-  %5 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i = icmp eq i8 %6, 0
-  br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %add.i.i.i.i = add nsw i32 %3, -1
-  store i32 %add.i.i.i.i, ptr %_M_use_count.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i
-
-invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i ], [ %7, %if.else.i.i.i.i ]
-  %cmp6.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !30
-
-if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #14
-  br label %return
-
-lpad:                                             ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #14
-  br label %eh.resume
-
-dynamic_cast.end.i:                               ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %openSSLSession) #14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5folly3ssl10SSLSessionE, ptr nonnull @_ZTIN5folly3ssl6detail14OpenSSLSessionE, i64 0) #14, !noalias !41
-  %tobool.not.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.not.i, label %cleanup.cont.i, label %if.then.i
-
-if.then.i:                                        ; preds = %dynamic_cast.end.i
-  store ptr %9, ptr %openSSLSession, align 8, !tbaa !34, !alias.scope !41
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %openSSLSession, i64 8
-  %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %session, i64 8
-  %10 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !tbaa !25, !noalias !41
-  store ptr %10, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !41
-  %cmp.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i.i, label %if.then4, label %if.then.i.i.i.i12
-
-if.then.i.i.i.i12:                                ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !41
-  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i12
-  %12 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !29, !noalias !41
-  %add.i.i.i.i.i.i = add nsw i32 %12, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !29, !noalias !41
-  br label %if.then4
-
-cleanup.cont.i:                                   ; preds = %dynamic_cast.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %openSSLSession, i8 0, i64 16, i1 false), !alias.scope !41
-  br label %if.end9
-
-_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split: ; preds = %if.then.i.i.i.i12
-  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !41
-  %.pr.pre = load ptr, ptr %openSSLSession, align 8, !tbaa !34
-  %14 = icmp eq ptr %.pr.pre, null
-  br i1 %14, label %if.end9, label %if.then4
-
-if.then4:                                         ; preds = %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split, %if.then.i.i.i.i.i.i, %if.then.i
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE6assignISB_EEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %openSSLSession)
-          to label %if.end9 unwind label %lpad6
-
-lpad6:                                            ; preds = %if.then4
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %openSSLSession) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %openSSLSession) #14
-  br label %eh.resume
-
-if.end9:                                          ; preds = %if.then4, %_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E.exitthread-pre-split, %cleanup.cont.i
-  %_M_refcount.i13 = getelementptr inbounds i8, ptr %openSSLSession, i64 8
-  %16 = load ptr, ptr %_M_refcount.i13, align 8, !tbaa !25
-  %cmp.not.i.i14 = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i14, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33, label %if.then.i.i15
-
-if.then.i.i15:                                    ; preds = %if.end9
-  %_M_use_count.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load atomic i64, ptr %_M_use_count.i.i.i16 acquire, align 8
-  %cmp.i.i.i17 = icmp eq i64 %17, 4294967297
-  %18 = trunc i64 %17 to i32
-  br i1 %cmp.i.i.i17, label %if.then.i.i.i27, label %if.end.i.i.i18
-
-if.then.i.i.i27:                                  ; preds = %if.then.i.i15
-  store i32 0, ptr %_M_use_count.i.i.i16, align 8, !tbaa !20
-  %_M_weak_count.i.i.i28 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i28, align 4, !tbaa !22
-  %vtable.i.i.i29 = load ptr, ptr %16, align 8, !tbaa !23
-  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 16
-  %19 = load ptr, ptr %vfn.i.i.i30, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
-  %vtable3.i.i.i31 = load ptr, ptr %16, align 8, !tbaa !23
-  %vfn4.i.i.i32 = getelementptr inbounds i8, ptr %vtable3.i.i.i31, i64 24
-  %20 = load ptr, ptr %vfn4.i.i.i32, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33
-
-if.end.i.i.i18:                                   ; preds = %if.then.i.i15
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i19 = icmp eq i8 %21, 0
-  br i1 %tobool.i.not.i.i.i19, label %if.else.i.i.i.i26, label %if.then.i.i.i.i20
-
-if.then.i.i.i.i20:                                ; preds = %if.end.i.i.i18
-  %add.i.i.i.i21 = add nsw i32 %18, -1
-  store i32 %add.i.i.i.i21, ptr %_M_use_count.i.i.i16, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i22
-
-if.else.i.i.i.i26:                                ; preds = %if.end.i.i.i18
-  %22 = atomicrmw volatile add ptr %_M_use_count.i.i.i16, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i22
-
-invoke.cont.i.i.i22:                              ; preds = %if.else.i.i.i.i26, %if.then.i.i.i.i20
-  %retval.0.i.i.i.i23 = phi i32 [ %18, %if.then.i.i.i.i20 ], [ %22, %if.else.i.i.i.i26 ]
-  %cmp6.i.i.i24 = icmp eq i32 %retval.0.i.i.i.i23, 1
-  br i1 %cmp6.i.i.i24, label %if.then7.i.i.i25, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33, !prof !30
-
-if.then7.i.i.i25:                                 ; preds = %invoke.cont.i.i.i22
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33
-
-_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33: ; preds = %if.then7.i.i.i25, %invoke.cont.i.i.i22, %if.then.i.i.i27, %if.end9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %openSSLSession) #14
-  br label %return
-
-return:                                           ; preds = %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit33, %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  ret void
-
-eh.resume:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad ], [ %15, %lpad6 ]
-  resume { ptr, i32 } %.pn
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE6assignISB_EEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %rhs) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %temp = alloca %"class.boost::variant", align 8
-  %0 = load i32, ptr %this, align 8
-  %.lobit.i.i = ashr i32 %0, 31
-  %switch.i.not = icmp eq i32 %.lobit.i.i, %0
-  br i1 %switch.i.not, label %if.then, label %sw.bb3.i.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !34
-  store ptr %1, ptr %storage_.i.i, align 8, !tbaa !34
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !25
-  %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb3.i.i
-  %cmp3.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp3.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i
-
-if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then4.i.i.i.i.i.i.i.i
-  %5 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  %add.i.i.i.i.i.i.i.i.i.i = add nsw i32 %5, 1
-  store i32 %add.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %if.end.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then4.i.i.i.i.i.i.i.i
-  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %.pr.pre.i.i.i.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !25
-  br label %if.end.i.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %7 = phi ptr [ %3, %if.then.i.i.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %.pr.pre.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i ]
-  %cmp6.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp6.not.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i
-
-if.then7.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
-  %_M_use_count.i16.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load atomic i64, ptr %_M_use_count.i16.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, 4294967297
-  %9 = trunc i64 %8 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i16.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
-  %10 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %vtable3.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i.i, i64 24
-  %11 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %if.end9.i.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then7.i.i.i.i.i.i.i.i
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i19.i.i.i.i.i.i.i.i, label %if.then.i.i17.i.i.i.i.i.i.i.i
-
-if.then.i.i17.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i
-  %add.i.i18.i.i.i.i.i.i.i.i = add nsw i32 %9, -1
-  store i32 %add.i.i18.i.i.i.i.i.i.i.i, ptr %_M_use_count.i16.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i.i
-
-if.else.i.i19.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i
-  %13 = atomicrmw volatile add ptr %_M_use_count.i16.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i19.i.i.i.i.i.i.i.i, %if.then.i.i17.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i17.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i19.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i.i, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  br label %if.end9.i.i.i.i.i.i.i.i
-
-if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
-  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !25
-  br label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i5 = getelementptr inbounds i8, ptr %temp, i64 8
-  %14 = load ptr, ptr %rhs, align 8, !tbaa !34
-  store ptr %14, ptr %storage_.i.i5, align 8, !tbaa !34
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
-  %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !25
-  store ptr %15, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %if.then
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i6
-
-if.then.i.i.i.i.i.i.i.i6:                         ; preds = %if.then.i.i.i.i.i.i
-  %17 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !29
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %17, 1
-  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit
-
-if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit
-
-_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i6, %if.then
-  store i32 1, ptr %temp, align 8, !tbaa !12
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE14variant_assignEOSC_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %temp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit
-  %19 = load i32, ptr %temp, align 8
-  %.lobit.i.i.i = ashr i32 %19, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %19
-  br i1 %switch.i.i, label %sw.bb.i.i.i, label %sw.bb3.i.i.i
-
-sw.bb.i.i.i:                                      ; preds = %invoke.cont
-  %20 = load ptr, ptr %storage_.i.i5, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i.i11 = icmp eq ptr %20, null
-  br i1 %cmp.not.i.i.i.i.i.i11, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i12
-
-if.then.i.i.i.i.i.i12:                            ; preds = %sw.bb.i.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %20)
-          to label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i12
-  %21 = landingpad { ptr, i32 }
-          catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #16
-  unreachable
-
-sw.bb3.i.i.i:                                     ; preds = %invoke.cont
-  %23 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %24, 4294967297
-  %25 = trunc i64 %24 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i10, label %if.end.i.i.i.i.i.i.i.i7
-
-if.then.i.i.i.i.i.i.i.i10:                        ; preds = %if.then.i.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %26 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
-  %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
-  %27 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-if.end.i.i.i.i.i.i.i.i7:                          ; preds = %if.then.i.i.i.i.i.i.i
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i8
-
-if.then.i.i.i.i.i.i.i.i.i8:                       ; preds = %if.end.i.i.i.i.i.i.i.i7
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %25, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i7
-  %29 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i8
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %25, %if.then.i.i.i.i.i.i.i.i.i8 ], [ %29, %if.else.i.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i9, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i9:                        ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i.i9, %invoke.cont.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i10, %sw.bb3.i.i.i, %if.then.i.i.i.i.i.i12, %sw.bb.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  br label %if.end
-
-lpad:                                             ; preds = %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  resume { ptr, i32 } %30
-
-if.end:                                           ; preds = %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, %if.end9.i.i.i.i.i.i.i.i, %sw.bb3.i.i
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl17SSLSessionManager13setRawSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %session) local_unnamed_addr #1 align 2 {
-entry:
-  tail call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignIS6_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %session)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE11move_assignIS6_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %temp = alloca %"class.boost::variant", align 8
-  %0 = load i32, ptr %this, align 8
-  %.lobit.i.i = ashr i32 %0, 31
-  %switch.i = icmp eq i32 %.lobit.i.i, %0
-  br i1 %switch.i, label %sw.bb.i.i, label %if.then
-
-sw.bb.i.i:                                        ; preds = %entry
-  %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %rhs, align 8, !tbaa !27
-  store ptr null, ptr %rhs, align 8, !tbaa !27
-  %2 = load ptr, ptr %storage_.i.i, align 8, !tbaa !27
-  store ptr %1, ptr %storage_.i.i, align 8, !tbaa !27
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %2)
-          to label %if.end unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #16
-  unreachable
-
-if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
-  %storage_.i.i6 = getelementptr inbounds i8, ptr %temp, i64 8
-  %5 = load i64, ptr %rhs, align 8, !tbaa !27
-  store i64 %5, ptr %storage_.i.i6, align 8, !tbaa !27
-  store ptr null, ptr %rhs, align 8, !tbaa !27
-  store i32 0, ptr %temp, align 8, !tbaa !12
-  invoke void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE14variant_assignEOSC_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %temp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.then
-  %6 = load i32, ptr %temp, align 8
-  %.lobit.i.i.i = ashr i32 %6, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %6
-  br i1 %switch.i.i, label %sw.bb.i.i.i, label %sw.bb3.i.i.i
-
-sw.bb.i.i.i:                                      ; preds = %invoke.cont
-  %7 = load ptr, ptr %storage_.i.i6, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %7)
-          to label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
+7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  call void @__clang_call_terminate(ptr %9) #21
   unreachable
+}
 
-sw.bb3.i.i.i:                                     ; preds = %invoke.cont
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %10 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %11, 4294967297
-  %12 = trunc i64 %11 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !23
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  %vtable3.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !23
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i, i64 24
-  %14 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i7
-
-if.then.i.i.i.i.i.i.i.i.i7:                       ; preds = %if.end.i.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %12, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !tbaa !29
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
-  %16 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
-  br label %invoke.cont.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i7
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i.i.i7 ], [ %16, %if.else.i.i.i.i.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, !prof !30
-
-if.then7.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  br label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit
-
-_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit: ; preds = %if.then7.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i, %if.then.i.i.i.i.i.i, %sw.bb.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  br label %if.end
-
-lpad:                                             ; preds = %if.then
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %temp) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp) #14
-  resume { ptr, i32 } %17
-
-if.end:                                           ; preds = %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev.exit, %if.then.i.i.i.i.i.i.i.i.i, %sw.bb.i.i
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.val = load i32, ptr %this, align 8, !tbaa !12, !noalias !44
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
-  %this.val2 = load ptr, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %.lobit.i.i.i = ashr i32 %this.val, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %this.val
-  br i1 %switch.i.i, label %sw.bb.i.i.i, label %sw.bb3.i.i.i
-
-sw.bb.i.i.i:                                      ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %this.val2, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i.exit.i.i, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i.i.i
-  %call2.i.i.i.i.i.i.i = tail call i32 @SSL_SESSION_up_ref(ptr noundef nonnull %this.val2), !noalias !68
-  br label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i.exit.i.i
-
-_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %sw.bb.i.i.i
-  store ptr %this.val2, ptr %agg.result, align 8, !tbaa !27, !alias.scope !68
-  br label %_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit
-
-sw.bb3.i.i.i:                                     ; preds = %entry
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %this.val2, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i4.i.i, label %if.end.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i4.i.i:                           ; preds = %sw.bb3.i.i.i
-  store ptr null, ptr %agg.result, align 8, !tbaa !7, !alias.scope !69
-  br label %_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %sw.bb3.i.i.i
-  tail call void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this.val2)
-  br label %_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit
-
-_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE.exit: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i4.i.i, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i.exit.i.i
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #20
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #24
   ret void
 }
 
-declare i32 @SSL_SESSION_up_ref(ptr noundef) local_unnamed_addr #0
-
-declare void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %this, align 8, !noalias !80
-  %.lobit.i.i.i = ashr i32 %0, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %0
-  br i1 %switch.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %sw.bb3.i.i.i
-
-sw.bb3.i.i.i:                                     ; preds = %entry
-  %storage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call2.i.val.i.i = load ptr, ptr %storage_.i.i.i, align 8, !tbaa !34, !noalias !87
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
-  %call2.i.val3.i.i = load ptr, ptr %1, align 8, !tbaa !25, !noalias !87
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call2.i.val3.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb3.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.val3.i.i, i64 8
-  %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !88
-  %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %3 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !29, !noalias !88
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %3, 1
-  store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !29, !noalias !88
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !88
-  br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i, %entry
-  %ref.tmp.sroa.0.0 = phi ptr [ %call2.i.val.i.i, %sw.bb3.i.i.i ], [ %call2.i.val.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.val.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
-  %ref.tmp.sroa.6.0 = phi ptr [ null, %sw.bb3.i.i.i ], [ %call2.i.val3.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %call2.i.val3.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %entry ]
-  store ptr %ref.tmp.sroa.0.0, ptr %agg.result, align 8, !tbaa !39
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %ref.tmp.sroa.6.0, ptr %_M_refcount.i.i, align 8, !tbaa !25
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
+  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #20
+  call void @_ZNSt16allocator_traitsISaIvEE7destroyIN5folly3ssl6detail14OpenSSLSessionEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #20
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl17SSLSessionManager11attachToSSLEP6ssl_st(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ssl) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit, !prof !99
-
-init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit, label %init.i
-
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke i32 @CRYPTO_get_ex_new_index(i32 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %init.i
-  store i32 %call.i, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !29
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  br label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit
-
-lpad.i:                                           ; preds = %init.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  resume { ptr, i32 } %2
-
-_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit:      ; preds = %invoke.cont.i, %init.check.i, %entry
-  %3 = load i32, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !29
-  %call2 = tail call i32 @SSL_set_ex_data(ptr noundef %ssl, i32 noundef %3, ptr noundef nonnull %this)
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator.6", align 1
+  %4 = alloca %"struct.std::__allocated_ptr", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr_inplace", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
+  call void @_ZNSaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEC2IvEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #20
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEEC2ERS9_PS8_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %5) #20
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #20
+  call void @_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #20
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #20
   ret void
 }
 
-declare i32 @SSL_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !71
+  store ptr %1, ptr %5, align 8, !tbaa !96
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #20
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #20
+  store ptr %9, ptr %6, align 8, !tbaa !74
+  %10 = load ptr, ptr %5, align 8, !tbaa !96
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #20
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %16, label %13
 
-; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !96
+  %15 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @_ZTISt19_Sp_make_shared_tag) #20
+  br i1 %15, label %16, label %18
 
-declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+16:                                               ; preds = %13, %2
+  %17 = load ptr, ptr %6, align 8, !tbaa !74
+  store ptr %17, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
 
-; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #11
+18:                                               ; preds = %13
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %19
 
-; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
-
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly3ssl17SSLSessionManager10getFromSSLEPK6ssl_st(ptr noundef %ssl) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit, !prof !99
-
-init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit, label %init.i
-
-init.i:                                           ; preds = %init.check.i
-  %call.i = invoke i32 @CRYPTO_get_ex_new_index(i32 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %init.i
-  store i32 %call.i, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !29
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  br label %_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit
-
-lpad.i:                                           ; preds = %init.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #14
-  resume { ptr, i32 } %2
-
-_ZN12_GLOBAL__N_117getSSLExDataIndexEv.exit:      ; preds = %invoke.cont.i, %init.check.i, %entry
-  %3 = load i32, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !29
-  %call1 = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %3)
-  ret ptr %call1
+19:                                               ; preds = %18, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #20
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
-declare ptr @SSL_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %session) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit:
-  %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::unique_ptr", align 8
-  %visitor = alloca %"class.(anonymous namespace)::SessionForwarderVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %visitor) #14
-  %0 = load i64, ptr %session, align 8, !tbaa !27
-  store ptr null, ptr %session, align 8, !tbaa !27
-  store i64 %0, ptr %visitor, align 8, !tbaa !27
-  %this.val = load i32, ptr %this, align 8, !tbaa !12
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
-  %this.val5 = load ptr, ptr %1, align 8
-  %.lobit.i.i.i = ashr i32 %this.val, 31
-  %switch.i.i = icmp eq i32 %.lobit.i.i.i, %this.val
-  %2 = inttoptr i64 %0 to ptr
-  br i1 %switch.i.i, label %invoke.cont3, label %sw.bb3.i.i.i
-
-sw.bb3.i.i.i:                                     ; preds = %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i)
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %this.val5, null
-  br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb3.i.i.i
-  store i64 %0, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !tbaa !27
-  store ptr null, ptr %visitor, align 8, !tbaa !27
-  invoke void @_ZN5folly3ssl6detail14OpenSSLSession16setActiveSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %this.val5, ptr noundef nonnull %agg.tmp.i.i.i.i.i.i.i)
-          to label %invoke.cont.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
-  %3 = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !tbaa !27
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %3)
-          to label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #16
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  call void @llvm.trap() #21
   unreachable
+}
 
-lpad.i.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i.i.i.i.i) #14
-  call fastcc void @_ZN12_GLOBAL__N_123SessionForwarderVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %visitor) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %visitor) #14
-  resume { ptr, i32 } %6
+declare void @__cxa_pure_virtual() unnamed_addr
 
-_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i, %sw.bb3.i.i.i
-  %7 = phi ptr [ null, %if.then.i.i.i.i.i.i.i.i ], [ null, %invoke.cont.i.i.i.i.i.i.i ], [ %2, %sw.bb3.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i)
-  br label %invoke.cont3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %9, label %5
 
-invoke.cont3:                                     ; preds = %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit
-  %8 = phi ptr [ %7, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_123SessionForwarderVisitorERNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i ], [ %2, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit ]
-  %cmp.not.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_123SessionForwarderVisitorD2Ev.exit, label %if.then.i.i
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8, !tbaa !81
+  %7 = getelementptr inbounds ptr, ptr %6, i64 1
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  br label %9
 
-if.then.i.i:                                      ; preds = %invoke.cont3
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %8)
-          to label %_ZN12_GLOBAL__N_123SessionForwarderVisitorD2Ev.exit unwind label %terminate.lpad.i.i
+9:                                                ; preds = %5, %1
+  ret void
+}
 
-terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #16
-  unreachable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #12
 
-_ZN12_GLOBAL__N_123SessionForwarderVisitorD2Ev.exit: ; preds = %if.then.i.i, %invoke.cont3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %visitor) #14
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123SessionForwarderVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %0)
-          to label %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
-  unreachable
-
-_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit: ; preds = %if.then.i, %entry
-  store ptr null, ptr %this, align 8, !tbaa !27
+define linkonce_odr void @_ZSt10_ConstructIN5folly3ssl6detail14OpenSSLSessionEJEEvPT_DpOT0_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 24, i1 false)
+  call void @_ZN5folly3ssl6detail14OpenSSLSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   ret void
 }
 
-declare void @_ZN5folly3ssl6detail14OpenSSLSession16setActiveSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5folly3ssl10SSLSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !81
+  %4 = getelementptr inbounds nuw %"class.folly::ssl::detail::OpenSSLSession", ptr %3, i32 0, i32 1
+  call void @_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #20
+  ret void
+}
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl10SSLSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl10SSLSessionE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !81
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %3, i32 0, i32 0
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  %5 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %3, i32 0, i32 1
+  call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !81
+  %4 = getelementptr inbounds nuw %"class.folly::ssl::detail::OpenSSLSession", ptr %3, i32 0, i32 1
+  call void @_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #20
+  call void @_ZN5folly3ssl10SSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl10SSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly3ssl10SSLSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5folly3ssl10SSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #13
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl", ptr %3, i32 0, i32 0
+  call void @_ZNSt6atomicIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6atomicIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !108
+  call void @_ZNSt13__atomic_baseIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !109
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !108
+  store i32 %7, ptr %6, align 4, !tbaa !111
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %3, i32 0, i32 1
+  call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #20
+  %5 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %3, i32 0, i32 0
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #20
+  %5 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl", ptr %4, i32 0, i32 0
+  %6 = call noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #20
+  store i32 %6, ptr %3, align 4, !tbaa !108
+  %7 = load i32, ptr %3, align 4, !tbaa !108
+  %8 = and i32 %7, -2048
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i64
+  %11 = call i64 @llvm.expect.i64(i64 %10, i64 0)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %1
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14, %1
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15annotateDestroyEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #20
+  ret void
+
+17:                                               ; preds = %15, %13
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #20
+  %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  store ptr %6, ptr %3, align 8, !tbaa !113
+  %7 = load ptr, ptr %3, align 8, !tbaa !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !115
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  %12 = load ptr, ptr %3, align 8, !tbaa !113
+  %13 = load ptr, ptr %12, align 8, !tbaa !115
+  invoke void @_ZNK5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !113
+  store ptr null, ptr %16, align 8, !tbaa !115
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #20
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #21
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !109
+  store i32 %1, ptr %4, align 4, !tbaa !116
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #20
+  %8 = load i32, ptr %4, align 4, !tbaa !116
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !116
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !116
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
+  ]
+
+19:                                               ; preds = %16
+  %20 = load atomic i32, ptr %17 monotonic, align 4
+  store i32 %20, ptr %6, align 4
+  br label %25
+
+21:                                               ; preds = %16, %16
+  %22 = load atomic i32, ptr %17 acquire, align 4
+  store i32 %22, ptr %6, align 4
+  br label %25
+
+23:                                               ; preds = %16
+  %24 = load atomic i32, ptr %17 seq_cst, align 4
+  store i32 %24, ptr %6, align 4
+  br label %25
+
+25:                                               ; preds = %23, %21, %19
+  %26 = load i32, ptr %6, align 4, !tbaa !108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #20
+  ret i32 %26
+
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %4, align 8, !tbaa !118
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #20
+  %11 = call noundef i32 @_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv()
+  store i32 %11, ptr %5, align 4, !tbaa !108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #20
+  store i32 0, ptr %6, align 4, !tbaa !108
+  br label %12
+
+12:                                               ; preds = %40, %2
+  %13 = load i32, ptr %6, align 4, !tbaa !108
+  %14 = load i32, ptr %5, align 4, !tbaa !108
+  %15 = icmp ult i32 %13, %14
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %12
+  store i32 2, ptr %7, align 4
+  br label %43
+
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #20
+  %18 = load i32, ptr %6, align 4, !tbaa !108
+  %19 = call noundef ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14deferredReaderEj(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef %18)
+  store ptr %19, ptr %8, align 8, !tbaa !120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #20
+  %20 = load ptr, ptr %8, align 8, !tbaa !120
+  %21 = call noundef i64 @_ZNKSt13__atomic_baseImE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 0) #20
+  store i64 %21, ptr %9, align 8, !tbaa !18
+  %22 = load i64, ptr %9, align 8, !tbaa !18
+  %23 = call noundef i64 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18tokenlessSlotValueEv(ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %24 = icmp eq i64 %22, %23
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %8, align 8, !tbaa !120
+  call void @_ZNSt13__atomic_baseImE5storeEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0, i32 noundef 0) #20
+  %27 = load ptr, ptr %4, align 8, !tbaa !118
+  %28 = load i32, ptr %27, align 4, !tbaa !108
+  %29 = add i32 %28, 2048
+  store i32 %29, ptr %27, align 4, !tbaa !108
+  %30 = load ptr, ptr %4, align 8, !tbaa !118
+  %31 = load i32, ptr %30, align 4, !tbaa !108
+  %32 = and i32 %31, -2048
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %25
+  store i32 2, ptr %7, align 4
+  br label %37
+
+35:                                               ; preds = %25
+  br label %36
+
+36:                                               ; preds = %35, %17
+  store i32 0, ptr %7, align 4
+  br label %37
+
+37:                                               ; preds = %36, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #20
+  %38 = load i32, ptr %7, align 4
+  switch i32 %38, label %43 [
+    i32 0, label %39
+  ]
+
+39:                                               ; preds = %37
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i32, ptr %6, align 4, !tbaa !108
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %6, align 4, !tbaa !108
+  br label %12, !llvm.loop !122
+
+43:                                               ; preds = %37, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #20
+  br label %44
+
+44:                                               ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15annotateDestroyEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #2 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !116
+  store i32 %1, ptr %4, align 4, !tbaa !124
+  %5 = load i32, ptr %3, align 4, !tbaa !116
+  %6 = load i32, ptr %4, align 4, !tbaa !124
+  %7 = and i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv() #15 comdat {
+  %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #20
+  %2 = call noundef i32 @_ZNK5folly6detail19relaxed_atomic_baseIjEcvjEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #20
+  store i32 %2, ptr %1, align 4, !tbaa !108
+  %3 = load i32, ptr %1, align 4, !tbaa !108
+  %4 = icmp ne i32 %3, 0
+  %5 = xor i1 %4, true
+  %6 = xor i1 %5, true
+  %7 = zext i1 %6 to i64
+  %8 = call i64 @llvm.expect.i64(i64 %7, i64 1)
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %0
+  %11 = load i32, ptr %1, align 4, !tbaa !108
+  br label %14
+
+12:                                               ; preds = %0
+  %13 = call noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache) #25
+  br label %14
+
+14:                                               ; preds = %12, %10
+  %15 = phi i32 [ %11, %10 ], [ %13, %12 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #20
+  ret i32 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14deferredReaderEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load i32, ptr %4, align 4, !tbaa !108
+  %6 = mul i32 %5, 4
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.8"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %7
+  ret ptr %8
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt13__atomic_baseImE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #14 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store i32 %1, ptr %4, align 4, !tbaa !116
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #20
+  %8 = load i32, ptr %4, align 4, !tbaa !116
+  %9 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+  store i32 %9, ptr %5, align 4, !tbaa !116
+  br label %10
+
+10:                                               ; preds = %2
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds nuw %"struct.std::__atomic_base.9", ptr %7, i32 0, i32 0
+  %17 = load i32, ptr %4, align 4, !tbaa !116
+  switch i32 %17, label %18 [
+    i32 1, label %20
+    i32 2, label %20
+    i32 5, label %22
+  ]
+
+18:                                               ; preds = %15
+  %19 = load atomic i64, ptr %16 monotonic, align 8
+  store i64 %19, ptr %6, align 8
+  br label %24
+
+20:                                               ; preds = %15, %15
+  %21 = load atomic i64, ptr %16 acquire, align 8
+  store i64 %21, ptr %6, align 8
+  br label %24
+
+22:                                               ; preds = %15
+  %23 = load atomic i64, ptr %16 seq_cst, align 8
+  store i64 %23, ptr %6, align 8
+  br label %24
+
+24:                                               ; preds = %22, %20, %18
+  %25 = load i64, ptr %6, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #20
+  ret i64 %25
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef i64 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18tokenlessSlotValueEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17tokenfulSlotValueEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %5 = or i64 %4, 1
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseImE5storeEmSt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) #14 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !126
+  store i64 %1, ptr %5, align 8, !tbaa !18
+  store i32 %2, ptr %6, align 4, !tbaa !116
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #20
+  %10 = load i32, ptr %6, align 4, !tbaa !116
+  %11 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+  store i32 %11, ptr %7, align 4, !tbaa !116
+  br label %12
+
+12:                                               ; preds = %3
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw %"struct.std::__atomic_base.9", ptr %9, i32 0, i32 0
+  %22 = load i32, ptr %6, align 4, !tbaa !116
+  %23 = load i64, ptr %5, align 8, !tbaa !18
+  store i64 %23, ptr %8, align 8, !tbaa !18
+  switch i32 %22, label %24 [
+    i32 3, label %26
+    i32 5, label %28
+  ]
+
+24:                                               ; preds = %20
+  %25 = load i64, ptr %8, align 8
+  store atomic i64 %25, ptr %21 monotonic, align 8
+  br label %30
+
+26:                                               ; preds = %20
+  %27 = load i64, ptr %8, align 8
+  store atomic i64 %27, ptr %21 release, align 8
+  br label %30
+
+28:                                               ; preds = %20
+  %29 = load i64, ptr %8, align 8
+  store atomic i64 %29, ptr %21 seq_cst, align 8
+  br label %30
+
+30:                                               ; preds = %28, %26, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK5folly6detail19relaxed_atomic_baseIjEcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !128
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK5folly6detail19relaxed_atomic_baseIjE4loadEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #20
+  ret i32 %4
+}
+
+; Function Attrs: cold
+declare noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4)) #16
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK5folly6detail19relaxed_atomic_baseIjE4loadEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !128
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNKSt13__atomic_baseIjE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0) #20
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17tokenfulSlotValueEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !130
+  store ptr %1, ptr %4, align 8, !tbaa !115
+  %5 = load ptr, ptr %4, align 8, !tbaa !115
+  call void @SSL_SESSION_free(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERT0_RSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.5", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEJEERT0_RSt11_Tuple_implIXT_EJS4_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EE7_M_headERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIvEE7destroyIN5folly3ssl6detail14OpenSSLSessionEEEvRS0_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  invoke void @_ZSt8_DestroyIN5folly3ssl6detail14OpenSSLSessionEEvPT_(ptr noundef %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %2
+  ret void
+
+7:                                                ; preds = %2
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
+  ret ptr %4
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #21
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIN5folly3ssl6detail14OpenSSLSessionEEvPT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !81
+  %5 = getelementptr inbounds ptr, ptr %4, i64 0
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EE6_S_getERS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt19_Sp_make_shared_tag5_S_tiEv() #2 comdat align 2 {
+  ret ptr @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #7 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !96
+  store ptr %1, ptr %5, align 8, !tbaa !96
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !132
+  %9 = load ptr, ptr %5, align 8, !tbaa !96
+  %10 = getelementptr inbounds nuw %"class.std::type_info", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !132
+  %12 = icmp eq ptr %8, %11
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %30
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !132
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !135
+  %19 = sext i8 %18 to i32
+  %20 = icmp ne i32 %19, 42
+  br i1 %20, label %21, label %28
+
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !132
+  %24 = load ptr, ptr %5, align 8, !tbaa !96
+  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #20
+  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #20
+  %27 = icmp eq i32 %26, 0
+  br label %28
+
+28:                                               ; preds = %21, %14
+  %29 = phi i1 [ false, %14 ], [ %27, %21 ]
+  store i1 %29, ptr %3, align 1
+  br label %30
+
+30:                                               ; preds = %28, %13
+  %31 = load i1, ptr %3, align 1
+  ret i1 %31
+}
+
+; Function Attrs: nounwind
+declare i32 @strcmp(ptr noundef, ptr noundef) #17
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !132
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1, !tbaa !135
+  %8 = sext i8 %7 to i32
+  %9 = icmp eq i32 %8, 42
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !132
+  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  br label %17
+
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !132
+  br label %17
+
+17:                                               ; preds = %14, %10
+  %18 = phi ptr [ %13, %10 ], [ %16, %14 ]
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE10deallocateERS9_PS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !75
+  store ptr %1, ptr %5, align 8, !tbaa !71
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !75
+  %8 = load ptr, ptr %5, align 8, !tbaa !71
+  %9 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS8_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE10deallocateEPS8_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !86
+  store ptr %1, ptr %5, align 8, !tbaa !71
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %5, align 8, !tbaa !71
+  %8 = load i64, ptr %6, align 8, !tbaa !18
+  %9 = mul i64 %8, 40
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 8, !tbaa !34
+  %6 = zext i8 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  %5 = icmp ne i64 %4, 1
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !12
+  %8 = call noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #20
+  call void @_ZSt26__throw_bad_variant_accessb(i1 noundef zeroext %8)
+  br label %9
+
+9:                                                ; preds = %6, %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !12
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %10) #20
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %5)
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt26__throw_bad_variant_accessb(i1 noundef zeroext %0) #4 comdat {
+  %2 = alloca i8, align 1
+  %3 = zext i1 %0 to i8
+  store i8 %3, ptr %2, align 1, !tbaa !138
+  %4 = load i8, ptr %2, align 1, !tbaa !138, !range !140, !noundef !141
+  %5 = trunc i8 %4 to i1
+  %6 = call i1 @llvm.expect.i1(i1 %5, i1 false)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  call void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef @.str)
+  br label %9
+
+8:                                                ; preds = %1
+  call void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef @.str.1)
+  br label %9
+
+9:                                                ; preds = %8, %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_validEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #9
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
+  %3 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %4 = load ptr, ptr %2, align 8, !tbaa !142
+  call void @_ZNSt18bad_variant_accessC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4) #20
+  call void @__cxa_throw(ptr %3, ptr @_ZTISt18bad_variant_access, ptr @_ZNSt9exceptionD2Ev) #22
+  unreachable
+}
+
+declare ptr @__cxa_allocate_exception(i64)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt18bad_variant_accessC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !142
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !81
+  %6 = getelementptr inbounds nuw %"class.std::bad_variant_access", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !142
+  store ptr %7, ptr %6, align 8, !tbaa !145
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
+
+declare void @__cxa_throw(ptr, ptr, ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !148
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !81
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::bad_variant_access", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !145
+  ret ptr %5
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
+
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt9exception4whatEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #17
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_validEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !150
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Uninitialized.1", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf.2", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__shared_ptr", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #20
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
+  store ptr %9, ptr %6, align 8, !tbaa !60
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #20
+  %14 = load ptr, ptr %4, align 8, !tbaa !20
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !60
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  call void @_ZSt4swapIPN5folly3ssl6detail14OpenSSLSessionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  %9 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %10, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !73
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %5, align 8, !tbaa !89
+  %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !73
+  %12 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %12, i32 0, i32 0
+  store ptr %11, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %5, align 8, !tbaa !89
+  %15 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN5folly3ssl6detail14OpenSSLSessionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %6 = load ptr, ptr %3, align 8, !tbaa !67
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  store ptr %7, ptr %5, align 8, !tbaa !74
+  %8 = load ptr, ptr %4, align 8, !tbaa !67
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = load ptr, ptr %3, align 8, !tbaa !67
+  store ptr %9, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %5, align 8, !tbaa !74
+  %12 = load ptr, ptr %4, align 8, !tbaa !67
+  store ptr %11, ptr %12, align 8, !tbaa !74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
+  br label %10
+
+10:                                               ; preds = %7, %1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #20
+  store i8 1, ptr %3, align 1, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #20
+  store i8 1, ptr %4, align 1, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #20
+  store i8 1, ptr %5, align 1, !tbaa !138
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #20
+  store i32 32, ptr %6, align 4, !tbaa !108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #20
+  store i32 32, ptr %7, align 4, !tbaa !108
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #20
+  store i64 4294967297, ptr %8, align 8, !tbaa !154
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #20
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !156
+  %14 = load ptr, ptr %9, align 8, !tbaa !156
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !154
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !90
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !93
+  %21 = load ptr, ptr %12, align 8, !tbaa !81
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+  %24 = load ptr, ptr %12, align 8, !tbaa !81
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+  store i32 1, ptr %11, align 4
+  br label %35
+
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
+
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+  store i32 1, ptr %11, align 4
+  br label %35
+
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
+
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #20
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
+
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
+
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #20
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
+
+40:                                               ; preds = %38, %38
+  ret void
+
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
+          catch ptr null
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #21
+  unreachable
+
+44:                                               ; preds = %38
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #15 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !118
+  store i32 %1, ptr %5, align 4, !tbaa !108
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #20
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !118
+  %9 = load i32, ptr %5, align 4, !tbaa !108
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !118
+  %13 = load i32, ptr %5, align 4, !tbaa !108
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #14 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !135
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #20
+  %6 = load ptr, ptr %3, align 8, !tbaa !118
+  %7 = load i32, ptr %6, align 4, !tbaa !108
+  store i32 %7, ptr %5, align 4, !tbaa !108
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  %9 = load ptr, ptr %3, align 8, !tbaa !118
+  %10 = load i32, ptr %9, align 4, !tbaa !108
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !108
+  %12 = load i32, ptr %5, align 4, !tbaa !108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #20
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %7 = load ptr, ptr %3, align 8, !tbaa !118
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  store i32 %8, ptr %5, align 4, !tbaa !108
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !108
+  ret i32 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !81
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !81
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  br label %15
+
+15:                                               ; preds = %11, %9
+  ret void
+
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #21
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8, !tbaa !22
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  store ptr %9, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %5, align 8, !tbaa !16
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJS5_EEvPT_DpOT0_(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %12, i32 0, i32 1
+  store i8 1, ptr %13, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %class.anon, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef zeroext i1 @_ZNKSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_validEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
+  %6 = call i1 @llvm.expect.i1(i1 %5, i1 true)
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %1
+  br label %11
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #20
+  %9 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZSt14__variant_castIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEERNSt8__detail9__variant16_Variant_storageILb0EJS5_SA_EEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %4)
+  call void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(17) %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #20
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %4, i32 0, i32 1
+  store i8 -1, ptr %10, align 8, !tbaa !34
+  br label %11
+
+11:                                               ; preds = %8, %7
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %class.anon.10, align 1
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  store i64 11, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #20
+  store i64 2, ptr %6, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #20
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  %11 = call noundef nonnull align 8 dereferenceable(17) ptr (ptr, ptr, ...) @_ZZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_ENKUlSK_zE_clESK_z(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(17) %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #20
+  store ptr %11, ptr %7, align 8, !tbaa !12
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %12) #20
+  switch i64 %13, label %30 [
+    i64 0, label %14
+    i64 1, label %17
+    i64 2, label %20
+    i64 3, label %21
+    i64 4, label %22
+    i64 5, label %23
+    i64 6, label %24
+    i64 7, label %25
+    i64 8, label %26
+    i64 9, label %27
+    i64 10, label %28
+    i64 -1, label %29
+  ]
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !88
+  %16 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  store i32 1, ptr %9, align 4
+  br label %31
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !88
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(17) %19)
+  store i32 1, ptr %9, align 4
+  br label %31
+
+20:                                               ; preds = %2
+  unreachable
+
+21:                                               ; preds = %2
+  unreachable
+
+22:                                               ; preds = %2
+  unreachable
+
+23:                                               ; preds = %2
+  unreachable
+
+24:                                               ; preds = %2
+  unreachable
+
+25:                                               ; preds = %2
+  unreachable
+
+26:                                               ; preds = %2
+  unreachable
+
+27:                                               ; preds = %2
+  unreachable
+
+28:                                               ; preds = %2
+  unreachable
+
+29:                                               ; preds = %2
+  unreachable
+
+30:                                               ; preds = %2
+  unreachable
+
+31:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZSt14__variant_castIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEERNSt8__detail9__variant16_Variant_storageILb0EJS5_SA_EEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  ret ptr %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_SD_EEEEDcOT0_DpOT1_ENKUlSK_zE_clESK_z(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ...) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  call void @_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_RSt7variantIJS9_SE_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  call void @_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EESF_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant7__get_nILm0ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRS8_EESF_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRS7_EEDaSF_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRS7_EEDaSF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZSt8_DestroyISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEEvPT_(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEEvPT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant7__get_nILm0ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Uninitialized", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt10__invoke_rIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EENSt9enable_ifIX16is_invocable_r_vISF_T0_DpT1_EESF_E4typeEOSK_DpOSL_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EESF_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt13__invoke_implIvZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvEUlOT_E_JRSD_EESF_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !88
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRSC_EEDaSF_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEvENUlOT_E_clIRSC_EEDaSF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZSt8_DestroyISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEvPT_(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEvPT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly3ssl17SSLSessionManager10setSessionESt10shared_ptrINS0_10SSLSessionEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %"class.std::shared_ptr", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !160
+  %7 = load ptr, ptr %3, align 8
+  %8 = call noundef zeroext i1 @_ZSteqIN5folly3ssl10SSLSessionEEbRKSt10shared_ptrIT_EDn(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr null) #20
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #20
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr null) #20
+  %10 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %7, i32 0, i32 0
+  %11 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSISA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_(ptr noundef nonnull align 8 dereferenceable(17) %10, ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #20
+  br label %18
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #20
+  call void @_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1) #20
+  %13 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %7, i32 0, i32 0
+  %16 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIRSA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISJ_SG_E15is_assignable_vIRSJ_SG_EERSB_E4typeESH_(ptr noundef nonnull align 8 dereferenceable(17) %15, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  br label %17
+
+17:                                               ; preds = %14, %12
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #20
+  br label %18
+
+18:                                               ; preds = %17, %9
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIN5folly3ssl10SSLSessionEEbRKSt10shared_ptrIT_EDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !83
+  %5 = load ptr, ptr %3, align 8, !tbaa !160
+  %6 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %7 = xor i1 %6, true
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !83
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !160
+  %8 = call noundef ptr @_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %2
+  %11 = call ptr @__dynamic_cast(ptr %8, ptr @_ZTIN5folly3ssl10SSLSessionE, ptr @_ZTIN5folly3ssl6detail14OpenSSLSessionE, i64 0) #20
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %10
+  %14 = phi ptr [ %11, %10 ], [ null, %12 ]
+  store ptr %14, ptr %5, align 8, !tbaa !74
+  %15 = load ptr, ptr %5, align 8, !tbaa !74
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %4, align 8, !tbaa !160
+  %19 = load ptr, ptr %5, align 8, !tbaa !74
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2INS1_10SSLSessionEEERKS_IT_EPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %19) #20
+  store i32 1, ptr %6, align 4
+  br label %21
+
+20:                                               ; preds = %13
+  store i32 0, ptr %6, align 4
+  br label %21
+
+21:                                               ; preds = %20, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  %22 = load i32, ptr %6, align 4
+  switch i32 %22, label %25 [
+    i32 0, label %23
+    i32 1, label %24
+  ]
+
+23:                                               ; preds = %21
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  br label %24
+
+24:                                               ; preds = %23, %21
+  ret void
+
+25:                                               ; preds = %21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIRSA_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISJ_SG_E15is_assignable_vIRSJ_SG_EERSB_E4typeESH_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  store i64 1, ptr %5, align 8, !tbaa !18
+  %7 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !16
+  %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %6)
+          to label %12 unwind label %19
+
+12:                                               ; preds = %9
+  %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %10) #20
+  br label %18
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !16
+  %16 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJRSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSH_E4typeEDpOSI_(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %14
+  br label %18
+
+18:                                               ; preds = %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret ptr %6
+
+19:                                               ; preds = %14, %9
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !164
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !60
+  %5 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !164
+  ret ptr %5
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #19
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2INS1_10SSLSessionEEERKS_IT_EPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !160
+  store ptr %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !160
+  %9 = load ptr, ptr %6, align 8, !tbaa !74
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_10SSLSessionEEERKS_IT_LS5_2EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_10SSLSessionEEERKS_IT_LS5_2EEPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store ptr %1, ptr %5, align 8, !tbaa !162
+  store ptr %2, ptr %6, align 8, !tbaa !74
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8, !tbaa !74
+  store ptr %9, ptr %8, align 8, !tbaa !60
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8, !tbaa !162
+  %12 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %11, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %6, align 8, !tbaa !73
+  %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !73
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !73
+  invoke void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %16 unwind label %18
+
+16:                                               ; preds = %13
+  br label %17
+
+17:                                               ; preds = %16, %2
+  ret void
+
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  call void @_ZN9__gnu_cxx21__atomic_add_dispatchEPii(ptr noundef %4, i32 noundef 1)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx21__atomic_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #15 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #20
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %3, align 8, !tbaa !118
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  call void @_ZN9__gnu_cxx19__atomic_add_singleEPii(ptr noundef %7, i32 noundef %8)
+  br label %12
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !118
+  %11 = load i32, ptr %4, align 4, !tbaa !108
+  call void @_ZN9__gnu_cxx12__atomic_addEPVii(ptr noundef %10, i32 noundef %11)
+  br label %12
+
+12:                                               ; preds = %9, %6
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx19__atomic_add_singleEPii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load i32, ptr %4, align 4, !tbaa !108
+  %6 = load ptr, ptr %3, align 8, !tbaa !118
+  %7 = load i32, ptr %6, align 4, !tbaa !108
+  %8 = add nsw i32 %7, %5
+  store i32 %8, ptr %6, align 4, !tbaa !108
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx12__atomic_addEPVii(ptr noundef %0, i32 noundef %1) #14 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %7 = load ptr, ptr %3, align 8, !tbaa !118
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  store i32 %8, ptr %5, align 4, !tbaa !108
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm1EJRSA_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSH_E4typeEDpOSI_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJRSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt3getILm1EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %5)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !60
+  %9 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !60
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %11, i32 0, i32 1
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %5, align 8, !tbaa !89
+  %10 = load ptr, ptr %5, align 8, !tbaa !89
+  %11 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !73
+  %13 = icmp ne ptr %10, %12
+  br i1 %13, label %14, label %30
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !89
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %5, align 8, !tbaa !89
+  invoke void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %19 unwind label %31
+
+19:                                               ; preds = %17
+  br label %20
+
+20:                                               ; preds = %19, %14
+  %21 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !73
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #20
+  br label %27
+
+27:                                               ; preds = %24, %20
+  %28 = load ptr, ptr %5, align 8, !tbaa !89
+  %29 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
+  store ptr %28, ptr %29, align 8, !tbaa !73
+  br label %30
+
+30:                                               ; preds = %27, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret ptr %6
+
+31:                                               ; preds = %17
+  %32 = landingpad { ptr, i32 }
+          catch ptr null
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #21
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJRSC_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8, !tbaa !22
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  store ptr %9, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %5, align 8, !tbaa !16
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJRS5_EEvPT_DpOT0_(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %12, i32 0, i32 1
+  store i8 1, ptr %13, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEJRS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
+  store ptr %9, ptr %6, align 8, !tbaa !60
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !20
+  %12 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %11, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly3ssl17SSLSessionManager13setRawSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %5, i32 0, i32 0
+  %7 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIS5_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(8) %1) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEEaSIS5_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS5_SA_EE4typeEE18is_constructible_vISI_SF_E15is_assignable_vIRSI_SF_EERSB_E4typeESG_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  store i64 0, ptr %5, align 8, !tbaa !18
+  %7 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !40
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %6)
+          to label %12 unwind label %19
+
+12:                                               ; preds = %9
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  br label %18
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !40
+  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm0EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %14
+  br label %18
+
+18:                                               ; preds = %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret ptr %6
+
+19:                                               ; preds = %14, %9
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  %5 = icmp ne i64 %4, 0
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !12
+  %8 = call noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #20
+  call void @_ZSt26__throw_bad_variant_accessb(i1 noundef zeroext %8)
+  br label %9
+
+9:                                                ; preds = %6, %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !12
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %10) #20
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE7emplaceILm0EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_SA_EE4typeEDpT0_EERSG_E4typeEDpOSH_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZNSt8__detail9__variant9__emplaceILm0ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSF_(ptr noundef nonnull align 8 dereferenceable(17) %5)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !44
+  %7 = call noundef ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7) #20
+  %8 = load ptr, ptr %4, align 8, !tbaa !44
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !115
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  %8 = load ptr, ptr %7, align 8, !tbaa !115
+  store ptr %8, ptr %5, align 8, !tbaa !115
+  %9 = load ptr, ptr %4, align 8, !tbaa !115
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  store ptr %9, ptr %10, align 8, !tbaa !115
+  %11 = load ptr, ptr %5, align 8, !tbaa !115
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %2
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  %15 = load ptr, ptr %5, align 8, !tbaa !115
+  invoke void @_ZNK5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef %15)
+          to label %16 unwind label %18
+
+16:                                               ; preds = %13
+  br label %17
+
+17:                                               ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #20
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  %6 = load ptr, ptr %5, align 8, !tbaa !115
+  store ptr %6, ptr %3, align 8, !tbaa !115
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  store ptr null, ptr %7, align 8, !tbaa !115
+  %8 = load ptr, ptr %3, align 8, !tbaa !115
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #20
+  ret ptr %8
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail9__variant9__emplaceILm0ELb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEJS7_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8, !tbaa !22
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  %7 = load ptr, ptr %3, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %7, i32 0, i32 0
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant7__get_nILm0ERNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  store ptr %9, ptr %5, align 8, !tbaa !40
+  %10 = load ptr, ptr %5, align 8, !tbaa !40
+  %11 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZSt10_ConstructISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEJS5_EEvPT_DpOT0_(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %12, i32 0, i32 1
+  store i8 0, ptr %13, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEEJS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !40
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  %8 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i32 0, i32 0
+  call void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !42
+  call void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !44
+  %8 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %7, i32 0, i32 0
+  call void @_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  %9 = load ptr, ptr %4, align 8, !tbaa !44
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
+  store ptr null, ptr %10, align 8, !tbaa !115
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store ptr %1, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !48
+  call void @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !166
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEEC2EOS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK5folly3ssl17SSLSessionManager13getRawSessionEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.anon.15, align 1
+  %6 = alloca %class.anon.17, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #20
+  call void @"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager13getRawSessionEvE3$_1ZNKSF_13getRawSessionEvE3$_0EEEDcOT_DpOT0_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.folly::overload_detail::visit", align 1
+  %10 = alloca %"struct.folly::detail::Overload", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !88
+  store ptr %3, ptr %8, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #20
+  %11 = load ptr, ptr %7, align 8, !tbaa !88
+  %12 = load ptr, ptr %8, align 8, !tbaa !88
+  call void @"_ZN5folly8overloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS2_13getRawSessionEvE3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %13 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS7_13getRawSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSO_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(17) %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #20
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define internal void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS7_13getRawSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSO_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) #15 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !167
+  store ptr %2, ptr %7, align 8, !tbaa !169
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %7, align 8, !tbaa !169
+  %10 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @"_ZSt5visitIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(17) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly8overloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS2_13getRawSessionEvE3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 {
+  %3 = alloca %"struct.folly::detail::Overload", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !88
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  call void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS3_13getRawSessionEvE3$_0EEC2ES4_S5_"(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt5visitIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERKSt7variantIJDpT_EESI_(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  %10 = call noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %9) #20
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %3
+  call void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef @.str.2)
+  br label %12
+
+12:                                               ; preds = %11, %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #20
+  store i8 1, ptr %7, align 1, !tbaa !138
+  %13 = load ptr, ptr %5, align 8, !tbaa !169
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEEENS5_6detail8OverloadIJZNKS5_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSD_13getRawSessionEvE3$_0EEEJRKSt7variantIJS8_St10shared_ptrINSC_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(17) %14)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERKSt7variantIJDpT_EESI_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEEENS5_6detail8OverloadIJZNKS5_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSD_13getRawSessionEvE3$_0EEEJRKSt7variantIJS8_St10shared_ptrINSC_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %class.anon.20, align 1
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #20
+  store i64 11, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #20
+  store i64 2, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #20
+  %12 = load ptr, ptr %6, align 8, !tbaa !12
+  %13 = call noundef nonnull align 8 dereferenceable(17) ptr (ptr, ptr, ...) @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEEENS5_6detail8OverloadIJZNKS5_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSD_13getRawSessionEvE3$_0EEEJRKSt7variantIJS8_St10shared_ptrINSC_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_ENKUlSO_zE_clESO_z"(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(17) %12)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #20
+  store ptr %13, ptr %9, align 8, !tbaa !12
+  %14 = load ptr, ptr %9, align 8, !tbaa !12
+  %15 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %14) #20
+  switch i64 %15, label %32 [
+    i64 0, label %16
+    i64 1, label %19
+    i64 2, label %22
+    i64 3, label %23
+    i64 4, label %24
+    i64 5, label %25
+    i64 6, label %26
+    i64 7, label %27
+    i64 8, label %28
+    i64 9, label %29
+    i64 10, label %30
+    i64 -1, label %31
+  ]
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !169
+  %18 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(17) %18)
+  store i32 1, ptr %11, align 4
+  br label %33
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !169
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SQ_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(17) %21)
+  store i32 1, ptr %11, align 4
+  br label %33
+
+22:                                               ; preds = %3
+  unreachable
+
+23:                                               ; preds = %3
+  unreachable
+
+24:                                               ; preds = %3
+  unreachable
+
+25:                                               ; preds = %3
+  unreachable
+
+26:                                               ; preds = %3
+  unreachable
+
+27:                                               ; preds = %3
+  unreachable
+
+28:                                               ; preds = %3
+  unreachable
+
+29:                                               ; preds = %3
+  unreachable
+
+30:                                               ; preds = %3
+  unreachable
+
+31:                                               ; preds = %3
+  unreachable
+
+32:                                               ; preds = %3
+  unreachable
+
+33:                                               ; preds = %19, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(17) ptr @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEEENS5_6detail8OverloadIJZNKS5_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSD_13getRawSessionEvE3$_0EEEJRKSt7variantIJS8_St10shared_ptrINSC_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_ENKUlSO_zE_clESO_z"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ...) #7 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SQ_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SQ_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @"_ZSt13__invoke_implISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEENS2_6detail8OverloadIJZNKS2_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS9_13getRawSessionEvE3$_0EEEJRKS5_EET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEENS2_6detail8OverloadIJZNKS2_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS9_13getRawSessionEvE3$_0EEEJRKS5_EET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @"_ZZNK5folly3ssl17SSLSessionManager13getRawSessionEvENK3$_1clERKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZNK5folly3ssl17SSLSessionManager13getRawSessionEvENK3$_1clERKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #20
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  %9 = call noundef ptr @_ZNKSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  store ptr %9, ptr %7, align 8, !tbaa !115
+  %10 = load ptr, ptr %7, align 8, !tbaa !115
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %7, align 8, !tbaa !115
+  %14 = call i32 @SSL_SESSION_up_ref(ptr noundef %13)
+  br label %15
+
+15:                                               ; preds = %12, %3
+  %16 = load ptr, ptr %7, align 8, !tbaa !115
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %16) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+declare i32 @SSL_SESSION_up_ref(ptr noundef) #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !115
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  invoke void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S3_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %2
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          catch ptr null
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #21
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  %6 = load ptr, ptr %5, align 8, !tbaa !115
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP14ssl_session_stJN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEERKT0_RKSt11_Tuple_implIXT_EJS5_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP14ssl_session_stLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.5", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EECI2St15__uniq_ptr_implIS0_S3_EEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !115
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !115
+  call void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !115
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES1_S4_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  %7 = load ptr, ptr %4, align 8, !tbaa !115
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  store ptr %7, ptr %8, align 8, !tbaa !115
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant7__get_nILm0ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant7__get_nILm0ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKRSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Uninitialized", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS4_13getRawSessionEvE3$_0EEEJRKSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEENS2_6detail8OverloadIJZNKS2_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS9_13getRawSessionEvE3$_0EEEJRKSt10shared_ptrINS8_6detail14OpenSSLSessionEEEET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEEEONS6_6detail8OverloadIJZNKS6_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKSE_13getRawSessionEvE3$_0EEERKSt7variantIJS9_St10shared_ptrINSD_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEENS2_6detail8OverloadIJZNKS2_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS9_13getRawSessionEvE3$_0EEEJRKSt10shared_ptrINS8_6detail14OpenSSLSessionEEEET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !169
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %5, align 8, !tbaa !169
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZZNK5folly3ssl17SSLSessionManager13getRawSessionEvENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZNK5folly3ssl17SSLSessionManager13getRawSessionEvENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %8 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %3
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  br label %13
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
+  call void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  br label %13
+
+13:                                               ; preds = %10, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
+  ret ptr %4
+}
+
+declare void @_ZN5folly3ssl6detail14OpenSSLSession16getActiveSessionEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Variant_storage", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant7__get_nILm1ERKNS0_15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKRSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EE6_M_getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !150
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Uninitialized.1", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf.2", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1ZNKS3_13getRawSessionEvE3$_0EEC2ES4_S5_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !169
+  %3 = load ptr, ptr %2, align 8
+  call void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_0EEC2ES4_"(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_0EEC2ES4_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %class.anon.22, align 1
+  %7 = alloca %class.anon.24, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #20
+  %9 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #20
+  call void @"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager10getSessionEvE3$_1ZNKSF_10getSessionEvE3$_0EEEDcOT_DpOT0_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZNSt10shared_ptrIN5folly3ssl10SSLSessionEEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly13variant_matchIRKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNKS8_17SSLSessionManager10getSessionEvE3$_1ZNKSF_10getSessionEvE3$_0EEEDcOT_DpOT0_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.folly::overload_detail::visit", align 1
+  %10 = alloca %"struct.folly::detail::Overload.26", align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !88
+  store ptr %3, ptr %8, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #20
+  %11 = load ptr, ptr %7, align 8, !tbaa !88
+  %12 = load ptr, ptr %8, align 8, !tbaa !88
+  call void @"_ZN5folly8overloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS2_10getSessionEvE3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %13 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS7_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSO_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(17) %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN5folly3ssl10SSLSessionEEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !160
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define internal void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS7_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSO_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) #15 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !167
+  store ptr %2, ptr %7, align 8, !tbaa !175
+  store ptr %3, ptr %8, align 8, !tbaa !12
+  %9 = load ptr, ptr %7, align 8, !tbaa !175
+  %10 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @"_ZSt5visitIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(17) %10)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly8overloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS2_10getSessionEvE3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 {
+  %3 = alloca %"struct.folly::detail::Overload.26", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !88
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  call void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS3_10getSessionEvE3$_0EEC2ES4_S5_"(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt5visitIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERKSt7variantIJDpT_EESI_(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  %10 = call noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %9) #20
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %3
+  call void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef @.str.2)
+  br label %12
+
+12:                                               ; preds = %11, %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #20
+  store i8 1, ptr %7, align 1, !tbaa !138
+  %13 = load ptr, ptr %5, align 8, !tbaa !175
+  %14 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEENS4_6detail8OverloadIJZNKS5_17SSLSessionManager10getSessionEvE3$_1ZNKSC_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISI_XadL_Z16SSL_SESSION_freeEEEEES8_EEEEDcOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(17) %14)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEENS4_6detail8OverloadIJZNKS5_17SSLSessionManager10getSessionEvE3$_1ZNKSC_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISI_XadL_Z16SSL_SESSION_freeEEEEES8_EEEEDcOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %class.anon.28, align 1
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #20
+  store i64 11, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #20
+  store i64 2, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #20
+  %12 = load ptr, ptr %6, align 8, !tbaa !12
+  %13 = call noundef nonnull align 8 dereferenceable(17) ptr (ptr, ptr, ...) @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEENS4_6detail8OverloadIJZNKS5_17SSLSessionManager10getSessionEvE3$_1ZNKSC_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISI_XadL_Z16SSL_SESSION_freeEEEEES8_EEEEDcOT0_DpOT1_ENKUlSO_zE_clESO_z"(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(17) %12)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #20
+  store ptr %13, ptr %9, align 8, !tbaa !12
+  %14 = load ptr, ptr %9, align 8, !tbaa !12
+  %15 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %14) #20
+  switch i64 %15, label %32 [
+    i64 0, label %16
+    i64 1, label %19
+    i64 2, label %22
+    i64 3, label %23
+    i64 4, label %24
+    i64 5, label %25
+    i64 6, label %26
+    i64 7, label %27
+    i64 8, label %28
+    i64 9, label %29
+    i64 10, label %30
+    i64 -1, label %31
+  ]
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !175
+  %18 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SQ_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(17) %18)
+  store i32 1, ptr %11, align 4
+  br label %33
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !175
+  %21 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SQ_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(17) %21)
+  store i32 1, ptr %11, align 4
+  br label %33
+
+22:                                               ; preds = %3
+  unreachable
+
+23:                                               ; preds = %3
+  unreachable
+
+24:                                               ; preds = %3
+  unreachable
+
+25:                                               ; preds = %3
+  unreachable
+
+26:                                               ; preds = %3
+  unreachable
+
+27:                                               ; preds = %3
+  unreachable
+
+28:                                               ; preds = %3
+  unreachable
+
+29:                                               ; preds = %3
+  unreachable
+
+30:                                               ; preds = %3
+  unreachable
+
+31:                                               ; preds = %3
+  unreachable
+
+32:                                               ; preds = %3
+  unreachable
+
+33:                                               ; preds = %19, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(17) ptr @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEENS4_6detail8OverloadIJZNKS5_17SSLSessionManager10getSessionEvE3$_1ZNKSC_10getSessionEvE3$_0EEEJRKSt7variantIJSt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISI_XadL_Z16SSL_SESSION_freeEEEEES8_EEEEDcOT0_DpOT1_ENKUlSO_zE_clESO_z"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ...) #7 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SQ_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SQ_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %8) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @"_ZSt13__invoke_implISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEENS1_6detail8OverloadIJZNKS2_17SSLSessionManager10getSessionEvE3$_1ZNKS8_10getSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS1_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEEEET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEENS1_6detail8OverloadIJZNKS2_17SSLSessionManager10getSessionEvE3$_1ZNKS8_10getSessionEvE3$_0EEEJRKSt10unique_ptrI14ssl_session_stNS1_23static_function_deleterISD_XadL_Z16SSL_SESSION_freeEEEEEEET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !40
+  call void @"_ZZNK5folly3ssl17SSLSessionManager10getSessionEvENK3$_1clERKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK5folly3ssl17SSLSessionManager10getSessionEvENK3$_1clERKSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #7 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !40
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr null) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNKS0_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS4_10getSessionEvE3$_0EEEJRKSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEENS1_6detail8OverloadIJZNKS2_17SSLSessionManager10getSessionEvE3$_1ZNKS8_10getSessionEvE3$_0EEEJRKS5_EET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEEONS5_6detail8OverloadIJZNKS6_17SSLSessionManager10getSessionEvE3$_1ZNKSD_10getSessionEvE3$_0EEERKSt7variantIJSt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISK_XadL_Z16SSL_SESSION_freeEEEEES9_EEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESQ_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEENS1_6detail8OverloadIJZNKS2_17SSLSessionManager10getSessionEvE3$_1ZNKS8_10getSessionEvE3$_0EEEJRKS5_EET_St14__invoke_otherOT0_DpOT1_"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !175
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %5, align 8, !tbaa !175
+  %8 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @"_ZZNK5folly3ssl17SSLSessionManager10getSessionEvENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK5folly3ssl17SSLSessionManager10getSessionEvENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #7 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  call void @_ZNSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1ZNKS3_10getSessionEvE3$_0EEC2ES4_S5_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
+  %3 = load ptr, ptr %2, align 8
+  call void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_0EEC2ES4_"(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_0EEC2ES4_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EEC2INS1_6detail14OpenSSLSessionEvEEOS_IT_LS4_2EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !162
+  store ptr %1, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
+  store ptr %9, ptr %6, align 8, !tbaa !164
+  %10 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %5, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  %11 = getelementptr inbounds nuw %"class.std::__shared_ptr.13", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %12, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13) #20
+  %14 = load ptr, ptr %4, align 8, !tbaa !20
+  %15 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8, !tbaa !60
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly3ssl17SSLSessionManager11attachToSSLEP6ssl_st(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !179
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !179
+  %7 = call noundef i32 @_ZN12_GLOBAL__N_117getSSLExDataIndexEv()
+  %8 = call i32 @SSL_set_ex_data(ptr noundef %6, i32 noundef %7, ptr noundef %5)
+  ret void
+}
+
+declare i32 @SSL_set_ex_data(ptr noundef, i32 noundef, ptr noundef) #0
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN12_GLOBAL__N_117getSSLExDataIndexEv() #1 personality ptr @__gxx_personality_v0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca i32, align 4
+  %3 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index acquire, align 8
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %11, !prof !181
+
+5:                                                ; preds = %0
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #20
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %5
+  %9 = invoke i32 @CRYPTO_get_ex_new_index(i32 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %10 unwind label %13
+
+10:                                               ; preds = %8
+  store i32 %9, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !108
+  call void @__cxa_guard_release(ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #20
+  br label %11
+
+11:                                               ; preds = %10, %5, %0
+  %12 = load i32, ptr @_ZZN12_GLOBAL__N_117getSSLExDataIndexEvE5index, align 4, !tbaa !108
+  ret i32 %12
+
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %1, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %2, align 4
+  call void @__cxa_guard_abort(ptr @_ZGVZN12_GLOBAL__N_117getSSLExDataIndexEvE5index) #20
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: nounwind
+declare i32 @__cxa_guard_acquire(ptr) #20
+
+declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #0
+
+; Function Attrs: nounwind
+declare void @__cxa_guard_abort(ptr) #20
+
+; Function Attrs: nounwind
+declare void @__cxa_guard_release(ptr) #20
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZN5folly3ssl17SSLSessionManager10getFromSSLEPK6ssl_st(ptr noundef %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
+  %3 = load ptr, ptr %2, align 8, !tbaa !179
+  %4 = call noundef i32 @_ZN12_GLOBAL__N_117getSSLExDataIndexEv()
+  %5 = call ptr @SSL_get_ex_data(ptr noundef %3, i32 noundef %4)
+  ret ptr %5
+}
+
+declare ptr @SSL_get_ex_data(ptr noundef, i32 noundef) #0
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.anon.30, align 1
+  %6 = alloca %class.anon.32, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.folly::ssl::SSLSessionManager", ptr %7, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #20
+  %9 = getelementptr inbounds nuw %class.anon.32, ptr %6, i32 0, i32 0
+  store ptr %1, ptr %9, align 8, !tbaa !40
+  call void @"_ZN5folly13variant_matchIRSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNS8_17SSLSessionManager12onNewSessionES6_E3$_1ZNSE_12onNewSessionES6_E3$_0EEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly13variant_matchIRSt7variantIJSt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS_3ssl6detail14OpenSSLSessionEEEEJZNS8_17SSLSessionManager12onNewSessionES6_E3$_1ZNSE_12onNewSessionES6_E3$_0EEEDcOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.folly::overload_detail::visit", align 1
+  %8 = alloca %"struct.folly::detail::Overload.33", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  store ptr %2, ptr %6, align 8, !tbaa !88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #20
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
+  %10 = load ptr, ptr %6, align 8, !tbaa !88
+  %11 = call ptr @"_ZN5folly8overloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS2_12onNewSessionES7_E3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = getelementptr inbounds nuw %"struct.folly::detail::Overload.33", ptr %8, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.folly::detail::Overload.34", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %class.anon.32, ptr %13, i32 0, i32 0
+  store ptr %11, ptr %14, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS7_12onNewSessionESC_E3$_0EEERSt7variantIJSC_St10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSN_"(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(17) %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #20
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define internal void @"_ZNK5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objclIJNS_6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS7_12onNewSessionESC_E3$_0EEERSt7variantIJSC_St10shared_ptrINS6_6detail14OpenSSLSessionEEEEEEEDTcl5visitspscT_fp_EEDpOSN_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) #15 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !167
+  store ptr %1, ptr %5, align 8, !tbaa !182
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !182
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @"_ZSt5visitIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt7variantIJS9_St10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISN_EEEEE4typeEE4typeEOSW_EEEE4typeEOSL_DpOSN_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(17) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal ptr @"_ZN5folly8overloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS2_12onNewSessionES7_E3$_0EEEDcDpOT_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 {
+  %3 = alloca %"struct.folly::detail::Overload.33", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %class.anon.32, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !88
+  store ptr %1, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %5, align 8, !tbaa !88
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !184
+  %8 = getelementptr inbounds nuw %class.anon.32, ptr %6, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @"_ZN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS3_12onNewSessionES8_E3$_0EEC2ES9_SA_"(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr %9)
+  %10 = getelementptr inbounds nuw %"struct.folly::detail::Overload.33", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.folly::detail::Overload.34", ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %class.anon.32, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt5visitIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt7variantIJS9_St10shared_ptrINS3_6detail14OpenSSLSessionEEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISN_EEEEE4typeEE4typeEOSW_EEEE4typeEOSL_DpOSN_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERSt7variantIJDpT_EESH_(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  %8 = call noundef zeroext i1 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE22valueless_by_exceptionEv(ptr noundef nonnull align 8 dereferenceable(17) %7) #20
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  call void @_ZSt26__throw_bad_variant_accessPKc(ptr noundef @.str.2)
+  br label %10
+
+10:                                               ; preds = %9, %2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #20
+  store i8 1, ptr %5, align 1, !tbaa !138
+  %11 = load ptr, ptr %3, align 8, !tbaa !182
+  %12 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIvEEN5folly6detail8OverloadIJZNS4_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS8_12onNewSessionESD_E3$_0EEEJRSt7variantIJSD_St10shared_ptrINS7_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(17) %12)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNSt8__detail9__variant4__asIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEERSt7variantIJDpT_EESH_(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIvEEN5folly6detail8OverloadIJZNS4_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS8_12onNewSessionESD_E3$_0EEEJRSt7variantIJSD_St10shared_ptrINS7_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %class.anon.35, align 1
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #20
+  store i64 11, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #20
+  store i64 2, ptr %6, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #20
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #20
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  %11 = call noundef nonnull align 8 dereferenceable(17) ptr (ptr, ptr, ...) @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIvEEN5folly6detail8OverloadIJZNS4_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS8_12onNewSessionESD_E3$_0EEEJRSt7variantIJSD_St10shared_ptrINS7_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_ENKUlSN_zE_clESN_z"(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(17) %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #20
+  store ptr %11, ptr %7, align 8, !tbaa !12
+  %12 = load ptr, ptr %7, align 8, !tbaa !12
+  %13 = call noundef i64 @_ZNKSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE5indexEv(ptr noundef nonnull align 8 dereferenceable(17) %12) #20
+  switch i64 %13, label %30 [
+    i64 0, label %14
+    i64 1, label %17
+    i64 2, label %20
+    i64 3, label %21
+    i64 4, label %22
+    i64 5, label %23
+    i64 6, label %24
+    i64 7, label %25
+    i64 8, label %26
+    i64 9, label %27
+    i64 10, label %28
+    i64 -1, label %29
+  ]
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !182
+  %16 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SP_"(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(17) %16)
+  store i32 1, ptr %9, align 4
+  br label %31
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !182
+  %19 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_"(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(17) %19)
+  store i32 1, ptr %9, align 4
+  br label %31
+
+20:                                               ; preds = %2
+  unreachable
+
+21:                                               ; preds = %2
+  unreachable
+
+22:                                               ; preds = %2
+  unreachable
+
+23:                                               ; preds = %2
+  unreachable
+
+24:                                               ; preds = %2
+  unreachable
+
+25:                                               ; preds = %2
+  unreachable
+
+26:                                               ; preds = %2
+  unreachable
+
+27:                                               ; preds = %2
+  unreachable
+
+28:                                               ; preds = %2
+  unreachable
+
+29:                                               ; preds = %2
+  unreachable
+
+30:                                               ; preds = %2
+  unreachable
+
+31:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(17) ptr @"_ZZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIvEEN5folly6detail8OverloadIJZNS4_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS4_23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS8_12onNewSessionESD_E3$_0EEEJRSt7variantIJSD_St10shared_ptrINS7_6detail14OpenSSLSessionEEEEEEDcOT0_DpOT1_ENKUlSN_zE_clESN_z"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ...) #7 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SP_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESP_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRS9_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESI_SP_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESP_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %6) #20
+  call void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSJ_DpOSK_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRS9_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSF_DpOSG_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @"_ZSt13__invoke_implIvN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRS9_EET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm0EEEE28__element_by_index_or_cookieILm0ESP_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9__variant5__getILm0ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implIvN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRS9_EET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  call void @"_ZZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEEENK3$_1clERKS6_"(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEEENK3$_1clERKS6_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt8__invokeIN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt10shared_ptrINS3_6detail14OpenSSLSessionEEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSJ_DpOSK_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZSt13__invoke_implIvN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt10shared_ptrINS3_6detail14OpenSSLSessionEEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON5folly6detail8OverloadIJZNS5_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS5_23static_function_deleterISB_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS9_12onNewSessionESE_E3$_0EEERSt7variantIJSE_St10shared_ptrINS8_6detail14OpenSSLSessionEEEEEJEEESt16integer_sequenceImJLm1EEEE28__element_by_index_or_cookieILm1ESP_EEDcOT0_"(ptr noundef nonnull align 8 dereferenceable(17) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9__variant5__getILm1ERSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS5_3ssl6detail14OpenSSLSessionEEEEEEDcOT0_(ptr noundef nonnull align 8 dereferenceable(17) %3) #20
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZSt13__invoke_implIvN5folly6detail8OverloadIJZNS0_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS0_23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS4_12onNewSessionES9_E3$_0EEEJRSt10shared_ptrINS3_6detail14OpenSSLSessionEEEET_St14__invoke_otherOT0_DpOT1_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @"_ZZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEEENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEEENK3$_0clERKSt10shared_ptrINS0_6detail14OpenSSLSessionEE"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::unique_ptr", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  %10 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
+  br i1 %10, label %11, label %21
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !16
+  %13 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
+  %14 = getelementptr inbounds nuw %class.anon.32, ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !185
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %15) #20
+  invoke void @_ZN5folly3ssl6detail14OpenSSLSession16setActiveSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %5)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %11
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  br label %21
+
+17:                                               ; preds = %11
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  call void @_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  br label %22
+
+21:                                               ; preds = %16, %2
+  ret void
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i32, ptr %7, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+declare void @_ZN5folly3ssl6detail14OpenSSLSession16setActiveSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS4_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) #0
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_1ZNS3_12onNewSessionES8_E3$_0EEC2ES9_SA_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #1 align 2 {
+  %3 = alloca %class.anon.32, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.anon.32, align 8
+  %6 = getelementptr inbounds nuw %class.anon.32, ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !182
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !184
+  %8 = getelementptr inbounds nuw %class.anon.32, ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  call void @"_ZN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_0EEC2ES9_"(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_0EEC2ES9_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #2 align 2 {
+  %3 = alloca %class.anon.32, align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %class.anon.32, ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !187
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !184
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !189
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  store i32 %2, ptr %6, align 4, !tbaa !108
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !108
+  %10 = and i32 %9, 12
+  %11 = icmp eq i32 %10, 12
+  br i1 %11, label %12, label %23
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !118
+  %14 = load i32, ptr %13, align 4, !tbaa !108
+  %15 = load i32, ptr %6, align 4, !tbaa !108
+  %16 = and i32 %14, %15
+  %17 = icmp eq i32 %16, 12
+  br i1 %17, label %18, label %23
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl.37", ptr %8, i32 0, i32 0
+  %20 = call noundef i32 @_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij(ptr noundef %19, i32 noundef 1, i32 noundef 12)
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %18
+  br label %46
+
+23:                                               ; preds = %18, %12, %3
+  %24 = load ptr, ptr %5, align 8, !tbaa !118
+  %25 = load i32, ptr %24, align 4, !tbaa !108
+  %26 = load i32, ptr %6, align 4, !tbaa !108
+  %27 = and i32 %25, %26
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %46
+
+29:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #20
+  %30 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl.37", ptr %8, i32 0, i32 0
+  %31 = load i32, ptr %6, align 4, !tbaa !108
+  %32 = xor i32 %31, -1
+  %33 = call noundef i32 @_ZNSt13__atomic_baseIjE9fetch_andEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef %32, i32 noundef 5) #20
+  store i32 %33, ptr %7, align 4, !tbaa !108
+  %34 = load i32, ptr %7, align 4, !tbaa !108
+  %35 = load i32, ptr %6, align 4, !tbaa !108
+  %36 = and i32 %34, %35
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %29
+  %39 = load i32, ptr %6, align 4, !tbaa !108
+  call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE12futexWakeAllEj(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %39)
+  br label %40
+
+40:                                               ; preds = %38, %29
+  %41 = load i32, ptr %7, align 4, !tbaa !108
+  %42 = load i32, ptr %6, align 4, !tbaa !108
+  %43 = xor i32 %42, -1
+  %44 = and i32 %41, %43
+  %45 = load ptr, ptr %5, align 8, !tbaa !118
+  store i32 %44, ptr %45, align 4, !tbaa !108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #20
+  br label %46
+
+46:                                               ; preds = %22, %40, %23
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !106
+  store i32 %1, ptr %5, align 4, !tbaa !108
+  store i32 %2, ptr %6, align 4, !tbaa !108
+  %7 = load ptr, ptr %4, align 8, !tbaa !106
+  %8 = load i32, ptr %5, align 4, !tbaa !108
+  %9 = load i32, ptr %6, align 4, !tbaa !108
+  %10 = call noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef %7, i32 noundef %8, i32 noundef %9)
+  ret i32 %10
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIjE9fetch_andEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #14 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !109
+  store i32 %1, ptr %5, align 4, !tbaa !108
+  store i32 %2, ptr %6, align 4, !tbaa !116
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %6, align 4, !tbaa !116
+  %12 = load i32, ptr %5, align 4, !tbaa !108
+  store i32 %12, ptr %7, align 4, !tbaa !108
+  switch i32 %11, label %13 [
+    i32 1, label %16
+    i32 2, label %16
+    i32 3, label %19
+    i32 4, label %22
+    i32 5, label %25
+  ]
+
+13:                                               ; preds = %3
+  %14 = load i32, ptr %7, align 4
+  %15 = atomicrmw and ptr %10, i32 %14 monotonic, align 4
+  store i32 %15, ptr %8, align 4
+  br label %28
+
+16:                                               ; preds = %3, %3
+  %17 = load i32, ptr %7, align 4
+  %18 = atomicrmw and ptr %10, i32 %17 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %28
+
+19:                                               ; preds = %3
+  %20 = load i32, ptr %7, align 4
+  %21 = atomicrmw and ptr %10, i32 %20 release, align 4
+  store i32 %21, ptr %8, align 4
+  br label %28
+
+22:                                               ; preds = %3
+  %23 = load i32, ptr %7, align 4
+  %24 = atomicrmw and ptr %10, i32 %23 acq_rel, align 4
+  store i32 %24, ptr %8, align 4
+  br label %28
+
+25:                                               ; preds = %3
+  %26 = load i32, ptr %7, align 4
+  %27 = atomicrmw and ptr %10, i32 %26 seq_cst, align 4
+  store i32 %27, ptr %8, align 4
+  br label %28
+
+28:                                               ; preds = %25, %22, %19, %16, %13
+  %29 = load i32, ptr %8, align 4, !tbaa !108
+  ret i32 %29
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE12futexWakeAllEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !189
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl.37", ptr %5, i32 0, i32 0
+  %7 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #20
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  %9 = call noundef i32 @_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij(ptr noundef %6, i32 noundef %7, i32 noundef %8)
+  ret void
+}
+
+declare noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef, i32 noundef, i32 noundef) #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #2 comdat align 2 {
+  ret i32 2147483647
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !104
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  store i32 %2, ptr %6, align 4, !tbaa !108
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !108
+  %10 = and i32 %9, 12
+  %11 = icmp eq i32 %10, 12
+  br i1 %11, label %12, label %23
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !118
+  %14 = load i32, ptr %13, align 4, !tbaa !108
+  %15 = load i32, ptr %6, align 4, !tbaa !108
+  %16 = and i32 %14, %15
+  %17 = icmp eq i32 %16, 12
+  br i1 %17, label %18, label %23
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl", ptr %8, i32 0, i32 0
+  %20 = call noundef i32 @_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij(ptr noundef %19, i32 noundef 1, i32 noundef 12)
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %18
+  br label %46
+
+23:                                               ; preds = %18, %12, %3
+  %24 = load ptr, ptr %5, align 8, !tbaa !118
+  %25 = load i32, ptr %24, align 4, !tbaa !108
+  %26 = load i32, ptr %6, align 4, !tbaa !108
+  %27 = and i32 %25, %26
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %46
+
+29:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #20
+  %30 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl", ptr %8, i32 0, i32 0
+  %31 = load i32, ptr %6, align 4, !tbaa !108
+  %32 = xor i32 %31, -1
+  %33 = call noundef i32 @_ZNSt13__atomic_baseIjE9fetch_andEjSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef %32, i32 noundef 5) #20
+  store i32 %33, ptr %7, align 4, !tbaa !108
+  %34 = load i32, ptr %7, align 4, !tbaa !108
+  %35 = load i32, ptr %6, align 4, !tbaa !108
+  %36 = and i32 %34, %35
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %29
+  %39 = load i32, ptr %6, align 4, !tbaa !108
+  call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE12futexWakeAllEj(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %39)
+  br label %40
+
+40:                                               ; preds = %38, %29
+  %41 = load i32, ptr %7, align 4, !tbaa !108
+  %42 = load i32, ptr %6, align 4, !tbaa !108
+  %43 = xor i32 %42, -1
+  %44 = and i32 %41, %43
+  %45 = load ptr, ptr %5, align 8, !tbaa !118
+  store i32 %44, ptr %45, align 4, !tbaa !108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #20
+  br label %46
+
+46:                                               ; preds = %22, %40, %23
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE12futexWakeAllEj(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store i32 %1, ptr %4, align 4, !tbaa !108
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.folly::SharedMutexImpl", ptr %5, i32 0, i32 0
+  %7 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #20
+  %8 = load i32, ptr %4, align 4, !tbaa !108
+  %9 = call noundef i32 @_ZN5folly6detail9futexWakeISt6atomicIjEEEiPKT_ij(ptr noundef %6, i32 noundef %7, i32 noundef %8)
+  ret void
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { builtin nounwind }
+attributes #25 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -1910,96 +5906,187 @@ attributes #17 = { builtin nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !9, i64 0}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTSN5folly3ssl17SSLSessionManagerE", !9, i64 0}
 !9 = !{!"any pointer", !10, i64 0}
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C++ TBAA"}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"_ZTSN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEE", !14, i64 0, !15, i64 8}
-!14 = !{!"int", !10, i64 0}
-!15 = !{!"_ZTSN5boost15aligned_storageILm16ELm8EEE", !16, i64 0}
-!16 = !{!"_ZTSN5boost6detail15aligned_storage19aligned_storage_impILm16ELm8EEE", !10, i64 0}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt11make_sharedIN5folly3ssl6detail14OpenSSLSessionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZSt11make_sharedIN5folly3ssl6detail14OpenSSLSessionEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!20 = !{!21, !14, i64 8}
-!21 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !14, i64 8, !14, i64 12}
-!22 = !{!21, !14, i64 12}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !11, i64 0}
-!25 = !{!26, !9, i64 0}
-!26 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
-!27 = !{!9, !9, i64 0}
-!28 = !{!10, !10, i64 0}
-!29 = !{!14, !14, i64 0}
-!30 = !{!"branch_weights", i32 1, i32 2000}
-!31 = !{!32, !9, i64 8}
-!32 = !{!"_ZTSSt9type_info", !9, i64 8}
-!33 = !{!"branch_weights", i32 2000, i32 1}
-!34 = !{!35, !9, i64 0}
-!35 = !{!"_ZTSSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !26, i64 8}
-!36 = !{!37, !14, i64 8}
-!37 = !{!"_ZTSN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE8assignerE", !9, i64 0, !14, i64 8}
-!38 = !{!37, !9, i64 0}
-!39 = !{!40, !9, i64 0}
-!40 = !{!"_ZTSSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !26, i64 8}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E: %agg.result"}
-!43 = distinct !{!43, !"_ZSt20dynamic_pointer_castIN5folly3ssl6detail14OpenSSLSessionENS1_10SSLSessionEESt10shared_ptrIT_ERKS5_IT0_E"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE22internal_apply_visitorINS_6detail7variant14invoke_visitorINSF_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKSC_EELb0EEEEENT_11result_typeERSP_: %agg.result"}
-!46 = distinct !{!46, !"_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE22internal_apply_visitorINS_6detail7variant14invoke_visitorINSF_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKSC_EELb0EEEEENT_11result_typeERSP_"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE: %agg.result"}
-!49 = distinct !{!49, !"_ZN5boost13apply_visitorIRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNKR5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13apply_visitorINS_6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKSC_EEEENT_11result_typeERSN_: %agg.result"}
-!52 = distinct !{!52, !"_ZNKR5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13apply_visitorINS_6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKSC_EEEENT_11result_typeERSN_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i: %agg.result"}
-!55 = distinct !{!55, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE: %agg.result"}
-!58 = distinct !{!58, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSE_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSD_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESD_E4typeEOSS_i: %agg.result"}
-!61 = distinct !{!61, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSD_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESD_E4typeEOSS_i"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSC_EESC_OT_: %agg.result"}
-!64 = distinct !{!64, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSC_EESC_OT_"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK12_GLOBAL__N_126RawSessionRetrievalVisitorclERKSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEE: %agg.result"}
-!67 = distinct !{!67, !"_ZNK12_GLOBAL__N_126RawSessionRetrievalVisitorclERKSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEE"}
-!68 = !{!66, !63, !60, !57, !54, !51, !48}
-!69 = !{!70, !72, !74, !76, !78, !51, !48}
-!70 = distinct !{!70, !71, !"_ZNK12_GLOBAL__N_126RawSessionRetrievalVisitorclERKSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEE: %agg.result"}
-!71 = distinct !{!71, !"_ZNK12_GLOBAL__N_126RawSessionRetrievalVisitorclERKSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEE"}
-!72 = distinct !{!72, !73, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSH_EESC_OT_: %agg.result"}
-!73 = distinct !{!73, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSH_EESC_OT_"}
-!74 = distinct !{!74, !75, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSI_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESD_E4typeEOSS_i: %agg.result"}
-!75 = distinct !{!75, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSI_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESD_E4typeEOSS_i"}
-!76 = distinct !{!76, !77, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE: %agg.result"}
-!77 = distinct !{!77, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE"}
-!78 = distinct !{!78, !79, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i: %agg.result"}
-!79 = distinct !{!79, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126RawSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i"}
-!80 = !{!81, !83, !85}
-!81 = distinct !{!81, !82, !"_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE22internal_apply_visitorINS_6detail7variant14invoke_visitorINSF_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKSC_EELb0EEEEENT_11result_typeERSP_: %agg.result"}
-!82 = distinct !{!82, !"_ZNK5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE22internal_apply_visitorINS_6detail7variant14invoke_visitorINSF_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKSC_EELb0EEEEENT_11result_typeERSP_"}
-!83 = distinct !{!83, !84, !"_ZNKR5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13apply_visitorINS_6detail7variant15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKSC_EEEENT_11result_typeERSN_: %agg.result"}
-!84 = distinct !{!84, !"_ZNKR5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEE13apply_visitorINS_6detail7variant15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKSC_EEEENT_11result_typeERSN_"}
-!85 = distinct !{!85, !86, !"_ZN5boost13apply_visitorIRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE: %agg.result"}
-!86 = distinct !{!86, !"_ZN5boost13apply_visitorIRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS6_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS7_3ssl6detail14OpenSSLSessionEEEEEEEDcOT_OT0_NS_10disable_ifINS_6detail7variant15has_result_typeISJ_EEbE4typeE"}
-!87 = !{!83, !85}
-!88 = !{!89, !91, !93, !95, !97, !83, !85}
-!89 = distinct !{!89, !90, !"_ZNK12_GLOBAL__N_126SSLSessionRetrievalVisitorclERKSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEE: %agg.result"}
-!90 = distinct !{!90, !"_ZNK12_GLOBAL__N_126SSLSessionRetrievalVisitorclERKSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEE"}
-!91 = distinct !{!91, !92, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSH_EESH_OT_: %agg.result"}
-!92 = distinct !{!92, !"_ZNK5boost6detail7variant15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS8_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS9_3ssl6detail14OpenSSLSessionEEEEEEclIRKSH_EESH_OT_"}
-!93 = distinct !{!93, !94, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSI_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESI_E4typeEOSS_i: %agg.result"}
-!94 = distinct !{!94, !"_ZN5boost6detail7variant14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS9_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSA_3ssl6detail14OpenSSLSessionEEEEEEELb0EE14internal_visitIRKSI_EENS_12disable_if_cIXaaLb0Esr7is_sameIT_SS_EE5valueESI_E4typeEOSS_i"}
-!95 = distinct !{!95, !96, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE: %agg.result"}
-!96 = distinct !{!96, !"_ZN5boost6detail7variant27visitation_impl_invoke_implINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_EENT_11result_typeEiRSR_T0_PT1_N4mpl_5bool_ILb1EEE"}
-!97 = distinct !{!97, !98, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i: %agg.result"}
-!98 = distinct !{!98, !"_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_15result_wrapper1IRN12_GLOBAL__N_126SSLSessionRetrievalVisitorERKNS_7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterISA_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINSB_3ssl6detail14OpenSSLSessionEEEEEEELb0EEEPKvSJ_NSK_18has_fallback_type_EEENT_11result_typeEiRSS_T0_PT1_T2_i"}
-!99 = !{!"branch_weights", i32 1, i32 1048575}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSSt7variantIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS1_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS2_3ssl6detail14OpenSSLSessionEEEE", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSSaIvE", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSSt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEE", !9, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !10, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSNSt8__detail9__variant13_Variant_baseIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSNSt8__detail9__variant17_Move_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSNSt8__detail9__variant17_Copy_assign_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSNSt8__detail9__variant15_Move_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSNSt8__detail9__variant15_Copy_ctor_baseILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!34 = !{!35, !10, i64 16}
+!35 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !10, i64 0, !10, i64 16}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSNSt8__detail9__variant15_Variadic_unionIJSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEESt10shared_ptrINS4_3ssl6detail14OpenSSLSessionEEEEE", !9, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSNSt8__detail9__variant14_UninitializedISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEELb0EEE", !9, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE", !9, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSSt15__uniq_ptr_dataI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEELb1ELb1EE", !9, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSSt15__uniq_ptr_implI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEE", !9, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSSt5tupleIJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE", !9, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSSt11_Tuple_implILm0EJP14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEEE", !9, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSSt11_Tuple_implILm1EJN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEEEE", !9, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !9, i64 0}
+!54 = !{!55, !56, i64 0}
+!55 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !56, i64 0}
+!56 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSSt10_Head_baseILm1EN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEELb1EE", !9, i64 0}
+!59 = !{i64 0, i64 8, !14}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"_ZTSSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !62, i64 0, !63, i64 8}
+!62 = !{!"p1 _ZTSN5folly3ssl6detail14OpenSSLSessionE", !9, i64 0}
+!63 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0}
+!64 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p2 _ZTSN5folly3ssl6detail14OpenSSLSessionE", !9, i64 0}
+!69 = !{!70, !15, i64 0}
+!70 = !{!"_ZTSSt20_Sp_alloc_shared_tagISaIvEE", !15, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTSSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!73 = !{!63, !64, i64 0}
+!74 = !{!62, !62, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSSaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !9, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !9, i64 0}
+!79 = !{!80, !72, i64 8}
+!80 = !{!"_ZTSSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEEE", !76, i64 0, !72, i64 8}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"vtable pointer", !11, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"std::nullptr_t", !10, i64 0}
+!85 = !{!80, !76, i64 0}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTSSt15__new_allocatorISt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EEE", !9, i64 0}
+!88 = !{!9, !9, i64 0}
+!89 = !{!64, !64, i64 0}
+!90 = !{!91, !92, i64 8}
+!91 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !92, i64 8, !92, i64 12}
+!92 = !{!"int", !10, i64 0}
+!93 = !{!91, !92, i64 12}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTSNSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !9, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTSSt9type_info", !9, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSSt14_Sp_ebo_helperILi0ESaIvELb1EE", !9, i64 0}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSN5folly3ssl10SSLSessionE", !9, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEE", !9, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !9, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt6atomicIjE", !9, i64 0}
+!108 = !{!92, !92, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSSt13__atomic_baseIjE", !9, i64 0}
+!111 = !{!112, !92, i64 0}
+!112 = !{!"_ZTSSt13__atomic_baseIjE", !92, i64 0}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p2 _ZTS14ssl_session_st", !9, i64 0}
+!115 = !{!56, !56, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"_ZTSSt12memory_order", !10, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 int", !9, i64 0}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 _ZTSSt6atomicImE", !9, i64 0}
+!122 = distinct !{!122, !123}
+!123 = !{!"llvm.loop.mustprogress"}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"_ZTSSt23__memory_order_modifier", !10, i64 0}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTSSt13__atomic_baseImE", !9, i64 0}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"p1 _ZTSN5folly6detail19relaxed_atomic_baseIjEE", !9, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTSN5folly23static_function_deleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEE", !9, i64 0}
+!132 = !{!133, !134, i64 8}
+!133 = !{!"_ZTSSt9type_info", !134, i64 8}
+!134 = !{!"p1 omnipotent char", !9, i64 0}
+!135 = !{!10, !10, i64 0}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_bufferIN5folly3ssl6detail14OpenSSLSessionEEE", !9, i64 0}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"bool", !10, i64 0}
+!140 = !{i8 0, i8 2}
+!141 = !{}
+!142 = !{!134, !134, i64 0}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p1 _ZTSSt18bad_variant_access", !9, i64 0}
+!145 = !{!146, !134, i64 8}
+!146 = !{!"_ZTSSt18bad_variant_access", !147, i64 0, !134, i64 8}
+!147 = !{!"_ZTSSt9exception"}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"p1 _ZTSSt9exception", !9, i64 0}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"p1 _ZTSNSt8__detail9__variant14_UninitializedISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEELb0EEE", !9, i64 0}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_membufISt10shared_ptrIN5folly3ssl6detail14OpenSSLSessionEEEE", !9, i64 0}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"long long", !10, i64 0}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 long long", !9, i64 0}
+!158 = !{!159, !159, i64 0}
+!159 = !{!"p1 _ZTSN9__gnu_cxx16__aligned_membufISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEEE", !9, i64 0}
+!160 = !{!161, !161, i64 0}
+!161 = !{!"p1 _ZTSSt10shared_ptrIN5folly3ssl10SSLSessionEE", !9, i64 0}
+!162 = !{!163, !163, i64 0}
+!163 = !{!"p1 _ZTSSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!164 = !{!165, !101, i64 0}
+!165 = !{!"_ZTSSt12__shared_ptrIN5folly3ssl10SSLSessionELN9__gnu_cxx12_Lock_policyE2EE", !101, i64 0, !63, i64 8}
+!166 = !{i64 0, i64 8, !115}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTSN5folly15overload_detail29visit__folly_detail_invoke_ns25__folly_detail_invoke_objE", !9, i64 0}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_0ZNKS3_13getRawSessionEvE3$_1EEE", !9, i64 0}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSSt19__shared_ptr_accessIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE", !9, i64 0}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager13getRawSessionEvE3$_1EEE", !9, i64 0}
+!175 = !{!176, !176, i64 0}
+!176 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_0ZNKS3_10getSessionEvE3$_1EEE", !9, i64 0}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNKS_3ssl17SSLSessionManager10getSessionEvE3$_1EEE", !9, i64 0}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
+!181 = !{!"branch_weights", i32 1, i32 1048575}
+!182 = !{!183, !183, i64 0}
+!183 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_0ZNS3_12onNewSessionES8_E3$_1EEE", !9, i64 0}
+!184 = !{i64 0, i64 8, !40}
+!185 = !{!186, !41, i64 0}
+!186 = !{!"_ZTSZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEEE3$_0", !41, i64 0}
+!187 = !{!188, !188, i64 0}
+!188 = !{!"p1 _ZTSN5folly6detail8OverloadIJZNS_3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS5_XadL_Z16SSL_SESSION_freeEEEEEE3$_1EEE", !9, i64 0}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"p1 _ZTSN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !9, i64 0}

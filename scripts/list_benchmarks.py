@@ -67,6 +67,8 @@ def guess_language(dir):
             continue
         if not os.path.isdir(os.path.join(dir, subdir)):
             continue
+        if not os.path.exists(os.path.join(dir, subdir, ".git")):
+            continue
         url = get_url(subdir, os.path.join(dir, subdir))
         last_updated = get_last_updated(os.path.join(dir, subdir))
         name = subdir.lower()

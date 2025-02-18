@@ -1,151 +1,150 @@
 ; ModuleID = 'bench/folly/original/Base64_SSE4_2.ll'
 source_filename = "bench/folly/original/Base64_SSE4_2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5folly6detail13base64_detail19base64Encode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly captures(ret: address, provenance) %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %l to i64
-  %sub.ptr.rhs.cast.i4 = ptrtoint ptr %f to i64
-  %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i4
-  %cmp.i6 = icmp ugt i64 %sub.ptr.sub.i5, 15
-  br i1 %cmp.i6, label %invoke.cont5.i, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit
+define noundef ptr @_ZN5folly6detail13base64_detail19base64Encode_SSE4_2EPKcS3_Pc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(ret: address, provenance) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = sub i64 %4, %5
+  %7 = icmp ugt i64 %6, 15
+  br i1 %7, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit
 
-invoke.cont5.i:                                   ; preds = %entry, %invoke.cont5.i
-  %f.addr.0.i8 = phi ptr [ %add.ptr.i, %invoke.cont5.i ], [ %f, %entry ]
-  %o.addr.0.i7 = phi ptr [ %add.ptr6.i, %invoke.cont5.i ], [ %o, %entry ]
-  %0 = load <16 x i8>, ptr %f.addr.0.i8, align 1, !tbaa !7
-  %1 = shufflevector <16 x i8> %0, <16 x i8> poison, <16 x i32> <i32 1, i32 0, i32 2, i32 1, i32 4, i32 3, i32 5, i32 4, i32 7, i32 6, i32 8, i32 7, i32 10, i32 9, i32 11, i32 10>
-  %2 = bitcast <16 x i8> %1 to <8 x i16>
-  %3 = and <8 x i16> %2, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
-  %4 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %3, <8 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
-  %5 = and <8 x i16> %2, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
-  %mul.i.i = shl <8 x i16> %5, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
-  %or.i17.i = or <8 x i16> %mul.i.i, %4
-  %6 = bitcast <8 x i16> %or.i17.i to <16 x i8>
-  %elt.sat.i.i = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> splat (i8 51))
-  %cmp.i.i = icmp sgt <16 x i8> %6, splat (i8 25)
-  %sext.i.neg.i = zext <16 x i1> %cmp.i.i to <16 x i8>
-  %sub.i.i = add nuw <16 x i8> %elt.sat.i.i, %sext.i.neg.i
-  %7 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 -3, i8 -65>, <16 x i8> %sub.i.i)
-  %add.i.i = add <16 x i8> %7, %6
-  store <16 x i8> %add.i.i, ptr %o.addr.0.i7, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i8, i64 12
-  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i7, i64 16
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 15
-  br i1 %cmp.i, label %invoke.cont5.i, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit, !llvm.loop !10
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.0.i8 = phi ptr [ %22, %.lr.ph ], [ %0, %3 ]
+  %.011.i7 = phi ptr [ %23, %.lr.ph ], [ %2, %3 ]
+  %8 = load <16 x i8>, ptr %.0.i8, align 1, !tbaa !7
+  %9 = shufflevector <16 x i8> %8, <16 x i8> poison, <16 x i32> <i32 1, i32 0, i32 2, i32 1, i32 4, i32 3, i32 5, i32 4, i32 7, i32 6, i32 8, i32 7, i32 10, i32 9, i32 11, i32 10>
+  %10 = bitcast <16 x i8> %9 to <8 x i16>
+  %11 = and <8 x i16> %10, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
+  %12 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %11, <8 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
+  %13 = and <8 x i16> %10, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
+  %14 = shl <8 x i16> %13, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
+  %15 = or <8 x i16> %14, %12
+  %16 = bitcast <8 x i16> %15 to <16 x i8>
+  %17 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %16, <16 x i8> splat (i8 51))
+  %18 = icmp sgt <16 x i8> %16, splat (i8 25)
+  %.neg.i = zext <16 x i1> %18 to <16 x i8>
+  %19 = add nuw <16 x i8> %17, %.neg.i
+  %20 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 -3, i8 -65>, <16 x i8> %19)
+  %21 = add <16 x i8> %20, %16
+  store <16 x i8> %21, ptr %.011.i7, align 1, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.011.i7, i64 16
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %4, %24
+  %26 = icmp ugt i64 %25, 15
+  br i1 %26, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit, !llvm.loop !10
 
-_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit: ; preds = %invoke.cont5.i, %entry
-  %o.addr.0.i.lcssa = phi ptr [ %o, %entry ], [ %add.ptr6.i, %invoke.cont5.i ]
-  %f.addr.0.i.lcssa = phi ptr [ %f, %entry ], [ %add.ptr.i, %invoke.cont5.i ]
-  %sub.ptr.sub.i.lcssa = phi i64 [ %sub.ptr.sub.i5, %entry ], [ %sub.ptr.sub.i, %invoke.cont5.i ]
-  %cmp46.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.lcssa, 2
-  br i1 %cmp46.i.i, label %while.body.i.i, label %while.end.i.i
+_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit: ; preds = %.lr.ph, %3
+  %.011.i.lcssa = phi ptr [ %2, %3 ], [ %23, %.lr.ph ]
+  %.0.i.lcssa = phi ptr [ %0, %3 ], [ %22, %.lr.ph ]
+  %.lcssa5 = phi i64 [ %6, %3 ], [ %25, %.lr.ph ]
+  %27 = icmp samesign ugt i64 %.lcssa5, 2
+  br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-while.body.i.i:                                   ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit, %while.body.i.i
-  %f.addr.048.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
-  %o.addr.047.i.i = phi ptr [ %add.ptr29.i.i, %while.body.i.i ], [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
-  %8 = load i8, ptr %f.addr.048.i.i, align 1, !tbaa !7
-  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 1
-  %9 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !7
-  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 2
-  %10 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
-  %shr.i.i = lshr i8 %8, 2
-  %shl.i.i = shl i8 %8, 4
-  %shr6.i.i = lshr i8 %9, 4
-  %shl.masked.i.i = and i8 %shl.i.i, 48
-  %and.i.i = or disjoint i8 %shl.masked.i.i, %shr6.i.i
-  %shl9.i.i = shl i8 %9, 2
-  %shr11.i.i = lshr i8 %10, 6
-  %shl9.masked.i.i = and i8 %shl9.i.i, 60
-  %and13.i.i = or disjoint i8 %shl9.masked.i.i, %shr11.i.i
-  %11 = and i8 %10, 63
-  %idxprom.i.i = zext nneg i8 %shr.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i
-  %12 = load i8, ptr %arrayidx18.i.i, align 1, !tbaa !7
-  store i8 %12, ptr %o.addr.047.i.i, align 1, !tbaa !7
-  %idxprom20.i.i = zext nneg i8 %and.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom20.i.i
-  %13 = load i8, ptr %arrayidx21.i.i, align 1, !tbaa !7
-  %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 1
-  store i8 %13, ptr %arrayidx22.i.i, align 1, !tbaa !7
-  %idxprom23.i.i = zext nneg i8 %and13.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom23.i.i
-  %14 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !7
-  %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 2
-  store i8 %14, ptr %arrayidx25.i.i, align 1, !tbaa !7
-  %idxprom26.i.i = zext nneg i8 %11 to i64
-  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom26.i.i
-  %15 = load i8, ptr %arrayidx27.i.i, align 1, !tbaa !7
-  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 3
-  store i8 %15, ptr %arrayidx28.i.i, align 1, !tbaa !7
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 3
-  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 4
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i3 = icmp sgt i64 %sub.ptr.sub.i.i, 2
-  br i1 %cmp.i.i3, label %while.body.i.i, label %while.end.i.i, !llvm.loop !12
+.lr.ph.i.i:                                       ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit, %.lr.ph.i.i
+  %.026.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
+  %.02325.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
+  %28 = load i8, ptr %.026.i.i, align 1, !tbaa !7
+  %29 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !7
+  %31 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 2
+  %32 = load i8, ptr %31, align 1, !tbaa !7
+  %33 = lshr i8 %28, 2
+  %34 = shl i8 %28, 4
+  %35 = lshr i8 %30, 4
+  %.masked.i.i = and i8 %34, 48
+  %36 = or disjoint i8 %.masked.i.i, %35
+  %37 = shl i8 %30, 2
+  %38 = lshr i8 %32, 6
+  %.masked24.i.i = and i8 %37, 60
+  %39 = or disjoint i8 %.masked24.i.i, %38
+  %40 = and i8 %32, 63
+  %41 = zext nneg i8 %33 to i64
+  %42 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !7
+  store i8 %43, ptr %.02325.i.i, align 1, !tbaa !7
+  %44 = zext nneg i8 %36 to i64
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !7
+  %47 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 1
+  store i8 %46, ptr %47, align 1, !tbaa !7
+  %48 = zext nneg i8 %39 to i64
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !7
+  %51 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 2
+  store i8 %50, ptr %51, align 1, !tbaa !7
+  %52 = zext nneg i8 %40 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 3
+  store i8 %54, ptr %55, align 1, !tbaa !7
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 3
+  %57 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 4
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %4, %58
+  %60 = icmp sgt i64 %59, 2
+  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
 
-while.end.i.i:                                    ; preds = %while.body.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit
-  %o.addr.0.lcssa.i.i = phi ptr [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %add.ptr29.i.i, %while.body.i.i ]
-  %f.addr.0.lcssa.i.i = phi ptr [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %add.ptr.i.i, %while.body.i.i ]
-  %sub.ptr.sub.lcssa.i.i = phi i64 [ %sub.ptr.sub.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %sub.ptr.sub.i.i, %while.body.i.i ]
-  %cmp.i.i.i = icmp eq ptr %f.addr.0.lcssa.i.i, %l
-  br i1 %cmp.i.i.i, label %_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit, label %if.end.i.i.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit
+  %.023.lcssa.i.i = phi ptr [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %57, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %56, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i64 [ %.lcssa5, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %59, %.lr.ph.i.i ]
+  %61 = icmp eq ptr %.0.lcssa.i.i, %1
+  br i1 %61, label %_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit, label %62
 
-if.end.i.i.i:                                     ; preds = %while.end.i.i
-  %16 = load i8, ptr %f.addr.0.lcssa.i.i, align 1, !tbaa !7
-  %shr.i.i.i = lshr i8 %16, 2
-  %idxprom.i.i.i = zext nneg i8 %shr.i.i.i to i64
-  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i.i
-  %17 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 1
-  store i8 %17, ptr %o.addr.0.lcssa.i.i, align 1, !tbaa !7
-  %cmp3.i.i.i = icmp eq i64 %sub.ptr.sub.lcssa.i.i, 1
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end12.i.i.i
+62:                                               ; preds = %._crit_edge.i.i
+  %63 = load i8, ptr %.0.lcssa.i.i, align 1, !tbaa !7
+  %64 = lshr i8 %63, 2
+  %65 = zext nneg i8 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !7
+  %68 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 1
+  store i8 %67, ptr %.023.lcssa.i.i, align 1, !tbaa !7
+  %69 = icmp eq i64 %.lcssa.i.i, 1
+  br i1 %69, label %70, label %73
 
-if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %shl.i.i.i = shl i8 %16, 4
-  %and.i.i.i = and i8 %shl.i.i.i, 48
-  br label %cleanup.i.i.i
+70:                                               ; preds = %62
+  %71 = shl i8 %63, 4
+  %72 = and i8 %71, 48
+  br label %84
 
-if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
-  %arrayidx13.i.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0.lcssa.i.i, i64 1
-  %18 = load i8, ptr %arrayidx13.i.i.i, align 1, !tbaa !7
-  %shl15.i.i.i = shl i8 %16, 4
-  %shr17.i.i.i = lshr i8 %18, 4
-  %shl15.masked.i.i.i = and i8 %shl15.i.i.i, 48
-  %and18.i.i.i = or disjoint i8 %shr17.i.i.i, %shl15.masked.i.i.i
-  %shl21.i.i.i = shl i8 %18, 2
-  %and22.i.i.i = and i8 %shl21.i.i.i, 60
-  %idxprom27.i.i.i = zext nneg i8 %and22.i.i.i to i64
-  %arrayidx28.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom27.i.i.i
-  %19 = load i8, ptr %arrayidx28.i.i.i, align 4, !tbaa !7
-  br label %cleanup.i.i.i
+73:                                               ; preds = %62
+  %74 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 1
+  %75 = load i8, ptr %74, align 1, !tbaa !7
+  %76 = shl i8 %63, 4
+  %77 = lshr i8 %75, 4
+  %.masked.i.i.i = and i8 %76, 48
+  %78 = or disjoint i8 %77, %.masked.i.i.i
+  %79 = shl i8 %75, 2
+  %80 = and i8 %79, 60
+  %81 = zext nneg i8 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %81
+  %83 = load i8, ptr %82, align 4, !tbaa !7
+  br label %84
 
-cleanup.i.i.i:                                    ; preds = %if.end12.i.i.i, %if.then4.i.i.i
-  %idxprom7.pn.in.i.i.i = phi i8 [ %and.i.i.i, %if.then4.i.i.i ], [ %and18.i.i.i, %if.end12.i.i.i ]
-  %.sink.i.i.i = phi i8 [ 61, %if.then4.i.i.i ], [ %19, %if.end12.i.i.i ]
-  %idxprom7.pn.i.i.i = zext nneg i8 %idxprom7.pn.in.i.i.i to i64
-  %.sink48.in.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom7.pn.i.i.i
-  %.sink48.i.i.i = load i8, ptr %.sink48.in.i.i.i, align 1, !tbaa !7
-  store i8 %.sink48.i.i.i, ptr %incdec.ptr.i.i.i, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 2
-  store i8 %.sink.i.i.i, ptr %20, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 3
-  store i8 61, ptr %21, align 1
-  %retval.0.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 4
+84:                                               ; preds = %73, %70
+  %.pn.in.i.i.i = phi i8 [ %72, %70 ], [ %78, %73 ]
+  %.sink.i.i.i = phi i8 [ 61, %70 ], [ %83, %73 ]
+  %.pn.i.i.i = zext nneg i8 %.pn.in.i.i.i to i64
+  %.sink27.in.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %.pn.i.i.i
+  %.sink27.i.i.i = load i8, ptr %.sink27.in.i.i.i, align 1, !tbaa !7
+  store i8 %.sink27.i.i.i, ptr %68, align 1, !tbaa !7
+  %85 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 2
+  store i8 %.sink.i.i.i, ptr %85, align 1, !tbaa !7
+  %86 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 3
+  store i8 61, ptr %86, align 1, !tbaa !7
+  %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 4
   br label %_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit
 
-_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit: ; preds = %cleanup.i.i.i, %while.end.i.i
-  %retval.1.i.i.i = phi ptr [ %retval.0.i.i.i, %cleanup.i.i.i ], [ %o.addr.0.lcssa.i.i, %while.end.i.i ]
-  ret ptr %retval.1.i.i.i
+_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit: ; preds = %._crit_edge.i.i, %84
+  %.0.i.i.i = phi ptr [ %.1.i.i.i, %84 ], [ %.023.lcssa.i.i, %._crit_edge.i.i ]
+  ret ptr %.0.i.i.i
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -160,205 +159,201 @@ declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #1
 declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5folly6detail13base64_detail22base64URLEncode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef writeonly captures(ret: address, provenance) %o) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %l to i64
-  %sub.ptr.rhs.cast.i4 = ptrtoint ptr %f to i64
-  %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i4
-  %cmp.i6 = icmp ugt i64 %sub.ptr.sub.i5, 15
-  br i1 %cmp.i6, label %invoke.cont5.i, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit
+define noundef ptr @_ZN5folly6detail13base64_detail22base64URLEncode_SSE4_2EPKcS3_Pc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(ret: address, provenance) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = sub i64 %4, %5
+  %7 = icmp ugt i64 %6, 15
+  br i1 %7, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit
 
-invoke.cont5.i:                                   ; preds = %entry, %invoke.cont5.i
-  %f.addr.0.i8 = phi ptr [ %add.ptr.i, %invoke.cont5.i ], [ %f, %entry ]
-  %o.addr.0.i7 = phi ptr [ %add.ptr6.i, %invoke.cont5.i ], [ %o, %entry ]
-  %0 = load <16 x i8>, ptr %f.addr.0.i8, align 1, !tbaa !7
-  %1 = shufflevector <16 x i8> %0, <16 x i8> poison, <16 x i32> <i32 1, i32 0, i32 2, i32 1, i32 4, i32 3, i32 5, i32 4, i32 7, i32 6, i32 8, i32 7, i32 10, i32 9, i32 11, i32 10>
-  %2 = bitcast <16 x i8> %1 to <8 x i16>
-  %3 = and <8 x i16> %2, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
-  %4 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %3, <8 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
-  %5 = and <8 x i16> %2, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
-  %mul.i.i = shl <8 x i16> %5, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
-  %or.i17.i = or <8 x i16> %mul.i.i, %4
-  %6 = bitcast <8 x i16> %or.i17.i to <16 x i8>
-  %elt.sat.i.i = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %6, <16 x i8> splat (i8 51))
-  %cmp.i.i = icmp sgt <16 x i8> %6, splat (i8 25)
-  %sext.i.neg.i = zext <16 x i1> %cmp.i.i to <16 x i8>
-  %sub.i.i = add nuw <16 x i8> %elt.sat.i.i, %sext.i.neg.i
-  %7 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -17, i8 32, i8 -3, i8 -65>, <16 x i8> %sub.i.i)
-  %add.i.i = add <16 x i8> %7, %6
-  store <16 x i8> %add.i.i, ptr %o.addr.0.i7, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i8, i64 12
-  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i7, i64 16
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 15
-  br i1 %cmp.i, label %invoke.cont5.i, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, !llvm.loop !13
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.0.i8 = phi ptr [ %22, %.lr.ph ], [ %0, %3 ]
+  %.011.i7 = phi ptr [ %23, %.lr.ph ], [ %2, %3 ]
+  %8 = load <16 x i8>, ptr %.0.i8, align 1, !tbaa !7
+  %9 = shufflevector <16 x i8> %8, <16 x i8> poison, <16 x i32> <i32 1, i32 0, i32 2, i32 1, i32 4, i32 3, i32 5, i32 4, i32 7, i32 6, i32 8, i32 7, i32 10, i32 9, i32 11, i32 10>
+  %10 = bitcast <16 x i8> %9 to <8 x i16>
+  %11 = and <8 x i16> %10, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
+  %12 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %11, <8 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
+  %13 = and <8 x i16> %10, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
+  %14 = shl <8 x i16> %13, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
+  %15 = or <8 x i16> %14, %12
+  %16 = bitcast <8 x i16> %15 to <16 x i8>
+  %17 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %16, <16 x i8> splat (i8 51))
+  %18 = icmp sgt <16 x i8> %16, splat (i8 25)
+  %.neg.i = zext <16 x i1> %18 to <16 x i8>
+  %19 = add nuw <16 x i8> %17, %.neg.i
+  %20 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -17, i8 32, i8 -3, i8 -65>, <16 x i8> %19)
+  %21 = add <16 x i8> %20, %16
+  store <16 x i8> %21, ptr %.011.i7, align 1, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.011.i7, i64 16
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %4, %24
+  %26 = icmp ugt i64 %25, 15
+  br i1 %26, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, !llvm.loop !13
 
-_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit: ; preds = %invoke.cont5.i, %entry
-  %o.addr.0.i.lcssa = phi ptr [ %o, %entry ], [ %add.ptr6.i, %invoke.cont5.i ]
-  %f.addr.0.i.lcssa = phi ptr [ %f, %entry ], [ %add.ptr.i, %invoke.cont5.i ]
-  %sub.ptr.sub.i.lcssa = phi i64 [ %sub.ptr.sub.i5, %entry ], [ %sub.ptr.sub.i, %invoke.cont5.i ]
-  %cmp46.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.lcssa, 2
-  br i1 %cmp46.i.i, label %while.body.i.i, label %while.end.i.i
+_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit: ; preds = %.lr.ph, %3
+  %.011.i.lcssa = phi ptr [ %2, %3 ], [ %23, %.lr.ph ]
+  %.0.i.lcssa = phi ptr [ %0, %3 ], [ %22, %.lr.ph ]
+  %.lcssa5 = phi i64 [ %6, %3 ], [ %25, %.lr.ph ]
+  %27 = icmp samesign ugt i64 %.lcssa5, 2
+  br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-while.body.i.i:                                   ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, %while.body.i.i
-  %f.addr.048.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
-  %o.addr.047.i.i = phi ptr [ %add.ptr29.i.i, %while.body.i.i ], [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
-  %8 = load i8, ptr %f.addr.048.i.i, align 1, !tbaa !7
-  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 1
-  %9 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !7
-  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 2
-  %10 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
-  %shr.i.i = lshr i8 %8, 2
-  %shl.i.i = shl i8 %8, 4
-  %shr6.i.i = lshr i8 %9, 4
-  %shl.masked.i.i = and i8 %shl.i.i, 48
-  %and.i.i = or disjoint i8 %shl.masked.i.i, %shr6.i.i
-  %shl9.i.i = shl i8 %9, 2
-  %shr11.i.i = lshr i8 %10, 6
-  %shl9.masked.i.i = and i8 %shl9.i.i, 60
-  %and13.i.i = or disjoint i8 %shl9.masked.i.i, %shr11.i.i
-  %11 = and i8 %10, 63
-  %idxprom.i.i = zext nneg i8 %shr.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i
-  %12 = load i8, ptr %arrayidx18.i.i, align 1, !tbaa !7
-  store i8 %12, ptr %o.addr.047.i.i, align 1, !tbaa !7
-  %idxprom20.i.i = zext nneg i8 %and.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom20.i.i
-  %13 = load i8, ptr %arrayidx21.i.i, align 1, !tbaa !7
-  %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 1
-  store i8 %13, ptr %arrayidx22.i.i, align 1, !tbaa !7
-  %idxprom23.i.i = zext nneg i8 %and13.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom23.i.i
-  %14 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !7
-  %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 2
-  store i8 %14, ptr %arrayidx25.i.i, align 1, !tbaa !7
-  %idxprom26.i.i = zext nneg i8 %11 to i64
-  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom26.i.i
-  %15 = load i8, ptr %arrayidx27.i.i, align 1, !tbaa !7
-  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 3
-  store i8 %15, ptr %arrayidx28.i.i, align 1, !tbaa !7
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 3
-  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 4
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i3 = icmp sgt i64 %sub.ptr.sub.i.i, 2
-  br i1 %cmp.i.i3, label %while.body.i.i, label %while.end.i.i, !llvm.loop !14
+.lr.ph.i.i:                                       ; preds = %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, %.lr.ph.i.i
+  %.026.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
+  %.02325.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
+  %28 = load i8, ptr %.026.i.i, align 1, !tbaa !7
+  %29 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !7
+  %31 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 2
+  %32 = load i8, ptr %31, align 1, !tbaa !7
+  %33 = lshr i8 %28, 2
+  %34 = shl i8 %28, 4
+  %35 = lshr i8 %30, 4
+  %.masked.i.i = and i8 %34, 48
+  %36 = or disjoint i8 %.masked.i.i, %35
+  %37 = shl i8 %30, 2
+  %38 = lshr i8 %32, 6
+  %.masked24.i.i = and i8 %37, 60
+  %39 = or disjoint i8 %.masked24.i.i, %38
+  %40 = and i8 %32, 63
+  %41 = zext nneg i8 %33 to i64
+  %42 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !7
+  store i8 %43, ptr %.02325.i.i, align 1, !tbaa !7
+  %44 = zext nneg i8 %36 to i64
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !7
+  %47 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 1
+  store i8 %46, ptr %47, align 1, !tbaa !7
+  %48 = zext nneg i8 %39 to i64
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !7
+  %51 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 2
+  store i8 %50, ptr %51, align 1, !tbaa !7
+  %52 = zext nneg i8 %40 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 3
+  store i8 %54, ptr %55, align 1, !tbaa !7
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 3
+  %57 = getelementptr inbounds nuw i8, ptr %.02325.i.i, i64 4
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %4, %58
+  %60 = icmp sgt i64 %59, 2
+  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
 
-while.end.i.i:                                    ; preds = %while.body.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit
-  %o.addr.0.lcssa.i.i = phi ptr [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %add.ptr29.i.i, %while.body.i.i ]
-  %f.addr.0.lcssa.i.i = phi ptr [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %add.ptr.i.i, %while.body.i.i ]
-  %sub.ptr.sub.lcssa.i.i = phi i64 [ %sub.ptr.sub.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %sub.ptr.sub.i.i, %while.body.i.i ]
-  %cmp.i.i.i = icmp eq ptr %f.addr.0.lcssa.i.i, %l
-  br i1 %cmp.i.i.i, label %_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit, label %if.end.i.i.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit
+  %.023.lcssa.i.i = phi ptr [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %57, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %56, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i64 [ %.lcssa5, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %59, %.lr.ph.i.i ]
+  %61 = icmp eq ptr %.0.lcssa.i.i, %1
+  br i1 %61, label %_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit, label %62
 
-if.end.i.i.i:                                     ; preds = %while.end.i.i
-  %16 = load i8, ptr %f.addr.0.lcssa.i.i, align 1, !tbaa !7
-  %shr.i.i.i = lshr i8 %16, 2
-  %idxprom.i.i.i = zext nneg i8 %shr.i.i.i to i64
-  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i.i
-  %17 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 1
-  store i8 %17, ptr %o.addr.0.lcssa.i.i, align 1, !tbaa !7
-  %cmp3.i.i.i = icmp eq i64 %sub.ptr.sub.lcssa.i.i, 1
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end10.i.i.i
+62:                                               ; preds = %._crit_edge.i.i
+  %63 = load i8, ptr %.0.lcssa.i.i, align 1, !tbaa !7
+  %64 = lshr i8 %63, 2
+  %65 = zext nneg i8 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !7
+  %68 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 1
+  store i8 %67, ptr %.023.lcssa.i.i, align 1, !tbaa !7
+  %69 = icmp eq i64 %.lcssa.i.i, 1
+  br i1 %69, label %70, label %77
 
-if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %shl.i.i.i = shl i8 %16, 4
-  %and.i.i.i = and i8 %shl.i.i.i, 48
-  br label %return.sink.split.i.i.i
-
-if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %arrayidx11.i.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0.lcssa.i.i, i64 1
-  %18 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
-  %shl13.i.i.i = shl i8 %16, 4
-  %shr15.i.i.i = lshr i8 %18, 4
-  %shl13.masked.i.i.i = and i8 %shl13.i.i.i, 48
-  %and16.i.i.i = or disjoint i8 %shr15.i.i.i, %shl13.masked.i.i.i
-  %shl19.i.i.i = shl i8 %18, 2
-  %and20.i.i.i = and i8 %shl19.i.i.i, 60
-  %idxprom22.i.i.i = zext nneg i8 %and16.i.i.i to i64
-  %arrayidx23.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom22.i.i.i
-  %19 = load i8, ptr %arrayidx23.i.i.i, align 1, !tbaa !7
-  %incdec.ptr24.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 2
-  store i8 %19, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
-  br label %return.sink.split.i.i.i
-
-return.sink.split.i.i.i:                          ; preds = %if.end10.i.i.i, %if.then4.i.i.i
-  %and.sink.i.i.i = phi i8 [ %and.i.i.i, %if.then4.i.i.i ], [ %and20.i.i.i, %if.end10.i.i.i ]
-  %.sink42.i.i.i = phi i64 [ 2, %if.then4.i.i.i ], [ 3, %if.end10.i.i.i ]
-  %incdec.ptr.sink.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr24.i.i.i, %if.end10.i.i.i ]
-  %idxprom7.i.i.i = zext nneg i8 %and.sink.i.i.i to i64
-  %arrayidx8.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom7.i.i.i
-  %20 = load i8, ptr %arrayidx8.i.i.i, align 4, !tbaa !7
-  %incdec.ptr9.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 %.sink42.i.i.i
-  store i8 %20, ptr %incdec.ptr.sink.i.i.i, align 1, !tbaa !7
+70:                                               ; preds = %62
+  %71 = shl i8 %63, 4
+  %72 = and i8 %71, 48
+  %73 = zext nneg i8 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %73
+  %75 = load i8, ptr %74, align 16, !tbaa !7
+  %76 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 2
+  store i8 %75, ptr %68, align 1, !tbaa !7
   br label %_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit
 
-_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit: ; preds = %return.sink.split.i.i.i, %while.end.i.i
-  %retval.1.i.i.i = phi ptr [ %o.addr.0.lcssa.i.i, %while.end.i.i ], [ %incdec.ptr9.i.i.i, %return.sink.split.i.i.i ]
-  ret ptr %retval.1.i.i.i
+77:                                               ; preds = %62
+  %78 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 1
+  %79 = load i8, ptr %78, align 1, !tbaa !7
+  %80 = shl i8 %63, 4
+  %81 = lshr i8 %79, 4
+  %.masked.i.i.i = and i8 %80, 48
+  %82 = or disjoint i8 %81, %.masked.i.i.i
+  %83 = shl i8 %79, 2
+  %84 = and i8 %83, 60
+  %85 = zext nneg i8 %82 to i64
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !7
+  %88 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 2
+  store i8 %87, ptr %68, align 1, !tbaa !7
+  %89 = zext nneg i8 %84 to i64
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %89
+  %91 = load i8, ptr %90, align 4, !tbaa !7
+  %92 = getelementptr inbounds nuw i8, ptr %.023.lcssa.i.i, i64 3
+  store i8 %91, ptr %88, align 1, !tbaa !7
+  br label %_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit
+
+_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit: ; preds = %._crit_edge.i.i, %70, %77
+  %.0.i.i.i = phi ptr [ %.023.lcssa.i.i, %._crit_edge.i.i ], [ %76, %70 ], [ %92, %77 ]
+  ret ptr %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i8, ptr } @_ZN5folly6detail13base64_detail19base64Decode_SSE4_2EPKcS3_Pc(ptr noundef %f, ptr noundef %l, ptr noundef %o) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-entry:
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %l to i64
-  %sub.ptr.rhs.cast.i3 = ptrtoint ptr %f to i64
-  %sub.ptr.sub.i4 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i3
-  %cmp.i5 = icmp ugt i64 %sub.ptr.sub.i4, 23
-  br i1 %cmp.i5, label %invoke.cont7.i, label %if.end.i
+define { i8, ptr } @_ZN5folly6detail13base64_detail19base64Decode_SSE4_2EPKcS3_Pc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = sub i64 %4, %5
+  %7 = icmp ugt i64 %6, 23
+  br i1 %7, label %.lr.ph, label %._crit_edge.thread
 
-invoke.cont7.i:                                   ; preds = %entry, %invoke.cont7.i
-  %f.addr.0.i7 = phi ptr [ %add.ptr.i, %invoke.cont7.i ], [ %f, %entry ]
-  %o.addr.0.i6 = phi ptr [ %add.ptr8.i, %invoke.cont7.i ], [ %o, %entry ]
-  %0 = phi <16 x i8> [ %elt.min.i.i, %invoke.cont7.i ], [ splat (i8 -1), %entry ]
-  %1 = load <16 x i8>, ptr %f.addr.0.i7, align 1, !tbaa !7
-  %cmp.i.i.i.i = icmp slt <16 x i8> %1, splat (i8 44)
-  %2 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %1, <16 x i8> splat (i8 -15))
-  %elt.sat.i.i.i = select <16 x i1> %cmp.i.i.i.i, <16 x i8> %2, <16 x i8> %1
-  %3 = bitcast <16 x i8> %elt.sat.i.i.i to <4 x i32>
-  %4 = lshr <4 x i32> %3, splat (i32 4)
-  %5 = bitcast <4 x i32> %4 to <16 x i8>
-  %6 = and <16 x i8> %5, splat (i8 15)
-  %7 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %6)
-  %8 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 80, i8 82, i8 80, i8 80, i8 84>, <16 x i8> %elt.sat.i.i.i)
-  %and.i6.i.i = and <16 x i8> %8, %7
-  %elt.min.i.i = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %and.i6.i.i, <16 x i8> %0)
-  %9 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 34, i8 16, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %6)
-  %add.i.i.i = add <16 x i8> %9, %elt.sat.i.i.i
-  %10 = tail call <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8> %add.i.i.i, <16 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
-  %11 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %10, <8 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
-  %12 = bitcast <4 x i32> %11 to <16 x i8>
-  %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16>
-  store <16 x i8> %13, ptr %o.addr.0.i6, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i7, i64 16
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i6, i64 12
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 23
-  br i1 %cmp.i, label %invoke.cont7.i, label %invoke.cont9.i, !llvm.loop !15
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.0.i6 = phi ptr [ %27, %.lr.ph ], [ %0, %3 ]
+  %.012.i5 = phi ptr [ %28, %.lr.ph ], [ %2, %3 ]
+  %8 = phi <16 x i8> [ %20, %.lr.ph ], [ splat (i8 -1), %3 ]
+  %9 = load <16 x i8>, ptr %.0.i6, align 1, !tbaa !7
+  %10 = icmp slt <16 x i8> %9, splat (i8 44)
+  %11 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %9, <16 x i8> splat (i8 -15))
+  %12 = select <16 x i1> %10, <16 x i8> %11, <16 x i8> %9
+  %13 = bitcast <16 x i8> %12 to <4 x i32>
+  %14 = lshr <4 x i32> %13, splat (i32 4)
+  %15 = bitcast <4 x i32> %14 to <16 x i8>
+  %16 = and <16 x i8> %15, splat (i8 15)
+  %17 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %16)
+  %18 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 80, i8 82, i8 80, i8 80, i8 84>, <16 x i8> %12)
+  %19 = and <16 x i8> %18, %17
+  %20 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %19, <16 x i8> %8)
+  %21 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 34, i8 16, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %16)
+  %22 = add <16 x i8> %21, %12
+  %23 = tail call <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8> %22, <16 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
+  %24 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %23, <8 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
+  %25 = bitcast <4 x i32> %24 to <16 x i8>
+  %26 = shufflevector <16 x i8> %25, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16>
+  store <16 x i8> %26, ptr %.012.i5, align 1, !tbaa !7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.012.i5, i64 12
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %4, %29
+  %31 = icmp ugt i64 %30, 23
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-invoke.cont9.i:                                   ; preds = %invoke.cont7.i
-  %14 = icmp eq <16 x i8> %elt.min.i.i, zeroinitializer
-  %15 = bitcast <16 x i1> %14 to i16
-  %16 = icmp eq i16 %15, 0
-  br i1 %16, label %if.end.i, label %_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit
+._crit_edge:                                      ; preds = %.lr.ph
+  %32 = icmp eq <16 x i8> %20, zeroinitializer
+  %33 = bitcast <16 x i1> %32 to i16
+  %34 = icmp eq i16 %33, 0
+  br i1 %34, label %._crit_edge.thread, label %35
 
-if.end.i:                                         ; preds = %invoke.cont9.i, %entry
-  %f.addr.0.i.lcssa14 = phi ptr [ %add.ptr.i, %invoke.cont9.i ], [ %f, %entry ]
-  %o.addr.0.i.lcssa13 = phi ptr [ %add.ptr8.i, %invoke.cont9.i ], [ %o, %entry ]
-  %call12.i = tail call { i8, ptr } @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc(ptr noundef %f.addr.0.i.lcssa14, ptr noundef %l, ptr noundef %o.addr.0.i.lcssa13) #6
-  %17 = extractvalue { i8, ptr } %call12.i, 0
-  %18 = extractvalue { i8, ptr } %call12.i, 1
+35:                                               ; preds = %._crit_edge
+  %36 = insertvalue { i8, ptr } { i8 0, ptr poison }, ptr %28, 1
   br label %_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit
 
-_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit: ; preds = %if.end.i, %invoke.cont9.i
-  %retval.sroa.0.0.i = phi i8 [ %17, %if.end.i ], [ 0, %invoke.cont9.i ]
-  %retval.sroa.3.0.i = phi ptr [ %18, %if.end.i ], [ %add.ptr8.i, %invoke.cont9.i ]
-  %.fca.0.insert.i = insertvalue { i8, ptr } poison, i8 %retval.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { i8, ptr } %.fca.0.insert.i, ptr %retval.sroa.3.0.i, 1
-  ret { i8, ptr } %.fca.1.insert.i
+._crit_edge.thread:                               ; preds = %3, %._crit_edge
+  %.0.i.lcssa16 = phi ptr [ %27, %._crit_edge ], [ %0, %3 ]
+  %.012.i.lcssa15 = phi ptr [ %28, %._crit_edge ], [ %2, %3 ]
+  %37 = tail call { i8, ptr } @_ZN5folly6detail13base64_detail16base64DecodeSWAREPKcS3_Pc(ptr noundef %.0.i.lcssa16, ptr noundef %1, ptr noundef %.012.i.lcssa15) #6
+  br label %_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit
+
+_ZN5folly6detail13base64_detail16base64SimdDecodeINS1_22Base64_SSE4_2_PlatformEEENS1_18Base64DecodeResultEPKcS6_Pc.exit: ; preds = %35, %._crit_edge.thread
+  %.fca.1.insert.merged.i = phi { i8, ptr } [ %36, %35 ], [ %37, %._crit_edge.thread ]
+  ret { i8, ptr } %.fca.1.insert.merged.i
 }
 
 ; Function Attrs: nounwind

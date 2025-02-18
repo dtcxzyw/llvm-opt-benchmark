@@ -1,1037 +1,1027 @@
 ; ModuleID = 'bench/folly/original/farmhash.ll'
 source_filename = "bench/folly/original/farmhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE = local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 33
-  br i1 %cmp, label %if.then, label %if.else4
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ult i64 %1, 33
+  br i1 %3, label %4, label %99
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ult i64 %len, 17
-  br i1 %cmp1, label %if.then2, label %if.else
+4:                                                ; preds = %2
+  %5 = icmp samesign ult i64 %1, 17
+  br i1 %5, label %6, label %71
 
-if.then2:                                         ; preds = %if.then
-  %cmp.i = icmp samesign ugt i64 %len, 7
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+6:                                                ; preds = %4
+  %7 = icmp samesign ugt i64 %1, 7
+  br i1 %7, label %8, label %29
 
-if.then.i:                                        ; preds = %if.then2
-  %mul1.i = shl nuw nsw i64 %len, 1
-  %add.i = add nuw nsw i64 %mul1.i, -7286425919675154353
-  %s.val.i = load i64, ptr %s, align 1
-  %add2.i = add i64 %s.val.i, -7286425919675154353
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %add.ptr3.val.i = load i64, ptr %add.ptr3.i, align 1
-  %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add.ptr3.val.i, i64 %add.ptr3.val.i, i64 27)
-  %mul6.i = mul i64 %or.i.i.i, %add.i
-  %add7.i = add i64 %mul6.i, %add2.i
-  %or.i.i72.i = tail call i64 @llvm.fshl.i64(i64 %add2.i, i64 %add2.i, i64 39)
-  %add9.i = add i64 %or.i.i72.i, %add.ptr3.val.i
-  %mul10.i = mul i64 %add9.i, %add.i
-  %xor.i.i = xor i64 %mul10.i, %add7.i
-  %mul1.i.i = mul i64 %xor.i.i, %add.i
-  %shr.i.i = lshr i64 %mul1.i.i, 47
-  %0 = xor i64 %mul10.i, %shr.i.i
-  %xor3.i.i = xor i64 %0, %mul1.i.i
-  %mul4.i.i = mul i64 %xor3.i.i, %add.i
-  %shr5.i.i = lshr i64 %mul4.i.i, 47
-  %xor6.i.i = xor i64 %shr5.i.i, %mul4.i.i
-  %mul7.i.i = mul i64 %xor6.i.i, %add.i
-  br label %cleanup
+8:                                                ; preds = %6
+  %9 = shl nuw nsw i64 %1, 1
+  %10 = add nuw nsw i64 %9, -7286425919675154353
+  %.val.i = load i64, ptr %0, align 1
+  %11 = add i64 %.val.i, -7286425919675154353
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %13 = getelementptr inbounds i8, ptr %12, i64 -8
+  %.val35.i = load i64, ptr %13, align 1
+  %14 = tail call i64 @llvm.fshl.i64(i64 %.val35.i, i64 %.val35.i, i64 27)
+  %15 = mul i64 %14, %10
+  %16 = add i64 %15, %11
+  %17 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 39)
+  %18 = add i64 %17, %.val35.i
+  %19 = mul i64 %18, %10
+  %20 = xor i64 %19, %16
+  %21 = mul i64 %20, %10
+  %22 = lshr i64 %21, 47
+  %23 = xor i64 %19, %22
+  %24 = xor i64 %23, %21
+  %25 = mul i64 %24, %10
+  %26 = lshr i64 %25, 47
+  %27 = xor i64 %26, %25
+  %28 = mul i64 %27, %10
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.end.i:                                         ; preds = %if.then2
-  %cmp12.i = icmp samesign ugt i64 %len, 3
-  br i1 %cmp12.i, label %if.then13.i, label %if.end25.i
+29:                                               ; preds = %6
+  %30 = icmp samesign ugt i64 %1, 3
+  br i1 %30, label %31, label %49
 
-if.then13.i:                                      ; preds = %if.end.i
-  %mul15.i = shl nuw nsw i64 %len, 1
-  %add16.i = add nuw nsw i64 %mul15.i, -7286425919675154353
-  %s.val69.i = load i32, ptr %s, align 1
-  %conv.i = zext i32 %s.val69.i to i64
-  %shl.i = shl nuw nsw i64 %conv.i, 3
-  %add19.i = or disjoint i64 %shl.i, %len
-  %add.ptr20.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr21.i = getelementptr inbounds i8, ptr %add.ptr20.i, i64 -4
-  %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
-  %conv23.i = zext i32 %add.ptr21.val.i to i64
-  %xor.i73.i = xor i64 %add19.i, %conv23.i
-  %mul1.i74.i = mul i64 %xor.i73.i, %add16.i
-  %shr.i75.i = lshr i64 %mul1.i74.i, 47
-  %1 = xor i64 %shr.i75.i, %conv23.i
-  %xor3.i76.i = xor i64 %1, %mul1.i74.i
-  %mul4.i77.i = mul i64 %xor3.i76.i, %add16.i
-  %shr5.i78.i = lshr i64 %mul4.i77.i, 47
-  %xor6.i79.i = xor i64 %shr5.i78.i, %mul4.i77.i
-  %mul7.i80.i = mul i64 %xor6.i79.i, %add16.i
-  br label %cleanup
+31:                                               ; preds = %29
+  %32 = shl nuw nsw i64 %1, 1
+  %33 = add nuw nsw i64 %32, -7286425919675154353
+  %.val36.i = load i32, ptr %0, align 1
+  %34 = zext i32 %.val36.i to i64
+  %35 = shl nuw nsw i64 %34, 3
+  %36 = or disjoint i64 %35, %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %38 = getelementptr inbounds i8, ptr %37, i64 -4
+  %.val37.i = load i32, ptr %38, align 1
+  %39 = zext i32 %.val37.i to i64
+  %40 = xor i64 %36, %39
+  %41 = mul i64 %40, %33
+  %42 = lshr i64 %41, 47
+  %43 = xor i64 %42, %39
+  %44 = xor i64 %43, %41
+  %45 = mul i64 %44, %33
+  %46 = lshr i64 %45, 47
+  %47 = xor i64 %46, %45
+  %48 = mul i64 %47, %33
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.end25.i:                                       ; preds = %if.end.i
-  %cmp26.not.i = icmp eq i64 %len, 0
-  br i1 %cmp26.not.i, label %cleanup, label %if.then27.i
+49:                                               ; preds = %29
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit, label %50
 
-if.then27.i:                                      ; preds = %if.end25.i
-  %2 = load i8, ptr %s, align 1, !tbaa !7
-  %shr.i = lshr i64 %len, 1
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
-  %3 = load i8, ptr %arrayidx30.i, align 1, !tbaa !7
-  %4 = getelementptr i8, ptr %s, i64 %len
-  %arrayidx32.i = getelementptr i8, ptr %4, i64 -1
-  %5 = load i8, ptr %arrayidx32.i, align 1, !tbaa !7
-  %conv33.i = zext i8 %2 to i64
-  %conv34.i = zext i8 %3 to i64
-  %shl35.i = shl nuw nsw i64 %conv34.i, 8
-  %add36.i = or disjoint i64 %shl35.i, %conv33.i
-  %conv37.i = zext i8 %5 to i64
-  %shl38.i = shl nuw nsw i64 %conv37.i, 2
-  %add40.i = or disjoint i64 %shl38.i, %len
-  %mul43.i = mul i64 %add36.i, -7286425919675154353
-  %mul45.i = mul i64 %add40.i, -4348849565147123417
-  %xor.i = xor i64 %mul45.i, %mul43.i
-  %shr.i81.i = lshr i64 %xor.i, 47
-  %xor.i82.i = xor i64 %shr.i81.i, %xor.i
-  %mul47.i = mul i64 %xor.i82.i, -7286425919675154353
-  br label %cleanup
+50:                                               ; preds = %49
+  %51 = load i8, ptr %0, align 1, !tbaa !7
+  %52 = lshr i64 %1, 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %55 = getelementptr i8, ptr %0, i64 %1
+  %56 = getelementptr i8, ptr %55, i64 -1
+  %57 = load i8, ptr %56, align 1, !tbaa !7
+  %58 = zext i8 %51 to i64
+  %59 = zext i8 %54 to i64
+  %60 = shl nuw nsw i64 %59, 8
+  %61 = or disjoint i64 %60, %58
+  %62 = zext i8 %57 to i64
+  %63 = shl nuw nsw i64 %62, 2
+  %64 = or disjoint i64 %63, %1
+  %65 = mul i64 %61, -7286425919675154353
+  %66 = mul i64 %64, -4348849565147123417
+  %67 = xor i64 %66, %65
+  %68 = lshr i64 %67, 47
+  %69 = xor i64 %68, %67
+  %70 = mul i64 %69, -7286425919675154353
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else:                                          ; preds = %if.then
-  %mul1.i178 = shl nuw nsw i64 %len, 1
-  %add.i179 = add nuw nsw i64 %mul1.i178, -7286425919675154353
-  %s.val.i180 = load i64, ptr %s, align 1
-  %mul2.i = mul i64 %s.val.i180, -5435081209227447693
-  %add.ptr.i181 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val.i = load i64, ptr %add.ptr.i181, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i = load i64, ptr %add.ptr5.i, align 1
-  %mul7.i = mul i64 %add.ptr5.val.i, %add.i179
-  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -16
-  %add.ptr9.val.i = load i64, ptr %add.ptr9.i, align 1
-  %mul11.i = mul i64 %add.ptr9.val.i, -7286425919675154353
-  %add12.i = add i64 %mul2.i, %add.ptr.val.i
-  %or.i.i.i182 = tail call i64 @llvm.fshl.i64(i64 %add12.i, i64 %add12.i, i64 21)
-  %or.i.i33.i = tail call i64 @llvm.fshl.i64(i64 %mul7.i, i64 %mul7.i, i64 34)
-  %add15.i = add i64 %or.i.i33.i, %or.i.i.i182
-  %add16.i183 = add i64 %add15.i, %mul11.i
-  %add17.i = add i64 %add.ptr.val.i, -7286425919675154353
-  %or.i.i36.i = tail call i64 @llvm.fshl.i64(i64 %add17.i, i64 %add17.i, i64 46)
-  %add19.i184 = add i64 %or.i.i36.i, %mul2.i
-  %add20.i = add i64 %add19.i184, %mul7.i
-  %xor.i.i185 = xor i64 %add16.i183, %add20.i
-  %mul1.i.i186 = mul i64 %xor.i.i185, %add.i179
-  %shr.i.i187 = lshr i64 %mul1.i.i186, 47
-  %6 = xor i64 %add20.i, %shr.i.i187
-  %xor3.i.i188 = xor i64 %6, %mul1.i.i186
-  %mul4.i.i189 = mul i64 %xor3.i.i188, %add.i179
-  %shr5.i.i190 = lshr i64 %mul4.i.i189, 47
-  %xor6.i.i191 = xor i64 %shr5.i.i190, %mul4.i.i189
-  %mul7.i.i192 = mul i64 %xor6.i.i191, %add.i179
-  br label %cleanup
+71:                                               ; preds = %4
+  %72 = shl nuw nsw i64 %1, 1
+  %73 = add nuw nsw i64 %72, -7286425919675154353
+  %.val.i59 = load i64, ptr %0, align 1
+  %74 = mul i64 %.val.i59, -5435081209227447693
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val15.i = load i64, ptr %75, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %77 = getelementptr inbounds i8, ptr %76, i64 -8
+  %.val16.i = load i64, ptr %77, align 1
+  %78 = mul i64 %.val16.i, %73
+  %79 = getelementptr inbounds i8, ptr %76, i64 -16
+  %.val17.i = load i64, ptr %79, align 1
+  %80 = mul i64 %.val17.i, -7286425919675154353
+  %81 = add i64 %74, %.val15.i
+  %82 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 21)
+  %83 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 34)
+  %84 = add i64 %83, %82
+  %85 = add i64 %84, %80
+  %86 = add i64 %.val15.i, -7286425919675154353
+  %87 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 46)
+  %88 = add i64 %87, %74
+  %89 = add i64 %88, %78
+  %90 = xor i64 %85, %89
+  %91 = mul i64 %90, %73
+  %92 = lshr i64 %91, 47
+  %93 = xor i64 %89, %92
+  %94 = xor i64 %93, %91
+  %95 = mul i64 %94, %73
+  %96 = lshr i64 %95, 47
+  %97 = xor i64 %96, %95
+  %98 = mul i64 %97, %73
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else4:                                         ; preds = %entry
-  %cmp5 = icmp ult i64 %len, 65
-  br i1 %cmp5, label %if.then6, label %if.end8
+99:                                               ; preds = %2
+  %100 = icmp ult i64 %1, 65
+  br i1 %100, label %101, label %156
 
-if.then6:                                         ; preds = %if.else4
-  %mul1.i193 = shl nuw nsw i64 %len, 1
-  %add.i194 = add nuw nsw i64 %mul1.i193, -7286425919675154353
-  %s.val.i195 = load i64, ptr %s, align 1
-  %mul2.i196 = mul i64 %s.val.i195, -7286425919675154353
-  %add.ptr.i197 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val.i198 = load i64, ptr %add.ptr.i197, align 1
-  %add.ptr4.i199 = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i200 = getelementptr inbounds i8, ptr %add.ptr4.i199, i64 -8
-  %add.ptr5.val.i201 = load i64, ptr %add.ptr5.i200, align 1
-  %mul7.i202 = mul i64 %add.ptr5.val.i201, %add.i194
-  %add.ptr9.i203 = getelementptr inbounds i8, ptr %add.ptr4.i199, i64 -16
-  %add.ptr9.val.i204 = load i64, ptr %add.ptr9.i203, align 1
-  %mul11.i205 = mul i64 %add.ptr9.val.i204, -7286425919675154353
-  %add12.i206 = add i64 %mul2.i196, %add.ptr.val.i198
-  %or.i.i.i207 = tail call i64 @llvm.fshl.i64(i64 %add12.i206, i64 %add12.i206, i64 21)
-  %or.i.i73.i = tail call i64 @llvm.fshl.i64(i64 %mul7.i202, i64 %mul7.i202, i64 34)
-  %add15.i208 = add i64 %or.i.i73.i, %or.i.i.i207
-  %add16.i209 = add i64 %add15.i208, %mul11.i205
-  %add17.i210 = add i64 %add.ptr.val.i198, -7286425919675154353
-  %or.i.i76.i = tail call i64 @llvm.fshl.i64(i64 %add17.i210, i64 %add17.i210, i64 46)
-  %add19.i211 = add i64 %or.i.i76.i, %mul2.i196
-  %add20.i212 = add i64 %add19.i211, %mul7.i202
-  %xor.i.i213 = xor i64 %add16.i209, %add20.i212
-  %mul1.i.i214 = mul i64 %xor.i.i213, %add.i194
-  %shr.i.i215 = lshr i64 %mul1.i.i214, 47
-  %7 = xor i64 %add20.i212, %shr.i.i215
-  %xor3.i.i216 = xor i64 %7, %mul1.i.i214
-  %mul4.i.i217 = mul i64 %xor3.i.i216, %add.i194
-  %shr5.i.i218 = lshr i64 %mul4.i.i217, 47
-  %xor6.i.i219 = xor i64 %shr5.i.i218, %mul4.i.i217
-  %mul7.i.i220 = mul i64 %xor6.i.i219, %add.i194
-  %add.ptr22.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %add.ptr22.val.i = load i64, ptr %add.ptr22.i, align 1
-  %mul24.i = mul i64 %add.ptr22.val.i, %add.i194
-  %add.ptr25.i = getelementptr inbounds nuw i8, ptr %s, i64 24
-  %add.ptr25.val.i = load i64, ptr %add.ptr25.i, align 1
-  %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr4.i199, i64 -32
-  %add.ptr28.val.i = load i64, ptr %add.ptr28.i, align 1
-  %add30.i = add i64 %add16.i209, %add.ptr28.val.i
-  %mul31.i = mul i64 %add30.i, %add.i194
-  %add.ptr33.i = getelementptr inbounds i8, ptr %add.ptr4.i199, i64 -24
-  %add.ptr33.val.i = load i64, ptr %add.ptr33.i, align 1
-  %add35.i = add i64 %mul7.i.i220, %add.ptr33.val.i
-  %mul36.i = mul i64 %add35.i, %add.i194
-  %add37.i = add i64 %mul24.i, %add.ptr25.val.i
-  %or.i.i79.i = tail call i64 @llvm.fshl.i64(i64 %add37.i, i64 %add37.i, i64 21)
-  %or.i.i82.i = tail call i64 @llvm.fshl.i64(i64 %mul31.i, i64 %mul31.i, i64 34)
-  %add40.i221 = add i64 %or.i.i82.i, %or.i.i79.i
-  %add41.i = add i64 %add40.i221, %mul36.i
-  %add42.i = add i64 %add.ptr25.val.i, %mul2.i196
-  %or.i.i85.i = tail call i64 @llvm.fshl.i64(i64 %add42.i, i64 %add42.i, i64 46)
-  %add44.i = add i64 %or.i.i85.i, %mul24.i
-  %add45.i = add i64 %add44.i, %mul31.i
-  %xor.i86.i = xor i64 %add41.i, %add45.i
-  %mul1.i87.i = mul i64 %xor.i86.i, %add.i194
-  %shr.i88.i = lshr i64 %mul1.i87.i, 47
-  %8 = xor i64 %add45.i, %shr.i88.i
-  %xor3.i89.i = xor i64 %8, %mul1.i87.i
-  %mul4.i90.i = mul i64 %xor3.i89.i, %add.i194
-  %shr5.i91.i = lshr i64 %mul4.i90.i, 47
-  %xor6.i92.i = xor i64 %shr5.i91.i, %mul4.i90.i
-  %mul7.i93.i = mul i64 %xor6.i92.i, %add.i194
-  br label %cleanup
+101:                                              ; preds = %99
+  %102 = shl nuw nsw i64 %1, 1
+  %103 = add nuw nsw i64 %102, -7286425919675154353
+  %.val.i60 = load i64, ptr %0, align 1
+  %104 = mul i64 %.val.i60, -7286425919675154353
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val36.i61 = load i64, ptr %105, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %107 = getelementptr inbounds i8, ptr %106, i64 -8
+  %.val37.i62 = load i64, ptr %107, align 1
+  %108 = mul i64 %.val37.i62, %103
+  %109 = getelementptr inbounds i8, ptr %106, i64 -16
+  %.val38.i = load i64, ptr %109, align 1
+  %110 = mul i64 %.val38.i, -7286425919675154353
+  %111 = add i64 %104, %.val36.i61
+  %112 = tail call i64 @llvm.fshl.i64(i64 %111, i64 %111, i64 21)
+  %113 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 34)
+  %114 = add i64 %113, %112
+  %115 = add i64 %114, %110
+  %116 = add i64 %.val36.i61, -7286425919675154353
+  %117 = tail call i64 @llvm.fshl.i64(i64 %116, i64 %116, i64 46)
+  %118 = add i64 %117, %104
+  %119 = add i64 %118, %108
+  %120 = xor i64 %115, %119
+  %121 = mul i64 %120, %103
+  %122 = lshr i64 %121, 47
+  %123 = xor i64 %119, %122
+  %124 = xor i64 %123, %121
+  %125 = mul i64 %124, %103
+  %126 = lshr i64 %125, 47
+  %127 = xor i64 %126, %125
+  %128 = mul i64 %127, %103
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val39.i = load i64, ptr %129, align 1
+  %130 = mul i64 %.val39.i, %103
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val40.i = load i64, ptr %131, align 1
+  %132 = getelementptr inbounds i8, ptr %106, i64 -32
+  %.val41.i = load i64, ptr %132, align 1
+  %133 = add i64 %115, %.val41.i
+  %134 = mul i64 %133, %103
+  %135 = getelementptr inbounds i8, ptr %106, i64 -24
+  %.val42.i = load i64, ptr %135, align 1
+  %136 = add i64 %128, %.val42.i
+  %137 = mul i64 %136, %103
+  %138 = add i64 %130, %.val40.i
+  %139 = tail call i64 @llvm.fshl.i64(i64 %138, i64 %138, i64 21)
+  %140 = tail call i64 @llvm.fshl.i64(i64 %134, i64 %134, i64 34)
+  %141 = add i64 %140, %139
+  %142 = add i64 %141, %137
+  %143 = add i64 %.val40.i, %104
+  %144 = tail call i64 @llvm.fshl.i64(i64 %143, i64 %143, i64 46)
+  %145 = add i64 %144, %130
+  %146 = add i64 %145, %134
+  %147 = xor i64 %142, %146
+  %148 = mul i64 %147, %103
+  %149 = lshr i64 %148, 47
+  %150 = xor i64 %146, %149
+  %151 = xor i64 %150, %148
+  %152 = mul i64 %151, %103
+  %153 = lshr i64 %152, 47
+  %154 = xor i64 %153, %152
+  %155 = mul i64 %154, %103
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.end8:                                          ; preds = %if.else4
-  %s.val = load i64, ptr %s, align 1
-  %add20 = add i64 %s.val, 95310865018149119
-  %sub = add i64 %len, -1
-  %div177 = and i64 %sub, -64
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %div177
-  %and = and i64 %sub, 63
-  br label %do.body
+156:                                              ; preds = %99
+  %.val = load i64, ptr %0, align 1
+  %157 = add i64 %.val, 95310865018149119
+  %158 = add i64 %1, -1
+  %159 = and i64 %158, -64
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 %159
+  %161 = and i64 %158, 63
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 %161
+  br label %163
 
-do.body:                                          ; preds = %do.body, %if.end8
-  %w.sroa.0.0 = phi i64 [ 0, %if.end8 ], [ %add7.i.i258, %do.body ]
-  %w.sroa.13.0 = phi i64 [ 0, %if.end8 ], [ %add9.i.i260, %do.body ]
-  %v.sroa.0.0 = phi i64 [ 0, %if.end8 ], [ %add7.i.i, %do.body ]
-  %v.sroa.11.0 = phi i64 [ 0, %if.end8 ], [ %add9.i.i, %do.body ]
-  %z.0 = phi i64 [ 1390051526045402406, %if.end8 ], [ %xor, %do.body ]
-  %x.0 = phi i64 [ %add20, %if.end8 ], [ %mul47, %do.body ]
-  %y.0 = phi i64 [ 2480279821605975764, %if.end8 ], [ %add43, %do.body ]
-  %s.addr.0 = phi ptr [ %s, %if.end8 ], [ %add.ptr64, %do.body ]
-  %add.ptr27 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 8
-  %add.ptr27.val = load i64, ptr %add.ptr27, align 1
-  %add25 = add i64 %x.0, %v.sroa.0.0
-  %add26 = add i64 %add25, %y.0
-  %add29 = add i64 %add26, %add.ptr27.val
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add29, i64 %add29, i64 27)
-  %mul31 = mul i64 %or.i.i, -5435081209227447693
-  %add32 = add i64 %y.0, %v.sroa.11.0
-  %add.ptr33 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 48
-  %add.ptr33.val = load i64, ptr %add.ptr33, align 1
-  %add35 = add i64 %add32, %add.ptr33.val
-  %or.i.i234 = tail call i64 @llvm.fshl.i64(i64 %add35, i64 %add35, i64 22)
-  %mul37 = mul i64 %or.i.i234, -5435081209227447693
-  %xor = xor i64 %mul31, %w.sroa.13.0
-  %add.ptr40 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 40
-  %add.ptr40.val = load i64, ptr %add.ptr40, align 1
-  %add42 = add i64 %add.ptr40.val, %v.sroa.0.0
-  %add43 = add i64 %add42, %mul37
-  %add45 = add i64 %z.0, %w.sroa.0.0
-  %or.i.i237 = tail call i64 @llvm.fshl.i64(i64 %add45, i64 %add45, i64 31)
-  %mul47 = mul i64 %or.i.i237, -5435081209227447693
-  %mul50 = mul i64 %v.sroa.11.0, -5435081209227447693
-  %add52 = add i64 %xor, %w.sroa.0.0
-  %s.val.i238 = load i64, ptr %s.addr.0, align 1
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 16
-  %add.ptr2.val.i = load i64, ptr %add.ptr2.i, align 1
-  %add.ptr4.i241 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 24
-  %add.ptr4.val.i = load i64, ptr %add.ptr4.i241, align 1
-  %add.i.i = add i64 %s.val.i238, %mul50
-  %add1.i.i = add i64 %add52, %add.i.i
-  %add2.i.i = add i64 %add1.i.i, %add.ptr4.val.i
-  %or.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add2.i.i, i64 %add2.i.i, i64 43)
-  %add3.i.i = add i64 %add.i.i, %add.ptr27.val
-  %add4.i.i = add i64 %add3.i.i, %add.ptr2.val.i
-  %or.i.i22.i.i = tail call i64 @llvm.fshl.i64(i64 %add4.i.i, i64 %add4.i.i, i64 20)
-  %add7.i.i = add i64 %add4.i.i, %add.ptr4.val.i
-  %add6.i.i = add i64 %or.i.i22.i.i, %add.i.i
-  %add9.i.i = add i64 %add6.i.i, %or.i.i.i.i
-  %add.ptr56 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 32
-  %add58 = add i64 %mul47, %w.sroa.13.0
-  %add61 = add i64 %add43, %add.ptr2.val.i
-  %s.val.i244 = load i64, ptr %add.ptr56, align 1
-  %add.ptr4.i249 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 56
-  %add.ptr4.val.i250 = load i64, ptr %add.ptr4.i249, align 1
-  %add.i.i251 = add i64 %add58, %s.val.i244
-  %add1.i.i252 = add i64 %add61, %add.i.i251
-  %add2.i.i253 = add i64 %add1.i.i252, %add.ptr4.val.i250
-  %or.i.i.i.i254 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i253, i64 %add2.i.i253, i64 43)
-  %add3.i.i255 = add i64 %add.ptr40.val, %add.ptr33.val
-  %add4.i.i256 = add i64 %add3.i.i255, %add.i.i251
-  %or.i.i22.i.i257 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i256, i64 %add4.i.i256, i64 20)
-  %add7.i.i258 = add i64 %add4.i.i256, %add.ptr4.val.i250
-  %add6.i.i259 = add i64 %or.i.i22.i.i257, %add.i.i251
-  %add9.i.i260 = add i64 %add6.i.i259, %or.i.i.i.i254
-  %add.ptr64 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 64
-  %cmp65.not = icmp eq ptr %add.ptr64, %add.ptr
-  br i1 %cmp65.not, label %do.end, label %do.body, !llvm.loop !10
+163:                                              ; preds = %163, %156
+  %.sroa.095.0 = phi i64 [ 0, %156 ], [ %207, %163 ]
+  %.sroa.13.0 = phi i64 [ 0, %156 ], [ %209, %163 ]
+  %.sroa.0109.0 = phi i64 [ 0, %156 ], [ %193, %163 ]
+  %.sroa.11.0 = phi i64 [ 0, %156 ], [ %195, %163 ]
+  %.0137 = phi i64 [ 1390051526045402406, %156 ], [ %175, %163 ]
+  %.0136 = phi i64 [ %157, %156 ], [ %181, %163 ]
+  %.049 = phi i64 [ 2480279821605975764, %156 ], [ %178, %163 ]
+  %.048 = phi ptr [ %0, %156 ], [ %210, %163 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %.val51 = load i64, ptr %164, align 1
+  %165 = add i64 %.0136, %.sroa.0109.0
+  %166 = add i64 %165, %.049
+  %167 = add i64 %166, %.val51
+  %168 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 27)
+  %169 = mul i64 %168, -5435081209227447693
+  %170 = add i64 %.049, %.sroa.11.0
+  %171 = getelementptr inbounds nuw i8, ptr %.048, i64 48
+  %.val52 = load i64, ptr %171, align 1
+  %172 = add i64 %170, %.val52
+  %173 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 22)
+  %174 = mul i64 %173, -5435081209227447693
+  %175 = xor i64 %169, %.sroa.13.0
+  %176 = getelementptr inbounds nuw i8, ptr %.048, i64 40
+  %.val53 = load i64, ptr %176, align 1
+  %177 = add i64 %.val53, %.sroa.0109.0
+  %178 = add i64 %177, %174
+  %179 = add i64 %.0137, %.sroa.095.0
+  %180 = tail call i64 @llvm.fshl.i64(i64 %179, i64 %179, i64 31)
+  %181 = mul i64 %180, -5435081209227447693
+  %182 = mul i64 %.sroa.11.0, -5435081209227447693
+  %183 = add i64 %175, %.sroa.095.0
+  %.val7.i = load i64, ptr %.048, align 1
+  %184 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %.val5.i = load i64, ptr %184, align 1
+  %185 = getelementptr inbounds nuw i8, ptr %.048, i64 24
+  %.val.i67 = load i64, ptr %185, align 1
+  %186 = add i64 %.val7.i, %182
+  %187 = add i64 %183, %186
+  %188 = add i64 %187, %.val.i67
+  %189 = tail call i64 @llvm.fshl.i64(i64 %188, i64 %188, i64 43)
+  %190 = add i64 %186, %.val51
+  %191 = add i64 %190, %.val5.i
+  %192 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %191, i64 20)
+  %193 = add i64 %191, %.val.i67
+  %194 = add i64 %192, %186
+  %195 = add i64 %194, %189
+  %196 = getelementptr inbounds nuw i8, ptr %.048, i64 32
+  %197 = add i64 %181, %.sroa.13.0
+  %198 = add i64 %178, %.val5.i
+  %.val7.i68 = load i64, ptr %196, align 1
+  %199 = getelementptr inbounds nuw i8, ptr %.048, i64 56
+  %.val.i71 = load i64, ptr %199, align 1
+  %200 = add i64 %197, %.val7.i68
+  %201 = add i64 %198, %200
+  %202 = add i64 %201, %.val.i71
+  %203 = tail call i64 @llvm.fshl.i64(i64 %202, i64 %202, i64 43)
+  %204 = add i64 %200, %.val53
+  %205 = add i64 %204, %.val52
+  %206 = tail call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 20)
+  %207 = add i64 %205, %.val.i71
+  %208 = add i64 %206, %200
+  %209 = add i64 %208, %203
+  %210 = getelementptr inbounds nuw i8, ptr %.048, i64 64
+  %.not = icmp eq ptr %210, %160
+  br i1 %.not, label %211, label %163, !llvm.loop !10
 
-do.end:                                           ; preds = %do.body
-  %add.ptr23 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %and
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr23, i64 -63
-  %and67 = shl i64 %xor, 1
-  %shl = and i64 %and67, 510
-  %add68 = add nuw nsw i64 %shl, -5435081209227447693
-  %add72 = add i64 %add7.i.i258, %and
-  %add75 = add i64 %add72, %add7.i.i
-  %add78 = add i64 %add75, %add72
-  %add79 = add i64 %add43, %mul47
-  %add81 = add i64 %add79, %add75
-  %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr23, i64 -55
-  %add.ptr82.val = load i64, ptr %add.ptr82, align 1
-  %add84 = add i64 %add81, %add.ptr82.val
-  %or.i.i267 = tail call i64 @llvm.fshl.i64(i64 %add84, i64 %add84, i64 27)
-  %mul86 = mul i64 %or.i.i267, %add68
-  %add88 = add i64 %add9.i.i, %add43
-  %add.ptr89 = getelementptr inbounds i8, ptr %add.ptr23, i64 -15
-  %add.ptr89.val = load i64, ptr %add.ptr89, align 1
-  %add91 = add i64 %add88, %add.ptr89.val
-  %or.i.i270 = tail call i64 @llvm.fshl.i64(i64 %add91, i64 %add91, i64 22)
-  %mul93 = mul i64 %or.i.i270, %add68
-  %mul95 = mul i64 %add9.i.i260, 9
-  %xor96 = xor i64 %mul86, %mul95
-  %mul98 = mul i64 %add75, 9
-  %add.ptr99 = getelementptr inbounds i8, ptr %add.ptr23, i64 -23
-  %add.ptr99.val = load i64, ptr %add.ptr99, align 1
-  %add101 = add i64 %add.ptr99.val, %mul98
-  %add102 = add i64 %add101, %mul93
-  %add104 = add i64 %add78, %xor
-  %or.i.i273 = tail call i64 @llvm.fshl.i64(i64 %add104, i64 %add104, i64 31)
-  %mul106 = mul i64 %or.i.i273, %add68
-  %mul109 = mul i64 %add9.i.i, %add68
-  %add111 = add i64 %xor96, %add78
-  %s.val.i274 = load i64, ptr %add.ptr24, align 1
-  %add.ptr2.i277 = getelementptr inbounds i8, ptr %add.ptr23, i64 -47
-  %add.ptr2.val.i278 = load i64, ptr %add.ptr2.i277, align 1
-  %add.ptr4.i279 = getelementptr inbounds i8, ptr %add.ptr23, i64 -39
-  %add.ptr4.val.i280 = load i64, ptr %add.ptr4.i279, align 1
-  %add.i.i281 = add i64 %s.val.i274, %mul109
-  %add1.i.i282 = add i64 %add111, %add.i.i281
-  %add2.i.i283 = add i64 %add1.i.i282, %add.ptr4.val.i280
-  %or.i.i.i.i284 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i283, i64 %add2.i.i283, i64 43)
-  %add3.i.i285 = add i64 %add.i.i281, %add.ptr82.val
-  %add4.i.i286 = add i64 %add3.i.i285, %add.ptr2.val.i278
-  %or.i.i22.i.i287 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i286, i64 %add4.i.i286, i64 20)
-  %add7.i.i288 = add i64 %add4.i.i286, %add.ptr4.val.i280
-  %add6.i.i289 = add i64 %or.i.i22.i.i287, %add.i.i281
-  %add9.i.i290 = add i64 %add6.i.i289, %or.i.i.i.i284
-  %add.ptr115 = getelementptr inbounds i8, ptr %add.ptr23, i64 -31
-  %add117 = add i64 %mul106, %add9.i.i260
-  %add120 = add i64 %add102, %add.ptr2.val.i278
-  %s.val.i295 = load i64, ptr %add.ptr115, align 1
-  %add.ptr4.i300 = getelementptr inbounds i8, ptr %add.ptr23, i64 -7
-  %add.ptr4.val.i301 = load i64, ptr %add.ptr4.i300, align 1
-  %add.i.i302 = add i64 %add117, %s.val.i295
-  %add1.i.i303 = add i64 %add120, %add.i.i302
-  %add2.i.i304 = add i64 %add1.i.i303, %add.ptr4.val.i301
-  %or.i.i.i.i305 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i304, i64 %add2.i.i304, i64 43)
-  %add3.i.i306 = add i64 %add.ptr99.val, %add.ptr89.val
-  %add4.i.i307 = add i64 %add3.i.i306, %add.i.i302
-  %or.i.i22.i.i308 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i307, i64 %add4.i.i307, i64 20)
-  %add7.i.i309 = add i64 %add4.i.i307, %add.ptr4.val.i301
-  %add6.i.i310 = add i64 %or.i.i22.i.i308, %add.i.i302
-  %add9.i.i311 = add i64 %add6.i.i310, %or.i.i.i.i305
-  %xor.i316 = xor i64 %add7.i.i309, %add7.i.i288
-  %mul1.i317 = mul i64 %xor.i316, %add68
-  %shr.i318 = lshr i64 %mul1.i317, 47
-  %9 = xor i64 %add7.i.i309, %shr.i318
-  %xor3.i = xor i64 %9, %mul1.i317
-  %mul4.i = mul i64 %xor3.i, %add68
-  %shr5.i = lshr i64 %mul4.i, 47
-  %xor6.i = xor i64 %shr5.i, %mul4.i
-  %mul7.i319 = mul i64 %xor6.i, %add68
-  %shr.i320 = lshr i64 %add102, 47
-  %xor.i321 = xor i64 %shr.i320, %add102
-  %mul127 = mul i64 %xor.i321, -4348849565147123417
-  %add128 = add i64 %mul127, %xor96
-  %add129 = add i64 %add128, %mul7.i319
-  %xor.i322 = xor i64 %add9.i.i311, %add9.i.i290
-  %mul1.i323 = mul i64 %xor.i322, %add68
-  %shr.i324 = lshr i64 %mul1.i323, 47
-  %10 = xor i64 %add9.i.i311, %shr.i324
-  %xor3.i325 = xor i64 %10, %mul1.i323
-  %mul4.i326 = mul i64 %xor3.i325, %add68
-  %shr5.i327 = lshr i64 %mul4.i326, 47
-  %xor6.i328 = xor i64 %shr5.i327, %mul4.i326
-  %mul7.i329371 = add i64 %xor6.i328, %or.i.i273
-  %add133 = mul i64 %mul7.i329371, %add68
-  %xor.i330 = xor i64 %add133, %add129
-  %mul1.i331 = mul i64 %xor.i330, %add68
-  %shr.i332 = lshr i64 %mul1.i331, 47
-  %11 = xor i64 %add133, %shr.i332
-  %xor3.i333 = xor i64 %11, %mul1.i331
-  %mul4.i334 = mul i64 %xor3.i333, %add68
-  %shr5.i335 = lshr i64 %mul4.i334, 47
-  %xor6.i336 = xor i64 %shr5.i335, %mul4.i334
-  %mul7.i337 = mul i64 %xor6.i336, %add68
-  br label %cleanup
+211:                                              ; preds = %163
+  %212 = getelementptr inbounds i8, ptr %162, i64 -63
+  %213 = shl i64 %175, 1
+  %214 = and i64 %213, 510
+  %215 = add nuw nsw i64 %214, -5435081209227447693
+  %216 = add i64 %207, %161
+  %217 = add i64 %216, %193
+  %218 = add i64 %217, %216
+  %219 = add i64 %178, %181
+  %220 = add i64 %219, %217
+  %221 = getelementptr inbounds i8, ptr %162, i64 -55
+  %.val55 = load i64, ptr %221, align 1
+  %222 = add i64 %220, %.val55
+  %223 = tail call i64 @llvm.fshl.i64(i64 %222, i64 %222, i64 27)
+  %224 = mul i64 %223, %215
+  %225 = add i64 %195, %178
+  %226 = getelementptr inbounds i8, ptr %162, i64 -15
+  %.val56 = load i64, ptr %226, align 1
+  %227 = add i64 %225, %.val56
+  %228 = tail call i64 @llvm.fshl.i64(i64 %227, i64 %227, i64 22)
+  %229 = mul i64 %228, %215
+  %230 = mul i64 %209, 9
+  %231 = xor i64 %224, %230
+  %232 = mul i64 %217, 9
+  %233 = getelementptr inbounds i8, ptr %162, i64 -23
+  %.val57 = load i64, ptr %233, align 1
+  %234 = add i64 %.val57, %232
+  %235 = add i64 %234, %229
+  %236 = add i64 %218, %175
+  %237 = tail call i64 @llvm.fshl.i64(i64 %236, i64 %236, i64 31)
+  %238 = mul i64 %237, %215
+  %239 = mul i64 %195, %215
+  %240 = add i64 %231, %218
+  %.val7.i74 = load i64, ptr %212, align 1
+  %241 = getelementptr inbounds i8, ptr %162, i64 -47
+  %.val5.i76 = load i64, ptr %241, align 1
+  %242 = getelementptr inbounds i8, ptr %162, i64 -39
+  %.val.i77 = load i64, ptr %242, align 1
+  %243 = add i64 %.val7.i74, %239
+  %244 = add i64 %240, %243
+  %245 = add i64 %244, %.val.i77
+  %246 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %245, i64 43)
+  %247 = add i64 %243, %.val55
+  %248 = add i64 %247, %.val5.i76
+  %249 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 20)
+  %250 = add i64 %248, %.val.i77
+  %251 = add i64 %249, %243
+  %252 = add i64 %251, %246
+  %253 = getelementptr inbounds i8, ptr %162, i64 -31
+  %254 = add i64 %238, %209
+  %255 = add i64 %.val5.i76, %235
+  %.val7.i80 = load i64, ptr %253, align 1
+  %256 = getelementptr inbounds i8, ptr %162, i64 -7
+  %.val.i83 = load i64, ptr %256, align 1
+  %257 = add i64 %254, %.val7.i80
+  %258 = add i64 %255, %257
+  %259 = add i64 %258, %.val.i83
+  %260 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 43)
+  %261 = add i64 %257, %.val57
+  %262 = add i64 %261, %.val56
+  %263 = tail call i64 @llvm.fshl.i64(i64 %262, i64 %262, i64 20)
+  %264 = add i64 %262, %.val.i83
+  %265 = add i64 %263, %257
+  %266 = add i64 %265, %260
+  %267 = xor i64 %264, %250
+  %268 = mul i64 %267, %215
+  %269 = lshr i64 %268, 47
+  %270 = xor i64 %264, %269
+  %271 = xor i64 %270, %268
+  %272 = mul i64 %271, %215
+  %273 = lshr i64 %272, 47
+  %274 = xor i64 %273, %272
+  %275 = mul i64 %274, %215
+  %276 = lshr i64 %235, 47
+  %277 = xor i64 %276, %235
+  %278 = mul i64 %277, -4348849565147123417
+  %279 = add i64 %278, %231
+  %280 = add i64 %279, %275
+  %281 = xor i64 %266, %252
+  %282 = mul i64 %281, %215
+  %283 = lshr i64 %282, 47
+  %284 = xor i64 %266, %283
+  %285 = xor i64 %284, %282
+  %286 = mul i64 %285, %215
+  %287 = lshr i64 %286, 47
+  %288 = xor i64 %287, %286
+  %289 = add i64 %288, %237
+  %290 = mul i64 %289, %215
+  %291 = xor i64 %290, %280
+  %292 = mul i64 %291, %215
+  %293 = lshr i64 %292, 47
+  %294 = xor i64 %290, %293
+  %295 = xor i64 %294, %292
+  %296 = mul i64 %295, %215
+  %297 = lshr i64 %296, 47
+  %298 = xor i64 %297, %296
+  %299 = mul i64 %298, %215
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-cleanup:                                          ; preds = %do.end, %if.then6, %if.else, %if.then27.i, %if.end25.i, %if.then13.i, %if.then.i
-  %retval.0 = phi i64 [ %mul7.i.i192, %if.else ], [ %mul7.i93.i, %if.then6 ], [ %mul7.i337, %do.end ], [ %mul7.i.i, %if.then.i ], [ %mul7.i80.i, %if.then13.i ], [ %mul47.i, %if.then27.i ], [ -7286425919675154353, %if.end25.i ]
-  ret i64 %retval.0
+_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50, %49, %31, %8, %211, %101, %71
+  %.0 = phi i64 [ %98, %71 ], [ %155, %101 ], [ %299, %211 ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna14Hash64WithSeedEPKcmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i = add i64 %call.i, 7286425919675154353
-  %xor.i.i.i = xor i64 %sub.i, %seed
-  %mul.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
-  %shr.i.i.i = lshr i64 %mul.i.i.i, 47
-  %0 = xor i64 %seed, %shr.i.i.i
-  %xor6.i.i.i = xor i64 %0, %mul.i.i.i
-  %mul7.i.i.i = mul i64 %xor6.i.i.i, -7070675565921424023
-  %shr8.i.i.i = lshr i64 %mul7.i.i.i, 47
-  %xor9.i.i.i = xor i64 %shr8.i.i.i, %mul7.i.i.i
-  %mul10.i.i.i = mul i64 %xor9.i.i.i, -7070675565921424023
-  ret i64 %mul10.i.i.i
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %5 = add i64 %4, 7286425919675154353
+  %6 = xor i64 %5, %2
+  %7 = mul i64 %6, -7070675565921424023
+  %8 = lshr i64 %7, 47
+  %9 = xor i64 %2, %8
+  %10 = xor i64 %9, %7
+  %11 = mul i64 %10, -7070675565921424023
+  %12 = lshr i64 %11, 47
+  %13 = xor i64 %12, %11
+  %14 = mul i64 %13, -7070675565921424023
+  ret i64 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub = sub i64 %call, %seed0
-  %xor.i.i = xor i64 %sub, %seed1
-  %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
-  %shr.i.i = lshr i64 %mul.i.i, 47
-  %0 = xor i64 %seed1, %shr.i.i
-  %xor6.i.i = xor i64 %0, %mul.i.i
-  %mul7.i.i = mul i64 %xor6.i.i, -7070675565921424023
-  %shr8.i.i = lshr i64 %mul7.i.i, 47
-  %xor9.i.i = xor i64 %shr8.i.i, %mul7.i.i
-  %mul10.i.i = mul i64 %xor9.i.i, -7070675565921424023
-  ret i64 %mul10.i.i
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %6 = sub i64 %5, %2
+  %7 = xor i64 %6, %3
+  %8 = mul i64 %7, -7070675565921424023
+  %9 = lshr i64 %8, 47
+  %10 = xor i64 %3, %9
+  %11 = xor i64 %10, %8
+  %12 = mul i64 %11, -7070675565921424023
+  %13 = lshr i64 %12, 47
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -7070675565921424023
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 65
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp ult i64 %1, 65
+  br i1 %5, label %6, label %18
 
-if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i = sub i64 %call.i, %seed0
-  %xor.i.i.i = xor i64 %sub.i, %seed1
-  %mul.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
-  %shr.i.i.i = lshr i64 %mul.i.i.i, 47
-  %0 = xor i64 %seed1, %shr.i.i.i
-  %xor6.i.i.i = xor i64 %0, %mul.i.i.i
-  %mul7.i.i.i = mul i64 %xor6.i.i.i, -7070675565921424023
-  %shr8.i.i.i = lshr i64 %mul7.i.i.i, 47
-  %xor9.i.i.i = xor i64 %shr8.i.i.i, %mul7.i.i.i
-  %mul10.i.i.i = mul i64 %xor9.i.i.i, -7070675565921424023
-  br label %return
+6:                                                ; preds = %4
+  %7 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %8 = sub i64 %7, %2
+  %9 = xor i64 %8, %3
+  %10 = mul i64 %9, -7070675565921424023
+  %11 = lshr i64 %10, 47
+  %12 = xor i64 %3, %11
+  %13 = xor i64 %12, %10
+  %14 = mul i64 %13, -7070675565921424023
+  %15 = lshr i64 %14, 47
+  %16 = xor i64 %15, %14
+  %17 = mul i64 %16, -7070675565921424023
+  br label %171
 
-if.end:                                           ; preds = %entry
-  %mul = mul i64 %seed1, -7286425919675154353
-  %add = add i64 %mul, 113
-  %mul1 = mul i64 %add, -7286425919675154353
-  %shr.i = lshr i64 %mul1, 47
-  %xor.i = xor i64 %shr.i, %mul1
-  %mul3 = mul i64 %xor.i, -7286425919675154353
-  %sub = sub i64 %seed0, %mul3
-  %mul8 = mul i64 %seed0, -7286425919675154353
-  %and = and i64 %sub, 130
-  %add10 = add nuw nsw i64 %and, -7286425919675154353
-  %sub11 = add i64 %len, -1
-  %div217 = and i64 %sub11, -64
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %div217
-  %and14 = and i64 %sub11, 63
-  br label %do.body
+18:                                               ; preds = %4
+  %19 = mul i64 %3, -7286425919675154353
+  %20 = add i64 %19, 113
+  %21 = mul i64 %20, -7286425919675154353
+  %22 = lshr i64 %21, 47
+  %23 = xor i64 %22, %21
+  %24 = mul i64 %23, -7286425919675154353
+  %25 = sub i64 %2, %24
+  %26 = mul i64 %2, -7286425919675154353
+  %27 = and i64 %25, 130
+  %28 = add nuw nsw i64 %27, -7286425919675154353
+  %29 = add i64 %1, -1
+  %30 = and i64 %29, -64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %32 = and i64 %29, 63
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
+  br label %34
 
-do.body:                                          ; preds = %do.body, %if.end
-  %w.sroa.0.0 = phi i64 [ 0, %if.end ], [ %add85, %do.body ]
-  %w.sroa.17.0 = phi i64 [ 0, %if.end ], [ %or.i.i232, %do.body ]
-  %u.0 = phi i64 [ %sub, %if.end ], [ %add63, %do.body ]
-  %v.sroa.0.0 = phi i64 [ %seed0, %if.end ], [ %add79, %do.body ]
-  %v.sroa.17.0 = phi i64 [ %seed1, %if.end ], [ %add82, %do.body ]
-  %z.0 = phi i64 [ %mul3, %if.end ], [ %or.i.i220, %do.body ]
-  %y.0 = phi i64 [ %add, %if.end ], [ %add76, %do.body ]
-  %x.0 = phi i64 [ %mul8, %if.end ], [ %add90, %do.body ]
-  %s.addr.0 = phi ptr [ %s, %if.end ], [ %add.ptr94, %do.body ]
-  %s.addr.0.val = load i64, ptr %s.addr.0, align 1
-  %add.ptr18 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 8
-  %add.ptr18.val = load i64, ptr %add.ptr18, align 1
-  %add.ptr20 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 16
-  %add.ptr20.val = load i64, ptr %add.ptr20, align 1
-  %add.ptr22 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 24
-  %add.ptr22.val = load i64, ptr %add.ptr22, align 1
-  %add.ptr24 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 32
-  %add.ptr24.val = load i64, ptr %add.ptr24, align 1
-  %add.ptr26 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 40
-  %add.ptr26.val = load i64, ptr %add.ptr26, align 1
-  %add.ptr28 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 48
-  %add.ptr28.val = load i64, ptr %add.ptr28, align 1
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 56
-  %add.ptr30.val = load i64, ptr %add.ptr30, align 1
-  %add32 = add i64 %s.addr.0.val, %x.0
-  %add33 = add i64 %add32, %add.ptr18.val
-  %add34 = add i64 %add.ptr20.val, %y.0
-  %add35 = add i64 %add.ptr22.val, %z.0
-  %add36 = add i64 %add.ptr24.val, %v.sroa.0.0
-  %add37 = add i64 %add.ptr18.val, %v.sroa.17.0
-  %add38 = add i64 %add37, %add.ptr26.val
-  %add40 = add i64 %add.ptr28.val, %w.sroa.0.0
-  %add42 = add i64 %add.ptr30.val, %w.sroa.17.0
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add33, i64 %add33, i64 38)
-  %mul44 = mul i64 %or.i.i, 9
-  %or.i.i220 = tail call i64 @llvm.fshl.i64(i64 %add34, i64 %add34, i64 35)
-  %mul46 = mul i64 %add35, %add10
-  %or.i.i223 = tail call i64 @llvm.fshl.i64(i64 %add36, i64 %add36, i64 31)
-  %or.i.i226 = tail call i64 @llvm.fshl.i64(i64 %add38, i64 %add38, i64 34)
-  %xor = xor i64 %add40, %mul44
-  %mul55 = mul i64 %xor, 9
-  %or.i.i229 = tail call i64 @llvm.fshl.i64(i64 %mul46, i64 %mul46, i64 32)
-  %add58 = add i64 %add42, %or.i.i229
-  %mul61 = mul i64 %add58, 9
-  %add62 = add i64 %add.ptr28.val, %s.addr.0.val
-  %add63 = add i64 %add62, %mul61
-  %add65 = add i64 %or.i.i223, %add.ptr20.val
-  %add67 = add i64 %or.i.i226, %add.ptr22.val
-  %add69 = add i64 %mul55, %add.ptr24.val
-  %add73 = add i64 %mul44, %add.ptr18.val
-  %add74 = add i64 %add.ptr30.val, %u.0
-  %add76 = add i64 %add74, %add65
-  %sub77 = sub i64 %add73, %add76
-  %add79 = add i64 %sub77, %add65
-  %add82 = add i64 %add67, %add69
-  %add85 = add i64 %add82, %add69
-  %add60 = add i64 %add.ptr28.val, %add.ptr26.val
-  %add70 = add i64 %add60, %add42
-  %add72 = add i64 %add70, %add58
-  %add88 = add i64 %add72, %sub77
-  %add90 = add i64 %add88, %add73
-  %or.i.i232 = tail call i64 @llvm.fshl.i64(i64 %add88, i64 %add88, i64 30)
-  %add.ptr94 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 64
-  %cmp95.not = icmp eq ptr %add.ptr94, %add.ptr
-  br i1 %cmp95.not, label %do.end, label %do.body, !llvm.loop !12
+34:                                               ; preds = %34, %18
+  %.sroa.094.0 = phi i64 [ 0, %18 ], [ %73, %34 ]
+  %.sroa.17.0 = phi i64 [ 0, %18 ], [ %79, %34 ]
+  %.0151 = phi i64 [ %25, %18 ], [ %63, %34 ]
+  %.sroa.0108.0 = phi i64 [ %2, %18 ], [ %71, %34 ]
+  %.sroa.17116.0 = phi i64 [ %3, %18 ], [ %72, %34 ]
+  %.0150 = phi i64 [ %24, %18 ], [ %53, %34 ]
+  %.0149 = phi i64 [ %20, %18 ], [ %69, %34 ]
+  %.066 = phi i64 [ %26, %18 ], [ %78, %34 ]
+  %.065 = phi ptr [ %0, %18 ], [ %80, %34 ]
+  %.065.val = load i64, ptr %.065, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %.065, i64 8
+  %.val77 = load i64, ptr %35, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.065, i64 16
+  %.val76 = load i64, ptr %36, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %.065, i64 24
+  %.val75 = load i64, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %.065, i64 32
+  %.val74 = load i64, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %.065, i64 40
+  %.val73 = load i64, ptr %39, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %.065, i64 48
+  %.val72 = load i64, ptr %40, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %.065, i64 56
+  %.val71 = load i64, ptr %41, align 1
+  %42 = add i64 %.065.val, %.066
+  %43 = add i64 %42, %.val77
+  %44 = add i64 %.val76, %.0149
+  %45 = add i64 %.val75, %.0150
+  %46 = add i64 %.val74, %.sroa.0108.0
+  %47 = add i64 %.val77, %.sroa.17116.0
+  %48 = add i64 %47, %.val73
+  %49 = add i64 %.val72, %.sroa.094.0
+  %50 = add i64 %.val71, %.sroa.17.0
+  %51 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 38)
+  %52 = mul i64 %51, 9
+  %53 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 35)
+  %54 = mul i64 %45, %28
+  %55 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %46, i64 31)
+  %56 = tail call i64 @llvm.fshl.i64(i64 %48, i64 %48, i64 34)
+  %57 = xor i64 %49, %52
+  %58 = mul i64 %57, 9
+  %59 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %54, i64 32)
+  %60 = add i64 %50, %59
+  %61 = mul i64 %60, 9
+  %62 = add i64 %.val72, %.065.val
+  %63 = add i64 %62, %61
+  %64 = add i64 %55, %.val76
+  %65 = add i64 %56, %.val75
+  %66 = add i64 %58, %.val74
+  %67 = add i64 %52, %.val77
+  %68 = add i64 %.val71, %.0151
+  %69 = add i64 %68, %64
+  %70 = sub i64 %67, %69
+  %71 = add i64 %70, %64
+  %72 = add i64 %65, %66
+  %73 = add i64 %72, %66
+  %74 = add i64 %.val72, %.val73
+  %75 = add i64 %74, %50
+  %76 = add i64 %75, %60
+  %77 = add i64 %76, %70
+  %78 = add i64 %77, %67
+  %79 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 30)
+  %80 = getelementptr inbounds nuw i8, ptr %.065, i64 64
+  %.not = icmp eq ptr %80, %31
+  br i1 %.not, label %81, label %34, !llvm.loop !12
 
-do.end:                                           ; preds = %do.body
-  %add.ptr15 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %and14
-  %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr15, i64 -63
-  %mul96 = mul i64 %add63, 9
-  %or.i.i235 = tail call i64 @llvm.fshl.i64(i64 %add82, i64 %add82, i64 36)
-  %or.i.i238 = tail call i64 @llvm.fshl.i64(i64 %add79, i64 %add79, i64 44)
-  %add106 = add i64 %add85, %and14
-  %add107 = add i64 %mul96, %add76
-  %add108 = add i64 %add107, %add76
-  %add.ptr112 = getelementptr inbounds i8, ptr %add.ptr15, i64 -55
-  %add.ptr112.val = load i64, ptr %add.ptr112, align 1
-  %sub109 = sub i64 %or.i.i238, %add90
-  %add111 = add i64 %sub109, %add108
-  %add114 = add i64 %add111, %add.ptr112.val
-  %or.i.i241 = tail call i64 @llvm.fshl.i64(i64 %add114, i64 %add114, i64 27)
-  %mul116 = mul i64 %or.i.i241, %add10
-  %add.ptr119 = getelementptr inbounds i8, ptr %add.ptr15, i64 -15
-  %add.ptr119.val = load i64, ptr %add.ptr119, align 1
-  %1 = xor i64 %add108, %or.i.i235
-  %xor121 = xor i64 %1, %add.ptr119.val
-  %or.i.i244 = tail call i64 @llvm.fshl.i64(i64 %xor121, i64 %xor121, i64 22)
-  %mul123 = mul i64 %or.i.i244, %add10
-  %mul125 = mul i64 %or.i.i232, 9
-  %xor126 = xor i64 %mul116, %mul125
-  %add.ptr128 = getelementptr inbounds i8, ptr %add.ptr15, i64 -23
-  %add.ptr128.val = load i64, ptr %add.ptr128, align 1
-  %add130 = add i64 %add.ptr128.val, %or.i.i238
-  %add131 = add i64 %add130, %mul123
-  %add133 = add i64 %add106, %or.i.i220
-  %or.i.i247 = tail call i64 @llvm.fshl.i64(i64 %add133, i64 %add133, i64 31)
-  %mul135 = mul i64 %or.i.i247, %add10
-  %mul138 = mul i64 %or.i.i235, %add10
-  %s.val.i = load i64, ptr %add.ptr16, align 1
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr15, i64 -47
-  %add.ptr2.val.i = load i64, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr15, i64 -39
-  %add.ptr4.val.i = load i64, ptr %add.ptr4.i, align 1
-  %add.i.i = add i64 %s.val.i, %mul138
-  %add140 = add i64 %add.ptr4.val.i, %xor126
-  %add1.i.i = add i64 %add.i.i, %add106
-  %add2.i.i = add i64 %add1.i.i, %add140
-  %or.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add2.i.i, i64 %add2.i.i, i64 43)
-  %add3.i.i = add i64 %add.i.i, %add.ptr112.val
-  %add4.i.i = add i64 %add3.i.i, %add.ptr2.val.i
-  %or.i.i22.i.i = tail call i64 @llvm.fshl.i64(i64 %add4.i.i, i64 %add4.i.i, i64 20)
-  %add.ptr144 = getelementptr inbounds i8, ptr %add.ptr15, i64 -31
-  %add146 = add i64 %mul135, %or.i.i232
-  %add149 = add i64 %add131, %add.ptr2.val.i
-  %s.val.i250 = load i64, ptr %add.ptr144, align 1
-  %add.ptr4.i255 = getelementptr inbounds i8, ptr %add.ptr15, i64 -7
-  %add.ptr4.val.i256 = load i64, ptr %add.ptr4.i255, align 1
-  %add.i.i257 = add i64 %add146, %s.val.i250
-  %add1.i.i258 = add i64 %add149, %add.i.i257
-  %add2.i.i259 = add i64 %add1.i.i258, %add.ptr4.val.i256
-  %or.i.i.i.i260 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i259, i64 %add2.i.i259, i64 43)
-  %add3.i.i261 = add i64 %add.ptr128.val, %add.ptr119.val
-  %add4.i.i262 = add i64 %add3.i.i261, %add.i.i257
-  %or.i.i22.i.i263 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i262, i64 %add4.i.i262, i64 20)
-  %add7.i.i264 = add i64 %add4.i.i262, %add.ptr4.val.i256
-  %add153 = add i64 %add140, %add4.i.i
-  %xor155 = xor i64 %add7.i.i264, %add131
-  %xor.i271 = xor i64 %xor155, %add153
-  %mul1.i = mul i64 %xor.i271, %add10
-  %shr.i272 = lshr i64 %mul1.i, 47
-  %2 = xor i64 %xor155, %shr.i272
-  %xor3.i = xor i64 %2, %mul1.i
-  %mul4.i = mul i64 %xor3.i, %add10
-  %shr5.i = lshr i64 %mul4.i, 47
-  %xor6.i = xor i64 %shr5.i, %mul4.i
-  %mul7.i340 = add i64 %xor6.i, %or.i.i247
-  %add157 = mul i64 %mul7.i340, %add10
-  %sub158 = sub i64 %add157, %add107
-  %add6.i.i = add i64 %add131, %add.i.i
-  %add9.i.i = add i64 %add6.i.i, %or.i.i22.i.i
-  %add160 = add i64 %add9.i.i, %or.i.i.i.i
-  %add6.i.i265 = add i64 %add.i.i257, %mul135
-  %add9.i.i266 = add i64 %add6.i.i265, %or.i.i22.i.i263
-  %add162 = add i64 %add9.i.i266, %or.i.i.i.i260
-  %xor.i273 = xor i64 %add162, %add160
-  %mul1.i274 = mul i64 %xor.i273, -7286425919675154353
-  %shr.i275 = lshr i64 %mul1.i274, 47
-  %3 = xor i64 %add162, %shr.i275
-  %xor3.i276 = xor i64 %3, %mul1.i274
-  %mul4.i277 = mul i64 %xor3.i276, -7286425919675154353
-  %shr.i.i.i278 = lshr i64 %mul4.i277, 30
-  %shl.i.i.i = mul i64 %xor3.i276, -4737503975807385600
-  %or.i.i.i = or disjoint i64 %shr.i.i.i278, %shl.i.i.i
-  %mul5.i = mul i64 %or.i.i.i, -7286425919675154353
-  %xor164 = xor i64 %mul5.i, %xor126
-  %xor.i279 = xor i64 %xor164, %sub158
-  %mul1.i280 = mul i64 %xor.i279, -7286425919675154353
-  %shr.i281 = lshr i64 %mul1.i280, 47
-  %4 = xor i64 %xor164, %shr.i281
-  %xor3.i282 = xor i64 %4, %mul1.i280
-  %mul4.i283 = mul i64 %xor3.i282, -7286425919675154353
-  %shr.i.i.i284 = lshr i64 %mul4.i283, 31
-  %shl.i.i.i285 = mul i64 %xor3.i282, 6854620048951083008
-  %or.i.i.i286 = or disjoint i64 %shr.i.i.i284, %shl.i.i.i285
-  %mul5.i287 = mul i64 %or.i.i.i286, -7286425919675154353
-  br label %return
+81:                                               ; preds = %34
+  %82 = getelementptr inbounds i8, ptr %33, i64 -63
+  %83 = mul i64 %63, 9
+  %84 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 36)
+  %85 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 44)
+  %86 = add i64 %73, %32
+  %87 = add i64 %83, %69
+  %88 = add i64 %87, %69
+  %89 = getelementptr inbounds i8, ptr %33, i64 -55
+  %.val70 = load i64, ptr %89, align 1
+  %90 = sub i64 %85, %78
+  %91 = add i64 %90, %88
+  %92 = add i64 %91, %.val70
+  %93 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 27)
+  %94 = mul i64 %93, %28
+  %95 = getelementptr inbounds i8, ptr %33, i64 -15
+  %.val69 = load i64, ptr %95, align 1
+  %96 = xor i64 %84, %.val69
+  %97 = xor i64 %96, %88
+  %98 = tail call i64 @llvm.fshl.i64(i64 %97, i64 %97, i64 22)
+  %99 = mul i64 %98, %28
+  %100 = mul i64 %79, 9
+  %101 = xor i64 %94, %100
+  %102 = getelementptr inbounds i8, ptr %33, i64 -23
+  %.val68 = load i64, ptr %102, align 1
+  %103 = add i64 %.val68, %85
+  %104 = add i64 %103, %99
+  %105 = add i64 %86, %53
+  %106 = tail call i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 31)
+  %107 = mul i64 %106, %28
+  %108 = mul i64 %84, %28
+  %.val7.i = load i64, ptr %82, align 1
+  %109 = getelementptr inbounds i8, ptr %33, i64 -47
+  %.val5.i = load i64, ptr %109, align 1
+  %110 = getelementptr inbounds i8, ptr %33, i64 -39
+  %.val.i = load i64, ptr %110, align 1
+  %111 = add i64 %.val7.i, %108
+  %112 = add i64 %.val.i, %101
+  %113 = add i64 %112, %86
+  %114 = add i64 %113, %111
+  %115 = tail call i64 @llvm.fshl.i64(i64 %114, i64 %114, i64 43)
+  %116 = add i64 %111, %.val70
+  %117 = add i64 %116, %.val5.i
+  %118 = tail call i64 @llvm.fshl.i64(i64 %117, i64 %117, i64 20)
+  %119 = getelementptr inbounds i8, ptr %33, i64 -31
+  %120 = add i64 %107, %79
+  %121 = add i64 %.val5.i, %104
+  %.val7.i78 = load i64, ptr %119, align 1
+  %122 = getelementptr inbounds i8, ptr %33, i64 -7
+  %.val.i81 = load i64, ptr %122, align 1
+  %123 = add i64 %120, %.val7.i78
+  %124 = add i64 %121, %123
+  %125 = add i64 %124, %.val.i81
+  %126 = tail call i64 @llvm.fshl.i64(i64 %125, i64 %125, i64 43)
+  %127 = add i64 %123, %.val68
+  %128 = add i64 %127, %.val69
+  %129 = tail call i64 @llvm.fshl.i64(i64 %128, i64 %128, i64 20)
+  %130 = add i64 %128, %.val.i81
+  %131 = add i64 %112, %117
+  %132 = xor i64 %130, %104
+  %133 = xor i64 %132, %131
+  %134 = mul i64 %133, %28
+  %135 = lshr i64 %134, 47
+  %136 = xor i64 %132, %135
+  %137 = xor i64 %136, %134
+  %138 = mul i64 %137, %28
+  %139 = lshr i64 %138, 47
+  %140 = xor i64 %139, %138
+  %141 = add i64 %140, %106
+  %142 = mul i64 %141, %28
+  %143 = sub i64 %142, %87
+  %144 = add i64 %104, %111
+  %145 = add i64 %144, %118
+  %146 = add i64 %145, %115
+  %147 = add i64 %123, %107
+  %148 = add i64 %147, %129
+  %149 = add i64 %148, %126
+  %150 = xor i64 %149, %146
+  %151 = mul i64 %150, -7286425919675154353
+  %152 = lshr i64 %151, 47
+  %153 = xor i64 %149, %152
+  %154 = xor i64 %153, %151
+  %155 = mul i64 %154, -7286425919675154353
+  %156 = lshr i64 %155, 30
+  %157 = mul i64 %154, -4737503975807385600
+  %158 = or disjoint i64 %156, %157
+  %159 = mul i64 %158, -7286425919675154353
+  %160 = xor i64 %159, %101
+  %161 = xor i64 %160, %143
+  %162 = mul i64 %161, -7286425919675154353
+  %163 = lshr i64 %162, 47
+  %164 = xor i64 %160, %163
+  %165 = xor i64 %164, %162
+  %166 = mul i64 %165, -7286425919675154353
+  %167 = lshr i64 %166, 31
+  %168 = mul i64 %165, 6854620048951083008
+  %169 = or disjoint i64 %167, %168
+  %170 = mul i64 %169, -7286425919675154353
+  br label %171
 
-return:                                           ; preds = %do.end, %if.then
-  %retval.0 = phi i64 [ %mul10.i.i.i, %if.then ], [ %mul5.i287, %do.end ]
-  ret i64 %retval.0
+171:                                              ; preds = %81, %6
+  %.0 = phi i64 [ %17, %6 ], [ %170, %81 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 65
-  br i1 %cmp, label %cond.true, label %cond.false
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ult i64 %1, 65
+  br i1 %4, label %5, label %17
 
-cond.true:                                        ; preds = %entry
-  %call.i.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i.i = add i64 %call.i.i, 7286425919675154353
-  %xor.i.i.i.i = xor i64 %sub.i.i, %seed
-  %mul.i.i.i.i = mul i64 %xor.i.i.i.i, -7070675565921424023
-  %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 47
-  %0 = xor i64 %seed, %shr.i.i.i.i
-  %xor6.i.i.i.i = xor i64 %0, %mul.i.i.i.i
-  %mul7.i.i.i.i = mul i64 %xor6.i.i.i.i, -7070675565921424023
-  %shr8.i.i.i.i = lshr i64 %mul7.i.i.i.i, 47
-  %xor9.i.i.i.i = xor i64 %shr8.i.i.i.i, %mul7.i.i.i.i
-  %mul10.i.i.i.i = mul i64 %xor9.i.i.i.i, -7070675565921424023
-  br label %cond.end
+5:                                                ; preds = %3
+  %6 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %7 = add i64 %6, 7286425919675154353
+  %8 = xor i64 %7, %2
+  %9 = mul i64 %8, -7070675565921424023
+  %10 = lshr i64 %9, 47
+  %11 = xor i64 %2, %10
+  %12 = xor i64 %11, %9
+  %13 = mul i64 %12, -7070675565921424023
+  %14 = lshr i64 %13, 47
+  %15 = xor i64 %14, %13
+  %16 = mul i64 %15, -7070675565921424023
+  br label %19
 
-cond.false:                                       ; preds = %entry
-  %call1 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %s, i64 noundef %len, i64 noundef 0, i64 noundef %seed)
-  br label %cond.end
+17:                                               ; preds = %3
+  %18 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef %2)
+  br label %19
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %mul10.i.i.i.i, %cond.true ], [ %call1, %cond.false ]
-  ret i64 %cond
+19:                                               ; preds = %17, %5
+  %20 = phi i64 [ %16, %5 ], [ %18, %17 ]
+  ret i64 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 65
-  br i1 %cmp, label %cond.true, label %cond.false
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ult i64 %1, 65
+  br i1 %3, label %4, label %6
 
-cond.true:                                        ; preds = %entry
-  %call = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  br label %cond.end
+4:                                                ; preds = %2
+  %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  br label %8
 
-cond.false:                                       ; preds = %entry
-  %call1 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %s, i64 noundef %len, i64 noundef 81, i64 noundef 0)
-  br label %cond.end
+6:                                                ; preds = %2
+  %7 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef 81, i64 noundef 0)
+  br label %8
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %call, %cond.true ], [ %call1, %cond.false ]
-  ret i64 %cond
+8:                                                ; preds = %6, %4
+  %9 = phi i64 [ %5, %4 ], [ %7, %6 ]
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 33
-  br i1 %cmp, label %if.then, label %if.else4
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ult i64 %1, 33
+  br i1 %3, label %4, label %99
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ult i64 %len, 17
-  br i1 %cmp1, label %if.then2, label %if.else
+4:                                                ; preds = %2
+  %5 = icmp samesign ult i64 %1, 17
+  br i1 %5, label %6, label %71
 
-if.then2:                                         ; preds = %if.then
-  %cmp.i = icmp samesign ugt i64 %len, 7
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+6:                                                ; preds = %4
+  %7 = icmp samesign ugt i64 %1, 7
+  br i1 %7, label %8, label %29
 
-if.then.i:                                        ; preds = %if.then2
-  %mul1.i = shl nuw nsw i64 %len, 1
-  %add.i = add nuw nsw i64 %mul1.i, -7286425919675154353
-  %s.val.i = load i64, ptr %s, align 1
-  %add2.i = add i64 %s.val.i, -7286425919675154353
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %add.ptr3.val.i = load i64, ptr %add.ptr3.i, align 1
-  %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add.ptr3.val.i, i64 %add.ptr3.val.i, i64 27)
-  %mul6.i = mul i64 %or.i.i.i, %add.i
-  %add7.i = add i64 %mul6.i, %add2.i
-  %or.i.i72.i = tail call i64 @llvm.fshl.i64(i64 %add2.i, i64 %add2.i, i64 39)
-  %add9.i = add i64 %or.i.i72.i, %add.ptr3.val.i
-  %mul10.i = mul i64 %add9.i, %add.i
-  %xor.i.i = xor i64 %mul10.i, %add7.i
-  %mul1.i.i = mul i64 %xor.i.i, %add.i
-  %shr.i.i = lshr i64 %mul1.i.i, 47
-  %0 = xor i64 %mul10.i, %shr.i.i
-  %xor3.i.i = xor i64 %0, %mul1.i.i
-  %mul4.i.i = mul i64 %xor3.i.i, %add.i
-  %shr5.i.i = lshr i64 %mul4.i.i, 47
-  %xor6.i.i = xor i64 %shr5.i.i, %mul4.i.i
-  %mul7.i.i = mul i64 %xor6.i.i, %add.i
-  br label %return
+8:                                                ; preds = %6
+  %9 = shl nuw nsw i64 %1, 1
+  %10 = add nuw nsw i64 %9, -7286425919675154353
+  %.val.i = load i64, ptr %0, align 1
+  %11 = add i64 %.val.i, -7286425919675154353
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %13 = getelementptr inbounds i8, ptr %12, i64 -8
+  %.val35.i = load i64, ptr %13, align 1
+  %14 = tail call i64 @llvm.fshl.i64(i64 %.val35.i, i64 %.val35.i, i64 27)
+  %15 = mul i64 %14, %10
+  %16 = add i64 %15, %11
+  %17 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 39)
+  %18 = add i64 %17, %.val35.i
+  %19 = mul i64 %18, %10
+  %20 = xor i64 %19, %16
+  %21 = mul i64 %20, %10
+  %22 = lshr i64 %21, 47
+  %23 = xor i64 %19, %22
+  %24 = xor i64 %23, %21
+  %25 = mul i64 %24, %10
+  %26 = lshr i64 %25, 47
+  %27 = xor i64 %26, %25
+  %28 = mul i64 %27, %10
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.end.i:                                         ; preds = %if.then2
-  %cmp12.i = icmp samesign ugt i64 %len, 3
-  br i1 %cmp12.i, label %if.then13.i, label %if.end25.i
+29:                                               ; preds = %6
+  %30 = icmp samesign ugt i64 %1, 3
+  br i1 %30, label %31, label %49
 
-if.then13.i:                                      ; preds = %if.end.i
-  %mul15.i = shl nuw nsw i64 %len, 1
-  %add16.i = add nuw nsw i64 %mul15.i, -7286425919675154353
-  %s.val69.i = load i32, ptr %s, align 1
-  %conv.i = zext i32 %s.val69.i to i64
-  %shl.i = shl nuw nsw i64 %conv.i, 3
-  %add19.i = or disjoint i64 %shl.i, %len
-  %add.ptr20.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr21.i = getelementptr inbounds i8, ptr %add.ptr20.i, i64 -4
-  %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
-  %conv23.i = zext i32 %add.ptr21.val.i to i64
-  %xor.i73.i = xor i64 %add19.i, %conv23.i
-  %mul1.i74.i = mul i64 %xor.i73.i, %add16.i
-  %shr.i75.i = lshr i64 %mul1.i74.i, 47
-  %1 = xor i64 %shr.i75.i, %conv23.i
-  %xor3.i76.i = xor i64 %1, %mul1.i74.i
-  %mul4.i77.i = mul i64 %xor3.i76.i, %add16.i
-  %shr5.i78.i = lshr i64 %mul4.i77.i, 47
-  %xor6.i79.i = xor i64 %shr5.i78.i, %mul4.i77.i
-  %mul7.i80.i = mul i64 %xor6.i79.i, %add16.i
-  br label %return
+31:                                               ; preds = %29
+  %32 = shl nuw nsw i64 %1, 1
+  %33 = add nuw nsw i64 %32, -7286425919675154353
+  %.val36.i = load i32, ptr %0, align 1
+  %34 = zext i32 %.val36.i to i64
+  %35 = shl nuw nsw i64 %34, 3
+  %36 = or disjoint i64 %35, %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %38 = getelementptr inbounds i8, ptr %37, i64 -4
+  %.val37.i = load i32, ptr %38, align 1
+  %39 = zext i32 %.val37.i to i64
+  %40 = xor i64 %36, %39
+  %41 = mul i64 %40, %33
+  %42 = lshr i64 %41, 47
+  %43 = xor i64 %42, %39
+  %44 = xor i64 %43, %41
+  %45 = mul i64 %44, %33
+  %46 = lshr i64 %45, 47
+  %47 = xor i64 %46, %45
+  %48 = mul i64 %47, %33
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.end25.i:                                       ; preds = %if.end.i
-  %cmp26.not.i = icmp eq i64 %len, 0
-  br i1 %cmp26.not.i, label %return, label %if.then27.i
+49:                                               ; preds = %29
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit, label %50
 
-if.then27.i:                                      ; preds = %if.end25.i
-  %2 = load i8, ptr %s, align 1, !tbaa !7
-  %shr.i = lshr i64 %len, 1
-  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
-  %3 = load i8, ptr %arrayidx30.i, align 1, !tbaa !7
-  %4 = getelementptr i8, ptr %s, i64 %len
-  %arrayidx32.i = getelementptr i8, ptr %4, i64 -1
-  %5 = load i8, ptr %arrayidx32.i, align 1, !tbaa !7
-  %conv33.i = zext i8 %2 to i64
-  %conv34.i = zext i8 %3 to i64
-  %shl35.i = shl nuw nsw i64 %conv34.i, 8
-  %add36.i = or disjoint i64 %shl35.i, %conv33.i
-  %conv37.i = zext i8 %5 to i64
-  %shl38.i = shl nuw nsw i64 %conv37.i, 2
-  %add40.i = or disjoint i64 %shl38.i, %len
-  %mul43.i = mul i64 %add36.i, -7286425919675154353
-  %mul45.i = mul i64 %add40.i, -4348849565147123417
-  %xor.i = xor i64 %mul45.i, %mul43.i
-  %shr.i81.i = lshr i64 %xor.i, 47
-  %xor.i82.i = xor i64 %shr.i81.i, %xor.i
-  %mul47.i = mul i64 %xor.i82.i, -7286425919675154353
-  br label %return
+50:                                               ; preds = %49
+  %51 = load i8, ptr %0, align 1, !tbaa !7
+  %52 = lshr i64 %1, 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %55 = getelementptr i8, ptr %0, i64 %1
+  %56 = getelementptr i8, ptr %55, i64 -1
+  %57 = load i8, ptr %56, align 1, !tbaa !7
+  %58 = zext i8 %51 to i64
+  %59 = zext i8 %54 to i64
+  %60 = shl nuw nsw i64 %59, 8
+  %61 = or disjoint i64 %60, %58
+  %62 = zext i8 %57 to i64
+  %63 = shl nuw nsw i64 %62, 2
+  %64 = or disjoint i64 %63, %1
+  %65 = mul i64 %61, -7286425919675154353
+  %66 = mul i64 %64, -4348849565147123417
+  %67 = xor i64 %66, %65
+  %68 = lshr i64 %67, 47
+  %69 = xor i64 %68, %67
+  %70 = mul i64 %69, -7286425919675154353
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else:                                          ; preds = %if.then
-  %mul1.i33 = shl nuw nsw i64 %len, 1
-  %add.i34 = add nuw nsw i64 %mul1.i33, -7286425919675154353
-  %s.val.i35 = load i64, ptr %s, align 1
-  %mul2.i = mul i64 %s.val.i35, -5435081209227447693
-  %add.ptr.i36 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val.i = load i64, ptr %add.ptr.i36, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i = load i64, ptr %add.ptr5.i, align 1
-  %mul7.i = mul i64 %add.ptr5.val.i, %add.i34
-  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -16
-  %add.ptr9.val.i = load i64, ptr %add.ptr9.i, align 1
-  %mul11.i = mul i64 %add.ptr9.val.i, -7286425919675154353
-  %add12.i = add i64 %mul2.i, %add.ptr.val.i
-  %or.i.i.i37 = tail call i64 @llvm.fshl.i64(i64 %add12.i, i64 %add12.i, i64 21)
-  %or.i.i33.i = tail call i64 @llvm.fshl.i64(i64 %mul7.i, i64 %mul7.i, i64 34)
-  %add15.i = add i64 %or.i.i33.i, %or.i.i.i37
-  %add16.i38 = add i64 %add15.i, %mul11.i
-  %add17.i = add i64 %add.ptr.val.i, -7286425919675154353
-  %or.i.i36.i = tail call i64 @llvm.fshl.i64(i64 %add17.i, i64 %add17.i, i64 46)
-  %add19.i39 = add i64 %or.i.i36.i, %mul2.i
-  %add20.i = add i64 %add19.i39, %mul7.i
-  %xor.i.i40 = xor i64 %add16.i38, %add20.i
-  %mul1.i.i41 = mul i64 %xor.i.i40, %add.i34
-  %shr.i.i42 = lshr i64 %mul1.i.i41, 47
-  %6 = xor i64 %add20.i, %shr.i.i42
-  %xor3.i.i43 = xor i64 %6, %mul1.i.i41
-  %mul4.i.i44 = mul i64 %xor3.i.i43, %add.i34
-  %shr5.i.i45 = lshr i64 %mul4.i.i44, 47
-  %xor6.i.i46 = xor i64 %shr5.i.i45, %mul4.i.i44
-  %mul7.i.i47 = mul i64 %xor6.i.i46, %add.i34
-  br label %return
+71:                                               ; preds = %4
+  %72 = shl nuw nsw i64 %1, 1
+  %73 = add nuw nsw i64 %72, -7286425919675154353
+  %.val.i18 = load i64, ptr %0, align 1
+  %74 = mul i64 %.val.i18, -5435081209227447693
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val15.i = load i64, ptr %75, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %77 = getelementptr inbounds i8, ptr %76, i64 -8
+  %.val16.i = load i64, ptr %77, align 1
+  %78 = mul i64 %.val16.i, %73
+  %79 = getelementptr inbounds i8, ptr %76, i64 -16
+  %.val17.i = load i64, ptr %79, align 1
+  %80 = mul i64 %.val17.i, -7286425919675154353
+  %81 = add i64 %74, %.val15.i
+  %82 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 21)
+  %83 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 34)
+  %84 = add i64 %83, %82
+  %85 = add i64 %84, %80
+  %86 = add i64 %.val15.i, -7286425919675154353
+  %87 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 46)
+  %88 = add i64 %87, %74
+  %89 = add i64 %88, %78
+  %90 = xor i64 %85, %89
+  %91 = mul i64 %90, %73
+  %92 = lshr i64 %91, 47
+  %93 = xor i64 %89, %92
+  %94 = xor i64 %93, %91
+  %95 = mul i64 %94, %73
+  %96 = lshr i64 %95, 47
+  %97 = xor i64 %96, %95
+  %98 = mul i64 %97, %73
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else4:                                         ; preds = %entry
-  %cmp5 = icmp ult i64 %len, 65
-  br i1 %cmp5, label %if.then6, label %if.else8
+99:                                               ; preds = %2
+  %100 = icmp ult i64 %1, 65
+  br i1 %100, label %101, label %155
 
-if.then6:                                         ; preds = %if.else4
-  %mul.i = shl nuw nsw i64 %len, 1
-  %add.i48 = add nuw nsw i64 %mul.i, -7286425919675154383
-  %s.val.i.i = load i64, ptr %s, align 1
-  %mul1.i.i49 = mul i64 %s.val.i.i, -5435081209227447693
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val.i.i = load i64, ptr %add.ptr.i.i, align 1
-  %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
-  %add.ptr4.val.i.i = load i64, ptr %add.ptr4.i.i, align 1
-  %mul6.i.i = mul i64 %add.ptr4.val.i.i, -7286425919675154383
-  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %add.ptr8.val.i.i = load i64, ptr %add.ptr8.i.i, align 1
-  %mul10.i.i = mul i64 %add.ptr8.val.i.i, -7286425919675154353
-  %add.i.i = add i64 %mul1.i.i49, %add.ptr.val.i.i
-  %or.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i.i, i64 %add.i.i, i64 21)
-  %or.i.i40.i.i = tail call i64 @llvm.fshl.i64(i64 %mul6.i.i, i64 %mul6.i.i, i64 34)
-  %add14.i.i = add i64 %or.i.i40.i.i, %or.i.i.i.i
-  %add15.i.i = add i64 %add14.i.i, %mul10.i.i
-  %add16.i.i = add i64 %add.ptr.val.i.i, -7286425919675154353
-  %or.i.i43.i.i = tail call i64 @llvm.fshl.i64(i64 %add16.i.i, i64 %add16.i.i, i64 46)
-  %add19.i.i = add i64 %or.i.i43.i.i, %mul1.i.i49
-  %add20.i.i = add i64 %add19.i.i, %mul6.i.i
-  %xor.i.i50 = xor i64 %add15.i.i, %add20.i.i
-  %mul21.i.i = mul i64 %xor.i.i50, -7286425919675154383
-  %shr.i.i.i = lshr i64 %mul21.i.i, 47
-  %7 = xor i64 %add20.i.i, %shr.i.i.i
-  %xor23.i.i = xor i64 %7, %mul21.i.i
-  %mul24.i.i = mul i64 %xor23.i.i, -7286425919675154383
-  %shr.i44.i.i = lshr i64 %mul24.i.i, 47
-  %xor.i45.i.i = xor i64 %shr.i44.i.i, %mul24.i.i
-  %add.ptr.i51 = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i51, i64 -32
-  %s.val.i10.i = load i64, ptr %add.ptr1.i, align 1
-  %mul1.i11.i = mul i64 %s.val.i10.i, -5435081209227447693
-  %add.ptr.i12.i = getelementptr inbounds i8, ptr %add.ptr.i51, i64 -24
-  %add.ptr.val.i13.i = load i64, ptr %add.ptr.i12.i, align 1
-  %add.ptr4.i14.i = getelementptr inbounds i8, ptr %add.ptr.i51, i64 -8
-  %add.ptr4.val.i15.i = load i64, ptr %add.ptr4.i14.i, align 1
-  %mul6.i16.i = mul i64 %add.ptr4.val.i15.i, %add.i48
-  %add.ptr8.i17.i = getelementptr inbounds i8, ptr %add.ptr.i51, i64 -16
-  %add.ptr8.val.i18.i = load i64, ptr %add.ptr8.i17.i, align 1
-  %mul10.i19.i = mul i64 %add.ptr8.val.i18.i, -7286425919675154353
-  %add.i20.i = add i64 %mul1.i11.i, %add.ptr.val.i13.i
-  %or.i.i.i21.i = tail call i64 @llvm.fshl.i64(i64 %add.i20.i, i64 %add.i20.i, i64 21)
-  %or.i.i40.i22.i = tail call i64 @llvm.fshl.i64(i64 %mul6.i16.i, i64 %mul6.i16.i, i64 34)
-  %add14.i23.i = add i64 %or.i.i40.i22.i, %or.i.i.i21.i
-  %add15.i24.i = add i64 %add14.i23.i, %mul10.i19.i
-  %add16.i25.i = add i64 %add.ptr.val.i13.i, -7286425919675154353
-  %or.i.i43.i26.i = tail call i64 @llvm.fshl.i64(i64 %add16.i25.i, i64 %add16.i25.i, i64 46)
-  %add19.i27.i = add i64 %or.i.i43.i26.i, %mul1.i11.i
-  %add20.i28.i = add i64 %add19.i27.i, %mul6.i16.i
-  %xor.i29.i = xor i64 %add15.i24.i, %add20.i28.i
-  %mul21.i30.i = mul i64 %xor.i29.i, %add.i48
-  %shr.i.i31.i = lshr i64 %mul21.i30.i, 47
-  %8 = xor i64 %add20.i28.i, %shr.i.i31.i
-  %xor23.i32.i = xor i64 %8, %mul21.i30.i
-  %mul24.i33.i = mul i64 %xor23.i32.i, %add.i48
-  %shr.i44.i34.i = lshr i64 %mul24.i33.i, 47
-  %xor.i45.i35.i = xor i64 %shr.i44.i34.i, %mul24.i33.i
-  %mul3.i = mul i64 %xor.i45.i35.i, %add.i48
-  %add4.i = add i64 %mul3.i, %xor.i45.i.i
-  %mul5.i = mul i64 %add4.i, %add.i48
-  br label %return
+101:                                              ; preds = %99
+  %102 = shl nuw nsw i64 %1, 1
+  %103 = add nuw nsw i64 %102, -7286425919675154383
+  %.val24.i.i = load i64, ptr %0, align 1
+  %104 = mul i64 %.val24.i.i, -5435081209227447693
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val23.i.i = load i64, ptr %105, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val22.i.i = load i64, ptr %106, align 1
+  %107 = mul i64 %.val22.i.i, -7286425919675154383
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load i64, ptr %108, align 1
+  %109 = mul i64 %.val.i.i, -7286425919675154353
+  %110 = add i64 %104, %.val23.i.i
+  %111 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 21)
+  %112 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 34)
+  %113 = add i64 %112, %111
+  %114 = add i64 %113, %109
+  %115 = add i64 %.val23.i.i, -7286425919675154353
+  %116 = tail call i64 @llvm.fshl.i64(i64 %115, i64 %115, i64 46)
+  %117 = add i64 %116, %104
+  %118 = add i64 %117, %107
+  %119 = xor i64 %114, %118
+  %120 = mul i64 %119, -7286425919675154383
+  %121 = lshr i64 %120, 47
+  %122 = xor i64 %118, %121
+  %123 = xor i64 %122, %120
+  %124 = mul i64 %123, -7286425919675154383
+  %125 = lshr i64 %124, 47
+  %126 = xor i64 %125, %124
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %128 = getelementptr inbounds i8, ptr %127, i64 -32
+  %.val24.i9.i = load i64, ptr %128, align 1
+  %129 = mul i64 %.val24.i9.i, -5435081209227447693
+  %130 = getelementptr inbounds i8, ptr %127, i64 -24
+  %.val23.i10.i = load i64, ptr %130, align 1
+  %131 = getelementptr inbounds i8, ptr %127, i64 -8
+  %.val22.i11.i = load i64, ptr %131, align 1
+  %132 = mul i64 %.val22.i11.i, %103
+  %133 = getelementptr inbounds i8, ptr %127, i64 -16
+  %.val.i12.i = load i64, ptr %133, align 1
+  %134 = mul i64 %.val.i12.i, -7286425919675154353
+  %135 = add i64 %129, %.val23.i10.i
+  %136 = tail call i64 @llvm.fshl.i64(i64 %135, i64 %135, i64 21)
+  %137 = tail call i64 @llvm.fshl.i64(i64 %132, i64 %132, i64 34)
+  %138 = add i64 %137, %136
+  %139 = add i64 %138, %134
+  %140 = add i64 %.val23.i10.i, -7286425919675154353
+  %141 = tail call i64 @llvm.fshl.i64(i64 %140, i64 %140, i64 46)
+  %142 = add i64 %141, %129
+  %143 = add i64 %142, %132
+  %144 = xor i64 %139, %143
+  %145 = mul i64 %144, %103
+  %146 = lshr i64 %145, 47
+  %147 = xor i64 %143, %146
+  %148 = xor i64 %147, %145
+  %149 = mul i64 %148, %103
+  %150 = lshr i64 %149, 47
+  %151 = xor i64 %150, %149
+  %152 = mul i64 %151, %103
+  %153 = add i64 %152, %126
+  %154 = mul i64 %153, %103
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else8:                                         ; preds = %if.else4
-  %cmp9 = icmp ult i64 %len, 97
-  br i1 %cmp9, label %if.then10, label %if.else12
+155:                                              ; preds = %99
+  %156 = icmp ult i64 %1, 97
+  br i1 %156, label %157, label %240
 
-if.then10:                                        ; preds = %if.else8
-  %mul.i52 = shl nuw nsw i64 %len, 1
-  %add.i53 = add nuw nsw i64 %mul.i52, -7286425919675154467
-  %s.val.i.i54 = load i64, ptr %s, align 1
-  %mul1.i.i55 = mul i64 %s.val.i.i54, -5435081209227447693
-  %add.ptr.i.i56 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val.i.i57 = load i64, ptr %add.ptr.i.i56, align 1
-  %add.ptr4.i.i58 = getelementptr inbounds nuw i8, ptr %s, i64 24
-  %add.ptr4.val.i.i59 = load i64, ptr %add.ptr4.i.i58, align 1
-  %mul6.i.i60 = mul i64 %add.ptr4.val.i.i59, -7286425919675154467
-  %add.ptr8.i.i61 = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %add.ptr8.val.i.i62 = load i64, ptr %add.ptr8.i.i61, align 1
-  %mul10.i.i63 = mul i64 %add.ptr8.val.i.i62, -7286425919675154353
-  %add.i.i64 = add i64 %mul1.i.i55, %add.ptr.val.i.i57
-  %or.i.i.i.i65 = tail call i64 @llvm.fshl.i64(i64 %add.i.i64, i64 %add.i.i64, i64 21)
-  %or.i.i40.i.i66 = tail call i64 @llvm.fshl.i64(i64 %mul6.i.i60, i64 %mul6.i.i60, i64 34)
-  %add14.i.i67 = add i64 %or.i.i40.i.i66, %or.i.i.i.i65
-  %add15.i.i68 = add i64 %add14.i.i67, %mul10.i.i63
-  %add16.i.i69 = add i64 %add.ptr.val.i.i57, -7286425919675154353
-  %or.i.i43.i.i70 = tail call i64 @llvm.fshl.i64(i64 %add16.i.i69, i64 %add16.i.i69, i64 46)
-  %add19.i.i71 = add i64 %or.i.i43.i.i70, %mul1.i.i55
-  %add20.i.i72 = add i64 %add19.i.i71, %mul6.i.i60
-  %xor.i.i73 = xor i64 %add15.i.i68, %add20.i.i72
-  %mul21.i.i74 = mul i64 %xor.i.i73, -7286425919675154467
-  %shr.i.i.i75 = lshr i64 %mul21.i.i74, 47
-  %9 = xor i64 %add20.i.i72, %shr.i.i.i75
-  %xor23.i.i76 = xor i64 %9, %mul21.i.i74
-  %mul24.i.i77 = mul i64 %xor23.i.i76, -7286425919675154467
-  %shr.i44.i.i78 = lshr i64 %mul24.i.i77, 47
-  %xor.i45.i.i79 = xor i64 %shr.i44.i.i78, %mul24.i.i77
-  %add.ptr.i80 = getelementptr inbounds nuw i8, ptr %s, i64 32
-  %s.val.i17.i = load i64, ptr %add.ptr.i80, align 1
-  %mul1.i18.i = mul i64 %s.val.i17.i, -5435081209227447693
-  %add.ptr.i19.i = getelementptr inbounds nuw i8, ptr %s, i64 40
-  %add.ptr.val.i20.i = load i64, ptr %add.ptr.i19.i, align 1
-  %add.ptr4.i21.i = getelementptr inbounds nuw i8, ptr %s, i64 56
-  %add.ptr4.val.i22.i = load i64, ptr %add.ptr4.i21.i, align 1
-  %mul6.i23.i = mul i64 %add.ptr4.val.i22.i, %add.i53
-  %add.ptr8.i24.i = getelementptr inbounds nuw i8, ptr %s, i64 48
-  %add.ptr8.val.i25.i = load i64, ptr %add.ptr8.i24.i, align 1
-  %mul10.i26.i = mul i64 %add.ptr8.val.i25.i, -7286425919675154353
-  %add.i27.i = add i64 %mul1.i18.i, %add.ptr.val.i20.i
-  %or.i.i.i28.i = tail call i64 @llvm.fshl.i64(i64 %add.i27.i, i64 %add.i27.i, i64 21)
-  %or.i.i40.i29.i = tail call i64 @llvm.fshl.i64(i64 %mul6.i23.i, i64 %mul6.i23.i, i64 34)
-  %add14.i30.i = add i64 %or.i.i40.i29.i, %or.i.i.i28.i
-  %add15.i31.i = add i64 %add14.i30.i, %mul10.i26.i
-  %add16.i32.i = add i64 %add.ptr.val.i20.i, -7286425919675154353
-  %or.i.i43.i33.i = tail call i64 @llvm.fshl.i64(i64 %add16.i32.i, i64 %add16.i32.i, i64 46)
-  %add19.i34.i = add i64 %or.i.i43.i33.i, %mul1.i18.i
-  %add20.i35.i = add i64 %add19.i34.i, %mul6.i23.i
-  %xor.i36.i = xor i64 %add15.i31.i, %add20.i35.i
-  %mul21.i37.i = mul i64 %xor.i36.i, %add.i53
-  %shr.i.i38.i = lshr i64 %mul21.i37.i, 47
-  %10 = xor i64 %add20.i35.i, %shr.i.i38.i
-  %xor23.i39.i = xor i64 %10, %mul21.i37.i
-  %mul24.i40.i = mul i64 %xor23.i39.i, %add.i53
-  %shr.i44.i41.i = lshr i64 %mul24.i40.i, 47
-  %xor.i45.i42.i = xor i64 %shr.i44.i41.i, %mul24.i40.i
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i81 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -32
-  %s.val.i43.i = load i64, ptr %add.ptr3.i81, align 1
-  %mul1.i44.i = mul i64 %s.val.i43.i, -5435081209227447693
-  %add.ptr.i45.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -24
-  %add.ptr.val.i46.i = load i64, ptr %add.ptr.i45.i, align 1
-  %add.ptr4.i47.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -8
-  %add.ptr4.val.i48.i = load i64, ptr %add.ptr4.i47.i, align 1
-  %mul6.i49.i = mul i64 %add.ptr4.val.i48.i, %add.i53
-  %add.ptr8.i50.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -16
-  %add.ptr8.val.i51.i = load i64, ptr %add.ptr8.i50.i, align 1
-  %mul10.i52.i = mul i64 %add.ptr8.val.i51.i, -7286425919675154353
-  %add.i53.i = add i64 %mul1.i44.i, %add.ptr.val.i46.i
-  %or.i.i.i54.i = tail call i64 @llvm.fshl.i64(i64 %add.i53.i, i64 %add.i53.i, i64 21)
-  %or.i.i40.i55.i = tail call i64 @llvm.fshl.i64(i64 %mul6.i49.i, i64 %mul6.i49.i, i64 34)
-  %add13.i.i = add i64 %or.i.i40.i55.i, %or.i.i.i54.i
-  %add14.i56.i = add i64 %add13.i.i, %mul10.i52.i
-  %add15.i57.i = add i64 %add14.i56.i, %xor.i45.i.i79
-  %add16.i58.i = add i64 %add.ptr.val.i46.i, -7286425919675154353
-  %or.i.i43.i59.i = tail call i64 @llvm.fshl.i64(i64 %add16.i58.i, i64 %add16.i58.i, i64 46)
-  %add18.i.i = add i64 %or.i.i43.i59.i, %mul1.i44.i
-  %add19.i60.i = add i64 %add18.i.i, %mul6.i49.i
-  %add20.i61.i = add i64 %add19.i60.i, %xor.i45.i42.i
-  %xor.i62.i = xor i64 %add20.i61.i, %add15.i57.i
-  %mul21.i63.i = mul i64 %xor.i62.i, %add.i53
-  %shr.i.i64.i = lshr i64 %mul21.i63.i, 47
-  %11 = xor i64 %add20.i61.i, %shr.i.i64.i
-  %xor23.i65.i = xor i64 %11, %mul21.i63.i
-  %mul24.i66.i = mul i64 %xor23.i65.i, %add.i53
-  %shr.i44.i67.i = lshr i64 %mul24.i66.i, 47
-  %xor.i45.i68.i = xor i64 %shr.i44.i67.i, %mul24.i66.i
-  %mul5.i82 = mul i64 %xor.i45.i68.i, 9
-  %shr.i83 = lshr i64 %mul24.i.i77, 17
-  %shr7.i = lshr i64 %mul24.i40.i, 21
-  %add6.i = add nuw nsw i64 %shr7.i, %shr.i83
-  %add8.i = add i64 %add6.i, %mul5.i82
-  %mul9.i = mul i64 %add8.i, %add.i53
-  br label %return
+157:                                              ; preds = %155
+  %158 = shl nuw nsw i64 %1, 1
+  %159 = add nuw nsw i64 %158, -7286425919675154467
+  %.val24.i.i19 = load i64, ptr %0, align 1
+  %160 = mul i64 %.val24.i.i19, -5435081209227447693
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val23.i.i20 = load i64, ptr %161, align 1
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val22.i.i21 = load i64, ptr %162, align 1
+  %163 = mul i64 %.val22.i.i21, -7286425919675154467
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i22 = load i64, ptr %164, align 1
+  %165 = mul i64 %.val.i.i22, -7286425919675154353
+  %166 = add i64 %160, %.val23.i.i20
+  %167 = tail call i64 @llvm.fshl.i64(i64 %166, i64 %166, i64 21)
+  %168 = tail call i64 @llvm.fshl.i64(i64 %163, i64 %163, i64 34)
+  %169 = add i64 %168, %167
+  %170 = add i64 %169, %165
+  %171 = add i64 %.val23.i.i20, -7286425919675154353
+  %172 = tail call i64 @llvm.fshl.i64(i64 %171, i64 %171, i64 46)
+  %173 = add i64 %172, %160
+  %174 = add i64 %173, %163
+  %175 = xor i64 %170, %174
+  %176 = mul i64 %175, -7286425919675154467
+  %177 = lshr i64 %176, 47
+  %178 = xor i64 %174, %177
+  %179 = xor i64 %178, %176
+  %180 = mul i64 %179, -7286425919675154467
+  %181 = lshr i64 %180, 47
+  %182 = xor i64 %181, %180
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val24.i13.i = load i64, ptr %183, align 1
+  %184 = mul i64 %.val24.i13.i, -5435081209227447693
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val23.i14.i = load i64, ptr %185, align 1
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.val22.i15.i = load i64, ptr %186, align 1
+  %187 = mul i64 %.val22.i15.i, %159
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val.i16.i = load i64, ptr %188, align 1
+  %189 = mul i64 %.val.i16.i, -7286425919675154353
+  %190 = add i64 %184, %.val23.i14.i
+  %191 = tail call i64 @llvm.fshl.i64(i64 %190, i64 %190, i64 21)
+  %192 = tail call i64 @llvm.fshl.i64(i64 %187, i64 %187, i64 34)
+  %193 = add i64 %192, %191
+  %194 = add i64 %193, %189
+  %195 = add i64 %.val23.i14.i, -7286425919675154353
+  %196 = tail call i64 @llvm.fshl.i64(i64 %195, i64 %195, i64 46)
+  %197 = add i64 %196, %184
+  %198 = add i64 %197, %187
+  %199 = xor i64 %194, %198
+  %200 = mul i64 %199, %159
+  %201 = lshr i64 %200, 47
+  %202 = xor i64 %198, %201
+  %203 = xor i64 %202, %200
+  %204 = mul i64 %203, %159
+  %205 = lshr i64 %204, 47
+  %206 = xor i64 %205, %204
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %208 = getelementptr inbounds i8, ptr %207, i64 -32
+  %.val24.i17.i = load i64, ptr %208, align 1
+  %209 = mul i64 %.val24.i17.i, -5435081209227447693
+  %210 = getelementptr inbounds i8, ptr %207, i64 -24
+  %.val23.i18.i = load i64, ptr %210, align 1
+  %211 = getelementptr inbounds i8, ptr %207, i64 -8
+  %.val22.i19.i = load i64, ptr %211, align 1
+  %212 = mul i64 %.val22.i19.i, %159
+  %213 = getelementptr inbounds i8, ptr %207, i64 -16
+  %.val.i20.i = load i64, ptr %213, align 1
+  %214 = mul i64 %.val.i20.i, -7286425919675154353
+  %215 = add i64 %209, %.val23.i18.i
+  %216 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 21)
+  %217 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 34)
+  %218 = add i64 %217, %216
+  %219 = add i64 %218, %214
+  %220 = add i64 %219, %182
+  %221 = add i64 %.val23.i18.i, -7286425919675154353
+  %222 = tail call i64 @llvm.fshl.i64(i64 %221, i64 %221, i64 46)
+  %223 = add i64 %222, %209
+  %224 = add i64 %223, %212
+  %225 = add i64 %224, %206
+  %226 = xor i64 %225, %220
+  %227 = mul i64 %226, %159
+  %228 = lshr i64 %227, 47
+  %229 = xor i64 %225, %228
+  %230 = xor i64 %229, %227
+  %231 = mul i64 %230, %159
+  %232 = lshr i64 %231, 47
+  %233 = xor i64 %232, %231
+  %234 = mul i64 %233, 9
+  %235 = lshr i64 %180, 17
+  %236 = lshr i64 %204, 21
+  %237 = add nuw nsw i64 %236, %235
+  %238 = add i64 %237, %234
+  %239 = mul i64 %238, %159
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-if.else12:                                        ; preds = %if.else8
-  %cmp13 = icmp ult i64 %len, 257
-  br i1 %cmp13, label %if.then14, label %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit
+240:                                              ; preds = %155
+  %241 = icmp ult i64 %1, 257
+  br i1 %241, label %242, label %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit
 
-if.then14:                                        ; preds = %if.else12
-  %call15 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  br label %return
+242:                                              ; preds = %240
+  %243 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit: ; preds = %if.else12
-  %call1.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %s, i64 noundef %len, i64 noundef 81, i64 noundef 0)
-  br label %return
+_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit: ; preds = %240
+  %244 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef readonly %0, i64 noundef %1, i64 noundef 81, i64 noundef 0)
+  br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
-return:                                           ; preds = %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit, %if.then14, %if.then10, %if.then6, %if.else, %if.then27.i, %if.end25.i, %if.then13.i, %if.then.i
-  %retval.0 = phi i64 [ %mul7.i.i47, %if.else ], [ %mul5.i, %if.then6 ], [ %mul9.i, %if.then10 ], [ %call15, %if.then14 ], [ %call1.i, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit ], [ %mul7.i.i, %if.then.i ], [ %mul7.i80.i, %if.then13.i ], [ %mul47.i, %if.then27.i ], [ -7286425919675154353, %if.end25.i ]
-  ret i64 %retval.0
+_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50, %49, %31, %8, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit, %242, %157, %101, %71
+  %.0 = phi i64 [ %98, %71 ], [ %154, %101 ], [ %239, %157 ], [ %243, %242 ], [ %244, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo15Hash64WithSeedsEPKcmmm(ptr noundef readonly captures(address) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1)
-  ret i64 %call
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo15Hash64WithSeedsEPKcmmm(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp ult i64 %len, 65
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ult i64 %1, 65
+  br i1 %4, label %5, label %17
 
-cond.true.i:                                      ; preds = %entry
-  %call.i.i.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i.i.i = add i64 %call.i.i.i, 7286425919675154353
-  %xor.i.i.i.i.i = xor i64 %sub.i.i.i, %seed
-  %mul.i.i.i.i.i = mul i64 %xor.i.i.i.i.i, -7070675565921424023
-  %shr.i.i.i.i.i = lshr i64 %mul.i.i.i.i.i, 47
-  %0 = xor i64 %seed, %shr.i.i.i.i.i
-  %xor6.i.i.i.i.i = xor i64 %0, %mul.i.i.i.i.i
-  %mul7.i.i.i.i.i = mul i64 %xor6.i.i.i.i.i, -7070675565921424023
-  %shr8.i.i.i.i.i = lshr i64 %mul7.i.i.i.i.i, 47
-  %xor9.i.i.i.i.i = xor i64 %shr8.i.i.i.i.i, %mul7.i.i.i.i.i
-  %mul10.i.i.i.i.i = mul i64 %xor9.i.i.i.i.i, -7070675565921424023
+5:                                                ; preds = %3
+  %6 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %7 = add i64 %6, 7286425919675154353
+  %8 = xor i64 %7, %2
+  %9 = mul i64 %8, -7070675565921424023
+  %10 = lshr i64 %9, 47
+  %11 = xor i64 %2, %10
+  %12 = xor i64 %11, %9
+  %13 = mul i64 %12, -7070675565921424023
+  %14 = lshr i64 %13, 47
+  %15 = xor i64 %14, %13
+  %16 = mul i64 %15, -7070675565921424023
   br label %_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit
 
-cond.false.i:                                     ; preds = %entry
-  %call1.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %s, i64 noundef %len, i64 noundef 0, i64 noundef %seed)
+17:                                               ; preds = %3
+  %18 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef %2)
   br label %_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit
 
-_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit: ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i64 [ %mul10.i.i.i.i.i, %cond.true.i ], [ %call1.i, %cond.false.i ]
-  ret i64 %cond.i
+_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit: ; preds = %5, %17
+  %19 = phi i64 [ %16, %5 ], [ %18, %17 ]
+  ret i64 %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashte6Hash64EPKcm(ptr noundef readnone captures(none) %s, i64 noundef %len) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i64 @_ZN5folly8external8farmhash10farmhashte6Hash64EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   ret i64 0
 
-if.else:                                          ; preds = %entry
+6:                                                ; preds = %2
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
@@ -1040,2073 +1030,1830 @@ if.else:                                          ; preds = %entry
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashte14Hash64WithSeedEPKcmm(ptr noundef readnone captures(none) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i64 @_ZN5folly8external8farmhash10farmhashte14Hash64WithSeedEPKcmm(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   ret i64 0
 
-if.else:                                          ; preds = %entry
+7:                                                ; preds = %3
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashte15Hash64WithSeedsEPKcmmm(ptr noundef readnone captures(none) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i64 @_ZN5folly8external8farmhash10farmhashte15Hash64WithSeedsEPKcmmm(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+  %5 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
+7:                                                ; preds = %4
   ret i64 0
 
-if.else:                                          ; preds = %entry
+8:                                                ; preds = %4
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashnt6Hash32EPKcm(ptr noundef readnone captures(none) %s, i64 noundef %len) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashnt6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   ret i32 0
 
-if.else:                                          ; preds = %entry
+6:                                                ; preds = %2
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashnt14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashnt14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   ret i32 0
 
-if.else:                                          ; preds = %entry
+7:                                                ; preds = %3
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 25
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ult i64 %1, 25
+  br i1 %3, label %4, label %130
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ult i64 %len, 13
-  br i1 %cmp1, label %cond.true, label %cond.false5
+4:                                                ; preds = %2
+  %5 = icmp samesign ult i64 %1, 13
+  br i1 %5, label %6, label %79
 
-cond.true:                                        ; preds = %if.then
-  %cmp2 = icmp samesign ult i64 %len, 5
-  br i1 %cmp2, label %cond.true3, label %cond.false
+6:                                                ; preds = %4
+  %7 = icmp samesign ult i64 %1, 5
+  br i1 %7, label %8, label %39
 
-cond.true3:                                       ; preds = %cond.true
-  %cmp22.not.i = icmp eq i64 %len, 0
-  br i1 %cmp22.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i
+8:                                                ; preds = %6
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %cond.true3
-  %0 = load i8, ptr %s, align 1, !tbaa !7
-  %conv.i = sext i8 %0 to i32
-  %xor.i = xor i32 %conv.i, 9
-  %exitcond.not.i = icmp eq i64 %len, 1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.1, !llvm.loop !17
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
+  %.017.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %8 ]
+  %.01216.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %8 ]
+  %.01315.i = phi i32 [ %14, %.lr.ph.i ], [ 9, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.01216.i
+  %10 = load i8, ptr %9, align 1, !tbaa !7
+  %11 = mul i32 %.017.i, -862048943
+  %12 = sext i8 %10 to i32
+  %13 = add i32 %11, %12
+  %14 = xor i32 %13, %.01315.i
+  %15 = add nuw nsw i64 %.01216.i, 1
+  %exitcond.not.i = icmp eq i64 %15, %1
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 
-for.body.i.1:                                     ; preds = %for.body.i
-  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %s, i64 1
-  %1 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !7
-  %mul.i.1 = mul i32 %conv.i, -862048943
-  %conv.i.1 = sext i8 %1 to i32
-  %add.i.1 = add i32 %mul.i.1, %conv.i.1
-  %xor.i.1 = xor i32 %add.i.1, %xor.i
-  %exitcond.not.i.1 = icmp eq i64 %len, 2
-  br i1 %exitcond.not.i.1, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.2, !llvm.loop !17
-
-for.body.i.2:                                     ; preds = %for.body.i.1
-  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %s, i64 2
-  %2 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !7
-  %mul.i.2 = mul i32 %add.i.1, -862048943
-  %conv.i.2 = sext i8 %2 to i32
-  %add.i.2 = add i32 %mul.i.2, %conv.i.2
-  %xor.i.2 = xor i32 %add.i.2, %xor.i.1
-  %exitcond.not.i.2 = icmp eq i64 %len, 3
-  br i1 %exitcond.not.i.2, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.3, !llvm.loop !17
-
-for.body.i.3:                                     ; preds = %for.body.i.2
-  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %s, i64 3
-  %3 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !7
-  %mul.i.3 = mul i32 %add.i.2, -862048943
-  %conv.i.3 = sext i8 %3 to i32
-  %add.i.3 = add i32 %mul.i.3, %conv.i.3
-  %xor.i.3 = xor i32 %add.i.3, %xor.i.2
+_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit: ; preds = %.lr.ph.i
+  %16 = mul i32 %13, -862048943
   br label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit
 
-_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %for.body.i.3, %for.body.i.2, %for.body.i.1, %for.body.i, %cond.true3
-  %c.0.lcssa.i = phi i32 [ 9, %cond.true3 ], [ %xor.i, %for.body.i ], [ %xor.i.1, %for.body.i.1 ], [ %xor.i.2, %for.body.i.2 ], [ %xor.i.3, %for.body.i.3 ]
-  %b.0.lcssa.i = phi i32 [ 0, %cond.true3 ], [ %conv.i, %for.body.i ], [ %add.i.1, %for.body.i.1 ], [ %add.i.2, %for.body.i.2 ], [ %add.i.3, %for.body.i.3 ]
-  %conv1.i = trunc nuw nsw i64 %len to i32
-  %mul.i.i = mul i32 %conv1.i, -862048943
-  %shr.i.i.i.i = lshr i32 %mul.i.i, 17
-  %shl.i.i.i.i = mul nuw nsw i32 %conv1.i, 380141568
-  %or.i.i.i.i = or disjoint i32 %shr.i.i.i.i, %shl.i.i.i.i
-  %mul1.i.i = mul i32 %or.i.i.i.i, 461845907
-  %xor.i.i = xor i32 %c.0.lcssa.i, %mul1.i.i
-  %or.i.i11.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 13)
-  %mul3.i.i = mul i32 %or.i.i11.i.i, 5
-  %add.i.i = add i32 %mul3.i.i, -430675100
-  %mul.i10.i = mul i32 %b.0.lcssa.i, -862048943
-  %shr.i.i.i11.i = lshr i32 %mul.i10.i, 17
-  %shl.i.i.i12.i = mul i32 %b.0.lcssa.i, 380141568
-  %or.i.i.i13.i = or disjoint i32 %shr.i.i.i11.i, %shl.i.i.i12.i
-  %mul1.i14.i = mul i32 %or.i.i.i13.i, 461845907
-  %xor.i15.i = xor i32 %mul1.i14.i, %add.i.i
-  %or.i.i11.i16.i = tail call i32 @llvm.fshl.i32(i32 %xor.i15.i, i32 %xor.i15.i, i32 13)
-  %mul3.i17.i = mul i32 %or.i.i11.i16.i, 5
-  %add.i18.i = add i32 %mul3.i17.i, -430675100
-  %shr.i.i = lshr i32 %add.i18.i, 16
-  %xor.i19.i = xor i32 %shr.i.i, %add.i18.i
-  %mul.i20.i = mul i32 %xor.i19.i, -2048144789
-  %shr1.i.i = lshr i32 %mul.i20.i, 13
-  %xor2.i.i = xor i32 %shr1.i.i, %mul.i20.i
-  %mul3.i21.i = mul i32 %xor2.i.i, -1028477387
-  %shr4.i.i = lshr i32 %mul3.i21.i, 16
-  %xor5.i.i = xor i32 %shr4.i.i, %mul3.i21.i
-  br label %return
+_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit, %8
+  %.013.lcssa.i = phi i32 [ 9, %8 ], [ %14, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit ]
+  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %16, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit ]
+  %17 = trunc nuw nsw i64 %1 to i32
+  %18 = mul i32 %17, -862048943
+  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
+  %20 = mul i32 %19, 461845907
+  %21 = xor i32 %.013.lcssa.i, %20
+  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 13)
+  %23 = mul i32 %22, 5
+  %24 = add i32 %23, -430675100
+  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa.i, i32 %.0.lcssa.i, i32 15)
+  %26 = mul i32 %25, 461845907
+  %27 = xor i32 %26, %24
+  %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
+  %29 = mul i32 %28, 5
+  %30 = add i32 %29, -430675100
+  %31 = lshr i32 %30, 16
+  %32 = xor i32 %31, %30
+  %33 = mul i32 %32, -2048144789
+  %34 = lshr i32 %33, 13
+  %35 = xor i32 %34, %33
+  %36 = mul i32 %35, -1028477387
+  %37 = lshr i32 %36, 16
+  %38 = xor i32 %37, %36
+  br label %233
 
-cond.false:                                       ; preds = %cond.true
-  %conv.i167 = trunc nuw nsw i64 %len to i32
-  %conv1.i168 = mul nuw nsw i32 %conv.i167, 5
-  %s.val.i = load i32, ptr %s, align 1
-  %add2.i = add i32 %s.val.i, %conv.i167
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
-  %add.ptr3.val.i = load i32, ptr %add.ptr3.i, align 1
-  %add5.i = add i32 %add.ptr3.val.i, %conv1.i168
-  %shr.i = lshr i64 %len, 1
-  %and.i = and i64 %shr.i, 4
-  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %s, i64 %and.i
-  %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
-  %add8.i = add i32 %add.ptr6.val.i, 9
-  %mul.i.i169 = mul i32 %add2.i, -862048943
-  %shr.i.i.i.i170 = lshr i32 %mul.i.i169, 17
-  %shl.i.i.i.i171 = mul i32 %add2.i, 380141568
-  %or.i.i.i.i172 = or disjoint i32 %shr.i.i.i.i170, %shl.i.i.i.i171
-  %mul1.i.i173 = mul i32 %or.i.i.i.i172, 461845907
-  %xor.i.i174 = xor i32 %mul1.i.i173, %conv1.i168
-  %or.i.i11.i.i175 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i174, i32 %xor.i.i174, i32 13)
-  %mul3.i.i176 = mul i32 %or.i.i11.i.i175, 5
-  %add.i.i177 = add i32 %mul3.i.i176, -430675100
-  %mul.i23.i = mul i32 %add5.i, -862048943
-  %shr.i.i.i24.i = lshr i32 %mul.i23.i, 17
-  %shl.i.i.i25.i = mul i32 %add5.i, 380141568
-  %or.i.i.i26.i = or disjoint i32 %shr.i.i.i24.i, %shl.i.i.i25.i
-  %mul1.i27.i = mul i32 %or.i.i.i26.i, 461845907
-  %xor.i28.i = xor i32 %add.i.i177, %mul1.i27.i
-  %or.i.i11.i29.i = tail call i32 @llvm.fshl.i32(i32 %xor.i28.i, i32 %xor.i28.i, i32 13)
-  %mul3.i30.i = mul i32 %or.i.i11.i29.i, 5
-  %add.i31.i = add i32 %mul3.i30.i, -430675100
-  %mul.i32.i = mul i32 %add8.i, -862048943
-  %shr.i.i.i33.i = lshr i32 %mul.i32.i, 17
-  %shl.i.i.i34.i = mul i32 %add8.i, 380141568
-  %or.i.i.i35.i = or disjoint i32 %shr.i.i.i33.i, %shl.i.i.i34.i
-  %mul1.i36.i = mul i32 %or.i.i.i35.i, 461845907
-  %xor.i37.i = xor i32 %add.i31.i, %mul1.i36.i
-  %or.i.i11.i38.i = tail call i32 @llvm.fshl.i32(i32 %xor.i37.i, i32 %xor.i37.i, i32 13)
-  %mul3.i39.i = mul i32 %or.i.i11.i38.i, 5
-  %add.i40.i = add i32 %mul3.i39.i, -430675100
-  %shr.i.i178 = lshr i32 %add.i40.i, 16
-  %xor.i41.i = xor i32 %shr.i.i178, %add.i40.i
-  %mul.i42.i = mul i32 %xor.i41.i, -2048144789
-  %shr1.i.i179 = lshr i32 %mul.i42.i, 13
-  %xor2.i.i180 = xor i32 %shr1.i.i179, %mul.i42.i
-  %mul3.i43.i = mul i32 %xor2.i.i180, -1028477387
-  %shr4.i.i181 = lshr i32 %mul3.i43.i, 16
-  %xor5.i.i182 = xor i32 %shr4.i.i181, %mul3.i43.i
-  br label %return
+39:                                               ; preds = %6
+  %40 = trunc nuw nsw i64 %1 to i32
+  %41 = mul nuw nsw i32 %40, 5
+  %.val17.i = load i32, ptr %0, align 1
+  %42 = add i32 %.val17.i, %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %44 = getelementptr inbounds i8, ptr %43, i64 -4
+  %.val16.i = load i32, ptr %44, align 1
+  %45 = add i32 %.val16.i, %41
+  %46 = lshr i64 %1, 1
+  %47 = and i64 %46, 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %.val.i = load i32, ptr %48, align 1
+  %49 = mul i32 %42, -862048943
+  %50 = tail call i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 15)
+  %51 = mul i32 %50, 461845907
+  %52 = xor i32 %51, %41
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 13)
+  %54 = mul i32 %53, 5
+  %55 = add i32 %54, -430675100
+  %56 = mul i32 %45, -862048943
+  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 15)
+  %58 = mul i32 %57, 461845907
+  %59 = xor i32 %55, %58
+  %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
+  %61 = mul i32 %60, 5
+  %62 = add i32 %61, -430675100
+  %63 = mul i32 %.val.i, -862048943
+  %64 = add i32 %63, 831494105
+  %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 15)
+  %66 = mul i32 %65, 461845907
+  %67 = xor i32 %62, %66
+  %68 = tail call i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 13)
+  %69 = mul i32 %68, 5
+  %70 = add i32 %69, -430675100
+  %71 = lshr i32 %70, 16
+  %72 = xor i32 %71, %70
+  %73 = mul i32 %72, -2048144789
+  %74 = lshr i32 %73, 13
+  %75 = xor i32 %74, %73
+  %76 = mul i32 %75, -1028477387
+  %77 = lshr i32 %76, 16
+  %78 = xor i32 %77, %76
+  br label %233
 
-cond.false5:                                      ; preds = %if.then
-  %add.ptr.i183 = getelementptr inbounds i8, ptr %s, i64 -4
-  %shr.i184 = lshr i64 %len, 1
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i183, i64 %shr.i184
-  %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i = load i32, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i = load i32, ptr %add.ptr5.i, align 1
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i184
-  %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %s.val.i185 = load i32, ptr %s, align 1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %add.ptr12.val.i = load i32, ptr %add.ptr12.i, align 1
-  %mul.i186 = mul i32 %add.ptr8.val.i, -862048943
-  %4 = trunc nuw nsw i64 %len to i32
-  %conv16.i = add i32 %mul.i186, %4
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %add.ptr1.val.i, i32 %add.ptr1.val.i, i32 20)
-  %add18.i = add i32 %add.ptr12.val.i, %or.i.i.i
-  %mul.i.i187 = mul i32 %add.ptr5.val.i, -862048943
-  %shr.i.i.i.i188 = lshr i32 %mul.i.i187, 17
-  %shl.i.i.i.i189 = mul i32 %add.ptr5.val.i, 380141568
-  %or.i.i.i.i190 = or disjoint i32 %shr.i.i.i.i188, %shl.i.i.i.i189
-  %mul1.i.i191 = mul i32 %or.i.i.i.i190, 461845907
-  %xor.i.i192 = xor i32 %mul1.i.i191, %conv16.i
-  %or.i.i11.i.i193 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i192, i32 %xor.i.i192, i32 13)
-  %mul3.i.i194 = mul i32 %or.i.i11.i.i193, 5
-  %add.i.i195 = add i32 %add18.i, -430675100
-  %add20.i = add i32 %add.i.i195, %mul3.i.i194
-  %or.i.i54.i = tail call i32 @llvm.fshl.i32(i32 %add18.i, i32 %add18.i, i32 29)
-  %add22.i = add i32 %or.i.i54.i, %add.ptr5.val.i
-  %mul.i55.i = mul i32 %s.val.i185, -862048943
-  %shr.i.i.i56.i = lshr i32 %mul.i55.i, 17
-  %shl.i.i.i57.i = mul i32 %s.val.i185, 380141568
-  %or.i.i.i58.i = or disjoint i32 %shr.i.i.i56.i, %shl.i.i.i57.i
-  %mul1.i59.i = mul i32 %or.i.i.i58.i, 461845907
-  %xor.i60.i = xor i32 %add20.i, %mul1.i59.i
-  %or.i.i11.i61.i = tail call i32 @llvm.fshl.i32(i32 %xor.i60.i, i32 %xor.i60.i, i32 13)
-  %mul3.i62.i = mul i32 %or.i.i11.i61.i, 5
-  %add.i63.i = add i32 %add22.i, -430675100
-  %add24.i = add i32 %add.i63.i, %mul3.i62.i
-  %add25.i = add i32 %add22.i, %add.ptr12.val.i
-  %or.i.i66.i = tail call i32 @llvm.fshl.i32(i32 %add25.i, i32 %add25.i, i32 20)
-  %mul.i67.i = mul i32 %add.ptr2.val.i, -862048943
-  %shr.i.i.i68.i = lshr i32 %mul.i67.i, 17
-  %shl.i.i.i69.i = mul i32 %add.ptr2.val.i, 380141568
-  %or.i.i.i70.i = or disjoint i32 %shr.i.i.i68.i, %shl.i.i.i69.i
-  %mul1.i71.i = mul i32 %or.i.i.i70.i, 461845907
-  %xor.i72.i = xor i32 %add24.i, %mul1.i71.i
-  %or.i.i11.i73.i = tail call i32 @llvm.fshl.i32(i32 %xor.i72.i, i32 %xor.i72.i, i32 13)
-  %mul3.i74.i = mul i32 %or.i.i11.i73.i, 5
-  %add.i75.i = add i32 %add.ptr8.val.i, -430675100
-  %add27.i = add i32 %add.i75.i, %or.i.i66.i
-  %add29.i = add i32 %add27.i, %mul3.i74.i
-  %shr.i.i196 = lshr i32 %add29.i, 16
-  %xor.i76.i = xor i32 %shr.i.i196, %add29.i
-  %mul.i77.i = mul i32 %xor.i76.i, -2048144789
-  %shr1.i.i197 = lshr i32 %mul.i77.i, 13
-  %xor2.i.i198 = xor i32 %shr1.i.i197, %mul.i77.i
-  %mul3.i78.i = mul i32 %xor2.i.i198, -1028477387
-  %shr4.i.i199 = lshr i32 %mul3.i78.i, 16
-  %xor5.i.i200 = xor i32 %shr4.i.i199, %mul3.i78.i
-  br label %return
+79:                                               ; preds = %4
+  %80 = getelementptr inbounds i8, ptr %0, i64 -4
+  %81 = lshr i64 %1, 1
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
+  %.val34.i = load i32, ptr %82, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val33.i = load i32, ptr %83, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %85 = getelementptr inbounds i8, ptr %84, i64 -8
+  %.val32.i = load i32, ptr %85, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 %81
+  %.val31.i = load i32, ptr %86, align 1
+  %.val30.i = load i32, ptr %0, align 1
+  %87 = getelementptr inbounds i8, ptr %84, i64 -4
+  %.val.i96 = load i32, ptr %87, align 1
+  %88 = mul i32 %.val31.i, -862048943
+  %89 = trunc nuw nsw i64 %1 to i32
+  %90 = add i32 %88, %89
+  %91 = tail call i32 @llvm.fshl.i32(i32 %.val34.i, i32 %.val34.i, i32 20)
+  %92 = add i32 %.val.i96, %91
+  %93 = mul i32 %.val32.i, -862048943
+  %94 = tail call i32 @llvm.fshl.i32(i32 %93, i32 %93, i32 15)
+  %95 = mul i32 %94, 461845907
+  %96 = xor i32 %90, %95
+  %97 = tail call i32 @llvm.fshl.i32(i32 %96, i32 %96, i32 13)
+  %98 = mul i32 %97, 5
+  %99 = add i32 %92, -430675100
+  %100 = add i32 %99, %98
+  %101 = tail call i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 29)
+  %102 = add i32 %101, %.val32.i
+  %103 = mul i32 %.val30.i, -862048943
+  %104 = tail call i32 @llvm.fshl.i32(i32 %103, i32 %103, i32 15)
+  %105 = mul i32 %104, 461845907
+  %106 = xor i32 %100, %105
+  %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 13)
+  %108 = mul i32 %107, 5
+  %109 = add i32 %102, -430675100
+  %110 = add i32 %109, %108
+  %111 = add i32 %102, %.val.i96
+  %112 = tail call i32 @llvm.fshl.i32(i32 %111, i32 %111, i32 20)
+  %113 = mul i32 %.val33.i, -862048943
+  %114 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 15)
+  %115 = mul i32 %114, 461845907
+  %116 = xor i32 %110, %115
+  %117 = tail call i32 @llvm.fshl.i32(i32 %116, i32 %116, i32 13)
+  %118 = mul i32 %117, 5
+  %119 = add i32 %.val31.i, -430675100
+  %120 = add i32 %119, %112
+  %121 = add i32 %120, %118
+  %122 = lshr i32 %121, 16
+  %123 = xor i32 %122, %121
+  %124 = mul i32 %123, -2048144789
+  %125 = lshr i32 %124, 13
+  %126 = xor i32 %125, %124
+  %127 = mul i32 %126, -1028477387
+  %128 = lshr i32 %127, 16
+  %129 = xor i32 %128, %127
+  br label %233
 
-if.end:                                           ; preds = %entry
-  %conv = trunc i64 %len to i32
-  %conv9 = mul i32 %conv, -862048943
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %len
-  %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
-  %add.ptr10.val = load i32, ptr %add.ptr10, align 1
-  %mul12 = mul i32 %add.ptr10.val, -862048943
-  %shr.i.i201 = lshr i32 %mul12, 17
-  %shl.i.i = mul i32 %add.ptr10.val, 380141568
-  %or.i.i = or disjoint i32 %shr.i.i201, %shl.i.i
-  %mul14 = mul i32 %or.i.i, 461845907
-  %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %add.ptr16.val = load i32, ptr %add.ptr16, align 1
-  %mul18 = mul i32 %add.ptr16.val, -862048943
-  %shr.i.i202 = lshr i32 %mul18, 17
-  %shl.i.i203 = mul i32 %add.ptr16.val, 380141568
-  %or.i.i204 = or disjoint i32 %shr.i.i202, %shl.i.i203
-  %mul20 = mul i32 %or.i.i204, 461845907
-  %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
-  %add.ptr22.val = load i32, ptr %add.ptr22, align 1
-  %mul24 = mul i32 %add.ptr22.val, -862048943
-  %shr.i.i205 = lshr i32 %mul24, 17
-  %shl.i.i206 = mul i32 %add.ptr22.val, 380141568
-  %or.i.i207 = or disjoint i32 %shr.i.i205, %shl.i.i206
-  %mul26 = mul i32 %or.i.i207, 461845907
-  %add.ptr28 = getelementptr inbounds i8, ptr %add.ptr, i64 -12
-  %add.ptr28.val = load i32, ptr %add.ptr28, align 1
-  %mul30 = mul i32 %add.ptr28.val, -862048943
-  %shr.i.i208 = lshr i32 %mul30, 17
-  %shl.i.i209 = mul i32 %add.ptr28.val, 380141568
-  %or.i.i210 = or disjoint i32 %shr.i.i208, %shl.i.i209
-  %mul32 = mul i32 %or.i.i210, 461845907
-  %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr, i64 -20
-  %add.ptr34.val = load i32, ptr %add.ptr34, align 1
-  %mul36 = mul i32 %add.ptr34.val, -862048943
-  %shr.i.i211 = lshr i32 %mul36, 17
-  %shl.i.i212 = mul i32 %add.ptr34.val, 380141568
-  %or.i.i213 = or disjoint i32 %shr.i.i211, %shl.i.i212
-  %mul38 = mul i32 %or.i.i213, 461845907
-  %xor = xor i32 %mul14, %conv
-  %or.i.i216 = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 13)
-  %mul40 = mul i32 %or.i.i216, 5
-  %add = add i32 %mul40, -430675100
-  %xor41 = xor i32 %add, %mul26
-  %or.i.i219 = tail call i32 @llvm.fshl.i32(i32 %xor41, i32 %xor41, i32 13)
-  %mul43 = mul i32 %or.i.i219, 5
-  %add44 = add i32 %mul43, -430675100
-  %xor45 = xor i32 %mul20, %conv9
-  %or.i.i222 = tail call i32 @llvm.fshl.i32(i32 %xor45, i32 %xor45, i32 13)
-  %mul47 = mul i32 %or.i.i222, 5
-  %add48 = add i32 %mul47, -430675100
-  %xor49 = xor i32 %add48, %mul32
-  %or.i.i225 = tail call i32 @llvm.fshl.i32(i32 %xor49, i32 %xor49, i32 13)
-  %mul51 = mul i32 %or.i.i225, 5
-  %add52 = add i32 %mul51, -430675100
-  %add53 = add i32 %mul38, %conv9
-  %or.i.i228 = tail call i32 @llvm.fshl.i32(i32 %add53, i32 %add53, i32 13)
-  %add55 = add i32 %or.i.i228, 113
-  %sub = add i64 %len, -1
-  %div = udiv i64 %sub, 20
-  br label %do.body
+130:                                              ; preds = %2
+  %131 = trunc i64 %1 to i32
+  %132 = mul i32 %131, -862048943
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %134 = getelementptr inbounds i8, ptr %133, i64 -4
+  %.val95 = load i32, ptr %134, align 1
+  %135 = mul i32 %.val95, -862048943
+  %136 = tail call i32 @llvm.fshl.i32(i32 %135, i32 %135, i32 15)
+  %137 = mul i32 %136, 461845907
+  %138 = getelementptr inbounds i8, ptr %133, i64 -8
+  %.val94 = load i32, ptr %138, align 1
+  %139 = mul i32 %.val94, -862048943
+  %140 = tail call i32 @llvm.fshl.i32(i32 %139, i32 %139, i32 15)
+  %141 = mul i32 %140, 461845907
+  %142 = getelementptr inbounds i8, ptr %133, i64 -16
+  %.val93 = load i32, ptr %142, align 1
+  %143 = mul i32 %.val93, -862048943
+  %144 = tail call i32 @llvm.fshl.i32(i32 %143, i32 %143, i32 15)
+  %145 = mul i32 %144, 461845907
+  %146 = getelementptr inbounds i8, ptr %133, i64 -12
+  %.val92 = load i32, ptr %146, align 1
+  %147 = mul i32 %.val92, -862048943
+  %148 = tail call i32 @llvm.fshl.i32(i32 %147, i32 %147, i32 15)
+  %149 = mul i32 %148, 461845907
+  %150 = getelementptr inbounds i8, ptr %133, i64 -20
+  %.val91 = load i32, ptr %150, align 1
+  %151 = mul i32 %.val91, -862048943
+  %152 = tail call i32 @llvm.fshl.i32(i32 %151, i32 %151, i32 15)
+  %153 = mul i32 %152, 461845907
+  %154 = xor i32 %137, %131
+  %155 = tail call i32 @llvm.fshl.i32(i32 %154, i32 %154, i32 13)
+  %156 = mul i32 %155, 5
+  %157 = add i32 %156, -430675100
+  %158 = xor i32 %157, %145
+  %159 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 13)
+  %160 = mul i32 %159, 5
+  %161 = add i32 %160, -430675100
+  %162 = xor i32 %141, %132
+  %163 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 13)
+  %164 = mul i32 %163, 5
+  %165 = add i32 %164, -430675100
+  %166 = xor i32 %165, %149
+  %167 = tail call i32 @llvm.fshl.i32(i32 %166, i32 %166, i32 13)
+  %168 = mul i32 %167, 5
+  %169 = add i32 %168, -430675100
+  %170 = add i32 %153, %132
+  %171 = tail call i32 @llvm.fshl.i32(i32 %170, i32 %170, i32 13)
+  %172 = add i32 %171, 113
+  %173 = add i64 %1, -1
+  %174 = udiv i64 %173, 20
+  br label %175
 
-do.body:                                          ; preds = %do.body, %if.end
-  %iters.0 = phi i64 [ %div, %if.end ], [ %dec, %do.body ]
-  %f.0 = phi i32 [ %add55, %if.end ], [ %add76, %do.body ]
-  %g.0 = phi i32 [ %add52, %if.end ], [ %add77, %do.body ]
-  %h.0 = phi i32 [ %add44, %if.end ], [ %add69, %do.body ]
-  %s.addr.0 = phi ptr [ %s, %if.end ], [ %add.ptr78, %do.body ]
-  %s.addr.0.val = load i32, ptr %s.addr.0, align 1
-  %add.ptr57 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 4
-  %add.ptr57.val = load i32, ptr %add.ptr57, align 1
-  %add.ptr59 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 8
-  %add.ptr59.val = load i32, ptr %add.ptr59, align 1
-  %add.ptr61 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 12
-  %add.ptr61.val = load i32, ptr %add.ptr61, align 1
-  %add.ptr63 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 16
-  %add.ptr63.val = load i32, ptr %add.ptr63, align 1
-  %add65 = add i32 %s.addr.0.val, %h.0
-  %add66 = add i32 %add.ptr57.val, %g.0
-  %add67 = add i32 %add.ptr59.val, %f.0
-  %mul.i229 = mul i32 %add.ptr61.val, -862048943
-  %shr.i.i.i = lshr i32 %mul.i229, 17
-  %shl.i.i.i = mul i32 %add.ptr61.val, 380141568
-  %or.i.i.i230 = or disjoint i32 %shr.i.i.i, %shl.i.i.i
-  %mul1.i = mul i32 %or.i.i.i230, 461845907
-  %xor.i231 = xor i32 %mul1.i, %add65
-  %or.i.i11.i = tail call i32 @llvm.fshl.i32(i32 %xor.i231, i32 %xor.i231, i32 13)
-  %mul3.i = mul i32 %or.i.i11.i, 5
-  %add.i232 = add i32 %add.ptr63.val, -430675100
-  %add69 = add i32 %add.i232, %mul3.i
-  %mul.i233 = mul i32 %add.ptr59.val, -862048943
-  %shr.i.i.i234 = lshr i32 %mul.i233, 17
-  %shl.i.i.i235 = mul i32 %add.ptr59.val, 380141568
-  %or.i.i.i236 = or disjoint i32 %shr.i.i.i234, %shl.i.i.i235
-  %mul1.i237 = mul i32 %or.i.i.i236, 461845907
-  %xor.i238 = xor i32 %mul1.i237, %add66
-  %or.i.i11.i239 = tail call i32 @llvm.fshl.i32(i32 %xor.i238, i32 %xor.i238, i32 13)
-  %mul3.i240 = mul i32 %or.i.i11.i239, 5
-  %add.i241 = add i32 %s.addr.0.val, -430675100
-  %add71 = add i32 %add.i241, %mul3.i240
-  %mul72 = mul i32 %add.ptr63.val, -862048943
-  %add73 = add i32 %mul72, %add.ptr57.val
-  %mul.i242 = mul i32 %add73, -862048943
-  %shr.i.i.i243 = lshr i32 %mul.i242, 17
-  %shl.i.i.i244 = mul i32 %add73, 380141568
-  %or.i.i.i245 = or disjoint i32 %shr.i.i.i243, %shl.i.i.i244
-  %mul1.i246 = mul i32 %or.i.i.i245, 461845907
-  %xor.i247 = xor i32 %mul1.i246, %add67
-  %or.i.i11.i248 = tail call i32 @llvm.fshl.i32(i32 %xor.i247, i32 %xor.i247, i32 13)
-  %mul3.i249 = mul i32 %or.i.i11.i248, 5
-  %add.i250 = add i32 %add.ptr61.val, -430675100
-  %add75 = add i32 %add.i250, %add71
-  %add76 = add i32 %add75, %mul3.i249
-  %add77 = add i32 %add76, %add71
-  %add.ptr78 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 20
-  %dec = add nsw i64 %iters.0, -1
-  %cmp79.not = icmp eq i64 %dec, 0
-  br i1 %cmp79.not, label %do.end, label %do.body, !llvm.loop !18
+175:                                              ; preds = %175, %130
+  %.086 = phi i64 [ %174, %130 ], [ %212, %175 ]
+  %.085 = phi i32 [ %172, %130 ], [ %209, %175 ]
+  %.084 = phi i32 [ %169, %130 ], [ %210, %175 ]
+  %.083 = phi i32 [ %161, %130 ], [ %190, %175 ]
+  %.082 = phi ptr [ %0, %130 ], [ %211, %175 ]
+  %.082.val = load i32, ptr %.082, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %.082, i64 4
+  %.val90 = load i32, ptr %176, align 1
+  %177 = getelementptr inbounds nuw i8, ptr %.082, i64 8
+  %.val89 = load i32, ptr %177, align 1
+  %178 = getelementptr inbounds nuw i8, ptr %.082, i64 12
+  %.val88 = load i32, ptr %178, align 1
+  %179 = getelementptr inbounds nuw i8, ptr %.082, i64 16
+  %.val = load i32, ptr %179, align 1
+  %180 = add i32 %.082.val, %.083
+  %181 = add i32 %.val90, %.084
+  %182 = add i32 %.val89, %.085
+  %183 = mul i32 %.val88, -862048943
+  %184 = tail call i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 15)
+  %185 = mul i32 %184, 461845907
+  %186 = xor i32 %185, %180
+  %187 = tail call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 13)
+  %188 = mul i32 %187, 5
+  %189 = add i32 %.val, -430675100
+  %190 = add i32 %189, %188
+  %191 = mul i32 %.val89, -862048943
+  %192 = tail call i32 @llvm.fshl.i32(i32 %191, i32 %191, i32 15)
+  %193 = mul i32 %192, 461845907
+  %194 = xor i32 %193, %181
+  %195 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 13)
+  %196 = mul i32 %195, 5
+  %197 = add i32 %.082.val, -430675100
+  %198 = add i32 %197, %196
+  %199 = mul i32 %.val, -862048943
+  %200 = add i32 %199, %.val90
+  %201 = mul i32 %200, -862048943
+  %202 = tail call i32 @llvm.fshl.i32(i32 %201, i32 %201, i32 15)
+  %203 = mul i32 %202, 461845907
+  %204 = xor i32 %203, %182
+  %205 = tail call i32 @llvm.fshl.i32(i32 %204, i32 %204, i32 13)
+  %206 = mul i32 %205, 5
+  %207 = add i32 %.val88, -430675100
+  %208 = add i32 %207, %198
+  %209 = add i32 %208, %206
+  %210 = add i32 %209, %198
+  %211 = getelementptr inbounds nuw i8, ptr %.082, i64 20
+  %212 = add nsw i64 %.086, -1
+  %.not = icmp eq i64 %212, 0
+  br i1 %.not, label %213, label %175, !llvm.loop !18
 
-do.end:                                           ; preds = %do.body
-  %or.i.i253 = tail call i32 @llvm.fshl.i32(i32 %add77, i32 %add77, i32 21)
-  %mul81 = mul i32 %or.i.i253, -862048943
-  %shr.i.i254 = lshr i32 %mul81, 17
-  %shl.i.i255 = mul i32 %or.i.i253, 380141568
-  %or.i.i256 = or disjoint i32 %shr.i.i254, %shl.i.i255
-  %mul83 = mul i32 %or.i.i256, -862048943
-  %or.i.i259 = tail call i32 @llvm.fshl.i32(i32 %add76, i32 %add76, i32 21)
-  %mul85 = mul i32 %or.i.i259, -862048943
-  %shr.i.i260 = lshr i32 %mul85, 17
-  %shl.i.i261 = mul i32 %or.i.i259, 380141568
-  %or.i.i262 = or disjoint i32 %shr.i.i260, %shl.i.i261
-  %add88 = add i32 %mul83, %add69
-  %or.i.i265 = tail call i32 @llvm.fshl.i32(i32 %add88, i32 %add88, i32 13)
-  %mul90 = mul i32 %or.i.i265, 5
-  %add91 = add i32 %mul90, -430675100
-  %or.i.i268 = tail call i32 @llvm.fshl.i32(i32 %add91, i32 %add91, i32 15)
-  %mul93166 = add i32 %or.i.i262, %or.i.i268
-  %add94 = mul i32 %mul93166, -862048943
-  %shr.i.i269 = lshr i32 %add94, 19
-  %shl.i.i270 = mul i32 %mul93166, -978706432
-  %or.i.i271 = or disjoint i32 %shr.i.i269, %shl.i.i270
-  %mul96 = mul i32 %or.i.i271, 5
-  %add97 = add i32 %mul96, -430675100
-  %or.i.i274 = tail call i32 @llvm.fshl.i32(i32 %add97, i32 %add97, i32 15)
-  %mul99 = mul i32 %or.i.i274, -862048943
-  br label %return
+213:                                              ; preds = %175
+  %214 = tail call i32 @llvm.fshl.i32(i32 %210, i32 %210, i32 21)
+  %215 = mul i32 %214, -862048943
+  %216 = tail call i32 @llvm.fshl.i32(i32 %215, i32 %215, i32 15)
+  %217 = mul i32 %216, -862048943
+  %218 = tail call i32 @llvm.fshl.i32(i32 %209, i32 %209, i32 21)
+  %219 = mul i32 %218, -862048943
+  %220 = tail call i32 @llvm.fshl.i32(i32 %219, i32 %219, i32 15)
+  %221 = add i32 %217, %190
+  %222 = tail call i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 13)
+  %223 = mul i32 %222, 5
+  %224 = add i32 %223, -430675100
+  %225 = tail call i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 15)
+  %226 = add i32 %225, %220
+  %227 = mul i32 %226, -862048943
+  %228 = tail call i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 13)
+  %229 = mul i32 %228, 5
+  %230 = add i32 %229, -430675100
+  %231 = tail call i32 @llvm.fshl.i32(i32 %230, i32 %230, i32 15)
+  %232 = mul i32 %231, -862048943
+  br label %233
 
-return:                                           ; preds = %do.end, %cond.false5, %cond.false, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit
-  %retval.0 = phi i32 [ %mul99, %do.end ], [ %xor5.i.i200, %cond.false5 ], [ %xor5.i.i, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %xor5.i.i182, %cond.false ]
-  ret i32 %retval.0
+233:                                              ; preds = %79, %39, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, %213
+  %.0 = phi i32 [ %232, %213 ], [ %129, %79 ], [ %38, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %78, %39 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashmk14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 25
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN5folly8external8farmhash10farmhashmk14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ult i64 %1, 25
+  br i1 %4, label %5, label %136
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ugt i64 %len, 12
-  br i1 %cmp1, label %if.then2, label %if.else
+5:                                                ; preds = %3
+  %6 = icmp samesign ugt i64 %1, 12
+  br i1 %6, label %7, label %61
 
-if.then2:                                         ; preds = %if.then
-  %mul = mul i32 %seed, -862048943
-  %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 -4
-  %shr.i = lshr i64 %len, 1
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %shr.i
-  %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i = load i32, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i = load i32, ptr %add.ptr5.i, align 1
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
-  %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %s.val.i = load i32, ptr %s, align 1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %add.ptr12.val.i = load i32, ptr %add.ptr12.i, align 1
-  %mul.i = mul i32 %add.ptr8.val.i, -862048943
-  %0 = trunc nuw nsw i64 %len to i32
-  %1 = add i32 %mul, %0
-  %conv16.i = add i32 %1, %mul.i
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %add.ptr1.val.i, i32 %add.ptr1.val.i, i32 20)
-  %add18.i = add i32 %add.ptr12.val.i, %or.i.i.i
-  %mul.i.i = mul i32 %add.ptr5.val.i, -862048943
-  %shr.i.i.i.i = lshr i32 %mul.i.i, 17
-  %shl.i.i.i.i = mul i32 %add.ptr5.val.i, 380141568
-  %or.i.i.i.i = or disjoint i32 %shr.i.i.i.i, %shl.i.i.i.i
-  %mul1.i.i = mul i32 %or.i.i.i.i, 461845907
-  %xor.i.i = xor i32 %mul1.i.i, %conv16.i
-  %or.i.i11.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 13)
-  %mul3.i.i = mul i32 %or.i.i11.i.i, 5
-  %add.i.i = add i32 %add18.i, -430675100
-  %add20.i = add i32 %add.i.i, %mul3.i.i
-  %or.i.i54.i = tail call i32 @llvm.fshl.i32(i32 %add18.i, i32 %add18.i, i32 29)
-  %add22.i = add i32 %or.i.i54.i, %add.ptr5.val.i
-  %mul.i55.i = mul i32 %s.val.i, -862048943
-  %shr.i.i.i56.i = lshr i32 %mul.i55.i, 17
-  %shl.i.i.i57.i = mul i32 %s.val.i, 380141568
-  %or.i.i.i58.i = or disjoint i32 %shr.i.i.i56.i, %shl.i.i.i57.i
-  %mul1.i59.i = mul i32 %or.i.i.i58.i, 461845907
-  %xor.i60.i = xor i32 %add20.i, %mul1.i59.i
-  %or.i.i11.i61.i = tail call i32 @llvm.fshl.i32(i32 %xor.i60.i, i32 %xor.i60.i, i32 13)
-  %mul3.i62.i = mul i32 %or.i.i11.i61.i, 5
-  %add.i63.i = add i32 %add22.i, -430675100
-  %add24.i = add i32 %add.i63.i, %mul3.i62.i
-  %add25.i = add i32 %add22.i, %add.ptr12.val.i
-  %or.i.i66.i = tail call i32 @llvm.fshl.i32(i32 %add25.i, i32 %add25.i, i32 20)
-  %xor.i = xor i32 %add.ptr2.val.i, %mul
-  %mul.i67.i = mul i32 %xor.i, -862048943
-  %shr.i.i.i68.i = lshr i32 %mul.i67.i, 17
-  %shl.i.i.i69.i = mul i32 %xor.i, 380141568
-  %or.i.i.i70.i = or disjoint i32 %shr.i.i.i68.i, %shl.i.i.i69.i
-  %mul1.i71.i = mul i32 %or.i.i.i70.i, 461845907
-  %xor.i72.i = xor i32 %add24.i, %mul1.i71.i
-  %or.i.i11.i73.i = tail call i32 @llvm.fshl.i32(i32 %xor.i72.i, i32 %xor.i72.i, i32 13)
-  %mul3.i74.i = mul i32 %or.i.i11.i73.i, 5
-  %add.i75.i = add i32 %add.ptr8.val.i, -430675100
-  %add27.i = add i32 %add.i75.i, %or.i.i66.i
-  %add29.i = add i32 %add27.i, %mul3.i74.i
-  %shr.i.i = lshr i32 %add29.i, 16
-  %xor.i76.i = xor i32 %shr.i.i, %add29.i
-  %mul.i77.i = mul i32 %xor.i76.i, -2048144789
-  %shr1.i.i = lshr i32 %mul.i77.i, 13
-  %xor2.i.i = xor i32 %shr1.i.i, %mul.i77.i
-  %mul3.i78.i = mul i32 %xor2.i.i, -1028477387
-  %shr4.i.i = lshr i32 %mul3.i78.i, 16
-  %xor5.i.i = xor i32 %shr4.i.i, %mul3.i78.i
-  br label %return
+7:                                                ; preds = %5
+  %8 = mul i32 %2, -862048943
+  %9 = getelementptr inbounds i8, ptr %0, i64 -4
+  %10 = lshr i64 %1, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %.val34.i = load i32, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val33.i = load i32, ptr %12, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
+  %.val32.i = load i32, ptr %14, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %.val31.i = load i32, ptr %15, align 1
+  %.val30.i = load i32, ptr %0, align 1
+  %16 = getelementptr inbounds i8, ptr %13, i64 -4
+  %.val.i = load i32, ptr %16, align 1
+  %17 = mul i32 %.val31.i, -862048943
+  %18 = trunc nuw nsw i64 %1 to i32
+  %19 = add i32 %8, %18
+  %20 = add i32 %19, %17
+  %21 = tail call i32 @llvm.fshl.i32(i32 %.val34.i, i32 %.val34.i, i32 20)
+  %22 = add i32 %.val.i, %21
+  %23 = mul i32 %.val32.i, -862048943
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 15)
+  %25 = mul i32 %24, 461845907
+  %26 = xor i32 %20, %25
+  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 13)
+  %28 = mul i32 %27, 5
+  %29 = add i32 %22, -430675100
+  %30 = add i32 %29, %28
+  %31 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 29)
+  %32 = add i32 %31, %.val32.i
+  %33 = mul i32 %.val30.i, -862048943
+  %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 15)
+  %35 = mul i32 %34, 461845907
+  %36 = xor i32 %30, %35
+  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 13)
+  %38 = mul i32 %37, 5
+  %39 = add i32 %32, -430675100
+  %40 = add i32 %39, %38
+  %41 = add i32 %32, %.val.i
+  %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 20)
+  %43 = xor i32 %.val33.i, %8
+  %44 = mul i32 %43, -862048943
+  %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 15)
+  %46 = mul i32 %45, 461845907
+  %47 = xor i32 %40, %46
+  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 13)
+  %49 = mul i32 %48, 5
+  %50 = add i32 %.val31.i, -430675100
+  %51 = add i32 %50, %42
+  %52 = add i32 %51, %49
+  %53 = lshr i32 %52, 16
+  %54 = xor i32 %53, %52
+  %55 = mul i32 %54, -2048144789
+  %56 = lshr i32 %55, 13
+  %57 = xor i32 %56, %55
+  %58 = mul i32 %57, -1028477387
+  %59 = lshr i32 %58, 16
+  %60 = xor i32 %59, %58
+  br label %198
 
-if.else:                                          ; preds = %if.then
-  %cmp3 = icmp samesign ugt i64 %len, 4
-  br i1 %cmp3, label %if.then4, label %if.else6
+61:                                               ; preds = %5
+  %62 = icmp samesign ugt i64 %1, 4
+  br i1 %62, label %63, label %105
 
-if.then4:                                         ; preds = %if.else
-  %conv.i = trunc nuw nsw i64 %len to i32
-  %conv1.i = mul nuw nsw i32 %conv.i, 5
-  %add.i = add i32 %conv1.i, %seed
-  %s.val.i27 = load i32, ptr %s, align 1
-  %add2.i = add i32 %s.val.i27, %conv.i
-  %add.ptr.i28 = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i28, i64 -4
-  %add.ptr3.val.i = load i32, ptr %add.ptr3.i, align 1
-  %add5.i = add i32 %add.ptr3.val.i, %conv1.i
-  %shr.i29 = lshr i64 %len, 1
-  %and.i = and i64 %shr.i29, 4
-  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %s, i64 %and.i
-  %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
-  %add8.i = add i32 %add.ptr6.val.i, 9
-  %mul.i.i30 = mul i32 %add2.i, -862048943
-  %shr.i.i.i.i31 = lshr i32 %mul.i.i30, 17
-  %shl.i.i.i.i32 = mul i32 %add2.i, 380141568
-  %or.i.i.i.i33 = or disjoint i32 %shr.i.i.i.i31, %shl.i.i.i.i32
-  %mul1.i.i34 = mul i32 %or.i.i.i.i33, 461845907
-  %xor.i.i35 = xor i32 %mul1.i.i34, %add.i
-  %or.i.i11.i.i36 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i35, i32 %xor.i.i35, i32 13)
-  %mul3.i.i37 = mul i32 %or.i.i11.i.i36, 5
-  %add.i.i38 = add i32 %mul3.i.i37, -430675100
-  %mul.i23.i = mul i32 %add5.i, -862048943
-  %shr.i.i.i24.i = lshr i32 %mul.i23.i, 17
-  %shl.i.i.i25.i = mul i32 %add5.i, 380141568
-  %or.i.i.i26.i = or disjoint i32 %shr.i.i.i24.i, %shl.i.i.i25.i
-  %mul1.i27.i = mul i32 %or.i.i.i26.i, 461845907
-  %xor.i28.i = xor i32 %add.i.i38, %mul1.i27.i
-  %or.i.i11.i29.i = tail call i32 @llvm.fshl.i32(i32 %xor.i28.i, i32 %xor.i28.i, i32 13)
-  %mul3.i30.i = mul i32 %or.i.i11.i29.i, 5
-  %add.i31.i = add i32 %mul3.i30.i, -430675100
-  %mul.i32.i = mul i32 %add8.i, -862048943
-  %shr.i.i.i33.i = lshr i32 %mul.i32.i, 17
-  %shl.i.i.i34.i = mul i32 %add8.i, 380141568
-  %or.i.i.i35.i = or disjoint i32 %shr.i.i.i33.i, %shl.i.i.i34.i
-  %mul1.i36.i = mul i32 %or.i.i.i35.i, 461845907
-  %xor.i37.i = xor i32 %add.i31.i, %mul1.i36.i
-  %or.i.i11.i38.i = tail call i32 @llvm.fshl.i32(i32 %xor.i37.i, i32 %xor.i37.i, i32 13)
-  %mul3.i39.i = mul i32 %or.i.i11.i38.i, 5
-  %add.i40.i = add i32 %mul3.i39.i, -430675100
-  %xor.i39 = xor i32 %add.i40.i, %seed
-  %shr.i.i40 = lshr i32 %xor.i39, 16
-  %xor.i41.i = xor i32 %shr.i.i40, %xor.i39
-  %mul.i42.i = mul i32 %xor.i41.i, -2048144789
-  %shr1.i.i41 = lshr i32 %mul.i42.i, 13
-  %xor2.i.i42 = xor i32 %shr1.i.i41, %mul.i42.i
-  %mul3.i43.i = mul i32 %xor2.i.i42, -1028477387
-  %shr4.i.i43 = lshr i32 %mul3.i43.i, 16
-  %xor5.i.i44 = xor i32 %shr4.i.i43, %mul3.i43.i
-  br label %return
+63:                                               ; preds = %61
+  %64 = trunc nuw nsw i64 %1 to i32
+  %65 = mul nuw nsw i32 %64, 5
+  %66 = add i32 %65, %2
+  %.val17.i = load i32, ptr %0, align 1
+  %67 = add i32 %.val17.i, %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %69 = getelementptr inbounds i8, ptr %68, i64 -4
+  %.val16.i = load i32, ptr %69, align 1
+  %70 = add i32 %.val16.i, %65
+  %71 = lshr i64 %1, 1
+  %72 = and i64 %71, 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %72
+  %.val.i20 = load i32, ptr %73, align 1
+  %74 = mul i32 %67, -862048943
+  %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 15)
+  %76 = mul i32 %75, 461845907
+  %77 = xor i32 %76, %66
+  %78 = tail call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 13)
+  %79 = mul i32 %78, 5
+  %80 = add i32 %79, -430675100
+  %81 = mul i32 %70, -862048943
+  %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 15)
+  %83 = mul i32 %82, 461845907
+  %84 = xor i32 %80, %83
+  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 13)
+  %86 = mul i32 %85, 5
+  %87 = add i32 %86, -430675100
+  %88 = mul i32 %.val.i20, -862048943
+  %89 = add i32 %88, 831494105
+  %90 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 15)
+  %91 = mul i32 %90, 461845907
+  %92 = xor i32 %87, %91
+  %93 = tail call i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 13)
+  %94 = mul i32 %93, 5
+  %95 = add i32 %94, -430675100
+  %96 = xor i32 %95, %2
+  %97 = lshr i32 %96, 16
+  %98 = xor i32 %97, %96
+  %99 = mul i32 %98, -2048144789
+  %100 = lshr i32 %99, 13
+  %101 = xor i32 %100, %99
+  %102 = mul i32 %101, -1028477387
+  %103 = lshr i32 %102, 16
+  %104 = xor i32 %103, %102
+  br label %198
 
-if.else6:                                         ; preds = %if.else
-  %cmp22.not.i = icmp eq i64 %len, 0
-  br i1 %cmp22.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i
+105:                                              ; preds = %61
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.else6
-  %2 = load i8, ptr %s, align 1, !tbaa !7
-  %mul.i45 = mul i32 %seed, -862048943
-  %conv.i46 = sext i8 %2 to i32
-  %add.i47 = add i32 %mul.i45, %conv.i46
-  %xor.i48 = xor i32 %add.i47, 9
-  %exitcond.not.i = icmp eq i64 %len, 1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.1, !llvm.loop !19
+.lr.ph.i:                                         ; preds = %105, %.lr.ph.i
+  %.017.i = phi i32 [ %110, %.lr.ph.i ], [ %2, %105 ]
+  %.01216.i = phi i64 [ %112, %.lr.ph.i ], [ 0, %105 ]
+  %.01315.i = phi i32 [ %111, %.lr.ph.i ], [ 9, %105 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %.01216.i
+  %107 = load i8, ptr %106, align 1, !tbaa !7
+  %108 = mul i32 %.017.i, -862048943
+  %109 = sext i8 %107 to i32
+  %110 = add i32 %108, %109
+  %111 = xor i32 %110, %.01315.i
+  %112 = add nuw nsw i64 %.01216.i, 1
+  %exitcond.not.i = icmp eq i64 %112, %1
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !17
 
-for.body.i.1:                                     ; preds = %for.body.i
-  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %s, i64 1
-  %3 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !7
-  %mul.i45.1 = mul i32 %add.i47, -862048943
-  %conv.i46.1 = sext i8 %3 to i32
-  %add.i47.1 = add i32 %mul.i45.1, %conv.i46.1
-  %xor.i48.1 = xor i32 %add.i47.1, %xor.i48
-  %exitcond.not.i.1 = icmp eq i64 %len, 2
-  br i1 %exitcond.not.i.1, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.2, !llvm.loop !19
+_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %.lr.ph.i, %105
+  %.013.lcssa.i = phi i32 [ 9, %105 ], [ %111, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %2, %105 ], [ %110, %.lr.ph.i ]
+  %113 = trunc nuw nsw i64 %1 to i32
+  %114 = mul i32 %113, -862048943
+  %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 15)
+  %116 = mul i32 %115, 461845907
+  %117 = xor i32 %.013.lcssa.i, %116
+  %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 13)
+  %119 = mul i32 %118, 5
+  %120 = add i32 %119, -430675100
+  %121 = mul i32 %.0.lcssa.i, -862048943
+  %122 = tail call i32 @llvm.fshl.i32(i32 %121, i32 %121, i32 15)
+  %123 = mul i32 %122, 461845907
+  %124 = xor i32 %123, %120
+  %125 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 13)
+  %126 = mul i32 %125, 5
+  %127 = add i32 %126, -430675100
+  %128 = lshr i32 %127, 16
+  %129 = xor i32 %128, %127
+  %130 = mul i32 %129, -2048144789
+  %131 = lshr i32 %130, 13
+  %132 = xor i32 %131, %130
+  %133 = mul i32 %132, -1028477387
+  %134 = lshr i32 %133, 16
+  %135 = xor i32 %134, %133
+  br label %198
 
-for.body.i.2:                                     ; preds = %for.body.i.1
-  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %s, i64 2
-  %4 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !7
-  %mul.i45.2 = mul i32 %add.i47.1, -862048943
-  %conv.i46.2 = sext i8 %4 to i32
-  %add.i47.2 = add i32 %mul.i45.2, %conv.i46.2
-  %xor.i48.2 = xor i32 %add.i47.2, %xor.i48.1
-  %exitcond.not.i.2 = icmp eq i64 %len, 3
-  br i1 %exitcond.not.i.2, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.3, !llvm.loop !19
+136:                                              ; preds = %3
+  %137 = trunc i64 %1 to i32
+  %138 = xor i32 %2, %137
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val34.i21 = load i32, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val33.i22 = load i32, ptr %140, align 1
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val32.i23 = load i32, ptr %142, align 1
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val31.i24 = load i32, ptr %143, align 1
+  %.val30.i25 = load i32, ptr %0, align 1
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.val.i26 = load i32, ptr %144, align 1
+  %145 = mul i32 %.val31.i24, -862048943
+  %146 = add i32 %138, 24
+  %147 = add i32 %146, %145
+  %148 = tail call i32 @llvm.fshl.i32(i32 %.val34.i21, i32 %.val34.i21, i32 20)
+  %149 = add i32 %.val.i26, %148
+  %150 = mul i32 %.val32.i23, -862048943
+  %151 = tail call i32 @llvm.fshl.i32(i32 %150, i32 %150, i32 15)
+  %152 = mul i32 %151, 461845907
+  %153 = xor i32 %147, %152
+  %154 = tail call i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 13)
+  %155 = mul i32 %154, 5
+  %156 = add i32 %149, -430675100
+  %157 = add i32 %156, %155
+  %158 = tail call i32 @llvm.fshl.i32(i32 %149, i32 %149, i32 29)
+  %159 = add i32 %158, %.val32.i23
+  %160 = mul i32 %.val30.i25, -862048943
+  %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 15)
+  %162 = mul i32 %161, 461845907
+  %163 = xor i32 %157, %162
+  %164 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 13)
+  %165 = mul i32 %164, 5
+  %166 = add i32 %159, -430675100
+  %167 = add i32 %166, %165
+  %168 = add i32 %159, %.val.i26
+  %169 = tail call i32 @llvm.fshl.i32(i32 %168, i32 %168, i32 20)
+  %170 = xor i32 %.val33.i22, %138
+  %171 = mul i32 %170, -862048943
+  %172 = tail call i32 @llvm.fshl.i32(i32 %171, i32 %171, i32 15)
+  %173 = mul i32 %172, 461845907
+  %174 = xor i32 %167, %173
+  %175 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 13)
+  %176 = mul i32 %175, 5
+  %177 = add i32 %.val31.i24, -430675100
+  %178 = add i32 %177, %169
+  %179 = add i32 %178, %176
+  %180 = lshr i32 %179, 16
+  %181 = xor i32 %180, %179
+  %182 = mul i32 %181, -2048144789
+  %183 = lshr i32 %182, 13
+  %184 = xor i32 %183, %182
+  %185 = mul i32 %184, -1028477387
+  %186 = lshr i32 %185, 16
+  %187 = add i64 %1, -24
+  %188 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef nonnull %141, i64 noundef %187)
+  %189 = add i32 %188, %2
+  %190 = mul i32 %189, -862048943
+  %191 = tail call i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 15)
+  %192 = mul i32 %191, 461845907
+  %193 = xor i32 %192, %186
+  %194 = xor i32 %193, %185
+  %195 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 13)
+  %196 = mul i32 %195, 5
+  %197 = add i32 %196, -430675100
+  br label %198
 
-for.body.i.3:                                     ; preds = %for.body.i.2
-  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %s, i64 3
-  %5 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !7
-  %mul.i45.3 = mul i32 %add.i47.2, -862048943
-  %conv.i46.3 = sext i8 %5 to i32
-  %add.i47.3 = add i32 %mul.i45.3, %conv.i46.3
-  %xor.i48.3 = xor i32 %add.i47.3, %xor.i48.2
-  br label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit
-
-_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %for.body.i.3, %for.body.i.2, %for.body.i.1, %for.body.i, %if.else6
-  %c.0.lcssa.i = phi i32 [ 9, %if.else6 ], [ %xor.i48, %for.body.i ], [ %xor.i48.1, %for.body.i.1 ], [ %xor.i48.2, %for.body.i.2 ], [ %xor.i48.3, %for.body.i.3 ]
-  %b.0.lcssa.i = phi i32 [ %seed, %if.else6 ], [ %add.i47, %for.body.i ], [ %add.i47.1, %for.body.i.1 ], [ %add.i47.2, %for.body.i.2 ], [ %add.i47.3, %for.body.i.3 ]
-  %conv1.i49 = trunc nuw nsw i64 %len to i32
-  %mul.i.i50 = mul i32 %conv1.i49, -862048943
-  %shr.i.i.i.i51 = lshr i32 %mul.i.i50, 17
-  %shl.i.i.i.i52 = mul nuw nsw i32 %conv1.i49, 380141568
-  %or.i.i.i.i53 = or disjoint i32 %shr.i.i.i.i51, %shl.i.i.i.i52
-  %mul1.i.i54 = mul i32 %or.i.i.i.i53, 461845907
-  %xor.i.i55 = xor i32 %c.0.lcssa.i, %mul1.i.i54
-  %or.i.i11.i.i56 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i55, i32 %xor.i.i55, i32 13)
-  %mul3.i.i57 = mul i32 %or.i.i11.i.i56, 5
-  %add.i.i58 = add i32 %mul3.i.i57, -430675100
-  %mul.i10.i = mul i32 %b.0.lcssa.i, -862048943
-  %shr.i.i.i11.i = lshr i32 %mul.i10.i, 17
-  %shl.i.i.i12.i = mul i32 %b.0.lcssa.i, 380141568
-  %or.i.i.i13.i = or disjoint i32 %shr.i.i.i11.i, %shl.i.i.i12.i
-  %mul1.i14.i = mul i32 %or.i.i.i13.i, 461845907
-  %xor.i15.i = xor i32 %mul1.i14.i, %add.i.i58
-  %or.i.i11.i16.i = tail call i32 @llvm.fshl.i32(i32 %xor.i15.i, i32 %xor.i15.i, i32 13)
-  %mul3.i17.i = mul i32 %or.i.i11.i16.i, 5
-  %add.i18.i = add i32 %mul3.i17.i, -430675100
-  %shr.i.i59 = lshr i32 %add.i18.i, 16
-  %xor.i19.i = xor i32 %shr.i.i59, %add.i18.i
-  %mul.i20.i = mul i32 %xor.i19.i, -2048144789
-  %shr1.i.i60 = lshr i32 %mul.i20.i, 13
-  %xor2.i.i61 = xor i32 %shr1.i.i60, %mul.i20.i
-  %mul3.i21.i = mul i32 %xor2.i.i61, -1028477387
-  %shr4.i.i62 = lshr i32 %mul3.i21.i, 16
-  %xor5.i.i63 = xor i32 %shr4.i.i62, %mul3.i21.i
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %6 = trunc i64 %len to i32
-  %conv8 = xor i32 %seed, %6
-  %add.ptr1.i65 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr1.val.i66 = load i32, ptr %add.ptr1.i65, align 1
-  %add.ptr2.i67 = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i68 = load i32, ptr %add.ptr2.i67, align 1
-  %add.ptr4.i69 = getelementptr inbounds nuw i8, ptr %s, i64 24
-  %add.ptr5.i70 = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %add.ptr5.val.i71 = load i32, ptr %add.ptr5.i70, align 1
-  %add.ptr8.i72 = getelementptr inbounds nuw i8, ptr %s, i64 12
-  %add.ptr8.val.i73 = load i32, ptr %add.ptr8.i72, align 1
-  %s.val.i74 = load i32, ptr %s, align 1
-  %add.ptr12.i75 = getelementptr inbounds nuw i8, ptr %s, i64 20
-  %add.ptr12.val.i76 = load i32, ptr %add.ptr12.i75, align 1
-  %mul.i77 = mul i32 %add.ptr8.val.i73, -862048943
-  %7 = add i32 %conv8, 24
-  %conv16.i78 = add i32 %7, %mul.i77
-  %or.i.i.i79 = tail call i32 @llvm.fshl.i32(i32 %add.ptr1.val.i66, i32 %add.ptr1.val.i66, i32 20)
-  %add18.i80 = add i32 %add.ptr12.val.i76, %or.i.i.i79
-  %mul.i.i81 = mul i32 %add.ptr5.val.i71, -862048943
-  %shr.i.i.i.i82 = lshr i32 %mul.i.i81, 17
-  %shl.i.i.i.i83 = mul i32 %add.ptr5.val.i71, 380141568
-  %or.i.i.i.i84 = or disjoint i32 %shr.i.i.i.i82, %shl.i.i.i.i83
-  %mul1.i.i85 = mul i32 %or.i.i.i.i84, 461845907
-  %xor.i.i86 = xor i32 %mul1.i.i85, %conv16.i78
-  %or.i.i11.i.i87 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i86, i32 %xor.i.i86, i32 13)
-  %mul3.i.i88 = mul i32 %or.i.i11.i.i87, 5
-  %add.i.i89 = add i32 %add18.i80, -430675100
-  %add20.i90 = add i32 %add.i.i89, %mul3.i.i88
-  %or.i.i54.i91 = tail call i32 @llvm.fshl.i32(i32 %add18.i80, i32 %add18.i80, i32 29)
-  %add22.i92 = add i32 %or.i.i54.i91, %add.ptr5.val.i71
-  %mul.i55.i93 = mul i32 %s.val.i74, -862048943
-  %shr.i.i.i56.i94 = lshr i32 %mul.i55.i93, 17
-  %shl.i.i.i57.i95 = mul i32 %s.val.i74, 380141568
-  %or.i.i.i58.i96 = or disjoint i32 %shr.i.i.i56.i94, %shl.i.i.i57.i95
-  %mul1.i59.i97 = mul i32 %or.i.i.i58.i96, 461845907
-  %xor.i60.i98 = xor i32 %add20.i90, %mul1.i59.i97
-  %or.i.i11.i61.i99 = tail call i32 @llvm.fshl.i32(i32 %xor.i60.i98, i32 %xor.i60.i98, i32 13)
-  %mul3.i62.i100 = mul i32 %or.i.i11.i61.i99, 5
-  %add.i63.i101 = add i32 %add22.i92, -430675100
-  %add24.i102 = add i32 %add.i63.i101, %mul3.i62.i100
-  %add25.i103 = add i32 %add22.i92, %add.ptr12.val.i76
-  %or.i.i66.i104 = tail call i32 @llvm.fshl.i32(i32 %add25.i103, i32 %add25.i103, i32 20)
-  %xor.i105 = xor i32 %add.ptr2.val.i68, %conv8
-  %mul.i67.i106 = mul i32 %xor.i105, -862048943
-  %shr.i.i.i68.i107 = lshr i32 %mul.i67.i106, 17
-  %shl.i.i.i69.i108 = mul i32 %xor.i105, 380141568
-  %or.i.i.i70.i109 = or disjoint i32 %shr.i.i.i68.i107, %shl.i.i.i69.i108
-  %mul1.i71.i110 = mul i32 %or.i.i.i70.i109, 461845907
-  %xor.i72.i111 = xor i32 %add24.i102, %mul1.i71.i110
-  %or.i.i11.i73.i112 = tail call i32 @llvm.fshl.i32(i32 %xor.i72.i111, i32 %xor.i72.i111, i32 13)
-  %mul3.i74.i113 = mul i32 %or.i.i11.i73.i112, 5
-  %add.i75.i114 = add i32 %add.ptr8.val.i73, -430675100
-  %add27.i115 = add i32 %add.i75.i114, %or.i.i66.i104
-  %add29.i116 = add i32 %add27.i115, %mul3.i74.i113
-  %shr.i.i117 = lshr i32 %add29.i116, 16
-  %xor.i76.i118 = xor i32 %shr.i.i117, %add29.i116
-  %mul.i77.i119 = mul i32 %xor.i76.i118, -2048144789
-  %shr1.i.i120 = lshr i32 %mul.i77.i119, 13
-  %xor2.i.i121 = xor i32 %shr1.i.i120, %mul.i77.i119
-  %mul3.i78.i122 = mul i32 %xor2.i.i121, -1028477387
-  %shr4.i.i123 = lshr i32 %mul3.i78.i122, 16
-  %sub = add i64 %len, -24
-  %call10 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef nonnull %add.ptr4.i69, i64 noundef %sub)
-  %add = add i32 %call10, %seed
-  %mul.i125 = mul i32 %add, -862048943
-  %shr.i.i.i = lshr i32 %mul.i125, 17
-  %shl.i.i.i = mul i32 %add, 380141568
-  %or.i.i.i126 = or disjoint i32 %shr.i.i.i, %shl.i.i.i
-  %mul1.i = mul i32 %or.i.i.i126, 461845907
-  %8 = xor i32 %mul1.i, %shr4.i.i123
-  %xor.i127 = xor i32 %8, %mul3.i78.i122
-  %or.i.i11.i = tail call i32 @llvm.fshl.i32(i32 %xor.i127, i32 %xor.i127, i32 13)
-  %mul3.i = mul i32 %or.i.i11.i, 5
-  %add.i128 = add i32 %mul3.i, -430675100
-  br label %return
-
-return:                                           ; preds = %if.end, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, %if.then4, %if.then2
-  %retval.0 = phi i32 [ %xor5.i.i, %if.then2 ], [ %xor5.i.i44, %if.then4 ], [ %xor5.i.i63, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %add.i128, %if.end ]
-  ret i32 %retval.0
+198:                                              ; preds = %136, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, %63, %7
+  %.0 = phi i32 [ %60, %7 ], [ %104, %63 ], [ %135, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %197, %136 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashsu6Hash32EPKcm(ptr noundef readnone captures(none) %s, i64 noundef %len) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashsu6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   ret i32 0
 
-if.else:                                          ; preds = %entry
+6:                                                ; preds = %2
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashsu14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashsu14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   ret i32 0
 
-if.else:                                          ; preds = %entry
+7:                                                ; preds = %3
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashsa6Hash32EPKcm(ptr noundef readnone captures(none) %s, i64 noundef %len) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashsa6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
+5:                                                ; preds = %2
   ret i32 0
 
-if.else:                                          ; preds = %entry
+6:                                                ; preds = %2
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashsa14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
-entry:
-  %0 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN5folly8external8farmhash10farmhashsa14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
+6:                                                ; preds = %3
   ret i32 0
 
-if.else:                                          ; preds = %entry
+7:                                                ; preds = %3
   tail call void @_ZSt9terminatev() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 25
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ult i64 %1, 25
+  br i1 %3, label %4, label %139
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ult i64 %len, 13
-  br i1 %cmp1, label %cond.true, label %cond.false5
+4:                                                ; preds = %2
+  %5 = icmp samesign ult i64 %1, 13
+  br i1 %5, label %6, label %79
 
-cond.true:                                        ; preds = %if.then
-  %cmp2 = icmp samesign ult i64 %len, 5
-  br i1 %cmp2, label %cond.true3, label %cond.false
+6:                                                ; preds = %4
+  %7 = icmp samesign ult i64 %1, 5
+  br i1 %7, label %8, label %39
 
-cond.true3:                                       ; preds = %cond.true
-  %cmp22.not.i = icmp eq i64 %len, 0
-  br i1 %cmp22.not.i, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %for.body.i
+8:                                                ; preds = %6
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %cond.true3
-  %0 = load i8, ptr %s, align 1, !tbaa !7
-  %conv.i = sext i8 %0 to i32
-  %xor.i = xor i32 %conv.i, 9
-  %exitcond.not.i = icmp eq i64 %len, 1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %for.body.i.1, !llvm.loop !20
-
-for.body.i.1:                                     ; preds = %for.body.i
-  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %s, i64 1
-  %1 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !7
-  %mul.i.1 = mul i32 %conv.i, -862048943
-  %conv.i.1 = sext i8 %1 to i32
-  %add.i.1 = add i32 %mul.i.1, %conv.i.1
-  %xor.i.1 = xor i32 %add.i.1, %xor.i
-  %exitcond.not.i.1 = icmp eq i64 %len, 2
-  br i1 %exitcond.not.i.1, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %for.body.i.2, !llvm.loop !20
-
-for.body.i.2:                                     ; preds = %for.body.i.1
-  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %s, i64 2
-  %2 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !7
-  %mul.i.2 = mul i32 %add.i.1, -862048943
-  %conv.i.2 = sext i8 %2 to i32
-  %add.i.2 = add i32 %mul.i.2, %conv.i.2
-  %xor.i.2 = xor i32 %add.i.2, %xor.i.1
-  %exitcond.not.i.2 = icmp eq i64 %len, 3
-  br i1 %exitcond.not.i.2, label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, label %for.body.i.3, !llvm.loop !20
-
-for.body.i.3:                                     ; preds = %for.body.i.2
-  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %s, i64 3
-  %3 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !7
-  %mul.i.3 = mul i32 %add.i.2, -862048943
-  %conv.i.3 = sext i8 %3 to i32
-  %add.i.3 = add i32 %mul.i.3, %conv.i.3
-  %xor.i.3 = xor i32 %add.i.3, %xor.i.2
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %9 = mul i32 %14, -862048943
   br label %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit
 
-_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit: ; preds = %for.body.i.3, %for.body.i.2, %for.body.i.1, %for.body.i, %cond.true3
-  %c.0.lcssa.i = phi i32 [ 9, %cond.true3 ], [ %xor.i, %for.body.i ], [ %xor.i.1, %for.body.i.1 ], [ %xor.i.2, %for.body.i.2 ], [ %xor.i.3, %for.body.i.3 ]
-  %b.0.lcssa.i = phi i32 [ 0, %cond.true3 ], [ %conv.i, %for.body.i ], [ %add.i.1, %for.body.i.1 ], [ %add.i.2, %for.body.i.2 ], [ %add.i.3, %for.body.i.3 ]
-  %conv1.i = trunc nuw nsw i64 %len to i32
-  %mul.i.i = mul i32 %conv1.i, -862048943
-  %shr.i.i.i.i = lshr i32 %mul.i.i, 17
-  %shl.i.i.i.i = mul nuw nsw i32 %conv1.i, 380141568
-  %or.i.i.i.i = or disjoint i32 %shr.i.i.i.i, %shl.i.i.i.i
-  %mul1.i.i = mul i32 %or.i.i.i.i, 461845907
-  %xor.i.i = xor i32 %c.0.lcssa.i, %mul1.i.i
-  %or.i.i11.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 13)
-  %mul3.i.i = mul i32 %or.i.i11.i.i, 5
-  %add.i.i = add i32 %mul3.i.i, -430675100
-  %mul.i10.i = mul i32 %b.0.lcssa.i, -862048943
-  %shr.i.i.i11.i = lshr i32 %mul.i10.i, 17
-  %shl.i.i.i12.i = mul i32 %b.0.lcssa.i, 380141568
-  %or.i.i.i13.i = or disjoint i32 %shr.i.i.i11.i, %shl.i.i.i12.i
-  %mul1.i14.i = mul i32 %or.i.i.i13.i, 461845907
-  %xor.i15.i = xor i32 %mul1.i14.i, %add.i.i
-  %or.i.i11.i16.i = tail call i32 @llvm.fshl.i32(i32 %xor.i15.i, i32 %xor.i15.i, i32 13)
-  %mul3.i17.i = mul i32 %or.i.i11.i16.i, 5
-  %add.i18.i = add i32 %mul3.i17.i, -430675100
-  %shr.i.i = lshr i32 %add.i18.i, 16
-  %xor.i19.i = xor i32 %shr.i.i, %add.i18.i
-  %mul.i20.i = mul i32 %xor.i19.i, -2048144789
-  %shr1.i.i = lshr i32 %mul.i20.i, 13
-  %xor2.i.i = xor i32 %shr1.i.i, %mul.i20.i
-  %mul3.i21.i = mul i32 %xor2.i.i, -1028477387
-  %shr4.i.i = lshr i32 %mul3.i21.i, 16
-  %xor5.i.i = xor i32 %shr4.i.i, %mul3.i21.i
-  br label %return
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
+  %.016.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %8 ]
+  %.01115.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %8 ]
+  %.01214.i = phi i32 [ %15, %.lr.ph.i ], [ 9, %8 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.01115.i
+  %11 = load i8, ptr %10, align 1, !tbaa !7
+  %12 = mul i32 %.016.i, -862048943
+  %13 = sext i8 %11 to i32
+  %14 = add i32 %12, %13
+  %15 = xor i32 %14, %.01214.i
+  %16 = add nuw nsw i64 %.01115.i, 1
+  %exitcond.not.i = icmp eq i64 %16, %1
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
-cond.false:                                       ; preds = %cond.true
-  %conv.i157 = trunc nuw nsw i64 %len to i32
-  %conv1.i158 = mul nuw nsw i32 %conv.i157, 5
-  %s.val.i = load i32, ptr %s, align 1
-  %add.i159 = add i32 %s.val.i, %conv.i157
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
-  %add.ptr2.val.i = load i32, ptr %add.ptr2.i, align 1
-  %add4.i = add i32 %add.ptr2.val.i, %conv1.i158
-  %shr.i = lshr i64 %len, 1
-  %and.i = and i64 %shr.i, 4
-  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %s, i64 %and.i
-  %add.ptr5.val.i = load i32, ptr %add.ptr5.i, align 1
-  %add7.i = add i32 %add.ptr5.val.i, 9
-  %mul.i.i160 = mul i32 %add.i159, -862048943
-  %shr.i.i.i.i161 = lshr i32 %mul.i.i160, 17
-  %shl.i.i.i.i162 = mul i32 %add.i159, 380141568
-  %or.i.i.i.i163 = or disjoint i32 %shr.i.i.i.i161, %shl.i.i.i.i162
-  %mul1.i.i164 = mul i32 %or.i.i.i.i163, 461845907
-  %xor.i.i165 = xor i32 %mul1.i.i164, %conv1.i158
-  %or.i.i11.i.i166 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i165, i32 %xor.i.i165, i32 13)
-  %mul3.i.i167 = mul i32 %or.i.i11.i.i166, 5
-  %add.i.i168 = add i32 %mul3.i.i167, -430675100
-  %mul.i21.i = mul i32 %add4.i, -862048943
-  %shr.i.i.i22.i = lshr i32 %mul.i21.i, 17
-  %shl.i.i.i23.i = mul i32 %add4.i, 380141568
-  %or.i.i.i24.i = or disjoint i32 %shr.i.i.i22.i, %shl.i.i.i23.i
-  %mul1.i25.i = mul i32 %or.i.i.i24.i, 461845907
-  %xor.i26.i = xor i32 %add.i.i168, %mul1.i25.i
-  %or.i.i11.i27.i = tail call i32 @llvm.fshl.i32(i32 %xor.i26.i, i32 %xor.i26.i, i32 13)
-  %mul3.i28.i = mul i32 %or.i.i11.i27.i, 5
-  %add.i29.i = add i32 %mul3.i28.i, -430675100
-  %mul.i30.i = mul i32 %add7.i, -862048943
-  %shr.i.i.i31.i = lshr i32 %mul.i30.i, 17
-  %shl.i.i.i32.i = mul i32 %add7.i, 380141568
-  %or.i.i.i33.i = or disjoint i32 %shr.i.i.i31.i, %shl.i.i.i32.i
-  %mul1.i34.i = mul i32 %or.i.i.i33.i, 461845907
-  %xor.i35.i = xor i32 %add.i29.i, %mul1.i34.i
-  %or.i.i11.i36.i = tail call i32 @llvm.fshl.i32(i32 %xor.i35.i, i32 %xor.i35.i, i32 13)
-  %mul3.i37.i = mul i32 %or.i.i11.i36.i, 5
-  %add.i38.i = add i32 %mul3.i37.i, -430675100
-  %shr.i.i169 = lshr i32 %add.i38.i, 16
-  %xor.i39.i = xor i32 %shr.i.i169, %add.i38.i
-  %mul.i40.i = mul i32 %xor.i39.i, -2048144789
-  %shr1.i.i170 = lshr i32 %mul.i40.i, 13
-  %xor2.i.i171 = xor i32 %shr1.i.i170, %mul.i40.i
-  %mul3.i41.i = mul i32 %xor2.i.i171, -1028477387
-  %shr4.i.i172 = lshr i32 %mul3.i41.i, 16
-  %xor5.i.i173 = xor i32 %shr4.i.i172, %mul3.i41.i
-  br label %return
+_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit: ; preds = %8, %._crit_edge.loopexit.i
+  %.012.lcssa.i = phi i32 [ 9, %8 ], [ %15, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %9, %._crit_edge.loopexit.i ]
+  %17 = trunc nuw nsw i64 %1 to i32
+  %18 = mul i32 %17, -862048943
+  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
+  %20 = mul i32 %19, 461845907
+  %21 = xor i32 %.012.lcssa.i, %20
+  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 13)
+  %23 = mul i32 %22, 5
+  %24 = add i32 %23, -430675100
+  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa.i, i32 %.0.lcssa.i, i32 15)
+  %26 = mul i32 %25, 461845907
+  %27 = xor i32 %24, %26
+  %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
+  %29 = mul i32 %28, 5
+  %30 = add i32 %29, -430675100
+  %31 = lshr i32 %30, 16
+  %32 = xor i32 %31, %30
+  %33 = mul i32 %32, -2048144789
+  %34 = lshr i32 %33, 13
+  %35 = xor i32 %34, %33
+  %36 = mul i32 %35, -1028477387
+  %37 = lshr i32 %36, 16
+  %38 = xor i32 %37, %36
+  br label %241
 
-cond.false5:                                      ; preds = %if.then
-  %add.ptr.i174 = getelementptr inbounds i8, ptr %s, i64 -4
-  %shr.i175 = lshr i64 %len, 1
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i174, i64 %shr.i175
-  %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %add.ptr2.i176 = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i177 = load i32, ptr %add.ptr2.i176, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i178 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i179 = load i32, ptr %add.ptr5.i178, align 1
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i175
-  %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %s.val.i180 = load i32, ptr %s, align 1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %add.ptr12.val.i = load i32, ptr %add.ptr12.i, align 1
-  %conv.i181 = trunc nuw nsw i64 %len to i32
-  %mul.i.i182 = mul i32 %add.ptr1.val.i, -862048943
-  %shr.i.i.i.i183 = lshr i32 %mul.i.i182, 17
-  %shl.i.i.i.i184 = mul i32 %add.ptr1.val.i, 380141568
-  %or.i.i.i.i185 = or disjoint i32 %shr.i.i.i.i183, %shl.i.i.i.i184
-  %mul1.i.i186 = mul i32 %or.i.i.i.i185, 461845907
-  %xor.i.i187 = xor i32 %mul1.i.i186, %conv.i181
-  %or.i.i11.i.i188 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i187, i32 %xor.i.i187, i32 13)
-  %mul3.i.i189 = mul i32 %or.i.i11.i.i188, 5
-  %add.i.i190 = add i32 %mul3.i.i189, -430675100
-  %mul.i30.i191 = mul i32 %add.ptr2.val.i177, -862048943
-  %shr.i.i.i31.i192 = lshr i32 %mul.i30.i191, 17
-  %shl.i.i.i32.i193 = mul i32 %add.ptr2.val.i177, 380141568
-  %or.i.i.i33.i194 = or disjoint i32 %shr.i.i.i31.i192, %shl.i.i.i32.i193
-  %mul1.i34.i195 = mul i32 %or.i.i.i33.i194, 461845907
-  %xor.i35.i196 = xor i32 %add.i.i190, %mul1.i34.i195
-  %or.i.i11.i36.i197 = tail call i32 @llvm.fshl.i32(i32 %xor.i35.i196, i32 %xor.i35.i196, i32 13)
-  %mul3.i37.i198 = mul i32 %or.i.i11.i36.i197, 5
-  %add.i38.i199 = add i32 %mul3.i37.i198, -430675100
-  %mul.i39.i = mul i32 %add.ptr5.val.i179, -862048943
-  %shr.i.i.i40.i = lshr i32 %mul.i39.i, 17
-  %shl.i.i.i41.i = mul i32 %add.ptr5.val.i179, 380141568
-  %or.i.i.i42.i = or disjoint i32 %shr.i.i.i40.i, %shl.i.i.i41.i
-  %mul1.i43.i = mul i32 %or.i.i.i42.i, 461845907
-  %xor.i44.i = xor i32 %add.i38.i199, %mul1.i43.i
-  %or.i.i11.i45.i = tail call i32 @llvm.fshl.i32(i32 %xor.i44.i, i32 %xor.i44.i, i32 13)
-  %mul3.i46.i = mul i32 %or.i.i11.i45.i, 5
-  %add.i47.i = add i32 %mul3.i46.i, -430675100
-  %mul.i48.i = mul i32 %add.ptr8.val.i, -862048943
-  %shr.i.i.i49.i = lshr i32 %mul.i48.i, 17
-  %shl.i.i.i50.i = mul i32 %add.ptr8.val.i, 380141568
-  %or.i.i.i51.i = or disjoint i32 %shr.i.i.i49.i, %shl.i.i.i50.i
-  %mul1.i52.i = mul i32 %or.i.i.i51.i, 461845907
-  %xor.i53.i = xor i32 %add.i47.i, %mul1.i52.i
-  %or.i.i11.i54.i = tail call i32 @llvm.fshl.i32(i32 %xor.i53.i, i32 %xor.i53.i, i32 13)
-  %mul3.i55.i = mul i32 %or.i.i11.i54.i, 5
-  %add.i56.i = add i32 %mul3.i55.i, -430675100
-  %mul.i57.i = mul i32 %s.val.i180, -862048943
-  %shr.i.i.i58.i = lshr i32 %mul.i57.i, 17
-  %shl.i.i.i59.i = mul i32 %s.val.i180, 380141568
-  %or.i.i.i60.i = or disjoint i32 %shr.i.i.i58.i, %shl.i.i.i59.i
-  %mul1.i61.i = mul i32 %or.i.i.i60.i, 461845907
-  %xor.i62.i = xor i32 %add.i56.i, %mul1.i61.i
-  %or.i.i11.i63.i = tail call i32 @llvm.fshl.i32(i32 %xor.i62.i, i32 %xor.i62.i, i32 13)
-  %mul3.i64.i = mul i32 %or.i.i11.i63.i, 5
-  %add.i65.i = add i32 %mul3.i64.i, -430675100
-  %mul.i66.i = mul i32 %add.ptr12.val.i, -862048943
-  %shr.i.i.i67.i = lshr i32 %mul.i66.i, 17
-  %shl.i.i.i68.i = mul i32 %add.ptr12.val.i, 380141568
-  %or.i.i.i69.i = or disjoint i32 %shr.i.i.i67.i, %shl.i.i.i68.i
-  %mul1.i70.i = mul i32 %or.i.i.i69.i, 461845907
-  %xor.i71.i = xor i32 %add.i65.i, %mul1.i70.i
-  %or.i.i11.i72.i = tail call i32 @llvm.fshl.i32(i32 %xor.i71.i, i32 %xor.i71.i, i32 13)
-  %mul3.i73.i = mul i32 %or.i.i11.i72.i, 5
-  %add.i74.i = add i32 %mul3.i73.i, -430675100
-  %shr.i.i200 = lshr i32 %add.i74.i, 16
-  %xor.i75.i = xor i32 %shr.i.i200, %add.i74.i
-  %mul.i76.i = mul i32 %xor.i75.i, -2048144789
-  %shr1.i.i201 = lshr i32 %mul.i76.i, 13
-  %xor2.i.i202 = xor i32 %shr1.i.i201, %mul.i76.i
-  %mul3.i77.i = mul i32 %xor2.i.i202, -1028477387
-  %shr4.i.i203 = lshr i32 %mul3.i77.i, 16
-  %xor5.i.i204 = xor i32 %shr4.i.i203, %mul3.i77.i
-  br label %return
+39:                                               ; preds = %6
+  %40 = trunc nuw nsw i64 %1 to i32
+  %41 = mul nuw nsw i32 %40, 5
+  %.val15.i = load i32, ptr %0, align 1
+  %42 = add i32 %.val15.i, %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %44 = getelementptr inbounds i8, ptr %43, i64 -4
+  %.val14.i = load i32, ptr %44, align 1
+  %45 = add i32 %.val14.i, %41
+  %46 = lshr i64 %1, 1
+  %47 = and i64 %46, 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %.val.i = load i32, ptr %48, align 1
+  %49 = mul i32 %42, -862048943
+  %50 = tail call i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 15)
+  %51 = mul i32 %50, 461845907
+  %52 = xor i32 %51, %41
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 13)
+  %54 = mul i32 %53, 5
+  %55 = add i32 %54, -430675100
+  %56 = mul i32 %45, -862048943
+  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 15)
+  %58 = mul i32 %57, 461845907
+  %59 = xor i32 %55, %58
+  %60 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
+  %61 = mul i32 %60, 5
+  %62 = add i32 %61, -430675100
+  %63 = mul i32 %.val.i, -862048943
+  %64 = add i32 %63, 831494105
+  %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 15)
+  %66 = mul i32 %65, 461845907
+  %67 = xor i32 %62, %66
+  %68 = tail call i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 13)
+  %69 = mul i32 %68, 5
+  %70 = add i32 %69, -430675100
+  %71 = lshr i32 %70, 16
+  %72 = xor i32 %71, %70
+  %73 = mul i32 %72, -2048144789
+  %74 = lshr i32 %73, 13
+  %75 = xor i32 %74, %73
+  %76 = mul i32 %75, -1028477387
+  %77 = lshr i32 %76, 16
+  %78 = xor i32 %77, %76
+  br label %241
 
-if.end:                                           ; preds = %entry
-  %conv = trunc i64 %len to i32
-  %conv9 = mul i32 %conv, -862048943
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %len
-  %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
-  %add.ptr10.val = load i32, ptr %add.ptr10, align 1
-  %mul12 = mul i32 %add.ptr10.val, -862048943
-  %shr.i.i205 = lshr i32 %mul12, 17
-  %shl.i.i = mul i32 %add.ptr10.val, 380141568
-  %or.i.i = or disjoint i32 %shr.i.i205, %shl.i.i
-  %mul14 = mul i32 %or.i.i, 461845907
-  %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %add.ptr16.val = load i32, ptr %add.ptr16, align 1
-  %mul18 = mul i32 %add.ptr16.val, -862048943
-  %shr.i.i206 = lshr i32 %mul18, 17
-  %shl.i.i207 = mul i32 %add.ptr16.val, 380141568
-  %or.i.i208 = or disjoint i32 %shr.i.i206, %shl.i.i207
-  %mul20 = mul i32 %or.i.i208, 461845907
-  %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
-  %add.ptr22.val = load i32, ptr %add.ptr22, align 1
-  %mul24 = mul i32 %add.ptr22.val, -862048943
-  %shr.i.i209 = lshr i32 %mul24, 17
-  %shl.i.i210 = mul i32 %add.ptr22.val, 380141568
-  %or.i.i211 = or disjoint i32 %shr.i.i209, %shl.i.i210
-  %mul26 = mul i32 %or.i.i211, 461845907
-  %add.ptr28 = getelementptr inbounds i8, ptr %add.ptr, i64 -12
-  %add.ptr28.val = load i32, ptr %add.ptr28, align 1
-  %mul30 = mul i32 %add.ptr28.val, -862048943
-  %shr.i.i212 = lshr i32 %mul30, 17
-  %shl.i.i213 = mul i32 %add.ptr28.val, 380141568
-  %or.i.i214 = or disjoint i32 %shr.i.i212, %shl.i.i213
-  %mul32 = mul i32 %or.i.i214, 461845907
-  %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr, i64 -20
-  %add.ptr34.val = load i32, ptr %add.ptr34, align 1
-  %mul36 = mul i32 %add.ptr34.val, -862048943
-  %shr.i.i215 = lshr i32 %mul36, 17
-  %shl.i.i216 = mul i32 %add.ptr34.val, 380141568
-  %or.i.i217 = or disjoint i32 %shr.i.i215, %shl.i.i216
-  %mul38 = mul i32 %or.i.i217, 461845907
-  %xor = xor i32 %mul14, %conv
-  %or.i.i220 = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 13)
-  %mul40 = mul i32 %or.i.i220, 5
-  %add = add i32 %mul40, -430675100
-  %xor41 = xor i32 %add, %mul26
-  %or.i.i223 = tail call i32 @llvm.fshl.i32(i32 %xor41, i32 %xor41, i32 13)
-  %mul43 = mul i32 %or.i.i223, 5
-  %add44 = add i32 %mul43, -430675100
-  %xor45 = xor i32 %mul20, %conv9
-  %or.i.i226 = tail call i32 @llvm.fshl.i32(i32 %xor45, i32 %xor45, i32 13)
-  %mul47 = mul i32 %or.i.i226, 5
-  %add48 = add i32 %mul47, -430675100
-  %xor49 = xor i32 %add48, %mul32
-  %or.i.i229 = tail call i32 @llvm.fshl.i32(i32 %xor49, i32 %xor49, i32 13)
-  %mul51 = mul i32 %or.i.i229, 5
-  %add52 = add i32 %mul51, -430675100
-  %add53 = add i32 %mul38, %conv9
-  %or.i.i232 = tail call i32 @llvm.fshl.i32(i32 %add53, i32 %add53, i32 13)
-  %mul55 = mul i32 %or.i.i232, 5
-  %add56 = add i32 %mul55, -430675100
-  %sub = add i64 %len, -1
-  %div = udiv i64 %sub, 20
-  br label %do.body
+79:                                               ; preds = %4
+  %80 = getelementptr inbounds i8, ptr %0, i64 -4
+  %81 = lshr i64 %1, 1
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
+  %.val21.i = load i32, ptr %82, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val20.i = load i32, ptr %83, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %85 = getelementptr inbounds i8, ptr %84, i64 -8
+  %.val19.i = load i32, ptr %85, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 %81
+  %.val18.i = load i32, ptr %86, align 1
+  %.val17.i = load i32, ptr %0, align 1
+  %87 = getelementptr inbounds i8, ptr %84, i64 -4
+  %.val.i53 = load i32, ptr %87, align 1
+  %88 = trunc nuw nsw i64 %1 to i32
+  %89 = mul i32 %.val21.i, -862048943
+  %90 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 15)
+  %91 = mul i32 %90, 461845907
+  %92 = xor i32 %91, %88
+  %93 = tail call i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 13)
+  %94 = mul i32 %93, 5
+  %95 = add i32 %94, -430675100
+  %96 = mul i32 %.val20.i, -862048943
+  %97 = tail call i32 @llvm.fshl.i32(i32 %96, i32 %96, i32 15)
+  %98 = mul i32 %97, 461845907
+  %99 = xor i32 %95, %98
+  %100 = tail call i32 @llvm.fshl.i32(i32 %99, i32 %99, i32 13)
+  %101 = mul i32 %100, 5
+  %102 = add i32 %101, -430675100
+  %103 = mul i32 %.val19.i, -862048943
+  %104 = tail call i32 @llvm.fshl.i32(i32 %103, i32 %103, i32 15)
+  %105 = mul i32 %104, 461845907
+  %106 = xor i32 %102, %105
+  %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 13)
+  %108 = mul i32 %107, 5
+  %109 = add i32 %108, -430675100
+  %110 = mul i32 %.val18.i, -862048943
+  %111 = tail call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 15)
+  %112 = mul i32 %111, 461845907
+  %113 = xor i32 %109, %112
+  %114 = tail call i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 13)
+  %115 = mul i32 %114, 5
+  %116 = add i32 %115, -430675100
+  %117 = mul i32 %.val17.i, -862048943
+  %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 15)
+  %119 = mul i32 %118, 461845907
+  %120 = xor i32 %116, %119
+  %121 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 13)
+  %122 = mul i32 %121, 5
+  %123 = add i32 %122, -430675100
+  %124 = mul i32 %.val.i53, -862048943
+  %125 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 15)
+  %126 = mul i32 %125, 461845907
+  %127 = xor i32 %123, %126
+  %128 = tail call i32 @llvm.fshl.i32(i32 %127, i32 %127, i32 13)
+  %129 = mul i32 %128, 5
+  %130 = add i32 %129, -430675100
+  %131 = lshr i32 %130, 16
+  %132 = xor i32 %131, %130
+  %133 = mul i32 %132, -2048144789
+  %134 = lshr i32 %133, 13
+  %135 = xor i32 %134, %133
+  %136 = mul i32 %135, -1028477387
+  %137 = lshr i32 %136, 16
+  %138 = xor i32 %137, %136
+  br label %241
 
-do.body:                                          ; preds = %do.body, %if.end
-  %h.0 = phi i32 [ %add44, %if.end ], [ %add102, %do.body ]
-  %g.0 = phi i32 [ %add52, %if.end ], [ %or7.i.i254, %do.body ]
-  %f.0 = phi i32 [ %add56, %if.end ], [ %mul98, %do.body ]
-  %iters.0 = phi i64 [ %div, %if.end ], [ %dec, %do.body ]
-  %s.addr.0 = phi ptr [ %s, %if.end ], [ %add.ptr104, %do.body ]
-  %s.addr.0.val = load i32, ptr %s.addr.0, align 1
-  %mul59 = mul i32 %s.addr.0.val, -862048943
-  %shr.i.i233 = lshr i32 %mul59, 17
-  %shl.i.i234 = mul i32 %s.addr.0.val, 380141568
-  %or.i.i235 = or disjoint i32 %shr.i.i233, %shl.i.i234
-  %mul61 = mul i32 %or.i.i235, 461845907
-  %add.ptr63 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 4
-  %add.ptr63.val = load i32, ptr %add.ptr63, align 1
-  %add.ptr66 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 8
-  %add.ptr66.val = load i32, ptr %add.ptr66, align 1
-  %mul68 = mul i32 %add.ptr66.val, -862048943
-  %shr.i.i236 = lshr i32 %mul68, 17
-  %shl.i.i237 = mul i32 %add.ptr66.val, 380141568
-  %or.i.i238 = or disjoint i32 %shr.i.i236, %shl.i.i237
-  %mul70 = mul i32 %or.i.i238, 461845907
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 12
-  %add.ptr72.val = load i32, ptr %add.ptr72, align 1
-  %mul74 = mul i32 %add.ptr72.val, -862048943
-  %shr.i.i239 = lshr i32 %mul74, 17
-  %shl.i.i240 = mul i32 %add.ptr72.val, 380141568
-  %or.i.i241 = or disjoint i32 %shr.i.i239, %shl.i.i240
-  %mul76 = mul i32 %or.i.i241, 461845907
-  %add.ptr78 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 16
-  %add.ptr78.val = load i32, ptr %add.ptr78, align 1
-  %xor80 = xor i32 %mul61, %h.0
-  %or.i.i244 = tail call i32 @llvm.fshl.i32(i32 %xor80, i32 %xor80, i32 14)
-  %mul82 = mul i32 %or.i.i244, 5
-  %add83 = add i32 %mul82, -430675100
-  %add84 = add i32 %add.ptr63.val, %f.0
-  %or.i.i247 = tail call i32 @llvm.fshl.i32(i32 %add84, i32 %add84, i32 13)
-  %mul86 = mul i32 %or.i.i247, -862048943
-  %add87 = add i32 %mul70, %g.0
-  %or.i.i250 = tail call i32 @llvm.fshl.i32(i32 %add87, i32 %add87, i32 14)
-  %mul89 = mul i32 %or.i.i250, 5
-  %add90 = add i32 %mul89, -430675100
-  %add91 = add i32 %mul76, %add.ptr63.val
-  %xor92 = xor i32 %add83, %add91
-  %or.i.i253 = tail call i32 @llvm.fshl.i32(i32 %xor92, i32 %xor92, i32 13)
-  %xor96 = xor i32 %add90, %add.ptr78.val
-  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %xor96)
-  %mul98 = mul i32 %or7.i.i, 5
-  %reass.add = add i32 %or.i.i253, %add.ptr78.val
+139:                                              ; preds = %2
+  %140 = trunc i64 %1 to i32
+  %141 = mul i32 %140, -862048943
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %143 = getelementptr inbounds i8, ptr %142, i64 -4
+  %.val52 = load i32, ptr %143, align 1
+  %144 = mul i32 %.val52, -862048943
+  %145 = tail call i32 @llvm.fshl.i32(i32 %144, i32 %144, i32 15)
+  %146 = mul i32 %145, 461845907
+  %147 = getelementptr inbounds i8, ptr %142, i64 -8
+  %.val51 = load i32, ptr %147, align 1
+  %148 = mul i32 %.val51, -862048943
+  %149 = tail call i32 @llvm.fshl.i32(i32 %148, i32 %148, i32 15)
+  %150 = mul i32 %149, 461845907
+  %151 = getelementptr inbounds i8, ptr %142, i64 -16
+  %.val50 = load i32, ptr %151, align 1
+  %152 = mul i32 %.val50, -862048943
+  %153 = tail call i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 15)
+  %154 = mul i32 %153, 461845907
+  %155 = getelementptr inbounds i8, ptr %142, i64 -12
+  %.val49 = load i32, ptr %155, align 1
+  %156 = mul i32 %.val49, -862048943
+  %157 = tail call i32 @llvm.fshl.i32(i32 %156, i32 %156, i32 15)
+  %158 = mul i32 %157, 461845907
+  %159 = getelementptr inbounds i8, ptr %142, i64 -20
+  %.val48 = load i32, ptr %159, align 1
+  %160 = mul i32 %.val48, -862048943
+  %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 15)
+  %162 = mul i32 %161, 461845907
+  %163 = xor i32 %146, %140
+  %164 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 13)
+  %165 = mul i32 %164, 5
+  %166 = add i32 %165, -430675100
+  %167 = xor i32 %166, %154
+  %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 13)
+  %169 = mul i32 %168, 5
+  %170 = add i32 %169, -430675100
+  %171 = xor i32 %150, %141
+  %172 = tail call i32 @llvm.fshl.i32(i32 %171, i32 %171, i32 13)
+  %173 = mul i32 %172, 5
+  %174 = add i32 %173, -430675100
+  %175 = xor i32 %174, %158
+  %176 = tail call i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 13)
+  %177 = mul i32 %176, 5
+  %178 = add i32 %177, -430675100
+  %179 = add i32 %162, %141
+  %180 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 13)
+  %181 = mul i32 %180, 5
+  %182 = add i32 %181, -430675100
+  %183 = add i64 %1, -1
+  %184 = udiv i64 %183, 20
+  br label %185
+
+185:                                              ; preds = %185, %139
+  %.074 = phi i32 [ %170, %139 ], [ %218, %185 ]
+  %.073 = phi i32 [ %178, %139 ], [ %217, %185 ]
+  %.072 = phi i32 [ %182, %139 ], [ %215, %185 ]
+  %.043 = phi i64 [ %184, %139 ], [ %220, %185 ]
+  %.042 = phi ptr [ %0, %139 ], [ %219, %185 ]
+  %.042.val = load i32, ptr %.042, align 1
+  %186 = mul i32 %.042.val, -862048943
+  %187 = tail call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 15)
+  %188 = mul i32 %187, 461845907
+  %189 = getelementptr inbounds nuw i8, ptr %.042, i64 4
+  %.val47 = load i32, ptr %189, align 1
+  %190 = getelementptr inbounds nuw i8, ptr %.042, i64 8
+  %.val46 = load i32, ptr %190, align 1
+  %191 = mul i32 %.val46, -862048943
+  %192 = tail call i32 @llvm.fshl.i32(i32 %191, i32 %191, i32 15)
+  %193 = mul i32 %192, 461845907
+  %194 = getelementptr inbounds nuw i8, ptr %.042, i64 12
+  %.val45 = load i32, ptr %194, align 1
+  %195 = mul i32 %.val45, -862048943
+  %196 = tail call i32 @llvm.fshl.i32(i32 %195, i32 %195, i32 15)
+  %197 = mul i32 %196, 461845907
+  %198 = getelementptr inbounds nuw i8, ptr %.042, i64 16
+  %.val = load i32, ptr %198, align 1
+  %199 = xor i32 %188, %.074
+  %200 = tail call i32 @llvm.fshl.i32(i32 %199, i32 %199, i32 14)
+  %201 = mul i32 %200, 5
+  %202 = add i32 %201, -430675100
+  %203 = add i32 %.val47, %.072
+  %204 = tail call i32 @llvm.fshl.i32(i32 %203, i32 %203, i32 13)
+  %205 = mul i32 %204, -862048943
+  %206 = add i32 %193, %.073
+  %207 = tail call i32 @llvm.fshl.i32(i32 %206, i32 %206, i32 14)
+  %208 = mul i32 %207, 5
+  %209 = add i32 %208, -430675100
+  %210 = add i32 %197, %.val47
+  %211 = xor i32 %202, %210
+  %212 = tail call i32 @llvm.fshl.i32(i32 %211, i32 %211, i32 13)
+  %213 = xor i32 %209, %.val
+  %214 = tail call noundef i32 @llvm.bswap.i32(i32 %213)
+  %215 = mul i32 %214, 5
+  %reass.add = add i32 %212, %.val
   %reass.mul = mul i32 %reass.add, 5
-  %add100 = add i32 %reass.mul, -430675100
-  %or7.i.i254 = tail call noundef i32 @llvm.bswap.i32(i32 %add100)
-  %add102 = add i32 %mul86, %mul61
-  %add.ptr104 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 20
-  %dec = add nsw i64 %iters.0, -1
-  %cmp106.not = icmp eq i64 %dec, 0
-  br i1 %cmp106.not, label %do.end107, label %do.body, !llvm.loop !21
+  %216 = add i32 %reass.mul, -430675100
+  %217 = tail call noundef i32 @llvm.bswap.i32(i32 %216)
+  %218 = add i32 %205, %188
+  %219 = getelementptr inbounds nuw i8, ptr %.042, i64 20
+  %220 = add nsw i64 %.043, -1
+  %.not = icmp eq i64 %220, 0
+  br i1 %.not, label %221, label %185, !llvm.loop !20
 
-do.end107:                                        ; preds = %do.body
-  %or.i.i257 = tail call i32 @llvm.fshl.i32(i32 %or7.i.i254, i32 %or7.i.i254, i32 21)
-  %mul109 = mul i32 %or.i.i257, -862048943
-  %shr.i.i258 = lshr i32 %mul109, 17
-  %shl.i.i259 = mul i32 %or.i.i257, 380141568
-  %or.i.i260 = or disjoint i32 %shr.i.i258, %shl.i.i259
-  %mul111 = mul i32 %or.i.i260, -862048943
-  %shr.i.i261 = lshr i32 %mul98, 11
-  %shl.i.i262 = mul i32 %or7.i.i, 10485760
-  %or.i.i263 = or disjoint i32 %shr.i.i261, %shl.i.i262
-  %mul113 = mul i32 %or.i.i263, -862048943
-  %shr.i.i264 = lshr i32 %mul113, 17
-  %shl.i.i265 = mul i32 %or.i.i263, 380141568
-  %or.i.i266 = or disjoint i32 %shr.i.i264, %shl.i.i265
-  %add116 = add i32 %mul111, %add102
-  %or.i.i269 = tail call i32 @llvm.fshl.i32(i32 %add116, i32 %add116, i32 13)
-  %mul118 = mul i32 %or.i.i269, 5
-  %add119 = add i32 %mul118, -430675100
-  %or.i.i272 = tail call i32 @llvm.fshl.i32(i32 %add119, i32 %add119, i32 15)
-  %mul121295 = add i32 %or.i.i266, %or.i.i272
-  %add122 = mul i32 %mul121295, -862048943
-  %shr.i.i273 = lshr i32 %add122, 19
-  %shl.i.i274 = mul i32 %mul121295, -978706432
-  %or.i.i275 = or disjoint i32 %shr.i.i273, %shl.i.i274
-  %mul124 = mul i32 %or.i.i275, 5
-  %add125 = add i32 %mul124, -430675100
-  %or.i.i278 = tail call i32 @llvm.fshl.i32(i32 %add125, i32 %add125, i32 15)
-  %mul127 = mul i32 %or.i.i278, -862048943
-  br label %return
+221:                                              ; preds = %185
+  %222 = tail call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 21)
+  %223 = mul i32 %222, -862048943
+  %224 = tail call i32 @llvm.fshl.i32(i32 %223, i32 %223, i32 15)
+  %225 = mul i32 %224, -862048943
+  %226 = tail call i32 @llvm.fshl.i32(i32 %215, i32 %215, i32 21)
+  %227 = mul i32 %226, -862048943
+  %228 = tail call i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 15)
+  %229 = add i32 %225, %218
+  %230 = tail call i32 @llvm.fshl.i32(i32 %229, i32 %229, i32 13)
+  %231 = mul i32 %230, 5
+  %232 = add i32 %231, -430675100
+  %233 = tail call i32 @llvm.fshl.i32(i32 %232, i32 %232, i32 15)
+  %234 = add i32 %233, %228
+  %235 = mul i32 %234, -862048943
+  %236 = tail call i32 @llvm.fshl.i32(i32 %235, i32 %235, i32 13)
+  %237 = mul i32 %236, 5
+  %238 = add i32 %237, -430675100
+  %239 = tail call i32 @llvm.fshl.i32(i32 %238, i32 %238, i32 15)
+  %240 = mul i32 %239, -862048943
+  br label %241
 
-return:                                           ; preds = %do.end107, %cond.false5, %cond.false, %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit
-  %retval.0 = phi i32 [ %mul127, %do.end107 ], [ %xor5.i.i204, %cond.false5 ], [ %xor5.i.i, %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit ], [ %xor5.i.i173, %cond.false ]
-  ret i32 %retval.0
+241:                                              ; preds = %79, %39, %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit, %221
+  %.0 = phi i32 [ %240, %221 ], [ %138, %79 ], [ %38, %_ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit ], [ %78, %39 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash10farmhashcc14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 25
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN5folly8external8farmhash10farmhashcc14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ult i64 %1, 25
+  br i1 %4, label %5, label %136
 
-if.then:                                          ; preds = %entry
-  %cmp1 = icmp samesign ugt i64 %len, 12
-  br i1 %cmp1, label %if.then2, label %if.else
+5:                                                ; preds = %3
+  %6 = icmp samesign ugt i64 %1, 12
+  br i1 %6, label %7, label %61
 
-if.then2:                                         ; preds = %if.then
-  %mul = mul i32 %seed, -862048943
-  %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 -4
-  %shr.i = lshr i64 %len, 1
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %shr.i
-  %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i = load i32, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -8
-  %add.ptr5.val.i = load i32, ptr %add.ptr5.i, align 1
-  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
-  %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %s.val.i = load i32, ptr %s, align 1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
-  %add.ptr12.val.i = load i32, ptr %add.ptr12.i, align 1
-  %mul.i = mul i32 %add.ptr8.val.i, -862048943
-  %0 = trunc nuw nsw i64 %len to i32
-  %1 = add i32 %mul, %0
-  %conv16.i = add i32 %1, %mul.i
-  %or.i.i.i = tail call i32 @llvm.fshl.i32(i32 %add.ptr1.val.i, i32 %add.ptr1.val.i, i32 20)
-  %add18.i = add i32 %add.ptr12.val.i, %or.i.i.i
-  %mul.i.i = mul i32 %add.ptr5.val.i, -862048943
-  %shr.i.i.i.i = lshr i32 %mul.i.i, 17
-  %shl.i.i.i.i = mul i32 %add.ptr5.val.i, 380141568
-  %or.i.i.i.i = or disjoint i32 %shr.i.i.i.i, %shl.i.i.i.i
-  %mul1.i.i = mul i32 %or.i.i.i.i, 461845907
-  %xor.i.i = xor i32 %mul1.i.i, %conv16.i
-  %or.i.i11.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i.i, i32 %xor.i.i, i32 13)
-  %mul3.i.i = mul i32 %or.i.i11.i.i, 5
-  %add.i.i = add i32 %add18.i, -430675100
-  %add20.i = add i32 %add.i.i, %mul3.i.i
-  %or.i.i54.i = tail call i32 @llvm.fshl.i32(i32 %add18.i, i32 %add18.i, i32 29)
-  %add22.i = add i32 %or.i.i54.i, %add.ptr5.val.i
-  %mul.i55.i = mul i32 %s.val.i, -862048943
-  %shr.i.i.i56.i = lshr i32 %mul.i55.i, 17
-  %shl.i.i.i57.i = mul i32 %s.val.i, 380141568
-  %or.i.i.i58.i = or disjoint i32 %shr.i.i.i56.i, %shl.i.i.i57.i
-  %mul1.i59.i = mul i32 %or.i.i.i58.i, 461845907
-  %xor.i60.i = xor i32 %add20.i, %mul1.i59.i
-  %or.i.i11.i61.i = tail call i32 @llvm.fshl.i32(i32 %xor.i60.i, i32 %xor.i60.i, i32 13)
-  %mul3.i62.i = mul i32 %or.i.i11.i61.i, 5
-  %add.i63.i = add i32 %add22.i, -430675100
-  %add24.i = add i32 %add.i63.i, %mul3.i62.i
-  %add25.i = add i32 %add22.i, %add.ptr12.val.i
-  %or.i.i66.i = tail call i32 @llvm.fshl.i32(i32 %add25.i, i32 %add25.i, i32 20)
-  %xor.i = xor i32 %add.ptr2.val.i, %mul
-  %mul.i67.i = mul i32 %xor.i, -862048943
-  %shr.i.i.i68.i = lshr i32 %mul.i67.i, 17
-  %shl.i.i.i69.i = mul i32 %xor.i, 380141568
-  %or.i.i.i70.i = or disjoint i32 %shr.i.i.i68.i, %shl.i.i.i69.i
-  %mul1.i71.i = mul i32 %or.i.i.i70.i, 461845907
-  %xor.i72.i = xor i32 %add24.i, %mul1.i71.i
-  %or.i.i11.i73.i = tail call i32 @llvm.fshl.i32(i32 %xor.i72.i, i32 %xor.i72.i, i32 13)
-  %mul3.i74.i = mul i32 %or.i.i11.i73.i, 5
-  %add.i75.i = add i32 %add.ptr8.val.i, -430675100
-  %add27.i = add i32 %add.i75.i, %or.i.i66.i
-  %add29.i = add i32 %add27.i, %mul3.i74.i
-  %shr.i.i = lshr i32 %add29.i, 16
-  %xor.i76.i = xor i32 %shr.i.i, %add29.i
-  %mul.i77.i = mul i32 %xor.i76.i, -2048144789
-  %shr1.i.i = lshr i32 %mul.i77.i, 13
-  %xor2.i.i = xor i32 %shr1.i.i, %mul.i77.i
-  %mul3.i78.i = mul i32 %xor2.i.i, -1028477387
-  %shr4.i.i = lshr i32 %mul3.i78.i, 16
-  %xor5.i.i = xor i32 %shr4.i.i, %mul3.i78.i
-  br label %return
+7:                                                ; preds = %5
+  %8 = mul i32 %2, -862048943
+  %9 = getelementptr inbounds i8, ptr %0, i64 -4
+  %10 = lshr i64 %1, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %.val34.i = load i32, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val33.i = load i32, ptr %12, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
+  %.val32.i = load i32, ptr %14, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %.val31.i = load i32, ptr %15, align 1
+  %.val30.i = load i32, ptr %0, align 1
+  %16 = getelementptr inbounds i8, ptr %13, i64 -4
+  %.val.i = load i32, ptr %16, align 1
+  %17 = mul i32 %.val31.i, -862048943
+  %18 = trunc nuw nsw i64 %1 to i32
+  %19 = add i32 %8, %18
+  %20 = add i32 %19, %17
+  %21 = tail call i32 @llvm.fshl.i32(i32 %.val34.i, i32 %.val34.i, i32 20)
+  %22 = add i32 %.val.i, %21
+  %23 = mul i32 %.val32.i, -862048943
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 15)
+  %25 = mul i32 %24, 461845907
+  %26 = xor i32 %20, %25
+  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 13)
+  %28 = mul i32 %27, 5
+  %29 = add i32 %22, -430675100
+  %30 = add i32 %29, %28
+  %31 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 29)
+  %32 = add i32 %31, %.val32.i
+  %33 = mul i32 %.val30.i, -862048943
+  %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 15)
+  %35 = mul i32 %34, 461845907
+  %36 = xor i32 %30, %35
+  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 13)
+  %38 = mul i32 %37, 5
+  %39 = add i32 %32, -430675100
+  %40 = add i32 %39, %38
+  %41 = add i32 %32, %.val.i
+  %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 20)
+  %43 = xor i32 %.val33.i, %8
+  %44 = mul i32 %43, -862048943
+  %45 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 15)
+  %46 = mul i32 %45, 461845907
+  %47 = xor i32 %40, %46
+  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 13)
+  %49 = mul i32 %48, 5
+  %50 = add i32 %.val31.i, -430675100
+  %51 = add i32 %50, %42
+  %52 = add i32 %51, %49
+  %53 = lshr i32 %52, 16
+  %54 = xor i32 %53, %52
+  %55 = mul i32 %54, -2048144789
+  %56 = lshr i32 %55, 13
+  %57 = xor i32 %56, %55
+  %58 = mul i32 %57, -1028477387
+  %59 = lshr i32 %58, 16
+  %60 = xor i32 %59, %58
+  br label %198
 
-if.else:                                          ; preds = %if.then
-  %cmp3 = icmp samesign ugt i64 %len, 4
-  br i1 %cmp3, label %if.then4, label %if.else6
+61:                                               ; preds = %5
+  %62 = icmp samesign ugt i64 %1, 4
+  br i1 %62, label %63, label %105
 
-if.then4:                                         ; preds = %if.else
-  %conv.i = trunc nuw nsw i64 %len to i32
-  %conv1.i = mul nuw nsw i32 %conv.i, 5
-  %add.i = add i32 %conv1.i, %seed
-  %s.val.i27 = load i32, ptr %s, align 1
-  %add2.i = add i32 %s.val.i27, %conv.i
-  %add.ptr.i28 = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i28, i64 -4
-  %add.ptr3.val.i = load i32, ptr %add.ptr3.i, align 1
-  %add5.i = add i32 %add.ptr3.val.i, %conv1.i
-  %shr.i29 = lshr i64 %len, 1
-  %and.i = and i64 %shr.i29, 4
-  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %s, i64 %and.i
-  %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
-  %add8.i = add i32 %add.ptr6.val.i, 9
-  %mul.i.i30 = mul i32 %add2.i, -862048943
-  %shr.i.i.i.i31 = lshr i32 %mul.i.i30, 17
-  %shl.i.i.i.i32 = mul i32 %add2.i, 380141568
-  %or.i.i.i.i33 = or disjoint i32 %shr.i.i.i.i31, %shl.i.i.i.i32
-  %mul1.i.i34 = mul i32 %or.i.i.i.i33, 461845907
-  %xor.i.i35 = xor i32 %mul1.i.i34, %add.i
-  %or.i.i11.i.i36 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i35, i32 %xor.i.i35, i32 13)
-  %mul3.i.i37 = mul i32 %or.i.i11.i.i36, 5
-  %add.i.i38 = add i32 %mul3.i.i37, -430675100
-  %mul.i23.i = mul i32 %add5.i, -862048943
-  %shr.i.i.i24.i = lshr i32 %mul.i23.i, 17
-  %shl.i.i.i25.i = mul i32 %add5.i, 380141568
-  %or.i.i.i26.i = or disjoint i32 %shr.i.i.i24.i, %shl.i.i.i25.i
-  %mul1.i27.i = mul i32 %or.i.i.i26.i, 461845907
-  %xor.i28.i = xor i32 %add.i.i38, %mul1.i27.i
-  %or.i.i11.i29.i = tail call i32 @llvm.fshl.i32(i32 %xor.i28.i, i32 %xor.i28.i, i32 13)
-  %mul3.i30.i = mul i32 %or.i.i11.i29.i, 5
-  %add.i31.i = add i32 %mul3.i30.i, -430675100
-  %mul.i32.i = mul i32 %add8.i, -862048943
-  %shr.i.i.i33.i = lshr i32 %mul.i32.i, 17
-  %shl.i.i.i34.i = mul i32 %add8.i, 380141568
-  %or.i.i.i35.i = or disjoint i32 %shr.i.i.i33.i, %shl.i.i.i34.i
-  %mul1.i36.i = mul i32 %or.i.i.i35.i, 461845907
-  %xor.i37.i = xor i32 %add.i31.i, %mul1.i36.i
-  %or.i.i11.i38.i = tail call i32 @llvm.fshl.i32(i32 %xor.i37.i, i32 %xor.i37.i, i32 13)
-  %mul3.i39.i = mul i32 %or.i.i11.i38.i, 5
-  %add.i40.i = add i32 %mul3.i39.i, -430675100
-  %xor.i39 = xor i32 %add.i40.i, %seed
-  %shr.i.i40 = lshr i32 %xor.i39, 16
-  %xor.i41.i = xor i32 %shr.i.i40, %xor.i39
-  %mul.i42.i = mul i32 %xor.i41.i, -2048144789
-  %shr1.i.i41 = lshr i32 %mul.i42.i, 13
-  %xor2.i.i42 = xor i32 %shr1.i.i41, %mul.i42.i
-  %mul3.i43.i = mul i32 %xor2.i.i42, -1028477387
-  %shr4.i.i43 = lshr i32 %mul3.i43.i, 16
-  %xor5.i.i44 = xor i32 %shr4.i.i43, %mul3.i43.i
-  br label %return
+63:                                               ; preds = %61
+  %64 = trunc nuw nsw i64 %1 to i32
+  %65 = mul nuw nsw i32 %64, 5
+  %66 = add i32 %65, %2
+  %.val17.i = load i32, ptr %0, align 1
+  %67 = add i32 %.val17.i, %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %69 = getelementptr inbounds i8, ptr %68, i64 -4
+  %.val16.i = load i32, ptr %69, align 1
+  %70 = add i32 %.val16.i, %65
+  %71 = lshr i64 %1, 1
+  %72 = and i64 %71, 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %72
+  %.val.i20 = load i32, ptr %73, align 1
+  %74 = mul i32 %67, -862048943
+  %75 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 15)
+  %76 = mul i32 %75, 461845907
+  %77 = xor i32 %76, %66
+  %78 = tail call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 13)
+  %79 = mul i32 %78, 5
+  %80 = add i32 %79, -430675100
+  %81 = mul i32 %70, -862048943
+  %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 15)
+  %83 = mul i32 %82, 461845907
+  %84 = xor i32 %80, %83
+  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 13)
+  %86 = mul i32 %85, 5
+  %87 = add i32 %86, -430675100
+  %88 = mul i32 %.val.i20, -862048943
+  %89 = add i32 %88, 831494105
+  %90 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 15)
+  %91 = mul i32 %90, 461845907
+  %92 = xor i32 %87, %91
+  %93 = tail call i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 13)
+  %94 = mul i32 %93, 5
+  %95 = add i32 %94, -430675100
+  %96 = xor i32 %95, %2
+  %97 = lshr i32 %96, 16
+  %98 = xor i32 %97, %96
+  %99 = mul i32 %98, -2048144789
+  %100 = lshr i32 %99, 13
+  %101 = xor i32 %100, %99
+  %102 = mul i32 %101, -1028477387
+  %103 = lshr i32 %102, 16
+  %104 = xor i32 %103, %102
+  br label %198
 
-if.else6:                                         ; preds = %if.else
-  %cmp22.not.i = icmp eq i64 %len, 0
-  br i1 %cmp22.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i
+105:                                              ; preds = %61
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.else6
-  %2 = load i8, ptr %s, align 1, !tbaa !7
-  %mul.i45 = mul i32 %seed, -862048943
-  %conv.i46 = sext i8 %2 to i32
-  %add.i47 = add i32 %mul.i45, %conv.i46
-  %xor.i48 = xor i32 %add.i47, 9
-  %exitcond.not.i = icmp eq i64 %len, 1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.1, !llvm.loop !22
+.lr.ph.i:                                         ; preds = %105, %.lr.ph.i
+  %.017.i = phi i32 [ %110, %.lr.ph.i ], [ %2, %105 ]
+  %.01216.i = phi i64 [ %112, %.lr.ph.i ], [ 0, %105 ]
+  %.01315.i = phi i32 [ %111, %.lr.ph.i ], [ 9, %105 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %.01216.i
+  %107 = load i8, ptr %106, align 1, !tbaa !7
+  %108 = mul i32 %.017.i, -862048943
+  %109 = sext i8 %107 to i32
+  %110 = add i32 %108, %109
+  %111 = xor i32 %110, %.01315.i
+  %112 = add nuw nsw i64 %.01216.i, 1
+  %exitcond.not.i = icmp eq i64 %112, %1
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !17
 
-for.body.i.1:                                     ; preds = %for.body.i
-  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %s, i64 1
-  %3 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !7
-  %mul.i45.1 = mul i32 %add.i47, -862048943
-  %conv.i46.1 = sext i8 %3 to i32
-  %add.i47.1 = add i32 %mul.i45.1, %conv.i46.1
-  %xor.i48.1 = xor i32 %add.i47.1, %xor.i48
-  %exitcond.not.i.1 = icmp eq i64 %len, 2
-  br i1 %exitcond.not.i.1, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.2, !llvm.loop !22
+_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %.lr.ph.i, %105
+  %.013.lcssa.i = phi i32 [ 9, %105 ], [ %111, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %2, %105 ], [ %110, %.lr.ph.i ]
+  %113 = trunc nuw nsw i64 %1 to i32
+  %114 = mul i32 %113, -862048943
+  %115 = tail call i32 @llvm.fshl.i32(i32 %114, i32 %114, i32 15)
+  %116 = mul i32 %115, 461845907
+  %117 = xor i32 %.013.lcssa.i, %116
+  %118 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 13)
+  %119 = mul i32 %118, 5
+  %120 = add i32 %119, -430675100
+  %121 = mul i32 %.0.lcssa.i, -862048943
+  %122 = tail call i32 @llvm.fshl.i32(i32 %121, i32 %121, i32 15)
+  %123 = mul i32 %122, 461845907
+  %124 = xor i32 %123, %120
+  %125 = tail call i32 @llvm.fshl.i32(i32 %124, i32 %124, i32 13)
+  %126 = mul i32 %125, 5
+  %127 = add i32 %126, -430675100
+  %128 = lshr i32 %127, 16
+  %129 = xor i32 %128, %127
+  %130 = mul i32 %129, -2048144789
+  %131 = lshr i32 %130, 13
+  %132 = xor i32 %131, %130
+  %133 = mul i32 %132, -1028477387
+  %134 = lshr i32 %133, 16
+  %135 = xor i32 %134, %133
+  br label %198
 
-for.body.i.2:                                     ; preds = %for.body.i.1
-  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %s, i64 2
-  %4 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !7
-  %mul.i45.2 = mul i32 %add.i47.1, -862048943
-  %conv.i46.2 = sext i8 %4 to i32
-  %add.i47.2 = add i32 %mul.i45.2, %conv.i46.2
-  %xor.i48.2 = xor i32 %add.i47.2, %xor.i48.1
-  %exitcond.not.i.2 = icmp eq i64 %len, 3
-  br i1 %exitcond.not.i.2, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %for.body.i.3, !llvm.loop !22
+136:                                              ; preds = %3
+  %137 = trunc i64 %1 to i32
+  %138 = xor i32 %2, %137
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val34.i21 = load i32, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.val33.i22 = load i32, ptr %140, align 1
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val32.i23 = load i32, ptr %142, align 1
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val31.i24 = load i32, ptr %143, align 1
+  %.val30.i25 = load i32, ptr %0, align 1
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.val.i26 = load i32, ptr %144, align 1
+  %145 = mul i32 %.val31.i24, -862048943
+  %146 = add i32 %138, 24
+  %147 = add i32 %146, %145
+  %148 = tail call i32 @llvm.fshl.i32(i32 %.val34.i21, i32 %.val34.i21, i32 20)
+  %149 = add i32 %.val.i26, %148
+  %150 = mul i32 %.val32.i23, -862048943
+  %151 = tail call i32 @llvm.fshl.i32(i32 %150, i32 %150, i32 15)
+  %152 = mul i32 %151, 461845907
+  %153 = xor i32 %147, %152
+  %154 = tail call i32 @llvm.fshl.i32(i32 %153, i32 %153, i32 13)
+  %155 = mul i32 %154, 5
+  %156 = add i32 %149, -430675100
+  %157 = add i32 %156, %155
+  %158 = tail call i32 @llvm.fshl.i32(i32 %149, i32 %149, i32 29)
+  %159 = add i32 %158, %.val32.i23
+  %160 = mul i32 %.val30.i25, -862048943
+  %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 15)
+  %162 = mul i32 %161, 461845907
+  %163 = xor i32 %157, %162
+  %164 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 13)
+  %165 = mul i32 %164, 5
+  %166 = add i32 %159, -430675100
+  %167 = add i32 %166, %165
+  %168 = add i32 %159, %.val.i26
+  %169 = tail call i32 @llvm.fshl.i32(i32 %168, i32 %168, i32 20)
+  %170 = xor i32 %.val33.i22, %138
+  %171 = mul i32 %170, -862048943
+  %172 = tail call i32 @llvm.fshl.i32(i32 %171, i32 %171, i32 15)
+  %173 = mul i32 %172, 461845907
+  %174 = xor i32 %167, %173
+  %175 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 13)
+  %176 = mul i32 %175, 5
+  %177 = add i32 %.val31.i24, -430675100
+  %178 = add i32 %177, %169
+  %179 = add i32 %178, %176
+  %180 = lshr i32 %179, 16
+  %181 = xor i32 %180, %179
+  %182 = mul i32 %181, -2048144789
+  %183 = lshr i32 %182, 13
+  %184 = xor i32 %183, %182
+  %185 = mul i32 %184, -1028477387
+  %186 = lshr i32 %185, 16
+  %187 = add i64 %1, -24
+  %188 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noundef nonnull %141, i64 noundef %187)
+  %189 = add i32 %188, %2
+  %190 = mul i32 %189, -862048943
+  %191 = tail call i32 @llvm.fshl.i32(i32 %190, i32 %190, i32 15)
+  %192 = mul i32 %191, 461845907
+  %193 = xor i32 %192, %186
+  %194 = xor i32 %193, %185
+  %195 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 13)
+  %196 = mul i32 %195, 5
+  %197 = add i32 %196, -430675100
+  br label %198
 
-for.body.i.3:                                     ; preds = %for.body.i.2
-  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %s, i64 3
-  %5 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !7
-  %mul.i45.3 = mul i32 %add.i47.2, -862048943
-  %conv.i46.3 = sext i8 %5 to i32
-  %add.i47.3 = add i32 %mul.i45.3, %conv.i46.3
-  %xor.i48.3 = xor i32 %add.i47.3, %xor.i48.2
-  br label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit
-
-_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %for.body.i.3, %for.body.i.2, %for.body.i.1, %for.body.i, %if.else6
-  %c.0.lcssa.i = phi i32 [ 9, %if.else6 ], [ %xor.i48, %for.body.i ], [ %xor.i48.1, %for.body.i.1 ], [ %xor.i48.2, %for.body.i.2 ], [ %xor.i48.3, %for.body.i.3 ]
-  %b.0.lcssa.i = phi i32 [ %seed, %if.else6 ], [ %add.i47, %for.body.i ], [ %add.i47.1, %for.body.i.1 ], [ %add.i47.2, %for.body.i.2 ], [ %add.i47.3, %for.body.i.3 ]
-  %conv1.i49 = trunc nuw nsw i64 %len to i32
-  %mul.i.i50 = mul i32 %conv1.i49, -862048943
-  %shr.i.i.i.i51 = lshr i32 %mul.i.i50, 17
-  %shl.i.i.i.i52 = mul nuw nsw i32 %conv1.i49, 380141568
-  %or.i.i.i.i53 = or disjoint i32 %shr.i.i.i.i51, %shl.i.i.i.i52
-  %mul1.i.i54 = mul i32 %or.i.i.i.i53, 461845907
-  %xor.i.i55 = xor i32 %c.0.lcssa.i, %mul1.i.i54
-  %or.i.i11.i.i56 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i55, i32 %xor.i.i55, i32 13)
-  %mul3.i.i57 = mul i32 %or.i.i11.i.i56, 5
-  %add.i.i58 = add i32 %mul3.i.i57, -430675100
-  %mul.i10.i = mul i32 %b.0.lcssa.i, -862048943
-  %shr.i.i.i11.i = lshr i32 %mul.i10.i, 17
-  %shl.i.i.i12.i = mul i32 %b.0.lcssa.i, 380141568
-  %or.i.i.i13.i = or disjoint i32 %shr.i.i.i11.i, %shl.i.i.i12.i
-  %mul1.i14.i = mul i32 %or.i.i.i13.i, 461845907
-  %xor.i15.i = xor i32 %mul1.i14.i, %add.i.i58
-  %or.i.i11.i16.i = tail call i32 @llvm.fshl.i32(i32 %xor.i15.i, i32 %xor.i15.i, i32 13)
-  %mul3.i17.i = mul i32 %or.i.i11.i16.i, 5
-  %add.i18.i = add i32 %mul3.i17.i, -430675100
-  %shr.i.i59 = lshr i32 %add.i18.i, 16
-  %xor.i19.i = xor i32 %shr.i.i59, %add.i18.i
-  %mul.i20.i = mul i32 %xor.i19.i, -2048144789
-  %shr1.i.i60 = lshr i32 %mul.i20.i, 13
-  %xor2.i.i61 = xor i32 %shr1.i.i60, %mul.i20.i
-  %mul3.i21.i = mul i32 %xor2.i.i61, -1028477387
-  %shr4.i.i62 = lshr i32 %mul3.i21.i, 16
-  %xor5.i.i63 = xor i32 %shr4.i.i62, %mul3.i21.i
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %6 = trunc i64 %len to i32
-  %conv8 = xor i32 %seed, %6
-  %add.ptr1.i65 = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr1.val.i66 = load i32, ptr %add.ptr1.i65, align 1
-  %add.ptr2.i67 = getelementptr inbounds nuw i8, ptr %s, i64 4
-  %add.ptr2.val.i68 = load i32, ptr %add.ptr2.i67, align 1
-  %add.ptr4.i69 = getelementptr inbounds nuw i8, ptr %s, i64 24
-  %add.ptr5.i70 = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %add.ptr5.val.i71 = load i32, ptr %add.ptr5.i70, align 1
-  %add.ptr8.i72 = getelementptr inbounds nuw i8, ptr %s, i64 12
-  %add.ptr8.val.i73 = load i32, ptr %add.ptr8.i72, align 1
-  %s.val.i74 = load i32, ptr %s, align 1
-  %add.ptr12.i75 = getelementptr inbounds nuw i8, ptr %s, i64 20
-  %add.ptr12.val.i76 = load i32, ptr %add.ptr12.i75, align 1
-  %mul.i77 = mul i32 %add.ptr8.val.i73, -862048943
-  %7 = add i32 %conv8, 24
-  %conv16.i78 = add i32 %7, %mul.i77
-  %or.i.i.i79 = tail call i32 @llvm.fshl.i32(i32 %add.ptr1.val.i66, i32 %add.ptr1.val.i66, i32 20)
-  %add18.i80 = add i32 %add.ptr12.val.i76, %or.i.i.i79
-  %mul.i.i81 = mul i32 %add.ptr5.val.i71, -862048943
-  %shr.i.i.i.i82 = lshr i32 %mul.i.i81, 17
-  %shl.i.i.i.i83 = mul i32 %add.ptr5.val.i71, 380141568
-  %or.i.i.i.i84 = or disjoint i32 %shr.i.i.i.i82, %shl.i.i.i.i83
-  %mul1.i.i85 = mul i32 %or.i.i.i.i84, 461845907
-  %xor.i.i86 = xor i32 %mul1.i.i85, %conv16.i78
-  %or.i.i11.i.i87 = tail call i32 @llvm.fshl.i32(i32 %xor.i.i86, i32 %xor.i.i86, i32 13)
-  %mul3.i.i88 = mul i32 %or.i.i11.i.i87, 5
-  %add.i.i89 = add i32 %add18.i80, -430675100
-  %add20.i90 = add i32 %add.i.i89, %mul3.i.i88
-  %or.i.i54.i91 = tail call i32 @llvm.fshl.i32(i32 %add18.i80, i32 %add18.i80, i32 29)
-  %add22.i92 = add i32 %or.i.i54.i91, %add.ptr5.val.i71
-  %mul.i55.i93 = mul i32 %s.val.i74, -862048943
-  %shr.i.i.i56.i94 = lshr i32 %mul.i55.i93, 17
-  %shl.i.i.i57.i95 = mul i32 %s.val.i74, 380141568
-  %or.i.i.i58.i96 = or disjoint i32 %shr.i.i.i56.i94, %shl.i.i.i57.i95
-  %mul1.i59.i97 = mul i32 %or.i.i.i58.i96, 461845907
-  %xor.i60.i98 = xor i32 %add20.i90, %mul1.i59.i97
-  %or.i.i11.i61.i99 = tail call i32 @llvm.fshl.i32(i32 %xor.i60.i98, i32 %xor.i60.i98, i32 13)
-  %mul3.i62.i100 = mul i32 %or.i.i11.i61.i99, 5
-  %add.i63.i101 = add i32 %add22.i92, -430675100
-  %add24.i102 = add i32 %add.i63.i101, %mul3.i62.i100
-  %add25.i103 = add i32 %add22.i92, %add.ptr12.val.i76
-  %or.i.i66.i104 = tail call i32 @llvm.fshl.i32(i32 %add25.i103, i32 %add25.i103, i32 20)
-  %xor.i105 = xor i32 %add.ptr2.val.i68, %conv8
-  %mul.i67.i106 = mul i32 %xor.i105, -862048943
-  %shr.i.i.i68.i107 = lshr i32 %mul.i67.i106, 17
-  %shl.i.i.i69.i108 = mul i32 %xor.i105, 380141568
-  %or.i.i.i70.i109 = or disjoint i32 %shr.i.i.i68.i107, %shl.i.i.i69.i108
-  %mul1.i71.i110 = mul i32 %or.i.i.i70.i109, 461845907
-  %xor.i72.i111 = xor i32 %add24.i102, %mul1.i71.i110
-  %or.i.i11.i73.i112 = tail call i32 @llvm.fshl.i32(i32 %xor.i72.i111, i32 %xor.i72.i111, i32 13)
-  %mul3.i74.i113 = mul i32 %or.i.i11.i73.i112, 5
-  %add.i75.i114 = add i32 %add.ptr8.val.i73, -430675100
-  %add27.i115 = add i32 %add.i75.i114, %or.i.i66.i104
-  %add29.i116 = add i32 %add27.i115, %mul3.i74.i113
-  %shr.i.i117 = lshr i32 %add29.i116, 16
-  %xor.i76.i118 = xor i32 %shr.i.i117, %add29.i116
-  %mul.i77.i119 = mul i32 %xor.i76.i118, -2048144789
-  %shr1.i.i120 = lshr i32 %mul.i77.i119, 13
-  %xor2.i.i121 = xor i32 %shr1.i.i120, %mul.i77.i119
-  %mul3.i78.i122 = mul i32 %xor2.i.i121, -1028477387
-  %shr4.i.i123 = lshr i32 %mul3.i78.i122, 16
-  %sub = add i64 %len, -24
-  %call10 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noundef nonnull %add.ptr4.i69, i64 noundef %sub)
-  %add = add i32 %call10, %seed
-  %mul.i125 = mul i32 %add, -862048943
-  %shr.i.i.i = lshr i32 %mul.i125, 17
-  %shl.i.i.i = mul i32 %add, 380141568
-  %or.i.i.i126 = or disjoint i32 %shr.i.i.i, %shl.i.i.i
-  %mul1.i = mul i32 %or.i.i.i126, 461845907
-  %8 = xor i32 %mul1.i, %shr4.i.i123
-  %xor.i127 = xor i32 %8, %mul3.i78.i122
-  %or.i.i11.i = tail call i32 @llvm.fshl.i32(i32 %xor.i127, i32 %xor.i127, i32 13)
-  %mul3.i = mul i32 %or.i.i11.i, 5
-  %add.i128 = add i32 %mul3.i, -430675100
-  br label %return
-
-return:                                           ; preds = %if.end, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, %if.then4, %if.then2
-  %retval.0 = phi i32 [ %xor5.i.i, %if.then2 ], [ %xor5.i.i44, %if.then4 ], [ %xor5.i.i63, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %add.i128, %if.end ]
-  ret i32 %retval.0
+198:                                              ; preds = %136, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, %63, %7
+  %.0 = phi i32 [ %60, %7 ], [ %104, %63 ], [ %135, %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit ], [ %197, %136 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly captures(none) %s, i64 noundef %len, i64 %seed.coerce0, i64 %seed.coerce1) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %len, 128
-  br i1 %cmp, label %if.then, label %if.end
+define { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+  %5 = icmp ult i64 %1, 128
+  br i1 %5, label %6, label %149
 
-if.then:                                          ; preds = %entry
-  %cmp.i = icmp samesign ult i64 %len, 17
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+6:                                                ; preds = %4
+  %7 = icmp samesign ult i64 %1, 17
+  br i1 %7, label %8, label %86
 
-if.then.i:                                        ; preds = %if.then
-  %mul.i = mul i64 %seed.coerce0, -5435081209227447693
-  %shr.i.i = lshr i64 %mul.i, 47
-  %xor.i.i = xor i64 %shr.i.i, %mul.i
-  %mul4.i = mul i64 %xor.i.i, -5435081209227447693
-  %mul5.i = mul i64 %seed.coerce1, -5435081209227447693
-  %cmp.i.i = icmp samesign ugt i64 %len, 7
-  br i1 %cmp.i.i, label %cond.true.i, label %if.end.i.i
+8:                                                ; preds = %6
+  %9 = mul i64 %2, -5435081209227447693
+  %10 = lshr i64 %9, 47
+  %11 = xor i64 %10, %9
+  %12 = mul i64 %11, -5435081209227447693
+  %13 = mul i64 %3, -5435081209227447693
+  %14 = icmp samesign ugt i64 %1, 7
+  br i1 %14, label %58, label %15
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %cmp12.i.i = icmp samesign ugt i64 %len, 3
-  br i1 %cmp12.i.i, label %if.then13.i.i, label %if.end25.i.i
+15:                                               ; preds = %8
+  %16 = icmp samesign ugt i64 %1, 3
+  br i1 %16, label %17, label %35
 
-if.then13.i.i:                                    ; preds = %if.end.i.i
-  %mul15.i.i = shl nuw nsw i64 %len, 1
-  %add16.i.i = add nuw nsw i64 %mul15.i.i, -7286425919675154353
-  %s.val69.i.i = load i32, ptr %s, align 1
-  %conv.i.i = zext i32 %s.val69.i.i to i64
-  %shl.i.i = shl nuw nsw i64 %conv.i.i, 3
-  %add19.i.i = or disjoint i64 %shl.i.i, %len
-  %add.ptr20.i.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr20.i.i, i64 -4
-  %add.ptr21.val.i.i = load i32, ptr %add.ptr21.i.i, align 1
-  %conv23.i.i = zext i32 %add.ptr21.val.i.i to i64
-  %xor.i73.i.i = xor i64 %add19.i.i, %conv23.i.i
-  %mul1.i74.i.i = mul i64 %xor.i73.i.i, %add16.i.i
-  %shr.i75.i.i = lshr i64 %mul1.i74.i.i, 47
-  %0 = xor i64 %shr.i75.i.i, %conv23.i.i
-  %xor3.i76.i.i = xor i64 %0, %mul1.i74.i.i
-  %mul4.i77.i.i = mul i64 %xor3.i76.i.i, %add16.i.i
-  %shr5.i78.i.i = lshr i64 %mul4.i77.i.i, 47
-  %xor6.i79.i.i = xor i64 %shr5.i78.i.i, %mul4.i77.i.i
-  %mul7.i80.i.i = mul i64 %xor6.i79.i.i, %add16.i.i
+17:                                               ; preds = %15
+  %18 = shl nuw nsw i64 %1, 1
+  %19 = add nuw nsw i64 %18, -7286425919675154353
+  %.val37.i.i = load i32, ptr %0, align 1
+  %20 = zext i32 %.val37.i.i to i64
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = or disjoint i64 %21, %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %24 = getelementptr inbounds i8, ptr %23, i64 -4
+  %.val36.i.i = load i32, ptr %24, align 1
+  %25 = zext i32 %.val36.i.i to i64
+  %26 = xor i64 %22, %25
+  %27 = mul i64 %26, %19
+  %28 = lshr i64 %27, 47
+  %29 = xor i64 %28, %25
+  %30 = xor i64 %29, %27
+  %31 = mul i64 %30, %19
+  %32 = lshr i64 %31, 47
+  %33 = xor i64 %32, %31
+  %34 = mul i64 %33, %19
   br label %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i
 
-if.end25.i.i:                                     ; preds = %if.end.i.i
-  %cmp26.not.i.i = icmp eq i64 %len, 0
-  br i1 %cmp26.not.i.i, label %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i, label %if.then27.i.i
+35:                                               ; preds = %15
+  %.not.i.i = icmp eq i64 %1, 0
+  br i1 %.not.i.i, label %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i, label %36
 
-if.then27.i.i:                                    ; preds = %if.end25.i.i
-  %1 = load i8, ptr %s, align 1, !tbaa !7
-  %shr.i80.i = lshr i64 %len, 1
-  %arrayidx30.i.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i80.i
-  %2 = load i8, ptr %arrayidx30.i.i, align 1, !tbaa !7
-  %3 = getelementptr i8, ptr %s, i64 %len
-  %arrayidx32.i.i = getelementptr i8, ptr %3, i64 -1
-  %4 = load i8, ptr %arrayidx32.i.i, align 1, !tbaa !7
-  %conv33.i.i = zext i8 %1 to i64
-  %conv34.i.i = zext i8 %2 to i64
-  %shl35.i.i = shl nuw nsw i64 %conv34.i.i, 8
-  %add36.i.i = or disjoint i64 %shl35.i.i, %conv33.i.i
-  %conv37.i.i = zext i8 %4 to i64
-  %shl38.i.i = shl nuw nsw i64 %conv37.i.i, 2
-  %add40.i.i = or disjoint i64 %shl38.i.i, %len
-  %mul43.i.i = mul i64 %add36.i.i, -7286425919675154353
-  %mul45.i.i = mul i64 %add40.i.i, -4348849565147123417
-  %xor.i81.i = xor i64 %mul45.i.i, %mul43.i.i
-  %shr.i81.i.i = lshr i64 %xor.i81.i, 47
-  %xor.i82.i.i = xor i64 %shr.i81.i.i, %xor.i81.i
-  %mul47.i.i = mul i64 %xor.i82.i.i, -7286425919675154353
+36:                                               ; preds = %35
+  %37 = load i8, ptr %0, align 1, !tbaa !7
+  %38 = lshr i64 %1, 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !7
+  %41 = getelementptr i8, ptr %0, i64 %1
+  %42 = getelementptr i8, ptr %41, i64 -1
+  %43 = load i8, ptr %42, align 1, !tbaa !7
+  %44 = zext i8 %37 to i64
+  %45 = zext i8 %40 to i64
+  %46 = shl nuw nsw i64 %45, 8
+  %47 = or disjoint i64 %46, %44
+  %48 = zext i8 %43 to i64
+  %49 = shl nuw nsw i64 %48, 2
+  %50 = or disjoint i64 %49, %1
+  %51 = mul i64 %47, -7286425919675154353
+  %52 = mul i64 %50, -4348849565147123417
+  %53 = xor i64 %52, %51
+  %54 = lshr i64 %53, 47
+  %55 = xor i64 %54, %53
+  %56 = mul i64 %55, -7286425919675154353
   br label %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i
 
-_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i: ; preds = %if.then27.i.i, %if.end25.i.i, %if.then13.i.i
-  %retval.0.i.ph.i = phi i64 [ -7286425919675154353, %if.end25.i.i ], [ %mul47.i.i, %if.then27.i.i ], [ %mul7.i80.i.i, %if.then13.i.i ]
-  %add125.i = add i64 %retval.0.i.ph.i, %mul5.i
-  br label %cond.end.i
+_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i: ; preds = %36, %35, %17
+  %.0.i.ph.i = phi i64 [ -7286425919675154353, %35 ], [ %56, %36 ], [ %34, %17 ]
+  %57 = add i64 %.0.i.ph.i, %13
+  br label %80
 
-cond.true.i:                                      ; preds = %if.then.i
-  %mul1.i.i = shl nuw nsw i64 %len, 1
-  %add.i.i = add nuw nsw i64 %mul1.i.i, -7286425919675154353
-  %s.val.i.i = load i64, ptr %s, align 1
-  %add2.i.i = add i64 %s.val.i.i, -7286425919675154353
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %add.ptr3.val.i.i = load i64, ptr %add.ptr3.i.i, align 1
-  %or.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add.ptr3.val.i.i, i64 %add.ptr3.val.i.i, i64 27)
-  %mul6.i.i = mul i64 %or.i.i.i.i, %add.i.i
-  %add7.i.i = add i64 %mul6.i.i, %add2.i.i
-  %or.i.i72.i.i = tail call i64 @llvm.fshl.i64(i64 %add2.i.i, i64 %add2.i.i, i64 39)
-  %add9.i.i = add i64 %or.i.i72.i.i, %add.ptr3.val.i.i
-  %mul10.i.i = mul i64 %add9.i.i, %add.i.i
-  %xor.i.i.i = xor i64 %mul10.i.i, %add7.i.i
-  %mul1.i.i.i = mul i64 %xor.i.i.i, %add.i.i
-  %shr.i.i.i = lshr i64 %mul1.i.i.i, 47
-  %5 = xor i64 %mul10.i.i, %shr.i.i.i
-  %xor3.i.i.i = xor i64 %5, %mul1.i.i.i
-  %mul4.i.i.i = mul i64 %xor3.i.i.i, %add.i.i
-  %shr5.i.i.i = lshr i64 %mul4.i.i.i, 47
-  %xor6.i.i.i = xor i64 %shr5.i.i.i, %mul4.i.i.i
-  %mul7.i.i.i = mul i64 %xor6.i.i.i, %add.i.i
-  %add.i = add i64 %mul7.i.i.i, %mul5.i
-  br label %cond.end.i
+58:                                               ; preds = %8
+  %59 = shl nuw nsw i64 %1, 1
+  %60 = add nuw nsw i64 %59, -7286425919675154353
+  %.val35.i.i = load i64, ptr %0, align 1
+  %61 = add i64 %.val35.i.i, -7286425919675154353
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %63 = getelementptr inbounds i8, ptr %62, i64 -8
+  %.val.i.i = load i64, ptr %63, align 1
+  %64 = tail call i64 @llvm.fshl.i64(i64 %.val.i.i, i64 %.val.i.i, i64 27)
+  %65 = mul i64 %64, %60
+  %66 = add i64 %65, %61
+  %67 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 39)
+  %68 = add i64 %67, %.val.i.i
+  %69 = mul i64 %68, %60
+  %70 = xor i64 %69, %66
+  %71 = mul i64 %70, %60
+  %72 = lshr i64 %71, 47
+  %73 = xor i64 %69, %72
+  %74 = xor i64 %73, %71
+  %75 = mul i64 %74, %60
+  %76 = lshr i64 %75, 47
+  %77 = xor i64 %76, %75
+  %78 = mul i64 %77, %60
+  %79 = add i64 %78, %13
+  br label %80
 
-cond.end.i:                                       ; preds = %cond.true.i, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i
-  %add126.i = phi i64 [ %add.i, %cond.true.i ], [ %add125.i, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i ]
-  %cond.i = phi i64 [ %s.val.i.i, %cond.true.i ], [ %add125.i, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i ]
-  %add9.i = add i64 %cond.i, %mul4.i
-  %shr.i82.i = lshr i64 %add9.i, 47
-  %xor.i83.i = xor i64 %shr.i82.i, %add9.i
+80:                                               ; preds = %58, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i
+  %81 = phi i64 [ %79, %58 ], [ %57, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i ]
+  %82 = phi i64 [ %.val35.i.i, %58 ], [ %57, %_ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i ]
+  %83 = add i64 %82, %12
+  %84 = lshr i64 %83, 47
+  %85 = xor i64 %84, %83
   br label %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit
 
-if.else.i:                                        ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %len
-  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %add.ptr11.val.i = load i64, ptr %add.ptr11.i, align 1
-  %add13.i = add i64 %add.ptr11.val.i, -5435081209227447693
-  %xor.i.i84.i = xor i64 %add13.i, %seed.coerce0
-  %mul.i.i.i = mul i64 %xor.i.i84.i, -7070675565921424023
-  %shr.i.i85.i = lshr i64 %mul.i.i.i, 47
-  %6 = xor i64 %seed.coerce0, %shr.i.i85.i
-  %xor6.i.i86.i = xor i64 %6, %mul.i.i.i
-  %mul7.i.i87.i = mul i64 %xor6.i.i86.i, -7070675565921424023
-  %shr8.i.i.i = lshr i64 %mul7.i.i87.i, 47
-  %xor9.i.i.i = xor i64 %shr8.i.i.i, %mul7.i.i87.i
-  %mul10.i.i.i = mul i64 %xor9.i.i.i, -7070675565921424023
-  %add15.i = add i64 %seed.coerce1, %len
-  %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
-  %add.ptr17.val.i = load i64, ptr %add.ptr17.i, align 1
-  %add19.i = add i64 %mul10.i.i.i, %add.ptr17.val.i
-  %xor.i.i88.i = xor i64 %add19.i, %add15.i
-  %mul.i.i89.i = mul i64 %xor.i.i88.i, -7070675565921424023
-  %shr.i.i90.i = lshr i64 %mul.i.i89.i, 47
-  %7 = xor i64 %add19.i, %shr.i.i90.i
-  %xor6.i.i91.i = xor i64 %7, %mul.i.i89.i
-  %mul7.i.i92.i = mul i64 %xor6.i.i91.i, -7070675565921424023
-  %shr8.i.i93.i = lshr i64 %mul7.i.i92.i, 47
-  %xor9.i.i94.i = xor i64 %shr8.i.i93.i, %mul7.i.i92.i
-  %mul10.i.i95.i = mul i64 %xor9.i.i94.i, -7070675565921424023
-  %add21.i = add i64 %mul10.i.i95.i, %seed.coerce0
-  br label %do.body.i
+86:                                               ; preds = %6
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %88 = getelementptr inbounds i8, ptr %87, i64 -8
+  %.val57.i = load i64, ptr %88, align 1
+  %89 = add i64 %.val57.i, -5435081209227447693
+  %90 = xor i64 %89, %2
+  %91 = mul i64 %90, -7070675565921424023
+  %92 = lshr i64 %91, 47
+  %93 = xor i64 %2, %92
+  %94 = xor i64 %93, %91
+  %95 = mul i64 %94, -7070675565921424023
+  %96 = lshr i64 %95, 47
+  %97 = xor i64 %96, %95
+  %98 = mul i64 %97, -7070675565921424023
+  %99 = add i64 %3, %1
+  %100 = getelementptr inbounds i8, ptr %87, i64 -16
+  %.val56.i = load i64, ptr %100, align 1
+  %101 = add i64 %98, %.val56.i
+  %102 = xor i64 %101, %99
+  %103 = mul i64 %102, -7070675565921424023
+  %104 = lshr i64 %103, 47
+  %105 = xor i64 %101, %104
+  %106 = xor i64 %105, %103
+  %107 = mul i64 %106, -7070675565921424023
+  %108 = lshr i64 %107, 47
+  %109 = xor i64 %108, %107
+  %110 = mul i64 %109, -7070675565921424023
+  %111 = add i64 %110, %2
+  br label %112
 
-do.body.i:                                        ; preds = %do.body.i, %if.else.i
-  %b.0.i = phi i64 [ %seed.coerce1, %if.else.i ], [ %xor27.i, %do.body.i ]
-  %a.0.i = phi i64 [ %add21.i, %if.else.i ], [ %mul26.i, %do.body.i ]
-  %s.addr.0.i = phi ptr [ %s, %if.else.i ], [ %add.ptr36.i, %do.body.i ]
-  %c.0.i = phi i64 [ %mul10.i.i.i, %if.else.i ], [ %mul34.i, %do.body.i ]
-  %d.0.i = phi i64 [ %mul10.i.i95.i, %if.else.i ], [ %xor35.i, %do.body.i ]
-  %l.0.in.i = phi i64 [ %len, %if.else.i ], [ %l.0.i, %do.body.i ]
-  %l.0.i = add nsw i64 %l.0.in.i, -16
-  %s.addr.0.val.i = load i64, ptr %s.addr.0.i, align 1
-  %mul23.i = mul i64 %s.addr.0.val.i, -5435081209227447693
-  %shr.i96.i = lshr i64 %mul23.i, 47
-  %xor.i97.i = xor i64 %shr.i96.i, %mul23.i
-  %mul25.i = mul i64 %xor.i97.i, -5435081209227447693
-  %xor.i = xor i64 %mul25.i, %a.0.i
-  %mul26.i = mul i64 %xor.i, -5435081209227447693
-  %xor27.i = xor i64 %mul26.i, %b.0.i
-  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 8
-  %add.ptr28.val.i = load i64, ptr %add.ptr28.i, align 1
-  %mul30.i = mul i64 %add.ptr28.val.i, -5435081209227447693
-  %shr.i98.i = lshr i64 %mul30.i, 47
-  %xor.i99.i = xor i64 %shr.i98.i, %mul30.i
-  %mul32.i = mul i64 %xor.i99.i, -5435081209227447693
-  %xor33.i = xor i64 %mul32.i, %c.0.i
-  %mul34.i = mul i64 %xor33.i, -5435081209227447693
-  %xor35.i = xor i64 %mul34.i, %d.0.i
-  %add.ptr36.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 16
-  %cmp38.i = icmp ugt i64 %l.0.in.i, 32
-  br i1 %cmp38.i, label %do.body.i, label %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit, !llvm.loop !23
+112:                                              ; preds = %112, %86
+  %.154.i = phi i64 [ %3, %86 ], [ %119, %112 ]
+  %.152.i = phi i64 [ %111, %86 ], [ %118, %112 ]
+  %.050.i = phi ptr [ %0, %86 ], [ %128, %112 ]
+  %.149.i = phi i64 [ %98, %86 ], [ %126, %112 ]
+  %.1.i = phi i64 [ %110, %86 ], [ %127, %112 ]
+  %.0.in.i = phi i64 [ %1, %86 ], [ %.0.i, %112 ]
+  %.0.i = add nsw i64 %.0.in.i, -16
+  %.050.val.i = load i64, ptr %.050.i, align 1
+  %113 = mul i64 %.050.val.i, -5435081209227447693
+  %114 = lshr i64 %113, 47
+  %115 = xor i64 %114, %113
+  %116 = mul i64 %115, -5435081209227447693
+  %117 = xor i64 %116, %.152.i
+  %118 = mul i64 %117, -5435081209227447693
+  %119 = xor i64 %118, %.154.i
+  %120 = getelementptr inbounds nuw i8, ptr %.050.i, i64 8
+  %.val.i = load i64, ptr %120, align 1
+  %121 = mul i64 %.val.i, -5435081209227447693
+  %122 = lshr i64 %121, 47
+  %123 = xor i64 %122, %121
+  %124 = mul i64 %123, -5435081209227447693
+  %125 = xor i64 %124, %.149.i
+  %126 = mul i64 %125, -5435081209227447693
+  %127 = xor i64 %126, %.1.i
+  %128 = getelementptr inbounds nuw i8, ptr %.050.i, i64 16
+  %129 = icmp samesign ugt i64 %.0.in.i, 32
+  br i1 %129, label %112, label %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit, !llvm.loop !21
 
-_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; preds = %do.body.i, %cond.end.i
-  %b.1.i = phi i64 [ %seed.coerce1, %cond.end.i ], [ %xor27.i, %do.body.i ]
-  %a.1.i = phi i64 [ %mul4.i, %cond.end.i ], [ %mul26.i, %do.body.i ]
-  %c.1.i = phi i64 [ %add126.i, %cond.end.i ], [ %mul34.i, %do.body.i ]
-  %d.1.i = phi i64 [ %xor.i83.i, %cond.end.i ], [ %xor35.i, %do.body.i ]
-  %xor.i.i100.i = xor i64 %c.1.i, %a.1.i
-  %mul.i.i101.i = mul i64 %xor.i.i100.i, -7070675565921424023
-  %shr.i.i102.i = lshr i64 %mul.i.i101.i, 47
-  %8 = xor i64 %c.1.i, %shr.i.i102.i
-  %xor6.i.i103.i = xor i64 %8, %mul.i.i101.i
-  %mul7.i.i104.i = mul i64 %xor6.i.i103.i, -7070675565921424023
-  %shr8.i.i105.i = lshr i64 %mul7.i.i104.i, 47
-  %xor9.i.i106.i = xor i64 %shr8.i.i105.i, %mul7.i.i104.i
-  %mul10.i.i107.i = mul i64 %xor9.i.i106.i, -7070675565921424023
-  %xor.i.i108.i = xor i64 %d.1.i, %b.1.i
-  %mul.i.i109.i = mul i64 %xor.i.i108.i, -7070675565921424023
-  %shr.i.i110.i = lshr i64 %mul.i.i109.i, 47
-  %9 = xor i64 %b.1.i, %shr.i.i110.i
-  %xor6.i.i111.i = xor i64 %9, %mul.i.i109.i
-  %mul7.i.i112.i = mul i64 %xor6.i.i111.i, -7070675565921424023
-  %shr8.i.i113.i = lshr i64 %mul7.i.i112.i, 47
-  %xor9.i.i114.i = xor i64 %shr8.i.i113.i, %mul7.i.i112.i
-  %mul10.i.i115.i = mul i64 %xor9.i.i114.i, -7070675565921424023
-  %xor41.i = xor i64 %mul10.i.i115.i, %mul10.i.i107.i
-  br label %return
+_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; preds = %112, %80
+  %.053.i = phi i64 [ %3, %80 ], [ %119, %112 ]
+  %.051.i = phi i64 [ %12, %80 ], [ %118, %112 ]
+  %.048.i = phi i64 [ %81, %80 ], [ %126, %112 ]
+  %.047.i = phi i64 [ %85, %80 ], [ %127, %112 ]
+  %130 = xor i64 %.048.i, %.051.i
+  %131 = mul i64 %130, -7070675565921424023
+  %132 = lshr i64 %131, 47
+  %133 = xor i64 %.048.i, %132
+  %134 = xor i64 %133, %131
+  %135 = mul i64 %134, -7070675565921424023
+  %136 = lshr i64 %135, 47
+  %137 = xor i64 %136, %135
+  %138 = mul i64 %137, -7070675565921424023
+  %139 = xor i64 %.047.i, %.053.i
+  %140 = mul i64 %139, -7070675565921424023
+  %141 = lshr i64 %140, 47
+  %142 = xor i64 %.053.i, %141
+  %143 = xor i64 %142, %140
+  %144 = mul i64 %143, -7070675565921424023
+  %145 = lshr i64 %144, 47
+  %146 = xor i64 %145, %144
+  %147 = mul i64 %146, -7070675565921424023
+  %148 = xor i64 %147, %138
+  br label %339
 
-if.end:                                           ; preds = %entry
-  %mul = mul i64 %len, -5435081209227447693
-  %xor = xor i64 %seed.coerce1, -5435081209227447693
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %xor, i64 %xor, i64 15)
-  %mul6 = mul i64 %or.i.i, -5435081209227447693
-  %s.val = load i64, ptr %s, align 1
-  %add = add i64 %s.val, %mul6
-  %or.i.i236 = tail call i64 @llvm.fshl.i64(i64 %add, i64 %add, i64 22)
-  %mul10 = mul i64 %or.i.i236, -5435081209227447693
-  %add.ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr.val = load i64, ptr %add.ptr, align 1
-  %add12 = add i64 %mul10, %add.ptr.val
-  %add13 = add i64 %seed.coerce1, %mul
-  %or.i.i239 = tail call i64 @llvm.fshl.i64(i64 %add13, i64 %add13, i64 29)
-  %mul15 = mul i64 %or.i.i239, -5435081209227447693
-  %add16 = add i64 %mul15, %seed.coerce0
-  %add.ptr18 = getelementptr inbounds nuw i8, ptr %s, i64 88
-  %add.ptr18.val = load i64, ptr %add.ptr18, align 1
-  %add20 = add i64 %add.ptr18.val, %seed.coerce0
-  %or.i.i242 = tail call i64 @llvm.fshl.i64(i64 %add20, i64 %add20, i64 11)
-  %mul22 = mul i64 %or.i.i242, -5435081209227447693
-  br label %do.body
+149:                                              ; preds = %4
+  %150 = mul i64 %1, -5435081209227447693
+  %151 = xor i64 %3, -5435081209227447693
+  %152 = tail call i64 @llvm.fshl.i64(i64 %151, i64 %151, i64 15)
+  %153 = mul i64 %152, -5435081209227447693
+  %.val77 = load i64, ptr %0, align 1
+  %154 = add i64 %.val77, %153
+  %155 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %154, i64 22)
+  %156 = mul i64 %155, -5435081209227447693
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val76 = load i64, ptr %157, align 1
+  %158 = add i64 %156, %.val76
+  %159 = add i64 %3, %150
+  %160 = tail call i64 @llvm.fshl.i64(i64 %159, i64 %159, i64 29)
+  %161 = mul i64 %160, -5435081209227447693
+  %162 = add i64 %161, %2
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val75 = load i64, ptr %163, align 1
+  %164 = add i64 %.val75, %2
+  %165 = tail call i64 @llvm.fshl.i64(i64 %164, i64 %164, i64 11)
+  %166 = mul i64 %165, -5435081209227447693
+  br label %167
 
-do.body:                                          ; preds = %do.body, %if.end
-  %z.0 = phi i64 [ %mul, %if.end ], [ %xor82, %do.body ]
-  %x.0 = phi i64 [ %seed.coerce0, %if.end ], [ %mul91, %do.body ]
-  %w.sroa.16.0 = phi i64 [ %mul22, %if.end ], [ %add9.i.i325, %do.body ]
-  %w.sroa.0.0 = phi i64 [ %add16, %if.end ], [ %add7.i.i323, %do.body ]
-  %v.sroa.16.0 = phi i64 [ %add12, %if.end ], [ %add9.i.i304, %do.body ]
-  %v.sroa.0.0 = phi i64 [ %add, %if.end ], [ %add7.i.i302, %do.body ]
-  %len.addr.0 = phi i64 [ %len, %if.end ], [ %sub, %do.body ]
-  %s.addr.0 = phi ptr [ %s, %if.end ], [ %add.ptr108, %do.body ]
-  %y.0 = phi i64 [ %seed.coerce1, %if.end ], [ %add87, %do.body ]
-  %add.ptr27 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 8
-  %add.ptr27.val = load i64, ptr %add.ptr27, align 1
-  %add24 = add i64 %v.sroa.0.0, %x.0
-  %add26 = add i64 %add24, %y.0
-  %add29 = add i64 %add26, %add.ptr27.val
-  %or.i.i245 = tail call i64 @llvm.fshl.i64(i64 %add29, i64 %add29, i64 27)
-  %mul31 = mul i64 %or.i.i245, -5435081209227447693
-  %add33 = add i64 %y.0, %v.sroa.16.0
-  %add.ptr34 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 48
-  %add.ptr34.val = load i64, ptr %add.ptr34, align 1
-  %add36 = add i64 %add33, %add.ptr34.val
-  %or.i.i248 = tail call i64 @llvm.fshl.i64(i64 %add36, i64 %add36, i64 22)
-  %mul38 = mul i64 %or.i.i248, -5435081209227447693
-  %xor40 = xor i64 %mul31, %w.sroa.16.0
-  %add.ptr42 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 40
-  %add.ptr42.val = load i64, ptr %add.ptr42, align 1
-  %add44 = add i64 %add.ptr42.val, %v.sroa.0.0
-  %add45 = add i64 %add44, %mul38
-  %add47 = add i64 %w.sroa.0.0, %z.0
-  %or.i.i251 = tail call i64 @llvm.fshl.i64(i64 %add47, i64 %add47, i64 31)
-  %mul49 = mul i64 %or.i.i251, -5435081209227447693
-  %mul51 = mul i64 %v.sroa.16.0, -5435081209227447693
-  %s.val.i = load i64, ptr %s.addr.0, align 1
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 16
-  %add.ptr2.val.i = load i64, ptr %add.ptr2.i, align 1
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 24
-  %add.ptr4.val.i = load i64, ptr %add.ptr4.i, align 1
-  %add.i.i253 = add i64 %s.val.i, %mul51
-  %add53 = add i64 %add.i.i253, %w.sroa.0.0
-  %add1.i.i = add i64 %add53, %xor40
-  %add2.i.i254 = add i64 %add1.i.i, %add.ptr4.val.i
-  %or.i.i.i.i255 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i254, i64 %add2.i.i254, i64 43)
-  %add3.i.i = add i64 %add.i.i253, %add.ptr27.val
-  %add4.i.i = add i64 %add3.i.i, %add.ptr2.val.i
-  %or.i.i22.i.i = tail call i64 @llvm.fshl.i64(i64 %add4.i.i, i64 %add4.i.i, i64 20)
-  %add7.i.i256 = add i64 %add4.i.i, %add.ptr4.val.i
-  %add6.i.i = add i64 %or.i.i22.i.i, %add.i.i253
-  %add9.i.i257 = add i64 %add6.i.i, %or.i.i.i.i255
-  %add.ptr57 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 32
-  %add59 = add i64 %mul49, %w.sroa.16.0
-  %add62 = add i64 %add45, %add.ptr2.val.i
-  %s.val.i258 = load i64, ptr %add.ptr57, align 1
-  %add.ptr4.i263 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 56
-  %add.ptr4.val.i264 = load i64, ptr %add.ptr4.i263, align 1
-  %add.i.i265 = add i64 %add59, %s.val.i258
-  %add1.i.i266 = add i64 %add62, %add.i.i265
-  %add2.i.i267 = add i64 %add1.i.i266, %add.ptr4.val.i264
-  %or.i.i.i.i268 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i267, i64 %add2.i.i267, i64 43)
-  %add3.i.i269 = add i64 %add.ptr42.val, %add.ptr34.val
-  %add4.i.i270 = add i64 %add3.i.i269, %add.i.i265
-  %or.i.i22.i.i271 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i270, i64 %add4.i.i270, i64 20)
-  %add7.i.i272 = add i64 %add4.i.i270, %add.ptr4.val.i264
-  %add6.i.i273 = add i64 %or.i.i22.i.i271, %add.i.i265
-  %add9.i.i274 = add i64 %add6.i.i273, %or.i.i.i.i268
-  %add.ptr65 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 64
-  %add66 = add i64 %add45, %mul49
-  %add68 = add i64 %add66, %add7.i.i256
-  %add.ptr69 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 72
-  %add.ptr69.val = load i64, ptr %add.ptr69, align 1
-  %add71 = add i64 %add68, %add.ptr69.val
-  %or.i.i281 = tail call i64 @llvm.fshl.i64(i64 %add71, i64 %add71, i64 27)
-  %mul73 = mul i64 %or.i.i281, -5435081209227447693
-  %add75 = add i64 %add9.i.i257, %add45
-  %add.ptr76 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 112
-  %add.ptr76.val = load i64, ptr %add.ptr76, align 1
-  %add78 = add i64 %add75, %add.ptr76.val
-  %or.i.i284 = tail call i64 @llvm.fshl.i64(i64 %add78, i64 %add78, i64 22)
-  %mul80 = mul i64 %or.i.i284, -5435081209227447693
-  %xor82 = xor i64 %add9.i.i274, %mul73
-  %add.ptr84 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 104
-  %add.ptr84.val = load i64, ptr %add.ptr84, align 1
-  %add86 = add i64 %add.ptr84.val, %add7.i.i256
-  %add87 = add i64 %add86, %mul80
-  %add89 = add i64 %add7.i.i272, %xor40
-  %or.i.i287 = tail call i64 @llvm.fshl.i64(i64 %add89, i64 %add89, i64 31)
-  %mul91 = mul i64 %or.i.i287, -5435081209227447693
-  %mul94 = mul i64 %add9.i.i257, -5435081209227447693
-  %s.val.i288 = load i64, ptr %add.ptr65, align 1
-  %add.ptr2.i291 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 80
-  %add.ptr2.val.i292 = load i64, ptr %add.ptr2.i291, align 1
-  %add.ptr4.i293 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 88
-  %add.ptr4.val.i294 = load i64, ptr %add.ptr4.i293, align 1
-  %add.i.i295 = add i64 %s.val.i288, %mul94
-  %add96 = add i64 %add.i.i295, %add7.i.i272
-  %add1.i.i296 = add i64 %add96, %xor82
-  %add2.i.i297 = add i64 %add1.i.i296, %add.ptr4.val.i294
-  %or.i.i.i.i298 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i297, i64 %add2.i.i297, i64 43)
-  %add3.i.i299 = add i64 %add.i.i295, %add.ptr69.val
-  %add4.i.i300 = add i64 %add3.i.i299, %add.ptr2.val.i292
-  %or.i.i22.i.i301 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i300, i64 %add4.i.i300, i64 20)
-  %add7.i.i302 = add i64 %add4.i.i300, %add.ptr4.val.i294
-  %add6.i.i303 = add i64 %or.i.i22.i.i301, %add.i.i295
-  %add9.i.i304 = add i64 %add6.i.i303, %or.i.i.i.i298
-  %add.ptr100 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 96
-  %add102 = add i64 %mul91, %add9.i.i274
-  %add105 = add i64 %add87, %add.ptr2.val.i292
-  %s.val.i309 = load i64, ptr %add.ptr100, align 1
-  %add.ptr4.i314 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 120
-  %add.ptr4.val.i315 = load i64, ptr %add.ptr4.i314, align 1
-  %add.i.i316 = add i64 %add102, %s.val.i309
-  %add1.i.i317 = add i64 %add105, %add.i.i316
-  %add2.i.i318 = add i64 %add1.i.i317, %add.ptr4.val.i315
-  %or.i.i.i.i319 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i318, i64 %add2.i.i318, i64 43)
-  %add3.i.i320 = add i64 %add.ptr84.val, %add.ptr76.val
-  %add4.i.i321 = add i64 %add3.i.i320, %add.i.i316
-  %or.i.i22.i.i322 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i321, i64 %add4.i.i321, i64 20)
-  %add7.i.i323 = add i64 %add4.i.i321, %add.ptr4.val.i315
-  %add6.i.i324 = add i64 %or.i.i22.i.i322, %add.i.i316
-  %add9.i.i325 = add i64 %add6.i.i324, %or.i.i.i.i319
-  %add.ptr108 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 128
-  %sub = add i64 %len.addr.0, -128
-  %cmp109 = icmp ugt i64 %sub, 127
-  br i1 %cmp109, label %do.body, label %do.end, !prof !24, !llvm.loop !25
+167:                                              ; preds = %167, %149
+  %.0183 = phi i64 [ %150, %149 ], [ %226, %167 ]
+  %.0181 = phi i64 [ %2, %149 ], [ %232, %167 ]
+  %.sroa.16.0 = phi i64 [ %166, %149 ], [ %260, %167 ]
+  %.sroa.0136.0 = phi i64 [ %162, %149 ], [ %258, %167 ]
+  %.sroa.16166.0 = phi i64 [ %158, %149 ], [ %246, %167 ]
+  %.sroa.0159.0 = phi i64 [ %154, %149 ], [ %244, %167 ]
+  %.061 = phi i64 [ %1, %149 ], [ %262, %167 ]
+  %.060 = phi ptr [ %0, %149 ], [ %261, %167 ]
+  %.059 = phi i64 [ %3, %149 ], [ %229, %167 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.060, i64 8
+  %.val74 = load i64, ptr %168, align 1
+  %169 = add i64 %.sroa.0159.0, %.0181
+  %170 = add i64 %169, %.059
+  %171 = add i64 %170, %.val74
+  %172 = tail call i64 @llvm.fshl.i64(i64 %171, i64 %171, i64 27)
+  %173 = mul i64 %172, -5435081209227447693
+  %174 = add i64 %.059, %.sroa.16166.0
+  %175 = getelementptr inbounds nuw i8, ptr %.060, i64 48
+  %.val73 = load i64, ptr %175, align 1
+  %176 = add i64 %174, %.val73
+  %177 = tail call i64 @llvm.fshl.i64(i64 %176, i64 %176, i64 22)
+  %178 = mul i64 %177, -5435081209227447693
+  %179 = xor i64 %173, %.sroa.16.0
+  %180 = getelementptr inbounds nuw i8, ptr %.060, i64 40
+  %.val72 = load i64, ptr %180, align 1
+  %181 = add i64 %.val72, %.sroa.0159.0
+  %182 = add i64 %181, %178
+  %183 = add i64 %.sroa.0136.0, %.0183
+  %184 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 31)
+  %185 = mul i64 %184, -5435081209227447693
+  %186 = mul i64 %.sroa.16166.0, -5435081209227447693
+  %.val7.i = load i64, ptr %.060, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %.060, i64 16
+  %.val5.i = load i64, ptr %187, align 1
+  %188 = getelementptr inbounds nuw i8, ptr %.060, i64 24
+  %.val.i78 = load i64, ptr %188, align 1
+  %189 = add i64 %.val7.i, %186
+  %190 = add i64 %189, %.sroa.0136.0
+  %191 = add i64 %190, %179
+  %192 = add i64 %191, %.val.i78
+  %193 = tail call i64 @llvm.fshl.i64(i64 %192, i64 %192, i64 43)
+  %194 = add i64 %189, %.val74
+  %195 = add i64 %194, %.val5.i
+  %196 = tail call i64 @llvm.fshl.i64(i64 %195, i64 %195, i64 20)
+  %197 = add i64 %195, %.val.i78
+  %198 = add i64 %196, %189
+  %199 = add i64 %198, %193
+  %200 = getelementptr inbounds nuw i8, ptr %.060, i64 32
+  %201 = add i64 %185, %.sroa.16.0
+  %202 = add i64 %182, %.val5.i
+  %.val7.i79 = load i64, ptr %200, align 1
+  %203 = getelementptr inbounds nuw i8, ptr %.060, i64 56
+  %.val.i82 = load i64, ptr %203, align 1
+  %204 = add i64 %201, %.val7.i79
+  %205 = add i64 %202, %204
+  %206 = add i64 %205, %.val.i82
+  %207 = tail call i64 @llvm.fshl.i64(i64 %206, i64 %206, i64 43)
+  %208 = add i64 %204, %.val72
+  %209 = add i64 %208, %.val73
+  %210 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %209, i64 20)
+  %211 = add i64 %209, %.val.i82
+  %212 = add i64 %210, %204
+  %213 = add i64 %212, %207
+  %214 = getelementptr inbounds nuw i8, ptr %.060, i64 64
+  %215 = add i64 %182, %185
+  %216 = add i64 %215, %197
+  %217 = getelementptr inbounds nuw i8, ptr %.060, i64 72
+  %.val70 = load i64, ptr %217, align 1
+  %218 = add i64 %216, %.val70
+  %219 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 27)
+  %220 = mul i64 %219, -5435081209227447693
+  %221 = add i64 %199, %182
+  %222 = getelementptr inbounds nuw i8, ptr %.060, i64 112
+  %.val69 = load i64, ptr %222, align 1
+  %223 = add i64 %221, %.val69
+  %224 = tail call i64 @llvm.fshl.i64(i64 %223, i64 %223, i64 22)
+  %225 = mul i64 %224, -5435081209227447693
+  %226 = xor i64 %220, %213
+  %227 = getelementptr inbounds nuw i8, ptr %.060, i64 104
+  %.val68 = load i64, ptr %227, align 1
+  %228 = add i64 %.val68, %197
+  %229 = add i64 %228, %225
+  %230 = add i64 %211, %179
+  %231 = tail call i64 @llvm.fshl.i64(i64 %230, i64 %230, i64 31)
+  %232 = mul i64 %231, -5435081209227447693
+  %233 = mul i64 %199, -5435081209227447693
+  %234 = add i64 %226, %211
+  %.val7.i85 = load i64, ptr %214, align 1
+  %235 = getelementptr inbounds nuw i8, ptr %.060, i64 80
+  %.val5.i87 = load i64, ptr %235, align 1
+  %236 = getelementptr inbounds nuw i8, ptr %.060, i64 88
+  %.val.i88 = load i64, ptr %236, align 1
+  %237 = add i64 %.val7.i85, %233
+  %238 = add i64 %234, %237
+  %239 = add i64 %238, %.val.i88
+  %240 = tail call i64 @llvm.fshl.i64(i64 %239, i64 %239, i64 43)
+  %241 = add i64 %237, %.val70
+  %242 = add i64 %241, %.val5.i87
+  %243 = tail call i64 @llvm.fshl.i64(i64 %242, i64 %242, i64 20)
+  %244 = add i64 %242, %.val.i88
+  %245 = add i64 %243, %237
+  %246 = add i64 %245, %240
+  %247 = getelementptr inbounds nuw i8, ptr %.060, i64 96
+  %248 = add i64 %232, %213
+  %249 = add i64 %.val5.i87, %229
+  %.val7.i91 = load i64, ptr %247, align 1
+  %250 = getelementptr inbounds nuw i8, ptr %.060, i64 120
+  %.val.i94 = load i64, ptr %250, align 1
+  %251 = add i64 %248, %.val7.i91
+  %252 = add i64 %249, %251
+  %253 = add i64 %252, %.val.i94
+  %254 = tail call i64 @llvm.fshl.i64(i64 %253, i64 %253, i64 43)
+  %255 = add i64 %251, %.val68
+  %256 = add i64 %255, %.val69
+  %257 = tail call i64 @llvm.fshl.i64(i64 %256, i64 %256, i64 20)
+  %258 = add i64 %256, %.val.i94
+  %259 = add i64 %257, %251
+  %260 = add i64 %259, %254
+  %261 = getelementptr inbounds nuw i8, ptr %.060, i64 128
+  %262 = add i64 %.061, -128
+  %263 = icmp ugt i64 %262, 127
+  br i1 %263, label %167, label %264, !prof !22, !llvm.loop !23
 
-do.end:                                           ; preds = %do.body
-  %add112 = add i64 %add7.i.i302, %xor82
-  %or.i.i332 = tail call i64 @llvm.fshl.i64(i64 %add112, i64 %add112, i64 15)
-  %mul114 = mul i64 %or.i.i332, -4348849565147123417
-  %add115 = add i64 %mul114, %mul91
-  %mul116 = mul i64 %add87, -4348849565147123417
-  %or.i.i335 = tail call i64 @llvm.fshl.i64(i64 %add9.i.i325, i64 %add9.i.i325, i64 27)
-  %add119 = add i64 %or.i.i335, %mul116
-  %mul120 = mul i64 %xor82, -4348849565147123417
-  %or.i.i338 = tail call i64 @llvm.fshl.i64(i64 %add7.i.i323, i64 %add7.i.i323, i64 37)
-  %add123 = add i64 %or.i.i338, %mul120
-  %mul125 = mul i64 %add7.i.i323, 9
-  %storemerge457 = mul i64 %add7.i.i302, -4348849565147123417
-  %cmp128458.not = icmp eq i64 %sub, 0
-  br i1 %cmp128458.not, label %for.cond.cleanup, label %for.body.lr.ph
+264:                                              ; preds = %167
+  %265 = add i64 %244, %226
+  %266 = tail call i64 @llvm.fshl.i64(i64 %265, i64 %265, i64 15)
+  %267 = mul i64 %266, -4348849565147123417
+  %268 = add i64 %267, %232
+  %269 = mul i64 %229, -4348849565147123417
+  %270 = tail call i64 @llvm.fshl.i64(i64 %260, i64 %260, i64 27)
+  %271 = add i64 %270, %269
+  %272 = mul i64 %226, -4348849565147123417
+  %273 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 37)
+  %274 = add i64 %273, %272
+  %275 = mul i64 %258, 9
+  %storemerge199 = mul i64 %244, -4348849565147123417
+  %.not = icmp eq i64 %262, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %do.end
-  %add.ptr135 = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 %len.addr.0
-  br label %for.body
+.lr.ph:                                           ; preds = %264
+  %276 = getelementptr i8, ptr %.060, i64 %.061
+  br label %310
 
-for.cond.cleanup:                                 ; preds = %for.body, %do.end
-  %z.1.lcssa = phi i64 [ %add123, %do.end ], [ %add150, %for.body ]
-  %x.1.lcssa = phi i64 [ %add115, %do.end ], [ %add143, %for.body ]
-  %w.sroa.16.1.lcssa = phi i64 [ %add9.i.i325, %do.end ], [ %add153, %for.body ]
-  %w.sroa.0.1.lcssa = phi i64 [ %mul125, %do.end ], [ %add140, %for.body ]
-  %v.sroa.16.1.lcssa = phi i64 [ %add9.i.i304, %do.end ], [ %add9.i.i385, %for.body ]
-  %y.1.lcssa = phi i64 [ %add119, %do.end ], [ %add134, %for.body ]
-  %storemerge.lcssa = phi i64 [ %storemerge457, %do.end ], [ %storemerge, %for.body ]
-  %xor.i.i339 = xor i64 %storemerge.lcssa, %x.1.lcssa
-  %mul.i.i = mul i64 %xor.i.i339, -7070675565921424023
-  %shr.i.i340 = lshr i64 %mul.i.i, 47
-  %10 = xor i64 %storemerge.lcssa, %shr.i.i340
-  %xor6.i.i = xor i64 %10, %mul.i.i
-  %mul7.i.i = mul i64 %xor6.i.i, -7070675565921424023
-  %shr8.i.i = lshr i64 %mul7.i.i, 47
-  %xor9.i.i = xor i64 %shr8.i.i, %mul7.i.i
-  %mul10.i.i341 = mul i64 %xor9.i.i, -7070675565921424023
-  %add167 = add i64 %y.1.lcssa, %z.1.lcssa
-  %xor.i.i342 = xor i64 %add167, %w.sroa.0.1.lcssa
-  %mul.i.i343 = mul i64 %xor.i.i342, -7070675565921424023
-  %shr.i.i344 = lshr i64 %mul.i.i343, 47
-  %11 = xor i64 %w.sroa.0.1.lcssa, %shr.i.i344
-  %xor6.i.i345 = xor i64 %11, %mul.i.i343
-  %mul7.i.i346 = mul i64 %xor6.i.i345, -7070675565921424023
-  %shr8.i.i347 = lshr i64 %mul7.i.i346, 47
-  %xor9.i.i348 = xor i64 %shr8.i.i347, %mul7.i.i346
-  %mul10.i.i349 = mul i64 %xor9.i.i348, -7070675565921424023
-  %add171 = add i64 %mul10.i.i341, %v.sroa.16.1.lcssa
-  %xor.i.i350 = xor i64 %add171, %w.sroa.16.1.lcssa
-  %mul.i.i351 = mul i64 %xor.i.i350, -7070675565921424023
-  %shr.i.i352 = lshr i64 %mul.i.i351, 47
-  %12 = xor i64 %w.sroa.16.1.lcssa, %shr.i.i352
-  %xor6.i.i353 = xor i64 %12, %mul.i.i351
-  %mul7.i.i354 = mul i64 %xor6.i.i353, -7070675565921424023
-  %shr8.i.i355 = lshr i64 %mul7.i.i354, 47
-  %xor9.i.i356 = xor i64 %shr8.i.i355, %mul7.i.i354
-  %mul10.i.i357456 = add i64 %xor9.i.i356, %xor9.i.i348
-  %add174 = mul i64 %mul10.i.i357456, -7070675565921424023
-  %add176 = add i64 %mul10.i.i341, %w.sroa.16.1.lcssa
-  %add178 = add i64 %mul10.i.i349, %v.sroa.16.1.lcssa
-  %xor.i.i358 = xor i64 %add178, %add176
-  br label %return
+._crit_edge:                                      ; preds = %310, %264
+  %.1184.lcssa = phi i64 [ %274, %264 ], [ %323, %310 ]
+  %.1182.lcssa = phi i64 [ %268, %264 ], [ %321, %310 ]
+  %.sroa.16.1.lcssa = phi i64 [ %260, %264 ], [ %324, %310 ]
+  %.sroa.0136.1.lcssa = phi i64 [ %275, %264 ], [ %319, %310 ]
+  %.sroa.16166.1.lcssa = phi i64 [ %246, %264 ], [ %337, %310 ]
+  %.1.lcssa = phi i64 [ %271, %264 ], [ %315, %310 ]
+  %storemerge.lcssa = phi i64 [ %storemerge199, %264 ], [ %storemerge, %310 ]
+  %277 = xor i64 %storemerge.lcssa, %.1182.lcssa
+  %278 = mul i64 %277, -7070675565921424023
+  %279 = lshr i64 %278, 47
+  %280 = xor i64 %storemerge.lcssa, %279
+  %281 = xor i64 %280, %278
+  %282 = mul i64 %281, -7070675565921424023
+  %283 = lshr i64 %282, 47
+  %284 = xor i64 %283, %282
+  %285 = mul i64 %284, -7070675565921424023
+  %286 = add i64 %.1.lcssa, %.1184.lcssa
+  %287 = xor i64 %286, %.sroa.0136.1.lcssa
+  %288 = mul i64 %287, -7070675565921424023
+  %289 = lshr i64 %288, 47
+  %290 = xor i64 %.sroa.0136.1.lcssa, %289
+  %291 = xor i64 %290, %288
+  %292 = mul i64 %291, -7070675565921424023
+  %293 = lshr i64 %292, 47
+  %294 = xor i64 %293, %292
+  %295 = mul i64 %294, -7070675565921424023
+  %296 = add i64 %285, %.sroa.16166.1.lcssa
+  %297 = xor i64 %296, %.sroa.16.1.lcssa
+  %298 = mul i64 %297, -7070675565921424023
+  %299 = lshr i64 %298, 47
+  %300 = xor i64 %.sroa.16.1.lcssa, %299
+  %301 = xor i64 %300, %298
+  %302 = mul i64 %301, -7070675565921424023
+  %303 = lshr i64 %302, 47
+  %304 = xor i64 %303, %302
+  %305 = add i64 %304, %294
+  %306 = mul i64 %305, -7070675565921424023
+  %307 = add i64 %285, %.sroa.16.1.lcssa
+  %308 = add i64 %295, %.sroa.16166.1.lcssa
+  %309 = xor i64 %308, %307
+  br label %339
 
-for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %storemerge466 = phi i64 [ %storemerge457, %for.body.lr.ph ], [ %storemerge, %for.body ]
-  %tail_done.0465 = phi i64 [ 0, %for.body.lr.ph ], [ %add129, %for.body ]
-  %y.1464 = phi i64 [ %add119, %for.body.lr.ph ], [ %add134, %for.body ]
-  %v.sroa.16.1463 = phi i64 [ %add9.i.i304, %for.body.lr.ph ], [ %add9.i.i385, %for.body ]
-  %w.sroa.0.1462 = phi i64 [ %mul125, %for.body.lr.ph ], [ %add140, %for.body ]
-  %w.sroa.16.1461 = phi i64 [ %add9.i.i325, %for.body.lr.ph ], [ %add153, %for.body ]
-  %x.1460 = phi i64 [ %add115, %for.body.lr.ph ], [ %add143, %for.body ]
-  %z.1459 = phi i64 [ %add123, %for.body.lr.ph ], [ %add150, %for.body ]
-  %add129 = add nuw nsw i64 %tail_done.0465, 32
-  %add130 = add i64 %x.1460, %y.1464
-  %or.i.i368 = tail call i64 @llvm.fshl.i64(i64 %add130, i64 %add130, i64 22)
-  %mul132 = mul i64 %or.i.i368, -4348849565147123417
-  %add134 = add i64 %mul132, %v.sroa.16.1463
-  %idx.neg = sub nuw nsw i64 -32, %tail_done.0465
-  %add.ptr136 = getelementptr inbounds i8, ptr %add.ptr135, i64 %idx.neg
-  %add.ptr137 = getelementptr inbounds nuw i8, ptr %add.ptr136, i64 16
-  %add.ptr137.val = load i64, ptr %add.ptr137, align 1
-  %add140 = add i64 %add.ptr137.val, %w.sroa.0.1462
-  %mul141 = mul i64 %x.1460, -4348849565147123417
-  %add143 = add i64 %add140, %mul141
-  %add.ptr136.val = load i64, ptr %add.ptr136, align 1
-  %add149 = add i64 %z.1459, %w.sroa.16.1461
-  %add150 = add i64 %add149, %add.ptr136.val
-  %add153 = add i64 %w.sroa.16.1461, %storemerge466
-  %add.ptr.i370 = getelementptr inbounds nuw i8, ptr %add.ptr136, i64 8
-  %add.ptr.val.i371 = load i64, ptr %add.ptr.i370, align 1
-  %add.ptr4.i374 = getelementptr inbounds nuw i8, ptr %add.ptr136, i64 24
-  %add.ptr4.val.i375 = load i64, ptr %add.ptr4.i374, align 1
-  %add159 = add i64 %add.ptr136.val, %storemerge466
-  %add.i.i376 = add i64 %add159, %add150
-  %add1.i.i377 = add i64 %add.ptr4.val.i375, %v.sroa.16.1463
-  %add2.i.i378 = add i64 %add1.i.i377, %add.i.i376
-  %or.i.i.i.i379 = tail call i64 @llvm.fshl.i64(i64 %add2.i.i378, i64 %add2.i.i378, i64 43)
-  %add3.i.i380 = add i64 %add.ptr.val.i371, %add.ptr137.val
-  %add4.i.i381 = add i64 %add3.i.i380, %add.i.i376
-  %or.i.i22.i.i382 = tail call i64 @llvm.fshl.i64(i64 %add4.i.i381, i64 %add4.i.i381, i64 20)
-  %add7.i.i383 = add i64 %add4.i.i381, %add.ptr4.val.i375
-  %add6.i.i384 = add i64 %or.i.i22.i.i382, %add.i.i376
-  %add9.i.i385 = add i64 %add6.i.i384, %or.i.i.i.i379
-  %storemerge = mul i64 %add7.i.i383, -4348849565147123417
-  %cmp128 = icmp ult i64 %add129, %sub
-  br i1 %cmp128, label %for.body, label %for.cond.cleanup, !llvm.loop !26
+310:                                              ; preds = %.lr.ph, %310
+  %storemerge207 = phi i64 [ %storemerge199, %.lr.ph ], [ %storemerge, %310 ]
+  %.0206 = phi i64 [ 0, %.lr.ph ], [ %311, %310 ]
+  %.1205 = phi i64 [ %271, %.lr.ph ], [ %315, %310 ]
+  %.sroa.16166.1204 = phi i64 [ %246, %.lr.ph ], [ %337, %310 ]
+  %.sroa.0136.1203 = phi i64 [ %275, %.lr.ph ], [ %319, %310 ]
+  %.sroa.16.1202 = phi i64 [ %260, %.lr.ph ], [ %324, %310 ]
+  %.1182201 = phi i64 [ %268, %.lr.ph ], [ %321, %310 ]
+  %.1184200 = phi i64 [ %274, %.lr.ph ], [ %323, %310 ]
+  %311 = add nuw nsw i64 %.0206, 32
+  %312 = add i64 %.1205, %.1182201
+  %313 = tail call i64 @llvm.fshl.i64(i64 %312, i64 %312, i64 22)
+  %314 = mul i64 %313, -4348849565147123417
+  %315 = add i64 %314, %.sroa.16166.1204
+  %316 = sub nuw nsw i64 -32, %.0206
+  %317 = getelementptr inbounds i8, ptr %276, i64 %316
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
+  %.val66 = load i64, ptr %318, align 1
+  %319 = add i64 %.val66, %.sroa.0136.1203
+  %320 = mul i64 %.1182201, -4348849565147123417
+  %321 = add i64 %319, %320
+  %.val = load i64, ptr %317, align 1
+  %322 = add i64 %.sroa.16.1202, %.1184200
+  %323 = add i64 %322, %.val
+  %324 = add i64 %storemerge207, %.sroa.16.1202
+  %325 = getelementptr inbounds nuw i8, ptr %317, i64 8
+  %.val6.i98 = load i64, ptr %325, align 1
+  %326 = getelementptr inbounds nuw i8, ptr %317, i64 24
+  %.val.i100 = load i64, ptr %326, align 1
+  %327 = add i64 %.val, %storemerge207
+  %328 = add i64 %327, %323
+  %329 = add i64 %.val.i100, %.sroa.16166.1204
+  %330 = add i64 %329, %328
+  %331 = tail call i64 @llvm.fshl.i64(i64 %330, i64 %330, i64 43)
+  %332 = add i64 %.val6.i98, %.val66
+  %333 = add i64 %332, %328
+  %334 = tail call i64 @llvm.fshl.i64(i64 %333, i64 %333, i64 20)
+  %335 = add i64 %333, %.val.i100
+  %336 = add i64 %334, %328
+  %337 = add i64 %336, %331
+  %storemerge = mul i64 %335, -4348849565147123417
+  %338 = icmp ult i64 %311, %262
+  br i1 %338, label %310, label %._crit_edge, !llvm.loop !24
 
-return:                                           ; preds = %for.cond.cleanup, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit
-  %xor.i.i358.sink = phi i64 [ %xor.i.i358, %for.cond.cleanup ], [ %xor41.i, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
-  %add178.sink = phi i64 [ %add178, %for.cond.cleanup ], [ %mul10.i.i107.i, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
-  %xor41.i.pn = phi i64 [ %add174, %for.cond.cleanup ], [ %xor41.i, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
-  %mul.i.i359 = mul i64 %xor.i.i358.sink, -7070675565921424023
-  %shr.i.i360 = lshr i64 %mul.i.i359, 47
-  %13 = xor i64 %add178.sink, %shr.i.i360
-  %xor6.i.i361 = xor i64 %13, %mul.i.i359
-  %mul7.i.i362 = mul i64 %xor6.i.i361, -7070675565921424023
-  %shr8.i.i363 = lshr i64 %mul7.i.i362, 47
-  %xor9.i.i364 = xor i64 %shr8.i.i363, %mul7.i.i362
-  %mul10.i.i123.i.pn = mul i64 %xor9.i.i364, -7070675565921424023
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i64 } undef, i64 %xor41.i.pn, 0
-  %call.pn = insertvalue { i64, i64 } %.fca.0.insert.i.i.pn, i64 %mul10.i.i123.i.pn, 1
-  ret { i64, i64 } %call.pn
+339:                                              ; preds = %._crit_edge, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit
+  %.sink256 = phi i64 [ %309, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
+  %.sink = phi i64 [ %308, %._crit_edge ], [ %138, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
+  %.pn187 = phi i64 [ %306, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
+  %340 = mul i64 %.sink256, -7070675565921424023
+  %341 = lshr i64 %340, 47
+  %342 = xor i64 %.sink, %341
+  %343 = xor i64 %342, %340
+  %344 = mul i64 %343, -7070675565921424023
+  %345 = lshr i64 %344, 47
+  %346 = xor i64 %345, %344
+  %.pn185 = mul i64 %346, -7070675565921424023
+  %.fca.0.insert.i.i.pn = insertvalue { i64, i64 } poison, i64 %.pn187, 0
+  %.pn = insertvalue { i64, i64 } %.fca.0.insert.i.i.pn, i64 %.pn185, 1
+  ret { i64, i64 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp ugt i64 %len, 15
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+define { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ugt i64 %1, 15
+  br i1 %3, label %4, label %10
 
-cond.true.i:                                      ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %sub.i = add i64 %len, -16
-  %s.val.i = load i64, ptr %s, align 1
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr1.val.i = load i64, ptr %add.ptr1.i, align 1
-  %add.i = add i64 %add.ptr1.val.i, -4348849565147123417
-  %call4.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, i64 %s.val.i, i64 %add.i)
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = add i64 %1, -16
+  %.val10.i = load i64, ptr %0, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i = load i64, ptr %7, align 1
+  %8 = add i64 %.val.i, -4348849565147123417
+  %9 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull readonly %5, i64 noundef %6, i64 %.val10.i, i64 %8)
   br label %_ZN5folly8external8farmhash10farmhashccL11CityHash128EPKcm.exit
 
-cond.false.i:                                     ; preds = %entry
-  %call7.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %s, i64 noundef %len, i64 -4348849565147123417, i64 -5435081209227447693)
+10:                                               ; preds = %2
+  %11 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
   br label %_ZN5folly8external8farmhash10farmhashccL11CityHash128EPKcm.exit
 
-_ZN5folly8external8farmhash10farmhashccL11CityHash128EPKcm.exit: ; preds = %cond.false.i, %cond.true.i
-  %call4.pn.i = phi { i64, i64 } [ %call4.i, %cond.true.i ], [ %call7.i, %cond.false.i ]
-  ret { i64, i64 } %call4.pn.i
+_ZN5folly8external8farmhash10farmhashccL11CityHash128EPKcm.exit: ; preds = %4, %10
+  %.pn.i = phi { i64, i64 } [ %9, %4 ], [ %11, %10 ]
+  ret { i64, i64 } %.pn.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash6Hash32EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef %s, i64 noundef %len)
-  ret i32 %call
+define noundef i32 @_ZN5folly8external8farmhash6Hash32EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef %0, i64 noundef %1)
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %s, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk14Hash32WithSeedEPKcmj(ptr noundef %s, i64 noundef %len, i32 noundef %seed)
-  ret i32 %call
+define noundef i32 @_ZN5folly8external8farmhash14Hash32WithSeedEPKcmj(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk14Hash32WithSeedEPKcmj(ptr noundef %0, i64 noundef %1, i32 noundef %2)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash6Hash64EPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  ret i64 %call
+define noundef i64 @_ZN5folly8external8farmhash6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash4HashEPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  ret i64 %call.i
+define noundef i64 @_ZN5folly8external8farmhash4HashEPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash14Hash64WithSeedEPKcmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
-entry:
-  %call.i.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i.i = add i64 %call.i.i, 7286425919675154353
-  %xor.i.i.i.i = xor i64 %sub.i.i, %seed
-  %mul.i.i.i.i = mul i64 %xor.i.i.i.i, -7070675565921424023
-  %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 47
-  %0 = xor i64 %seed, %shr.i.i.i.i
-  %xor6.i.i.i.i = xor i64 %0, %mul.i.i.i.i
-  %mul7.i.i.i.i = mul i64 %xor6.i.i.i.i, -7070675565921424023
-  %shr8.i.i.i.i = lshr i64 %mul7.i.i.i.i, 47
-  %xor9.i.i.i.i = xor i64 %shr8.i.i.i.i, %mul7.i.i.i.i
-  %mul10.i.i.i.i = mul i64 %xor9.i.i.i.i, -7070675565921424023
-  ret i64 %mul10.i.i.i.i
+define noundef i64 @_ZN5folly8external8farmhash14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %5 = add i64 %4, 7286425919675154353
+  %6 = xor i64 %5, %2
+  %7 = mul i64 %6, -7070675565921424023
+  %8 = lshr i64 %7, 47
+  %9 = xor i64 %2, %8
+  %10 = xor i64 %9, %7
+  %11 = mul i64 %10, -7070675565921424023
+  %12 = lshr i64 %11, 47
+  %13 = xor i64 %12, %11
+  %14 = mul i64 %13, -7070675565921424023
+  ret i64 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  %sub.i = sub i64 %call.i, %seed0
-  %xor.i.i.i = xor i64 %sub.i, %seed1
-  %mul.i.i.i = mul i64 %xor.i.i.i, -7070675565921424023
-  %shr.i.i.i = lshr i64 %mul.i.i.i, 47
-  %0 = xor i64 %seed1, %shr.i.i.i
-  %xor6.i.i.i = xor i64 %0, %mul.i.i.i
-  %mul7.i.i.i = mul i64 %xor6.i.i.i, -7070675565921424023
-  %shr8.i.i.i = lshr i64 %mul7.i.i.i, 47
-  %xor9.i.i.i = xor i64 %shr8.i.i.i, %mul7.i.i.i
-  %mul10.i.i.i = mul i64 %xor9.i.i.i, -7070675565921424023
-  ret i64 %mul10.i.i.i
+define noundef i64 @_ZN5folly8external8farmhash15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  %6 = sub i64 %5, %2
+  %7 = xor i64 %6, %3
+  %8 = mul i64 %7, -7070675565921424023
+  %9 = lshr i64 %8, 47
+  %10 = xor i64 %3, %9
+  %11 = xor i64 %10, %8
+  %12 = mul i64 %11, -7070675565921424023
+  %13 = lshr i64 %12, 47
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -7070675565921424023
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5folly8external8farmhash7Hash128EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp.i.i = icmp ugt i64 %len, 15
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
+define { i64, i64 } @_ZN5folly8external8farmhash7Hash128EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ugt i64 %1, 15
+  br i1 %3, label %4, label %10
 
-cond.true.i.i:                                    ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %sub.i.i = add i64 %len, -16
-  %s.val.i.i = load i64, ptr %s, align 1
-  %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr1.val.i.i = load i64, ptr %add.ptr1.i.i, align 1
-  %add.i.i = add i64 %add.ptr1.val.i.i, -4348849565147123417
-  %call4.i.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %add.ptr.i.i, i64 noundef %sub.i.i, i64 %s.val.i.i, i64 %add.i.i)
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = add i64 %1, -16
+  %.val10.i.i = load i64, ptr %0, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i.i = load i64, ptr %7, align 1
+  %8 = add i64 %.val.i.i, -4348849565147123417
+  %9 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull readonly %5, i64 noundef %6, i64 %.val10.i.i, i64 %8)
   br label %_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit
 
-cond.false.i.i:                                   ; preds = %entry
-  %call7.i.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %s, i64 noundef %len, i64 -4348849565147123417, i64 -5435081209227447693)
+10:                                               ; preds = %2
+  %11 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
   br label %_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit
 
-_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit: ; preds = %cond.false.i.i, %cond.true.i.i
-  %call4.pn.i.i = phi { i64, i64 } [ %call4.i.i, %cond.true.i.i ], [ %call7.i.i, %cond.false.i.i ]
-  ret { i64, i64 } %call4.pn.i.i
+_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit: ; preds = %4, %10
+  %.pn.i.i = phi { i64, i64 } [ %9, %4 ], [ %11, %10 ]
+  ret { i64, i64 } %.pn.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5folly8external8farmhash15Hash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly captures(none) %s, i64 noundef %len, i64 %seed.coerce0, i64 %seed.coerce1) local_unnamed_addr #0 {
-entry:
-  %call = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %s, i64 noundef %len, i64 %seed.coerce0, i64 %seed.coerce1)
-  ret { i64, i64 } %call
+define { i64, i64 } @_ZN5folly8external8farmhash15Hash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 %2, i64 %3) local_unnamed_addr #0 {
+  %5 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 %2, i64 %3)
+  ret { i64, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5folly8external8farmhash13Fingerprint32EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef %s, i64 noundef %len)
-  ret i32 %call
+define noundef i32 @_ZN5folly8external8farmhash13Fingerprint32EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noundef %0, i64 noundef %1)
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash13Fingerprint64EPKcm(ptr noundef readonly captures(address) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %call = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %s, i64 noundef %len)
-  ret i64 %call
+define noundef i64 @_ZN5folly8external8farmhash13Fingerprint64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5folly8external8farmhash14Fingerprint128EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
-entry:
-  %cmp.i.i = icmp ugt i64 %len, 15
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
+define { i64, i64 } @_ZN5folly8external8farmhash14Fingerprint128EPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp ugt i64 %1, 15
+  br i1 %3, label %4, label %10
 
-cond.true.i.i:                                    ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %sub.i.i = add i64 %len, -16
-  %s.val.i.i = load i64, ptr %s, align 1
-  %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %add.ptr1.val.i.i = load i64, ptr %add.ptr1.i.i, align 1
-  %add.i.i = add i64 %add.ptr1.val.i.i, -4348849565147123417
-  %call4.i.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %add.ptr.i.i, i64 noundef %sub.i.i, i64 %s.val.i.i, i64 %add.i.i)
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = add i64 %1, -16
+  %.val10.i.i = load i64, ptr %0, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i.i = load i64, ptr %7, align 1
+  %8 = add i64 %.val.i.i, -4348849565147123417
+  %9 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull readonly %5, i64 noundef %6, i64 %.val10.i.i, i64 %8)
   br label %_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit
 
-cond.false.i.i:                                   ; preds = %entry
-  %call7.i.i = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %s, i64 noundef %len, i64 -4348849565147123417, i64 -5435081209227447693)
+10:                                               ; preds = %2
+  %11 = tail call { i64, i64 } @_ZN5folly8external8farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef readonly %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
   br label %_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit
 
-_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit: ; preds = %cond.false.i.i, %cond.true.i.i
-  %call4.pn.i.i = phi { i64, i64 } [ %call4.i.i, %cond.true.i.i ], [ %call7.i.i, %cond.false.i.i ]
-  ret { i64, i64 } %call4.pn.i.i
+_ZN5folly8external8farmhash10farmhashcc14Fingerprint128EPKcm.exit: ; preds = %4, %10
+  %.pn.i.i = phi { i64, i64 } [ %9, %4 ], [ %11, %10 ]
+  ret { i64, i64 } %.pn.i.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
@@ -3133,8 +2880,6 @@ attributes #4 = { noreturn nounwind }
 !19 = distinct !{!19, !11}
 !20 = distinct !{!20, !11}
 !21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !23 = distinct !{!23, !11}
-!24 = !{!"branch_weights", i32 2000, i32 1}
-!25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
+!24 = distinct !{!24, !11}

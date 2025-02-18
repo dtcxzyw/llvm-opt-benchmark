@@ -1,1483 +1,2191 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
-entry:
-  %rem = and i64 %length, 31
-  %0 = load i64, ptr %hash1, align 8, !tbaa !7
-  %1 = load i64, ptr %hash2, align 8, !tbaa !7
-  %cmp = icmp ugt i64 %length, 15
-  br i1 %cmp, label %if.then, label %if.end16
+%union.anon = type { ptr }
+%union.anon.0 = type { ptr }
+%"class.folly::hash::SpookyHashV1" = type <{ [24 x i64], [12 x i64], i64, i8, [7 x i8] }>
+%union.anon.1 = type { ptr }
 
-if.then:                                          ; preds = %entry
-  %2 = lshr i64 %length, 3
-  %mul = and i64 %2, 2305843009213693948
-  %add.ptr = getelementptr inbounds i64, ptr %message, i64 %mul
-  %cmp1294.not = icmp eq i64 %mul, 0
-  br i1 %cmp1294.not, label %for.end, label %for.body
+$_ZN5folly4hash12SpookyHashV18ShortMixERmS2_S2_S2_ = comdat any
 
-for.body:                                         ; preds = %for.body, %if.then
-  %u.sroa.0.0299 = phi ptr [ %add.ptr8, %for.body ], [ %message, %if.then ]
-  %d.0298 = phi i64 [ %xor33.i, %for.body ], [ -2401053088876216593, %if.then ]
-  %c.0297 = phi i64 [ %xor30.i, %for.body ], [ -2401053088876216593, %if.then ]
-  %b.0296 = phi i64 [ %add7, %for.body ], [ %1, %if.then ]
-  %a.0295 = phi i64 [ %add5, %for.body ], [ %0, %if.then ]
-  %3 = load i64, ptr %u.sroa.0.0299, align 8, !tbaa !7
-  %add = add i64 %3, %c.0297
-  %arrayidx2 = getelementptr inbounds i8, ptr %u.sroa.0.0299, i64 8
-  %4 = load i64, ptr %arrayidx2, align 8, !tbaa !7
-  %add3 = add i64 %4, %d.0298
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add, i64 %add, i64 50)
-  %add.i = add i64 %add3, %or.i.i
-  %xor.i = xor i64 %add.i, %a.0295
-  %or.i104.i = tail call i64 @llvm.fshl.i64(i64 %add3, i64 %add3, i64 52)
-  %add2.i = add i64 %xor.i, %or.i104.i
-  %xor3.i = xor i64 %add2.i, %b.0296
-  %or.i107.i = tail call i64 @llvm.fshl.i64(i64 %xor.i, i64 %xor.i, i64 30)
-  %add5.i = add i64 %xor3.i, %or.i107.i
-  %xor6.i = xor i64 %add5.i, %add.i
-  %or.i110.i = tail call i64 @llvm.fshl.i64(i64 %xor3.i, i64 %xor3.i, i64 41)
-  %add8.i = add i64 %xor6.i, %or.i110.i
-  %xor9.i = xor i64 %add8.i, %add2.i
-  %or.i113.i = tail call i64 @llvm.fshl.i64(i64 %xor6.i, i64 %xor6.i, i64 54)
-  %add11.i = add i64 %xor9.i, %or.i113.i
-  %xor12.i = xor i64 %add11.i, %add5.i
-  %or.i116.i = tail call i64 @llvm.fshl.i64(i64 %xor9.i, i64 %xor9.i, i64 48)
-  %add14.i = add i64 %xor12.i, %or.i116.i
-  %xor15.i = xor i64 %add14.i, %add8.i
-  %or.i119.i = tail call i64 @llvm.fshl.i64(i64 %xor12.i, i64 %xor12.i, i64 38)
-  %add17.i = add i64 %xor15.i, %or.i119.i
-  %xor18.i = xor i64 %add17.i, %add11.i
-  %or.i122.i = tail call i64 @llvm.fshl.i64(i64 %xor15.i, i64 %xor15.i, i64 37)
-  %add20.i = add i64 %xor18.i, %or.i122.i
-  %xor21.i = xor i64 %add20.i, %add14.i
-  %or.i125.i = tail call i64 @llvm.fshl.i64(i64 %xor18.i, i64 %xor18.i, i64 62)
-  %add23.i = add i64 %xor21.i, %or.i125.i
-  %xor24.i = xor i64 %add23.i, %add17.i
-  %or.i128.i = tail call i64 @llvm.fshl.i64(i64 %xor21.i, i64 %xor21.i, i64 34)
-  %add26.i = add i64 %xor24.i, %or.i128.i
-  %xor27.i = xor i64 %add26.i, %add20.i
-  %or.i131.i = tail call i64 @llvm.fshl.i64(i64 %xor24.i, i64 %xor24.i, i64 5)
-  %add29.i = add i64 %xor27.i, %or.i131.i
-  %xor30.i = xor i64 %add29.i, %add23.i
-  %or.i134.i = tail call i64 @llvm.fshl.i64(i64 %xor27.i, i64 %xor27.i, i64 36)
-  %add32.i = add i64 %xor30.i, %or.i134.i
-  %xor33.i = xor i64 %add32.i, %add26.i
-  %arrayidx4 = getelementptr inbounds i8, ptr %u.sroa.0.0299, i64 16
-  %5 = load i64, ptr %arrayidx4, align 8, !tbaa !7
-  %add5 = add i64 %add29.i, %5
-  %arrayidx6 = getelementptr inbounds i8, ptr %u.sroa.0.0299, i64 24
-  %6 = load i64, ptr %arrayidx6, align 8, !tbaa !7
-  %add7 = add i64 %add32.i, %6
-  %add.ptr8 = getelementptr inbounds i8, ptr %u.sroa.0.0299, i64 32
-  %cmp1 = icmp ult ptr %add.ptr8, %add.ptr
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !11
+$_ZN5folly4hash12SpookyHashV18ShortEndERmS2_S2_S2_ = comdat any
 
-for.end:                                          ; preds = %for.body, %if.then
-  %a.0.lcssa = phi i64 [ %0, %if.then ], [ %add5, %for.body ]
-  %b.0.lcssa = phi i64 [ %1, %if.then ], [ %add7, %for.body ]
-  %c.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor30.i, %for.body ]
-  %d.0.lcssa = phi i64 [ -2401053088876216593, %if.then ], [ %xor33.i, %for.body ]
-  %u.sroa.0.0.lcssa = phi ptr [ %message, %if.then ], [ %add.ptr8, %for.body ]
-  %cmp9 = icmp ugt i64 %rem, 15
-  br i1 %cmp9, label %if.then10, label %if.end16
+$_ZN5folly4hash12SpookyHashV15Rot64Emi = comdat any
 
-if.then10:                                        ; preds = %for.end
-  %7 = load i64, ptr %u.sroa.0.0.lcssa, align 8, !tbaa !7
-  %add12 = add i64 %7, %c.0.lcssa
-  %arrayidx13 = getelementptr inbounds i8, ptr %u.sroa.0.0.lcssa, i64 8
-  %8 = load i64, ptr %arrayidx13, align 8, !tbaa !7
-  %add14 = add i64 %8, %d.0.lcssa
-  %or.i.i122 = tail call i64 @llvm.fshl.i64(i64 %add12, i64 %add12, i64 50)
-  %add.i123 = add i64 %add14, %or.i.i122
-  %xor.i124 = xor i64 %add.i123, %a.0.lcssa
-  %or.i104.i125 = tail call i64 @llvm.fshl.i64(i64 %add14, i64 %add14, i64 52)
-  %add2.i126 = add i64 %xor.i124, %or.i104.i125
-  %xor3.i127 = xor i64 %add2.i126, %b.0.lcssa
-  %or.i107.i128 = tail call i64 @llvm.fshl.i64(i64 %xor.i124, i64 %xor.i124, i64 30)
-  %add5.i129 = add i64 %xor3.i127, %or.i107.i128
-  %xor6.i130 = xor i64 %add5.i129, %add.i123
-  %or.i110.i131 = tail call i64 @llvm.fshl.i64(i64 %xor3.i127, i64 %xor3.i127, i64 41)
-  %add8.i132 = add i64 %xor6.i130, %or.i110.i131
-  %xor9.i133 = xor i64 %add8.i132, %add2.i126
-  %or.i113.i134 = tail call i64 @llvm.fshl.i64(i64 %xor6.i130, i64 %xor6.i130, i64 54)
-  %add11.i135 = add i64 %xor9.i133, %or.i113.i134
-  %xor12.i136 = xor i64 %add11.i135, %add5.i129
-  %or.i116.i137 = tail call i64 @llvm.fshl.i64(i64 %xor9.i133, i64 %xor9.i133, i64 48)
-  %add14.i138 = add i64 %xor12.i136, %or.i116.i137
-  %xor15.i139 = xor i64 %add14.i138, %add8.i132
-  %or.i119.i140 = tail call i64 @llvm.fshl.i64(i64 %xor12.i136, i64 %xor12.i136, i64 38)
-  %add17.i141 = add i64 %xor15.i139, %or.i119.i140
-  %xor18.i142 = xor i64 %add17.i141, %add11.i135
-  %or.i122.i143 = tail call i64 @llvm.fshl.i64(i64 %xor15.i139, i64 %xor15.i139, i64 37)
-  %add20.i144 = add i64 %xor18.i142, %or.i122.i143
-  %xor21.i145 = xor i64 %add20.i144, %add14.i138
-  %or.i125.i146 = tail call i64 @llvm.fshl.i64(i64 %xor18.i142, i64 %xor18.i142, i64 62)
-  %add23.i147 = add i64 %xor21.i145, %or.i125.i146
-  %xor24.i148 = xor i64 %add23.i147, %add17.i141
-  %or.i128.i149 = tail call i64 @llvm.fshl.i64(i64 %xor21.i145, i64 %xor21.i145, i64 34)
-  %add26.i150 = add i64 %xor24.i148, %or.i128.i149
-  %xor27.i151 = xor i64 %add26.i150, %add20.i144
-  %or.i131.i152 = tail call i64 @llvm.fshl.i64(i64 %xor24.i148, i64 %xor24.i148, i64 5)
-  %add29.i153 = add i64 %xor27.i151, %or.i131.i152
-  %xor30.i154 = xor i64 %add29.i153, %add23.i147
-  %or.i134.i155 = tail call i64 @llvm.fshl.i64(i64 %xor27.i151, i64 %xor27.i151, i64 36)
-  %add32.i156 = add i64 %xor30.i154, %or.i134.i155
-  %add.ptr15 = getelementptr inbounds i8, ptr %u.sroa.0.0.lcssa, i64 16
-  %sub = add nsw i64 %rem, -16
-  br label %if.end16
+$_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_ = comdat any
 
-if.end16:                                         ; preds = %if.then10, %for.end, %entry
-  %a.1 = phi i64 [ %add29.i153, %if.then10 ], [ %a.0.lcssa, %for.end ], [ %0, %entry ]
-  %b.1 = phi i64 [ %add32.i156, %if.then10 ], [ %b.0.lcssa, %for.end ], [ %1, %entry ]
-  %c.1 = phi i64 [ %xor30.i154, %if.then10 ], [ %c.0.lcssa, %for.end ], [ -2401053088876216593, %entry ]
-  %remainder.1 = phi i64 [ %sub, %if.then10 ], [ %rem, %for.end ], [ %rem, %entry ]
-  %u.sroa.0.2 = phi ptr [ %add.ptr15, %if.then10 ], [ %u.sroa.0.0.lcssa, %for.end ], [ %message, %entry ]
-  %shl = shl i64 %length, 56
-  switch i64 %remainder.1, label %sw.epilog [
-    i64 15, label %sw.bb
-    i64 14, label %sw.bb20
-    i64 13, label %sw.bb25
-    i64 12, label %sw.bb30
-    i64 11, label %sw.bb36
-    i64 10, label %sw.bb41
-    i64 9, label %sw.bb46
-    i64 8, label %sw.bb50
-    i64 7, label %sw.bb53
-    i64 6, label %sw.bb58
-    i64 5, label %sw.bb63
-    i64 4, label %sw.bb68
-    i64 3, label %sw.bb72
-    i64 2, label %sw.bb77
-    i64 1, label %sw.bb82
-    i64 0, label %sw.bb86
+$_ZN5folly4hash12SpookyHashV13EndERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_ = comdat any
+
+$_ZN5folly4hash12SpookyHashV110EndPartialERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_ = comdat any
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.anon, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %16, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %17 = load i64, ptr %6, align 8, !tbaa !11
+  %18 = urem i64 %17, 32
+  store i64 %18, ptr %10, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %19 = load ptr, ptr %7, align 8, !tbaa !13
+  %20 = load i64, ptr %19, align 8, !tbaa !11
+  store i64 %20, ptr %11, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %21 = load ptr, ptr %8, align 8, !tbaa !13
+  %22 = load i64, ptr %21, align 8, !tbaa !11
+  store i64 %22, ptr %12, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store i64 -2401053088876216593, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store i64 -2401053088876216593, ptr %14, align 8, !tbaa !11
+  %23 = load i64, ptr %6, align 8, !tbaa !11
+  %24 = icmp ugt i64 %23, 15
+  br i1 %24, label %25, label %78
+
+25:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %26 = load ptr, ptr %9, align 8, !tbaa !15
+  %27 = load i64, ptr %6, align 8, !tbaa !11
+  %28 = udiv i64 %27, 32
+  %29 = mul i64 %28, 4
+  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
+  store ptr %30, ptr %15, align 8, !tbaa !13
+  br label %31
+
+31:                                               ; preds = %56, %25
+  %32 = load ptr, ptr %9, align 8, !tbaa !15
+  %33 = load ptr, ptr %15, align 8, !tbaa !13
+  %34 = icmp ult ptr %32, %33
+  br i1 %34, label %35, label %59
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %9, align 8, !tbaa !15
+  %37 = getelementptr inbounds i64, ptr %36, i64 0
+  %38 = load i64, ptr %37, align 8, !tbaa !11
+  %39 = load i64, ptr %13, align 8, !tbaa !11
+  %40 = add i64 %39, %38
+  store i64 %40, ptr %13, align 8, !tbaa !11
+  %41 = load ptr, ptr %9, align 8, !tbaa !15
+  %42 = getelementptr inbounds i64, ptr %41, i64 1
+  %43 = load i64, ptr %42, align 8, !tbaa !11
+  %44 = load i64, ptr %14, align 8, !tbaa !11
+  %45 = add i64 %44, %43
+  store i64 %45, ptr %14, align 8, !tbaa !11
+  call void @_ZN5folly4hash12SpookyHashV18ShortMixERmS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %46 = load ptr, ptr %9, align 8, !tbaa !15
+  %47 = getelementptr inbounds i64, ptr %46, i64 2
+  %48 = load i64, ptr %47, align 8, !tbaa !11
+  %49 = load i64, ptr %11, align 8, !tbaa !11
+  %50 = add i64 %49, %48
+  store i64 %50, ptr %11, align 8, !tbaa !11
+  %51 = load ptr, ptr %9, align 8, !tbaa !15
+  %52 = getelementptr inbounds i64, ptr %51, i64 3
+  %53 = load i64, ptr %52, align 8, !tbaa !11
+  %54 = load i64, ptr %12, align 8, !tbaa !11
+  %55 = add i64 %54, %53
+  store i64 %55, ptr %12, align 8, !tbaa !11
+  br label %56
+
+56:                                               ; preds = %35
+  %57 = load ptr, ptr %9, align 8, !tbaa !15
+  %58 = getelementptr inbounds i64, ptr %57, i64 4
+  store ptr %58, ptr %9, align 8, !tbaa !15
+  br label %31, !llvm.loop !16
+
+59:                                               ; preds = %31
+  %60 = load i64, ptr %10, align 8, !tbaa !11
+  %61 = icmp uge i64 %60, 16
+  br i1 %61, label %62, label %77
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %9, align 8, !tbaa !15
+  %64 = getelementptr inbounds i64, ptr %63, i64 0
+  %65 = load i64, ptr %64, align 8, !tbaa !11
+  %66 = load i64, ptr %13, align 8, !tbaa !11
+  %67 = add i64 %66, %65
+  store i64 %67, ptr %13, align 8, !tbaa !11
+  %68 = load ptr, ptr %9, align 8, !tbaa !15
+  %69 = getelementptr inbounds i64, ptr %68, i64 1
+  %70 = load i64, ptr %69, align 8, !tbaa !11
+  %71 = load i64, ptr %14, align 8, !tbaa !11
+  %72 = add i64 %71, %70
+  store i64 %72, ptr %14, align 8, !tbaa !11
+  call void @_ZN5folly4hash12SpookyHashV18ShortMixERmS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %73 = load ptr, ptr %9, align 8, !tbaa !15
+  %74 = getelementptr inbounds i64, ptr %73, i64 2
+  store ptr %74, ptr %9, align 8, !tbaa !15
+  %75 = load i64, ptr %10, align 8, !tbaa !11
+  %76 = sub i64 %75, 16
+  store i64 %76, ptr %10, align 8, !tbaa !11
+  br label %77
+
+77:                                               ; preds = %62, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %78
+
+78:                                               ; preds = %77, %4
+  %79 = load i64, ptr %6, align 8, !tbaa !11
+  %80 = shl i64 %79, 56
+  store i64 %80, ptr %14, align 8, !tbaa !11
+  %81 = load i64, ptr %10, align 8, !tbaa !11
+  switch i64 %81, label %206 [
+    i64 15, label %82
+    i64 14, label %90
+    i64 13, label %98
+    i64 12, label %106
+    i64 11, label %118
+    i64 10, label %126
+    i64 9, label %134
+    i64 8, label %141
+    i64 7, label %147
+    i64 6, label %155
+    i64 5, label %163
+    i64 4, label %171
+    i64 3, label %178
+    i64 2, label %186
+    i64 1, label %194
+    i64 0, label %201
   ]
 
-sw.bb:                                            ; preds = %if.end16
-  %arrayidx17 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 14
-  %9 = load i8, ptr %arrayidx17, align 1, !tbaa !13
-  %conv = zext i8 %9 to i64
-  %shl18 = shl nuw nsw i64 %conv, 48
-  %add19 = or disjoint i64 %shl18, %shl
-  br label %sw.bb20
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %9, align 8, !tbaa !15
+  %84 = getelementptr inbounds i8, ptr %83, i64 14
+  %85 = load i8, ptr %84, align 1, !tbaa !15
+  %86 = zext i8 %85 to i64
+  %87 = shl i64 %86, 48
+  %88 = load i64, ptr %14, align 8, !tbaa !11
+  %89 = add i64 %88, %87
+  store i64 %89, ptr %14, align 8, !tbaa !11
+  br label %90
 
-sw.bb20:                                          ; preds = %sw.bb, %if.end16
-  %d.1 = phi i64 [ %shl, %if.end16 ], [ %add19, %sw.bb ]
-  %arrayidx21 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 13
-  %10 = load i8, ptr %arrayidx21, align 1, !tbaa !13
-  %conv22 = zext i8 %10 to i64
-  %shl23 = shl nuw nsw i64 %conv22, 40
-  %add24 = add i64 %shl23, %d.1
-  br label %sw.bb25
+90:                                               ; preds = %78, %82
+  %91 = load ptr, ptr %9, align 8, !tbaa !15
+  %92 = getelementptr inbounds i8, ptr %91, i64 13
+  %93 = load i8, ptr %92, align 1, !tbaa !15
+  %94 = zext i8 %93 to i64
+  %95 = shl i64 %94, 40
+  %96 = load i64, ptr %14, align 8, !tbaa !11
+  %97 = add i64 %96, %95
+  store i64 %97, ptr %14, align 8, !tbaa !11
+  br label %98
 
-sw.bb25:                                          ; preds = %sw.bb20, %if.end16
-  %d.2 = phi i64 [ %shl, %if.end16 ], [ %add24, %sw.bb20 ]
-  %arrayidx26 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 12
-  %11 = load i8, ptr %arrayidx26, align 1, !tbaa !13
-  %conv27 = zext i8 %11 to i64
-  %shl28 = shl nuw nsw i64 %conv27, 32
-  %add29 = add i64 %shl28, %d.2
-  br label %sw.bb30
+98:                                               ; preds = %78, %90
+  %99 = load ptr, ptr %9, align 8, !tbaa !15
+  %100 = getelementptr inbounds i8, ptr %99, i64 12
+  %101 = load i8, ptr %100, align 1, !tbaa !15
+  %102 = zext i8 %101 to i64
+  %103 = shl i64 %102, 32
+  %104 = load i64, ptr %14, align 8, !tbaa !11
+  %105 = add i64 %104, %103
+  store i64 %105, ptr %14, align 8, !tbaa !11
+  br label %106
 
-sw.bb30:                                          ; preds = %sw.bb25, %if.end16
-  %d.3 = phi i64 [ %shl, %if.end16 ], [ %add29, %sw.bb25 ]
-  %arrayidx31 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 8
-  %12 = load i32, ptr %arrayidx31, align 4, !tbaa !14
-  %conv32 = zext i32 %12 to i64
-  %add33 = add i64 %d.3, %conv32
-  %13 = load i64, ptr %u.sroa.0.2, align 8, !tbaa !7
-  %add35 = add i64 %13, %c.1
-  br label %sw.epilog
+106:                                              ; preds = %78, %98
+  %107 = load ptr, ptr %9, align 8, !tbaa !15
+  %108 = getelementptr inbounds i32, ptr %107, i64 2
+  %109 = load i32, ptr %108, align 4, !tbaa !18
+  %110 = zext i32 %109 to i64
+  %111 = load i64, ptr %14, align 8, !tbaa !11
+  %112 = add i64 %111, %110
+  store i64 %112, ptr %14, align 8, !tbaa !11
+  %113 = load ptr, ptr %9, align 8, !tbaa !15
+  %114 = getelementptr inbounds i64, ptr %113, i64 0
+  %115 = load i64, ptr %114, align 8, !tbaa !11
+  %116 = load i64, ptr %13, align 8, !tbaa !11
+  %117 = add i64 %116, %115
+  store i64 %117, ptr %13, align 8, !tbaa !11
+  br label %206
 
-sw.bb36:                                          ; preds = %if.end16
-  %arrayidx37 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 10
-  %14 = load i8, ptr %arrayidx37, align 1, !tbaa !13
-  %conv38 = zext i8 %14 to i64
-  %shl39 = shl nuw nsw i64 %conv38, 16
-  %add40 = or disjoint i64 %shl39, %shl
-  br label %sw.bb41
+118:                                              ; preds = %78
+  %119 = load ptr, ptr %9, align 8, !tbaa !15
+  %120 = getelementptr inbounds i8, ptr %119, i64 10
+  %121 = load i8, ptr %120, align 1, !tbaa !15
+  %122 = zext i8 %121 to i64
+  %123 = shl i64 %122, 16
+  %124 = load i64, ptr %14, align 8, !tbaa !11
+  %125 = add i64 %124, %123
+  store i64 %125, ptr %14, align 8, !tbaa !11
+  br label %126
 
-sw.bb41:                                          ; preds = %sw.bb36, %if.end16
-  %d.4 = phi i64 [ %shl, %if.end16 ], [ %add40, %sw.bb36 ]
-  %arrayidx42 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 9
-  %15 = load i8, ptr %arrayidx42, align 1, !tbaa !13
-  %conv43 = zext i8 %15 to i64
-  %shl44 = shl nuw nsw i64 %conv43, 8
-  %add45 = add i64 %shl44, %d.4
-  br label %sw.bb46
+126:                                              ; preds = %78, %118
+  %127 = load ptr, ptr %9, align 8, !tbaa !15
+  %128 = getelementptr inbounds i8, ptr %127, i64 9
+  %129 = load i8, ptr %128, align 1, !tbaa !15
+  %130 = zext i8 %129 to i64
+  %131 = shl i64 %130, 8
+  %132 = load i64, ptr %14, align 8, !tbaa !11
+  %133 = add i64 %132, %131
+  store i64 %133, ptr %14, align 8, !tbaa !11
+  br label %134
 
-sw.bb46:                                          ; preds = %sw.bb41, %if.end16
-  %d.5 = phi i64 [ %shl, %if.end16 ], [ %add45, %sw.bb41 ]
-  %arrayidx47 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 8
-  %16 = load i8, ptr %arrayidx47, align 1, !tbaa !13
-  %conv48 = zext i8 %16 to i64
-  %add49 = add i64 %d.5, %conv48
-  br label %sw.bb50
+134:                                              ; preds = %78, %126
+  %135 = load ptr, ptr %9, align 8, !tbaa !15
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load i8, ptr %136, align 1, !tbaa !15
+  %138 = zext i8 %137 to i64
+  %139 = load i64, ptr %14, align 8, !tbaa !11
+  %140 = add i64 %139, %138
+  store i64 %140, ptr %14, align 8, !tbaa !11
+  br label %141
 
-sw.bb50:                                          ; preds = %sw.bb46, %if.end16
-  %d.6 = phi i64 [ %shl, %if.end16 ], [ %add49, %sw.bb46 ]
-  %17 = load i64, ptr %u.sroa.0.2, align 8, !tbaa !7
-  %add52 = add i64 %17, %c.1
-  br label %sw.epilog
+141:                                              ; preds = %78, %134
+  %142 = load ptr, ptr %9, align 8, !tbaa !15
+  %143 = getelementptr inbounds i64, ptr %142, i64 0
+  %144 = load i64, ptr %143, align 8, !tbaa !11
+  %145 = load i64, ptr %13, align 8, !tbaa !11
+  %146 = add i64 %145, %144
+  store i64 %146, ptr %13, align 8, !tbaa !11
+  br label %206
 
-sw.bb53:                                          ; preds = %if.end16
-  %arrayidx54 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 6
-  %18 = load i8, ptr %arrayidx54, align 1, !tbaa !13
-  %conv55 = zext i8 %18 to i64
-  %shl56 = shl nuw nsw i64 %conv55, 48
-  %add57 = add i64 %shl56, %c.1
-  br label %sw.bb58
+147:                                              ; preds = %78
+  %148 = load ptr, ptr %9, align 8, !tbaa !15
+  %149 = getelementptr inbounds i8, ptr %148, i64 6
+  %150 = load i8, ptr %149, align 1, !tbaa !15
+  %151 = zext i8 %150 to i64
+  %152 = shl i64 %151, 48
+  %153 = load i64, ptr %13, align 8, !tbaa !11
+  %154 = add i64 %153, %152
+  store i64 %154, ptr %13, align 8, !tbaa !11
+  br label %155
 
-sw.bb58:                                          ; preds = %sw.bb53, %if.end16
-  %c.2 = phi i64 [ %c.1, %if.end16 ], [ %add57, %sw.bb53 ]
-  %arrayidx59 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 5
-  %19 = load i8, ptr %arrayidx59, align 1, !tbaa !13
-  %conv60 = zext i8 %19 to i64
-  %shl61 = shl nuw nsw i64 %conv60, 40
-  %add62 = add i64 %shl61, %c.2
-  br label %sw.bb63
+155:                                              ; preds = %78, %147
+  %156 = load ptr, ptr %9, align 8, !tbaa !15
+  %157 = getelementptr inbounds i8, ptr %156, i64 5
+  %158 = load i8, ptr %157, align 1, !tbaa !15
+  %159 = zext i8 %158 to i64
+  %160 = shl i64 %159, 40
+  %161 = load i64, ptr %13, align 8, !tbaa !11
+  %162 = add i64 %161, %160
+  store i64 %162, ptr %13, align 8, !tbaa !11
+  br label %163
 
-sw.bb63:                                          ; preds = %sw.bb58, %if.end16
-  %c.3 = phi i64 [ %c.1, %if.end16 ], [ %add62, %sw.bb58 ]
-  %arrayidx64 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 4
-  %20 = load i8, ptr %arrayidx64, align 1, !tbaa !13
-  %conv65 = zext i8 %20 to i64
-  %shl66 = shl nuw nsw i64 %conv65, 32
-  %add67 = add i64 %shl66, %c.3
-  br label %sw.bb68
+163:                                              ; preds = %78, %155
+  %164 = load ptr, ptr %9, align 8, !tbaa !15
+  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %166 = load i8, ptr %165, align 1, !tbaa !15
+  %167 = zext i8 %166 to i64
+  %168 = shl i64 %167, 32
+  %169 = load i64, ptr %13, align 8, !tbaa !11
+  %170 = add i64 %169, %168
+  store i64 %170, ptr %13, align 8, !tbaa !11
+  br label %171
 
-sw.bb68:                                          ; preds = %sw.bb63, %if.end16
-  %c.4 = phi i64 [ %c.1, %if.end16 ], [ %add67, %sw.bb63 ]
-  %21 = load i32, ptr %u.sroa.0.2, align 4, !tbaa !14
-  %conv70 = zext i32 %21 to i64
-  %add71 = add i64 %c.4, %conv70
-  br label %sw.epilog
+171:                                              ; preds = %78, %163
+  %172 = load ptr, ptr %9, align 8, !tbaa !15
+  %173 = getelementptr inbounds i32, ptr %172, i64 0
+  %174 = load i32, ptr %173, align 4, !tbaa !18
+  %175 = zext i32 %174 to i64
+  %176 = load i64, ptr %13, align 8, !tbaa !11
+  %177 = add i64 %176, %175
+  store i64 %177, ptr %13, align 8, !tbaa !11
+  br label %206
 
-sw.bb72:                                          ; preds = %if.end16
-  %arrayidx73 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 2
-  %22 = load i8, ptr %arrayidx73, align 1, !tbaa !13
-  %conv74 = zext i8 %22 to i64
-  %shl75 = shl nuw nsw i64 %conv74, 16
-  %add76 = add i64 %shl75, %c.1
-  br label %sw.bb77
+178:                                              ; preds = %78
+  %179 = load ptr, ptr %9, align 8, !tbaa !15
+  %180 = getelementptr inbounds i8, ptr %179, i64 2
+  %181 = load i8, ptr %180, align 1, !tbaa !15
+  %182 = zext i8 %181 to i64
+  %183 = shl i64 %182, 16
+  %184 = load i64, ptr %13, align 8, !tbaa !11
+  %185 = add i64 %184, %183
+  store i64 %185, ptr %13, align 8, !tbaa !11
+  br label %186
 
-sw.bb77:                                          ; preds = %sw.bb72, %if.end16
-  %c.5 = phi i64 [ %c.1, %if.end16 ], [ %add76, %sw.bb72 ]
-  %arrayidx78 = getelementptr inbounds i8, ptr %u.sroa.0.2, i64 1
-  %23 = load i8, ptr %arrayidx78, align 1, !tbaa !13
-  %conv79 = zext i8 %23 to i64
-  %shl80 = shl nuw nsw i64 %conv79, 8
-  %add81 = add i64 %shl80, %c.5
-  br label %sw.bb82
+186:                                              ; preds = %78, %178
+  %187 = load ptr, ptr %9, align 8, !tbaa !15
+  %188 = getelementptr inbounds i8, ptr %187, i64 1
+  %189 = load i8, ptr %188, align 1, !tbaa !15
+  %190 = zext i8 %189 to i64
+  %191 = shl i64 %190, 8
+  %192 = load i64, ptr %13, align 8, !tbaa !11
+  %193 = add i64 %192, %191
+  store i64 %193, ptr %13, align 8, !tbaa !11
+  br label %194
 
-sw.bb82:                                          ; preds = %sw.bb77, %if.end16
-  %c.6 = phi i64 [ %c.1, %if.end16 ], [ %add81, %sw.bb77 ]
-  %24 = load i8, ptr %u.sroa.0.2, align 1, !tbaa !13
-  %conv84 = zext i8 %24 to i64
-  %add85 = add i64 %c.6, %conv84
-  br label %sw.epilog
+194:                                              ; preds = %78, %186
+  %195 = load ptr, ptr %9, align 8, !tbaa !15
+  %196 = getelementptr inbounds i8, ptr %195, i64 0
+  %197 = load i8, ptr %196, align 1, !tbaa !15
+  %198 = zext i8 %197 to i64
+  %199 = load i64, ptr %13, align 8, !tbaa !11
+  %200 = add i64 %199, %198
+  store i64 %200, ptr %13, align 8, !tbaa !11
+  br label %206
 
-sw.bb86:                                          ; preds = %if.end16
-  %add87 = add i64 %c.1, -2401053088876216593
-  %add88 = add i64 %shl, -2401053088876216593
-  br label %sw.epilog
+201:                                              ; preds = %78
+  %202 = load i64, ptr %13, align 8, !tbaa !11
+  %203 = add i64 %202, -2401053088876216593
+  store i64 %203, ptr %13, align 8, !tbaa !11
+  %204 = load i64, ptr %14, align 8, !tbaa !11
+  %205 = add i64 %204, -2401053088876216593
+  store i64 %205, ptr %14, align 8, !tbaa !11
+  br label %206
 
-sw.epilog:                                        ; preds = %sw.bb86, %sw.bb82, %sw.bb68, %sw.bb50, %sw.bb30, %if.end16
-  %c.7 = phi i64 [ %c.1, %if.end16 ], [ %add87, %sw.bb86 ], [ %add85, %sw.bb82 ], [ %add71, %sw.bb68 ], [ %add52, %sw.bb50 ], [ %add35, %sw.bb30 ]
-  %d.7 = phi i64 [ %shl, %if.end16 ], [ %add88, %sw.bb86 ], [ %shl, %sw.bb82 ], [ %shl, %sw.bb68 ], [ %d.6, %sw.bb50 ], [ %add33, %sw.bb30 ]
-  %xor.i158 = xor i64 %d.7, %c.7
-  %or.i.i159 = tail call i64 @llvm.fshl.i64(i64 %c.7, i64 %c.7, i64 15)
-  %add.i160 = add i64 %xor.i158, %or.i.i159
-  %xor1.i = xor i64 %add.i160, %a.1
-  %or.i95.i = tail call i64 @llvm.fshl.i64(i64 %add.i160, i64 %add.i160, i64 52)
-  %add3.i = add i64 %xor1.i, %or.i95.i
-  %xor4.i = xor i64 %add3.i, %b.1
-  %or.i98.i = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 26)
-  %add6.i = add i64 %xor4.i, %or.i98.i
-  %xor7.i = xor i64 %add6.i, %or.i.i159
-  %or.i101.i = tail call i64 @llvm.fshl.i64(i64 %add6.i, i64 %add6.i, i64 51)
-  %add9.i = add i64 %xor7.i, %or.i101.i
-  %xor10.i = xor i64 %add9.i, %or.i95.i
-  %or.i104.i161 = tail call i64 @llvm.fshl.i64(i64 %add9.i, i64 %add9.i, i64 28)
-  %add12.i = add i64 %xor10.i, %or.i104.i161
-  %xor13.i = xor i64 %add12.i, %or.i98.i
-  %or.i107.i162 = tail call i64 @llvm.fshl.i64(i64 %add12.i, i64 %add12.i, i64 9)
-  %add15.i = add i64 %xor13.i, %or.i107.i162
-  %xor16.i = xor i64 %add15.i, %or.i101.i
-  %or.i110.i163 = tail call i64 @llvm.fshl.i64(i64 %add15.i, i64 %add15.i, i64 47)
-  %add18.i = add i64 %xor16.i, %or.i110.i163
-  %xor19.i = xor i64 %add18.i, %or.i104.i161
-  %or.i113.i164 = tail call i64 @llvm.fshl.i64(i64 %add18.i, i64 %add18.i, i64 54)
-  %add21.i = add i64 %xor19.i, %or.i113.i164
-  %xor22.i = xor i64 %add21.i, %or.i107.i162
-  %or.i116.i165 = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 32)
-  %add24.i = add i64 %xor22.i, %or.i116.i165
-  %xor25.i = xor i64 %add24.i, %or.i110.i163
-  %or.i119.i166 = tail call i64 @llvm.fshl.i64(i64 %add24.i, i64 %add24.i, i64 25)
-  %add27.i = add i64 %xor25.i, %or.i119.i166
-  %xor28.i = xor i64 %add27.i, %or.i113.i164
-  %or.i122.i167 = tail call i64 @llvm.fshl.i64(i64 %add27.i, i64 %add27.i, i64 63)
-  %add30.i = add i64 %xor28.i, %or.i122.i167
-  store i64 %or.i122.i167, ptr %hash1, align 8, !tbaa !7
-  store i64 %add30.i, ptr %hash2, align 8, !tbaa !7
+206:                                              ; preds = %201, %78, %194, %171, %141, %106
+  call void @_ZN5folly4hash12SpookyHashV18ShortEndERmS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %207 = load i64, ptr %11, align 8, !tbaa !11
+  %208 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %207, ptr %208, align 8, !tbaa !11
+  %209 = load i64, ptr %12, align 8, !tbaa !11
+  %210 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %209, ptr %210, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN5folly4hash12SpookyHashV18ShortMixERmS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %11 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %10, i32 noundef 50)
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %11, ptr %12, align 8, !tbaa !11
+  %13 = load ptr, ptr %8, align 8, !tbaa !13
+  %14 = load i64, ptr %13, align 8, !tbaa !11
+  %15 = load ptr, ptr %7, align 8, !tbaa !13
+  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %17 = add i64 %16, %14
+  store i64 %17, ptr %15, align 8, !tbaa !11
+  %18 = load ptr, ptr %7, align 8, !tbaa !13
+  %19 = load i64, ptr %18, align 8, !tbaa !11
+  %20 = load ptr, ptr %5, align 8, !tbaa !13
+  %21 = load i64, ptr %20, align 8, !tbaa !11
+  %22 = xor i64 %21, %19
+  store i64 %22, ptr %20, align 8, !tbaa !11
+  %23 = load ptr, ptr %8, align 8, !tbaa !13
+  %24 = load i64, ptr %23, align 8, !tbaa !11
+  %25 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %24, i32 noundef 52)
+  %26 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %25, ptr %26, align 8, !tbaa !11
+  %27 = load ptr, ptr %5, align 8, !tbaa !13
+  %28 = load i64, ptr %27, align 8, !tbaa !11
+  %29 = load ptr, ptr %8, align 8, !tbaa !13
+  %30 = load i64, ptr %29, align 8, !tbaa !11
+  %31 = add i64 %30, %28
+  store i64 %31, ptr %29, align 8, !tbaa !11
+  %32 = load ptr, ptr %8, align 8, !tbaa !13
+  %33 = load i64, ptr %32, align 8, !tbaa !11
+  %34 = load ptr, ptr %6, align 8, !tbaa !13
+  %35 = load i64, ptr %34, align 8, !tbaa !11
+  %36 = xor i64 %35, %33
+  store i64 %36, ptr %34, align 8, !tbaa !11
+  %37 = load ptr, ptr %5, align 8, !tbaa !13
+  %38 = load i64, ptr %37, align 8, !tbaa !11
+  %39 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %38, i32 noundef 30)
+  %40 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %39, ptr %40, align 8, !tbaa !11
+  %41 = load ptr, ptr %6, align 8, !tbaa !13
+  %42 = load i64, ptr %41, align 8, !tbaa !11
+  %43 = load ptr, ptr %5, align 8, !tbaa !13
+  %44 = load i64, ptr %43, align 8, !tbaa !11
+  %45 = add i64 %44, %42
+  store i64 %45, ptr %43, align 8, !tbaa !11
+  %46 = load ptr, ptr %5, align 8, !tbaa !13
+  %47 = load i64, ptr %46, align 8, !tbaa !11
+  %48 = load ptr, ptr %7, align 8, !tbaa !13
+  %49 = load i64, ptr %48, align 8, !tbaa !11
+  %50 = xor i64 %49, %47
+  store i64 %50, ptr %48, align 8, !tbaa !11
+  %51 = load ptr, ptr %6, align 8, !tbaa !13
+  %52 = load i64, ptr %51, align 8, !tbaa !11
+  %53 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %52, i32 noundef 41)
+  %54 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %53, ptr %54, align 8, !tbaa !11
+  %55 = load ptr, ptr %7, align 8, !tbaa !13
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  %57 = load ptr, ptr %6, align 8, !tbaa !13
+  %58 = load i64, ptr %57, align 8, !tbaa !11
+  %59 = add i64 %58, %56
+  store i64 %59, ptr %57, align 8, !tbaa !11
+  %60 = load ptr, ptr %6, align 8, !tbaa !13
+  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %62 = load ptr, ptr %8, align 8, !tbaa !13
+  %63 = load i64, ptr %62, align 8, !tbaa !11
+  %64 = xor i64 %63, %61
+  store i64 %64, ptr %62, align 8, !tbaa !11
+  %65 = load ptr, ptr %7, align 8, !tbaa !13
+  %66 = load i64, ptr %65, align 8, !tbaa !11
+  %67 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %66, i32 noundef 54)
+  %68 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %67, ptr %68, align 8, !tbaa !11
+  %69 = load ptr, ptr %8, align 8, !tbaa !13
+  %70 = load i64, ptr %69, align 8, !tbaa !11
+  %71 = load ptr, ptr %7, align 8, !tbaa !13
+  %72 = load i64, ptr %71, align 8, !tbaa !11
+  %73 = add i64 %72, %70
+  store i64 %73, ptr %71, align 8, !tbaa !11
+  %74 = load ptr, ptr %7, align 8, !tbaa !13
+  %75 = load i64, ptr %74, align 8, !tbaa !11
+  %76 = load ptr, ptr %5, align 8, !tbaa !13
+  %77 = load i64, ptr %76, align 8, !tbaa !11
+  %78 = xor i64 %77, %75
+  store i64 %78, ptr %76, align 8, !tbaa !11
+  %79 = load ptr, ptr %8, align 8, !tbaa !13
+  %80 = load i64, ptr %79, align 8, !tbaa !11
+  %81 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %80, i32 noundef 48)
+  %82 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %81, ptr %82, align 8, !tbaa !11
+  %83 = load ptr, ptr %5, align 8, !tbaa !13
+  %84 = load i64, ptr %83, align 8, !tbaa !11
+  %85 = load ptr, ptr %8, align 8, !tbaa !13
+  %86 = load i64, ptr %85, align 8, !tbaa !11
+  %87 = add i64 %86, %84
+  store i64 %87, ptr %85, align 8, !tbaa !11
+  %88 = load ptr, ptr %8, align 8, !tbaa !13
+  %89 = load i64, ptr %88, align 8, !tbaa !11
+  %90 = load ptr, ptr %6, align 8, !tbaa !13
+  %91 = load i64, ptr %90, align 8, !tbaa !11
+  %92 = xor i64 %91, %89
+  store i64 %92, ptr %90, align 8, !tbaa !11
+  %93 = load ptr, ptr %5, align 8, !tbaa !13
+  %94 = load i64, ptr %93, align 8, !tbaa !11
+  %95 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %94, i32 noundef 38)
+  %96 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %95, ptr %96, align 8, !tbaa !11
+  %97 = load ptr, ptr %6, align 8, !tbaa !13
+  %98 = load i64, ptr %97, align 8, !tbaa !11
+  %99 = load ptr, ptr %5, align 8, !tbaa !13
+  %100 = load i64, ptr %99, align 8, !tbaa !11
+  %101 = add i64 %100, %98
+  store i64 %101, ptr %99, align 8, !tbaa !11
+  %102 = load ptr, ptr %5, align 8, !tbaa !13
+  %103 = load i64, ptr %102, align 8, !tbaa !11
+  %104 = load ptr, ptr %7, align 8, !tbaa !13
+  %105 = load i64, ptr %104, align 8, !tbaa !11
+  %106 = xor i64 %105, %103
+  store i64 %106, ptr %104, align 8, !tbaa !11
+  %107 = load ptr, ptr %6, align 8, !tbaa !13
+  %108 = load i64, ptr %107, align 8, !tbaa !11
+  %109 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %108, i32 noundef 37)
+  %110 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %109, ptr %110, align 8, !tbaa !11
+  %111 = load ptr, ptr %7, align 8, !tbaa !13
+  %112 = load i64, ptr %111, align 8, !tbaa !11
+  %113 = load ptr, ptr %6, align 8, !tbaa !13
+  %114 = load i64, ptr %113, align 8, !tbaa !11
+  %115 = add i64 %114, %112
+  store i64 %115, ptr %113, align 8, !tbaa !11
+  %116 = load ptr, ptr %6, align 8, !tbaa !13
+  %117 = load i64, ptr %116, align 8, !tbaa !11
+  %118 = load ptr, ptr %8, align 8, !tbaa !13
+  %119 = load i64, ptr %118, align 8, !tbaa !11
+  %120 = xor i64 %119, %117
+  store i64 %120, ptr %118, align 8, !tbaa !11
+  %121 = load ptr, ptr %7, align 8, !tbaa !13
+  %122 = load i64, ptr %121, align 8, !tbaa !11
+  %123 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %122, i32 noundef 62)
+  %124 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %123, ptr %124, align 8, !tbaa !11
+  %125 = load ptr, ptr %8, align 8, !tbaa !13
+  %126 = load i64, ptr %125, align 8, !tbaa !11
+  %127 = load ptr, ptr %7, align 8, !tbaa !13
+  %128 = load i64, ptr %127, align 8, !tbaa !11
+  %129 = add i64 %128, %126
+  store i64 %129, ptr %127, align 8, !tbaa !11
+  %130 = load ptr, ptr %7, align 8, !tbaa !13
+  %131 = load i64, ptr %130, align 8, !tbaa !11
+  %132 = load ptr, ptr %5, align 8, !tbaa !13
+  %133 = load i64, ptr %132, align 8, !tbaa !11
+  %134 = xor i64 %133, %131
+  store i64 %134, ptr %132, align 8, !tbaa !11
+  %135 = load ptr, ptr %8, align 8, !tbaa !13
+  %136 = load i64, ptr %135, align 8, !tbaa !11
+  %137 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %136, i32 noundef 34)
+  %138 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %137, ptr %138, align 8, !tbaa !11
+  %139 = load ptr, ptr %5, align 8, !tbaa !13
+  %140 = load i64, ptr %139, align 8, !tbaa !11
+  %141 = load ptr, ptr %8, align 8, !tbaa !13
+  %142 = load i64, ptr %141, align 8, !tbaa !11
+  %143 = add i64 %142, %140
+  store i64 %143, ptr %141, align 8, !tbaa !11
+  %144 = load ptr, ptr %8, align 8, !tbaa !13
+  %145 = load i64, ptr %144, align 8, !tbaa !11
+  %146 = load ptr, ptr %6, align 8, !tbaa !13
+  %147 = load i64, ptr %146, align 8, !tbaa !11
+  %148 = xor i64 %147, %145
+  store i64 %148, ptr %146, align 8, !tbaa !11
+  %149 = load ptr, ptr %5, align 8, !tbaa !13
+  %150 = load i64, ptr %149, align 8, !tbaa !11
+  %151 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %150, i32 noundef 5)
+  %152 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %151, ptr %152, align 8, !tbaa !11
+  %153 = load ptr, ptr %6, align 8, !tbaa !13
+  %154 = load i64, ptr %153, align 8, !tbaa !11
+  %155 = load ptr, ptr %5, align 8, !tbaa !13
+  %156 = load i64, ptr %155, align 8, !tbaa !11
+  %157 = add i64 %156, %154
+  store i64 %157, ptr %155, align 8, !tbaa !11
+  %158 = load ptr, ptr %5, align 8, !tbaa !13
+  %159 = load i64, ptr %158, align 8, !tbaa !11
+  %160 = load ptr, ptr %7, align 8, !tbaa !13
+  %161 = load i64, ptr %160, align 8, !tbaa !11
+  %162 = xor i64 %161, %159
+  store i64 %162, ptr %160, align 8, !tbaa !11
+  %163 = load ptr, ptr %6, align 8, !tbaa !13
+  %164 = load i64, ptr %163, align 8, !tbaa !11
+  %165 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %164, i32 noundef 36)
+  %166 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %165, ptr %166, align 8, !tbaa !11
+  %167 = load ptr, ptr %7, align 8, !tbaa !13
+  %168 = load i64, ptr %167, align 8, !tbaa !11
+  %169 = load ptr, ptr %6, align 8, !tbaa !13
+  %170 = load i64, ptr %169, align 8, !tbaa !11
+  %171 = add i64 %170, %168
+  store i64 %171, ptr %169, align 8, !tbaa !11
+  %172 = load ptr, ptr %6, align 8, !tbaa !13
+  %173 = load i64, ptr %172, align 8, !tbaa !11
+  %174 = load ptr, ptr %8, align 8, !tbaa !13
+  %175 = load i64, ptr %174, align 8, !tbaa !11
+  %176 = xor i64 %175, %173
+  store i64 %176, ptr %174, align 8, !tbaa !11
+  ret void
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
-entry:
-  %buf = alloca [12 x i64], align 16
-  %cmp = icmp ult i64 %length, 192
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly4hash12SpookyHashV18ShortEndERmS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %11 = load ptr, ptr %8, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !11
+  %13 = xor i64 %12, %10
+  store i64 %13, ptr %11, align 8, !tbaa !11
+  %14 = load ptr, ptr %7, align 8, !tbaa !13
+  %15 = load i64, ptr %14, align 8, !tbaa !11
+  %16 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %15, i32 noundef 15)
+  %17 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %16, ptr %17, align 8, !tbaa !11
+  %18 = load ptr, ptr %7, align 8, !tbaa !13
+  %19 = load i64, ptr %18, align 8, !tbaa !11
+  %20 = load ptr, ptr %8, align 8, !tbaa !13
+  %21 = load i64, ptr %20, align 8, !tbaa !11
+  %22 = add i64 %21, %19
+  store i64 %22, ptr %20, align 8, !tbaa !11
+  %23 = load ptr, ptr %8, align 8, !tbaa !13
+  %24 = load i64, ptr %23, align 8, !tbaa !11
+  %25 = load ptr, ptr %5, align 8, !tbaa !13
+  %26 = load i64, ptr %25, align 8, !tbaa !11
+  %27 = xor i64 %26, %24
+  store i64 %27, ptr %25, align 8, !tbaa !11
+  %28 = load ptr, ptr %8, align 8, !tbaa !13
+  %29 = load i64, ptr %28, align 8, !tbaa !11
+  %30 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %29, i32 noundef 52)
+  %31 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %30, ptr %31, align 8, !tbaa !11
+  %32 = load ptr, ptr %8, align 8, !tbaa !13
+  %33 = load i64, ptr %32, align 8, !tbaa !11
+  %34 = load ptr, ptr %5, align 8, !tbaa !13
+  %35 = load i64, ptr %34, align 8, !tbaa !11
+  %36 = add i64 %35, %33
+  store i64 %36, ptr %34, align 8, !tbaa !11
+  %37 = load ptr, ptr %5, align 8, !tbaa !13
+  %38 = load i64, ptr %37, align 8, !tbaa !11
+  %39 = load ptr, ptr %6, align 8, !tbaa !13
+  %40 = load i64, ptr %39, align 8, !tbaa !11
+  %41 = xor i64 %40, %38
+  store i64 %41, ptr %39, align 8, !tbaa !11
+  %42 = load ptr, ptr %5, align 8, !tbaa !13
+  %43 = load i64, ptr %42, align 8, !tbaa !11
+  %44 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %43, i32 noundef 26)
+  %45 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %44, ptr %45, align 8, !tbaa !11
+  %46 = load ptr, ptr %5, align 8, !tbaa !13
+  %47 = load i64, ptr %46, align 8, !tbaa !11
+  %48 = load ptr, ptr %6, align 8, !tbaa !13
+  %49 = load i64, ptr %48, align 8, !tbaa !11
+  %50 = add i64 %49, %47
+  store i64 %50, ptr %48, align 8, !tbaa !11
+  %51 = load ptr, ptr %6, align 8, !tbaa !13
+  %52 = load i64, ptr %51, align 8, !tbaa !11
+  %53 = load ptr, ptr %7, align 8, !tbaa !13
+  %54 = load i64, ptr %53, align 8, !tbaa !11
+  %55 = xor i64 %54, %52
+  store i64 %55, ptr %53, align 8, !tbaa !11
+  %56 = load ptr, ptr %6, align 8, !tbaa !13
+  %57 = load i64, ptr %56, align 8, !tbaa !11
+  %58 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %57, i32 noundef 51)
+  %59 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %58, ptr %59, align 8, !tbaa !11
+  %60 = load ptr, ptr %6, align 8, !tbaa !13
+  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %62 = load ptr, ptr %7, align 8, !tbaa !13
+  %63 = load i64, ptr %62, align 8, !tbaa !11
+  %64 = add i64 %63, %61
+  store i64 %64, ptr %62, align 8, !tbaa !11
+  %65 = load ptr, ptr %7, align 8, !tbaa !13
+  %66 = load i64, ptr %65, align 8, !tbaa !11
+  %67 = load ptr, ptr %8, align 8, !tbaa !13
+  %68 = load i64, ptr %67, align 8, !tbaa !11
+  %69 = xor i64 %68, %66
+  store i64 %69, ptr %67, align 8, !tbaa !11
+  %70 = load ptr, ptr %7, align 8, !tbaa !13
+  %71 = load i64, ptr %70, align 8, !tbaa !11
+  %72 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %71, i32 noundef 28)
+  %73 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %72, ptr %73, align 8, !tbaa !11
+  %74 = load ptr, ptr %7, align 8, !tbaa !13
+  %75 = load i64, ptr %74, align 8, !tbaa !11
+  %76 = load ptr, ptr %8, align 8, !tbaa !13
+  %77 = load i64, ptr %76, align 8, !tbaa !11
+  %78 = add i64 %77, %75
+  store i64 %78, ptr %76, align 8, !tbaa !11
+  %79 = load ptr, ptr %8, align 8, !tbaa !13
+  %80 = load i64, ptr %79, align 8, !tbaa !11
+  %81 = load ptr, ptr %5, align 8, !tbaa !13
+  %82 = load i64, ptr %81, align 8, !tbaa !11
+  %83 = xor i64 %82, %80
+  store i64 %83, ptr %81, align 8, !tbaa !11
+  %84 = load ptr, ptr %8, align 8, !tbaa !13
+  %85 = load i64, ptr %84, align 8, !tbaa !11
+  %86 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %85, i32 noundef 9)
+  %87 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %86, ptr %87, align 8, !tbaa !11
+  %88 = load ptr, ptr %8, align 8, !tbaa !13
+  %89 = load i64, ptr %88, align 8, !tbaa !11
+  %90 = load ptr, ptr %5, align 8, !tbaa !13
+  %91 = load i64, ptr %90, align 8, !tbaa !11
+  %92 = add i64 %91, %89
+  store i64 %92, ptr %90, align 8, !tbaa !11
+  %93 = load ptr, ptr %5, align 8, !tbaa !13
+  %94 = load i64, ptr %93, align 8, !tbaa !11
+  %95 = load ptr, ptr %6, align 8, !tbaa !13
+  %96 = load i64, ptr %95, align 8, !tbaa !11
+  %97 = xor i64 %96, %94
+  store i64 %97, ptr %95, align 8, !tbaa !11
+  %98 = load ptr, ptr %5, align 8, !tbaa !13
+  %99 = load i64, ptr %98, align 8, !tbaa !11
+  %100 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %99, i32 noundef 47)
+  %101 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %100, ptr %101, align 8, !tbaa !11
+  %102 = load ptr, ptr %5, align 8, !tbaa !13
+  %103 = load i64, ptr %102, align 8, !tbaa !11
+  %104 = load ptr, ptr %6, align 8, !tbaa !13
+  %105 = load i64, ptr %104, align 8, !tbaa !11
+  %106 = add i64 %105, %103
+  store i64 %106, ptr %104, align 8, !tbaa !11
+  %107 = load ptr, ptr %6, align 8, !tbaa !13
+  %108 = load i64, ptr %107, align 8, !tbaa !11
+  %109 = load ptr, ptr %7, align 8, !tbaa !13
+  %110 = load i64, ptr %109, align 8, !tbaa !11
+  %111 = xor i64 %110, %108
+  store i64 %111, ptr %109, align 8, !tbaa !11
+  %112 = load ptr, ptr %6, align 8, !tbaa !13
+  %113 = load i64, ptr %112, align 8, !tbaa !11
+  %114 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %113, i32 noundef 54)
+  %115 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %114, ptr %115, align 8, !tbaa !11
+  %116 = load ptr, ptr %6, align 8, !tbaa !13
+  %117 = load i64, ptr %116, align 8, !tbaa !11
+  %118 = load ptr, ptr %7, align 8, !tbaa !13
+  %119 = load i64, ptr %118, align 8, !tbaa !11
+  %120 = add i64 %119, %117
+  store i64 %120, ptr %118, align 8, !tbaa !11
+  %121 = load ptr, ptr %7, align 8, !tbaa !13
+  %122 = load i64, ptr %121, align 8, !tbaa !11
+  %123 = load ptr, ptr %8, align 8, !tbaa !13
+  %124 = load i64, ptr %123, align 8, !tbaa !11
+  %125 = xor i64 %124, %122
+  store i64 %125, ptr %123, align 8, !tbaa !11
+  %126 = load ptr, ptr %7, align 8, !tbaa !13
+  %127 = load i64, ptr %126, align 8, !tbaa !11
+  %128 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %127, i32 noundef 32)
+  %129 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %128, ptr %129, align 8, !tbaa !11
+  %130 = load ptr, ptr %7, align 8, !tbaa !13
+  %131 = load i64, ptr %130, align 8, !tbaa !11
+  %132 = load ptr, ptr %8, align 8, !tbaa !13
+  %133 = load i64, ptr %132, align 8, !tbaa !11
+  %134 = add i64 %133, %131
+  store i64 %134, ptr %132, align 8, !tbaa !11
+  %135 = load ptr, ptr %8, align 8, !tbaa !13
+  %136 = load i64, ptr %135, align 8, !tbaa !11
+  %137 = load ptr, ptr %5, align 8, !tbaa !13
+  %138 = load i64, ptr %137, align 8, !tbaa !11
+  %139 = xor i64 %138, %136
+  store i64 %139, ptr %137, align 8, !tbaa !11
+  %140 = load ptr, ptr %8, align 8, !tbaa !13
+  %141 = load i64, ptr %140, align 8, !tbaa !11
+  %142 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %141, i32 noundef 25)
+  %143 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %142, ptr %143, align 8, !tbaa !11
+  %144 = load ptr, ptr %8, align 8, !tbaa !13
+  %145 = load i64, ptr %144, align 8, !tbaa !11
+  %146 = load ptr, ptr %5, align 8, !tbaa !13
+  %147 = load i64, ptr %146, align 8, !tbaa !11
+  %148 = add i64 %147, %145
+  store i64 %148, ptr %146, align 8, !tbaa !11
+  %149 = load ptr, ptr %5, align 8, !tbaa !13
+  %150 = load i64, ptr %149, align 8, !tbaa !11
+  %151 = load ptr, ptr %6, align 8, !tbaa !13
+  %152 = load i64, ptr %151, align 8, !tbaa !11
+  %153 = xor i64 %152, %150
+  store i64 %153, ptr %151, align 8, !tbaa !11
+  %154 = load ptr, ptr %5, align 8, !tbaa !13
+  %155 = load i64, ptr %154, align 8, !tbaa !11
+  %156 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %155, i32 noundef 63)
+  %157 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %156, ptr %157, align 8, !tbaa !11
+  %158 = load ptr, ptr %5, align 8, !tbaa !13
+  %159 = load i64, ptr %158, align 8, !tbaa !11
+  %160 = load ptr, ptr %6, align 8, !tbaa !13
+  %161 = load i64, ptr %160, align 8, !tbaa !11
+  %162 = add i64 %161, %159
+  store i64 %162, ptr %160, align 8, !tbaa !11
+  ret void
+}
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr noundef %hash1, ptr noundef %hash2)
-  br label %return
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %0, i32 noundef %1) #3 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  %5 = load i64, ptr %3, align 8, !tbaa !11
+  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %7 = zext i32 %6 to i64
+  %8 = shl i64 %5, %7
+  %9 = load i64, ptr %3, align 8, !tbaa !11
+  %10 = load i32, ptr %4, align 4, !tbaa !18
+  %11 = sub nsw i32 64, %10
+  %12 = zext i32 %11 to i64
+  %13 = lshr i64 %9, %12
+  %14 = or i64 %8, %13
+  ret i64 %14
+}
 
-if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buf) #7
-  %0 = load i64, ptr %hash1, align 8, !tbaa !7
-  %1 = load i64, ptr %hash2, align 8, !tbaa !7
-  %div = udiv i64 %length, 96
-  %mul = mul nuw nsw i64 %div, 12
-  %add.ptr = getelementptr inbounds i64, ptr %message, i64 %mul
-  %add.ptr.idx = mul nuw i64 %div, 96
-  %cmp1507 = icmp sgt i64 %add.ptr.idx, 0
-  br i1 %cmp1507, label %while.body, label %while.end
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca [12 x i64], align 16
+  %22 = alloca ptr, align 8
+  %23 = alloca %union.anon.0, align 8
+  %24 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i64 %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !13
+  %25 = load i64, ptr %6, align 8, !tbaa !11
+  %26 = icmp ult i64 %25, 192
+  br i1 %26, label %27, label %32
 
-while.body:                                       ; preds = %while.body, %if.end
-  %u.sroa.0.0520 = phi ptr [ %add.ptr2, %while.body ], [ %message, %if.end ]
-  %h11.0519 = phi i64 [ %or.i208.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h10.0518 = phi i64 [ %add68.i, %while.body ], [ %1, %if.end ]
-  %h9.0517 = phi i64 [ %add62.i, %while.body ], [ %0, %if.end ]
-  %h8.0516 = phi i64 [ %add56.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h7.0515 = phi i64 [ %add50.i, %while.body ], [ %1, %if.end ]
-  %h6.0514 = phi i64 [ %add44.i, %while.body ], [ %0, %if.end ]
-  %h5.0513 = phi i64 [ %add38.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h4.0512 = phi i64 [ %add32.i, %while.body ], [ %1, %if.end ]
-  %h3.0511 = phi i64 [ %add26.i, %while.body ], [ %0, %if.end ]
-  %h2.0510 = phi i64 [ %add20.i, %while.body ], [ -2401053088876216593, %if.end ]
-  %h1.0509 = phi i64 [ %xor65.i, %while.body ], [ %1, %if.end ]
-  %h0.0508 = phi i64 [ %xor59.i, %while.body ], [ %0, %if.end ]
-  %2 = load i64, ptr %u.sroa.0.0520, align 8, !tbaa !7
-  %add.i = add i64 %2, %h0.0508
-  %xor.i = xor i64 %h10.0518, %h2.0510
-  %xor1.i = xor i64 %add.i, %h11.0519
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %h1.0509
-  %arrayidx3.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 8
-  %3 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %3, %h1.0509
-  %xor5.i = xor i64 %add2.i, %h3.0511
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 16
-  %4 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %4, %xor.i
-  %xor11.i = xor i64 %add8.i, %h4.0512
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 24
-  %5 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %5
-  %xor17.i = xor i64 %add14.i, %h5.0513
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 32
-  %6 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %6
-  %xor23.i = xor i64 %add20.i, %h6.0514
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 40
-  %7 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %7
-  %xor29.i = xor i64 %add26.i, %h7.0515
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 48
-  %8 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %8
-  %xor35.i = xor i64 %add32.i, %h8.0516
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 56
-  %9 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %9
-  %xor41.i = xor i64 %add38.i, %h9.0517
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 64
-  %10 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %10
-  %xor47.i = xor i64 %add44.i, %h10.0518
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 72
-  %11 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %11
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 80
-  %12 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %12
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 88
-  %13 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %13
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %add.ptr2 = getelementptr inbounds i8, ptr %u.sroa.0.0520, i64 96
-  %cmp1 = icmp ult ptr %add.ptr2, %add.ptr
-  br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !16
+27:                                               ; preds = %4
+  %28 = load ptr, ptr %5, align 8, !tbaa !7
+  %29 = load i64, ptr %6, align 8, !tbaa !11
+  %30 = load ptr, ptr %7, align 8, !tbaa !13
+  %31 = load ptr, ptr %8, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %28, i64 noundef %29, ptr noundef %30, ptr noundef %31)
+  br label %76
 
-while.end:                                        ; preds = %while.body, %if.end
-  %h0.0.lcssa = phi i64 [ %0, %if.end ], [ %xor59.i, %while.body ]
-  %h1.0.lcssa = phi i64 [ %1, %if.end ], [ %xor65.i, %while.body ]
-  %h2.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add20.i, %while.body ]
-  %h3.0.lcssa = phi i64 [ %0, %if.end ], [ %add26.i, %while.body ]
-  %h4.0.lcssa = phi i64 [ %1, %if.end ], [ %add32.i, %while.body ]
-  %h5.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add38.i, %while.body ]
-  %h6.0.lcssa = phi i64 [ %0, %if.end ], [ %add44.i, %while.body ]
-  %h7.0.lcssa = phi i64 [ %1, %if.end ], [ %add50.i, %while.body ]
-  %h8.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %add56.i, %while.body ]
-  %h9.0.lcssa = phi i64 [ %0, %if.end ], [ %add62.i, %while.body ]
-  %h10.0.lcssa = phi i64 [ %1, %if.end ], [ %add68.i, %while.body ]
-  %h11.0.lcssa = phi i64 [ -2401053088876216593, %if.end ], [ %or.i208.i, %while.body ]
-  %add.ptr.idx.neg = mul i64 %div, -96
-  %sub = add i64 %add.ptr.idx.neg, %length
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 8 %add.ptr, i64 %sub, i1 false)
-  %add.ptr4 = getelementptr inbounds i8, ptr %buf, i64 %sub
-  %sub5 = sub i64 96, %sub
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr4, i8 0, i64 %sub5, i1 false)
-  %conv = trunc i64 %sub to i8
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 95
-  store i8 %conv, ptr %arrayidx, align 1, !tbaa !13
-  %14 = load i64, ptr %buf, align 16, !tbaa !7
-  %add.i25 = add i64 %14, %h0.0.lcssa
-  %xor.i26 = xor i64 %h10.0.lcssa, %h2.0.lcssa
-  %xor1.i27 = xor i64 %add.i25, %h11.0.lcssa
-  %or.i.i28 = tail call i64 @llvm.fshl.i64(i64 %add.i25, i64 %add.i25, i64 11)
-  %add2.i29 = add i64 %xor1.i27, %h1.0.lcssa
-  %arrayidx3.i30 = getelementptr inbounds i8, ptr %buf, i64 8
-  %15 = load i64, ptr %arrayidx3.i30, align 8, !tbaa !7
-  %add4.i31 = add i64 %15, %h1.0.lcssa
-  %xor5.i32 = xor i64 %add2.i29, %h3.0.lcssa
-  %xor6.i33 = xor i64 %or.i.i28, %add4.i31
-  %or.i178.i34 = tail call i64 @llvm.fshl.i64(i64 %add4.i31, i64 %add4.i31, i64 32)
-  %add8.i35 = add i64 %xor6.i33, %xor.i26
-  %arrayidx9.i36 = getelementptr inbounds i8, ptr %buf, i64 16
-  %16 = load i64, ptr %arrayidx9.i36, align 16, !tbaa !7
-  %add10.i37 = add i64 %16, %xor.i26
-  %xor11.i38 = xor i64 %add8.i35, %h4.0.lcssa
-  %xor12.i39 = xor i64 %or.i178.i34, %add10.i37
-  %or.i181.i40 = tail call i64 @llvm.fshl.i64(i64 %add10.i37, i64 %add10.i37, i64 43)
-  %add14.i41 = add i64 %xor12.i39, %xor5.i32
-  %arrayidx15.i42 = getelementptr inbounds i8, ptr %buf, i64 24
-  %17 = load i64, ptr %arrayidx15.i42, align 8, !tbaa !7
-  %add16.i43 = add i64 %xor5.i32, %17
-  %xor17.i44 = xor i64 %add14.i41, %h5.0.lcssa
-  %xor18.i45 = xor i64 %add16.i43, %or.i181.i40
-  %or.i184.i46 = tail call i64 @llvm.fshl.i64(i64 %add16.i43, i64 %add16.i43, i64 31)
-  %add20.i47 = add i64 %xor18.i45, %xor11.i38
-  %arrayidx21.i48 = getelementptr inbounds i8, ptr %buf, i64 32
-  %18 = load i64, ptr %arrayidx21.i48, align 16, !tbaa !7
-  %add22.i49 = add i64 %xor11.i38, %18
-  %xor23.i50 = xor i64 %add20.i47, %h6.0.lcssa
-  %xor24.i51 = xor i64 %or.i184.i46, %add22.i49
-  %or.i187.i52 = tail call i64 @llvm.fshl.i64(i64 %add22.i49, i64 %add22.i49, i64 17)
-  %add26.i53 = add i64 %xor24.i51, %xor17.i44
-  %arrayidx27.i54 = getelementptr inbounds i8, ptr %buf, i64 40
-  %19 = load i64, ptr %arrayidx27.i54, align 8, !tbaa !7
-  %add28.i55 = add i64 %xor17.i44, %19
-  %xor29.i56 = xor i64 %add26.i53, %h7.0.lcssa
-  %xor30.i57 = xor i64 %or.i187.i52, %add28.i55
-  %or.i190.i58 = tail call i64 @llvm.fshl.i64(i64 %add28.i55, i64 %add28.i55, i64 28)
-  %add32.i59 = add i64 %xor30.i57, %xor23.i50
-  %arrayidx33.i60 = getelementptr inbounds i8, ptr %buf, i64 48
-  %20 = load i64, ptr %arrayidx33.i60, align 16, !tbaa !7
-  %add34.i61 = add i64 %xor23.i50, %20
-  %xor35.i62 = xor i64 %add32.i59, %h8.0.lcssa
-  %xor36.i63 = xor i64 %add34.i61, %or.i190.i58
-  %or.i193.i64 = tail call i64 @llvm.fshl.i64(i64 %add34.i61, i64 %add34.i61, i64 39)
-  %add38.i65 = add i64 %xor36.i63, %xor29.i56
-  %arrayidx39.i66 = getelementptr inbounds i8, ptr %buf, i64 56
-  %21 = load i64, ptr %arrayidx39.i66, align 8, !tbaa !7
-  %add40.i67 = add i64 %xor29.i56, %21
-  %xor41.i68 = xor i64 %add38.i65, %h9.0.lcssa
-  %xor42.i69 = xor i64 %or.i193.i64, %add40.i67
-  %or.i196.i70 = tail call i64 @llvm.fshl.i64(i64 %add40.i67, i64 %add40.i67, i64 57)
-  %add44.i71 = add i64 %xor42.i69, %xor35.i62
-  %arrayidx45.i72 = getelementptr inbounds i8, ptr %buf, i64 64
-  %22 = load i64, ptr %arrayidx45.i72, align 16, !tbaa !7
-  %add46.i73 = add i64 %xor35.i62, %22
-  %xor47.i74 = xor i64 %add44.i71, %h10.0.lcssa
-  %xor48.i75 = xor i64 %or.i196.i70, %add46.i73
-  %or.i199.i76 = tail call i64 @llvm.fshl.i64(i64 %add46.i73, i64 %add46.i73, i64 55)
-  %add50.i77 = add i64 %xor48.i75, %xor41.i68
-  %arrayidx51.i78 = getelementptr inbounds i8, ptr %buf, i64 72
-  %23 = load i64, ptr %arrayidx51.i78, align 8, !tbaa !7
-  %add52.i79 = add i64 %xor41.i68, %23
-  %xor53.i80 = xor i64 %add50.i77, %add2.i29
-  %xor54.i81 = xor i64 %add52.i79, %or.i199.i76
-  %or.i202.i82 = tail call i64 @llvm.fshl.i64(i64 %add52.i79, i64 %add52.i79, i64 54)
-  %add56.i83 = add i64 %xor54.i81, %xor47.i74
-  %arrayidx57.i84 = getelementptr inbounds i8, ptr %buf, i64 80
-  %24 = load i64, ptr %arrayidx57.i84, align 16, !tbaa !7
-  %add58.i85 = add i64 %xor47.i74, %24
-  %xor59.i86 = xor i64 %add56.i83, %add8.i35
-  %xor60.i87 = xor i64 %or.i202.i82, %add58.i85
-  %or.i205.i88 = tail call i64 @llvm.fshl.i64(i64 %add58.i85, i64 %add58.i85, i64 22)
-  %add62.i89 = add i64 %xor60.i87, %xor53.i80
-  %arrayidx63.i90 = getelementptr inbounds i8, ptr %buf, i64 88
-  %25 = load i64, ptr %arrayidx63.i90, align 8, !tbaa !7
-  %add64.i91 = add i64 %xor53.i80, %25
-  %xor65.i92 = xor i64 %add62.i89, %add14.i41
-  %xor66.i93 = xor i64 %or.i205.i88, %add64.i91
-  %or.i208.i94 = tail call i64 @llvm.fshl.i64(i64 %add64.i91, i64 %add64.i91, i64 46)
-  %add68.i95 = add i64 %xor66.i93, %xor59.i86
-  %add.i145 = add i64 %xor65.i92, %or.i208.i94
-  %xor.i146 = xor i64 %add.i145, %add20.i47
-  %or.i.i147 = tail call i64 @llvm.fshl.i64(i64 %xor65.i92, i64 %xor65.i92, i64 44)
-  %add1.i148 = add i64 %xor.i146, %xor59.i86
-  %xor2.i149 = xor i64 %add1.i148, %add26.i53
-  %or.i96.i150 = tail call i64 @llvm.fshl.i64(i64 %xor.i146, i64 %xor.i146, i64 15)
-  %add4.i151 = add i64 %xor2.i149, %or.i.i147
-  %xor5.i152 = xor i64 %add4.i151, %add32.i59
-  %or.i99.i153 = tail call i64 @llvm.fshl.i64(i64 %xor2.i149, i64 %xor2.i149, i64 34)
-  %add7.i154 = add i64 %xor5.i152, %or.i96.i150
-  %xor8.i155 = xor i64 %add7.i154, %add38.i65
-  %or.i102.i156 = tail call i64 @llvm.fshl.i64(i64 %xor5.i152, i64 %xor5.i152, i64 21)
-  %add10.i157 = add i64 %xor8.i155, %or.i99.i153
-  %xor11.i158 = xor i64 %add10.i157, %add44.i71
-  %or.i105.i159 = tail call i64 @llvm.fshl.i64(i64 %xor8.i155, i64 %xor8.i155, i64 38)
-  %add13.i160 = add i64 %xor11.i158, %or.i102.i156
-  %xor14.i161 = xor i64 %add13.i160, %add50.i77
-  %or.i108.i162 = tail call i64 @llvm.fshl.i64(i64 %xor11.i158, i64 %xor11.i158, i64 33)
-  %add16.i163 = add i64 %xor14.i161, %or.i105.i159
-  %xor17.i164 = xor i64 %add16.i163, %add56.i83
-  %or.i111.i165 = tail call i64 @llvm.fshl.i64(i64 %xor14.i161, i64 %xor14.i161, i64 10)
-  %add19.i166 = add i64 %xor17.i164, %or.i108.i162
-  %xor20.i167 = xor i64 %add19.i166, %add62.i89
-  %or.i114.i168 = tail call i64 @llvm.fshl.i64(i64 %xor17.i164, i64 %xor17.i164, i64 13)
-  %add22.i169 = add i64 %xor20.i167, %or.i111.i165
-  %xor23.i170 = xor i64 %add22.i169, %add68.i95
-  %or.i117.i171 = tail call i64 @llvm.fshl.i64(i64 %xor20.i167, i64 %xor20.i167, i64 38)
-  %add25.i172 = add i64 %xor23.i170, %or.i114.i168
-  %xor26.i173 = xor i64 %add25.i172, %add.i145
-  %or.i120.i174 = tail call i64 @llvm.fshl.i64(i64 %xor23.i170, i64 %xor23.i170, i64 53)
-  %add28.i175 = add i64 %xor26.i173, %or.i117.i171
-  %xor29.i176 = xor i64 %add28.i175, %add1.i148
-  %or.i123.i177 = tail call i64 @llvm.fshl.i64(i64 %xor26.i173, i64 %xor26.i173, i64 42)
-  %add31.i178 = add i64 %xor29.i176, %or.i120.i174
-  %xor32.i179 = xor i64 %add31.i178, %add4.i151
-  %or.i126.i180 = tail call i64 @llvm.fshl.i64(i64 %xor29.i176, i64 %xor29.i176, i64 54)
-  %add.i109 = add i64 %xor32.i179, %or.i123.i177
-  %xor.i110 = xor i64 %add.i109, %add7.i154
-  %or.i.i111 = tail call i64 @llvm.fshl.i64(i64 %xor32.i179, i64 %xor32.i179, i64 44)
-  %add1.i112 = add i64 %xor.i110, %or.i126.i180
-  %xor2.i113 = xor i64 %add1.i112, %add10.i157
-  %or.i96.i114 = tail call i64 @llvm.fshl.i64(i64 %xor.i110, i64 %xor.i110, i64 15)
-  %add4.i115 = add i64 %xor2.i113, %or.i.i111
-  %xor5.i116 = xor i64 %add4.i115, %add13.i160
-  %or.i99.i117 = tail call i64 @llvm.fshl.i64(i64 %xor2.i113, i64 %xor2.i113, i64 34)
-  %add7.i118 = add i64 %xor5.i116, %or.i96.i114
-  %xor8.i119 = xor i64 %add7.i118, %add16.i163
-  %or.i102.i120 = tail call i64 @llvm.fshl.i64(i64 %xor5.i116, i64 %xor5.i116, i64 21)
-  %add10.i121 = add i64 %xor8.i119, %or.i99.i117
-  %xor11.i122 = xor i64 %add10.i121, %add19.i166
-  %or.i105.i123 = tail call i64 @llvm.fshl.i64(i64 %xor8.i119, i64 %xor8.i119, i64 38)
-  %add13.i124 = add i64 %xor11.i122, %or.i102.i120
-  %xor14.i125 = xor i64 %add13.i124, %add22.i169
-  %or.i108.i126 = tail call i64 @llvm.fshl.i64(i64 %xor11.i122, i64 %xor11.i122, i64 33)
-  %add16.i127 = add i64 %xor14.i125, %or.i105.i123
-  %xor17.i128 = xor i64 %add16.i127, %add25.i172
-  %or.i111.i129 = tail call i64 @llvm.fshl.i64(i64 %xor14.i125, i64 %xor14.i125, i64 10)
-  %add19.i130 = add i64 %xor17.i128, %or.i108.i126
-  %xor20.i131 = xor i64 %add19.i130, %add28.i175
-  %or.i114.i132 = tail call i64 @llvm.fshl.i64(i64 %xor17.i128, i64 %xor17.i128, i64 13)
-  %add22.i133 = add i64 %xor20.i131, %or.i111.i129
-  %xor23.i134 = xor i64 %add22.i133, %add31.i178
-  %or.i117.i135 = tail call i64 @llvm.fshl.i64(i64 %xor20.i131, i64 %xor20.i131, i64 38)
-  %add25.i136 = add i64 %xor23.i134, %or.i114.i132
-  %xor26.i137 = xor i64 %add25.i136, %add.i109
-  %or.i120.i138 = tail call i64 @llvm.fshl.i64(i64 %xor23.i134, i64 %xor23.i134, i64 53)
-  %add28.i139 = add i64 %xor26.i137, %or.i117.i135
-  %xor29.i140 = xor i64 %add28.i139, %add1.i112
-  %or.i123.i141 = tail call i64 @llvm.fshl.i64(i64 %xor26.i137, i64 %xor26.i137, i64 42)
-  %add31.i142 = add i64 %xor29.i140, %or.i120.i138
-  %xor32.i143 = xor i64 %add31.i142, %add4.i115
-  %or.i126.i144 = tail call i64 @llvm.fshl.i64(i64 %xor29.i140, i64 %xor29.i140, i64 54)
-  %add.i96 = add i64 %xor32.i143, %or.i123.i141
-  %xor.i97 = xor i64 %add.i96, %add7.i118
-  %or.i.i98 = tail call i64 @llvm.fshl.i64(i64 %xor32.i143, i64 %xor32.i143, i64 44)
-  %add1.i = add i64 %xor.i97, %or.i126.i144
-  %xor2.i = xor i64 %add1.i, %add10.i121
-  %or.i96.i = tail call i64 @llvm.fshl.i64(i64 %xor.i97, i64 %xor.i97, i64 15)
-  %add4.i99 = add i64 %xor2.i, %or.i.i98
-  %xor5.i100 = xor i64 %add4.i99, %add13.i124
-  %or.i99.i = tail call i64 @llvm.fshl.i64(i64 %xor2.i, i64 %xor2.i, i64 34)
-  %add7.i = add i64 %xor5.i100, %or.i96.i
-  %xor8.i = xor i64 %add7.i, %add16.i127
-  %or.i102.i = tail call i64 @llvm.fshl.i64(i64 %xor5.i100, i64 %xor5.i100, i64 21)
-  %add10.i101 = add i64 %xor8.i, %or.i99.i
-  %xor11.i102 = xor i64 %add10.i101, %add19.i130
-  %or.i105.i = tail call i64 @llvm.fshl.i64(i64 %xor8.i, i64 %xor8.i, i64 38)
-  %add13.i = add i64 %xor11.i102, %or.i102.i
-  %xor14.i = xor i64 %add13.i, %add22.i133
-  %or.i108.i = tail call i64 @llvm.fshl.i64(i64 %xor11.i102, i64 %xor11.i102, i64 33)
-  %add16.i103 = add i64 %xor14.i, %or.i105.i
-  %xor17.i104 = xor i64 %add16.i103, %add25.i136
-  %or.i111.i = tail call i64 @llvm.fshl.i64(i64 %xor14.i, i64 %xor14.i, i64 10)
-  %add19.i = add i64 %xor17.i104, %or.i108.i
-  %xor20.i = xor i64 %add19.i, %add28.i139
-  %or.i114.i = tail call i64 @llvm.fshl.i64(i64 %xor17.i104, i64 %xor17.i104, i64 13)
-  %add22.i105 = add i64 %xor20.i, %or.i111.i
-  %xor23.i106 = xor i64 %add22.i105, %add31.i142
-  %or.i117.i = tail call i64 @llvm.fshl.i64(i64 %xor20.i, i64 %xor20.i, i64 38)
-  %add25.i = add i64 %xor23.i106, %or.i114.i
-  %xor26.i = xor i64 %add25.i, %add.i96
-  %or.i120.i = tail call i64 @llvm.fshl.i64(i64 %xor23.i106, i64 %xor23.i106, i64 53)
-  %add28.i107 = add i64 %xor26.i, %or.i117.i
-  %xor29.i108 = xor i64 %add28.i107, %add1.i
-  %add31.i = add i64 %xor29.i108, %or.i120.i
-  %xor32.i = xor i64 %add31.i, %add4.i99
-  %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i108, i64 %xor29.i108, i64 54)
-  store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
-  store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf) #7
-  br label %return
+32:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 96, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  %33 = load ptr, ptr %7, align 8, !tbaa !13
+  %34 = load i64, ptr %33, align 8, !tbaa !11
+  store i64 %34, ptr %18, align 8, !tbaa !11
+  store i64 %34, ptr %15, align 8, !tbaa !11
+  store i64 %34, ptr %12, align 8, !tbaa !11
+  store i64 %34, ptr %9, align 8, !tbaa !11
+  %35 = load ptr, ptr %8, align 8, !tbaa !13
+  %36 = load i64, ptr %35, align 8, !tbaa !11
+  store i64 %36, ptr %19, align 8, !tbaa !11
+  store i64 %36, ptr %16, align 8, !tbaa !11
+  store i64 %36, ptr %13, align 8, !tbaa !11
+  store i64 %36, ptr %10, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %20, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %17, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %14, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %11, align 8, !tbaa !11
+  %37 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %37, ptr %23, align 8, !tbaa !15
+  %38 = load ptr, ptr %23, align 8, !tbaa !15
+  %39 = load i64, ptr %6, align 8, !tbaa !11
+  %40 = udiv i64 %39, 96
+  %41 = mul i64 %40, 12
+  %42 = getelementptr inbounds nuw i64, ptr %38, i64 %41
+  store ptr %42, ptr %22, align 8, !tbaa !13
+  br label %43
 
-return:                                           ; preds = %while.end, %if.then
+43:                                               ; preds = %47, %32
+  %44 = load ptr, ptr %23, align 8, !tbaa !15
+  %45 = load ptr, ptr %22, align 8, !tbaa !13
+  %46 = icmp ult ptr %44, %45
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %23, align 8, !tbaa !15
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %49 = load ptr, ptr %23, align 8, !tbaa !15
+  %50 = getelementptr inbounds nuw i64, ptr %49, i64 12
+  store ptr %50, ptr %23, align 8, !tbaa !15
+  br label %43, !llvm.loop !20
+
+51:                                               ; preds = %43
+  %52 = load i64, ptr %6, align 8, !tbaa !11
+  %53 = load ptr, ptr %22, align 8, !tbaa !13
+  %54 = load ptr, ptr %5, align 8, !tbaa !7
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = sub i64 %52, %57
+  store i64 %58, ptr %24, align 8, !tbaa !11
+  %59 = getelementptr inbounds [12 x i64], ptr %21, i64 0, i64 0
+  %60 = load ptr, ptr %22, align 8, !tbaa !13
+  %61 = load i64, ptr %24, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %59, ptr align 8 %60, i64 %61, i1 false)
+  %62 = getelementptr inbounds [12 x i64], ptr %21, i64 0, i64 0
+  %63 = load i64, ptr %24, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
+  %65 = load i64, ptr %24, align 8, !tbaa !11
+  %66 = sub i64 96, %65
+  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %66, i1 false)
+  %67 = load i64, ptr %24, align 8, !tbaa !11
+  %68 = trunc i64 %67 to i8
+  %69 = getelementptr inbounds [12 x i64], ptr %21, i64 0, i64 0
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 95
+  store i8 %68, ptr %70, align 1, !tbaa !15
+  %71 = getelementptr inbounds [12 x i64], ptr %21, i64 0, i64 0
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  call void @_ZN5folly4hash12SpookyHashV13EndERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %72 = load i64, ptr %9, align 8, !tbaa !11
+  %73 = load ptr, ptr %7, align 8, !tbaa !13
+  store i64 %72, ptr %73, align 8, !tbaa !11
+  %74 = load i64, ptr %10, align 8, !tbaa !11
+  %75 = load ptr, ptr %8, align 8, !tbaa !13
+  store i64 %74, ptr %75, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 96, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %76
+
+76:                                               ; preds = %51, %27
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #3 comdat align 2 {
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  store ptr %0, ptr %14, align 8, !tbaa !13
+  store ptr %1, ptr %15, align 8, !tbaa !13
+  store ptr %2, ptr %16, align 8, !tbaa !13
+  store ptr %3, ptr %17, align 8, !tbaa !13
+  store ptr %4, ptr %18, align 8, !tbaa !13
+  store ptr %5, ptr %19, align 8, !tbaa !13
+  store ptr %6, ptr %20, align 8, !tbaa !13
+  store ptr %7, ptr %21, align 8, !tbaa !13
+  store ptr %8, ptr %22, align 8, !tbaa !13
+  store ptr %9, ptr %23, align 8, !tbaa !13
+  store ptr %10, ptr %24, align 8, !tbaa !13
+  store ptr %11, ptr %25, align 8, !tbaa !13
+  store ptr %12, ptr %26, align 8, !tbaa !13
+  %27 = load ptr, ptr %14, align 8, !tbaa !13
+  %28 = getelementptr inbounds i64, ptr %27, i64 0
+  %29 = load i64, ptr %28, align 8, !tbaa !11
+  %30 = load ptr, ptr %15, align 8, !tbaa !13
+  %31 = load i64, ptr %30, align 8, !tbaa !11
+  %32 = add i64 %31, %29
+  store i64 %32, ptr %30, align 8, !tbaa !11
+  %33 = load ptr, ptr %25, align 8, !tbaa !13
+  %34 = load i64, ptr %33, align 8, !tbaa !11
+  %35 = load ptr, ptr %17, align 8, !tbaa !13
+  %36 = load i64, ptr %35, align 8, !tbaa !11
+  %37 = xor i64 %36, %34
+  store i64 %37, ptr %35, align 8, !tbaa !11
+  %38 = load ptr, ptr %15, align 8, !tbaa !13
+  %39 = load i64, ptr %38, align 8, !tbaa !11
+  %40 = load ptr, ptr %26, align 8, !tbaa !13
+  %41 = load i64, ptr %40, align 8, !tbaa !11
+  %42 = xor i64 %41, %39
+  store i64 %42, ptr %40, align 8, !tbaa !11
+  %43 = load ptr, ptr %15, align 8, !tbaa !13
+  %44 = load i64, ptr %43, align 8, !tbaa !11
+  %45 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %44, i32 noundef 11)
+  %46 = load ptr, ptr %15, align 8, !tbaa !13
+  store i64 %45, ptr %46, align 8, !tbaa !11
+  %47 = load ptr, ptr %16, align 8, !tbaa !13
+  %48 = load i64, ptr %47, align 8, !tbaa !11
+  %49 = load ptr, ptr %26, align 8, !tbaa !13
+  %50 = load i64, ptr %49, align 8, !tbaa !11
+  %51 = add i64 %50, %48
+  store i64 %51, ptr %49, align 8, !tbaa !11
+  %52 = load ptr, ptr %14, align 8, !tbaa !13
+  %53 = getelementptr inbounds i64, ptr %52, i64 1
+  %54 = load i64, ptr %53, align 8, !tbaa !11
+  %55 = load ptr, ptr %16, align 8, !tbaa !13
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  %57 = add i64 %56, %54
+  store i64 %57, ptr %55, align 8, !tbaa !11
+  %58 = load ptr, ptr %26, align 8, !tbaa !13
+  %59 = load i64, ptr %58, align 8, !tbaa !11
+  %60 = load ptr, ptr %18, align 8, !tbaa !13
+  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %62 = xor i64 %61, %59
+  store i64 %62, ptr %60, align 8, !tbaa !11
+  %63 = load ptr, ptr %16, align 8, !tbaa !13
+  %64 = load i64, ptr %63, align 8, !tbaa !11
+  %65 = load ptr, ptr %15, align 8, !tbaa !13
+  %66 = load i64, ptr %65, align 8, !tbaa !11
+  %67 = xor i64 %66, %64
+  store i64 %67, ptr %65, align 8, !tbaa !11
+  %68 = load ptr, ptr %16, align 8, !tbaa !13
+  %69 = load i64, ptr %68, align 8, !tbaa !11
+  %70 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %69, i32 noundef 32)
+  %71 = load ptr, ptr %16, align 8, !tbaa !13
+  store i64 %70, ptr %71, align 8, !tbaa !11
+  %72 = load ptr, ptr %17, align 8, !tbaa !13
+  %73 = load i64, ptr %72, align 8, !tbaa !11
+  %74 = load ptr, ptr %15, align 8, !tbaa !13
+  %75 = load i64, ptr %74, align 8, !tbaa !11
+  %76 = add i64 %75, %73
+  store i64 %76, ptr %74, align 8, !tbaa !11
+  %77 = load ptr, ptr %14, align 8, !tbaa !13
+  %78 = getelementptr inbounds i64, ptr %77, i64 2
+  %79 = load i64, ptr %78, align 8, !tbaa !11
+  %80 = load ptr, ptr %17, align 8, !tbaa !13
+  %81 = load i64, ptr %80, align 8, !tbaa !11
+  %82 = add i64 %81, %79
+  store i64 %82, ptr %80, align 8, !tbaa !11
+  %83 = load ptr, ptr %15, align 8, !tbaa !13
+  %84 = load i64, ptr %83, align 8, !tbaa !11
+  %85 = load ptr, ptr %19, align 8, !tbaa !13
+  %86 = load i64, ptr %85, align 8, !tbaa !11
+  %87 = xor i64 %86, %84
+  store i64 %87, ptr %85, align 8, !tbaa !11
+  %88 = load ptr, ptr %17, align 8, !tbaa !13
+  %89 = load i64, ptr %88, align 8, !tbaa !11
+  %90 = load ptr, ptr %16, align 8, !tbaa !13
+  %91 = load i64, ptr %90, align 8, !tbaa !11
+  %92 = xor i64 %91, %89
+  store i64 %92, ptr %90, align 8, !tbaa !11
+  %93 = load ptr, ptr %17, align 8, !tbaa !13
+  %94 = load i64, ptr %93, align 8, !tbaa !11
+  %95 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %94, i32 noundef 43)
+  %96 = load ptr, ptr %17, align 8, !tbaa !13
+  store i64 %95, ptr %96, align 8, !tbaa !11
+  %97 = load ptr, ptr %18, align 8, !tbaa !13
+  %98 = load i64, ptr %97, align 8, !tbaa !11
+  %99 = load ptr, ptr %16, align 8, !tbaa !13
+  %100 = load i64, ptr %99, align 8, !tbaa !11
+  %101 = add i64 %100, %98
+  store i64 %101, ptr %99, align 8, !tbaa !11
+  %102 = load ptr, ptr %14, align 8, !tbaa !13
+  %103 = getelementptr inbounds i64, ptr %102, i64 3
+  %104 = load i64, ptr %103, align 8, !tbaa !11
+  %105 = load ptr, ptr %18, align 8, !tbaa !13
+  %106 = load i64, ptr %105, align 8, !tbaa !11
+  %107 = add i64 %106, %104
+  store i64 %107, ptr %105, align 8, !tbaa !11
+  %108 = load ptr, ptr %16, align 8, !tbaa !13
+  %109 = load i64, ptr %108, align 8, !tbaa !11
+  %110 = load ptr, ptr %20, align 8, !tbaa !13
+  %111 = load i64, ptr %110, align 8, !tbaa !11
+  %112 = xor i64 %111, %109
+  store i64 %112, ptr %110, align 8, !tbaa !11
+  %113 = load ptr, ptr %18, align 8, !tbaa !13
+  %114 = load i64, ptr %113, align 8, !tbaa !11
+  %115 = load ptr, ptr %17, align 8, !tbaa !13
+  %116 = load i64, ptr %115, align 8, !tbaa !11
+  %117 = xor i64 %116, %114
+  store i64 %117, ptr %115, align 8, !tbaa !11
+  %118 = load ptr, ptr %18, align 8, !tbaa !13
+  %119 = load i64, ptr %118, align 8, !tbaa !11
+  %120 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %119, i32 noundef 31)
+  %121 = load ptr, ptr %18, align 8, !tbaa !13
+  store i64 %120, ptr %121, align 8, !tbaa !11
+  %122 = load ptr, ptr %19, align 8, !tbaa !13
+  %123 = load i64, ptr %122, align 8, !tbaa !11
+  %124 = load ptr, ptr %17, align 8, !tbaa !13
+  %125 = load i64, ptr %124, align 8, !tbaa !11
+  %126 = add i64 %125, %123
+  store i64 %126, ptr %124, align 8, !tbaa !11
+  %127 = load ptr, ptr %14, align 8, !tbaa !13
+  %128 = getelementptr inbounds i64, ptr %127, i64 4
+  %129 = load i64, ptr %128, align 8, !tbaa !11
+  %130 = load ptr, ptr %19, align 8, !tbaa !13
+  %131 = load i64, ptr %130, align 8, !tbaa !11
+  %132 = add i64 %131, %129
+  store i64 %132, ptr %130, align 8, !tbaa !11
+  %133 = load ptr, ptr %17, align 8, !tbaa !13
+  %134 = load i64, ptr %133, align 8, !tbaa !11
+  %135 = load ptr, ptr %21, align 8, !tbaa !13
+  %136 = load i64, ptr %135, align 8, !tbaa !11
+  %137 = xor i64 %136, %134
+  store i64 %137, ptr %135, align 8, !tbaa !11
+  %138 = load ptr, ptr %19, align 8, !tbaa !13
+  %139 = load i64, ptr %138, align 8, !tbaa !11
+  %140 = load ptr, ptr %18, align 8, !tbaa !13
+  %141 = load i64, ptr %140, align 8, !tbaa !11
+  %142 = xor i64 %141, %139
+  store i64 %142, ptr %140, align 8, !tbaa !11
+  %143 = load ptr, ptr %19, align 8, !tbaa !13
+  %144 = load i64, ptr %143, align 8, !tbaa !11
+  %145 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %144, i32 noundef 17)
+  %146 = load ptr, ptr %19, align 8, !tbaa !13
+  store i64 %145, ptr %146, align 8, !tbaa !11
+  %147 = load ptr, ptr %20, align 8, !tbaa !13
+  %148 = load i64, ptr %147, align 8, !tbaa !11
+  %149 = load ptr, ptr %18, align 8, !tbaa !13
+  %150 = load i64, ptr %149, align 8, !tbaa !11
+  %151 = add i64 %150, %148
+  store i64 %151, ptr %149, align 8, !tbaa !11
+  %152 = load ptr, ptr %14, align 8, !tbaa !13
+  %153 = getelementptr inbounds i64, ptr %152, i64 5
+  %154 = load i64, ptr %153, align 8, !tbaa !11
+  %155 = load ptr, ptr %20, align 8, !tbaa !13
+  %156 = load i64, ptr %155, align 8, !tbaa !11
+  %157 = add i64 %156, %154
+  store i64 %157, ptr %155, align 8, !tbaa !11
+  %158 = load ptr, ptr %18, align 8, !tbaa !13
+  %159 = load i64, ptr %158, align 8, !tbaa !11
+  %160 = load ptr, ptr %22, align 8, !tbaa !13
+  %161 = load i64, ptr %160, align 8, !tbaa !11
+  %162 = xor i64 %161, %159
+  store i64 %162, ptr %160, align 8, !tbaa !11
+  %163 = load ptr, ptr %20, align 8, !tbaa !13
+  %164 = load i64, ptr %163, align 8, !tbaa !11
+  %165 = load ptr, ptr %19, align 8, !tbaa !13
+  %166 = load i64, ptr %165, align 8, !tbaa !11
+  %167 = xor i64 %166, %164
+  store i64 %167, ptr %165, align 8, !tbaa !11
+  %168 = load ptr, ptr %20, align 8, !tbaa !13
+  %169 = load i64, ptr %168, align 8, !tbaa !11
+  %170 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %169, i32 noundef 28)
+  %171 = load ptr, ptr %20, align 8, !tbaa !13
+  store i64 %170, ptr %171, align 8, !tbaa !11
+  %172 = load ptr, ptr %21, align 8, !tbaa !13
+  %173 = load i64, ptr %172, align 8, !tbaa !11
+  %174 = load ptr, ptr %19, align 8, !tbaa !13
+  %175 = load i64, ptr %174, align 8, !tbaa !11
+  %176 = add i64 %175, %173
+  store i64 %176, ptr %174, align 8, !tbaa !11
+  %177 = load ptr, ptr %14, align 8, !tbaa !13
+  %178 = getelementptr inbounds i64, ptr %177, i64 6
+  %179 = load i64, ptr %178, align 8, !tbaa !11
+  %180 = load ptr, ptr %21, align 8, !tbaa !13
+  %181 = load i64, ptr %180, align 8, !tbaa !11
+  %182 = add i64 %181, %179
+  store i64 %182, ptr %180, align 8, !tbaa !11
+  %183 = load ptr, ptr %19, align 8, !tbaa !13
+  %184 = load i64, ptr %183, align 8, !tbaa !11
+  %185 = load ptr, ptr %23, align 8, !tbaa !13
+  %186 = load i64, ptr %185, align 8, !tbaa !11
+  %187 = xor i64 %186, %184
+  store i64 %187, ptr %185, align 8, !tbaa !11
+  %188 = load ptr, ptr %21, align 8, !tbaa !13
+  %189 = load i64, ptr %188, align 8, !tbaa !11
+  %190 = load ptr, ptr %20, align 8, !tbaa !13
+  %191 = load i64, ptr %190, align 8, !tbaa !11
+  %192 = xor i64 %191, %189
+  store i64 %192, ptr %190, align 8, !tbaa !11
+  %193 = load ptr, ptr %21, align 8, !tbaa !13
+  %194 = load i64, ptr %193, align 8, !tbaa !11
+  %195 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %194, i32 noundef 39)
+  %196 = load ptr, ptr %21, align 8, !tbaa !13
+  store i64 %195, ptr %196, align 8, !tbaa !11
+  %197 = load ptr, ptr %22, align 8, !tbaa !13
+  %198 = load i64, ptr %197, align 8, !tbaa !11
+  %199 = load ptr, ptr %20, align 8, !tbaa !13
+  %200 = load i64, ptr %199, align 8, !tbaa !11
+  %201 = add i64 %200, %198
+  store i64 %201, ptr %199, align 8, !tbaa !11
+  %202 = load ptr, ptr %14, align 8, !tbaa !13
+  %203 = getelementptr inbounds i64, ptr %202, i64 7
+  %204 = load i64, ptr %203, align 8, !tbaa !11
+  %205 = load ptr, ptr %22, align 8, !tbaa !13
+  %206 = load i64, ptr %205, align 8, !tbaa !11
+  %207 = add i64 %206, %204
+  store i64 %207, ptr %205, align 8, !tbaa !11
+  %208 = load ptr, ptr %20, align 8, !tbaa !13
+  %209 = load i64, ptr %208, align 8, !tbaa !11
+  %210 = load ptr, ptr %24, align 8, !tbaa !13
+  %211 = load i64, ptr %210, align 8, !tbaa !11
+  %212 = xor i64 %211, %209
+  store i64 %212, ptr %210, align 8, !tbaa !11
+  %213 = load ptr, ptr %22, align 8, !tbaa !13
+  %214 = load i64, ptr %213, align 8, !tbaa !11
+  %215 = load ptr, ptr %21, align 8, !tbaa !13
+  %216 = load i64, ptr %215, align 8, !tbaa !11
+  %217 = xor i64 %216, %214
+  store i64 %217, ptr %215, align 8, !tbaa !11
+  %218 = load ptr, ptr %22, align 8, !tbaa !13
+  %219 = load i64, ptr %218, align 8, !tbaa !11
+  %220 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %219, i32 noundef 57)
+  %221 = load ptr, ptr %22, align 8, !tbaa !13
+  store i64 %220, ptr %221, align 8, !tbaa !11
+  %222 = load ptr, ptr %23, align 8, !tbaa !13
+  %223 = load i64, ptr %222, align 8, !tbaa !11
+  %224 = load ptr, ptr %21, align 8, !tbaa !13
+  %225 = load i64, ptr %224, align 8, !tbaa !11
+  %226 = add i64 %225, %223
+  store i64 %226, ptr %224, align 8, !tbaa !11
+  %227 = load ptr, ptr %14, align 8, !tbaa !13
+  %228 = getelementptr inbounds i64, ptr %227, i64 8
+  %229 = load i64, ptr %228, align 8, !tbaa !11
+  %230 = load ptr, ptr %23, align 8, !tbaa !13
+  %231 = load i64, ptr %230, align 8, !tbaa !11
+  %232 = add i64 %231, %229
+  store i64 %232, ptr %230, align 8, !tbaa !11
+  %233 = load ptr, ptr %21, align 8, !tbaa !13
+  %234 = load i64, ptr %233, align 8, !tbaa !11
+  %235 = load ptr, ptr %25, align 8, !tbaa !13
+  %236 = load i64, ptr %235, align 8, !tbaa !11
+  %237 = xor i64 %236, %234
+  store i64 %237, ptr %235, align 8, !tbaa !11
+  %238 = load ptr, ptr %23, align 8, !tbaa !13
+  %239 = load i64, ptr %238, align 8, !tbaa !11
+  %240 = load ptr, ptr %22, align 8, !tbaa !13
+  %241 = load i64, ptr %240, align 8, !tbaa !11
+  %242 = xor i64 %241, %239
+  store i64 %242, ptr %240, align 8, !tbaa !11
+  %243 = load ptr, ptr %23, align 8, !tbaa !13
+  %244 = load i64, ptr %243, align 8, !tbaa !11
+  %245 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %244, i32 noundef 55)
+  %246 = load ptr, ptr %23, align 8, !tbaa !13
+  store i64 %245, ptr %246, align 8, !tbaa !11
+  %247 = load ptr, ptr %24, align 8, !tbaa !13
+  %248 = load i64, ptr %247, align 8, !tbaa !11
+  %249 = load ptr, ptr %22, align 8, !tbaa !13
+  %250 = load i64, ptr %249, align 8, !tbaa !11
+  %251 = add i64 %250, %248
+  store i64 %251, ptr %249, align 8, !tbaa !11
+  %252 = load ptr, ptr %14, align 8, !tbaa !13
+  %253 = getelementptr inbounds i64, ptr %252, i64 9
+  %254 = load i64, ptr %253, align 8, !tbaa !11
+  %255 = load ptr, ptr %24, align 8, !tbaa !13
+  %256 = load i64, ptr %255, align 8, !tbaa !11
+  %257 = add i64 %256, %254
+  store i64 %257, ptr %255, align 8, !tbaa !11
+  %258 = load ptr, ptr %22, align 8, !tbaa !13
+  %259 = load i64, ptr %258, align 8, !tbaa !11
+  %260 = load ptr, ptr %26, align 8, !tbaa !13
+  %261 = load i64, ptr %260, align 8, !tbaa !11
+  %262 = xor i64 %261, %259
+  store i64 %262, ptr %260, align 8, !tbaa !11
+  %263 = load ptr, ptr %24, align 8, !tbaa !13
+  %264 = load i64, ptr %263, align 8, !tbaa !11
+  %265 = load ptr, ptr %23, align 8, !tbaa !13
+  %266 = load i64, ptr %265, align 8, !tbaa !11
+  %267 = xor i64 %266, %264
+  store i64 %267, ptr %265, align 8, !tbaa !11
+  %268 = load ptr, ptr %24, align 8, !tbaa !13
+  %269 = load i64, ptr %268, align 8, !tbaa !11
+  %270 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %269, i32 noundef 54)
+  %271 = load ptr, ptr %24, align 8, !tbaa !13
+  store i64 %270, ptr %271, align 8, !tbaa !11
+  %272 = load ptr, ptr %25, align 8, !tbaa !13
+  %273 = load i64, ptr %272, align 8, !tbaa !11
+  %274 = load ptr, ptr %23, align 8, !tbaa !13
+  %275 = load i64, ptr %274, align 8, !tbaa !11
+  %276 = add i64 %275, %273
+  store i64 %276, ptr %274, align 8, !tbaa !11
+  %277 = load ptr, ptr %14, align 8, !tbaa !13
+  %278 = getelementptr inbounds i64, ptr %277, i64 10
+  %279 = load i64, ptr %278, align 8, !tbaa !11
+  %280 = load ptr, ptr %25, align 8, !tbaa !13
+  %281 = load i64, ptr %280, align 8, !tbaa !11
+  %282 = add i64 %281, %279
+  store i64 %282, ptr %280, align 8, !tbaa !11
+  %283 = load ptr, ptr %23, align 8, !tbaa !13
+  %284 = load i64, ptr %283, align 8, !tbaa !11
+  %285 = load ptr, ptr %15, align 8, !tbaa !13
+  %286 = load i64, ptr %285, align 8, !tbaa !11
+  %287 = xor i64 %286, %284
+  store i64 %287, ptr %285, align 8, !tbaa !11
+  %288 = load ptr, ptr %25, align 8, !tbaa !13
+  %289 = load i64, ptr %288, align 8, !tbaa !11
+  %290 = load ptr, ptr %24, align 8, !tbaa !13
+  %291 = load i64, ptr %290, align 8, !tbaa !11
+  %292 = xor i64 %291, %289
+  store i64 %292, ptr %290, align 8, !tbaa !11
+  %293 = load ptr, ptr %25, align 8, !tbaa !13
+  %294 = load i64, ptr %293, align 8, !tbaa !11
+  %295 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %294, i32 noundef 22)
+  %296 = load ptr, ptr %25, align 8, !tbaa !13
+  store i64 %295, ptr %296, align 8, !tbaa !11
+  %297 = load ptr, ptr %26, align 8, !tbaa !13
+  %298 = load i64, ptr %297, align 8, !tbaa !11
+  %299 = load ptr, ptr %24, align 8, !tbaa !13
+  %300 = load i64, ptr %299, align 8, !tbaa !11
+  %301 = add i64 %300, %298
+  store i64 %301, ptr %299, align 8, !tbaa !11
+  %302 = load ptr, ptr %14, align 8, !tbaa !13
+  %303 = getelementptr inbounds i64, ptr %302, i64 11
+  %304 = load i64, ptr %303, align 8, !tbaa !11
+  %305 = load ptr, ptr %26, align 8, !tbaa !13
+  %306 = load i64, ptr %305, align 8, !tbaa !11
+  %307 = add i64 %306, %304
+  store i64 %307, ptr %305, align 8, !tbaa !11
+  %308 = load ptr, ptr %24, align 8, !tbaa !13
+  %309 = load i64, ptr %308, align 8, !tbaa !11
+  %310 = load ptr, ptr %16, align 8, !tbaa !13
+  %311 = load i64, ptr %310, align 8, !tbaa !11
+  %312 = xor i64 %311, %309
+  store i64 %312, ptr %310, align 8, !tbaa !11
+  %313 = load ptr, ptr %26, align 8, !tbaa !13
+  %314 = load i64, ptr %313, align 8, !tbaa !11
+  %315 = load ptr, ptr %25, align 8, !tbaa !13
+  %316 = load i64, ptr %315, align 8, !tbaa !11
+  %317 = xor i64 %316, %314
+  store i64 %317, ptr %315, align 8, !tbaa !11
+  %318 = load ptr, ptr %26, align 8, !tbaa !13
+  %319 = load i64, ptr %318, align 8, !tbaa !11
+  %320 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %319, i32 noundef 46)
+  %321 = load ptr, ptr %26, align 8, !tbaa !13
+  store i64 %320, ptr %321, align 8, !tbaa !11
+  %322 = load ptr, ptr %15, align 8, !tbaa !13
+  %323 = load i64, ptr %322, align 8, !tbaa !11
+  %324 = load ptr, ptr %25, align 8, !tbaa !13
+  %325 = load i64, ptr %324, align 8, !tbaa !11
+  %326 = add i64 %325, %323
+  store i64 %326, ptr %324, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(297) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
-entry:
-  %m_length = getelementptr inbounds i8, ptr %this, i64 288
-  store i64 0, ptr %m_length, align 8, !tbaa !17
-  %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
-  store i8 0, ptr %m_remainder, align 8, !tbaa !19
-  %m_state = getelementptr inbounds i8, ptr %this, i64 192
-  store i64 %seed1, ptr %m_state, align 8, !tbaa !7
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 200
-  store i64 %seed2, ptr %arrayidx3, align 8, !tbaa !7
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN5folly4hash12SpookyHashV13EndERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #2 comdat align 2 {
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %13, align 8, !tbaa !13
+  store ptr %1, ptr %14, align 8, !tbaa !13
+  store ptr %2, ptr %15, align 8, !tbaa !13
+  store ptr %3, ptr %16, align 8, !tbaa !13
+  store ptr %4, ptr %17, align 8, !tbaa !13
+  store ptr %5, ptr %18, align 8, !tbaa !13
+  store ptr %6, ptr %19, align 8, !tbaa !13
+  store ptr %7, ptr %20, align 8, !tbaa !13
+  store ptr %8, ptr %21, align 8, !tbaa !13
+  store ptr %9, ptr %22, align 8, !tbaa !13
+  store ptr %10, ptr %23, align 8, !tbaa !13
+  store ptr %11, ptr %24, align 8, !tbaa !13
+  %25 = load ptr, ptr %13, align 8, !tbaa !13
+  %26 = load ptr, ptr %14, align 8, !tbaa !13
+  %27 = load ptr, ptr %15, align 8, !tbaa !13
+  %28 = load ptr, ptr %16, align 8, !tbaa !13
+  %29 = load ptr, ptr %17, align 8, !tbaa !13
+  %30 = load ptr, ptr %18, align 8, !tbaa !13
+  %31 = load ptr, ptr %19, align 8, !tbaa !13
+  %32 = load ptr, ptr %20, align 8, !tbaa !13
+  %33 = load ptr, ptr %21, align 8, !tbaa !13
+  %34 = load ptr, ptr %22, align 8, !tbaa !13
+  %35 = load ptr, ptr %23, align 8, !tbaa !13
+  %36 = load ptr, ptr %24, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV110EndPartialERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %37 = load ptr, ptr %13, align 8, !tbaa !13
+  %38 = load ptr, ptr %14, align 8, !tbaa !13
+  %39 = load ptr, ptr %15, align 8, !tbaa !13
+  %40 = load ptr, ptr %16, align 8, !tbaa !13
+  %41 = load ptr, ptr %17, align 8, !tbaa !13
+  %42 = load ptr, ptr %18, align 8, !tbaa !13
+  %43 = load ptr, ptr %19, align 8, !tbaa !13
+  %44 = load ptr, ptr %20, align 8, !tbaa !13
+  %45 = load ptr, ptr %21, align 8, !tbaa !13
+  %46 = load ptr, ptr %22, align 8, !tbaa !13
+  %47 = load ptr, ptr %23, align 8, !tbaa !13
+  %48 = load ptr, ptr %24, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV110EndPartialERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48)
+  %49 = load ptr, ptr %13, align 8, !tbaa !13
+  %50 = load ptr, ptr %14, align 8, !tbaa !13
+  %51 = load ptr, ptr %15, align 8, !tbaa !13
+  %52 = load ptr, ptr %16, align 8, !tbaa !13
+  %53 = load ptr, ptr %17, align 8, !tbaa !13
+  %54 = load ptr, ptr %18, align 8, !tbaa !13
+  %55 = load ptr, ptr %19, align 8, !tbaa !13
+  %56 = load ptr, ptr %20, align 8, !tbaa !13
+  %57 = load ptr, ptr %21, align 8, !tbaa !13
+  %58 = load ptr, ptr %22, align 8, !tbaa !13
+  %59 = load ptr, ptr %23, align 8, !tbaa !13
+  %60 = load ptr, ptr %24, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV110EndPartialERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly %message, i64 noundef %length) local_unnamed_addr #5 align 2 {
-entry:
-  %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
-  %0 = load i8, ptr %m_remainder, align 8, !tbaa !19
-  %conv = zext i8 %0 to i64
-  %add = add i64 %conv, %length
-  %cmp = icmp ult i64 %add, 192
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %message, i64 %length, i1 false)
-  %m_length = getelementptr inbounds i8, ptr %this, i64 288
-  %1 = load i64, ptr %m_length, align 8, !tbaa !17
-  %add3 = add i64 %1, %length
-  store i64 %add3, ptr %m_length, align 8, !tbaa !17
-  %conv5 = trunc i64 %add to i8
-  store i8 %conv5, ptr %m_remainder, align 8, !tbaa !19
-  br label %cleanup
-
-if.end:                                           ; preds = %entry
-  %m_length7 = getelementptr inbounds i8, ptr %this, i64 288
-  %2 = load i64, ptr %m_length7, align 8, !tbaa !17
-  %cmp8 = icmp ult i64 %2, 192
-  %m_state = getelementptr inbounds i8, ptr %this, i64 192
-  %3 = load i64, ptr %m_state, align 8, !tbaa !7
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 200
-  %4 = load i64, ptr %arrayidx12, align 8, !tbaa !7
-  br i1 %cmp8, label %if.end37, label %if.else
-
-if.else:                                          ; preds = %if.end
-  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 208
-  %5 = load i64, ptr %arrayidx18, align 8, !tbaa !7
-  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 216
-  %6 = load i64, ptr %arrayidx20, align 8, !tbaa !7
-  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load i64, ptr %arrayidx22, align 8, !tbaa !7
-  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 232
-  %8 = load i64, ptr %arrayidx24, align 8, !tbaa !7
-  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 240
-  %9 = load i64, ptr %arrayidx26, align 8, !tbaa !7
-  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 248
-  %10 = load i64, ptr %arrayidx28, align 8, !tbaa !7
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 256
-  %11 = load i64, ptr %arrayidx30, align 8, !tbaa !7
-  %arrayidx32 = getelementptr inbounds i8, ptr %this, i64 264
-  %12 = load i64, ptr %arrayidx32, align 8, !tbaa !7
-  %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 272
-  %13 = load i64, ptr %arrayidx34, align 8, !tbaa !7
-  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 280
-  %14 = load i64, ptr %arrayidx36, align 8, !tbaa !7
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.else, %if.end
-  %h2.0 = phi i64 [ %5, %if.else ], [ -2401053088876216593, %if.end ]
-  %h3.0 = phi i64 [ %6, %if.else ], [ %3, %if.end ]
-  %h4.0 = phi i64 [ %7, %if.else ], [ %4, %if.end ]
-  %h5.0 = phi i64 [ %8, %if.else ], [ -2401053088876216593, %if.end ]
-  %h6.0 = phi i64 [ %9, %if.else ], [ %3, %if.end ]
-  %h7.0 = phi i64 [ %10, %if.else ], [ %4, %if.end ]
-  %h8.0 = phi i64 [ %11, %if.else ], [ -2401053088876216593, %if.end ]
-  %h9.0 = phi i64 [ %12, %if.else ], [ %3, %if.end ]
-  %h10.0 = phi i64 [ %13, %if.else ], [ %4, %if.end ]
-  %h11.0 = phi i64 [ %14, %if.else ], [ -2401053088876216593, %if.end ]
-  %add39 = add i64 %2, %length
-  store i64 %add39, ptr %m_length7, align 8, !tbaa !17
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end59, label %if.then42
-
-if.then42:                                        ; preds = %if.end37
-  %sub = sub i8 -64, %0
-  %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 %conv
-  %conv51 = zext i8 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx50, ptr align 1 %message, i64 %conv51, i1 false)
-  %15 = load i64, ptr %this, align 8, !tbaa !7
-  %add.i = add i64 %15, %3
-  %xor.i = xor i64 %h10.0, %h2.0
-  %xor1.i = xor i64 %add.i, %h11.0
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 8
-  %16 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %16, %4
-  %xor5.i = xor i64 %add2.i, %h3.0
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 16
-  %17 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %17, %xor.i
-  %xor11.i = xor i64 %add8.i, %h4.0
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %18
-  %xor17.i = xor i64 %add14.i, %h5.0
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 32
-  %19 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %19
-  %xor23.i = xor i64 %add20.i, %h6.0
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %20
-  %xor29.i = xor i64 %add26.i, %h7.0
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds i8, ptr %this, i64 48
-  %21 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %21
-  %xor35.i = xor i64 %add32.i, %h8.0
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds i8, ptr %this, i64 56
-  %22 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %22
-  %xor41.i = xor i64 %add38.i, %h9.0
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds i8, ptr %this, i64 64
-  %23 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %23
-  %xor47.i = xor i64 %add44.i, %h10.0
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds i8, ptr %this, i64 72
-  %24 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %24
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds i8, ptr %this, i64 80
-  %25 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %25
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds i8, ptr %this, i64 88
-  %26 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %26
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 96
-  %27 = load i64, ptr %arrayidx54, align 8, !tbaa !7
-  %add.i129 = add i64 %xor59.i, %27
-  %xor.i130 = xor i64 %add68.i, %add20.i
-  %xor1.i131 = xor i64 %add.i129, %or.i208.i
-  %or.i.i132 = tail call i64 @llvm.fshl.i64(i64 %add.i129, i64 %add.i129, i64 11)
-  %add2.i133 = add i64 %xor1.i131, %xor65.i
-  %arrayidx3.i134 = getelementptr inbounds i8, ptr %this, i64 104
-  %28 = load i64, ptr %arrayidx3.i134, align 8, !tbaa !7
-  %add4.i135 = add i64 %xor65.i, %28
-  %xor5.i136 = xor i64 %add2.i133, %add26.i
-  %xor6.i137 = xor i64 %or.i.i132, %add4.i135
-  %or.i178.i138 = tail call i64 @llvm.fshl.i64(i64 %add4.i135, i64 %add4.i135, i64 32)
-  %add8.i139 = add i64 %xor6.i137, %xor.i130
-  %arrayidx9.i140 = getelementptr inbounds i8, ptr %this, i64 112
-  %29 = load i64, ptr %arrayidx9.i140, align 8, !tbaa !7
-  %add10.i141 = add i64 %xor.i130, %29
-  %xor11.i142 = xor i64 %add8.i139, %add32.i
-  %xor12.i143 = xor i64 %or.i178.i138, %add10.i141
-  %or.i181.i144 = tail call i64 @llvm.fshl.i64(i64 %add10.i141, i64 %add10.i141, i64 43)
-  %add14.i145 = add i64 %xor12.i143, %xor5.i136
-  %arrayidx15.i146 = getelementptr inbounds i8, ptr %this, i64 120
-  %30 = load i64, ptr %arrayidx15.i146, align 8, !tbaa !7
-  %add16.i147 = add i64 %xor5.i136, %30
-  %xor17.i148 = xor i64 %add14.i145, %add38.i
-  %xor18.i149 = xor i64 %add16.i147, %or.i181.i144
-  %or.i184.i150 = tail call i64 @llvm.fshl.i64(i64 %add16.i147, i64 %add16.i147, i64 31)
-  %add20.i151 = add i64 %xor18.i149, %xor11.i142
-  %arrayidx21.i152 = getelementptr inbounds i8, ptr %this, i64 128
-  %31 = load i64, ptr %arrayidx21.i152, align 8, !tbaa !7
-  %add22.i153 = add i64 %xor11.i142, %31
-  %xor23.i154 = xor i64 %add20.i151, %add44.i
-  %xor24.i155 = xor i64 %or.i184.i150, %add22.i153
-  %or.i187.i156 = tail call i64 @llvm.fshl.i64(i64 %add22.i153, i64 %add22.i153, i64 17)
-  %add26.i157 = add i64 %xor24.i155, %xor17.i148
-  %arrayidx27.i158 = getelementptr inbounds i8, ptr %this, i64 136
-  %32 = load i64, ptr %arrayidx27.i158, align 8, !tbaa !7
-  %add28.i159 = add i64 %xor17.i148, %32
-  %xor29.i160 = xor i64 %add26.i157, %add50.i
-  %xor30.i161 = xor i64 %or.i187.i156, %add28.i159
-  %or.i190.i162 = tail call i64 @llvm.fshl.i64(i64 %add28.i159, i64 %add28.i159, i64 28)
-  %add32.i163 = add i64 %xor30.i161, %xor23.i154
-  %arrayidx33.i164 = getelementptr inbounds i8, ptr %this, i64 144
-  %33 = load i64, ptr %arrayidx33.i164, align 8, !tbaa !7
-  %add34.i165 = add i64 %xor23.i154, %33
-  %xor35.i166 = xor i64 %add32.i163, %add56.i
-  %xor36.i167 = xor i64 %add34.i165, %or.i190.i162
-  %or.i193.i168 = tail call i64 @llvm.fshl.i64(i64 %add34.i165, i64 %add34.i165, i64 39)
-  %add38.i169 = add i64 %xor36.i167, %xor29.i160
-  %arrayidx39.i170 = getelementptr inbounds i8, ptr %this, i64 152
-  %34 = load i64, ptr %arrayidx39.i170, align 8, !tbaa !7
-  %add40.i171 = add i64 %xor29.i160, %34
-  %xor41.i172 = xor i64 %add38.i169, %add62.i
-  %xor42.i173 = xor i64 %or.i193.i168, %add40.i171
-  %or.i196.i174 = tail call i64 @llvm.fshl.i64(i64 %add40.i171, i64 %add40.i171, i64 57)
-  %add44.i175 = add i64 %xor42.i173, %xor35.i166
-  %arrayidx45.i176 = getelementptr inbounds i8, ptr %this, i64 160
-  %35 = load i64, ptr %arrayidx45.i176, align 8, !tbaa !7
-  %add46.i177 = add i64 %xor35.i166, %35
-  %xor47.i178 = xor i64 %add44.i175, %add68.i
-  %xor48.i179 = xor i64 %or.i196.i174, %add46.i177
-  %or.i199.i180 = tail call i64 @llvm.fshl.i64(i64 %add46.i177, i64 %add46.i177, i64 55)
-  %add50.i181 = add i64 %xor48.i179, %xor41.i172
-  %arrayidx51.i182 = getelementptr inbounds i8, ptr %this, i64 168
-  %36 = load i64, ptr %arrayidx51.i182, align 8, !tbaa !7
-  %add52.i183 = add i64 %xor41.i172, %36
-  %xor53.i184 = xor i64 %add50.i181, %add2.i133
-  %xor54.i185 = xor i64 %add52.i183, %or.i199.i180
-  %or.i202.i186 = tail call i64 @llvm.fshl.i64(i64 %add52.i183, i64 %add52.i183, i64 54)
-  %add56.i187 = add i64 %xor54.i185, %xor47.i178
-  %arrayidx57.i188 = getelementptr inbounds i8, ptr %this, i64 176
-  %37 = load i64, ptr %arrayidx57.i188, align 8, !tbaa !7
-  %add58.i189 = add i64 %xor47.i178, %37
-  %xor59.i190 = xor i64 %add56.i187, %add8.i139
-  %xor60.i191 = xor i64 %or.i202.i186, %add58.i189
-  %or.i205.i192 = tail call i64 @llvm.fshl.i64(i64 %add58.i189, i64 %add58.i189, i64 22)
-  %add62.i193 = add i64 %xor60.i191, %xor53.i184
-  %arrayidx63.i194 = getelementptr inbounds i8, ptr %this, i64 184
-  %38 = load i64, ptr %arrayidx63.i194, align 8, !tbaa !7
-  %add64.i195 = add i64 %xor53.i184, %38
-  %xor65.i196 = xor i64 %add62.i193, %add14.i145
-  %xor66.i197 = xor i64 %or.i205.i192, %add64.i195
-  %or.i208.i198 = tail call i64 @llvm.fshl.i64(i64 %add64.i195, i64 %add64.i195, i64 46)
-  %add68.i199 = add i64 %xor66.i197, %xor59.i190
-  %add.ptr = getelementptr inbounds i8, ptr %message, i64 %conv51
-  %sub57 = sub i64 %length, %conv51
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.then42, %if.end37
-  %h0.1 = phi i64 [ %3, %if.end37 ], [ %xor59.i190, %if.then42 ]
-  %h1.1 = phi i64 [ %4, %if.end37 ], [ %xor65.i196, %if.then42 ]
-  %h2.1 = phi i64 [ %h2.0, %if.end37 ], [ %add20.i151, %if.then42 ]
-  %h3.1 = phi i64 [ %h3.0, %if.end37 ], [ %add26.i157, %if.then42 ]
-  %h4.1 = phi i64 [ %h4.0, %if.end37 ], [ %add32.i163, %if.then42 ]
-  %h5.1 = phi i64 [ %h5.0, %if.end37 ], [ %add38.i169, %if.then42 ]
-  %h6.1 = phi i64 [ %h6.0, %if.end37 ], [ %add44.i175, %if.then42 ]
-  %h7.1 = phi i64 [ %h7.0, %if.end37 ], [ %add50.i181, %if.then42 ]
-  %h8.1 = phi i64 [ %h8.0, %if.end37 ], [ %add56.i187, %if.then42 ]
-  %h9.1 = phi i64 [ %h9.0, %if.end37 ], [ %add62.i193, %if.then42 ]
-  %h10.1 = phi i64 [ %h10.0, %if.end37 ], [ %add68.i199, %if.then42 ]
-  %h11.1 = phi i64 [ %h11.0, %if.end37 ], [ %or.i208.i198, %if.then42 ]
-  %u.sroa.0.0 = phi ptr [ %message, %if.end37 ], [ %add.ptr, %if.then42 ]
-  %length.addr.0 = phi i64 [ %length, %if.end37 ], [ %sub57, %if.then42 ]
-  %div = udiv i64 %length.addr.0, 96
-  %mul = mul nuw nsw i64 %div, 12
-  %add.ptr60 = getelementptr inbounds i64, ptr %u.sroa.0.0, i64 %mul
-  %add.ptr60.idx.neg = mul i64 %div, 160
-  %sub61 = add i64 %add.ptr60.idx.neg, %length.addr.0
-  %conv62 = trunc i64 %sub61 to i8
-  %add.ptr60.idx = mul nuw i64 %div, 96
-  %cmp63559 = icmp sgt i64 %add.ptr60.idx, 0
-  br i1 %cmp63559, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.body, %if.end59
-  %u.sroa.0.1572 = phi ptr [ %add.ptr64, %while.body ], [ %u.sroa.0.0, %if.end59 ]
-  %h11.2571 = phi i64 [ %or.i208.i269, %while.body ], [ %h11.1, %if.end59 ]
-  %h10.2570 = phi i64 [ %add68.i270, %while.body ], [ %h10.1, %if.end59 ]
-  %h9.2569 = phi i64 [ %add62.i264, %while.body ], [ %h9.1, %if.end59 ]
-  %h8.2568 = phi i64 [ %add56.i258, %while.body ], [ %h8.1, %if.end59 ]
-  %h7.2567 = phi i64 [ %add50.i252, %while.body ], [ %h7.1, %if.end59 ]
-  %h6.2566 = phi i64 [ %add44.i246, %while.body ], [ %h6.1, %if.end59 ]
-  %h5.2565 = phi i64 [ %add38.i240, %while.body ], [ %h5.1, %if.end59 ]
-  %h4.2564 = phi i64 [ %add32.i234, %while.body ], [ %h4.1, %if.end59 ]
-  %h3.2563 = phi i64 [ %add26.i228, %while.body ], [ %h3.1, %if.end59 ]
-  %h2.2562 = phi i64 [ %add20.i222, %while.body ], [ %h2.1, %if.end59 ]
-  %h1.2561 = phi i64 [ %xor65.i267, %while.body ], [ %h1.1, %if.end59 ]
-  %h0.2560 = phi i64 [ %xor59.i261, %while.body ], [ %h0.1, %if.end59 ]
-  %39 = load i64, ptr %u.sroa.0.1572, align 8, !tbaa !7
-  %add.i200 = add i64 %39, %h0.2560
-  %xor.i201 = xor i64 %h10.2570, %h2.2562
-  %xor1.i202 = xor i64 %add.i200, %h11.2571
-  %or.i.i203 = tail call i64 @llvm.fshl.i64(i64 %add.i200, i64 %add.i200, i64 11)
-  %add2.i204 = add i64 %xor1.i202, %h1.2561
-  %arrayidx3.i205 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 8
-  %40 = load i64, ptr %arrayidx3.i205, align 8, !tbaa !7
-  %add4.i206 = add i64 %40, %h1.2561
-  %xor5.i207 = xor i64 %add2.i204, %h3.2563
-  %xor6.i208 = xor i64 %or.i.i203, %add4.i206
-  %or.i178.i209 = tail call i64 @llvm.fshl.i64(i64 %add4.i206, i64 %add4.i206, i64 32)
-  %add8.i210 = add i64 %xor6.i208, %xor.i201
-  %arrayidx9.i211 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 16
-  %41 = load i64, ptr %arrayidx9.i211, align 8, !tbaa !7
-  %add10.i212 = add i64 %41, %xor.i201
-  %xor11.i213 = xor i64 %add8.i210, %h4.2564
-  %xor12.i214 = xor i64 %or.i178.i209, %add10.i212
-  %or.i181.i215 = tail call i64 @llvm.fshl.i64(i64 %add10.i212, i64 %add10.i212, i64 43)
-  %add14.i216 = add i64 %xor12.i214, %xor5.i207
-  %arrayidx15.i217 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 24
-  %42 = load i64, ptr %arrayidx15.i217, align 8, !tbaa !7
-  %add16.i218 = add i64 %xor5.i207, %42
-  %xor17.i219 = xor i64 %add14.i216, %h5.2565
-  %xor18.i220 = xor i64 %add16.i218, %or.i181.i215
-  %or.i184.i221 = tail call i64 @llvm.fshl.i64(i64 %add16.i218, i64 %add16.i218, i64 31)
-  %add20.i222 = add i64 %xor18.i220, %xor11.i213
-  %arrayidx21.i223 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 32
-  %43 = load i64, ptr %arrayidx21.i223, align 8, !tbaa !7
-  %add22.i224 = add i64 %xor11.i213, %43
-  %xor23.i225 = xor i64 %add20.i222, %h6.2566
-  %xor24.i226 = xor i64 %or.i184.i221, %add22.i224
-  %or.i187.i227 = tail call i64 @llvm.fshl.i64(i64 %add22.i224, i64 %add22.i224, i64 17)
-  %add26.i228 = add i64 %xor24.i226, %xor17.i219
-  %arrayidx27.i229 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 40
-  %44 = load i64, ptr %arrayidx27.i229, align 8, !tbaa !7
-  %add28.i230 = add i64 %xor17.i219, %44
-  %xor29.i231 = xor i64 %add26.i228, %h7.2567
-  %xor30.i232 = xor i64 %or.i187.i227, %add28.i230
-  %or.i190.i233 = tail call i64 @llvm.fshl.i64(i64 %add28.i230, i64 %add28.i230, i64 28)
-  %add32.i234 = add i64 %xor30.i232, %xor23.i225
-  %arrayidx33.i235 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 48
-  %45 = load i64, ptr %arrayidx33.i235, align 8, !tbaa !7
-  %add34.i236 = add i64 %xor23.i225, %45
-  %xor35.i237 = xor i64 %add32.i234, %h8.2568
-  %xor36.i238 = xor i64 %add34.i236, %or.i190.i233
-  %or.i193.i239 = tail call i64 @llvm.fshl.i64(i64 %add34.i236, i64 %add34.i236, i64 39)
-  %add38.i240 = add i64 %xor36.i238, %xor29.i231
-  %arrayidx39.i241 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 56
-  %46 = load i64, ptr %arrayidx39.i241, align 8, !tbaa !7
-  %add40.i242 = add i64 %xor29.i231, %46
-  %xor41.i243 = xor i64 %add38.i240, %h9.2569
-  %xor42.i244 = xor i64 %or.i193.i239, %add40.i242
-  %or.i196.i245 = tail call i64 @llvm.fshl.i64(i64 %add40.i242, i64 %add40.i242, i64 57)
-  %add44.i246 = add i64 %xor42.i244, %xor35.i237
-  %arrayidx45.i247 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 64
-  %47 = load i64, ptr %arrayidx45.i247, align 8, !tbaa !7
-  %add46.i248 = add i64 %xor35.i237, %47
-  %xor47.i249 = xor i64 %add44.i246, %h10.2570
-  %xor48.i250 = xor i64 %or.i196.i245, %add46.i248
-  %or.i199.i251 = tail call i64 @llvm.fshl.i64(i64 %add46.i248, i64 %add46.i248, i64 55)
-  %add50.i252 = add i64 %xor48.i250, %xor41.i243
-  %arrayidx51.i253 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 72
-  %48 = load i64, ptr %arrayidx51.i253, align 8, !tbaa !7
-  %add52.i254 = add i64 %xor41.i243, %48
-  %xor53.i255 = xor i64 %add50.i252, %add2.i204
-  %xor54.i256 = xor i64 %add52.i254, %or.i199.i251
-  %or.i202.i257 = tail call i64 @llvm.fshl.i64(i64 %add52.i254, i64 %add52.i254, i64 54)
-  %add56.i258 = add i64 %xor54.i256, %xor47.i249
-  %arrayidx57.i259 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 80
-  %49 = load i64, ptr %arrayidx57.i259, align 8, !tbaa !7
-  %add58.i260 = add i64 %xor47.i249, %49
-  %xor59.i261 = xor i64 %add56.i258, %add8.i210
-  %xor60.i262 = xor i64 %or.i202.i257, %add58.i260
-  %or.i205.i263 = tail call i64 @llvm.fshl.i64(i64 %add58.i260, i64 %add58.i260, i64 22)
-  %add62.i264 = add i64 %xor60.i262, %xor53.i255
-  %arrayidx63.i265 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 88
-  %50 = load i64, ptr %arrayidx63.i265, align 8, !tbaa !7
-  %add64.i266 = add i64 %xor53.i255, %50
-  %xor65.i267 = xor i64 %add62.i264, %add14.i216
-  %xor66.i268 = xor i64 %or.i205.i263, %add64.i266
-  %or.i208.i269 = tail call i64 @llvm.fshl.i64(i64 %add64.i266, i64 %add64.i266, i64 46)
-  %add68.i270 = add i64 %xor66.i268, %xor59.i261
-  %add.ptr64 = getelementptr inbounds i8, ptr %u.sroa.0.1572, i64 96
-  %cmp63 = icmp ult ptr %add.ptr64, %add.ptr60
-  br i1 %cmp63, label %while.body, label %while.end, !llvm.loop !20
-
-while.end:                                        ; preds = %while.body, %if.end59
-  %h0.2.lcssa = phi i64 [ %h0.1, %if.end59 ], [ %xor59.i261, %while.body ]
-  %h1.2.lcssa = phi i64 [ %h1.1, %if.end59 ], [ %xor65.i267, %while.body ]
-  %h2.2.lcssa = phi i64 [ %h2.1, %if.end59 ], [ %add20.i222, %while.body ]
-  %h3.2.lcssa = phi i64 [ %h3.1, %if.end59 ], [ %add26.i228, %while.body ]
-  %h4.2.lcssa = phi i64 [ %h4.1, %if.end59 ], [ %add32.i234, %while.body ]
-  %h5.2.lcssa = phi i64 [ %h5.1, %if.end59 ], [ %add38.i240, %while.body ]
-  %h6.2.lcssa = phi i64 [ %h6.1, %if.end59 ], [ %add44.i246, %while.body ]
-  %h7.2.lcssa = phi i64 [ %h7.1, %if.end59 ], [ %add50.i252, %while.body ]
-  %h8.2.lcssa = phi i64 [ %h8.1, %if.end59 ], [ %add56.i258, %while.body ]
-  %h9.2.lcssa = phi i64 [ %h9.1, %if.end59 ], [ %add62.i264, %while.body ]
-  %h10.2.lcssa = phi i64 [ %h10.1, %if.end59 ], [ %add68.i270, %while.body ]
-  %h11.2.lcssa = phi i64 [ %h11.1, %if.end59 ], [ %or.i208.i269, %while.body ]
-  store i8 %conv62, ptr %m_remainder, align 8, !tbaa !19
-  %conv68 = and i64 %sub61, 255
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %this, ptr align 8 %add.ptr60, i64 %conv68, i1 false)
-  %m_state69 = getelementptr inbounds i8, ptr %this, i64 192
-  store i64 %h0.2.lcssa, ptr %m_state69, align 8, !tbaa !7
-  %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 200
-  store i64 %h1.2.lcssa, ptr %arrayidx72, align 8, !tbaa !7
-  %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 208
-  store i64 %h2.2.lcssa, ptr %arrayidx74, align 8, !tbaa !7
-  %arrayidx76 = getelementptr inbounds i8, ptr %this, i64 216
-  store i64 %h3.2.lcssa, ptr %arrayidx76, align 8, !tbaa !7
-  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 224
-  store i64 %h4.2.lcssa, ptr %arrayidx78, align 8, !tbaa !7
-  %arrayidx80 = getelementptr inbounds i8, ptr %this, i64 232
-  store i64 %h5.2.lcssa, ptr %arrayidx80, align 8, !tbaa !7
-  %arrayidx82 = getelementptr inbounds i8, ptr %this, i64 240
-  store i64 %h6.2.lcssa, ptr %arrayidx82, align 8, !tbaa !7
-  %arrayidx84 = getelementptr inbounds i8, ptr %this, i64 248
-  store i64 %h7.2.lcssa, ptr %arrayidx84, align 8, !tbaa !7
-  %arrayidx86 = getelementptr inbounds i8, ptr %this, i64 256
-  store i64 %h8.2.lcssa, ptr %arrayidx86, align 8, !tbaa !7
-  %arrayidx88 = getelementptr inbounds i8, ptr %this, i64 264
-  store i64 %h9.2.lcssa, ptr %arrayidx88, align 8, !tbaa !7
-  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 272
-  store i64 %h10.2.lcssa, ptr %arrayidx90, align 8, !tbaa !7
-  %arrayidx92 = getelementptr inbounds i8, ptr %this, i64 280
-  store i64 %h11.2.lcssa, ptr %arrayidx92, align 8, !tbaa !7
-  br label %cleanup
-
-cleanup:                                          ; preds = %while.end, %if.then
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly4hash12SpookyHashV110EndPartialERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #3 comdat align 2 {
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %13, align 8, !tbaa !13
+  store ptr %1, ptr %14, align 8, !tbaa !13
+  store ptr %2, ptr %15, align 8, !tbaa !13
+  store ptr %3, ptr %16, align 8, !tbaa !13
+  store ptr %4, ptr %17, align 8, !tbaa !13
+  store ptr %5, ptr %18, align 8, !tbaa !13
+  store ptr %6, ptr %19, align 8, !tbaa !13
+  store ptr %7, ptr %20, align 8, !tbaa !13
+  store ptr %8, ptr %21, align 8, !tbaa !13
+  store ptr %9, ptr %22, align 8, !tbaa !13
+  store ptr %10, ptr %23, align 8, !tbaa !13
+  store ptr %11, ptr %24, align 8, !tbaa !13
+  %25 = load ptr, ptr %14, align 8, !tbaa !13
+  %26 = load i64, ptr %25, align 8, !tbaa !11
+  %27 = load ptr, ptr %24, align 8, !tbaa !13
+  %28 = load i64, ptr %27, align 8, !tbaa !11
+  %29 = add i64 %28, %26
+  store i64 %29, ptr %27, align 8, !tbaa !11
+  %30 = load ptr, ptr %24, align 8, !tbaa !13
+  %31 = load i64, ptr %30, align 8, !tbaa !11
+  %32 = load ptr, ptr %15, align 8, !tbaa !13
+  %33 = load i64, ptr %32, align 8, !tbaa !11
+  %34 = xor i64 %33, %31
+  store i64 %34, ptr %32, align 8, !tbaa !11
+  %35 = load ptr, ptr %14, align 8, !tbaa !13
+  %36 = load i64, ptr %35, align 8, !tbaa !11
+  %37 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %36, i32 noundef 44)
+  %38 = load ptr, ptr %14, align 8, !tbaa !13
+  store i64 %37, ptr %38, align 8, !tbaa !11
+  %39 = load ptr, ptr %15, align 8, !tbaa !13
+  %40 = load i64, ptr %39, align 8, !tbaa !11
+  %41 = load ptr, ptr %13, align 8, !tbaa !13
+  %42 = load i64, ptr %41, align 8, !tbaa !11
+  %43 = add i64 %42, %40
+  store i64 %43, ptr %41, align 8, !tbaa !11
+  %44 = load ptr, ptr %13, align 8, !tbaa !13
+  %45 = load i64, ptr %44, align 8, !tbaa !11
+  %46 = load ptr, ptr %16, align 8, !tbaa !13
+  %47 = load i64, ptr %46, align 8, !tbaa !11
+  %48 = xor i64 %47, %45
+  store i64 %48, ptr %46, align 8, !tbaa !11
+  %49 = load ptr, ptr %15, align 8, !tbaa !13
+  %50 = load i64, ptr %49, align 8, !tbaa !11
+  %51 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %50, i32 noundef 15)
+  %52 = load ptr, ptr %15, align 8, !tbaa !13
+  store i64 %51, ptr %52, align 8, !tbaa !11
+  %53 = load ptr, ptr %16, align 8, !tbaa !13
+  %54 = load i64, ptr %53, align 8, !tbaa !11
+  %55 = load ptr, ptr %14, align 8, !tbaa !13
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  %57 = add i64 %56, %54
+  store i64 %57, ptr %55, align 8, !tbaa !11
+  %58 = load ptr, ptr %14, align 8, !tbaa !13
+  %59 = load i64, ptr %58, align 8, !tbaa !11
+  %60 = load ptr, ptr %17, align 8, !tbaa !13
+  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %62 = xor i64 %61, %59
+  store i64 %62, ptr %60, align 8, !tbaa !11
+  %63 = load ptr, ptr %16, align 8, !tbaa !13
+  %64 = load i64, ptr %63, align 8, !tbaa !11
+  %65 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %64, i32 noundef 34)
+  %66 = load ptr, ptr %16, align 8, !tbaa !13
+  store i64 %65, ptr %66, align 8, !tbaa !11
+  %67 = load ptr, ptr %17, align 8, !tbaa !13
+  %68 = load i64, ptr %67, align 8, !tbaa !11
+  %69 = load ptr, ptr %15, align 8, !tbaa !13
+  %70 = load i64, ptr %69, align 8, !tbaa !11
+  %71 = add i64 %70, %68
+  store i64 %71, ptr %69, align 8, !tbaa !11
+  %72 = load ptr, ptr %15, align 8, !tbaa !13
+  %73 = load i64, ptr %72, align 8, !tbaa !11
+  %74 = load ptr, ptr %18, align 8, !tbaa !13
+  %75 = load i64, ptr %74, align 8, !tbaa !11
+  %76 = xor i64 %75, %73
+  store i64 %76, ptr %74, align 8, !tbaa !11
+  %77 = load ptr, ptr %17, align 8, !tbaa !13
+  %78 = load i64, ptr %77, align 8, !tbaa !11
+  %79 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %78, i32 noundef 21)
+  %80 = load ptr, ptr %17, align 8, !tbaa !13
+  store i64 %79, ptr %80, align 8, !tbaa !11
+  %81 = load ptr, ptr %18, align 8, !tbaa !13
+  %82 = load i64, ptr %81, align 8, !tbaa !11
+  %83 = load ptr, ptr %16, align 8, !tbaa !13
+  %84 = load i64, ptr %83, align 8, !tbaa !11
+  %85 = add i64 %84, %82
+  store i64 %85, ptr %83, align 8, !tbaa !11
+  %86 = load ptr, ptr %16, align 8, !tbaa !13
+  %87 = load i64, ptr %86, align 8, !tbaa !11
+  %88 = load ptr, ptr %19, align 8, !tbaa !13
+  %89 = load i64, ptr %88, align 8, !tbaa !11
+  %90 = xor i64 %89, %87
+  store i64 %90, ptr %88, align 8, !tbaa !11
+  %91 = load ptr, ptr %18, align 8, !tbaa !13
+  %92 = load i64, ptr %91, align 8, !tbaa !11
+  %93 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %92, i32 noundef 38)
+  %94 = load ptr, ptr %18, align 8, !tbaa !13
+  store i64 %93, ptr %94, align 8, !tbaa !11
+  %95 = load ptr, ptr %19, align 8, !tbaa !13
+  %96 = load i64, ptr %95, align 8, !tbaa !11
+  %97 = load ptr, ptr %17, align 8, !tbaa !13
+  %98 = load i64, ptr %97, align 8, !tbaa !11
+  %99 = add i64 %98, %96
+  store i64 %99, ptr %97, align 8, !tbaa !11
+  %100 = load ptr, ptr %17, align 8, !tbaa !13
+  %101 = load i64, ptr %100, align 8, !tbaa !11
+  %102 = load ptr, ptr %20, align 8, !tbaa !13
+  %103 = load i64, ptr %102, align 8, !tbaa !11
+  %104 = xor i64 %103, %101
+  store i64 %104, ptr %102, align 8, !tbaa !11
+  %105 = load ptr, ptr %19, align 8, !tbaa !13
+  %106 = load i64, ptr %105, align 8, !tbaa !11
+  %107 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %106, i32 noundef 33)
+  %108 = load ptr, ptr %19, align 8, !tbaa !13
+  store i64 %107, ptr %108, align 8, !tbaa !11
+  %109 = load ptr, ptr %20, align 8, !tbaa !13
+  %110 = load i64, ptr %109, align 8, !tbaa !11
+  %111 = load ptr, ptr %18, align 8, !tbaa !13
+  %112 = load i64, ptr %111, align 8, !tbaa !11
+  %113 = add i64 %112, %110
+  store i64 %113, ptr %111, align 8, !tbaa !11
+  %114 = load ptr, ptr %18, align 8, !tbaa !13
+  %115 = load i64, ptr %114, align 8, !tbaa !11
+  %116 = load ptr, ptr %21, align 8, !tbaa !13
+  %117 = load i64, ptr %116, align 8, !tbaa !11
+  %118 = xor i64 %117, %115
+  store i64 %118, ptr %116, align 8, !tbaa !11
+  %119 = load ptr, ptr %20, align 8, !tbaa !13
+  %120 = load i64, ptr %119, align 8, !tbaa !11
+  %121 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %120, i32 noundef 10)
+  %122 = load ptr, ptr %20, align 8, !tbaa !13
+  store i64 %121, ptr %122, align 8, !tbaa !11
+  %123 = load ptr, ptr %21, align 8, !tbaa !13
+  %124 = load i64, ptr %123, align 8, !tbaa !11
+  %125 = load ptr, ptr %19, align 8, !tbaa !13
+  %126 = load i64, ptr %125, align 8, !tbaa !11
+  %127 = add i64 %126, %124
+  store i64 %127, ptr %125, align 8, !tbaa !11
+  %128 = load ptr, ptr %19, align 8, !tbaa !13
+  %129 = load i64, ptr %128, align 8, !tbaa !11
+  %130 = load ptr, ptr %22, align 8, !tbaa !13
+  %131 = load i64, ptr %130, align 8, !tbaa !11
+  %132 = xor i64 %131, %129
+  store i64 %132, ptr %130, align 8, !tbaa !11
+  %133 = load ptr, ptr %21, align 8, !tbaa !13
+  %134 = load i64, ptr %133, align 8, !tbaa !11
+  %135 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %134, i32 noundef 13)
+  %136 = load ptr, ptr %21, align 8, !tbaa !13
+  store i64 %135, ptr %136, align 8, !tbaa !11
+  %137 = load ptr, ptr %22, align 8, !tbaa !13
+  %138 = load i64, ptr %137, align 8, !tbaa !11
+  %139 = load ptr, ptr %20, align 8, !tbaa !13
+  %140 = load i64, ptr %139, align 8, !tbaa !11
+  %141 = add i64 %140, %138
+  store i64 %141, ptr %139, align 8, !tbaa !11
+  %142 = load ptr, ptr %20, align 8, !tbaa !13
+  %143 = load i64, ptr %142, align 8, !tbaa !11
+  %144 = load ptr, ptr %23, align 8, !tbaa !13
+  %145 = load i64, ptr %144, align 8, !tbaa !11
+  %146 = xor i64 %145, %143
+  store i64 %146, ptr %144, align 8, !tbaa !11
+  %147 = load ptr, ptr %22, align 8, !tbaa !13
+  %148 = load i64, ptr %147, align 8, !tbaa !11
+  %149 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %148, i32 noundef 38)
+  %150 = load ptr, ptr %22, align 8, !tbaa !13
+  store i64 %149, ptr %150, align 8, !tbaa !11
+  %151 = load ptr, ptr %23, align 8, !tbaa !13
+  %152 = load i64, ptr %151, align 8, !tbaa !11
+  %153 = load ptr, ptr %21, align 8, !tbaa !13
+  %154 = load i64, ptr %153, align 8, !tbaa !11
+  %155 = add i64 %154, %152
+  store i64 %155, ptr %153, align 8, !tbaa !11
+  %156 = load ptr, ptr %21, align 8, !tbaa !13
+  %157 = load i64, ptr %156, align 8, !tbaa !11
+  %158 = load ptr, ptr %24, align 8, !tbaa !13
+  %159 = load i64, ptr %158, align 8, !tbaa !11
+  %160 = xor i64 %159, %157
+  store i64 %160, ptr %158, align 8, !tbaa !11
+  %161 = load ptr, ptr %23, align 8, !tbaa !13
+  %162 = load i64, ptr %161, align 8, !tbaa !11
+  %163 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %162, i32 noundef 53)
+  %164 = load ptr, ptr %23, align 8, !tbaa !13
+  store i64 %163, ptr %164, align 8, !tbaa !11
+  %165 = load ptr, ptr %24, align 8, !tbaa !13
+  %166 = load i64, ptr %165, align 8, !tbaa !11
+  %167 = load ptr, ptr %22, align 8, !tbaa !13
+  %168 = load i64, ptr %167, align 8, !tbaa !11
+  %169 = add i64 %168, %166
+  store i64 %169, ptr %167, align 8, !tbaa !11
+  %170 = load ptr, ptr %22, align 8, !tbaa !13
+  %171 = load i64, ptr %170, align 8, !tbaa !11
+  %172 = load ptr, ptr %13, align 8, !tbaa !13
+  %173 = load i64, ptr %172, align 8, !tbaa !11
+  %174 = xor i64 %173, %171
+  store i64 %174, ptr %172, align 8, !tbaa !11
+  %175 = load ptr, ptr %24, align 8, !tbaa !13
+  %176 = load i64, ptr %175, align 8, !tbaa !11
+  %177 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %176, i32 noundef 42)
+  %178 = load ptr, ptr %24, align 8, !tbaa !13
+  store i64 %177, ptr %178, align 8, !tbaa !11
+  %179 = load ptr, ptr %13, align 8, !tbaa !13
+  %180 = load i64, ptr %179, align 8, !tbaa !11
+  %181 = load ptr, ptr %23, align 8, !tbaa !13
+  %182 = load i64, ptr %181, align 8, !tbaa !11
+  %183 = add i64 %182, %180
+  store i64 %183, ptr %181, align 8, !tbaa !11
+  %184 = load ptr, ptr %23, align 8, !tbaa !13
+  %185 = load i64, ptr %184, align 8, !tbaa !11
+  %186 = load ptr, ptr %14, align 8, !tbaa !13
+  %187 = load i64, ptr %186, align 8, !tbaa !11
+  %188 = xor i64 %187, %185
+  store i64 %188, ptr %186, align 8, !tbaa !11
+  %189 = load ptr, ptr %13, align 8, !tbaa !13
+  %190 = load i64, ptr %189, align 8, !tbaa !11
+  %191 = call noundef i64 @_ZN5folly4hash12SpookyHashV15Rot64Emi(i64 noundef %190, i32 noundef 54)
+  %192 = load ptr, ptr %13, align 8, !tbaa !13
+  store i64 %191, ptr %192, align 8, !tbaa !11
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #5 align 2 {
-entry:
-  %m_length = getelementptr inbounds i8, ptr %this, i64 288
-  %0 = load i64, ptr %m_length, align 8, !tbaa !17
-  %cmp = icmp ult i64 %0, 192
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_state = getelementptr inbounds i8, ptr %this, i64 192
-  %1 = load i64, ptr %m_state, align 8, !tbaa !7
-  store i64 %1, ptr %hash1, align 8, !tbaa !7
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 200
-  %2 = load i64, ptr %arrayidx3, align 8, !tbaa !7
-  store i64 %2, ptr %hash2, align 8, !tbaa !7
-  %3 = load i64, ptr %m_length, align 8, !tbaa !17
-  tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef nonnull %this, i64 noundef %3, ptr noundef nonnull %hash1, ptr noundef nonnull %hash2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
-  %4 = load i8, ptr %m_remainder, align 8, !tbaa !19
-  %m_state7 = getelementptr inbounds i8, ptr %this, i64 192
-  %5 = load i64, ptr %m_state7, align 8, !tbaa !7
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 200
-  %6 = load i64, ptr %arrayidx10, align 8, !tbaa !7
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 208
-  %7 = load i64, ptr %arrayidx12, align 8, !tbaa !7
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 216
-  %8 = load i64, ptr %arrayidx14, align 8, !tbaa !7
-  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 224
-  %9 = load i64, ptr %arrayidx16, align 8, !tbaa !7
-  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 232
-  %10 = load i64, ptr %arrayidx18, align 8, !tbaa !7
-  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 240
-  %11 = load i64, ptr %arrayidx20, align 8, !tbaa !7
-  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 248
-  %12 = load i64, ptr %arrayidx22, align 8, !tbaa !7
-  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 256
-  %13 = load i64, ptr %arrayidx24, align 8, !tbaa !7
-  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 264
-  %14 = load i64, ptr %arrayidx26, align 8, !tbaa !7
-  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 272
-  %15 = load i64, ptr %arrayidx28, align 8, !tbaa !7
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 280
-  %16 = load i64, ptr %arrayidx30, align 8, !tbaa !7
-  %cmp31 = icmp ugt i8 %4, 95
-  br i1 %cmp31, label %if.then32, label %if.end35
-
-if.then32:                                        ; preds = %if.end
-  %17 = load i64, ptr %this, align 8, !tbaa !7
-  %add.i = add i64 %17, %5
-  %xor.i = xor i64 %15, %7
-  %xor1.i = xor i64 %add.i, %16
-  %or.i.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 11)
-  %add2.i = add i64 %xor1.i, %6
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load i64, ptr %arrayidx3.i, align 8, !tbaa !7
-  %add4.i = add i64 %18, %6
-  %xor5.i = xor i64 %add2.i, %8
-  %xor6.i = xor i64 %or.i.i, %add4.i
-  %or.i178.i = tail call i64 @llvm.fshl.i64(i64 %add4.i, i64 %add4.i, i64 32)
-  %add8.i = add i64 %xor6.i, %xor.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load i64, ptr %arrayidx9.i, align 8, !tbaa !7
-  %add10.i = add i64 %19, %xor.i
-  %xor11.i = xor i64 %add8.i, %9
-  %xor12.i = xor i64 %or.i178.i, %add10.i
-  %or.i181.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 43)
-  %add14.i = add i64 %xor12.i, %xor5.i
-  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load i64, ptr %arrayidx15.i, align 8, !tbaa !7
-  %add16.i = add i64 %xor5.i, %20
-  %xor17.i = xor i64 %add14.i, %10
-  %xor18.i = xor i64 %add16.i, %or.i181.i
-  %or.i184.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 31)
-  %add20.i = add i64 %xor18.i, %xor11.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 32
-  %21 = load i64, ptr %arrayidx21.i, align 8, !tbaa !7
-  %add22.i = add i64 %xor11.i, %21
-  %xor23.i = xor i64 %add20.i, %11
-  %xor24.i = xor i64 %or.i184.i, %add22.i
-  %or.i187.i = tail call i64 @llvm.fshl.i64(i64 %add22.i, i64 %add22.i, i64 17)
-  %add26.i = add i64 %xor24.i, %xor17.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 40
-  %22 = load i64, ptr %arrayidx27.i, align 8, !tbaa !7
-  %add28.i = add i64 %xor17.i, %22
-  %xor29.i = xor i64 %add26.i, %12
-  %xor30.i = xor i64 %or.i187.i, %add28.i
-  %or.i190.i = tail call i64 @llvm.fshl.i64(i64 %add28.i, i64 %add28.i, i64 28)
-  %add32.i = add i64 %xor30.i, %xor23.i
-  %arrayidx33.i = getelementptr inbounds i8, ptr %this, i64 48
-  %23 = load i64, ptr %arrayidx33.i, align 8, !tbaa !7
-  %add34.i = add i64 %xor23.i, %23
-  %xor35.i = xor i64 %add32.i, %13
-  %xor36.i = xor i64 %add34.i, %or.i190.i
-  %or.i193.i = tail call i64 @llvm.fshl.i64(i64 %add34.i, i64 %add34.i, i64 39)
-  %add38.i = add i64 %xor36.i, %xor29.i
-  %arrayidx39.i = getelementptr inbounds i8, ptr %this, i64 56
-  %24 = load i64, ptr %arrayidx39.i, align 8, !tbaa !7
-  %add40.i = add i64 %xor29.i, %24
-  %xor41.i = xor i64 %add38.i, %14
-  %xor42.i = xor i64 %or.i193.i, %add40.i
-  %or.i196.i = tail call i64 @llvm.fshl.i64(i64 %add40.i, i64 %add40.i, i64 57)
-  %add44.i = add i64 %xor42.i, %xor35.i
-  %arrayidx45.i = getelementptr inbounds i8, ptr %this, i64 64
-  %25 = load i64, ptr %arrayidx45.i, align 8, !tbaa !7
-  %add46.i = add i64 %xor35.i, %25
-  %xor47.i = xor i64 %add44.i, %15
-  %xor48.i = xor i64 %or.i196.i, %add46.i
-  %or.i199.i = tail call i64 @llvm.fshl.i64(i64 %add46.i, i64 %add46.i, i64 55)
-  %add50.i = add i64 %xor48.i, %xor41.i
-  %arrayidx51.i = getelementptr inbounds i8, ptr %this, i64 72
-  %26 = load i64, ptr %arrayidx51.i, align 8, !tbaa !7
-  %add52.i = add i64 %xor41.i, %26
-  %xor53.i = xor i64 %add50.i, %add2.i
-  %xor54.i = xor i64 %add52.i, %or.i199.i
-  %or.i202.i = tail call i64 @llvm.fshl.i64(i64 %add52.i, i64 %add52.i, i64 54)
-  %add56.i = add i64 %xor54.i, %xor47.i
-  %arrayidx57.i = getelementptr inbounds i8, ptr %this, i64 80
-  %27 = load i64, ptr %arrayidx57.i, align 8, !tbaa !7
-  %add58.i = add i64 %xor47.i, %27
-  %xor59.i = xor i64 %add56.i, %add8.i
-  %xor60.i = xor i64 %or.i202.i, %add58.i
-  %or.i205.i = tail call i64 @llvm.fshl.i64(i64 %add58.i, i64 %add58.i, i64 22)
-  %add62.i = add i64 %xor60.i, %xor53.i
-  %arrayidx63.i = getelementptr inbounds i8, ptr %this, i64 88
-  %28 = load i64, ptr %arrayidx63.i, align 8, !tbaa !7
-  %add64.i = add i64 %xor53.i, %28
-  %xor65.i = xor i64 %add62.i, %add14.i
-  %xor66.i = xor i64 %or.i205.i, %add64.i
-  %or.i208.i = tail call i64 @llvm.fshl.i64(i64 %add64.i, i64 %add64.i, i64 46)
-  %add68.i = add i64 %xor66.i, %xor59.i
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 96
-  %sub = add i8 %4, -96
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.then32, %if.end
-  %h0.0 = phi i64 [ %xor59.i, %if.then32 ], [ %5, %if.end ]
-  %h1.0 = phi i64 [ %xor65.i, %if.then32 ], [ %6, %if.end ]
-  %h2.0 = phi i64 [ %add20.i, %if.then32 ], [ %7, %if.end ]
-  %h3.0 = phi i64 [ %add26.i, %if.then32 ], [ %8, %if.end ]
-  %h4.0 = phi i64 [ %add32.i, %if.then32 ], [ %9, %if.end ]
-  %h5.0 = phi i64 [ %add38.i, %if.then32 ], [ %10, %if.end ]
-  %h6.0 = phi i64 [ %add44.i, %if.then32 ], [ %11, %if.end ]
-  %h7.0 = phi i64 [ %add50.i, %if.then32 ], [ %12, %if.end ]
-  %h8.0 = phi i64 [ %add56.i, %if.then32 ], [ %13, %if.end ]
-  %h9.0 = phi i64 [ %add62.i, %if.then32 ], [ %14, %if.end ]
-  %h10.0 = phi i64 [ %add68.i, %if.then32 ], [ %15, %if.end ]
-  %h11.0 = phi i64 [ %or.i208.i, %if.then32 ], [ %16, %if.end ]
-  %data.0 = phi ptr [ %add.ptr, %if.then32 ], [ %this, %if.end ]
-  %remainder.0 = phi i8 [ %sub, %if.then32 ], [ %4, %if.end ]
-  %idxprom = zext i8 %remainder.0 to i64
-  %arrayidx36 = getelementptr inbounds i8, ptr %data.0, i64 %idxprom
-  %sub38 = sub nsw i64 96, %idxprom
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx36, i8 0, i64 %sub38, i1 false)
-  %arrayidx39 = getelementptr inbounds i8, ptr %data.0, i64 95
-  store i8 %remainder.0, ptr %arrayidx39, align 1, !tbaa !13
-  %29 = load i64, ptr %data.0, align 8, !tbaa !7
-  %add.i52 = add i64 %29, %h0.0
-  %xor.i53 = xor i64 %h10.0, %h2.0
-  %xor1.i54 = xor i64 %add.i52, %h11.0
-  %or.i.i55 = tail call i64 @llvm.fshl.i64(i64 %add.i52, i64 %add.i52, i64 11)
-  %add2.i56 = add i64 %xor1.i54, %h1.0
-  %arrayidx3.i57 = getelementptr inbounds i8, ptr %data.0, i64 8
-  %30 = load i64, ptr %arrayidx3.i57, align 8, !tbaa !7
-  %add4.i58 = add i64 %30, %h1.0
-  %xor5.i59 = xor i64 %add2.i56, %h3.0
-  %xor6.i60 = xor i64 %or.i.i55, %add4.i58
-  %or.i178.i61 = tail call i64 @llvm.fshl.i64(i64 %add4.i58, i64 %add4.i58, i64 32)
-  %add8.i62 = add i64 %xor6.i60, %xor.i53
-  %arrayidx9.i63 = getelementptr inbounds i8, ptr %data.0, i64 16
-  %31 = load i64, ptr %arrayidx9.i63, align 8, !tbaa !7
-  %add10.i64 = add i64 %31, %xor.i53
-  %xor11.i65 = xor i64 %add8.i62, %h4.0
-  %xor12.i66 = xor i64 %or.i178.i61, %add10.i64
-  %or.i181.i67 = tail call i64 @llvm.fshl.i64(i64 %add10.i64, i64 %add10.i64, i64 43)
-  %add14.i68 = add i64 %xor12.i66, %xor5.i59
-  %arrayidx15.i69 = getelementptr inbounds i8, ptr %data.0, i64 24
-  %32 = load i64, ptr %arrayidx15.i69, align 8, !tbaa !7
-  %add16.i70 = add i64 %xor5.i59, %32
-  %xor17.i71 = xor i64 %add14.i68, %h5.0
-  %xor18.i72 = xor i64 %add16.i70, %or.i181.i67
-  %or.i184.i73 = tail call i64 @llvm.fshl.i64(i64 %add16.i70, i64 %add16.i70, i64 31)
-  %add20.i74 = add i64 %xor18.i72, %xor11.i65
-  %arrayidx21.i75 = getelementptr inbounds i8, ptr %data.0, i64 32
-  %33 = load i64, ptr %arrayidx21.i75, align 8, !tbaa !7
-  %add22.i76 = add i64 %xor11.i65, %33
-  %xor23.i77 = xor i64 %add20.i74, %h6.0
-  %xor24.i78 = xor i64 %or.i184.i73, %add22.i76
-  %or.i187.i79 = tail call i64 @llvm.fshl.i64(i64 %add22.i76, i64 %add22.i76, i64 17)
-  %add26.i80 = add i64 %xor24.i78, %xor17.i71
-  %arrayidx27.i81 = getelementptr inbounds i8, ptr %data.0, i64 40
-  %34 = load i64, ptr %arrayidx27.i81, align 8, !tbaa !7
-  %add28.i82 = add i64 %xor17.i71, %34
-  %xor29.i83 = xor i64 %add26.i80, %h7.0
-  %xor30.i84 = xor i64 %or.i187.i79, %add28.i82
-  %or.i190.i85 = tail call i64 @llvm.fshl.i64(i64 %add28.i82, i64 %add28.i82, i64 28)
-  %add32.i86 = add i64 %xor30.i84, %xor23.i77
-  %arrayidx33.i87 = getelementptr inbounds i8, ptr %data.0, i64 48
-  %35 = load i64, ptr %arrayidx33.i87, align 8, !tbaa !7
-  %add34.i88 = add i64 %xor23.i77, %35
-  %xor35.i89 = xor i64 %add32.i86, %h8.0
-  %xor36.i90 = xor i64 %add34.i88, %or.i190.i85
-  %or.i193.i91 = tail call i64 @llvm.fshl.i64(i64 %add34.i88, i64 %add34.i88, i64 39)
-  %add38.i92 = add i64 %xor36.i90, %xor29.i83
-  %arrayidx39.i93 = getelementptr inbounds i8, ptr %data.0, i64 56
-  %36 = load i64, ptr %arrayidx39.i93, align 8, !tbaa !7
-  %add40.i94 = add i64 %xor29.i83, %36
-  %xor41.i95 = xor i64 %add38.i92, %h9.0
-  %xor42.i96 = xor i64 %or.i193.i91, %add40.i94
-  %or.i196.i97 = tail call i64 @llvm.fshl.i64(i64 %add40.i94, i64 %add40.i94, i64 57)
-  %add44.i98 = add i64 %xor42.i96, %xor35.i89
-  %arrayidx45.i99 = getelementptr inbounds i8, ptr %data.0, i64 64
-  %37 = load i64, ptr %arrayidx45.i99, align 8, !tbaa !7
-  %add46.i100 = add i64 %xor35.i89, %37
-  %xor47.i101 = xor i64 %add44.i98, %h10.0
-  %xor48.i102 = xor i64 %or.i196.i97, %add46.i100
-  %or.i199.i103 = tail call i64 @llvm.fshl.i64(i64 %add46.i100, i64 %add46.i100, i64 55)
-  %add50.i104 = add i64 %xor48.i102, %xor41.i95
-  %arrayidx51.i105 = getelementptr inbounds i8, ptr %data.0, i64 72
-  %38 = load i64, ptr %arrayidx51.i105, align 8, !tbaa !7
-  %add52.i106 = add i64 %xor41.i95, %38
-  %xor53.i107 = xor i64 %add50.i104, %add2.i56
-  %xor54.i108 = xor i64 %add52.i106, %or.i199.i103
-  %or.i202.i109 = tail call i64 @llvm.fshl.i64(i64 %add52.i106, i64 %add52.i106, i64 54)
-  %add56.i110 = add i64 %xor54.i108, %xor47.i101
-  %arrayidx57.i111 = getelementptr inbounds i8, ptr %data.0, i64 80
-  %39 = load i64, ptr %arrayidx57.i111, align 8, !tbaa !7
-  %add58.i112 = add i64 %xor47.i101, %39
-  %xor59.i113 = xor i64 %add56.i110, %add8.i62
-  %xor60.i114 = xor i64 %or.i202.i109, %add58.i112
-  %or.i205.i115 = tail call i64 @llvm.fshl.i64(i64 %add58.i112, i64 %add58.i112, i64 22)
-  %add62.i116 = add i64 %xor60.i114, %xor53.i107
-  %arrayidx63.i117 = getelementptr inbounds i8, ptr %data.0, i64 88
-  %40 = load i64, ptr %arrayidx63.i117, align 8, !tbaa !7
-  %add64.i118 = add i64 %xor53.i107, %40
-  %xor65.i119 = xor i64 %add62.i116, %add14.i68
-  %xor66.i120 = xor i64 %or.i205.i115, %add64.i118
-  %or.i208.i121 = tail call i64 @llvm.fshl.i64(i64 %add64.i118, i64 %add64.i118, i64 46)
-  %add68.i122 = add i64 %xor66.i120, %xor59.i113
-  %add.i172 = add i64 %xor65.i119, %or.i208.i121
-  %xor.i173 = xor i64 %add.i172, %add20.i74
-  %or.i.i174 = tail call i64 @llvm.fshl.i64(i64 %xor65.i119, i64 %xor65.i119, i64 44)
-  %add1.i175 = add i64 %xor.i173, %xor59.i113
-  %xor2.i176 = xor i64 %add1.i175, %add26.i80
-  %or.i96.i177 = tail call i64 @llvm.fshl.i64(i64 %xor.i173, i64 %xor.i173, i64 15)
-  %add4.i178 = add i64 %xor2.i176, %or.i.i174
-  %xor5.i179 = xor i64 %add4.i178, %add32.i86
-  %or.i99.i180 = tail call i64 @llvm.fshl.i64(i64 %xor2.i176, i64 %xor2.i176, i64 34)
-  %add7.i181 = add i64 %xor5.i179, %or.i96.i177
-  %xor8.i182 = xor i64 %add7.i181, %add38.i92
-  %or.i102.i183 = tail call i64 @llvm.fshl.i64(i64 %xor5.i179, i64 %xor5.i179, i64 21)
-  %add10.i184 = add i64 %xor8.i182, %or.i99.i180
-  %xor11.i185 = xor i64 %add10.i184, %add44.i98
-  %or.i105.i186 = tail call i64 @llvm.fshl.i64(i64 %xor8.i182, i64 %xor8.i182, i64 38)
-  %add13.i187 = add i64 %xor11.i185, %or.i102.i183
-  %xor14.i188 = xor i64 %add13.i187, %add50.i104
-  %or.i108.i189 = tail call i64 @llvm.fshl.i64(i64 %xor11.i185, i64 %xor11.i185, i64 33)
-  %add16.i190 = add i64 %xor14.i188, %or.i105.i186
-  %xor17.i191 = xor i64 %add16.i190, %add56.i110
-  %or.i111.i192 = tail call i64 @llvm.fshl.i64(i64 %xor14.i188, i64 %xor14.i188, i64 10)
-  %add19.i193 = add i64 %xor17.i191, %or.i108.i189
-  %xor20.i194 = xor i64 %add19.i193, %add62.i116
-  %or.i114.i195 = tail call i64 @llvm.fshl.i64(i64 %xor17.i191, i64 %xor17.i191, i64 13)
-  %add22.i196 = add i64 %xor20.i194, %or.i111.i192
-  %xor23.i197 = xor i64 %add22.i196, %add68.i122
-  %or.i117.i198 = tail call i64 @llvm.fshl.i64(i64 %xor20.i194, i64 %xor20.i194, i64 38)
-  %add25.i199 = add i64 %xor23.i197, %or.i114.i195
-  %xor26.i200 = xor i64 %add25.i199, %add.i172
-  %or.i120.i201 = tail call i64 @llvm.fshl.i64(i64 %xor23.i197, i64 %xor23.i197, i64 53)
-  %add28.i202 = add i64 %xor26.i200, %or.i117.i198
-  %xor29.i203 = xor i64 %add28.i202, %add1.i175
-  %or.i123.i204 = tail call i64 @llvm.fshl.i64(i64 %xor26.i200, i64 %xor26.i200, i64 42)
-  %add31.i205 = add i64 %xor29.i203, %or.i120.i201
-  %xor32.i206 = xor i64 %add31.i205, %add4.i178
-  %or.i126.i207 = tail call i64 @llvm.fshl.i64(i64 %xor29.i203, i64 %xor29.i203, i64 54)
-  %add.i136 = add i64 %xor32.i206, %or.i123.i204
-  %xor.i137 = xor i64 %add.i136, %add7.i181
-  %or.i.i138 = tail call i64 @llvm.fshl.i64(i64 %xor32.i206, i64 %xor32.i206, i64 44)
-  %add1.i139 = add i64 %xor.i137, %or.i126.i207
-  %xor2.i140 = xor i64 %add1.i139, %add10.i184
-  %or.i96.i141 = tail call i64 @llvm.fshl.i64(i64 %xor.i137, i64 %xor.i137, i64 15)
-  %add4.i142 = add i64 %xor2.i140, %or.i.i138
-  %xor5.i143 = xor i64 %add4.i142, %add13.i187
-  %or.i99.i144 = tail call i64 @llvm.fshl.i64(i64 %xor2.i140, i64 %xor2.i140, i64 34)
-  %add7.i145 = add i64 %xor5.i143, %or.i96.i141
-  %xor8.i146 = xor i64 %add7.i145, %add16.i190
-  %or.i102.i147 = tail call i64 @llvm.fshl.i64(i64 %xor5.i143, i64 %xor5.i143, i64 21)
-  %add10.i148 = add i64 %xor8.i146, %or.i99.i144
-  %xor11.i149 = xor i64 %add10.i148, %add19.i193
-  %or.i105.i150 = tail call i64 @llvm.fshl.i64(i64 %xor8.i146, i64 %xor8.i146, i64 38)
-  %add13.i151 = add i64 %xor11.i149, %or.i102.i147
-  %xor14.i152 = xor i64 %add13.i151, %add22.i196
-  %or.i108.i153 = tail call i64 @llvm.fshl.i64(i64 %xor11.i149, i64 %xor11.i149, i64 33)
-  %add16.i154 = add i64 %xor14.i152, %or.i105.i150
-  %xor17.i155 = xor i64 %add16.i154, %add25.i199
-  %or.i111.i156 = tail call i64 @llvm.fshl.i64(i64 %xor14.i152, i64 %xor14.i152, i64 10)
-  %add19.i157 = add i64 %xor17.i155, %or.i108.i153
-  %xor20.i158 = xor i64 %add19.i157, %add28.i202
-  %or.i114.i159 = tail call i64 @llvm.fshl.i64(i64 %xor17.i155, i64 %xor17.i155, i64 13)
-  %add22.i160 = add i64 %xor20.i158, %or.i111.i156
-  %xor23.i161 = xor i64 %add22.i160, %add31.i205
-  %or.i117.i162 = tail call i64 @llvm.fshl.i64(i64 %xor20.i158, i64 %xor20.i158, i64 38)
-  %add25.i163 = add i64 %xor23.i161, %or.i114.i159
-  %xor26.i164 = xor i64 %add25.i163, %add.i136
-  %or.i120.i165 = tail call i64 @llvm.fshl.i64(i64 %xor23.i161, i64 %xor23.i161, i64 53)
-  %add28.i166 = add i64 %xor26.i164, %or.i117.i162
-  %xor29.i167 = xor i64 %add28.i166, %add1.i139
-  %or.i123.i168 = tail call i64 @llvm.fshl.i64(i64 %xor26.i164, i64 %xor26.i164, i64 42)
-  %add31.i169 = add i64 %xor29.i167, %or.i120.i165
-  %xor32.i170 = xor i64 %add31.i169, %add4.i142
-  %or.i126.i171 = tail call i64 @llvm.fshl.i64(i64 %xor29.i167, i64 %xor29.i167, i64 54)
-  %add.i123 = add i64 %xor32.i170, %or.i123.i168
-  %xor.i124 = xor i64 %add.i123, %add7.i145
-  %or.i.i125 = tail call i64 @llvm.fshl.i64(i64 %xor32.i170, i64 %xor32.i170, i64 44)
-  %add1.i = add i64 %xor.i124, %or.i126.i171
-  %xor2.i = xor i64 %add1.i, %add10.i148
-  %or.i96.i = tail call i64 @llvm.fshl.i64(i64 %xor.i124, i64 %xor.i124, i64 15)
-  %add4.i126 = add i64 %xor2.i, %or.i.i125
-  %xor5.i127 = xor i64 %add4.i126, %add13.i151
-  %or.i99.i = tail call i64 @llvm.fshl.i64(i64 %xor2.i, i64 %xor2.i, i64 34)
-  %add7.i = add i64 %xor5.i127, %or.i96.i
-  %xor8.i = xor i64 %add7.i, %add16.i154
-  %or.i102.i = tail call i64 @llvm.fshl.i64(i64 %xor5.i127, i64 %xor5.i127, i64 21)
-  %add10.i128 = add i64 %xor8.i, %or.i99.i
-  %xor11.i129 = xor i64 %add10.i128, %add19.i157
-  %or.i105.i = tail call i64 @llvm.fshl.i64(i64 %xor8.i, i64 %xor8.i, i64 38)
-  %add13.i = add i64 %xor11.i129, %or.i102.i
-  %xor14.i = xor i64 %add13.i, %add22.i160
-  %or.i108.i = tail call i64 @llvm.fshl.i64(i64 %xor11.i129, i64 %xor11.i129, i64 33)
-  %add16.i130 = add i64 %xor14.i, %or.i105.i
-  %xor17.i131 = xor i64 %add16.i130, %add25.i163
-  %or.i111.i = tail call i64 @llvm.fshl.i64(i64 %xor14.i, i64 %xor14.i, i64 10)
-  %add19.i = add i64 %xor17.i131, %or.i108.i
-  %xor20.i = xor i64 %add19.i, %add28.i166
-  %or.i114.i = tail call i64 @llvm.fshl.i64(i64 %xor17.i131, i64 %xor17.i131, i64 13)
-  %add22.i132 = add i64 %xor20.i, %or.i111.i
-  %xor23.i133 = xor i64 %add22.i132, %add31.i169
-  %or.i117.i = tail call i64 @llvm.fshl.i64(i64 %xor20.i, i64 %xor20.i, i64 38)
-  %add25.i = add i64 %xor23.i133, %or.i114.i
-  %xor26.i = xor i64 %add25.i, %add.i123
-  %or.i120.i = tail call i64 @llvm.fshl.i64(i64 %xor23.i133, i64 %xor23.i133, i64 53)
-  %add28.i134 = add i64 %xor26.i, %or.i117.i
-  %xor29.i135 = xor i64 %add28.i134, %add1.i
-  %add31.i = add i64 %xor29.i135, %or.i120.i
-  %xor32.i = xor i64 %add31.i, %add4.i126
-  %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i135, i64 %xor29.i135, i64 54)
-  store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
-  store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  br label %return
-
-return:                                           ; preds = %if.end35, %if.then
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr noundef nonnull align 8 dereferenceable(297) %0, i64 noundef %1, i64 noundef %2) #6 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store i64 %1, ptr %5, align 8, !tbaa !11
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %7, i32 0, i32 2
+  store i64 0, ptr %8, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %7, i32 0, i32 3
+  store i8 0, ptr %9, align 8, !tbaa !25
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %7, i32 0, i32 1
+  %12 = getelementptr inbounds [12 x i64], ptr %11, i64 0, i64 0
+  store i64 %10, ptr %12, align 8, !tbaa !11
+  %13 = load i64, ptr %6, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %7, i32 0, i32 1
+  %15 = getelementptr inbounds [12 x i64], ptr %14, i64 0, i64 1
+  store i64 %13, ptr %15, align 8, !tbaa !11
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, i64 noundef %2) #6 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca %union.anon.1, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store i64 %2, ptr %6, align 8, !tbaa !11
+  %25 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %26 = load i64, ptr %6, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  %28 = load i8, ptr %27, align 8, !tbaa !25
+  %29 = zext i8 %28 to i64
+  %30 = add i64 %26, %29
+  store i64 %30, ptr %19, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %31 = load i64, ptr %19, align 8, !tbaa !11
+  %32 = icmp ult i64 %31, 192
+  br i1 %32, label %33, label %50
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 0
+  %35 = getelementptr inbounds [24 x i64], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  %37 = load i8, ptr %36, align 8, !tbaa !25
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
+  %40 = load ptr, ptr %5, align 8, !tbaa !7
+  %41 = load i64, ptr %6, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %40, i64 %41, i1 false)
+  %42 = load i64, ptr %6, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8, !tbaa !23
+  %45 = add i64 %42, %44
+  %46 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 2
+  store i64 %45, ptr %46, align 8, !tbaa !23
+  %47 = load i64, ptr %19, align 8, !tbaa !11
+  %48 = trunc i64 %47 to i8
+  %49 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  store i8 %48, ptr %49, align 8, !tbaa !25
+  store i32 1, ptr %23, align 4
+  br label %204
+
+50:                                               ; preds = %3
+  %51 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8, !tbaa !23
+  %53 = icmp ult i64 %52, 192
+  br i1 %53, label %54, label %61
+
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %56 = getelementptr inbounds [12 x i64], ptr %55, i64 0, i64 0
+  %57 = load i64, ptr %56, align 8, !tbaa !11
+  store i64 %57, ptr %16, align 8, !tbaa !11
+  store i64 %57, ptr %13, align 8, !tbaa !11
+  store i64 %57, ptr %10, align 8, !tbaa !11
+  store i64 %57, ptr %7, align 8, !tbaa !11
+  %58 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %59 = getelementptr inbounds [12 x i64], ptr %58, i64 0, i64 1
+  %60 = load i64, ptr %59, align 8, !tbaa !11
+  store i64 %60, ptr %17, align 8, !tbaa !11
+  store i64 %60, ptr %14, align 8, !tbaa !11
+  store i64 %60, ptr %11, align 8, !tbaa !11
+  store i64 %60, ptr %8, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %18, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %15, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %12, align 8, !tbaa !11
+  store i64 -2401053088876216593, ptr %9, align 8, !tbaa !11
+  br label %98
+
+61:                                               ; preds = %50
+  %62 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %63 = getelementptr inbounds [12 x i64], ptr %62, i64 0, i64 0
+  %64 = load i64, ptr %63, align 8, !tbaa !11
+  store i64 %64, ptr %7, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %66 = getelementptr inbounds [12 x i64], ptr %65, i64 0, i64 1
+  %67 = load i64, ptr %66, align 8, !tbaa !11
+  store i64 %67, ptr %8, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %69 = getelementptr inbounds [12 x i64], ptr %68, i64 0, i64 2
+  %70 = load i64, ptr %69, align 8, !tbaa !11
+  store i64 %70, ptr %9, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %72 = getelementptr inbounds [12 x i64], ptr %71, i64 0, i64 3
+  %73 = load i64, ptr %72, align 8, !tbaa !11
+  store i64 %73, ptr %10, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %75 = getelementptr inbounds [12 x i64], ptr %74, i64 0, i64 4
+  %76 = load i64, ptr %75, align 8, !tbaa !11
+  store i64 %76, ptr %11, align 8, !tbaa !11
+  %77 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %78 = getelementptr inbounds [12 x i64], ptr %77, i64 0, i64 5
+  %79 = load i64, ptr %78, align 8, !tbaa !11
+  store i64 %79, ptr %12, align 8, !tbaa !11
+  %80 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %81 = getelementptr inbounds [12 x i64], ptr %80, i64 0, i64 6
+  %82 = load i64, ptr %81, align 8, !tbaa !11
+  store i64 %82, ptr %13, align 8, !tbaa !11
+  %83 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %84 = getelementptr inbounds [12 x i64], ptr %83, i64 0, i64 7
+  %85 = load i64, ptr %84, align 8, !tbaa !11
+  store i64 %85, ptr %14, align 8, !tbaa !11
+  %86 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %87 = getelementptr inbounds [12 x i64], ptr %86, i64 0, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !11
+  store i64 %88, ptr %15, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %90 = getelementptr inbounds [12 x i64], ptr %89, i64 0, i64 9
+  %91 = load i64, ptr %90, align 8, !tbaa !11
+  store i64 %91, ptr %16, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %93 = getelementptr inbounds [12 x i64], ptr %92, i64 0, i64 10
+  %94 = load i64, ptr %93, align 8, !tbaa !11
+  store i64 %94, ptr %17, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %96 = getelementptr inbounds [12 x i64], ptr %95, i64 0, i64 11
+  %97 = load i64, ptr %96, align 8, !tbaa !11
+  store i64 %97, ptr %18, align 8, !tbaa !11
+  br label %98
+
+98:                                               ; preds = %61, %54
+  %99 = load i64, ptr %6, align 8, !tbaa !11
+  %100 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 2
+  %101 = load i64, ptr %100, align 8, !tbaa !23
+  %102 = add i64 %99, %101
+  %103 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 2
+  store i64 %102, ptr %103, align 8, !tbaa !23
+  %104 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  %105 = load i8, ptr %104, align 8, !tbaa !25
+  %106 = icmp ne i8 %105, 0
+  br i1 %106, label %107, label %136
+
+107:                                              ; preds = %98
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #7
+  %108 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  %109 = load i8, ptr %108, align 8, !tbaa !25
+  %110 = zext i8 %109 to i64
+  %111 = sub i64 192, %110
+  %112 = trunc i64 %111 to i8
+  store i8 %112, ptr %24, align 1, !tbaa !15
+  %113 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 0
+  %114 = getelementptr inbounds [24 x i64], ptr %113, i64 0, i64 0
+  %115 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  %116 = load i8, ptr %115, align 8, !tbaa !25
+  %117 = zext i8 %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 %117
+  %119 = load ptr, ptr %5, align 8, !tbaa !7
+  %120 = load i8, ptr %24, align 1, !tbaa !15
+  %121 = zext i8 %120 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr align 1 %119, i64 %121, i1 false)
+  %122 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 0
+  %123 = getelementptr inbounds [24 x i64], ptr %122, i64 0, i64 0
+  store ptr %123, ptr %21, align 8, !tbaa !15
+  %124 = load ptr, ptr %21, align 8, !tbaa !15
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %124, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %125 = load ptr, ptr %21, align 8, !tbaa !15
+  %126 = getelementptr inbounds nuw i64, ptr %125, i64 12
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %127 = load ptr, ptr %5, align 8, !tbaa !7
+  %128 = load i8, ptr %24, align 1, !tbaa !15
+  %129 = zext i8 %128 to i32
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %127, i64 %130
+  store ptr %131, ptr %21, align 8, !tbaa !15
+  %132 = load i8, ptr %24, align 1, !tbaa !15
+  %133 = zext i8 %132 to i64
+  %134 = load i64, ptr %6, align 8, !tbaa !11
+  %135 = sub i64 %134, %133
+  store i64 %135, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #7
+  br label %138
+
+136:                                              ; preds = %98
+  %137 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %137, ptr %21, align 8, !tbaa !15
+  br label %138
+
+138:                                              ; preds = %136, %107
+  %139 = load ptr, ptr %21, align 8, !tbaa !15
+  %140 = load i64, ptr %6, align 8, !tbaa !11
+  %141 = udiv i64 %140, 96
+  %142 = mul i64 %141, 12
+  %143 = getelementptr inbounds nuw i64, ptr %139, i64 %142
+  store ptr %143, ptr %22, align 8, !tbaa !13
+  %144 = load i64, ptr %6, align 8, !tbaa !11
+  %145 = load ptr, ptr %22, align 8, !tbaa !13
+  %146 = load ptr, ptr %21, align 8, !tbaa !15
+  %147 = ptrtoint ptr %145 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = sub i64 %144, %149
+  %151 = trunc i64 %150 to i8
+  store i8 %151, ptr %20, align 1, !tbaa !15
+  br label %152
+
+152:                                              ; preds = %156, %138
+  %153 = load ptr, ptr %21, align 8, !tbaa !15
+  %154 = load ptr, ptr %22, align 8, !tbaa !13
+  %155 = icmp ult ptr %153, %154
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %152
+  %157 = load ptr, ptr %21, align 8, !tbaa !15
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %157, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %158 = load ptr, ptr %21, align 8, !tbaa !15
+  %159 = getelementptr inbounds nuw i64, ptr %158, i64 12
+  store ptr %159, ptr %21, align 8, !tbaa !15
+  br label %152, !llvm.loop !26
+
+160:                                              ; preds = %152
+  %161 = load i8, ptr %20, align 1, !tbaa !15
+  %162 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 3
+  store i8 %161, ptr %162, align 8, !tbaa !25
+  %163 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 0
+  %164 = getelementptr inbounds [24 x i64], ptr %163, i64 0, i64 0
+  %165 = load ptr, ptr %22, align 8, !tbaa !13
+  %166 = load i8, ptr %20, align 1, !tbaa !15
+  %167 = zext i8 %166 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %164, ptr align 8 %165, i64 %167, i1 false)
+  %168 = load i64, ptr %7, align 8, !tbaa !11
+  %169 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %170 = getelementptr inbounds [12 x i64], ptr %169, i64 0, i64 0
+  store i64 %168, ptr %170, align 8, !tbaa !11
+  %171 = load i64, ptr %8, align 8, !tbaa !11
+  %172 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %173 = getelementptr inbounds [12 x i64], ptr %172, i64 0, i64 1
+  store i64 %171, ptr %173, align 8, !tbaa !11
+  %174 = load i64, ptr %9, align 8, !tbaa !11
+  %175 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %176 = getelementptr inbounds [12 x i64], ptr %175, i64 0, i64 2
+  store i64 %174, ptr %176, align 8, !tbaa !11
+  %177 = load i64, ptr %10, align 8, !tbaa !11
+  %178 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %179 = getelementptr inbounds [12 x i64], ptr %178, i64 0, i64 3
+  store i64 %177, ptr %179, align 8, !tbaa !11
+  %180 = load i64, ptr %11, align 8, !tbaa !11
+  %181 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %182 = getelementptr inbounds [12 x i64], ptr %181, i64 0, i64 4
+  store i64 %180, ptr %182, align 8, !tbaa !11
+  %183 = load i64, ptr %12, align 8, !tbaa !11
+  %184 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %185 = getelementptr inbounds [12 x i64], ptr %184, i64 0, i64 5
+  store i64 %183, ptr %185, align 8, !tbaa !11
+  %186 = load i64, ptr %13, align 8, !tbaa !11
+  %187 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %188 = getelementptr inbounds [12 x i64], ptr %187, i64 0, i64 6
+  store i64 %186, ptr %188, align 8, !tbaa !11
+  %189 = load i64, ptr %14, align 8, !tbaa !11
+  %190 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %191 = getelementptr inbounds [12 x i64], ptr %190, i64 0, i64 7
+  store i64 %189, ptr %191, align 8, !tbaa !11
+  %192 = load i64, ptr %15, align 8, !tbaa !11
+  %193 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %194 = getelementptr inbounds [12 x i64], ptr %193, i64 0, i64 8
+  store i64 %192, ptr %194, align 8, !tbaa !11
+  %195 = load i64, ptr %16, align 8, !tbaa !11
+  %196 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %197 = getelementptr inbounds [12 x i64], ptr %196, i64 0, i64 9
+  store i64 %195, ptr %197, align 8, !tbaa !11
+  %198 = load i64, ptr %17, align 8, !tbaa !11
+  %199 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %200 = getelementptr inbounds [12 x i64], ptr %199, i64 0, i64 10
+  store i64 %198, ptr %200, align 8, !tbaa !11
+  %201 = load i64, ptr %18, align 8, !tbaa !11
+  %202 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %25, i32 0, i32 1
+  %203 = getelementptr inbounds [12 x i64], ptr %202, i64 0, i64 11
+  store i64 %201, ptr %203, align 8, !tbaa !11
+  store i32 0, ptr %23, align 4
+  br label %204
+
+204:                                              ; preds = %160, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  %205 = load i32, ptr %23, align 4
+  switch i32 %205, label %207 [
+    i32 0, label %206
+    i32 1, label %206
+  ]
+
+206:                                              ; preds = %204, %204
+  ret void
+
+207:                                              ; preds = %204
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !13
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8, !tbaa !23
+  %24 = icmp ult i64 %23, 192
+  br i1 %24, label %25, label %40
+
+25:                                               ; preds = %3
+  %26 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %27 = getelementptr inbounds [12 x i64], ptr %26, i64 0, i64 0
+  %28 = load i64, ptr %27, align 8, !tbaa !11
+  %29 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %28, ptr %29, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %31 = getelementptr inbounds [12 x i64], ptr %30, i64 0, i64 1
+  %32 = load i64, ptr %31, align 8, !tbaa !11
+  %33 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %32, ptr %33, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 0
+  %35 = getelementptr inbounds [24 x i64], ptr %34, i64 0, i64 0
+  %36 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 2
+  %37 = load i64, ptr %36, align 8, !tbaa !23
+  %38 = load ptr, ptr %5, align 8, !tbaa !13
+  %39 = load ptr, ptr %6, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef %35, i64 noundef %37, ptr noundef %38, ptr noundef %39)
+  br label %108
+
+40:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %41 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 0
+  %42 = getelementptr inbounds [24 x i64], ptr %41, i64 0, i64 0
+  store ptr %42, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %43 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 3
+  %44 = load i8, ptr %43, align 8, !tbaa !25
+  store i8 %44, ptr %8, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %45 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %46 = getelementptr inbounds [12 x i64], ptr %45, i64 0, i64 0
+  %47 = load i64, ptr %46, align 8, !tbaa !11
+  store i64 %47, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %48 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %49 = getelementptr inbounds [12 x i64], ptr %48, i64 0, i64 1
+  %50 = load i64, ptr %49, align 8, !tbaa !11
+  store i64 %50, ptr %10, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %51 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %52 = getelementptr inbounds [12 x i64], ptr %51, i64 0, i64 2
+  %53 = load i64, ptr %52, align 8, !tbaa !11
+  store i64 %53, ptr %11, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %54 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %55 = getelementptr inbounds [12 x i64], ptr %54, i64 0, i64 3
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  store i64 %56, ptr %12, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %57 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %58 = getelementptr inbounds [12 x i64], ptr %57, i64 0, i64 4
+  %59 = load i64, ptr %58, align 8, !tbaa !11
+  store i64 %59, ptr %13, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %60 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %61 = getelementptr inbounds [12 x i64], ptr %60, i64 0, i64 5
+  %62 = load i64, ptr %61, align 8, !tbaa !11
+  store i64 %62, ptr %14, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %63 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %64 = getelementptr inbounds [12 x i64], ptr %63, i64 0, i64 6
+  %65 = load i64, ptr %64, align 8, !tbaa !11
+  store i64 %65, ptr %15, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %66 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %67 = getelementptr inbounds [12 x i64], ptr %66, i64 0, i64 7
+  %68 = load i64, ptr %67, align 8, !tbaa !11
+  store i64 %68, ptr %16, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %69 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %70 = getelementptr inbounds [12 x i64], ptr %69, i64 0, i64 8
+  %71 = load i64, ptr %70, align 8, !tbaa !11
+  store i64 %71, ptr %17, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %72 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %73 = getelementptr inbounds [12 x i64], ptr %72, i64 0, i64 9
+  %74 = load i64, ptr %73, align 8, !tbaa !11
+  store i64 %74, ptr %18, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  %75 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %76 = getelementptr inbounds [12 x i64], ptr %75, i64 0, i64 10
+  %77 = load i64, ptr %76, align 8, !tbaa !11
+  store i64 %77, ptr %19, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %78 = getelementptr inbounds nuw %"class.folly::hash::SpookyHashV1", ptr %21, i32 0, i32 1
+  %79 = getelementptr inbounds [12 x i64], ptr %78, i64 0, i64 11
+  %80 = load i64, ptr %79, align 8, !tbaa !11
+  store i64 %80, ptr %20, align 8, !tbaa !11
+  %81 = load i8, ptr %8, align 1, !tbaa !15
+  %82 = zext i8 %81 to i64
+  %83 = icmp uge i64 %82, 96
+  br i1 %83, label %84, label %92
+
+84:                                               ; preds = %40
+  %85 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %86 = load ptr, ptr %7, align 8, !tbaa !13
+  %87 = getelementptr inbounds nuw i64, ptr %86, i64 12
+  store ptr %87, ptr %7, align 8, !tbaa !13
+  %88 = load i8, ptr %8, align 1, !tbaa !15
+  %89 = zext i8 %88 to i64
+  %90 = sub i64 %89, 96
+  %91 = trunc i64 %90 to i8
+  store i8 %91, ptr %8, align 1, !tbaa !15
+  br label %92
+
+92:                                               ; preds = %84, %40
+  %93 = load ptr, ptr %7, align 8, !tbaa !13
+  %94 = load i8, ptr %8, align 1, !tbaa !15
+  %95 = zext i8 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %95
+  %97 = load i8, ptr %8, align 1, !tbaa !15
+  %98 = zext i8 %97 to i64
+  %99 = sub i64 96, %98
+  call void @llvm.memset.p0.i64(ptr align 1 %96, i8 0, i64 %99, i1 false)
+  %100 = load i8, ptr %8, align 1, !tbaa !15
+  %101 = load ptr, ptr %7, align 8, !tbaa !13
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 95
+  store i8 %100, ptr %102, align 1, !tbaa !15
+  %103 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @_ZN5folly4hash12SpookyHashV13MixEPKmRmS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  call void @_ZN5folly4hash12SpookyHashV13EndERmS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %104 = load i64, ptr %9, align 8, !tbaa !11
+  %105 = load ptr, ptr %5, align 8, !tbaa !13
+  store i64 %104, ptr %105, align 8, !tbaa !11
+  %106 = load i64, ptr %10, align 8, !tbaa !11
+  %107 = load ptr, ptr %6, align 8, !tbaa !13
+  store i64 %106, ptr %107, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %108
+
+108:                                              ; preds = %92, %25
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
@@ -1490,16 +2198,22 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !7 = !{!8, !8, i64 0}
-!8 = !{!"long", !9, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!9, !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !9, i64 0}
-!16 = distinct !{!16, !12}
-!17 = !{!18, !8, i64 288}
-!18 = !{!"_ZTSN5folly4hash12SpookyHashV1E", !9, i64 0, !9, i64 192, !8, i64 288, !9, i64 296}
-!19 = !{!18, !9, i64 296}
-!20 = distinct !{!20, !12}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 long", !8, i64 0}
+!15 = !{!9, !9, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !9, i64 0}
+!20 = distinct !{!20, !17}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN5folly4hash12SpookyHashV1E", !8, i64 0}
+!23 = !{!24, !12, i64 288}
+!24 = !{!"_ZTSN5folly4hash12SpookyHashV1E", !9, i64 0, !9, i64 192, !12, i64 288, !9, i64 296}
+!25 = !{!24, !9, i64 296}
+!26 = distinct !{!26, !17}

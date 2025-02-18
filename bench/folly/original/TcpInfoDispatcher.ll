@@ -1,0 +1,143 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.folly::TcpInfoDispatcher" = type { ptr }
+%"class.folly::Expected" = type { %"struct.folly::expected_detail::ExpectedStorage.base", [7 x i8] }
+%"struct.folly::expected_detail::ExpectedStorage.base" = type { %"struct.folly::expected_detail::ExpectedUnion.base" }
+%"struct.folly::expected_detail::ExpectedUnion.base" = type <{ %union.anon, i8 }>
+%union.anon = type { %"struct.folly::TcpInfo" }
+%"struct.folly::TcpInfo" = type { %"struct.folly::detail::tcp_info", i32, [4 x i8], %"class.folly::Optional", %"class.folly::Optional.2", %"class.folly::Optional.4", i32, [4 x i8], %"class.folly::Optional.6", %"class.folly::Optional.6" }
+%"struct.folly::detail::tcp_info" = type { i8, i8, i8, i8, i8, i8, i16, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i32 }
+%"class.folly::Optional" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
+%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.0, i8, [7 x i8] }>
+%union.anon.0 = type { %"class.std::__cxx11::basic_string" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.1 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.1 = type { i64, [8 x i8] }
+%"class.folly::Optional.2" = type { %"struct.folly::Optional<folly::TcpInfo::CongestionControlName>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<folly::TcpInfo::CongestionControlName>::StorageTriviallyDestructible" = type <{ %union.anon.3, i8, [3 x i8] }>
+%union.anon.3 = type { i32 }
+%"class.folly::Optional.4" = type { %"struct.folly::Optional<folly::detail::tcp_cc_info>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<folly::detail::tcp_cc_info>::StorageTriviallyDestructible" = type <{ %union.anon.5, i8, [3 x i8] }>
+%union.anon.5 = type { %"union.folly::detail::tcp_cc_info" }
+%"union.folly::detail::tcp_cc_info" = type { %"struct.folly::detail::tcp_bbr_info" }
+%"struct.folly::detail::tcp_bbr_info" = type { i32, i32, i32, i32, i32 }
+%"class.folly::Optional.6" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.7, i8, [7 x i8] }>
+%union.anon.7 = type { i64 }
+
+$_ZN5folly17TcpInfoDispatcherD2Ev = comdat any
+
+$_ZN5folly17TcpInfoDispatcherD0Ev = comdat any
+
+@_ZTVN5folly17TcpInfoDispatcherE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly17TcpInfoDispatcherE, ptr @_ZN5folly17TcpInfoDispatcher10initFromFdERKNS_13NetworkSocketERKNS_7TcpInfo13LookupOptionsERNS_6netops10DispatcherERNS4_15IoctlDispatcherE, ptr @_ZN5folly17TcpInfoDispatcherD2Ev, ptr @_ZN5folly17TcpInfoDispatcherD0Ev] }, align 8
+@_ZTIN5folly17TcpInfoDispatcherE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly17TcpInfoDispatcherE }, align 8
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN5folly17TcpInfoDispatcherE = constant [28 x i8] c"N5folly17TcpInfoDispatcherE\00", align 1
+@_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global %"class.folly::TcpInfoDispatcher" { ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly17TcpInfoDispatcherE, i32 0, i32 0, i32 2) }, align 8
+@_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global i64 0, align 8
+@__dso_handle = external hidden global i8
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5folly17TcpInfoDispatcher10initFromFdERKNS_13NetworkSocketERKNS_7TcpInfo13LookupOptionsERNS_6netops10DispatcherERNS4_15IoctlDispatcherE(ptr dead_on_unwind noalias writable sret(%"class.folly::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(2) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8, !tbaa !7
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !14
+  store ptr %4, ptr %11, align 8, !tbaa !16
+  store ptr %5, ptr %12, align 8, !tbaa !18
+  %13 = load ptr, ptr %9, align 8, !tbaa !12
+  %14 = load ptr, ptr %10, align 8, !tbaa !14
+  %15 = load ptr, ptr %11, align 8, !tbaa !16
+  %16 = load ptr, ptr %12, align 8, !tbaa !18
+  call void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr dead_on_unwind writable sret(%"class.folly::Expected") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 1 dereferenceable(2) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly17TcpInfoDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly17TcpInfoDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5folly17TcpInfoDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #5
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN5folly17TcpInfoDispatcher11getInstanceEv() #1 align 2 {
+  %1 = load atomic i8, ptr @_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %8, !prof !20
+
+3:                                                ; preds = %0
+  %4 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher) #2
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %3
+  %7 = call i32 @__cxa_atexit(ptr @_ZN5folly17TcpInfoDispatcherD2Ev, ptr @_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher, ptr @__dso_handle) #2
+  call void @__cxa_guard_release(ptr @_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher) #2
+  br label %8
+
+8:                                                ; preds = %6, %3, %0
+  ret ptr @_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher
+}
+
+; Function Attrs: nounwind
+declare i32 @__cxa_guard_acquire(ptr) #2
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #2
+
+; Function Attrs: nounwind
+declare void @__cxa_guard_release(ptr) #2
+
+declare void @_ZN5folly7TcpInfo10initFromFdERKNS_13NetworkSocketERKNS0_13LookupOptionsERNS_6netops10DispatcherERNS0_15IoctlDispatcherE(ptr dead_on_unwind writable sret(%"class.folly::Expected") align 8, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(2), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #3
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #4
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 7, !"openmp", i32 51}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTSN5folly17TcpInfoDispatcherE", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN5folly13NetworkSocketE", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN5folly7TcpInfo13LookupOptionsE", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN5folly6netops10DispatcherE", !9, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN5folly7TcpInfo15IoctlDispatcherE", !9, i64 0}
+!20 = !{!"branch_weights", i32 1, i32 1048575}

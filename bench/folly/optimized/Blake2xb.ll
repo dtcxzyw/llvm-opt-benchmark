@@ -1,21 +1,13 @@
 ; ModuleID = 'bench/folly/original/Blake2xb.ll'
 source_filename = "bench/folly/original/Blake2xb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
+%"struct.std::array" = type { [8 x i64] }
 %"class.folly::Range" = type { ptr, ptr }
 %"struct.std::array.0" = type { [128 x i8] }
 %"struct.std::array.2" = type { [64 x i8] }
 
-$_ZN5folly6crypto8Blake2xb16kMinOutputLengthE = comdat any
-
-$_ZN5folly6crypto8Blake2xb16kMaxOutputLengthE = comdat any
-
-$_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = comdat any
-
-@_ZN5folly6crypto8Blake2xb16kMinOutputLengthE = weak_odr local_unnamed_addr constant i64 1, comdat, align 8
-@_ZN5folly6crypto8Blake2xb16kMaxOutputLengthE = weak_odr local_unnamed_addr constant i64 4294967294, comdat, align 8
-@_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = weak_odr local_unnamed_addr constant i64 0, comdat, align 8
 @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult = internal global i32 0, align 4
 @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult = internal global i64 0, align 8
 @.str = private unnamed_addr constant [21 x i8] c"sodium_init() failed\00", align 1
@@ -23,6 +15,7 @@ $_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = comdat any
 @.str.1 = private unnamed_addr constant [24 x i8] c"Output length too large\00", align 1
 @.str.2 = private unnamed_addr constant [38 x i8] c"Invalid salt length, must be 16 bytes\00", align 1
 @.str.3 = private unnamed_addr constant [49 x i8] c"Invalid personalization length, must be 16 bytes\00", align 1
+@_ZN5folly6crypto12_GLOBAL__N_110kBlake2bIVE = internal unnamed_addr constant %"struct.std::array" { [8 x i64] [i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935, i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809] }, align 8
 @.str.4 = private unnamed_addr constant [17 x i8] c"invalid key size\00", align 1
 @.str.5 = private unnamed_addr constant [41 x i8] c"Must call init() before calling update()\00", align 1
 @.str.6 = private unnamed_addr constant [35 x i8] c"Can't call update() after finish()\00", align 1
@@ -36,59 +29,58 @@ $_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = comdat any
 @_ZN5folly6crypto8Blake2xbD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly6crypto8Blake2xbD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(451) initializes((0, 451)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(451) %this, i8 0, i64 451, i1 false)
-  %0 = load atomic i8, ptr @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
+define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(451) initializes((0, 451)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(451) %0, i8 0, i64 451, i1 false)
+  %2 = load atomic i8, ptr @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult acquire, align 8
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %4, label %10, !prof !7
 
-init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult) #10
-  %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %init.end, label %init
+4:                                                ; preds = %1
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult) #10
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %10, label %6
 
-init:                                             ; preds = %init.check
-  %call = invoke i32 @sodium_init()
-          to label %invoke.cont unwind label %lpad
+6:                                                ; preds = %4
+  %7 = invoke i32 @sodium_init()
+          to label %8 unwind label %16
 
-invoke.cont:                                      ; preds = %init
-  store i32 %call, ptr @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult, align 4, !tbaa !8
-  %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult)
+8:                                                ; preds = %6
+  store i32 %7, ptr @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult, align 4, !tbaa !8
+  %9 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult) #10
-  br label %init.end
+  br label %10
 
-init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %3 = load i32, ptr @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult, align 4, !tbaa !8
-  %cmp = icmp eq i32 %3, -1
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %8, %4, %1
+  %11 = load i32, ptr @_ZZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult, align 4, !tbaa !8
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %20
 
-if.then:                                          ; preds = %init.end
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
-          to label %invoke.cont3 unwind label %lpad2
+13:                                               ; preds = %10
+  %14 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str)
+          to label %15 unwind label %18
 
-invoke.cont3:                                     ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+15:                                               ; preds = %13
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad:                                             ; preds = %init
-  %4 = landingpad { ptr, i32 }
+16:                                               ; preds = %6
+  %17 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult) #10
-  br label %eh.resume
+  br label %21
 
-lpad2:                                            ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #10
-  br label %eh.resume
+  tail call void @__cxa_free_exception(ptr nonnull %14) #10
+  br label %21
 
-if.end:                                           ; preds = %init.end
+20:                                               ; preds = %10
   ret void
 
-eh.resume:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
+21:                                               ; preds = %18, %16
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -124,137 +116,135 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6crypto8Blake2xbD2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #7 align 2 {
-entry:
+define void @_ZN5folly6crypto8Blake2xbD2Ev(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xb4initEmNS_5RangeIPKhEES5_S5_(ptr noundef nonnull align 64 dereferenceable(451) %this, i64 noundef %outputLength, ptr %key.coerce0, ptr %key.coerce1, ptr %salt.coerce0, ptr %salt.coerce1, ptr noundef readonly byval(%"class.folly::Range") align 8 captures(none) %personalization) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp = icmp eq i64 %outputLength, 0
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN5folly6crypto8Blake2xb4initEmNS_5RangeIPKhEES5_S5_(ptr noundef nonnull align 64 dereferenceable(451) %0, i64 noundef %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr noundef readonly byval(%"class.folly::Range") align 8 captures(none) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %8 = icmp eq i64 %1, 0
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %outputLengthKnown_ = getelementptr inbounds nuw i8, ptr %this, i64 448
-  store i8 0, ptr %outputLengthKnown_, align 64, !tbaa !12
-  br label %if.end6
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store i8 0, ptr %10, align 64, !tbaa !12
+  br label %21
 
-if.else:                                          ; preds = %entry
-  %cmp2 = icmp ugt i64 %outputLength, 4294967294
-  br i1 %cmp2, label %if.then3, label %if.else4
+11:                                               ; preds = %7
+  %12 = icmp ugt i64 %1, 4294967294
+  br i1 %12, label %13, label %18
 
-if.then3:                                         ; preds = %if.else
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.1)
-          to label %invoke.cont unwind label %lpad
+13:                                               ; preds = %11
+  %14 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.1)
+          to label %15 unwind label %16
 
-invoke.cont:                                      ; preds = %if.then3
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+15:                                               ; preds = %13
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad:                                             ; preds = %if.then3
-  %0 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %62
 
-if.else4:                                         ; preds = %if.else
-  %outputLengthKnown_5 = getelementptr inbounds nuw i8, ptr %this, i64 448
-  store i8 1, ptr %outputLengthKnown_5, align 64, !tbaa !12
-  %1 = trunc nuw i64 %outputLength to i32
-  br label %if.end6
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store i8 1, ptr %19, align 64, !tbaa !12
+  %20 = trunc nuw i64 %1 to i32
+  br label %21
 
-if.end6:                                          ; preds = %if.else4, %if.then
-  %outputLength.addr.0 = phi i32 [ -1, %if.then ], [ %1, %if.else4 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %this, i8 0, i64 64, i1 false)
-  store i8 64, ptr %this, align 64, !tbaa !17
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %key.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %key.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv = trunc i64 %sub.ptr.sub.i to i8
-  %keyLength = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 %conv, ptr %keyLength, align 1, !tbaa !18
-  %fanout = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 1, ptr %fanout, align 2, !tbaa !19
-  %depth = getelementptr inbounds nuw i8, ptr %this, i64 3
-  store i8 1, ptr %depth, align 1, !tbaa !20
-  %xofLength = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i32 %outputLength.addr.0, ptr %xofLength, align 4, !tbaa !21
-  %cmp.i = icmp eq ptr %salt.coerce0, %salt.coerce1
-  br i1 %cmp.i, label %if.end26, label %if.then15
+21:                                               ; preds = %18, %9
+  %.0 = phi i32 [ -1, %9 ], [ %20, %18 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  store i8 64, ptr %0, align 64, !tbaa !17
+  %22 = ptrtoint ptr %3 to i64
+  %23 = ptrtoint ptr %2 to i64
+  %24 = sub i64 %22, %23
+  %25 = trunc i64 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %25, ptr %26, align 1, !tbaa !18
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 1, ptr %27, align 2, !tbaa !19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 1, ptr %28, align 1, !tbaa !20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.0, ptr %29, align 4, !tbaa !21
+  %30 = icmp eq ptr %4, %5
+  br i1 %30, label %42, label %31
 
-if.then15:                                        ; preds = %if.end6
-  %sub.ptr.lhs.cast.i47 = ptrtoint ptr %salt.coerce1 to i64
-  %sub.ptr.rhs.cast.i48 = ptrtoint ptr %salt.coerce0 to i64
-  %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
-  %cmp17.not = icmp eq i64 %sub.ptr.sub.i49, 16
-  br i1 %cmp17.not, label %if.end22, label %if.then18
+31:                                               ; preds = %21
+  %32 = ptrtoint ptr %5 to i64
+  %33 = ptrtoint ptr %4 to i64
+  %34 = sub i64 %32, %33
+  %.not = icmp eq i64 %34, 16
+  br i1 %.not, label %40, label %35
 
-if.then18:                                        ; preds = %if.then15
-  %exception19 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception19, ptr noundef nonnull @.str.2)
-          to label %invoke.cont21 unwind label %lpad20
+35:                                               ; preds = %31
+  %36 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull @.str.2)
+          to label %37 unwind label %38
 
-invoke.cont21:                                    ; preds = %if.then18
-  tail call void @__cxa_throw(ptr nonnull %exception19, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+37:                                               ; preds = %35
+  tail call void @__cxa_throw(ptr nonnull %36, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad20:                                           ; preds = %if.then18
-  %2 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %62
 
-if.end22:                                         ; preds = %if.then15
-  %salt24 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %salt24, ptr noundef nonnull align 1 dereferenceable(16) %salt.coerce0, i64 16, i1 false)
-  br label %if.end26
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
+  br label %42
 
-if.end26:                                         ; preds = %if.end22, %if.end6
-  %3 = load ptr, ptr %personalization, align 8, !tbaa !22
-  %e_.i50 = getelementptr inbounds nuw i8, ptr %personalization, i64 8
-  %4 = load ptr, ptr %e_.i50, align 8, !tbaa !25
-  %cmp.i51 = icmp eq ptr %3, %4
-  br i1 %cmp.i51, label %if.end39, label %if.then28
+42:                                               ; preds = %40, %21
+  %43 = load ptr, ptr %6, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !26
+  %46 = icmp eq ptr %43, %45
+  br i1 %46, label %58, label %47
 
-if.then28:                                        ; preds = %if.end26
-  %sub.ptr.lhs.cast.i53 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i54 = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i55 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.rhs.cast.i54
-  %cmp30.not = icmp eq i64 %sub.ptr.sub.i55, 16
-  br i1 %cmp30.not, label %if.end35, label %if.then31
+47:                                               ; preds = %42
+  %48 = ptrtoint ptr %45 to i64
+  %49 = ptrtoint ptr %43 to i64
+  %50 = sub i64 %48, %49
+  %.not8 = icmp eq i64 %50, 16
+  br i1 %.not8, label %56, label %51
 
-if.then31:                                        ; preds = %if.then28
-  %exception32 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception32, ptr noundef nonnull @.str.3)
-          to label %invoke.cont34 unwind label %lpad33
+51:                                               ; preds = %47
+  %52 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull @.str.3)
+          to label %53 unwind label %54
 
-invoke.cont34:                                    ; preds = %if.then31
-  tail call void @__cxa_throw(ptr nonnull %exception32, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+53:                                               ; preds = %51
+  tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad33:                                           ; preds = %if.then31
-  %5 = landingpad { ptr, i32 }
+54:                                               ; preds = %51
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %62
 
-if.end35:                                         ; preds = %if.then28
-  %personal = getelementptr inbounds nuw i8, ptr %this, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
-  br label %if.end39
+56:                                               ; preds = %47
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 1 dereferenceable(16) %43, i64 16, i1 false)
+  br label %58
 
-if.end39:                                         ; preds = %if.end35, %if.end26
-  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  tail call fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull %state_, ptr noundef nonnull align 4 dereferenceable(64) %this, ptr %key.coerce0, ptr %key.coerce1)
-  %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 449
-  store i8 1, ptr %initialized_, align 1, !tbaa !26
-  %finished_ = getelementptr inbounds nuw i8, ptr %this, i64 450
-  store i8 0, ptr %finished_, align 2, !tbaa !27
+58:                                               ; preds = %56, %42
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef %59, ptr noundef nonnull align 4 dereferenceable(64) %0, ptr %2, ptr %3)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 449
+  store i8 1, ptr %60, align 1, !tbaa !27
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 450
+  store i8 0, ptr %61, align 2, !tbaa !28
   ret void
 
-eh.resume:                                        ; preds = %lpad33, %lpad20, %lpad
-  %exception32.sink = phi ptr [ %exception32, %lpad33 ], [ %exception19, %lpad20 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %5, %lpad33 ], [ %2, %lpad20 ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr nonnull %exception32.sink) #10
+62:                                               ; preds = %54, %38, %16
+  %.sink = phi ptr [ %52, %54 ], [ %36, %38 ], [ %14, %16 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %39, %38 ], [ %17, %16 ]
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -262,87 +252,64 @@ eh.resume:                                        ; preds = %lpad33, %lpad20, %l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull initializes((0, 368)) %_state, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %block = alloca %"struct.std::array.0", align 1
-  %0 = load i64, ptr %param, align 8, !tbaa !28
-  %xor = xor i64 %0, 7640891576956012808
-  store i64 %xor, ptr %_state, align 8, !tbaa !28
-  %arrayidx2.1 = getelementptr inbounds nuw i8, ptr %param, i64 8
-  %1 = load i64, ptr %arrayidx2.1, align 8, !tbaa !28
-  %xor.1 = xor i64 %1, -4942790177534073029
-  %arrayidx5.1 = getelementptr inbounds nuw i8, ptr %_state, i64 8
-  store i64 %xor.1, ptr %arrayidx5.1, align 8, !tbaa !28
-  %arrayidx2.2 = getelementptr inbounds nuw i8, ptr %param, i64 16
-  %2 = load i64, ptr %arrayidx2.2, align 8, !tbaa !28
-  %xor.2 = xor i64 %2, 4354685564936845355
-  %arrayidx5.2 = getelementptr inbounds nuw i8, ptr %_state, i64 16
-  store i64 %xor.2, ptr %arrayidx5.2, align 8, !tbaa !28
-  %arrayidx2.3 = getelementptr inbounds nuw i8, ptr %param, i64 24
-  %3 = load i64, ptr %arrayidx2.3, align 8, !tbaa !28
-  %xor.3 = xor i64 %3, -6534734903238641935
-  %arrayidx5.3 = getelementptr inbounds nuw i8, ptr %_state, i64 24
-  store i64 %xor.3, ptr %arrayidx5.3, align 8, !tbaa !28
-  %arrayidx2.4 = getelementptr inbounds nuw i8, ptr %param, i64 32
-  %4 = load i64, ptr %arrayidx2.4, align 8, !tbaa !28
-  %xor.4 = xor i64 %4, 5840696475078001361
-  %arrayidx5.4 = getelementptr inbounds nuw i8, ptr %_state, i64 32
-  store i64 %xor.4, ptr %arrayidx5.4, align 8, !tbaa !28
-  %arrayidx2.5 = getelementptr inbounds nuw i8, ptr %param, i64 40
-  %5 = load i64, ptr %arrayidx2.5, align 8, !tbaa !28
-  %xor.5 = xor i64 %5, -7276294671716946913
-  %arrayidx5.5 = getelementptr inbounds nuw i8, ptr %_state, i64 40
-  store i64 %xor.5, ptr %arrayidx5.5, align 8, !tbaa !28
-  %arrayidx2.6 = getelementptr inbounds nuw i8, ptr %param, i64 48
-  %6 = load i64, ptr %arrayidx2.6, align 8, !tbaa !28
-  %xor.6 = xor i64 %6, 2270897969802886507
-  %arrayidx5.6 = getelementptr inbounds nuw i8, ptr %_state, i64 48
-  store i64 %xor.6, ptr %arrayidx5.6, align 8, !tbaa !28
-  %arrayidx2.7 = getelementptr inbounds nuw i8, ptr %param, i64 56
-  %7 = load i64, ptr %arrayidx2.7, align 8, !tbaa !28
-  %xor.7 = xor i64 %7, 6620516959819538809
-  %arrayidx5.7 = getelementptr inbounds nuw i8, ptr %_state, i64 56
-  store i64 %xor.7, ptr %arrayidx5.7, align 8, !tbaa !28
-  %add.ptr = getelementptr inbounds nuw i8, ptr %_state, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(304) %add.ptr, i8 0, i64 304, i1 false)
-  %cmp.i = icmp eq ptr %key.coerce0, %key.coerce1
-  br i1 %cmp.i, label %if.end25, label %if.then
+define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr %2, ptr %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"struct.std::array.0", align 1
+  br label %9
 
-if.then:                                          ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %key.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %key.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %8 = add i64 %sub.ptr.sub.i, -65
-  %or.cond = icmp ult i64 %8, -49
-  br i1 %or.cond, label %if.then11, label %if.end
+6:                                                ; preds = %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(304) %7, i8 0, i64 304, i1 false)
+  %8 = icmp eq ptr %2, %3
+  br i1 %8, label %30, label %16
 
-if.then11:                                        ; preds = %if.then
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.4)
-          to label %invoke.cont unwind label %lpad
+9:                                                ; preds = %4, %9
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
+  %10 = getelementptr inbounds nuw i64, ptr @_ZN5folly6crypto12_GLOBAL__N_110kBlake2bIVE, i64 %indvars.iv
+  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %13 = load i64, ptr %12, align 8, !tbaa !29
+  %14 = xor i64 %13, %11
+  %15 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  store i64 %14, ptr %15, align 8, !tbaa !29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %6, label %9, !llvm.loop !31
 
-invoke.cont:                                      ; preds = %if.then11
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+16:                                               ; preds = %6
+  %17 = ptrtoint ptr %3 to i64
+  %18 = ptrtoint ptr %2 to i64
+  %19 = sub i64 %17, %18
+  %20 = add i64 %19, -65
+  %or.cond = icmp ult i64 %20, -49
+  br i1 %or.cond, label %21, label %26
+
+21:                                               ; preds = %16
+  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.4)
+          to label %23 unwind label %24
+
+23:                                               ; preds = %21
+  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad:                                             ; preds = %if.then11
-  %9 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #10
-  resume { ptr, i32 } %9
+  tail call void @__cxa_free_exception(ptr nonnull %22) #10
+  resume { ptr, i32 } %25
 
-if.end:                                           ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %block) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %block, ptr align 1 %key.coerce0, i64 %sub.ptr.sub.i, i1 false)
-  %add.ptr17 = getelementptr inbounds nuw i8, ptr %block, i64 %sub.ptr.sub.i
-  %sub = sub nuw nsw i64 128, %sub.ptr.sub.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr17, i8 0, i64 %sub, i1 false)
-  %call22 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %_state, ptr noundef nonnull %block, i64 noundef 128)
-  call void @sodium_memzero(ptr noundef nonnull %block, i64 noundef 128)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %block) #10
-  br label %if.end25
+26:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %2, i64 %19, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %19
+  %28 = sub nuw nsw i64 128, %19
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %28, i1 false)
+  %29 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 128)
+  call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 128)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  br label %30
 
-if.end25:                                         ; preds = %if.end, %entry
+30:                                               ; preds = %26, %6
   ret void
 }
 
@@ -357,310 +324,270 @@ declare i32 @crypto_generichash_blake2b_update(ptr noundef, ptr noundef, i64 nou
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xb6updateENS_5RangeIPKhEE(ptr noundef nonnull align 64 dereferenceable(451) %this, ptr %data.coerce0, ptr %data.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 449
-  %0 = load i8, ptr %initialized_, align 1, !tbaa !26, !range !30, !noundef !31
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.then, label %if.else
+define void @_ZN5folly6crypto8Blake2xb6updateENS_5RangeIPKhEE(ptr noundef nonnull align 64 dereferenceable(451) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 449
+  %5 = load i8, ptr %4, align 1, !tbaa !27, !range !33, !noundef !34
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %12, label %7
 
-if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.5)
-          to label %invoke.cont unwind label %lpad
+7:                                                ; preds = %3
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+9:                                                ; preds = %7
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad:                                             ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %33
 
-if.else:                                          ; preds = %entry
-  %finished_ = getelementptr inbounds nuw i8, ptr %this, i64 450
-  %2 = load i8, ptr %finished_, align 2, !tbaa !27, !range !30, !noundef !31
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end7, label %if.then3
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 450
+  %14 = load i8, ptr %13, align 2, !tbaa !28, !range !33, !noundef !34
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %21
 
-if.then3:                                         ; preds = %if.else
-  %exception4 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception4, ptr noundef nonnull @.str.6)
-          to label %invoke.cont6 unwind label %lpad5
+16:                                               ; preds = %12
+  %17 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str.6)
+          to label %18 unwind label %19
 
-invoke.cont6:                                     ; preds = %if.then3
-  tail call void @__cxa_throw(ptr nonnull %exception4, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+18:                                               ; preds = %16
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad5:                                            ; preds = %if.then3
-  %3 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %33
 
-if.end7:                                          ; preds = %if.else
-  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %data.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %data.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call9 = tail call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %state_, ptr noundef %data.coerce0, i64 noundef %sub.ptr.sub.i)
-  %cmp.not = icmp eq i32 %call9, 0
-  br i1 %cmp.not, label %if.end14, label %if.then10
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = ptrtoint ptr %2 to i64
+  %24 = ptrtoint ptr %1 to i64
+  %25 = sub i64 %23, %24
+  %26 = tail call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %22, ptr noundef %1, i64 noundef %25)
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %32, label %27
 
-if.then10:                                        ; preds = %if.end7
-  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception11, ptr noundef nonnull @.str.7)
-          to label %invoke.cont13 unwind label %lpad12
+27:                                               ; preds = %21
+  %28 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull @.str.7)
+          to label %29 unwind label %30
 
-invoke.cont13:                                    ; preds = %if.then10
-  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+29:                                               ; preds = %27
+  tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad12:                                           ; preds = %if.then10
-  %4 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %33
 
-if.end14:                                         ; preds = %if.end7
+32:                                               ; preds = %21
   ret void
 
-eh.resume:                                        ; preds = %lpad12, %lpad5, %lpad
-  %exception11.sink = phi ptr [ %exception11, %lpad12 ], [ %exception4, %lpad5 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %4, %lpad12 ], [ %3, %lpad5 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr nonnull %exception11.sink) #10
+33:                                               ; preds = %30, %19, %10
+  %.sink = phi ptr [ %28, %30 ], [ %17, %19 ], [ %8, %10 ]
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ], [ %11, %10 ]
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #10
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull align 64 dereferenceable(451) %this, ptr %out.coerce0, ptr %out.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %h0 = alloca %"struct.std::array.2", align 1
-  %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 449
-  %0 = load i8, ptr %initialized_, align 1, !tbaa !26, !range !30, !noundef !31
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.then, label %if.else
+define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull align 64 dereferenceable(451) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.std::array.2", align 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 449
+  %6 = load i8, ptr %5, align 1, !tbaa !27, !range !33, !noundef !34
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %13, label %8
 
-if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.8)
-          to label %invoke.cont unwind label %lpad
+8:                                                ; preds = %3
+  %9 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.8)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+10:                                               ; preds = %8
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad:                                             ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #10
-  br label %eh.resume
+  tail call void @__cxa_free_exception(ptr nonnull %9) #10
+  br label %78
 
-if.else:                                          ; preds = %entry
-  %finished_ = getelementptr inbounds nuw i8, ptr %this, i64 450
-  %2 = load i8, ptr %finished_, align 2, !tbaa !27, !range !30, !noundef !31
-  %tobool2.not = icmp eq i8 %2, 0
-  br i1 %tobool2.not, label %if.end7, label %if.then3
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 450
+  %15 = load i8, ptr %14, align 2, !tbaa !28, !range !33, !noundef !34
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %22
 
-if.then3:                                         ; preds = %if.else
-  %exception4 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception4, ptr noundef nonnull @.str.9)
-          to label %invoke.cont6 unwind label %lpad5
+17:                                               ; preds = %13
+  %18 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull @.str.9)
+          to label %19 unwind label %20
 
-invoke.cont6:                                     ; preds = %if.then3
-  tail call void @__cxa_throw(ptr nonnull %exception4, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+19:                                               ; preds = %17
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad5:                                            ; preds = %if.then3
-  %3 = landingpad { ptr, i32 }
+20:                                               ; preds = %17
+  %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception4) #10
-  br label %eh.resume
+  tail call void @__cxa_free_exception(ptr nonnull %18) #10
+  br label %78
 
-if.end7:                                          ; preds = %if.else
-  %outputLengthKnown_ = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %4 = load i8, ptr %outputLengthKnown_, align 64, !tbaa !12, !range !30, !noundef !31
-  %tobool8.not = icmp eq i8 %4, 0
-  br i1 %tobool8.not, label %if.end16, label %if.then9
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %24 = load i8, ptr %23, align 64, !tbaa !12, !range !33, !noundef !34
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %38
 
-if.then9:                                         ; preds = %if.end7
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %out.coerce1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %out.coerce0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv = trunc i64 %sub.ptr.sub.i to i32
-  %xofLength = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %5 = load i32, ptr %xofLength, align 4, !tbaa !21
-  %cmp.not = icmp eq i32 %5, %conv
-  br i1 %cmp.not, label %if.end16, label %if.then11
+26:                                               ; preds = %22
+  %27 = ptrtoint ptr %2 to i64
+  %28 = ptrtoint ptr %1 to i64
+  %29 = sub i64 %27, %28
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !21
+  %.not = icmp eq i32 %32, %30
+  br i1 %.not, label %38, label %33
 
-if.then11:                                        ; preds = %if.then9
-  %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception12, ptr noundef nonnull @.str.10)
-          to label %invoke.cont14 unwind label %lpad13
+33:                                               ; preds = %26
+  %34 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull @.str.10)
+          to label %35 unwind label %36
 
-invoke.cont14:                                    ; preds = %if.then11
-  tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+35:                                               ; preds = %33
+  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad13:                                           ; preds = %if.then11
-  %6 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception12) #10
-  br label %eh.resume
+  tail call void @__cxa_free_exception(ptr nonnull %34) #10
+  br label %78
 
-if.end16:                                         ; preds = %if.then9, %if.end7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %h0) #10
-  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %call19 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %state_, ptr noundef nonnull %h0, i64 noundef 64)
-  %cmp20.not = icmp eq i32 %call19, 0
-  br i1 %cmp20.not, label %if.end25, label %if.then21
+38:                                               ; preds = %26, %22
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %40 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %39, ptr noundef nonnull %4, i64 noundef 64)
+  %.not17 = icmp eq i32 %40, 0
+  br i1 %.not17, label %46, label %41
 
-if.then21:                                        ; preds = %if.end16
-  %exception22 = call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception22, ptr noundef nonnull @.str.11)
-          to label %invoke.cont24 unwind label %lpad23
+41:                                               ; preds = %38
+  %42 = call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull @.str.11)
+          to label %43 unwind label %44
 
-invoke.cont24:                                    ; preds = %if.then21
-  call void @__cxa_throw(ptr nonnull %exception22, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+43:                                               ; preds = %41
+  call void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad23:                                           ; preds = %if.then21
-  %7 = landingpad { ptr, i32 }
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup64
+  br label %77
 
-if.end25:                                         ; preds = %if.end16
-  %keyLength = getelementptr inbounds nuw i8, ptr %this, i64 1
-  store i8 0, ptr %keyLength, align 1, !tbaa !18
-  %fanout = getelementptr inbounds nuw i8, ptr %this, i64 2
-  store i8 0, ptr %fanout, align 2, !tbaa !19
-  %depth = getelementptr inbounds nuw i8, ptr %this, i64 3
-  store i8 0, ptr %depth, align 1, !tbaa !20
-  %leafLength = getelementptr inbounds nuw i8, ptr %this, i64 4
-  store i32 64, ptr %leafLength, align 4, !tbaa !32
-  %innerLength = getelementptr inbounds nuw i8, ptr %this, i64 17
-  store i8 64, ptr %innerLength, align 1, !tbaa !33
-  %sub.ptr.lhs.cast.i81 = ptrtoint ptr %out.coerce1 to i64
-  %sub.ptr.rhs.cast.i82 = ptrtoint ptr %out.coerce0 to i64
-  %sub.ptr.sub.i83 = sub i64 %sub.ptr.lhs.cast.i81, %sub.ptr.rhs.cast.i82
-  %cmp33.not90 = icmp eq i64 %sub.ptr.sub.i83, 0
-  br i1 %cmp33.not90, label %while.end, label %while.body.lr.ph
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %47, align 1, !tbaa !18
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 0, ptr %48, align 2, !tbaa !19
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 0, ptr %49, align 1, !tbaa !20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 64, ptr %50, align 4, !tbaa !35
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 64, ptr %51, align 1, !tbaa !36
+  %52 = ptrtoint ptr %2 to i64
+  %53 = ptrtoint ptr %1 to i64
+  %54 = sub i64 %52, %53
+  %.not1834 = icmp eq i64 %54, 0
+  br i1 %.not1834, label %._crit_edge, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %if.end25
-  %nodeOffset = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %arrayidx5.1.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %arrayidx2.2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx5.2.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %arrayidx2.3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %arrayidx5.3.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %arrayidx2.4.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %arrayidx5.4.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %arrayidx2.5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %arrayidx5.5.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %arrayidx2.6.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %arrayidx5.6.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx2.7.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %arrayidx5.7.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  br label %while.body
+.lr.ph:                                           ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %56
 
-while.body:                                       ; preds = %if.end60, %while.body.lr.ph
-  %pos.092 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end60 ]
-  %storemerge91 = phi i64 [ %sub.ptr.sub.i83, %while.body.lr.ph ], [ %sub, %if.end60 ]
-  %div74 = lshr i64 %pos.092, 6
-  %conv34 = trunc i64 %div74 to i32
-  store i32 %conv34, ptr %nodeOffset, align 8, !tbaa !34
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge91, i64 64)
-  %conv38 = trunc nuw nsw i64 %.sroa.speculated to i8
-  store i8 %conv38, ptr %this, align 64, !tbaa !17
-  %8 = load i64, ptr %this, align 64, !tbaa !28
-  %xor.i = xor i64 %8, 7640891576956012808
-  store i64 %xor.i, ptr %state_, align 64, !tbaa !28
-  %9 = load i64, ptr %nodeOffset, align 8, !tbaa !28
-  %xor.1.i = xor i64 %9, -4942790177534073029
-  store i64 %xor.1.i, ptr %arrayidx5.1.i, align 8, !tbaa !28
-  %10 = load i64, ptr %arrayidx2.2.i, align 16, !tbaa !28
-  %xor.2.i = xor i64 %10, 4354685564936845355
-  store i64 %xor.2.i, ptr %arrayidx5.2.i, align 16, !tbaa !28
-  %11 = load i64, ptr %arrayidx2.3.i, align 8, !tbaa !28
-  %xor.3.i = xor i64 %11, -6534734903238641935
-  store i64 %xor.3.i, ptr %arrayidx5.3.i, align 8, !tbaa !28
-  %12 = load i64, ptr %arrayidx2.4.i, align 32, !tbaa !28
-  %xor.4.i = xor i64 %12, 5840696475078001361
-  store i64 %xor.4.i, ptr %arrayidx5.4.i, align 32, !tbaa !28
-  %13 = load i64, ptr %arrayidx2.5.i, align 8, !tbaa !28
-  %xor.5.i = xor i64 %13, -7276294671716946913
-  store i64 %xor.5.i, ptr %arrayidx5.5.i, align 8, !tbaa !28
-  %14 = load i64, ptr %arrayidx2.6.i, align 16, !tbaa !28
-  %xor.6.i = xor i64 %14, 2270897969802886507
-  store i64 %xor.6.i, ptr %arrayidx5.6.i, align 16, !tbaa !28
-  %15 = load i64, ptr %arrayidx2.7.i, align 8, !tbaa !28
-  %xor.7.i = xor i64 %15, 6620516959819538809
-  store i64 %xor.7.i, ptr %arrayidx5.7.i, align 8, !tbaa !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(304) %add.ptr.i, i8 0, i64 304, i1 false)
-  %call45 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %state_, ptr noundef nonnull %h0, i64 noundef 64)
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end51, label %if.then47
+56:                                               ; preds = %.lr.ph, %74
+  %.01336 = phi i64 [ 0, %.lr.ph ], [ %75, %74 ]
+  %storemerge35 = phi i64 [ %54, %.lr.ph ], [ %76, %74 ]
+  %57 = lshr i64 %.01336, 6
+  %58 = trunc i64 %57 to i32
+  store i32 %58, ptr %55, align 8, !tbaa !37
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge35, i64 64)
+  %59 = trunc nuw nsw i64 %.sroa.speculated to i8
+  store i8 %59, ptr %0, align 64, !tbaa !17
+  call fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(64) %0, ptr null, ptr null)
+  %60 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %39, ptr noundef nonnull %4, i64 noundef 64)
+  %.not19 = icmp eq i32 %60, 0
+  br i1 %.not19, label %66, label %61
 
-if.then47:                                        ; preds = %while.body
-  %exception48 = call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception48, ptr noundef nonnull @.str.7)
-          to label %invoke.cont50 unwind label %lpad49
+61:                                               ; preds = %56
+  %62 = call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull @.str.7)
+          to label %63 unwind label %64
 
-invoke.cont50:                                    ; preds = %if.then47
-  call void @__cxa_throw(ptr nonnull %exception48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+63:                                               ; preds = %61
+  call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad49:                                           ; preds = %if.then47
-  %16 = landingpad { ptr, i32 }
+64:                                               ; preds = %61
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup64
+  br label %77
 
-if.end51:                                         ; preds = %while.body
-  %add.ptr = getelementptr inbounds i8, ptr %out.coerce0, i64 %pos.092
-  %call54 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %state_, ptr noundef %add.ptr, i64 noundef %.sroa.speculated)
-  %cmp55.not = icmp eq i32 %call54, 0
-  br i1 %cmp55.not, label %if.end60, label %if.then56
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.01336
+  %68 = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %39, ptr noundef %67, i64 noundef %.sroa.speculated)
+  %.not20 = icmp eq i32 %68, 0
+  br i1 %.not20, label %74, label %69
 
-if.then56:                                        ; preds = %if.end51
-  %exception57 = call ptr @__cxa_allocate_exception(i64 16) #10
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception57, ptr noundef nonnull @.str.11)
-          to label %invoke.cont59 unwind label %lpad58
+69:                                               ; preds = %66
+  %70 = call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull @.str.11)
+          to label %71 unwind label %72
 
-invoke.cont59:                                    ; preds = %if.then56
-  call void @__cxa_throw(ptr nonnull %exception57, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
+71:                                               ; preds = %69
+  call void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #11
   unreachable
 
-lpad58:                                           ; preds = %if.then56
-  %17 = landingpad { ptr, i32 }
+72:                                               ; preds = %69
+  %73 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup64
+  br label %77
 
-if.end60:                                         ; preds = %if.end51
-  %add = add i64 %.sroa.speculated, %pos.092
-  %sub = sub i64 %storemerge91, %.sroa.speculated
-  %cmp33.not = icmp eq i64 %sub, 0
-  br i1 %cmp33.not, label %while.end, label %while.body, !llvm.loop !35
+74:                                               ; preds = %66
+  %75 = add i64 %.01336, %.sroa.speculated
+  %76 = sub i64 %storemerge35, %.sroa.speculated
+  %.not18 = icmp eq i64 %76, 0
+  br i1 %.not18, label %._crit_edge, label %56, !llvm.loop !38
 
-while.end:                                        ; preds = %if.end60, %if.end25
-  store i8 1, ptr %finished_, align 2, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h0) #10
+._crit_edge:                                      ; preds = %74, %46
+  store i8 1, ptr %14, align 2, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   ret void
 
-ehcleanup64:                                      ; preds = %lpad58, %lpad49, %lpad23
-  %exception48.sink = phi ptr [ %exception48, %lpad49 ], [ %exception57, %lpad58 ], [ %exception22, %lpad23 ]
-  %.pn76 = phi { ptr, i32 } [ %16, %lpad49 ], [ %17, %lpad58 ], [ %7, %lpad23 ]
-  call void @__cxa_free_exception(ptr nonnull %exception48.sink) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h0) #10
-  br label %eh.resume
+77:                                               ; preds = %64, %72, %44
+  %.sink = phi ptr [ %62, %64 ], [ %70, %72 ], [ %42, %44 ]
+  %.pn22 = phi { ptr, i32 } [ %65, %64 ], [ %73, %72 ], [ %45, %44 ]
+  call void @__cxa_free_exception(ptr nonnull %.sink) #10
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  br label %78
 
-eh.resume:                                        ; preds = %ehcleanup64, %lpad13, %lpad5, %lpad
-  %.pn78 = phi { ptr, i32 } [ %3, %lpad5 ], [ %6, %lpad13 ], [ %.pn76, %ehcleanup64 ], [ %1, %lpad ]
-  resume { ptr, i32 } %.pn78
+78:                                               ; preds = %77, %36, %20, %11
+  %.pn24 = phi { ptr, i32 } [ %21, %20 ], [ %37, %36 ], [ %.pn22, %77 ], [ %12, %11 ]
+  resume { ptr, i32 } %.pn24
 }
 
 declare i32 @crypto_generichash_blake2b_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -672,7 +599,7 @@ attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #6 = { cold noreturn }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn }
 
@@ -702,16 +629,18 @@ attributes #11 = { noreturn }
 !21 = !{!13, !9, i64 12}
 !22 = !{!23, !24, i64 0}
 !23 = !{!"_ZTSN5folly5RangeIPKhEE", !24, i64 0, !24, i64 8}
-!24 = !{!"any pointer", !10, i64 0}
-!25 = !{!23, !24, i64 8}
-!26 = !{!13, !16, i64 449}
-!27 = !{!13, !16, i64 450}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !10, i64 0}
-!30 = !{i8 0, i8 2}
-!31 = !{}
-!32 = !{!13, !9, i64 4}
-!33 = !{!13, !10, i64 17}
-!34 = !{!13, !9, i64 8}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"p1 omnipotent char", !25, i64 0}
+!25 = !{!"any pointer", !10, i64 0}
+!26 = !{!23, !24, i64 8}
+!27 = !{!13, !16, i64 449}
+!28 = !{!13, !16, i64 450}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"long", !10, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{i8 0, i8 2}
+!34 = !{}
+!35 = !{!13, !9, i64 4}
+!36 = !{!13, !10, i64 17}
+!37 = !{!13, !9, i64 8}
+!38 = distinct !{!38, !32}

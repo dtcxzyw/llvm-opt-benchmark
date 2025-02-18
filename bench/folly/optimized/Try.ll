@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/folly/original/Try.ll'
 source_filename = "bench/folly/original/Try.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.folly::UsingUninitializedTry" = type { %"class.folly::TryException" }
@@ -24,6 +24,8 @@ $_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_ = comdat any
 $_ZN5folly21UsingUninitializedTryC2EOS0_ = comdat any
 
 $_ZN5folly21UsingUninitializedTryD0Ev = comdat any
+
+$_ZNK5folly21UsingUninitializedTry4whatEv = comdat any
 
 $_ZN5folly12TryExceptionD0Ev = comdat any
 
@@ -69,110 +71,108 @@ $_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv = comdat any
 
 $_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv = comdat any
 
-$_ZTSN5folly21UsingUninitializedTryE = comdat any
+$_ZTIN5folly21UsingUninitializedTryE = comdat any
 
-$_ZTSN5folly12TryExceptionE = comdat any
+$_ZTSN5folly21UsingUninitializedTryE = comdat any
 
 $_ZTIN5folly12TryExceptionE = comdat any
 
-$_ZTIN5folly21UsingUninitializedTryE = comdat any
+$_ZTSN5folly12TryExceptionE = comdat any
 
 $_ZTVN5folly21UsingUninitializedTryE = comdat any
 
 $_ZTVN5folly12TryExceptionE = comdat any
 
 @__func__._ZNK5folly17exception_wrapper15throw_exceptionEv = private unnamed_addr constant [16 x i8] c"throw_exception\00", align 1
+@_ZTIN5folly21UsingUninitializedTryE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly21UsingUninitializedTryE, ptr @_ZTIN5folly12TryExceptionE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly21UsingUninitializedTryE = linkonce_odr constant [32 x i8] c"N5folly21UsingUninitializedTryE\00", comdat, align 1
+@_ZTIN5folly12TryExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly12TryExceptionE, ptr @_ZTISt11logic_error }, comdat, align 8
 @_ZTSN5folly12TryExceptionE = linkonce_odr constant [23 x i8] c"N5folly12TryExceptionE\00", comdat, align 1
 @_ZTISt11logic_error = external constant ptr
-@_ZTIN5folly12TryExceptionE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly12TryExceptionE, ptr @_ZTISt11logic_error }, comdat, align 8
-@_ZTIN5folly21UsingUninitializedTryE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly21UsingUninitializedTryE, ptr @_ZTIN5folly12TryExceptionE }, comdat, align 8
-@_ZTVN5folly21UsingUninitializedTryE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly21UsingUninitializedTryE, ptr @_ZNSt11logic_errorD2Ev, ptr @_ZN5folly21UsingUninitializedTryD0Ev, ptr @_ZNKSt11logic_error4whatEv] }, comdat, align 8
+@_ZTVN5folly21UsingUninitializedTryE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly21UsingUninitializedTryE, ptr @_ZNSt11logic_errorD2Ev, ptr @_ZN5folly21UsingUninitializedTryD0Ev, ptr @_ZNK5folly21UsingUninitializedTry4whatEv] }, comdat, align 8
 @_ZTVN5folly12TryExceptionE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5folly12TryExceptionE, ptr @_ZNSt11logic_errorD2Ev, ptr @_ZN5folly12TryExceptionD0Ev, ptr @_ZNKSt11logic_error4whatEv] }, comdat, align 8
 @.str = private unnamed_addr constant [24 x i8] c"Using uninitialized try\00", align 1
-@.str.1 = private unnamed_addr constant [34 x i8] c"Try does not contain an exception\00", align 1
+@.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.2 = private unnamed_addr constant [34 x i8] c"Try does not contain an exception\00", align 1
 @_ZTISt9exception = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %3
   ]
 
-sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i:                                     ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb2
+define weak_odr void @_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %6 [
+    i32 0, label %3
+    i32 1, label %4
   ]
 
-sw.bb:                                            ; preds = %entry
+3:                                                ; preds = %1
   ret void
 
-sw.bb2:                                           ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   unreachable
 
-sw.default:                                       ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+6:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define linkonce_odr void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %agg.tmp = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !12
-  %tobool.i.not = icmp eq ptr %0, null
-  br i1 %tobool.i.not, label %cond.false, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
+define linkonce_odr void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
 
-_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %entry
-  store ptr %0, ptr %agg.tmp, align 8, !tbaa !12
-  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #12
-  invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %agg.tmp) #11
-          to label %invoke.cont unwind label %cleanup.action5
+_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %1
+  store ptr %3, ptr %2, align 8, !tbaa !12
+  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %2) #12
+          to label %4 unwind label %6
 
-invoke.cont:                                      ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
+4:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
   unreachable
 
-cond.false:                                       ; preds = %entry
-  tail call void @_ZN5folly17exception_wrapper18onNoExceptionErrorEPKc(ptr noundef nonnull @__func__._ZNK5folly17exception_wrapper15throw_exceptionEv) #11
+5:                                                ; preds = %1
+  tail call void @_ZN5folly17exception_wrapper18onNoExceptionErrorEPKc(ptr noundef nonnull @__func__._ZNK5folly17exception_wrapper15throw_exceptionEv) #12
   unreachable
 
-cleanup.action5:                                  ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
-  %1 = landingpad { ptr, i32 }
+6:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %2 = load ptr, ptr %agg.tmp, align 8, !tbaa !12
-  %tobool.not.i8 = icmp eq ptr %2, null
-  br i1 %tobool.not.i8, label %eh.resume, label %if.then.i9
+  %8 = load ptr, ptr %2, align 8, !tbaa !12
+  %.not.i3 = icmp eq ptr %8, null
+  br i1 %.not.i3, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %9
 
-if.then.i9:                                       ; preds = %cleanup.action5
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #12
-  br label %eh.resume
+9:                                                ; preds = %6
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
-eh.resume:                                        ; preds = %if.then.i9, %cleanup.action5
-  resume { ptr, i32 } %1
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %9, %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: noreturn
@@ -189,38 +189,40 @@ declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonn
 ; Function Attrs: nounwind
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
-; Function Attrs: cold mustprogress noreturn optsize uwtable
+; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.folly::UsingUninitializedTry", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
-  call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %ref.tmp, align 8, !tbaa !15
-  invoke void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #7
-          to label %invoke.cont unwind label %lpad
+  %1 = alloca %"class.folly::UsingUninitializedTry", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.1)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %1, align 8, !tbaa !15
+  invoke void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+          to label %2 unwind label %3
 
-invoke.cont:                                      ; preds = %entry
+2:                                                ; preds = %0
   unreachable
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+3:                                                ; preds = %0
+  %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #12
-  resume { ptr, i32 } %0
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #13
+  resume { ptr, i32 } %4
 }
 
-; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #4 comdat {
-entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #12
-  tail call void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #12
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly21UsingUninitializedTryE, ptr nonnull @_ZNSt11logic_errorD2Ev) #11
+; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_21UsingUninitializedTryEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  tail call void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5folly21UsingUninitializedTryE, ptr nonnull @_ZNSt11logic_errorD2Ev) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
@@ -231,441 +233,423 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %this, align 8, !tbaa !15
+define linkonce_odr void @_ZN5folly21UsingUninitializedTryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly21UsingUninitializedTryE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly21UsingUninitializedTryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+define linkonce_odr void @_ZN5folly21UsingUninitializedTryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5folly21UsingUninitializedTry4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  ret ptr @.str
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5folly12TryExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #14
   ret void
 }
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
-; Function Attrs: nounwind
-declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly12TryExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  tail call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
-  ret void
-}
-
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
-declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #9
+declare void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %3
   ]
 
-sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i:                                     ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %3
   ]
 
-sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i:                                     ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %3
   ]
 
-sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i:                                     ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK5folly3TryINS_4UnitEE13throwIfFailedEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i [
+define weak_odr void @_ZNK5folly3TryINS_4UnitEE13throwIfFailedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit
-    i32 1, label %sw.bb2.i
+    i32 1, label %3
   ]
 
-sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i:                                     ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
+_ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKR5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNKR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKO5folly3TryINS_4UnitEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNKR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNKR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  switch i32 %0, label %sw.default.i.i [
+define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  switch i32 %2, label %5 [
     i32 0, label %_ZNR5folly3TryINS_4UnitEE5valueEv.exit
-    i32 1, label %sw.bb2.i.i
+    i32 1, label %3
   ]
 
-sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   unreachable
 
-sw.default.i.i:                                   ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #7
+5:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_21UsingUninitializedTryEJEEEvDpT0_() #8
   unreachable
 
-_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %2
+_ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE8hasValueEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #10 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp = icmp eq i32 %0, 0
-  ret i1 %cmp
+define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE8hasValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 0
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE12hasExceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #10 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp = icmp eq i32 %0, 1
-  ret i1 %cmp
+define weak_odr noundef zeroext i1 @_ZNK5folly3TryINS_4UnitEE12hasExceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNR5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %if.then
+define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNR5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #7
+4:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
-; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef %args) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.folly::TryException", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #12
-  call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %ref.tmp, align 8, !tbaa !15
-  invoke void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #7
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef %0) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.folly::TryException", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
+  call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %2, align 8, !tbaa !15
+  invoke void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+          to label %3 unwind label %4
 
-invoke.cont:                                      ; preds = %entry
+3:                                                ; preds = %1
   unreachable
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+4:                                                ; preds = %1
+  %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #12
-  resume { ptr, i32 } %0
+  call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  resume { ptr, i32 } %5
 }
 
-; Function Attrs: cold mustprogress noreturn optsize uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) local_unnamed_addr #4 comdat {
-entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #12
-  tail call void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #12
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly12TryExceptionE, ptr nonnull @_ZNSt11logic_errorD2Ev) #11
+; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_12TryExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  tail call void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5folly12TryExceptionE, ptr nonnull @_ZNSt11logic_errorD2Ev) #12
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-entry:
-  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %this, align 8, !tbaa !15
+define linkonce_odr void @_ZN5folly12TryExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12TryExceptionE, i64 16), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNO5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %if.then
+define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNO5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #7
+4:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %if.then
+define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #7
+4:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKO5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %if.then
+define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKO5folly3TryINS_4UnitEE9exceptionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #7
+4:                                                ; preds = %1
+  tail call void @_ZN5folly6detail16throw_exception_INS_12TryExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #8
   unreachable
 
-if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  ret ptr %1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %cond.true, label %cond.end
+define weak_odr noundef ptr @_ZN5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %4, label %7
 
-cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
-  br label %cond.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZTISt9exception) #13
+  br label %7
 
-cond.end:                                         ; preds = %cond.true, %entry
-  %cond = phi ptr [ %call1.i.i.i, %cond.true ], [ null, %entry ]
-  ret ptr %cond
+7:                                                ; preds = %1, %4
+  %8 = phi ptr [ %6, %4 ], [ null, %1 ]
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load i32, ptr %this, align 8, !tbaa !7
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %cond.true, label %cond.end
+define weak_odr noundef ptr @_ZNK5folly3TryINS_4UnitEE21tryGetExceptionObjectEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load i32, ptr %0, align 8, !tbaa !7
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %4, label %7
 
-cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
-  br label %cond.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZTISt9exception) #13
+  br label %7
 
-cond.end:                                         ; preds = %cond.true, %entry
-  %cond = phi ptr [ %call1.i.i.i, %cond.true ], [ null, %entry ]
-  ret ptr %cond
+7:                                                ; preds = %1, %4
+  %8 = phi ptr [ %6, %4 ], [ null, %1 ]
+  ret ptr %8
 }
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold mustprogress noinline noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn }
+attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/folly/original/Codel.ll'
 source_filename = "bench/folly/original/Codel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.google::FlagRegisterer" = type { i8 }
 
@@ -26,45 +26,43 @@ target triple = "x86_64-unknown-linux-gnu"
 declare void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %this) unnamed_addr #1 align 2 {
-entry:
-  %0 = load i32, ptr @_ZN3fLI20FLAGS_codel_intervalE, align 4, !tbaa !7
-  %conv.i = sext i32 %0 to i64
-  %1 = load i32, ptr @_ZN3fLI24FLAGS_codel_target_delayE, align 4, !tbaa !7
-  %conv.i5 = sext i32 %1 to i64
-  store i64 0, ptr %this, align 8, !tbaa !11
-  %codelIntervalTimeNs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
-  store i64 %call.i, ptr %codelIntervalTimeNs_.i, align 8, !tbaa !11
-  %targetDelay_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i64 %conv.i5, ptr %targetDelay_.i6, align 8, !tbaa !14
-  %interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 %conv.i, ptr %interval_.i, align 8, !tbaa !14
-  %codelResetDelay_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i8 1, ptr %codelResetDelay_.i, align 8, !tbaa !15
-  %overloaded_.i = getelementptr inbounds nuw i8, ptr %this, i64 33
-  store i8 0, ptr %overloaded_.i, align 1, !tbaa !15
+define void @_ZN5folly5CodelC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %0) unnamed_addr #1 align 2 {
+  %2 = load i32, ptr @_ZN3fLI20FLAGS_codel_intervalE, align 4, !tbaa !7
+  %3 = sext i32 %2 to i64
+  %4 = load i32, ptr @_ZN3fLI24FLAGS_codel_target_delayE, align 4, !tbaa !7
+  %5 = sext i32 %4 to i64
+  store i64 0, ptr %0, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
+  store i64 %7, ptr %6, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %5, ptr %8, align 8, !tbaa !14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %3, ptr %9, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %10, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 0, ptr %11, align 1, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %options) unnamed_addr #1 align 2 {
-entry:
-  store i64 0, ptr %this, align 8, !tbaa !11
-  %codelIntervalTimeNs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
-  store i64 %call, ptr %codelIntervalTimeNs_, align 8, !tbaa !11
-  %targetDelay_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %targetDelay_.i = getelementptr inbounds nuw i8, ptr %options, i64 8
-  %retval.sroa.0.0.copyload.i18 = load i64, ptr %targetDelay_.i, align 8, !tbaa !14
-  store i64 %retval.sroa.0.0.copyload.i18, ptr %targetDelay_, align 8, !tbaa !14
-  %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %retval.sroa.0.0.copyload.i19 = load i64, ptr %options, align 8, !tbaa !14
-  store i64 %retval.sroa.0.0.copyload.i19, ptr %interval_, align 8, !tbaa !14
-  %codelResetDelay_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i8 1, ptr %codelResetDelay_, align 8, !tbaa !15
-  %overloaded_ = getelementptr inbounds nuw i8, ptr %this, i64 33
-  store i8 0, ptr %overloaded_, align 1, !tbaa !15
+define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
+  store i64 0, ptr %0, align 8, !tbaa !11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
+  store i64 %4, ptr %3, align 8, !tbaa !11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i4 = load i64, ptr %6, align 8, !tbaa !14
+  store i64 %.sroa.0.0.copyload.i4, ptr %5, align 8, !tbaa !14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i5 = load i64, ptr %1, align 8, !tbaa !14
+  store i64 %.sroa.0.0.copyload.i5, ptr %7, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %8, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 0, ptr %9, align 1, !tbaa !15
   ret void
 }
 
@@ -72,163 +70,152 @@ entry:
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5folly5Codel23overloaded_explicit_nowENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_10time_pointINS1_3_V212steady_clockES5_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(34) %this, i64 %delay.coerce, i64 %now.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i64, ptr %this seq_cst, align 8
-  %interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load atomic i64, ptr %interval_.i monotonic, align 8
-  %targetDelay_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load atomic i64, ptr %targetDelay_.i monotonic, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %2)
-  %codelIntervalTimeNs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load atomic i64, ptr %codelIntervalTimeNs_ seq_cst, align 8
-  %cmp.i.i.i = icmp slt i64 %3, %now.coerce
-  br i1 %cmp.i.i.i, label %land.rhs, label %if.end40
+define noundef zeroext i1 @_ZN5folly5Codel23overloaded_explicit_nowENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_10time_pointINS1_3_V212steady_clockES5_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(34) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = load atomic i64, ptr %0 seq_cst, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load atomic i64, ptr %5 monotonic, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load atomic i64, ptr %7 monotonic, align 8
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %6, i64 %8)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load atomic i64, ptr %9 seq_cst, align 8
+  %11 = icmp slt i64 %10, %2
+  br i1 %11, label %12, label %.critedge
 
-land.rhs:                                         ; preds = %entry
-  %codelResetDelay_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load atomic i8, ptr %codelResetDelay_ acquire, align 8
-  %5 = and i8 %4, 1
-  %tobool.i.i.not = icmp eq i8 %5, 0
-  br i1 %tobool.i.i.not, label %land.rhs12, label %if.end40
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load atomic i8, ptr %13 acquire, align 8
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.critedge, label %16
 
-land.rhs12:                                       ; preds = %land.rhs
-  %6 = atomicrmw xchg ptr %codelResetDelay_, i8 1 seq_cst, align 1
-  %7 = and i8 %6, 1
-  %tobool3.i.i.not = icmp eq i8 %7, 0
-  br i1 %tobool3.i.i.not, label %if.then, label %if.end40
+16:                                               ; preds = %12
+  %17 = atomicrmw xchg ptr %13, i8 1 seq_cst, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %.critedge, label %.critedge.sink.split
 
-if.then:                                          ; preds = %land.rhs12
-  %mul.i.i.i.i.i = mul nsw i64 %1, 1000000
-  %add.i.i = add nsw i64 %mul.i.i.i.i.i, %now.coerce
-  store atomic i64 %add.i.i, ptr %codelIntervalTimeNs_ seq_cst, align 8
-  %mul.i.i.i.i.i73 = mul nsw i64 %.sroa.speculated.i, 1000000
-  %cmp.i.i = icmp slt i64 %mul.i.i.i.i.i73, %0
-  %overloaded_ = getelementptr inbounds nuw i8, ptr %this, i64 33
-  %. = zext i1 %cmp.i.i to i8
-  store atomic i8 %., ptr %overloaded_ seq_cst, align 1
-  br label %if.end40
+.critedge.sink.split:                             ; preds = %16
+  %19 = mul nsw i64 %6, 1000000
+  %20 = add nsw i64 %19, %2
+  store atomic i64 %20, ptr %9 seq_cst, align 8
+  %21 = mul nsw i64 %.sroa.speculated.i, 1000000
+  %22 = icmp slt i64 %21, %4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %. = zext i1 %22 to i8
+  store atomic i8 %., ptr %23 seq_cst, align 1
+  br label %.critedge
 
-if.end40:                                         ; preds = %if.then, %land.rhs12, %land.rhs, %entry
-  %codelResetDelay_41 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %8 = load atomic i8, ptr %codelResetDelay_41 acquire, align 8
-  %9 = and i8 %8, 1
-  %tobool.i.i74.not = icmp eq i8 %9, 0
-  br i1 %tobool.i.i74.not, label %if.else49, label %land.lhs.true
+.critedge:                                        ; preds = %.critedge.sink.split, %3, %12, %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load atomic i8, ptr %24 acquire, align 8
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %31
 
-land.lhs.true:                                    ; preds = %if.end40
-  %10 = atomicrmw xchg ptr %codelResetDelay_41, i8 0 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %tobool3.i.i75.not = icmp eq i8 %11, 0
-  br i1 %tobool3.i.i75.not, label %if.else49, label %if.then45
+27:                                               ; preds = %.critedge
+  %28 = atomicrmw xchg ptr %24, i8 0 seq_cst, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %31
 
-if.then45:                                        ; preds = %land.lhs.true
-  store atomic i64 %delay.coerce, ptr %this seq_cst, align 8
-  br label %cleanup
+30:                                               ; preds = %27
+  store atomic i64 %1, ptr %0 seq_cst, align 8
+  br label %42
 
-if.else49:                                        ; preds = %land.lhs.true, %if.end40
-  %12 = load atomic i64, ptr %this seq_cst, align 8
-  %cmp.i = icmp sgt i64 %12, %delay.coerce
-  br i1 %cmp.i, label %if.then53, label %if.end58
+31:                                               ; preds = %27, %.critedge
+  %32 = load atomic i64, ptr %0 seq_cst, align 8
+  %33 = icmp slt i64 %1, %32
+  br i1 %33, label %34, label %35
 
-if.then53:                                        ; preds = %if.else49
-  store atomic i64 %delay.coerce, ptr %this seq_cst, align 8
-  br label %if.end58
+34:                                               ; preds = %31
+  store atomic i64 %1, ptr %0 seq_cst, align 8
+  br label %35
 
-if.end58:                                         ; preds = %if.then53, %if.else49
-  %overloaded_59 = getelementptr inbounds nuw i8, ptr %this, i64 33
-  %13 = load atomic i8, ptr %overloaded_59 seq_cst, align 1
-  %14 = and i8 %13, 1
-  %tobool.i.i76.not = icmp eq i8 %14, 0
-  br i1 %tobool.i.i76.not, label %cleanup, label %land.lhs.true61
+35:                                               ; preds = %31, %34
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %37 = load atomic i8, ptr %36 seq_cst, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %42
 
-land.lhs.true61:                                  ; preds = %if.end58
-  %mul.i.i.i.i.i77 = mul nsw i64 %.sroa.speculated.i, 2000000
-  %cmp.i.i78 = icmp slt i64 %mul.i.i.i.i.i77, %delay.coerce
-  br label %cleanup
+39:                                               ; preds = %35
+  %40 = mul nsw i64 %.sroa.speculated.i, 2000000
+  %41 = icmp slt i64 %40, %1
+  br label %42
 
-cleanup:                                          ; preds = %land.lhs.true61, %if.end58, %if.then45
-  %retval.0 = phi i1 [ false, %if.then45 ], [ false, %if.end58 ], [ %cmp.i.i78, %land.lhs.true61 ]
-  ret i1 %retval.0
+42:                                               ; preds = %39, %35, %30
+  %.0 = phi i1 [ false, %30 ], [ false, %35 ], [ %41, %39 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZNK5folly5Codel10getOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 {
-entry:
-  %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load atomic i64, ptr %interval_ monotonic, align 8
-  %targetDelay_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load atomic i64, ptr %targetDelay_ monotonic, align 8
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %0, i64 %1)
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %0, 0
+define { i64, i64 } @_ZNK5folly5Codel10getOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0) local_unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load atomic i64, ptr %2 monotonic, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %5)
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %3, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.speculated, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
-entry:
-  %mul.i = shl nsw i64 %delay.coerce, 1
-  ret i64 %mul.i
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(34) %0, i64 %1) local_unnamed_addr #4 align 2 {
+  %3 = shl nsw i64 %1, 1
+  ret i64 %3
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -2147483648, 101) i32 @_ZN5folly5Codel7getLoadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load atomic i64, ptr %interval_.i monotonic, align 8
-  %targetDelay_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load atomic i64, ptr %targetDelay_.i monotonic, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %0, i64 %1)
-  %2 = load atomic i64, ptr %this seq_cst, align 8
-  %mul.i.i = mul nsw i64 %2, 100
-  %mul.i.i.i.i = mul nsw i64 %.sroa.speculated.i, 2000000
-  %div.i = sdiv i64 %mul.i.i, %mul.i.i.i.i
-  %conv = trunc i64 %div.i to i32
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv, i32 100)
+define noundef range(i32 -2147483648, 101) i32 @_ZN5folly5Codel7getLoadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load atomic i64, ptr %2 monotonic, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %3, i64 %5)
+  %6 = load atomic i64, ptr %0 seq_cst, align 8
+  %7 = mul nsw i64 %6, 100
+  %8 = mul nsw i64 %.sroa.speculated.i, 2000000
+  %9 = sdiv i64 %7, %8
+  %10 = trunc i64 %9 to i32
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %10, i32 100)
   ret i32 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly5Codel11getMinDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i64, ptr %this seq_cst, align 8
-  ret i64 %0
+define i64 @_ZN5folly5Codel11getMinDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load atomic i64, ptr %0 seq_cst, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5Codel10setOptionsERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %options) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %targetDelay_.i = getelementptr inbounds nuw i8, ptr %options, i64 8
-  %retval.sroa.0.0.copyload.i = load i64, ptr %targetDelay_.i, align 8, !tbaa !14
-  %retval.sroa.0.0.copyload.i17 = load i64, ptr %options, align 8, !tbaa !14
-  %cmp.i.i = icmp sge i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i17
-  %cmp.i.i18 = icmp slt i64 %retval.sroa.0.0.copyload.i, 1
-  %or.cond = or i1 %cmp.i.i18, %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+define void @_ZN5folly5Codel10setOptionsERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !tbaa !14
+  %.sroa.0.0.copyload.i5 = load i64, ptr %1, align 8, !tbaa !14
+  %4 = icmp sge i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i5
+  %5 = icmp slt i64 %.sroa.0.0.copyload.i, 1
+  %or.cond = or i1 %5, %4
+  br i1 %or.cond, label %.critedge, label %10
 
-if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #9
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.6)
-          to label %invoke.cont unwind label %lpad
+.critedge:                                        ; preds = %2
+  %6 = tail call ptr @__cxa_allocate_exception(i64 16) #9
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.6)
+          to label %7 unwind label %8
 
-invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #10
+7:                                                ; preds = %.critedge
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #10
   unreachable
 
-lpad:                                             ; preds = %if.then
-  %0 = landingpad { ptr, i32 }
+8:                                                ; preds = %.critedge
+  %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception) #9
-  resume { ptr, i32 } %0
+  tail call void @__cxa_free_exception(ptr nonnull %6) #9
+  resume { ptr, i32 } %9
 
-if.end:                                           ; preds = %entry
-  %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store atomic i64 %retval.sroa.0.0.copyload.i17, ptr %interval_ monotonic, align 8
-  %targetDelay_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store atomic i64 %retval.sroa.0.0.copyload.i, ptr %targetDelay_ monotonic, align 8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store atomic i64 %.sroa.0.0.copyload.i5, ptr %11 monotonic, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i64 %.sroa.0.0.copyload.i, ptr %12 monotonic, align 8
   ret void
 }
 
@@ -245,25 +232,23 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly5Codel15getIntervalTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %codelIntervalTimeNs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load atomic i64, ptr %codelIntervalTimeNs_ seq_cst, align 8
-  ret i64 %0
+define i64 @_ZN5folly5Codel15getIntervalTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load atomic i64, ptr %2 seq_cst, align 8
+  ret i64 %3
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Codel.cpp() #7 section ".text.startup" {
-entry:
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL16o_codel_intervalE, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3fLI20FLAGS_codel_intervalE, ptr noundef nonnull @_ZN3fLIL22FLAGS_nocodel_intervalE)
   tail call void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLIL20o_codel_target_delayE, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3fLI24FLAGS_codel_target_delayE, ptr noundef nonnull @_ZN3fLIL26FLAGS_nocodel_target_delayE)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -274,7 +259,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn }
 attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn }
 
